@@ -1,0 +1,149 @@
+/* Base styles */
+body {
+    font-family: 'Inter'; sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #333;
+}
+
+
+/* Grid system */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.col {
+    padding: 0.5rem;
+    flex: 0 0 auto;
+}
+
+.col-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+.col-2 { flex: 0 0 16.67%; max-width: 16.67%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+.col-5 { flex: 0 0 41.67%; max-width: 41.67%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-7 { flex: 0 0 58.33%; max-width: 58.33%; }
+.col-8 { flex: 0 0 66.67%; max-width: 66.67%; }
+.col-9 { flex: 0 0 75%; max-width: 75%; }
+.col-10 { flex: 0 0 83.33%; max-width: 83.33%; }
+.col-11 { flex: 0 0 91.67%; max-width: 91.67%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+
+/* Header styles */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    height: 80px;
+    padding: 0rem;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.nav-logo img {
+    max-width: 100%;
+    height:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-logo:hover {
+    color: #555;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none; /* Removes default bullets */
+    gap: 1.5rem; /* Space between navigation items */
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 300;
+}
+
+.nav-item {
+    display: inline;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: regular;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #555;
+}
+
+.nav-link.button {
+    background-color: #fff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 10px; /* Pill shape */
+    text-align: center;
+}
+
+.nav-link.button:hover {
+    background-color: #f3f3f3;
+}
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #fafafa;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+}
+
+#hero button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: hover;
+}
+
+section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #fff;
+    shadow
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: white;
+}
