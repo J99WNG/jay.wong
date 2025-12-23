@@ -3,80 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Jay Wong — Portfolio</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <script src="scripts.js"></script>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- JS (defer so it doesn’t block rendering) -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <!--Navbar-->
-    <header>
-        <nav class="navbar-container">
-                    <!-- Logo -->
-                    <div class="col col-3">
-                        <a href="#" class="nav-logo" aria-label="Go to homepage">
-                            <img src="assets/images/JW-Monogram-White.svg" alt="JW Designs Monogram Logo">
-                        </a>
-                    </div>
 
-                    <!-- Navigation links section -->
-                    <div class="col col-9">
-                        <ul class="nav-list">
-                            <li class="nav-item">
-                                <a href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#about" class="nav-link">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#collaborations" class="nav-link">Collaborations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#featured-work" class="nav-link">Featured work</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#contact" class="nav-link button">Reach out</a>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- ===================== HEADER / NAVIGATION ====================== -->
+    <header>
+        <nav class="container navbar-nav" aria-label="Primary navigation">
+
+            <!-- Logo / Home -->
+            <div class="navbar-brand">
+                <a href="#home" class="navbar-brand" aria-label="JW Designs homepage">
+                    <img 
+                        src="assets/images/JW-Monogram-White.svg" 
+                        alt="JW Designs monogram logo"
+                    >
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navbar-items">
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#featured-work">Work</a></li>
+                    <li><a href="#collaborations">Collaborations</a></li>
+
+                    <!-- CV download -->
+                    <li>
+                        <a 
+                            href="assets/documents/Jay-Wong-CV.pdf"
+                            download
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Download CV
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-button">
+                <li><a href="#contact" class="button button-nav">Reach out</a></li>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
+    <!-- ===================== MAIN CONTENT ====================== -->
+    <main id="home">
+
+        <!-- HERO / VALUE PROPOSITION -->
+        <section id="hero" aria-labelledby="hero-title">
+            <div class="container hero-layout">
+        
+                <!-- LEFT: Copy -->
+                <div class="hero-content">
+                    <h1 id="hero-title">
+                        Designing digital experiences through research, collaboration, and systems thinking.
+                    </h1>
+        
+                    <p class="hero-subtitle">
+                        I'm Jay Wong — an experience designer specialising in inclusive,
+                        AI-led and service-driven products.
+                    </p>
+        
+                    <!-- CTAs -->
+                    <div class="hero-cta-group">
+                        <a 
+                            href="#featured-work"
+                            class="button button-primary">
+                            View work
+                        </a>
+        
+                        <a href="assets/documents/Jay-Wong-CV.pdf" class="button button-secondary" download>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+        
+                <!-- RIGHT: Visual -->
+                <div class="hero-visual">
+                    <img 
+                        src="assets/images/jw-notion-face-transparent.png"
+                        class="hero-img"
+                        alt="Portrait of Jay Wong, experience designer"
+                        loading="eager"
+                    >
+                </div>
+        
+            </div>
+        </section>        
+
+        <!-- ===================== ABOUT / PROFILE ====================== -->
+        <section id="about" class="section-primary" aria-labelledby="about-title">
             <div class="container">
-                <h1 class="hero-title">JW Designs 2025 Refresh – Let's fucking go</h1>
-                <p class="hero-subtitle">Crafting user-centered experiences with creativity and strategy.</p>
-                <button "#featured-work" class="nav-link button">Explore My Work</button>
+                <h2 id="about-title">About me</h2>
+
+                <p>
+                    I'm an experience designer with 3+ years of experience working 
+                    across digital products, services, and platforms. My work sits 
+                    at the intersection of design, technology, and business.
+                </p>
+
+                <p>
+                    I specialise in:
+                </p>
+
+                <ul>
+                    <li>User research & service design</li>
+                    <li>Interaction & systems thinking</li>
+                    <li>Designing for accessibility & inclusion</li>
+                    <li>AI-assisted and enterprise experiences</li>
+                </ul>
+
+                <!-- Optional -->
+                <p>
+                    Currently interested in roles across product, interaction, 
+                    and service design.
+                </p>
             </div>
         </section>
 
-        <section id="home">
+        <!-- ===================== FEATURED WORK ====================== -->
+        <section id="featured-work" class="section-secondary" aria-labelledby="work-title">
             <div class="container">
-                <h2>Home</h2>
-                <p>This is the home section.</p>
+                <h2 id="work-title">Featured work</h2>
+
+                <!-- Recommendation: each project = article -->
+                <article class="project-card">
+                    <h3>AI-led IT Support Platform</h3>
+
+                    <p>
+                        A concept exploring how generative AI can transform internal
+                        IT support through agentic workflows and smarter knowledge discovery.
+                    </p>
+
+                    <ul class="project-meta">
+                        <li><strong>Role:</strong> Experience Designer</li>
+                        <li><strong>Context:</strong> Enterprise IT</li>
+                        <li><strong>Focus:</strong> AI, navigation, workflows</li>
+                    </ul>
+
+                    <!-- This is the important part -->
+                    <a href="assets/case-studies/ai-it-support.html" class="button button-primary">
+                        View case study
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <h3>ServiceNow Employee Center Redesign</h3>
+
+                    <p>
+                        Proposed a custom-built, AI-led employee portal using 
+                        ServiceNow OOB components.
+                    </p>
+
+                    <ul>
+                        <li>Role: Interaction Designer</li>
+                        <li>Focus: Navigation, agentic AI, approvals</li>
+                        <li>Outcome: Clearer journeys & reduced friction</li>
+                    </ul>
+
+                    <a href="#" class="button button-primary">View case study</a>
+                </article>
+
+                <article class="project-card">
+                    <h3>Case Study #3</h3>
+
+                    <p>
+                        Proposed a custom-built, AI-led employee portal using ServiceNow OOB components.
+                    </p>
+    
+                    <ul>
+                        <li>Role: Interaction Designer</li>
+                        <li>Focus: Navigation, agentic AI, approvals</li>
+                        <li>Outcome: Clearer journeys & reduced friction</li>
+                    </ul>
+
+                    <a href="#" class="button button-primary">View case study</a>
+                </article>
             </div>
         </section>
-        
-        <section id="about">
+
+        <!-- ===================== COLLABORATIONS ====================== -->
+        <section id="collaborations" class="section-primary" aria-labelledby="collab-title">
             <div class="container">
-                <h2>About</h2>
-                <p>This is the about section.</p>
+                <h2 id="collab-title">Collaborations</h2>
+
+                <p>
+                    I've collaborated with designers, engineers, researchers, 
+                    and stakeholders across:
+                </p>
+
+                <ul>
+                    <li>Banking & financial services</li>
+                    <li>Enterprise IT & support teams</li>
+                    <li>Small businesses & startups</li>
+                </ul>
+
+                <!-- Optional enhancement -->
+                <p>
+                    I value close collaboration, shared ownership, and 
+                    evidence-based decision making.
+                </p>
+
+                <!-- Logo showcase -->
+                <div class="logo-grid" aria-label="Companies I've worked with">
+
+                    <!-- Logo item -->
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/Barclays-symbol.svg"
+                            alt="Barclays"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/BoA-logo.svg"
+                            alt="Bank of America"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/bp-helios-colour.svg"
+                            alt="bp"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/CreditSuisse-symbol.svg"
+                            alt="Credit Suisse"
+                            loading="lazy"
+                        >
+                    </div>
+                    
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/Ford-logo.svg"
+                            alt="Ford Motor"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/PG-logo.svg"
+                            alt="Proctor & Gamble"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/UoM-logo-colour.svg"
+                            alt="The University of Manchester"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="logo-item">
+                        <img 
+                            src="assets/logos/Vodafone-symbol.svg"
+                            alt="Vodafone"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
             </div>
         </section>
-        
-        <section id="contact">
+
+        <!-- ===================== CONTACT ====================== -->
+        <section id="contact" class="section-secondary" aria-labelledby="contact-title">
             <div class="container">
-                <h2>Contact</h2>
-                <p>This is the contact section.</p>
+                <h2 id="contact-title">Reach out</h2>
+
+                <p>
+                    Interested in working together or learning more about my work?
+                </p>
+
+                <ul>
+                    <li>
+                        <a href="mailto:hello@jwdesigns.com">
+                            hello@jwdesigns.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                            LinkedIn
+                        </a>
+                    </li>
+                </ul>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer -->
+    <!-- ===================== FOOTER ====================== -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 JW Designs</p>
