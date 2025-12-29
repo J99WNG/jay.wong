@@ -58,6 +58,15 @@ toggle.addEventListener('click', () => {
   expanded ? closeMenu() : openMenu();
 });
 
+// Close menu when a nav link is clicked
+nav.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;          // ignore clicks that are not on links
+    
+    if (link.hash) closeMenu();                // else, if clicking a hash link – close menu 
+  });
+  
+
 // Auto-update year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
   
