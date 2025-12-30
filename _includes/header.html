@@ -1,0 +1,52 @@
+<!-- ===================== HEADER / NAVIGATION ====================== -->
+<header>
+    <div class="container header-wrapper" aria-label="Primary navigation">
+
+        <!-- Logo -->
+        <div class="navbar-brand">
+            <a href="#hero" class="navbar-brand" aria-label="JW Designs homepage">
+                <svg width="945" height="426" viewBox="0 0 945 426" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_2477_10)">
+                    <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z"/>
+                    <path d="M461.6 425.2H392.1L559.9 65.5C578.5 25.5 618.6 0 662.7 0H732.2L564.4 359.7C545.8 399.7 505.7 425.2 461.6 425.2Z"/>
+                    <path d="M674.2 425.2H604.7L772.5 65.5C791.1 25.5 831.2 0 875.3 0H944.8L777 359.7C758.4 399.7 718.3 425.2 674.2 425.2Z"/>
+                    <path d="M70.9 425.2C110.057 425.2 141.8 393.457 141.8 354.3C141.8 315.143 110.057 283.4 70.9 283.4C31.743 283.4 0 315.143 0 354.3C0 393.457 31.743 425.2 70.9 425.2Z"/>
+                    </g>
+                </svg>                        
+            </a>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="primary-nav" class="mobile-overlay" aria-label="Primary navigation">
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#featured-work">Work</a></li>
+                <li><a href="#collaborations">Collaborations</a></li>
+
+                <!-- CV download -->
+                <li>
+                    <a 
+                        href="{{ site.baseurl }}/assets/documents/Jay-Wong-CV.pdf"
+                        download target="_blank" rel="noopener">
+                        Download CV
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- CTA -->
+        <a href="#contact" class="btn btn-nav">Let's talk</a>
+
+        <!-- Mobile Nav -->
+        <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Open menu"
+        >
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">Menu</span>
+        </button>
+
+    </div>
+</header>
