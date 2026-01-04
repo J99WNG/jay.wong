@@ -4,12 +4,18 @@
   }
 
 header {
-    height: 64px;
-    position: sticky;
-    top: 1rem;
-    margin-bottom: 1rem;
+    height: auto;
+    width: 100%;
+    position: fixed;
     transition: box-shadow 200ms ease;
     z-index: 1000;
+
+    /* Gradient from solid to transparent */
+    background: linear-gradient(
+        to bottom, 
+        hsla(0, 0%, 100%, 0.8) 0%,   /* Solid at the very top */
+        hsla(0, 0%, 100%, 0) 100%   /* Fully invisible */
+    );
 }
 
 section[id] {
@@ -17,13 +23,20 @@ section[id] {
   }
 
 html, body {
-    background-color: transparent;
+    background-color: #fff;
     font-family: 'Inter', sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
     padding: 0;
+
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.loading {        /* Optional: if you want a fade-in on load */
+  opacity: 0;
 }
 
 .container {
@@ -45,8 +58,10 @@ hr {
 
 /* Card components */
 .card {
-    background-color: #fafafa;
-
+    display: block;
+    height: fit-content;
+    background-color: #fff;
+    
     border-radius: 16px;
     overflow: hidden;               /* keeps image corners rounded */
     transition: transform .25s ease, 
@@ -70,7 +85,9 @@ hr {
   }
   
 .card .card-body {                  /* Card title + body */
-    align-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
     padding: clamp(1.5rem, 1.5vw, 2rem);
   }
   
@@ -79,10 +96,10 @@ hr {
     margin-bottom: .75rem;
   }
   
-.card p {
-    line-height: 1.5;
+p .card-text {
+    margin: 0;
+    margin-bottom: 0;
   }
-
 
 /* Badge */
 .badge, .status {
@@ -94,10 +111,15 @@ hr {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #1a1a1a;
-  background: #f0f2f5;
-  border-radius: 8px;
+  color: #111;
+  background: #e7e7e7;
+  border-radius: 12px;
 
+}
+
+.status p {
+  margin: 0px;
+  text-transform: none;
 }
 
 /* Animated status dot */
@@ -133,7 +155,6 @@ hr {
 /* The inner content area */
 .badge2 span {
   display: block;
-  background: white;
   color: #333;
   padding: 0.3em 0.9em;
   border-radius: 9px;
@@ -142,7 +163,7 @@ hr {
 
 .badge2:hover span {
   background: transparent;
-  color: white;
+  color: #fff;
 }
 
 @keyframes gradientFlow {
@@ -161,7 +182,7 @@ h1 {
 
 h2 {
     font-weight: 500;
-    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-size: 2.25rem;
     letter-spacing: -0.06rem;
     margin: 0 0 1rem 0;
 }
@@ -187,7 +208,28 @@ p {
     margin: 0;
     margin-bottom: 1rem;
     line-height: 1.6;
+}
 
+.tagline {
+  color: #666;
+  font-size: 1.5rem;
+  letter-spacing: -0.04rem;
+  max-width: 65ch;
+  margin-bottom: 2rem;
+}
+
+.small {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 450;
+  max-width: 65ch;
+  color: #191919;
+  margin-bottom: 2rem;
 }
 
 a {
@@ -202,12 +244,12 @@ li {
   font-size: 1rem;
   letter-spacing: -0.04rem;
   margin: 0;
+  padding-bottom: 0.5rem;
   line-height: 1.6;
 }
 
 ul {
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
     list-style-type: disc;
 }
 
@@ -220,10 +262,6 @@ span.status {
 }
 
 /* Interaction states */
-.navbar-brand svg:hover {
-    opacity: 0.8;
-}
-
 a:hover {
     opacity: 0.8;
     text-decoration: underline;
@@ -235,10 +273,17 @@ a:hover {
 .bento-grid,
 .col-2-layout {
     display: grid;
-    place-items: center;
-    gap: 1.5rem;
+    place-items: stretch;
+    gap: 2rem;
     grid-template-columns: 1fr; /* mobile = 1 column */
   }
+
+.col-1-layout {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 2rem;
+}
 
 .hero-wrapper {
     grid-template-areas:
@@ -256,7 +301,7 @@ a:hover {
 .hero-copy { grid-area: content; }
 .hero-visual  { grid-area: visual; }
 
-.btn-group-2 {
+.btn-group {
     display: flex;
     place-items: center;
     gap: 1.5rem;
@@ -265,7 +310,7 @@ a:hover {
 
 .badge-group {
   display: inline-flex;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
 
@@ -280,13 +325,14 @@ a:hover {
     margin: 1rem auto;
 
     position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-brand svg {
     display: block;
     width: auto;
     height: 2rem;
-    fill: white;
+    fill: #fff;
     transition: fill .2s ease, transform .2s ease;
 }
 
@@ -306,11 +352,13 @@ a:hover {
     gap: 2rem;
     margin: 0;
     padding: 0;
+    padding-bottom: 0;
 }
 
-.nav-list a {
+.nav-list a,
+.nav-list li {
     font-size: 1.5rem;
-    color: white;
+    color: #fff;
     transition: opacity 0.2s ease;
 }
 
@@ -319,8 +367,6 @@ a:hover {
     height: 2rem;
     border-radius: 50%;
     border: none;
-    background: #111;
-    color: white;
     
     display: flex;
     align-items: center;
@@ -330,7 +376,7 @@ a:hover {
   }
   
 .nav-toggle:focus-visible {
-    outline: 3px solid #ffbf00;
+    outline: 3px solid #4f46e5;
     outline-offset: 4px;
   }
   
@@ -341,7 +387,7 @@ a:hover {
     display: block;
     width: 20px;
     height: 2px;
-    background: white;
+    background: #111;
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
   
@@ -369,14 +415,14 @@ a:hover {
 .mobile-overlay { /* mobile overlay menu */
     top: 80px;             /* same as header height */
     background: #141414;
-    color: white;
+    color: #fff;
 
     position: absolute;
     left: 0;
     right: 0;
     width: 100%;     /* now it fills the wrapper width */
 
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1.5rem;
 
     display: none;
@@ -394,17 +440,14 @@ a:hover {
   
 
 /* Hero */
-h1.hero-title {
-    margin-bottom: 1rem;
-    line-height: 1.2;
+#hero {
+  background-color: #fafafa;
+  min-height: 100vh;
 }
 
-.hero-subtitle {
-    color: #666;
-    font-size: 1.25rem;
-    letter-spacing: -0.04rem;
-    max-width: 65ch;
-    margin-bottom: 2rem;
+h1.hero-title {
+    margin-bottom: 1rem;
+    line-height: 1.3;
 }
 
 .hero-cta-group {
@@ -422,13 +465,12 @@ h1.hero-title {
 }
 
 /* Section */
-section, #hero {
+section {
     display: block;
     align-content: center;
-    background-color: #F4F1ED;
+    background-color: #fafafa;
     padding: 8rem 0rem;
     margin-inline: auto;
-    /* min-height: 100vh; */
 }
 
 .section-header {
@@ -441,13 +483,13 @@ section, #hero {
 h3.section-subtitle {
     color: #999;
     font-weight: 400;
-    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     letter-spacing: -0.06rem;
     margin: 0 0 1rem 0;
 }
 
 .section-alternate {
-    background-color: #f5f5f5;
+    background-color: #fff;
 }
 
 
@@ -460,10 +502,11 @@ h3.section-subtitle {
     line-height: 0;
     letter-spacing: -0.04rem;
     text-align: center;
+    text-decoration: none;
+
     padding: 1.25rem 1.5rem;
     border-radius: 16px;
 
-    text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     transform: scale(1);
 }
@@ -507,8 +550,9 @@ h3.section-subtitle {
 }
 
 .card--link {
-    display: block;
-    justify-items: center;
+    display: inline-flex;
+    justify-content: start;
+    margin-top: 1rem;
 }
 
 /* Logo Grid */
@@ -516,7 +560,8 @@ h3.section-subtitle {
     display: grid;
     justify-content: center;
 
-    gap: 1rem;
+    column-gap: 2rem;
+    row-gap: 3rem;
     margin-top: 3rem;
     margin-inline: auto;
   
@@ -526,21 +571,19 @@ h3.section-subtitle {
 .logo-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    min-height: 128px;
+    max-height: 64px;
 }
 
 .logo-item img {
     display: block;             /* prevents inline-image quirks */
-    max-width: auto;               /* real size cap */
+
     width: 100%;                    /* scales down if needed */
-    max-height: 64px;
+    max-height: inherit;
     margin-inline: auto;
     object-fit: contain;
 
     filter: grayscale(100%);
-    opacity: 0.8;
+    opacity: 1;
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
@@ -548,6 +591,46 @@ h3.section-subtitle {
 .logo-item:focus-within img {
     filter: grayscale(0%);
     opacity: 1;
+}
+
+/* Contact */
+
+.contact-cta-stack {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.contact-cta-stack a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  font-size: clamp(1.25rem, 2vw, 2rem);
+}
+
+.contact-cta-stack a:hover {
+text-decoration: none;
+}
+
+.contact-cta-stack a:hover .contact-text,
+.contact-cta-stack a:hover .arrow_outward {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .5rem;
+}
+
+.arrow_outward {
+display: inline-flex; /* Ensures the span wraps the SVG tightly */
+align-self: center;
+}
+
+.contact-icon svg {
+height: 32px;
+width: auto;
+fill: currentColor;
+display: block; /* Prevents strange descender spacing issues */
 }
 
 /* Footer */
@@ -571,21 +654,8 @@ h3.section-subtitle {
     color: #111;
     }
 
-.contact-cta-stack{
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
-    align-items: end;
-
-  }
-
-a.contact-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    font-size: 1.25rem;
+p.footer-copy {
+  margin: 0;
 }
 
 .footer-social {                /* Social media icons */
@@ -604,7 +674,7 @@ a.contact-option {
   
 .footer-social a:hover svg,
 .footer-social a:focus-visible svg {
-    opacity: 0.8;
+    cursor: pointer;
     transform: translateY(-1px);
   }
 
@@ -629,7 +699,7 @@ a.contact-option {
 }
   
 .back-to-top:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid #4f46e5;
     outline-offset: 4px;
 }
 
@@ -665,21 +735,22 @@ html {
 
 .bento-grid {
     grid-template-columns: repeat(2, 1fr);
+    place-items: center;
 }
 
-.card--super {
+.card--horizontal {
     display: grid;
-    grid-template-columns: 1.4fr 1fr; /* tweak ratio to taste */
+    grid-template-columns: 1fr 1fr; /* tweak ratio to taste */
     align-items: stretch;
     grid-column: span 2;
 
   }
 
-  .card--super .card-img {
+  .card--horizontal .card-img {
     display: block;
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: fit-content;
   }
 
 .col-2-layout {
@@ -688,6 +759,8 @@ html {
 
 .logo-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin: 0;
 }
 
 .hero-wrapper {
@@ -696,7 +769,11 @@ html {
 }
 
 .contact-wrapper {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+.contact-cta-stack {
+    align-items: end;
   }
 
 .footer-wrapper {
@@ -740,8 +817,10 @@ html {
     flex-direction: row;
 }
 
-.nav-list a {
+.nav-list a,
+.nav-list li {
     font-size: revert;
+    padding-bottom: 0;
   }
 
 .btn-nav {

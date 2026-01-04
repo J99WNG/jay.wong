@@ -1,26 +1,8 @@
-/* Skip link */
-.skip-link {
-    position: absolute;
-    left: -999px;
-    top: 10px;
-  }
-  
-  .skip-link:focus {
-    left: 10px;
-    background: #fff;
-    padding: 0.5rem 1rem;
-    z-index: 1000;
-    border-radius: 6px;
-    border: 2px solid currentColor;
-  }
-  
   /* Hero summary area */
   .hero {
     background: #f7f7f7;
-    border: 1px solid #e2e2e2;
     padding: 1.5rem;
     border-radius: 10px;
-    margin-top: 1rem;
   }
   
   .meta {
@@ -37,9 +19,9 @@
     border: 1px solid #e2e2e2;
   }
   
-  /* Layout: article + sidebar */
+  /* Layout: article + sidebar
   .layout {
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   
   @media (min-width: 900px) {
@@ -48,14 +30,13 @@
       grid-template-columns: 3fr 1fr;
       gap: 2rem;
     }
-  
     aside {
       position: sticky;
       top: 5rem;
       align-self: start;
       height: max-content;
     }
-  }
+  } */
   
   /* Images */
   figure img {
