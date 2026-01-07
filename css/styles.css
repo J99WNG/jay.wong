@@ -1,4 +1,4 @@
-/* Foundations */
+/* ============ Foundations ============ */
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -10,8 +10,7 @@ header {
     transition: box-shadow 200ms ease;
     z-index: 1000;
 
-    /* Gradient from solid to transparent */
-    background: linear-gradient(
+    background: linear-gradient(            /* Gradient from solid to transparent */
         to bottom, 
         hsla(0, 0%, 100%, 0.8) 0%,   /* Solid at the very top */
         hsla(0, 0%, 100%, 0) 100%   /* Fully invisible */
@@ -23,6 +22,7 @@ section[id] {
   }
 
 html, body {
+    color: var(--assam-black);
     background-color: #fff;
     font-family: 'Inter', sans-serif;
     font-optical-sizing: auto;
@@ -35,10 +35,6 @@ html, body {
     transition: opacity 0.5s ease;
 }
 
-body.loading {        /* Optional: if you want a fade-in on load */
-  opacity: 0;
-}
-
 .container {
     width: 90%;
     max-width: 980px;
@@ -49,14 +45,14 @@ body.loading {        /* Optional: if you want a fade-in on load */
 /* Rounded divider */
 hr {
     border: none;
-    border-top: 1px solid #999;
-    border-radius: 9999px;
+    border-top: 1px solid #666;
+    border-radius: 6669px;
 
     margin: 0;
     padding: 0;
   }
 
-/* Card components */
+/* ============ Card components ============ */
 .card {
     display: block;
     height: fit-content;
@@ -96,12 +92,12 @@ hr {
     margin-bottom: .75rem;
   }
   
-p .card-text {
+p.card-text {
     margin: 0;
     margin-bottom: 0;
   }
 
-/* Badge */
+/* ============ Badge ============ */
 .badge, .status {
   display: inline-flex;
   align-items: center;
@@ -111,8 +107,8 @@ p .card-text {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #111;
-  background: #e7e7e7;
+  color: var(--assam-black);
+  background: #f0f0f0;
   border-radius: 12px;
 
 }
@@ -172,7 +168,7 @@ p .card-text {
   100% { background-position: 0% 50%; }
 }
 
-/* Typography */
+/* ============ Typography ============ */
 h1 {
     font-weight: 500;
     font-size: clamp(2.5rem, 4vw, 3rem);
@@ -208,6 +204,8 @@ p {
     margin: 0;
     margin-bottom: 1rem;
     line-height: 1.6;
+
+    max-width: 65ch;
 }
 
 .tagline {
@@ -218,22 +216,23 @@ p {
   margin-bottom: 2rem;
 }
 
-.small {
+p.small {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-weight: 500;
+  font-size: 14px;
   margin-bottom: 0.5rem;
 }
 
 .lead {
+  color: var(--assam-black);
   font-size: 1.25rem;
   font-weight: 450;
   max-width: 65ch;
-  color: #191919;
   margin-bottom: 2rem;
 }
 
 a {
-    color: #005fcc;
+    color: #2929A3;
     text-decoration: none;
     letter-spacing: -0.04rem;
     transition: opacity 0.2s ease;
@@ -261,7 +260,7 @@ span.status {
     background-color: greenyellow;
 }
 
-/* Interaction states */
+/* ============ Interaction states ============ */
 a:hover {
     opacity: 0.8;
     text-decoration: underline;
@@ -269,9 +268,10 @@ a:hover {
     text-underline-offset: .5rem;
 }
 
-/* Grids & layouts */
+/* ============ Grids & layouts ============ */
 .bento-grid,
-.col-2-layout {
+.col-2-layout,
+.col-3-layout {
     display: grid;
     place-items: stretch;
     gap: 2rem;
@@ -281,7 +281,7 @@ a:hover {
 .col-1-layout {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -311,16 +311,17 @@ a:hover {
 .badge-group {
   display: inline-flex;
   gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
 }
 
-/* Navbar */
+/* ============ Navbar ============ */
 .header-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 4rem;
-    background: #141414;
+    background: var(--ceylon-leaves);
     border-radius: 24px;
     margin: 1rem auto;
 
@@ -387,7 +388,7 @@ a:hover {
     display: block;
     width: 20px;
     height: 2px;
-    background: #111;
+    background: var(--assam-black);
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
   
@@ -414,7 +415,7 @@ a:hover {
 
 .mobile-overlay { /* mobile overlay menu */
     top: 80px;             /* same as header height */
-    background: #141414;
+    background: var(--ceylon-leaves);
     color: #fff;
 
     position: absolute;
@@ -439,7 +440,7 @@ a:hover {
 .navbar-brand{ order: 0; }
   
 
-/* Hero */
+/* ============ Hero ============ */
 #hero {
   background-color: #fafafa;
   min-height: 100vh;
@@ -464,24 +465,29 @@ h1.hero-title {
     object-fit: contain;
 }
 
-/* Section */
+/* ============ Section ============ */
 section {
     display: block;
     align-content: center;
-    background-color: #fafafa;
+    background-color: var(--linen);
     padding: 8rem 0rem;
     margin-inline: auto;
 }
 
-.section-header {
+.section-heading {
     display: flex;
     flex-direction: column;      /* mobile default */
     align-items: flex-start;
     padding-bottom: 2rem;
   }
 
+.section-copy {
+  max-width: 65ch;
+  margin: 0;
+}
+
 h3.section-subtitle {
-    color: #999;
+    color: #666;
     font-weight: 400;
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     letter-spacing: -0.06rem;
@@ -489,22 +495,24 @@ h3.section-subtitle {
 }
 
 .section-alternate {
-    background-color: #fff;
+    background-color: var(--parchment);
 }
 
 
 
-/* Buttons */
+/* ============ Buttons ============ */
 .btn {
     display: block;
 
-    font-size: clamp(14px, 16px, 24px);
-    line-height: 0;
+    font-size: clamp(14px, 16px, 20px);
     letter-spacing: -0.04rem;
+    line-height: 0;
+
     text-align: center;
     text-decoration: none;
 
     padding: 1.25rem 1.5rem;
+    width: max-content;
     border-radius: 16px;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -520,42 +528,41 @@ h3.section-subtitle {
 }
 
 .btn-primary {
-    background-color: #141414;
+    background-color: var(--ceylon-leaves);
     color: #fff;
-    box-shadow: 0px 0px 2px hsla(0,0%,100%,0.8) inset,
+    box-shadow: 0px 0px 2px hsla(0,0%,100%,1) inset,
                 0px 0px 12px hsla(0,0%,25%,0.1);
   
 }
 
 .btn-secondary {
     background-color: transparent;
-    box-shadow: 0px 0px 2px hsla(0,0%,25%,1) inset,
+    box-shadow: 0px 0px 2px hsla(0,0%,0%,1) inset,
                 0px 0px 12px hsla(0,0%,25%,0.1);
 }
 
 .btn-tertiary {
-    background-color: #fff;
-    color: #141414;
-    box-shadow: 0px 0px 2px hsla(0,0%,15%,0.5) inset,
+    background-color: #fcfcfc;
+    color: var(--assam-black);
+    box-shadow: 0px 0px 2px hsla(0,0%,0%,0.3) inset,
                 0px 0px 12px hsla(0,0%,25%,0.1);
 }
 
 .btn-nav {
     background-color: #fff;
-    color: #141414;
+    color: var(--ceylon-leaves);
     padding: 1rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0px 0px 2px hsla(0,0%,15%,0.5) inset,
+    box-shadow: 0px 0px 2px hsla(0,0%,10%,0.3) inset,
                 0px 0px 12px hsla(0,0%,25%,0.1);
 }
 
 .card--link {
-    display: inline-flex;
+    display: flex;
     justify-content: start;
-    margin-top: 1rem;
 }
 
-/* Logo Grid */
+/* ============ Logo Grid ============ */
 .logo-grid {
     display: grid;
     justify-content: center;
@@ -593,17 +600,17 @@ h3.section-subtitle {
     opacity: 1;
 }
 
-/* Contact */
+/* ============ Contact ============ */
 
 .contact-cta-stack {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
 }
 
 .contact-cta-stack a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
   
@@ -626,14 +633,57 @@ display: inline-flex; /* Ensures the span wraps the SVG tightly */
 align-self: center;
 }
 
-.contact-icon svg {
-height: 32px;
-width: auto;
-fill: currentColor;
-display: block; /* Prevents strange descender spacing issues */
+/* ============ Iconography ============ */
+
+.icon {       /* Base icon container/wrapper */
+  --icon-size: 1.5rem;        /* default size variable */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; /* Aligns icon with middle of text */
 }
 
-/* Footer */
+
+.icon svg {       /* The SVG itself */
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Sizing via utility classes using rem or em */
+.icon-sm { font-size: 1rem; width: 1rem; height: 1rem; }       /* 16px */
+.icon-md { font-size: 1.5rem; width: 1.5rem; height: 1.5rem; }       /* 24px */
+.icon-lg { font-size: 2rem; width: 2rem; height: 2rem; }       /* 32px */
+.icon-xl { font-size: 3rem; width: 3rem; height: 3rem; }       /* 48px */
+.icon-max { font-size: 4rem; width: 4rem; height: 4rem; }        /* 64px */
+
+
+.material-symbols-rounded {
+  font-size: inherit;       /* This ensures the icon fills your .icon-md wrapper */
+  width: 100%;
+  height: 100%;
+
+  display: flex;          
+  align-items: center;    
+  justify-content: center;
+  line-height: 1;         /* Prevents the font's line-height from tall-boxing */
+
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
+
+.icon:hover .material-symbols-rounded {        /* Interactive Hover Effect (Example) */
+  font-variation-settings: 'FILL' 1, 'wght' 500;
+  color: #2196F3;
+}
+
+
+/* ============ Footer ============ */
 .footer {
     background-color: #fff;
 }
@@ -651,12 +701,8 @@ display: block; /* Prevents strange descender spacing issues */
 
 .footer p {
     font-size: 14px;
-    color: #111;
-    }
-
-p.footer-copy {
-  margin: 0;
-}
+    color: var(--assam-black);
+  }
 
 .footer-social {                /* Social media icons */
     display: flex;
@@ -665,10 +711,7 @@ p.footer-copy {
   }
   
 .footer-social svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-    fill: #141414;
+    fill: var(--ceylon-leaves);
     transition: fill .2s ease, transform .2s ease;
   }
   
@@ -678,10 +721,10 @@ p.footer-copy {
     transform: translateY(-1px);
   }
 
-/* Back to top CTA*/
+/* ============ Back to top CTA ============ */
 .back-to-top {
     border: 1px solid #2d2d2d;
-    background: #141414;
+    background: var(--ceylon-leaves);
     color: #fff;
     border-radius: 12px;
     width: fit-content;
@@ -703,7 +746,7 @@ p.footer-copy {
     outline-offset: 4px;
 }
 
-/* Accessibility & inclusive design */
+/* ============ Accessibility & inclusive design ============ */
 a:focus-visible {
     border-radius: 4px;
     outline: 2px solid #4f46e5;
@@ -730,7 +773,7 @@ html {
     white-space: nowrap;
   }
 
-/* Responsive system – scale UP at larger viewports */
+/* ============ Responsive system – scale UP at larger viewports ============ */
 @media (min-width: 768px) {
 
 .bento-grid {
@@ -750,11 +793,16 @@ html {
     display: block;
     object-fit: cover;
     width: 100%;
-    height: fit-content;
+    height: auto;
   }
 
 .col-2-layout {
     grid-template-columns: 1fr 1fr;
+}
+
+.col-3-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .logo-grid {
@@ -780,12 +828,10 @@ html {
     display: grid;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-  
     grid-template-columns: 1fr auto 1fr;
 }
 
-.section-header {
+.section-heading {
     flex-direction: row;     /* switch to row on desktop */
     align-items: center;
     justify-content: space-between;

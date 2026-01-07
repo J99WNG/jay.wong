@@ -1,71 +1,75 @@
-  /* Hero summary area */
-  .hero {
-    background: #f7f7f7;
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-  
-  .meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .meta div {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 1rem;
-    border: 1px solid #e2e2e2;
-  }
-  
-  /* Layout: article + sidebar
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-meta div {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e2e2e2;
+}
+
+/* Layout: article + sidebar
+.layout {
+  margin-top: 0rem;
+}
+
+@media (min-width: 900px) {
   .layout {
-    margin-top: 0rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
   }
-  
-  @media (min-width: 900px) {
-    .layout {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 2rem;
-    }
-    aside {
-      position: sticky;
-      top: 5rem;
-      align-self: start;
-      height: max-content;
-    }
-  } */
-  
-  /* Images */
-  figure img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid #e2e2e2;
+  aside {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    height: max-content;
   }
-  
-  figure figcaption {
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  
-  /* Impact callout */
-  .impact-card {
-    background: #f7f7f7;
-    border: 1px solid #e2e2e2;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-  }
-  
-  /* Breadcrumb + intro */
-  .breadcrumb {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .intro {
-    margin-top: 0;
-    opacity: 0.85;
-  }
-  
+} */
+
+/* Images */
+
+figure {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+figure img {
+  display: block;            /* removes inline-image whitespace */
+  width: inherit;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid #e2e2e2;
+}
+
+figcaption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Impact callout */
+.impact-card {
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+/* Breadcrumb + intro */
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.intro {
+  margin-top: 0;
+  opacity: 0.85;
+}
