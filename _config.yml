@@ -6,7 +6,7 @@ description: "Experience designer specialising in inclusive, AI-led and service-
 # If your site is at https://username.github.io/repository-name, set baseurl to "/repository-name"
 # If your site is at https://username.github.io, leave baseurl as ""
 baseurl: "/jay.wong" # Change this if your site is in a subdirectory
-url: "" # Leave empty for GitHub Pages, or set your custom domain
+url: "jaywong.digital" # Leave empty for GitHub Pages, or set your custom domain
 
 # Build settings
 markdown: kramdown
