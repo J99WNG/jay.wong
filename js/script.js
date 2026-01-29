@@ -1,4 +1,4 @@
-// Mobile burger menu navigation
+// MOBILE BURGER MENU //
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#primary-nav');
 let lastFocused = null;
@@ -65,12 +65,48 @@ nav.addEventListener('click', (e) => {
     
     if (link.hash) closeMenu();                // else, if clicking a hash link – close menu 
   });
-  
 
-// Auto-update year in footer
+//////////////////////////////////////////////////////////////////////
+
+// FOOTER AUTO-UPDATE YEAR //
 document.getElementById("year").textContent = new Date().getFullYear();
-  
-// Scroll to top
+
+//////////////////////////////////////////////////////////////////////
+
+// SCROLL TO TOP CTA //
 document.querySelector(".back-to-top")?.addEventListener("click", () =>
     window.scrollTo({ top: 0, behavior: "smooth" })
 );
+
+//////////////////////////////////////////////////////////////////////
+
+// CONTENT FADE //
+
+// 1. Select all sections we want to animate
+const fadeElems = document.querySelectorAll('.section-fade');
+
+// 2. Set the options for the observer
+const appearOptions = {
+  threshold: 0.10, // Trigger when % of the element is visible
+  root: null,
+  rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
+};
+
+// 3. Create the observer
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('appear');
+    } else {
+      // Optional: Remove class to fade back out when scrolling away
+      entry.target.classList.remove('appear');
+    }
+  });
+}, appearOptions);
+
+// 4. Attach the observer to each element
+fadeElems.forEach(elem => {
+  appearOnScroll.observe(elem);
+});
+
+//////////////////////////////////////////////////////////////////////
