@@ -74,7 +74,43 @@ document.getElementById("year").textContent = new Date().getFullYear();
 //////////////////////////////////////////////////////////////////////
 
 // SCROLL TO TOP CTA //
-document.querySelector(".back-to-top")?.addEventListener("click", () =>
+const dockWrapper = document.querySelector('#dock-wrapper');
+const bttBtn = document.querySelector('.back-to-top');
+const hero = document.querySelector('#hero'); // Ensure your Hero section has id="hero"
+const footer = document.querySelector('footer');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    // 1. Threshold: Show after passing the Hero
+    const heroHeight = hero ? hero.offsetHeight : 500;
+    
+    // 2. Logic: Show when scrolling down AND past hero
+    if (currentScrollY > heroHeight && currentScrollY > lastScrollY) {
+        dockWrapper.classList.add('is-visible');
+    } else {
+        dockWrapper.classList.remove('is-visible');
+    }
+
+    // 3. Refined "No-BG" Logic: 
+    // Detect if the dock is overlapping the footer
+    if (footer) {
+        const footerTop = footer.getBoundingClientRect().top;
+        const viewportHeight = window.innerHeight;
+
+        // If the top of the footer is visible within the bottom of the viewport
+        if (footerTop < viewportHeight) {
+            dockWrapper.classList.add('no-bg');
+        } else {
+            dockWrapper.classList.remove('no-bg');
+        }
+    }
+
+    lastScrollY = currentScrollY;
+}, { passive: true });
+
+bttBtn?.addEventListener("click", () =>
     window.scrollTo({ top: 0, behavior: "smooth" })
 );
 
