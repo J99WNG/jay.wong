@@ -20,7 +20,7 @@ title: "Jay Wong — Solving complexity with design"
 
         <figure class="page-cover">
           <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
-                alt="Low-fidelity wireframes showing the AI workflow redesign">
+                alt="">
         </figure>
       </div>
     </div>
@@ -41,7 +41,14 @@ title: "Jay Wong — Solving complexity with design"
         <div class="card">
           <div class="card-body">
             <p class="small">Company</p>
-            <p class="lead">bp plc</p>
+            <p class="lead">
+              <span class="icon icon-lg">
+                <img 
+                src="{{ site.baseurl }}/assets/logos/bp-helios-colour.svg"
+                alt="bp"
+                loading="lazy"
+                >
+              </span> bp plc</p>
           </div>
         </div>
 
@@ -55,7 +62,7 @@ title: "Jay Wong — Solving complexity with design"
         <div class="card">
           <div class="card-body">
             <p class="small">Timeline</p>
-            <p class="lead">24 weeks</p>
+            <p class="lead">24 weeks (Discovery → MVP handover)</p>
           </div>
         </div>
   
@@ -69,21 +76,19 @@ title: "Jay Wong — Solving complexity with design"
         <div class="card">
           <div class="card-body">
             <p class="small">Impact</p>
-            <p class="lead">Validated with 8 users</p>
+            <p class="lead">
+
+                <li>28% reduction in repeat tickets</li>
+                <li>CSAT increase from 3.6 → 4.4</li>
+                <li>Average resolution time by 22%</li>
+            </p>
           </div>
         </div>
   
         <div class="card">
           <div class="card-body">
             <p class="small">Tools</p>
-            <p class="lead">Figma, FigJam</p>
-          </div>
-        </div>
-  
-        <div class="card">
-          <div class="card-body">
-            <p class="small">Methods</p>
-            <p class="lead">Interviews, Prototyping, Usability Testing</p>
+            <p class="lead">ServiceNow, Figma, FigJam, Sketch, Zeplin, Mural, Azure DevOps</p>
           </div>
         </div>
   
@@ -109,67 +114,74 @@ title: "Jay Wong — Solving complexity with design"
           <div class="container col-30-70 section-fade">
 
             <div class="section-heading">
-              <h2 id="section-title">The Problem
+              <h2 id="section-title">The business
               <br>
-              <span class="section-subtitle">Context and pain points.</span>
+              <span class="section-subtitle">Context, constraints, why it mattered.</span>
               </h2>
             </div>
 
-            <div class="col-1-layout">
+            <div class="section-copy">
 
-              <p class="lead">The organisation's IT support is overwhelmed with repetitive requests; users struggle to find self-serve answers, increasing traffic to live support and reducing productivity. Generative AI was chosen as a lever to surface answers, summarise knowledge and reduce tickets.</p>
+              <p class="lead">The organisation's IT service desk is overwhelmed with repetitive and simple queries, leading to higher interaction costs for the business. Employees struggle to find self-serve answers, increasing traffic to live support and reducing productivity.</p>
+              <p>As part of a wider product strategy – <strong>Generative AI</strong> was explored as a lever to encourage self-serve behaviour through surfacing answers, summarising knowledge and thus reducing ticket volume.</p>
 
               <div>
-                <h3>Lack of visibility created mistrust</h3>
-                
                 <p>
-                  Enterprise users needed a way to use AI confidently within existing workflows.
-                  Initial testing showed users were unsure how AI results were generated and how reliable they were.
+                  <span class="quant">~60%</span>
+                  <br>
+                  of service desk tickets are repeatable, low-complexity queries (Level 1 and below). Think password resets, or “how-to” questions.
                 </p>
-      
-                <figure>
-                  <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
-                       alt="Low-fidelity wireframes showing the AI workflow redesign">
-                </figure>
               </div>
 
               <div>
-                <h3>Manual review slowed productivity</h3>
-
                 <p>
-                  Enterprise users needed a way to use AI confidently within existing workflows.
-                  Initial testing showed users were unsure how AI results were generated and how reliable they were.
+                  <span class="quant">8x</span>
+                  <br>
+                  Live agent support interactions cost more than successful self-serve resolutions.
                 </p>
-
-                <figure>
-                  <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
-                       alt="Low-fidelity wireframes showing the AI workflow redesign">
-                </figure>
               </div>
 
               <div>
-                <h3>Teams needed accountability & auditability</h3>
-
                 <p>
-                  Enterprise users needed a way to use AI confidently within existing workflows.
-                  Initial testing showed users were unsure how AI results were generated and how reliable they were.
+                  <span class="quant">42%</span>
+                  <br>
+                  of employees fail to resolve their issue through existing self-serve channels.
                 </p>
+              </div>
               
-                <figure>
-                  <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
-                       alt="Low-fidelity wireframes showing the AI workflow redesign">
-                </figure>
-              </div>
+            </div>
             
           </div>
 
+        </section>
+
+        <section aria-labelledby="role-heading">
+
+          <div class="container col-30-70 section-fade">
+
+            <div class="section-heading">
+              <h2 class="section-title">My role
+              <br>
+                <span class="section-subtitle">Contributions and collaborations.</span>
+              </h2>
+            </div>
+
+            <div class="section-copy">
+
+              <p class="lead">As the lead designer in the squad, I led the end-to-end design process –– from research, workshops, journey mapping, interaction design, to prototyping and usability testing.</p>
+              
+              <p>By embracing the product triad framework, I ensured to align our collaborative efforts between product, design and development through regular check-ins and bi-weekly sprint cycles to keep us agile.</p>
+          
+            </div>
+
+          </div>
         </section>
 
         <section aria-labelledby="goals-heading">
           <div class="container col-30-70 section-fade">
             
             <div class="section-heading">
-              <h2 id="section-title">Goals & Success Measures
+              <h2 id="section-title">Goals & KPIs
               <br>
               <span class="section-subtitle">Defining what we want to solve.</span>
               </h2>
@@ -177,9 +189,8 @@ title: "Jay Wong — Solving complexity with design"
 
             <div class="section-copy">
 
-              <p>Functional and non-functional goals were categorised to balance user
-                needs, business objectives, and technical constraints – empowering
-                us to stay agile throughout the project.</p>
+              <p class="lead">Functional and non-functional goals were categorised to balance user
+                needs, business objectives, and technical constraints.</p>
 
               <div class="col-1-layout">
                 <div class="">
@@ -206,39 +217,60 @@ title: "Jay Wong — Solving complexity with design"
           </div>
         </section>
 
-        <section aria-labelledby="approach-heading">
+        <section aria-labelledby="discovery-heading">
 
           <div class="container col-30-70 section-fade">
 
             <div class="section-heading">
-              <h2 class="section-title">My approach
+              <h2 class="section-title">Discovery and research
               <br>
-                <span class="section-subtitle">My role and deliverables.</span>
+                <span class="section-subtitle">What user insights did we gather?</span>
               </h2>
             </div>
 
             <div class="section-copy">
 
-              <p class="lead">As the lead designer in the squad, I led the entire design process –– from research synthesis, journey mapping, interaction design, to prototyping and usability testing.</p>
-              
-              <p>By utilising the product triad framework, we ensured to align our collaborative efforts between product, design and development through regular check-ins and feature prioritisation.</p>
+              <p class="lead">This was an immense task that required diligence and understanding of the root problem.</p>
 
               <div class="col-1-layout">
 
                 <div>
-                  <h3>User Research</h3>
+                  <h3>Reviewing the data</h3>
                   
-                  <p>
-                    I conducted interviews with 8 enterprise users and mapped common workflows to identify friction points and trust gaps.
-                  </p>
-        
+                  <p>I worked with our data team to dive deep into the ServiceNow analytics:</p>
+
+                    <ul>
+                      <li>41% of tickets were "how‑to" questions already answered in knowledge articles</li>
+                      <li>Employees didn’t trust search results due to outdated content.</li>
+                      <li>Knowledge base articles were averaging a length of ~840 words, causing drop-off and straight to human support.</li>
+                    </ul>
+
                   <figure>
                     <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
-                         alt="Low-fidelity wireframes showing the AI workflow redesign">
+                         alt="">
                   </figure>
-                  <figcaption>
-                    Early wireframes tested with users to identify clarity issues.
-                  </figcaption>
+                </div>
+
+                <div>
+                  <h3>Discovery workshop with executives and SMEs.</h3>
+
+                  <p>I delivered a workshop with executives and subject matter experts to brainstorm ideas, dissect the problem further and to validate the potential benefits of GenAI.</p>
+
+                  <figure>
+                    <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
+                         alt="">
+                  </figure>
+                </div>
+
+                <div>
+                  <h3>1-to-1 interviews with SMEs</h3>
+
+                  <p>Additionally, 8 stakeholder interviews were carried out across various roles and regions to build user personas and further understand pain points.</p>
+
+                  <figure>
+                    <img src="https://placehold.co/600x400?text=Coming+soon&font=open-sans.png"
+                         alt="">
+                  </figure>
                 </div>
 
               </div>
@@ -248,26 +280,82 @@ title: "Jay Wong — Solving complexity with design"
           </div>
         </section>
 
+        <section aria-labelledby="problem-definition">
+          <div class="container col-30-70 section-fade">
+
+            <div class="section-heading">
+              <h2 id="section-title">Problem definition
+              <br>
+              <span class="section-subtitle">Turning research into a clear design focus.</span>
+              </h2>
+            </div>
+
+            <div class="section-copy">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            
+          </div>
+        </section>
+
+        <section aria-labelledby="ideation-heading">
+          <div class="container col-30-70 section-fade">
+
+            <div class="section-heading">
+              <h2 id="section-title">Ideation
+              <br>
+              <span class="section-subtitle">Exploring options before committing.</span>
+              </h2>
+            </div>
+
+            <div class="section-copy">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            </div>
+            
+          </div>
+        </section>
+
         <section aria-labelledby="solution-heading">
           <div class="container col-30-70 section-fade">
 
             <div class="section-heading">
               <h2 id="section-title">The solution
               <br>
-              <span class="section-subtitle">{Insert subtitle here}</span>
+              <span class="section-subtitle">Designing the answer, iteratively.</span>
               </h2>
             </div>
 
             <div class="section-copy">
               <p>
-                The final design made AI actions transparent and traceable,
-                with clear feedback and contextual guidance.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
     
               <ul>
-                <li>Clear status & feedback messages</li>
-                <li>Visible audit trails</li>
-                <li>Inline guidance to set expectations</li>
+                <li></li>
+                
+              </ul>
+            </div>
+            
+          </div>
+        </section>
+
+        <section aria-labelledby="solution-heading">
+          <div class="container col-30-70 section-fade">
+
+            <div class="section-heading">
+              <h2 id="section-title">Testing & validation
+              <br>
+              <span class="section-subtitle">Designing the answer, iteratively.</span>
+              </h2>
+            </div>
+
+            <div class="section-copy">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+    
+              <ul>
+                <li></li>
               </ul>
             </div>
             
@@ -280,14 +368,13 @@ title: "Jay Wong — Solving complexity with design"
             <div class="section-heading">
               <h2 id="section-title">Impact & outcomes
               <br>
-              <span class="section-subtitle">What feedback said</span>
+              <span class="section-subtitle">What changed because of this work.</span>
               </h2>
             </div>
 
             <div class="section-copy">
               <p>
-                While not all metrics were quantifiable at this stage,
-                qualitative feedback clearly showed improved clarity and efficiency.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
   
               <div class="bento-grid">
@@ -314,13 +401,6 @@ title: "Jay Wong — Solving complexity with design"
                   
                   </ul>
                 </div>
-  
-                <div class="impact-card">
-                  <ul>
-                    <li>🕒 Estimated 25% faster task completion</li>
-                    
-                  </ul>
-                </div>
               </div>
             
             </div>
@@ -339,9 +419,7 @@ title: "Jay Wong — Solving complexity with design"
 
             <div class="section-copy">
               <p class="lead">
-                Designing for AI requires trust, clarity, and accountability.
-                Users value transparency even more than speed —
-                and involving them early reduces risk later.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
   
               <div class="col-2-layout">

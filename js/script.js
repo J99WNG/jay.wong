@@ -1,6 +1,6 @@
-// MOBILE BURGER MENU //
+// MOBILE BURGER MENU
 const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('#primary-nav');
+const nav = document.querySelector('#nav-primary');
 let lastFocused = null;
 
 function getFocusable(container) {
@@ -16,8 +16,8 @@ function openMenu() {
   nav.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 
-  const focusables = getFocusable(nav);
-  if (focusables.length) focusables[0].focus();
+  // FIX: Focus the toggle (the X) instead of the first link
+  toggle.focus(); 
 
   document.addEventListener('keydown', handleKeydown);
 }
@@ -68,81 +68,75 @@ nav.addEventListener('click', (e) => {
 
 //////////////////////////////////////////////////////////////////////
 
-// FOOTER AUTO-UPDATE YEAR //
+// FOOTER AUTO-UPDATE YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
 
 //////////////////////////////////////////////////////////////////////
 
-// SCROLL TO TOP CTA //
+// --- CACHED ELEMENTS & VALUES ---
 const dockWrapper = document.querySelector('#dock-wrapper');
 const bttBtn = document.querySelector('.back-to-top');
-const hero = document.querySelector('#hero'); // Ensure your Hero section has id="hero"
+const hero = document.querySelector('#hero');
 const footer = document.querySelector('footer');
+
 let lastScrollY = window.scrollY;
+let ticking = false; // Prevents the scroll event from overfiring
 
+// 1. SCROLL TO TOP CTA & FOOTER LOGIC
 window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    
-    // 1. Threshold: Show after passing the Hero
-    const heroHeight = hero ? hero.offsetHeight : 500;
-    
-    // 2. Logic: Show when scrolling down AND past hero
-    if (currentScrollY > heroHeight && currentScrollY > lastScrollY) {
-        dockWrapper.classList.add('is-visible');
-    } else {
-        dockWrapper.classList.remove('is-visible');
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const currentScrollY = window.scrollY;
+            const heroHeight = hero?.offsetHeight || 500;
+
+            // Visibility Logic
+            if (currentScrollY > heroHeight && currentScrollY > lastScrollY) {
+                dockWrapper.classList.add('is-visible');
+            } else {
+                dockWrapper.classList.remove('is-visible');
+            }
+
+            // High-Performance Footer Detection
+            // We use math (scrollY + height) instead of getBoundingClientRect
+            if (footer) {
+                const scrollBottom = currentScrollY + window.innerHeight;
+                const footerTrigger = document.documentElement.scrollHeight - footer.offsetHeight;
+                
+                if (scrollBottom > footerTrigger) {
+                    dockWrapper.classList.add('no-bg');
+                } else {
+                    dockWrapper.classList.remove('no-bg');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        });
+        ticking = true;
     }
-
-    // 3. Refined "No-BG" Logic: 
-    // Detect if the dock is overlapping the footer
-    if (footer) {
-        const footerTop = footer.getBoundingClientRect().top;
-        const viewportHeight = window.innerHeight;
-
-        // If the top of the footer is visible within the bottom of the viewport
-        if (footerTop < viewportHeight) {
-            dockWrapper.classList.add('no-bg');
-        } else {
-            dockWrapper.classList.remove('no-bg');
-        }
-    }
-
-    lastScrollY = currentScrollY;
 }, { passive: true });
 
-bttBtn?.addEventListener("click", () =>
-    window.scrollTo({ top: 0, behavior: "smooth" })
-);
+bttBtn?.addEventListener("click", () => window.scrollTo({ top: 0 }));
 
 //////////////////////////////////////////////////////////////////////
 
-// CONTENT FADE //
-
-// 1. Select all sections we want to animate
+// 2. SECTION FADE (One-Way Trigger)
 const fadeElems = document.querySelectorAll('.section-fade');
 
-// 2. Set the options for the observer
-const appearOptions = {
-  threshold: 0.10, // Trigger when % of the element is visible
-  root: null,
-  rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
-};
-
-// 3. Create the observer
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('appear');
-    } else {
-      // Optional: Remove class to fade back out when scrolling away
-      entry.target.classList.remove('appear');
-    }
-  });
-}, appearOptions);
-
-// 4. Attach the observer to each element
-fadeElems.forEach(elem => {
-  appearOnScroll.observe(elem);
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            // FIX: Stop observing after it appears. 
+            // This prevents the "freeze" when scrolling back up.
+            observer.unobserve(entry.target); 
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -10% 0px" // Using % is more reliable across devices
 });
+
+fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 <!-- ===================== HEADER / NAVIGATION ====================== -->
 <header>
-    <div class="container header-wrapper" aria-label="Primary navigation">
+    <div class="container header-wrapper" aria-label="Primary header">
 
         <!-- Logo -->
         <div class="navbar-brand">
@@ -17,11 +17,11 @@
         </div>
 
         <!-- Navigation -->
-        <nav id="primary-nav" class="mobile-overlay" aria-label="Primary navigation">
+        <nav id="nav-primary" aria-label="Navigation links">
             <ul class="nav-list">
-                <li><a href="#about">About</a></li>
-                <li><a href="#collaborations">Collaborations</a></li>
-                <li><a href="#work">Work</a></li>
+                <li><a href="{{ site.baseurl }}/#about">About</a></li>
+                <li><a href="{{ site.baseurl }}/#collaborations">Collaborations</a></li>
+                <li><a href="{{ site.baseurl }}/#work">Work</a></li>
                 <li>
                     <a 
                         href="{{ site.baseurl }}/assets/documents/Jay-Wong-CV.pdf"
@@ -33,13 +33,13 @@
             </ul>
 
             <!-- CTA -->
-            <div class="nav-cta-wrapper">
+            <div class="nav-cta-wrapper" aria-label="Contact button">
                 <a href="{{ site.baseurl}}/#contact" class="btn btn-nav">Contact</a>
             </div>
         </nav>
         
         <!-- Mobile nav -->
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-primary" aria-label="Open menu">
             <span class="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
             <span class="material-symbols-rounded icon-close" aria-hidden="true">close</span>
             <span class="sr-only">Menu</span>
