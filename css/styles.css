@@ -257,6 +257,19 @@ span.quant {
   color: var(--assam-black);
 }
 
+.notion-quote {
+  /* Reset default browser margins */
+  margin: 1.25rem 0;
+  /* The signature Notion border */
+  border-left: 3px solid var(--ceylon-leaves); /* Dark charcoal color */
+  /* Spacing */
+  padding: 0.2rem 0.9rem;
+
+  font-size: 1.25rem;
+  letter-spacing: -0.04rem;
+  line-height: 1.5;
+}
+
 /* ============ Interaction states ============ */
 a:hover {
     opacity: 0.8;
