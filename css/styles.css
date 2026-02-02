@@ -848,7 +848,7 @@ html {
 
 .bento-grid {
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: start;
     justify-items: start;
 }
 
