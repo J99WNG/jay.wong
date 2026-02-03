@@ -575,6 +575,7 @@ span.section-subtitle {
 /* ============ Buttons ============ */
 .btn {
   display: block;
+  cursor: pointer;
 
   font-size: clamp(14px, 16px, 20px);
   letter-spacing: -0.04rem;
@@ -583,7 +584,7 @@ span.section-subtitle {
   text-align: center;
   text-decoration: none;
 
-  padding: 1.25rem 1.5rem;
+  padding: 1.25em 1.5em;
   width: max-content;
   border-radius: 16px;
 
@@ -620,15 +621,15 @@ span.section-subtitle {
 }
 
 .btn-nav {
+  width: auto;
   background-color: #fff;
   color: var(--ceylon-leaves);
 
-  padding: 1.5rem 2.5rem;
-  border-radius: 1.25rem;
   box-shadow: 0px 0px 2px hsla(0,0%,10%,0.3) inset,
               0px 0px 12px hsla(0,0%,25%,0.1);
 
-  width: auto;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1.25rem;
   font-size: 1.5rem;
 }
 
@@ -831,19 +832,18 @@ align-self: center;
 
 .btn-btt {
   pointer-events: auto; /* Re-enable clicking for the button itself */
-  display: flex;
   align-items: center;
-  gap: 4px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: fit-content;
 
   border: 1px solid #2d2d2d;
   background: var(--ceylon-leaves);
   color: #fff;
   border-radius: 12px;
-  width: fit-content;
   padding: 0.5rem 1rem;
   font-size: 14px;
+
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: background .2s ease, transform .2s ease, opacity .3s ease, visibility .3s ease;
 }
 

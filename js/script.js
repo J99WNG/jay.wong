@@ -75,7 +75,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // --- CACHED ELEMENTS & VALUES ---
 const dockWrapper = document.querySelector('#dock-wrapper');
-const bttBtn = document.querySelector('.back-to-top');
+const bttBtn = document.querySelector('.btn-btt');
 const hero = document.querySelector('#hero');
 const footer = document.querySelector('footer');
 
