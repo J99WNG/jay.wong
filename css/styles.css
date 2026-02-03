@@ -64,6 +64,33 @@ hr {
     padding: 0;
   }
 
+/* ============ Images ============ */
+
+figure {
+  border-radius: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+figure img {
+  display: block;            /* removes inline-image whitespace */
+  width: inherit;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid #e2e2e2;
+}
+
+figcaption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.page-cover {
+  margin: 0;
+}
+
 /* ============ Card ============ */
 .card {
     display: block;
@@ -211,6 +238,7 @@ p {
 p.small {
   text-transform: uppercase;
   font-weight: 500;
+  letter-spacing: -0.02rem;
   font-size: 14px;
   margin-bottom: 0;
 }
@@ -259,11 +287,11 @@ span.quant {
 
 .notion-quote {
   /* Reset default browser margins */
-  margin: 1.25rem 0;
+  margin: 1rem 0;
   /* The signature Notion border */
   border-left: 3px solid var(--ceylon-leaves); /* Dark charcoal color */
   /* Spacing */
-  padding: 0.2rem 0.9rem;
+  padding: 0rem 1rem;
 
   font-size: 1.25rem;
   letter-spacing: -0.04rem;
@@ -508,7 +536,7 @@ section {
 .section-copy {
   display: inline-flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 
   max-width: 65ch;
   margin-bottom: 1.5rem;
@@ -565,7 +593,7 @@ span.section-subtitle {
 
 .btn:hover,
 .btn:active {
-  opacity: 0.8;
+  opacity: 0.9;
   text-decoration: none;
   cursor: pointer;
   transform: scale(1.05);
@@ -689,6 +717,12 @@ align-self: center;
   font-size: var(--icon-size);        /* 3. THIS IS KEY: Set font-size here so Material Symbols inherit it */
 }
 
+.icon-inline {
+  background: #fcfcfc;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
 /* Sizing via utility classes using rem or em */
 .icon-sm { --icon-size: 1rem; --icon-opsz: 20; }       /* 16px */
 .icon-md { --icon-size: 1.5rem; --icon-opsz: 24; }       /* 24px */
@@ -795,7 +829,7 @@ align-self: center;
   transform: translateX(-50%) translateY(0);
 }
 
-.back-to-top {
+.btn-btt {
   pointer-events: auto; /* Re-enable clicking for the button itself */
   display: flex;
   align-items: center;
@@ -813,7 +847,7 @@ align-self: center;
   transition: background .2s ease, transform .2s ease, opacity .3s ease, visibility .3s ease;
 }
 
-.back-to-top:hover .material-symbols-rounded {
+.btn-btt:hover .material-symbols-rounded {
   animation: floatUp 1.5s infinite;
   transform: translateY(-2px);
 }
@@ -823,7 +857,7 @@ align-self: center;
   50% { transform: translateY(-4px); }
 }
 
-.back-to-top:focus-visible {
+.btn-btt:focus-visible {
   outline: 2px solid #4f46e5;
   outline-offset: 4px;
 }

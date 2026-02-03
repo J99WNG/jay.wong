@@ -1,29 +1,3 @@
-/* Images */
-
-figure {
-  margin: 1rem 0;
-  width: 100%;
-}
-
-figure img {
-  display: block;            /* removes inline-image whitespace */
-  width: inherit;
-  object-fit: cover;
-  border-radius: 1rem;
-  border: 1px solid #e2e2e2;
-}
-
-figcaption {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  text-align: center;
-}
-
-.page-cover {
-  margin: 0;
-}
-
 /* Impact callout */
 .impact-card {
   background: #f7f7f7;
