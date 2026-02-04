@@ -140,3 +140,6 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////
+
+// Remove the anchor from the URL without refreshing the page
+history.replaceState(null, null, window.location.pathname + window.location.search);
