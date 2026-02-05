@@ -6,14 +6,23 @@
     --dried-clay:      hsla(30, 20%, 85%, 1);  
 
     /* Accents (The "Petal & Pot") */
-    --wilted-rose:     hsla(26, 30%, 80%, 1);  /* Was --powder-petal */
-    --terracotta-clay: hsla(30, 15%, 65%, 1);  /* Was --khaki-beige */
+    --blossom-note: hsla(26, 31%, 84%, 1);
+    --wilted-rose:     hsla(26, 30%, 80%, 1); 
+    --terracotta-clay: hsla(30, 15%, 65%, 1);
+
+    --smoked-lapsang: hsla(12, 30%, 28%, 1);
+    --burnt-sugar:   hsla(20, 40%, 48%, 1);
+    --fermented-plum:hsla(350, 22%, 42%, 1);
+
+    --matcha-whisk: hsla(92, 35%, 92%, 1);
+    --matcha-powder:  hsla(94, 42%, 62%, 1);
+    --matcha-stone: hsla(96, 38%, 28%, 1);
 
     /* Depth (The "Body") */
-    --roasted-oolong:  hsla(30, 20%, 50%, 1);  /* Was --dusty-taupe */
-    --steeped-bark:    hsla(30, 15%, 33%, 1);  /* Was --stone-brown */
+    --roasted-oolong:  hsla(30, 20%, 50%, 1);
+    --steeped-bark:    hsla(30, 15%, 33%, 1);
 
     /* The Darks (The "Infusion") */
-    --ceylon-leaves:   hsla(23, 40%, 12%, 1);  /* Slight lift for better contrast */
-    --assam-black:     hsla(23, 40%, 5%, 1);   /* Deepest neutral */
+    --ceylon-leaf:   hsla(23, 40%, 12%, 1);
+    --assam-black:     hsla(23, 40%, 5%, 1);
 }
