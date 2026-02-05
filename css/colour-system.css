@@ -1,15 +1,19 @@
 :root {
-/* CSS HSL */
---linen: hsla(30, 75%, 98%, 1);
---parchment: hsla(30, 19%, 94%, 1);
---dust-grey: hsla(29, 20%, 90%, 1);
---dust-grey-1: hsla(28, 20%, 87%, 1);
---dust-grey-2: hsla(30, 20%, 84%, 1);
---powder-petal: hsla(26, 31%, 84%, 1);
---dust-grey-3: hsla(30, 20%, 80%, 1);
---khaki-beige: hsla(30, 15%, 63%, 1);
---dusty-taupe: hsla(30, 20%, 51%, 1);
---stone-brown: hsla(30, 13%, 33%, 1);
---ceylon-leaves: hsla(23, 41%, 9%, 1);
---assam-black: hsla(23, 41%, 5%, 1);
+    /* Base Neutrals (The "Steep") */
+    --silver-needle:   hsla(30, 75%, 98%, 1);
+    --white-pekoe:     hsla(30, 20%, 97%, 1);
+    --steamed-vapor:   hsla(30, 20%, 90%, 1);  
+    --dried-clay:      hsla(30, 20%, 85%, 1);  
+
+    /* Accents (The "Petal & Pot") */
+    --wilted-rose:     hsla(26, 30%, 80%, 1);  /* Was --powder-petal */
+    --terracotta-clay: hsla(30, 15%, 65%, 1);  /* Was --khaki-beige */
+
+    /* Depth (The "Body") */
+    --roasted-oolong:  hsla(30, 20%, 50%, 1);  /* Was --dusty-taupe */
+    --steeped-bark:    hsla(30, 15%, 33%, 1);  /* Was --stone-brown */
+
+    /* The Darks (The "Infusion") */
+    --ceylon-leaves:   hsla(23, 40%, 12%, 1);  /* Slight lift for better contrast */
+    --assam-black:     hsla(23, 40%, 5%, 1);   /* Deepest neutral */
 }
