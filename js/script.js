@@ -124,17 +124,15 @@ bttBtn?.addEventListener("click", () => window.scrollTo({ top: 0 }));
 const fadeElems = document.querySelectorAll('.section-fade');
 
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('appear');
-            // FIX: Stop observing after it appears. 
-            // This prevents the "freeze" when scrolling back up.
-            observer.unobserve(entry.target); 
-        }
-    });
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target); 
+      }
+  });
 }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -10% 0px" // Using % is more reliable across devices
+  threshold: 0, // Trigger as soon as a single pixel is visible
+  rootMargin: "0px 0px -50px 0px" // Use pixels for more predictable behavior
 });
 
 fadeElems.forEach(elem => appearOnScroll.observe(elem));

@@ -81,26 +81,26 @@ figure img {
 }
 
 figcaption {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  margin-top: 0.75rem;
+  color: var(--steeped-bark);
+  font-size: 0.75rem;
+  letter-spacing: -0.02rem;
   text-align: center;
-}
-
-.page-cover {
-  margin: 0;
 }
 
 /* ============ Card ============ */
 .card {
-    display: block;
-    height: fit-content;
-    width: stretch;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
     background-color: var(--white-pekoe);
-    
     border-radius: 16px;
     box-shadow: 0px 0px 2px hsla(30, 20%, 85% ,1) inset;
     overflow: hidden;               /* keeps image corners rounded */
+    width: 100%;
+
     transition: transform .25s ease, 
                 box-shadow .25s ease;
   }
@@ -110,25 +110,42 @@ figcaption {
     box-shadow: 0 0 0 1px hsla(30, 20%, 85%, 0.25),
                 0px 0px 8px hsla(30, 20%, 85%, 0.8);
   }
-  
-.card .card-img {             /* Smooth images */
-    height: 256px;          /* set a consistent image height */
-    display: block;            /* removes inline-image whitespace */
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;          /* override Bootstrap's corner radius */
-    object-fit: cover;         /* optional, keeps cropping clean */
-  }
-  
-.card-body {                  /* Card title + body */
-    display: inline-flex;
+
+.card-img {
+  display: flex; /* Removes bottom whitespace gap */
+  flex: 1;       /* Ensures the wrapper takes up space */
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--dried-clay);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;      /* Changed from auto to 100% to force the stretch */
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {                  /* Card title + body */
+    display: flex;
     flex-direction: column;
+    flex: 1;
     justify-content: center;
-    width: stretch;
+    width: 100%;
     padding: 2rem 1.75rem;
     gap: 0.5rem;
   }
+
+.card-callout {                  /* Card title + body */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 1.75rem;
+  gap: 1.75rem;
+}
   
 h3.card-title {
     font-weight: 450;
@@ -203,7 +220,7 @@ h1 {
   font-size: 1.5rem;
   letter-spacing: -0.04rem;
   max-width: 65ch;
-  margin-bottom: 2rem;
+  margin: 0;
 }
 
 h2 {
@@ -211,7 +228,7 @@ h2 {
   font-weight: 500;
   font-size: 2.25rem;
   letter-spacing: -0.06rem;
-  margin: 0 0 1rem 0;
+  margin: 0;
 }
 
 h3 {
@@ -226,7 +243,7 @@ h4 {
     font-weight: 500;
     font-size: 1.25rem;
     letter-spacing: -0.04rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
 }
 
 p {
@@ -315,6 +332,12 @@ span.quant {
   gap: 0.5rem;
 }
 
+.title-block {
+  display: inline-block;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}
+
 /* ============ Table components ============ */
 
 .custom-table {
@@ -372,7 +395,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
+  margin-block-start: 2.5rem;
 }
 
 .hero-wrapper {
@@ -391,10 +415,10 @@ a:hover {
   }
 
 .btn-group {
-    display: flex;
-    place-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block-start: 1rem;
 }
 
 .badge-group {
@@ -554,11 +578,6 @@ h1.hero-title {
     line-height: 1.3;
 }
 
-.hero-cta-group {
-    display: inline-flex;
-    gap: 1rem;
-}
-
 .hero-block {
   display: inline-flex;
   flex-direction: column;
@@ -587,7 +606,7 @@ h1.hero-title {
 section {
   display: block;
   align-content: center;
-  padding: 7rem 0rem;
+  padding-block: 4rem;
   margin-inline: auto;
   min-height: 100vh;
 }
@@ -596,7 +615,7 @@ section {
   display: flex;
   flex-direction: column;      /* mobile default */
   align-items: flex-start;
-  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-content {
@@ -626,9 +645,12 @@ span.section-subtitle {
   will-change: opacity, transform;
     /* tells browser this element won't affect the rest of the layout */
   transition: 
-        opacity 1.25s cubic-bezier(0.215, 0.61, 0.355, 1), 
-        transform 1.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-    
+        opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), 
+        transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.section-fade:first-of-type {
+  transform: translateY(0);
 }
 
 .section-fade.appear {        /* Visible state triggered by JavaScript */
@@ -702,29 +724,33 @@ span.section-subtitle {
   display: grid;
   justify-content: center;
 
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-inline: auto;
 
   grid-template-columns: repeat(2, 1fr);
 }
 
+
+
 .logo-item {
+  width: auto;
+  height: 128px;
   display: flex;
   align-items: center;
-  height: 128px;
-  padding: 0 1.25rem;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
-.logo-item img, .logo-item svg {
-  display: block;             /* prevents inline-image quirks */
-
-  width: 100%;                    /* scales down if needed */
-  max-height: 4rem;
+.logo-item img,
+.logo-item svg {
+  height: 4rem;
+  width: auto;
+  max-width: 100%;
   margin-inline: auto;
   object-fit: contain;
 
   filter: grayscale(100%);
-  opacity: 1;
+  opacity: 0.75;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
@@ -957,25 +983,25 @@ html {
 /* ============ Responsive system – scale UP at larger viewports ============ */
 @media (min-width: 768px) {
 
+section {
+  padding-block: 7rem;
+}
+
 .bento-grid {
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
     justify-items: start;
 }
 
-.card--horizontal {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* tweak ratio to taste */
-    align-items: stretch;
-    grid-column: span 2;
-  }
+.card {
+  flex-direction: row;
+  min-height: fit-content;
+}
 
-  .card--horizontal .card-img {
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-  }
+.card-img, 
+.card-content {
+  flex: 1 1 50%; /* Force both sides to start at 50% width */
+}
 
 .col-30-70 {
   display: grid;
@@ -986,7 +1012,7 @@ html {
 
 .logo-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
+    gap: 1.5rem;
     margin: 0;
 }
 
