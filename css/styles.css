@@ -16,8 +16,8 @@ header {
 
     background: linear-gradient(            /* Gradient from solid to transparent */
         to bottom, 
-        hsla(0, 0%, 100%, 0.8) 0%,   /* Solid at the very top */
-        hsla(0, 0%, 100%, 0) 100%   /* Fully invisible */
+        hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
+        hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
     );
 }
 
@@ -377,7 +377,7 @@ span.quant {
 
 /* ============ Interaction states ============ */
 a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
     text-underline-offset: .5rem;
@@ -571,6 +571,7 @@ a:hover {
 #hero, #contact {
   background-color: var(--white-pekoe);
   min-height: 100vh;
+  padding-block: 6rem;
 }
 
 h1.hero-title {
@@ -899,9 +900,8 @@ align-self: center;
   
   background: linear-gradient(            /* Gradient from solid to transparent */
       to top, 
-      hsla(30, 75%, 98%, 1) 0%,   /* Solid at the very top */
-      hsla(30, 75%, 98%, 0.6) 50%,
-      hsla(30, 75%, 98%, 0) 100%   /* Fully invisible */
+      hsla(30, 62%, 98%, 1) 0%,   /* Solid at the very top */
+      hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
     );
 
   /* Smooth movement and background fading */

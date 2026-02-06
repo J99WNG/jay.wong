@@ -1,7 +1,7 @@
 :root {
     /* Base Neutrals (The "Steep") */
-    --silver-needle:   hsla(30, 75%, 98%, 1);
-    --white-pekoe:     hsla(30, 20%, 97%, 1);
+    --silver-needle:   hsla(30, 62%, 98%, 1);
+    --white-pekoe:     hsla(30, 50%, 97%, 1);
     --steamed-vapor:   hsla(30, 20%, 90%, 1);  
     --dried-clay:      hsla(30, 20%, 85%, 1);  
 
