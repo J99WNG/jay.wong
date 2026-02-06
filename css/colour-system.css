@@ -1,28 +1,39 @@
 :root {
-    /* Base Neutrals (The "Steep") */
+    /* The Base Layers (Whites & Neutrals) */
+    /* Inspired by minimally processed leaves, these are perfect for backgrounds, cards, and subtle UI borders. */
     --silver-needle:   hsla(30, 62%, 98%, 1);
-    --white-pekoe:     hsla(30, 50%, 97%, 1);
-    --steamed-vapor:   hsla(30, 20%, 90%, 1);  
+    --white-pekoe:     hsla(35, 40%, 96%, 1);
+    --steamed-vapor:   hsla(35, 20%, 90%, 1);  
     --dried-clay:      hsla(30, 20%, 85%, 1);  
 
-    /* Accents (The "Petal & Pot") */
+    /* The Vibrant Infusions (Accents & UI States) */
     --blossom-note: hsla(26, 31%, 84%, 1);
     --wilted-rose:     hsla(26, 30%, 80%, 1); 
     --terracotta-clay: hsla(30, 15%, 65%, 1);
 
-    --smoked-lapsang: hsla(12, 30%, 28%, 1);
-    --burnt-sugar:   hsla(20, 40%, 48%, 1);
-    --fermented-plum:hsla(350, 22%, 42%, 1);
+        /* Green */
+        --jasmine-bud: hsla(70, 40%, 88%, 1);
+        --matcha-powder:  hsla(94, 42%, 62%, 1);
+        --iron-buddha:hsla(120, 15%, 40%, 1);
 
-    --matcha-whisk: hsla(92, 35%, 92%, 1);
-    --matcha-powder:  hsla(94, 42%, 62%, 1);
-    --matcha-stone: hsla(96, 38%, 28%, 1);
+        /* Blue */
+        --earl-grey:	hsla(200, 15%, 50%, 1);
+        --butterfly-pea: hsla(230, 45%, 45%, 1);
+
+        /* Yellow */
+        --golden-yunnan:hsla(42, 85%, 50%, 1);
+        --masala-chai:	hsla(28, 50%, 55%, 1);
+
+        /* Red */
+        --hibiscus-tisane: hsla(350, 60%, 50%, 1);
 
     /* Depth (The "Body") */
     --roasted-oolong:  hsla(30, 20%, 50%, 1);
     --steeped-bark:    hsla(30, 15%, 33%, 1);
 
-    /* The Darks (The "Infusion") */
-    --ceylon-leaf:   hsla(23, 40%, 12%, 1);
+    /* The Deep Brews (Dark Solids & Text) */
+    --lapsang-souchong: hsla(0, 5%, 18%, 1);
+    --ceylon-leaf:  hsla(28, 40%, 12%, 1);
+    --aged-pu-erh:	hsla(15, 25%, 10%, 1);
     --assam-black:     hsla(23, 40%, 5%, 1);
 }

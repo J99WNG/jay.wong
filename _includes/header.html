@@ -1,11 +1,9 @@
 <!-- ===================== HEADER / NAVIGATION ====================== -->
 <header>
-    <div class="container" aria-label="Primary header">
+    <div class="container">
         <div class="header-wrapper">
-
             <!-- Logo -->
-        <div class="navbar-brand">
-            <a href="{{ '/' | relative_url }}" id="logo-link" class="navbar-brand" aria-label="JW Designs homepage">
+            <a href="{{ '/' | relative_url }}" class="nav-brand" aria-label="JW Designs homepage">
                 <svg width="945" height="426" viewBox="0 0 945 426" xmlns="http://www.w3.org/2000/svg" alt="Jay Wong monogram">
                     <g clip-path="url(#clip0_2477_10)">
                     <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z"/>
@@ -15,36 +13,32 @@
                     </g>
                 </svg>                        
             </a>
-        </div>
 
-        <!-- Navigation -->
-        <nav id="nav-primary" aria-label="Navigation links">
-            <ul class="nav-list">
-                <li><a href="{{ site.baseurl }}/#about">About</a></li>
-                <li><a href="{{ site.baseurl }}/#collaborations">Collaborations</a></li>
-                <li><a href="{{ site.baseurl }}/#work">Work</a></li>
-                <li>
-                    <a 
-                        href="{{ site.baseurl }}/assets/documents/Jay-Wong-CV.pdf"
-                        download target="_blank" 
-                        rel="noopener">
-                        CV
-                    </a>
-                </li>
-            </ul>
+            <!-- Navigation -->
+            <nav class="nav-menu" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="{{ site.baseurl }}/#about">About</a></li>
+                    <li><a href="{{ site.baseurl }}/#collaborations">Collaborations</a></li>
+                    <li><a href="{{ site.baseurl }}/#work">Work</a></li>
+                    <li>
+                        <a 
+                            href="{{ site.baseurl }}/assets/documents/Jay-Wong-CV.pdf"
+                            download target="_blank" 
+                            rel="noopener">
+                            CV
+                        </a>
+                    </li>
+                </ul>
 
-            <!-- CTA -->
-            <div class="nav-cta-wrapper" aria-label="Contact button">
+                <!-- CTA -->
                 <a href="{{ site.baseurl}}/#contact" class="btn btn-nav">Contact</a>
-            </div>
-        </nav>
+            </nav>
         
-        <!-- Mobile nav -->
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-primary" aria-label="Open menu">
-            <span class="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
-            <span class="material-symbols-rounded icon-close" aria-hidden="true">close</span>
-            <span class="sr-only">Menu</span>
-        </button>
+            <!-- Mobile nav -->
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-primary" aria-label="Toggle menu">
+                <span class="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
+                <span class="material-symbols-rounded icon-close" aria-hidden="true">close</span>
+            </button>
 
         </div>
     </div>

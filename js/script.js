@@ -1,6 +1,6 @@
 // MOBILE BURGER MENU
 const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('#nav-primary');
+const nav = document.querySelector('.nav-menu');
 let lastFocused = null;
 
 function getFocusable(container) {

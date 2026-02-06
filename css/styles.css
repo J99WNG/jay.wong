@@ -164,6 +164,10 @@ p.card-text {
   justify-content: start;
 }
 
+.card .icon {
+  color: var(--roasted-oolong)
+}
+
 /* ============ Badge ============ */
 .badge, .status {
   display: inline-flex;
@@ -179,7 +183,7 @@ p.card-text {
   padding: 0.5em 1em;
   margin: 0;
 
-  color: var(--assam-black);
+  color: var(--ceylon-leaf);
   background-color: var(--steamed-vapor);
   box-shadow: 0px 0px 2px hsla(0,0%,0%,0.3) inset;
 }
@@ -196,7 +200,7 @@ p.card-text {
   height: 8px;
   background: var(--matcha-powder);
   border-radius: 50%;
-  box-shadow: 0 0 0 0 var(--matcha-powder);
+  box-shadow: 0 0 0 0 var(--iron-buddha);
   animation: pulse 1s infinite;
 }
 
@@ -247,7 +251,7 @@ h4 {
 }
 
 p {
-    color: var(--ceylon-leaf);
+    color: var(--lapsang-souchong);
     font-size: 1rem;
     letter-spacing: -0.04rem;
     margin: 0;
@@ -273,7 +277,7 @@ p.lead {
 }
 
 a {
-    color: #2929A3;
+    color: var(--butterfly-pea);
     text-decoration: none;
     letter-spacing: -0.04rem;
     transition: opacity 0.2s ease;
@@ -344,7 +348,7 @@ span.quant {
   width: 100%;
   border-collapse: collapse; /* Removes double borders */
   letter-spacing: -0.04rem;
-  background-color: #fff;
+  background-color: var(--silver-needle);
   border-radius: 0.5rem;;
   overflow: hidden; /* Clips corners if you have a border */
 }
@@ -371,13 +375,13 @@ span.quant {
 
 /* Hover Effect */
 .custom-table tbody tr:hover {
-  background-color: #fcfcfc;
+  background-color: var(--steamed-vapor);
   cursor: default;
 }
 
 /* ============ Interaction states ============ */
 a:hover {
-    opacity: 0.9;
+    color: var(--earl-grey);
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
     text-underline-offset: .5rem;
@@ -453,12 +457,47 @@ a:hover {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navbar-brand svg {
+.nav-brand {
+  flex-shrink: 0;
+}
+
+.nav-brand svg {
     display: block;
-    width: auto;
+    width: 100%;
     height: 2rem;
-    fill: #fff;
+    fill: var(--silver-needle);
     transition: fill .2s ease, transform .2s ease;
+}
+
+.nav-menu { /* mobile overlay menu */
+  top: 80px;             /* same as header height */
+  width: 100%;     /* now it fills the wrapper width */
+  background: var(--ceylon-leaf);
+  color: var(--white-pekoe);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 
+        opacity 0.4s ease, 
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+        visibility 0.4s;
+  z-index: 9998;
+}
+
+.nav-menu.is-open {              /* show when "open" */
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .nav-list {
@@ -470,9 +509,7 @@ a:hover {
 
     font-weight: 300;
     gap: 2rem;
-    margin: 0;
     padding: 0;
-    padding-bottom: 0;
 }
 
 .nav-list a,
@@ -481,6 +518,11 @@ a:hover {
     padding-bottom: 0;
     color: var(--white-pekoe);
     transition: opacity 0.2s ease;
+}
+
+.nav-list li:hover {
+  background-color: var(--lapsang-souchong);
+  border-radius: 0.5rem;
 }
 
 .nav-toggle {               /* hamburger button (mobile) */
@@ -529,42 +571,6 @@ a:hover {
   opacity: 1;
   transform: rotate(0deg) scale(1);
   color: var(--white-pekoe); /* White icon so it's visible on your dark overlay */
-}
-
-#nav-primary.is-open {              /* show when "open" */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-#nav-primary { /* mobile overlay menu */
-  top: 80px;             /* same as header height */
-  background: var(--ceylon-leaf);
-  color: var(--white-pekoe);
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;     /* now it fills the wrapper width */
-
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: 
-        opacity 0.4s ease, 
-        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-        visibility 0.4s;
-
-  pointer-events: none;
-  z-index: 9998;
 }
     
 /* ============ Hero ============ */
@@ -689,7 +695,7 @@ span.section-subtitle {
 
 .btn-primary {
   background-color: var(--ceylon-leaf);
-  color: #fff;
+  color: var(--silver-needle);
   box-shadow: 0px 0px 2px hsla(0,0%,100%,1) inset,
               0px 0px 12px hsla(0,0%,25%,0.1);
 }
@@ -751,7 +757,7 @@ span.section-subtitle {
   object-fit: contain;
 
   filter: grayscale(100%);
-  opacity: 0.75;
+  opacity: 0.8;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
@@ -810,7 +816,7 @@ align-self: center;
 }
 
 .icon-inline {
-  background: #fcfcfc;
+  background: var(--white-pekoe);
   border-radius: 0.25rem;
   padding: 0.25rem;
 }
@@ -927,7 +933,7 @@ align-self: center;
 
   border: 0;
   background: var(--ceylon-leaf);
-  color: #fff;
+  color: var(--silver-needle);
   border-radius: 12px;
   padding: 0.5rem 1rem;
   font-size: 14px;
@@ -939,7 +945,7 @@ align-self: center;
 }
 
 .btn-btt .material-symbols-rounded {
-  color: #fff;
+  color: var(--silver-needle);
 }
 
 .btn-btt:hover .material-symbols-rounded {
@@ -954,7 +960,7 @@ align-self: center;
 
 /* ============ Accessibility & inclusive design ============ */
 :focus-visible {
-  outline: 2px solid #2929A3;
+  outline: 2px solid var(--butterfly-pea);
   outline-offset: 4px;
   border-radius: 0.5rem;
 }
@@ -1034,29 +1040,23 @@ section {
   height: 4rem;
 }
 
-#nav-primary {
-  display: flex !important; /* Ensure it uses flex */
+.nav-menu {
   position: static;      /* ← back in the layout */
+  flex-direction: row;
   align-items: center;
-  justify-content: center; /* Pushes list and button apart */
+  justify-content: space-between; /* Pushes list and button apart */
   flex: 1;
   background: transparent;
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: none;
   padding: 0;            /* remove big mobile padding */
-}
-
-.nav-toggle {
-    display: none; /* hides burger */
+  gap: 0;
 }
 
 .nav-list {
     flex-direction: row;
-    margin-left: auto;      /* Pushes the list away from the logo */
-    margin-right: auto;     /* Pushes the button away from the list */
-    gap: 2rem;
+    margin: 0 auto;     /* Pushes the button away from the list */
 }
 
 .nav-list a,
@@ -1064,10 +1064,7 @@ section {
     font-size: revert;
 }
 
-.nav-cta-wrapper {
-  margin-top: 0;
-  display: flex;
-}
+.nav-toggle { display: none; /* hides burger */ }
 
 .btn-nav {
     font-size: revert;
