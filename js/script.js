@@ -120,24 +120,23 @@ bttBtn?.addEventListener("click", () => window.scrollTo({ top: 0 }));
 
 //////////////////////////////////////////////////////////////////////
 
-// 2. SECTION FADE (One-Way Trigger)
+// 2. SECTION FADE (Two-Way Trigger)
 const fadeElems = document.querySelectorAll('.section-fade');
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
+const appearOnScroll = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
       if (entry.isIntersecting) {
           entry.target.classList.add('appear');
-          observer.unobserve(entry.target); 
+      } else {
+          // Removes the class when the element scrolls out of view
+          entry.target.classList.remove('appear');
       }
   });
 }, {
-  threshold: 0, // Trigger as soon as a single pixel is visible
-  rootMargin: "0px 0px -50px 0px" // Use pixels for more predictable behavior
+  threshold: 0.1, 
+  rootMargin: "0px 0px -10px 0px" 
 });
 
 fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////
-
-// Remove the anchor from the URL without refreshing the page
-history.replaceState(null, null, window.location.pathname + window.location.search);
