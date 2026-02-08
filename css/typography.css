@@ -1,4 +1,4 @@
-/* ============ Typography ============ */
+/* ==================== Typography ==================== */
 
 /* Headings */
 h1 {
@@ -78,7 +78,7 @@ h1 {
     font-size: 1rem;
     letter-spacing: -0.04rem;
     margin: 0;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
     line-height: 1.6;
   }
   
@@ -100,9 +100,8 @@ h1 {
     list-style-type: disc;
   }
   
-  
   strong {
-    font-weight: 600;
+    font-weight: 550;
   }
   
   span.quant {

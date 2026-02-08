@@ -1,4 +1,4 @@
-/* ============ Foundations ============ */
+/* ==================== Foundations ==================== */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -54,7 +54,7 @@ body.loading {
   margin-inline: auto;
 }
 
-/* ============ Rounded divider ============ */
+/* ==================== Rounded divider ==================== */
 hr {
     border: none;
     border-top: 1px solid var(--wilted-rose);
@@ -64,7 +64,7 @@ hr {
     padding: 0;
   }
 
-/* ============ Images ============ */
+/* ==================== Images ==================== */
 
 figure {
   border-radius: 1rem;
@@ -85,10 +85,10 @@ figcaption {
   color: var(--steeped-bark);
   font-size: 0.75rem;
   letter-spacing: -0.02rem;
-  text-align: center;
+  text-align: left;
 }
 
-/* ============ Card ============ */
+/* ==================== Card ==================== */
 .card {
     display: flex;
     flex-direction: column-reverse;
@@ -157,9 +157,7 @@ figcaption {
   padding: 2rem 1.75rem;
   gap: 1.75rem;
 }
-  
 
-  
 .card p {
     margin: 0;
     margin-bottom: 0;
@@ -176,7 +174,7 @@ figcaption {
   color: var(--roasted-oolong)
 }
 
-/* ============ Badge ============ */
+/* ==================== Badge ==================== */
 .badge, .status {
   /* Layout */
   display: inline-flex;
@@ -219,7 +217,7 @@ figcaption {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--jasmine-bud, 0); }
 }
 
-/* ============ Table ============ */
+/* ==================== Table ==================== */
 
 .custom-table {
   width: 100%;
@@ -256,7 +254,7 @@ figcaption {
   cursor: default;
 }
 
-/* ============ Interaction states ============ */
+/* ==================== Interaction states ==================== */
 a:hover {
     color: var(--earl-grey);
     text-decoration: underline;
@@ -264,7 +262,7 @@ a:hover {
     text-underline-offset: .5rem;
 }
 
-/* ============ Grids & layouts ============ */
+/* ==================== Grids & layouts ==================== */
 .bento-grid {
     display: grid;
     place-items: stretch;
@@ -272,13 +270,20 @@ a:hover {
     grid-template-columns: 1fr; /* mobile = 1 column */
   }
 
-.col-1-layout,
-.col-3 {
+.col-1-layout {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2.5rem;
   margin-block-start: 2.5rem;
+}
+
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
 }
 
 .hero-wrapper {
@@ -311,7 +316,7 @@ a:hover {
 }
 
 
-/* ============ Navbar ============ */
+/* ==================== Navbar ==================== */
 .header-wrapper {
     display: flex;
     align-items: center;
@@ -414,7 +419,7 @@ a:hover {
   height: 2rem;
   padding: 0;
   margin: 0;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
 
   /* Colour */
   background: transparent;
@@ -456,7 +461,7 @@ a:hover {
   transform: rotate(0deg) scale(1);
 }
     
-/* ============ Hero ============ */
+/* ==================== Hero ==================== */
 #hero,
 #contact,
 #landing {
@@ -494,7 +499,7 @@ h1.hero-title {
   object-fit: contain;
 }
 
-/* ============ Section ============ */
+/* ==================== Section ==================== */
 section {
   display: block;
   align-content: center;
@@ -547,7 +552,7 @@ span.section-subtitle {
   pointer-events: auto;
 }
 
-/* ============ Buttons ============ */
+/* ==================== Buttons ==================== */
 .btn {
   /* 1. Layout: Flex is king for buttons */
   display: inline-flex;
@@ -631,7 +636,7 @@ span.section-subtitle {
   font-size: 1.5rem;
 }
 
-/* ============ Logo Grid ============ */
+/* ==================== Logo Grid ==================== */
 .logo-grid {
   display: grid;
   justify-content: center;
@@ -672,7 +677,7 @@ span.section-subtitle {
     opacity: 1;
 }
 
-/* ============ Contact ============ */
+/* ==================== Contact ==================== */
 
 .contact-stack {
   display: flex;
@@ -705,7 +710,7 @@ display: inline-flex; /* Ensures the span wraps the SVG tightly */
 align-self: center;
 }
 
-/* ============ Iconography ============ */
+/* ==================== Iconography ==================== */
 
 .icon {       /* Base icon container/wrapper */
   display: inline-flex;
@@ -757,7 +762,7 @@ align-self: center;
   unicode-bidi: isolate; /* block browser translation */
 }
 
-/* ============ Footer ============ */
+/* ==================== Footer ==================== */
 .footer {
   height: fit-content;
 }
@@ -794,7 +799,7 @@ align-self: center;
   transform: translateY(-1px);
 }
 
-/* ============ Back to top CTA ============ */
+/* ==================== Back to top CTA ==================== */
 .dock-wrapper {       /* 1. The Dock (The area where the button sits) */
   position: fixed;
   bottom: 0;
@@ -853,7 +858,7 @@ align-self: center;
   50% { transform: translateY(-4px); }
 }
 
-/* ============ Accessibility & inclusive design ============ */
+/* ==================== Accessibility & inclusive design ==================== */
 :focus-visible {
   outline: 2px solid var(--butterfly-pea);
   outline-offset: 4px;
@@ -881,7 +886,7 @@ html {
 }
 
 
-/* ============ Responsive system – scale UP at larger viewports ============ */
+/* ==================== Responsive system – scale UP at larger viewports ==================== */
 @media (min-width: 768px) {
 
 .bento-grid {
@@ -893,11 +898,9 @@ html {
 .col-3 {
   display: grid;
   place-items: stretch;
-  gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
   justify-items: start;
-  margin: 0;
 }
 
 .card {
