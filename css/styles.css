@@ -67,22 +67,38 @@ hr {
 /* ==================== Images ==================== */
 
 figure {
-  border-radius: 1rem;
   margin: 1rem 0;
-  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 figure img {
-  display: block;            /* removes inline-image whitespace */
-  width: inherit;
+
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 1rem;
   border: 1px solid var(--dried-clay);
+  transition: transform 0.5s ease;
+}
+
+.bento-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #f0f0f0;
+}
+
+.bento-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures images fill the box without stretching */
+  transition: transform 0.5s ease;
 }
 
 figcaption {
   margin-top: 0.75rem;
-  color: var(--steeped-bark);
+  color: var(--roasted-oolong);
   font-size: 0.75rem;
   letter-spacing: -0.02rem;
   text-align: left;
@@ -97,7 +113,7 @@ figcaption {
 
     background-color: var(--white-pekoe);
     border-radius: 16px;
-    box-shadow: 0px 0px 2px var(--wilted-rose) inset;
+    border: 1px solid var(--dried-clay);
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
@@ -107,9 +123,9 @@ figcaption {
   
 .card:hover,
 .card:focus-within {
-    box-shadow: 0px 0px 2px hsla(30, 20%, 75% ,1) inset,
-                0px 0px 8px hsla(30, 20%, 85%, 0.8);
-  }
+  border: 1px solid var(--wilted-rose);
+  box-shadow: 0px 0px 8px hsla(30, 20%, 85%, 0.8);
+}
 
 .card-img {
   display: flex; /* Removes bottom whitespace gap */
@@ -171,7 +187,7 @@ figcaption {
 }
 
 .card .icon {
-  color: var(--roasted-oolong)
+  color: var(--masala-chai);
 }
 
 /* ==================== Badge ==================== */
@@ -197,7 +213,15 @@ figcaption {
   /* Colour */
   color: var(--ceylon-leaf);
   background-color: var(--steamed-vapor);
-  box-shadow: 0px 0px 2px var(--wilted-rose) inset;
+  border: 1px solid var(--dried-clay);
+}
+
+.badge:hover,
+.badge:focus,
+.badge:active {
+  color: var(--masala-chai);
+  border: 1px solid var(--masala-chai);
+  cursor: default;
 }
 
 /* Animated status dot */
@@ -254,16 +278,21 @@ figcaption {
   cursor: default;
 }
 
-/* ==================== Interaction states ==================== */
-a:hover {
-    color: var(--earl-grey);
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: .5rem;
-}
-
 /* ==================== Grids & layouts ==================== */
 .bento-grid {
+  grid-template-columns: 1fr; /* One column only */
+  grid-template-rows: auto;    /* Let rows grow naturally */
+  height: auto;
+}
+
+
+
+/* Subtle Hover Effect */
+.bento-item:hover img {
+  transform: scale(1.05);
+}
+
+.grid-layout {
     display: grid;
     place-items: stretch;
     gap: 2rem;
@@ -318,20 +347,24 @@ a:hover {
 
 /* ==================== Navbar ==================== */
 .header-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    height: 4rem;
-    border-radius: 24px;
-    background: var(--ceylon-leaf);
+  /* Sizing */
+  height: 4rem;
+  border-radius: 24px;
+  padding: 1rem;
+  margin: 1rem 0;
 
-    padding: 1rem;
-    margin: 1rem 0;
+  /* Colour */
+  background: var(--ceylon-leaf);
+  border: 1px solid var(--aged-pu-erh);
 
-    position: relative;
-    pointer-events: auto;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  pointer-events: auto;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-brand {
@@ -339,14 +372,16 @@ a:hover {
 }
 
 .nav-brand svg {
-    display: block;
-    width: 100%;
-    height: 2rem;
-    fill: var(--silver-needle);
-    transition: fill .2s ease, transform .2s ease;
+  display: block;
+  width: 100%;
+  height: 2rem;
+  fill: var(--silver-needle);
+  transition: fill .2s ease, transform .2s ease;
 }
 
-.nav-brand svg:hover {
+.nav-brand svg:hover,
+.nav-brand svg:focus,
+.nav-brand svg:active {
   fill: var(--dried-clay);
 }
 
@@ -490,7 +525,7 @@ h1.hero-title {
 }
 
 .hero-img {
-  background-color: var(--steamed-vapor);
+  background-color: var(--silver-needle);
   border-radius: 100%;
   max-width: 100%;
   display: block;
@@ -524,7 +559,7 @@ section {
 }
 
 span.section-subtitle {
-  color: var(--steeped-bark);
+  color: var(--roasted-oolong);
   font-weight: 400;
 }
 
@@ -578,6 +613,8 @@ span.section-subtitle {
   /* 5. Animation */
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   transform: scale(1);
+
+  box-shadow: 0px 0px 8px hsla(0,0%,30%,0.25);
 }
 
 .btn:hover,
@@ -591,8 +628,7 @@ span.section-subtitle {
 .btn-primary {
   background-color: var(--ceylon-leaf);
   color: var(--silver-needle);
-  box-shadow: 0px 0px 2px var(--steamed-vapor, 1) inset,
-              0px 0px 12px hsla(0,0%,25%,0.1);
+  border: 1px solid var(--aged-pu-erh);
 }
 
 .btn-primary:hover, 
@@ -605,8 +641,7 @@ span.section-subtitle {
 .btn-secondary {
   background-color: transparent;
   color: var(--ceylon-leaf);
-  box-shadow: 0px 0px 2px var(--ceylon-leaf, 1) inset,
-              0px 0px 12px hsla(0,0%,25%,0.1);
+  border: 1px solid var(--ceylon-leaf);
 }
 
 .btn-secondary:hover, 
@@ -619,8 +654,7 @@ span.section-subtitle {
 .btn-tertiary {
   background-color: var(--silver-needle);
   color: var(--ceylon-leaf);
-  box-shadow: 0px 0px 2px var(--terracotta-clay, 1) inset,
-              0px 0px 12px hsla(0,0%,25%,0.1);
+  border: 1px solid var(--steamed-vapor);
 }
 
 .btn-tertiary:hover, 
@@ -682,32 +716,60 @@ span.section-subtitle {
 .contact-stack {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 2rem;
 }
 
 .contact-stack a {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
-  
   font-size: 1.75rem;
 }
 
-.contact-stack a:hover {
-text-decoration: none;
+.contact-stack a::after {
+  display: none;
 }
 
-.contact-stack a:hover .contact-text,
-.contact-stack a:hover .arrow_outward {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: .5rem;
+.contact-stack a:hover .contact-text::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.contact-text { /* Create the specific underline for just the text */
+  position: relative;
+  display: inline-block;
+}
+
+.contact-text::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px; /* Adjust distance from text */
+  left: 0;
+  background-color: currentColor;
+  
+  /* Initial State: Invisible and shrunk */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .arrow_outward {
-display: inline-flex; /* Ensures the span wraps the SVG tightly */
-align-self: center;
+  display: inline-flex; /* Ensures the span wraps the SVG tightly */
+  align-items: center;
+  justify-content: center;
+  /* GPU acceleration for smooth motion */
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-stack a:hover .arrow_outward {
+  animation: arrow-bob 1.2s infinite ease-in-out;
+}
+
+@keyframes arrow-bob {  /* arrow-outward animation */
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(4px, -4px); } /* The "Outward" peak */
+  100% { transform: translate(0, 0); }
 }
 
 /* ==================== Iconography ==================== */
@@ -816,7 +878,7 @@ align-self: center;
   
   background: linear-gradient(            /* Gradient from solid to transparent */
       to top, 
-      hsla(30, 62%, 98%, 1) 0%,   /* Solid at the very top */
+      hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
       hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
     );
 
@@ -839,6 +901,7 @@ align-self: center;
 .btn-btt {
   gap: 0.25rem;
   padding: 0.5em 1em;
+  border-radius: 0.75rem;
   pointer-events: auto; /* Re-enable clicking for the button itself */
   font-size: 14px;
   transition: background .2s ease, transform .2s ease, opacity .3s ease, visibility .3s ease;
@@ -848,7 +911,9 @@ align-self: center;
   color: var(--silver-needle);
 }
 
-.btn-btt:hover .material-symbols-rounded {
+.btn-btt:hover .material-symbols-rounded,
+.btn-btt:focus .material-symbols-rounded,
+.btn-btt:active .material-symbols-rounded {
   animation: floatUp 1.5s infinite;
   transform: translateY(-2px);
 }
@@ -890,9 +955,24 @@ html {
 @media (min-width: 768px) {
 
 .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: start;
-    justify-items: start;
+  display: grid;
+  /* Two equal columns, and two equal rows */
+  grid-template-columns: 1.5fr 1fr; 
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+  height: 600px; /* Define a height to see the effect */
+  width: 100%;
+}
+
+/* The "Large" image spans from row 1 to row 3 (covering 2 rows) */
+.bento-item.tall {
+  grid-row: 1 / 3;
+}
+
+.grid-layout {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  justify-items: start;
 }
 
 .col-3 {

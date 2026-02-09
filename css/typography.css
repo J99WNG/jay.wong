@@ -1,52 +1,48 @@
 /* ==================== Typography ==================== */
 
 /* Headings */
+h1, h2, h3, h4 {
+  color: var(--ceylon-leaf);
+  font-weight: 500;
+}
+
 h1 {
-    color: var(--ceylon-leaf);
-    font-weight: 500;
     font-size: clamp(2.5rem, 4vw, 3rem);
     letter-spacing: -0.08rem;
     margin: 0 0 0.5rem 0;
   }
   
-  h2 {
-    color: var(--ceylon-leaf);
-    font-weight: 500;
-    font-size: 2rem;
-    letter-spacing: -0.06rem;
-    margin: 0;
-  }
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.06rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.04rem;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.25rem;
+  letter-spacing: -0.04rem;
+  margin: 0;
+}
   
-  h3 {
-    color: var(--ceylon-leaf);
-    font-weight: 500;
-    font-size: 1.5rem;
+/* Paragraphs */
+p {
+    font-size: 1rem;
+    font-weight: 400;
     letter-spacing: -0.04rem;
-    margin: 0;
-  }
-  
-  h4 {
-    color: var(--ceylon-leaf);
-    font-weight: 500;
-    font-size: 1.25rem;
-    letter-spacing: -0.04rem;
-    margin: 0;
-  }
-  
-  /* Paragraphs */
-  p {
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: -0.04rem;
-      line-height: 1.6;
-      max-width: 65ch;
-  
-      margin-block-start: 0;
-      margin-block-end: 0.5rem;
-  }
+    line-height: 1.6;
+    max-width: 65ch;
+
+    margin-block-start: 0;
+    margin-block-end: 0.5rem;
+}
   
   p.tagline {
-    color: var(--steeped-bark);
     font-size: 1.5rem;
     margin: 0;
   }
@@ -61,84 +57,117 @@ h1 {
   }
   
   p.lead {
-    color: var(--steeped-bark);
+    color: var(--roasted-oolong);
     font-size: 1.25rem;
     font-weight: 450;
     margin-bottom: 0;
   }
+
+/* Links */
+a {
+  letter-spacing: -0.04rem;
+  color: var(--butterfly-pea);
+  text-decoration: none;
+  position: relative;
+  display: inline-flex; /* Helps with alignment */
+  align-items: center;
+  width: fit-content;
+
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--earl-grey);
+}
+
+a:not(.nav-brand, .btn)::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px; /* Adjust distance from text */
+  left: 0;
+  background-color: currentColor;
   
-  a {
-      color: var(--butterfly-pea);
-      text-decoration: none;
-      letter-spacing: -0.04rem;
-      transition: opacity 0.2s ease;
-  }
-  
-  li {
-    font-size: 1rem;
-    letter-spacing: -0.04rem;
-    margin: 0;
-    padding-bottom: 0.75rem;
-    line-height: 1.6;
-  }
-  
-  li::marker {
-    unicode-bidi: isolate;
-    font-variant-numeric: tabular-nums;
-    text-transform: none;
-    text-indent: 100px;
-    text-align: start;
-    text-align-last: auto;
-  }
-  
-  ul, ol {
-    margin-block: 0;
-    padding-inline-start: 1.75rem;
-  }
-  
-  ul {
-    list-style-type: disc;
-  }
-  
-  strong {
-    font-weight: 550;
-  }
-  
-  span.quant {
-    font-size: 1.75rem;
-    color: var(--steeped-bark);
-  }
-  
-  .notion-quote {
-    margin: 1rem 0;
-  
-    border-left: 3px solid var(--steeped-bark);
-    color: var(--steeped-bark);
-  
-    padding: 0rem 1rem;
-    font-size: 1.25rem;
-    letter-spacing: -0.04rem;
-    line-height: 1.5;
-  }
-  
-  .breadcrumb {       /* Breadcrumb + intro */
-    display: flex;
-    justify-content: space-between;
-    place-items: center;
-    margin-bottom: 3rem;
-  }
-  
-  .metadata {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    width: stretch;
-    padding: 0;
-    gap: 0.5rem;
-  }
-  
-  .title-block {
-    display: inline-block;
-    gap: 0.5rem;
-    margin-block-end: 1rem;
-  }
+  /* Initial State: Invisible and shrunk */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a:not(.nav-brand, .btn):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Lists */
+li {
+  font-size: 1rem;
+  letter-spacing: -0.04rem;
+  margin: 0;
+  padding-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+li::marker {
+  color: var(--ceylon-leaf);
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  text-indent: 100px;
+  text-align: start;
+  text-align-last: auto;
+}
+
+ul, ol {
+  margin-block: 0;
+  padding-inline-start: 1.75rem;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+/* Misc */
+strong {
+  font-weight: 550;
+}
+
+span.quant {
+  font-size: 1.75rem;
+  color: var(--masala-chai);
+}
+
+.notion-quote {
+  margin: 1rem 0;
+
+  border-left: 3px solid var(--roasted-oolong);
+  color: var(--roasted-oolong);
+
+  padding: 0rem 1rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.04rem;
+  line-height: 1.5;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin-bottom: 3rem;
+}
+
+.metadata {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: stretch;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.title-block {
+  display: inline-block;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}

@@ -7,7 +7,6 @@
     --dried-clay:      hsla(30, 20%, 85%, 1);  
 
     /* The Vibrant Infusions (Accents & UI States) */
-    --blossom-note: hsla(26, 31%, 84%, 1);
     --wilted-rose:     hsla(26, 30%, 80%, 1); 
     --terracotta-clay: hsla(30, 15%, 65%, 1);
 
@@ -22,18 +21,17 @@
 
         /* Yellow */
         --golden-yunnan:hsla(42, 85%, 50%, 1);
-        --masala-chai:	hsla(28, 50%, 55%, 1);
+        --masala-chai:	hsla(24, 52%, 50%, 1);
 
         /* Red */
         --hibiscus-tisane: hsla(350, 60%, 50%, 1);
 
     /* Depth (The "Body") */
-    --roasted-oolong:  hsla(30, 20%, 50%, 1);
-    --steeped-bark:    hsla(30, 15%, 33%, 1);
+    --roasted-oolong:    hsla(30, 20%, 42%, 1);
     --lapsang-souchong: hsla(16, 5%, 30%, 1);
 
     /* The Deep Brews (Dark Solids & Text) */
     --ceylon-leaf:  hsla(28, 40%, 16%, 1);
-    --aged-pu-erh:	hsla(15, 25%, 10%, 1);
+    --aged-pu-erh:	hsla(15, 25%, 12%, 1);
     --assam-black:     hsla(23, 40%, 5%, 1);
 }
