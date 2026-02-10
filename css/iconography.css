@@ -61,11 +61,13 @@
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-a:hover .arrow_outward {
+a:hover .arrow_outward,
+a:focus-visible .arrow_outward {
   animation: arrowBob 1.2s infinite ease-in-out;
 }
 
-a:hover .arrow_forward {
+a:hover .arrow_forward,
+a:focus-visible .arrow_forward {
   animation: arrowForward 1s ease-in-out infinite;
 }
 
