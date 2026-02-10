@@ -80,7 +80,7 @@ a:hover {
   color: var(--earl-grey);
 }
 
-a:not(.nav-brand, .btn)::after {
+a:not(.nav-brand, .btn, .footer-social a)::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -95,7 +95,7 @@ a:not(.nav-brand, .btn)::after {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-a:not(.nav-brand, .btn):hover::after {
+a:not(.nav-brand, .btn, .footer-social a):hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -110,7 +110,7 @@ li {
 }
 
 li::marker {
-  color: var(--ceylon-leaf);
+  color: var(--masala-chai);
   unicode-bidi: isolate;
   font-variant-numeric: tabular-nums;
   text-transform: none;

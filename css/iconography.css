@@ -1,0 +1,86 @@
+/* ==================== Iconography ==================== */
+
+.icon {       /* Base icon container/wrapper */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;       /* Aligns icon with middle of text */
+    flex-shrink: 0;       /* Prevents icon from squishing in flex layouts */
+  
+    /* 2. Apply the variable to the wrapper's dimensions */
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: var(--icon-size);        /* 3. THIS IS KEY: Set font-size here so Material Symbols inherit it */
+  }
+  
+  .icon-inline {
+    background: var(--white-pekoe);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+  }
+  
+  /* Sizing via utility classes using rem or em */
+  .icon-sm { --icon-size: 1rem; --icon-opsz: 20; }       /* 16px */
+  .icon-md { --icon-size: 1.5rem; --icon-opsz: 24; }       /* 24px */
+  .icon-lg { --icon-size: 2rem; --icon-opsz: 32; }       /* 32px */
+  .icon-xl { --icon-size: 3rem; --icon-opsz: 48; }       /* 48px */
+  .icon-max { --icon-size: 4rem; --icon-opsz: 48; }        /* 64px */
+  
+  .icon svg,
+  .icon img {       /* The SVG itself */
+    fill: currentColor;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .icon .material-symbols-rounded {
+    font-size: inherit !important;       /* This ensures the icon fills your .icon-md wrapper */
+    width: 100%;
+    height: 100%;
+    line-height: 1;         /* Prevents the font's line-height from tall-boxing */
+  
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' var(--icon-opsz); /* Use a larger optical size for 32px+ icons */
+  
+    unicode-bidi: isolate; /* block browser translation */
+  }
+
+.arrow_outward,
+.arrow_forward {
+  display: inline-flex; /* Ensures the span wraps the SVG tightly */
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+  /* GPU acceleration for smooth motion */
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a:hover .arrow_outward {
+  animation: arrowBob 1.2s infinite ease-in-out;
+}
+
+a:hover .arrow_forward {
+  animation: arrowForward 1s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+@keyframes arrowBob {  /* arrow-outward animation */
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(4px, -4px); } /* The "Outward" peak */
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes arrowForward {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}

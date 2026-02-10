@@ -140,3 +140,24 @@ const appearOnScroll = new IntersectionObserver((entries) => {
 fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////
+
+
+function updateJWTime() {
+  const timeElement = document.getElementById('clock-time');
+  
+  // Create a formatter for the specific timezone
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Hong_Kong',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false // Change to true if you want AM/PM
+  });
+
+  // Update the text content
+  timeElement.textContent = formatter.format(new Date());
+}
+
+  // Update immediately on load, then every second
+  updateJWTime();
+  setInterval(updateJWTime, 1000);

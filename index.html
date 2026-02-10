@@ -82,7 +82,7 @@ title: "Jay Wong – Solving digital complexity with design"
                         <article class="card">
                             <div class="card-content card-content-secondary">
                                 <span class="icon icon-xl" aria-hidden="true">
-                                    <span class="material-symbols-rounded" translate="no">account_tree</span>
+                                    <span class="material-symbols-rounded card-icon" translate="no">account_tree</span>
                                 </span>
 
                                 <p class="lead">Strategic Organiser</p>
@@ -94,7 +94,7 @@ title: "Jay Wong – Solving digital complexity with design"
                         <article class="card">
                             <div class="card-content card-content-secondary">
                                 <span class="icon icon-xl" aria-hidden="true">
-                                    <span class="material-symbols-rounded" translate="no">category</span>
+                                    <span class="material-symbols-rounded card-icon" translate="no">category</span>
                                 </span>
 
                                 <p class="lead">Cross-Functional</p>
@@ -106,7 +106,7 @@ title: "Jay Wong – Solving digital complexity with design"
                         <article class="card">
                             <div class="card-content card-content-secondary">
                                 <span class="icon icon-xl" aria-hidden="true">
-                                    <span class="material-symbols-rounded" translate="no">search_insights</span>
+                                    <span class="material-symbols-rounded card-icon" translate="no">search_insights</span>
                                 </span>
 
                                 <p class="lead">Evidence-Led</p>
@@ -118,7 +118,7 @@ title: "Jay Wong – Solving digital complexity with design"
                         <article class="card">
                             <div class="card-content card-content-secondary">
                                 <span class="icon icon-xl" aria-hidden="true">
-                                    <span class="material-symbols-rounded" translate="no">diversity_4</span>
+                                    <span class="material-symbols-rounded card-icon" translate="no">diversity_4</span>
                                 </span>
                                 
                                 <p class="lead">Collaborative Owner</p>
@@ -302,11 +302,15 @@ title: "Jay Wong – Solving digital complexity with design"
                                 <p class="badge">GenAI</p>
                             </div>
 
-                            <div class="card--link">
-                                <a href="{{ site.baseurl }}/case-study-1">
-                                    View case study → 
-                                </a>
-                            </div>
+                            <a class="card-link" href="{{ site.baseurl }}/case-study-1">
+                                View case study
+
+                                <span class="icon icon-sm" aria-hidden="true">
+                                    <span class="material-symbols-rounded arrow_forward">
+                                        arrow_forward
+                                    </span>
+                                </span>
+                            </a>
                         </div>
 
                         <div class="card-img">
@@ -324,7 +328,7 @@ title: "Jay Wong – Solving digital complexity with design"
                                 Something exciting and eye-catching to go here, summarising the project/case study! Watch this space! Coming soon...
                             </p>
 
-                            <a href="#" class="card--link">View case study →</a>
+                            <a href="#" class="card-link">View case study →</a>
                         </div>
 
                         <div class="card-img">
@@ -342,7 +346,7 @@ title: "Jay Wong – Solving digital complexity with design"
                                 Something exciting and eye-catching to go here, summarising the project/case study! Watch this space! Coming soon...
                             </p>
 
-                            <a href="#" class="card--link">View case study →</a>
+                            <a href="#" class="card-link">View case study →</a>
                         </div>
 
                         <div class="card-img">
@@ -373,7 +377,12 @@ title: "Jay Wong – Solving digital complexity with design"
                     </p>
 
                     <!-- Status -->
-                    <p class="status">Currently based in Hong Kong 🇭🇰</p>
+                    <div class="status">
+                        <span class="status-text">
+                            Currently based in Hong Kong 🇭🇰
+                            <span id="clock-time">00:00:00</span>
+                        </span>
+                    </div>
 
                     <div class="contact-stack" role="list">
                         <!-- Email -->
