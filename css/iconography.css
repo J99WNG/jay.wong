@@ -71,6 +71,11 @@ a:focus-visible .arrow_forward {
   animation: arrowForward 1s ease-in-out infinite;
 }
 
+a:hover .arrow_back,
+a:focus-visible .arrow_back {
+  animation: arrowBack 1s ease-in-out infinite;
+}
+
 @keyframes floatUp {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-4px); }
@@ -85,4 +90,9 @@ a:focus-visible .arrow_forward {
 @keyframes arrowForward {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(6px); }
+}
+
+@keyframes arrowBack {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
 }

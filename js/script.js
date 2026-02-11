@@ -82,7 +82,7 @@ const footer = document.querySelector('footer');
 let lastScrollY = window.scrollY;
 let ticking = false; // Prevents the scroll event from overfiring
 
-// 1. SCROLL TO TOP CTA & FOOTER LOGIC
+// SCROLL TO TOP CTA & FOOTER LOGIC //
 window.addEventListener('scroll', () => {
     if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -120,7 +120,7 @@ bttBtn?.addEventListener("click", () => window.scrollTo({ top: 0 }));
 
 //////////////////////////////////////////////////////////////////////
 
-// 2. SECTION FADE (Two-Way Trigger)
+// SECTION FADE (Two-Way Trigger) //
 const fadeElems = document.querySelectorAll('.section-fade');
 
 const appearOnScroll = new IntersectionObserver((entries) => {
@@ -141,7 +141,7 @@ fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////
 
-
+// Hong Kong Time // 
 function updateJWTime() {
   const timeElement = document.getElementById('clock-time');
   

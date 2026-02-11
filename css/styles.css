@@ -97,8 +97,9 @@ figure img {
   transition: transform 0.5s ease;
 }
 
-figcaption {
-  margin-top: 0.75rem;
+figcaption,
+caption {
+  margin-top: 0.5rem;
   color: var(--roasted-oolong);
   font-size: 0.75rem;
   letter-spacing: -0.02rem;
@@ -114,7 +115,7 @@ figcaption {
 
     background-color: var(--white-pekoe);
     border-radius: 16px;
-    border: 1px solid var(--dried-clay);
+    border: 1px solid var(--steamed-vapor);
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
@@ -313,6 +314,9 @@ figcaption {
 
 /* ==================== Grids & layouts ==================== */
 .bento-grid {
+  display: grid;
+  /* Two equal columns, and two equal rows */
+  gap: 1.5rem;
   grid-template-columns: 1fr; /* One column only */
   grid-template-rows: auto;    /* Let rows grow naturally */
   height: auto;
@@ -920,11 +924,8 @@ html {
 @media (min-width: 768px) {
 
 .bento-grid {
-  display: grid;
-  /* Two equal columns, and two equal rows */
   grid-template-columns: 1.5fr 1fr; 
   grid-template-rows: 1fr 1fr;
-  gap: 1.5rem;
   height: 600px; /* Define a height to see the effect */
   width: 100%;
 }
