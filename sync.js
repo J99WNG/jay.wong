@@ -73,16 +73,32 @@ image_2: "${gallery2}"
 async function build() {
   try {
     await fs.ensureDir(postsDir);
+    
+    // 1. Fetch posts once
+    const posts = await getPublishedPosts();
+
+    // 2. Debug logs
+    console.log(`DEBUG: Notion returned ${posts.length} posts.`);
+    
+    if (posts.length === 0) {
+      console.log("⚠️ No posts found. Check: 1. Connection Shared? 2. Status is 'Live'?");
+      return; 
+    }
+
+    if (posts.length > 0) {
+      // Safely log the first title
+      const firstTitle = posts[0].properties.Title?.title[0]?.plain_text || "Untitled";
+      console.log(`DEBUG: First post title found: ${firstTitle}`);
+    }
+
+    // 3. Now it is safe to empty the directory
     await fs.emptyDir(postsDir);
 
-    const posts = await getPublishedPosts();
-    console.log(`Found ${posts.length} published posts.`);
-
+    // 4. Loop through the posts we already fetched
     for (const post of posts) {
       const props = post.properties;
       
-      // Use Project Year for the filename sorting if you want, 
-      // or keep a timestamp so filenames remain unique.
+      // Get the year for the filename
       const year = props["Project Year"]?.number || "2026";
       const slug = props.Slug?.rich_text[0]?.plain_text || "post";
       
@@ -90,12 +106,13 @@ async function build() {
       const blocks = await getPageContent(post.id);
       const htmlBody = convertBlocksToMarkdown(blocks);
 
-      // Jekyll uses the filename date for default sorting
+      // Jekyll filename format: YYYY-MM-DD-slug.md
       const filename = `${year}-01-01-${slug}.md`; 
       
       await fs.writeFile(path.join(postsDir, filename), frontmatter + "\n" + htmlBody);
       console.log(`✔ Generated ${filename} for Year ${year}`);
     }
+    
     console.log("✅ Build complete");
   } catch (error) {
     console.error("❌ Build failed:", error);
