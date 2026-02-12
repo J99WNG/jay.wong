@@ -43,10 +43,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true 
+          # Temporarily set this to false to force a fresh install 
+          # until we get a "Green" build.
+          bundler-cache: false 
 
       - name: Install Jekyll Dependencies
-        run: bundle install
+        run: |
+          gem install bundler
+          bundle config set --local path 'vendor/bundle'
+          bundle install
 
       - name: Build and Deploy to GitHub Pages
         uses: actions/jekyll-build-pages@v1
