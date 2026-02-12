@@ -42,11 +42,15 @@ jobs:
           # This line prevents the build from failing if there are NO changes in Notion
           git diff-index --quiet HEAD || (git commit -m "Sync Notion Content" && git push)
 
-      - name: Setup Ruby (for Jekyll)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
+      - name: Setup Ruby
+              uses: ruby/setup-ruby@v1
+              with:
+                ruby-version: '3.2'
+                bundler-cache: true # This looks for a Gemfile.lock
+
+      - name: Install Jekyll Dependencies
+        run: |
+          bundle install
 
       - name: Build and Deploy to GitHub Pages
         uses: actions/jekyll-build-pages@v1
