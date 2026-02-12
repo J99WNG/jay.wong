@@ -283,9 +283,46 @@ title: "Jay Wong – Solving digital complexity with design"
                 </div>
 
                 <div class="col-1-layout">
+                    {% assign sorted_posts = site.posts | sort: "project_year" | reverse %}
+                    {% for post in sorted_posts %}
+                    <article class="card">
+                        <div class="card-content card-content-primary">
+                            <p class="small"> {{ post.metadata_info }} </p>
+
+                            <h3 class="card-title">{{ post.title }}</h3>
+
+                            <p class="card-text">{{ post.description }}</p>
+                            
+                            <div class="badge-group">
+                                {% for tag in post.categories %}
+                                <p class="badge">{{ tag }}</p>
+                                {% endfor %}
+                            </div>
+
+                            <a class="card-link" href="{{ post.url }}">
+                                View case study
+
+                                <span class="icon icon-sm" aria-hidden="true">
+                                    <span class="material-symbols-rounded arrow_forward">
+                                        arrow_forward
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="card-img">
+                            {% if post.card_image != "" and post.card_image != nil %}
+                            <img src="{{ post.card_image }}" alt="{{ post.title }}">
+                            {% else %}
+                            <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png" alt="Placeholder">
+                            {% endif %}
+                        </div>
+
+                    </article>
+                    {% endfor %}
+
                     <!-- Card #1-->
                     <article class="card">
-                    
                         <div class="card-content card-content-primary">
                             <p class="small">
                                 2025 / bp / Oil & Gas
@@ -318,43 +355,8 @@ title: "Jay Wong – Solving digital complexity with design"
                         <div class="card-img">
                             <img src="{{ site.baseurl }}/case-study-1/bp-thumbnail.png" alt="Mobile and web mockup of a Generative AI tool for ITSM">
                         </div>
-
                     </article>
 
-                    <!-- Card #2-->
-                    <article class="card">
-                        <div class="card-content card-content-primary">
-                            <h3 class="card-title">This title needs to be an outcome or impact.</h3>
-
-                            <p class="card-text">
-                                Something exciting and eye-catching to go here, summarising the project/case study! Watch this space! Coming soon...
-                            </p>
-
-                            <a href="#" class="card-link">View case study →</a>
-                        </div>
-
-                        <div class="card-img">
-                            <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Credit+Suisse&font=open-sans.png" alt="...">
-                        </div>
-
-                    </article>
-
-                    <!-- Card #3-->
-                    <article class="card">
-                        <div class="card-content card-content-primary">
-                            <h3 class="card-title">This title needs to be an outcome or impact.</h3>
-
-                            <p class="card-text">
-                                Something exciting and eye-catching to go here, summarising the project/case study! Watch this space! Coming soon...
-                            </p>
-
-                            <a href="#" class="card-link">View case study →</a>
-                        </div>
-
-                        <div class="card-img">
-                            <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png" alt="...">
-                        </div>
-                    </article>
                 </div>
 
             </div>

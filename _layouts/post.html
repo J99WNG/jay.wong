@@ -1,0 +1,64 @@
+---
+layout: default
+title: "Jay Wong – Solving digital complexity with design"
+---
+
+<article>
+  <section id="landing">
+    <div class="container section-fade">
+
+      <div class="breadcrumb">
+        <a href="{{ site.baseurl }}/#work" title="Back to all projects">
+          <span class="icon icon-sm" aria-hidden="true">
+            <span class="material-symbols-rounded arrow_back">
+                arrow_back
+            </span>
+          </span>
+          
+          Back to all projects
+        </a>
+      
+        <a href="" title="Next case study">
+          Next case study
+
+          <span class="icon icon-sm" aria-hidden="true">
+            <span class="material-symbols-rounded arrow_forward">
+                arrow_forward
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <p class="small">
+          {{ page.metadata_info }}
+        </p>
+
+        <h1>{{ page.title }}</h1>
+
+        <p class="tagline">{{ page.description }}</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-item tall">
+          {% if post.card_image != "" and post.card_image != nil %}
+          <img src="{{ page.card_image }}" alt="{{ post.title }}">
+          {% else %}
+          <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png" alt="Placeholder">
+          {% endif %}
+        </div>
+
+        <div class="bento-item">
+          <img src="{{ page.image_2 | default: 'https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png' }}" alt="Placeholder">
+        </div>
+
+        <div class="bento-item">
+          <img src="{{ page.image_3 | default: 'https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png' }}" alt="Placeholder">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ content }}
+
+</article>

@@ -1,6 +1,9 @@
 # Site settings
 title: "Jay Wong - Solving digital complexity with design"
 description: "Product and front-end designer specialising in inclusive, AI-led and service-driven products"
+permalink: /:slug/ # This creates jaywong.digital/case-study-1/ automaticallY
+markdown: kramdown
+highlighter: rouge
 
 # GitHub Pages settings
 # If your site is at https://username.github.io/repository-name, set baseurl to "/repository-name"
@@ -23,6 +26,11 @@ exclude:
   - README.md
   - .git
   - .gitignore
+  - package.json
+  - package-lock.json
+  - sync.js
+  - inspect.js
+  - .env
 
 # Include files/directories that start with underscores
 include:

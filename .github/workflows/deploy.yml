@@ -1,8 +1,14 @@
 name: Notion to GitHub Pages
 on:
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch: 
   schedule:
-    - cron: '0 * * * *' # Runs every hour automatically
+    - cron: '0 * * * *' 
+
+# IMPORTANT: Grant the robot permission to write back to the repo
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -10,6 +16,9 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          # This ensures the bot can push back to the branch
+          fetch-depth: 0 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -17,13 +26,21 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
-        run: npm install @notionhq/client notion-to-md dotenv
+        run: npm install @notionhq/client fs-extra dotenv # Added fs-extra based on your script
 
       - name: Run Notion Sync Script
         run: node sync.js
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add _posts/
+          # This line prevents the build from failing if there are NO changes in Notion
+          git diff-index --quiet HEAD || (git commit -m "Sync Notion Content" && git push)
 
       - name: Setup Ruby (for Jekyll)
         uses: ruby/setup-ruby@v1
@@ -32,4 +49,4 @@ jobs:
           bundler-cache: true
 
       - name: Build and Deploy to GitHub Pages
-        uses: actions/jekyll-build-pages@v1 # Official Jekyll build action
+        uses: actions/jekyll-build-pages@v1

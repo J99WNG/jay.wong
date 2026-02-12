@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "notion": "node scripts/notion-to-jekyll.js",
-    "build": "npm run notion && jekyll build"
+    "build": "npm run notion && jekyll build",
+    "sync": "node sync.js",
+    "dev": "npm run sync && bundle exec jekyll serve"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -141,7 +141,7 @@ fadeElems.forEach(elem => appearOnScroll.observe(elem));
 
 //////////////////////////////////////////////////////////////////////
 
-// Hong Kong Time // 
+// HONG KONG TIME // 
 function updateJWTime() {
   const timeElement = document.getElementById('clock-time');
   
