@@ -36,8 +36,17 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Only stage the _posts folder
           git add _posts/
-          git diff-index --quiet HEAD || (git commit -m "Sync Notion Content" && git push)
+          
+          # Only commit if there are actual changes in the _posts folder
+          if [ -n "$(git status --porcelain _posts/)" ]; then
+            git commit -m "Sync Notion Content"
+            git push
+          else
+            echo "No changes found in Notion posts. Skipping commit."
+          fi
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
