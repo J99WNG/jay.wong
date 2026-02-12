@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: '0 * * * *' 
 
-# IMPORTANT: Grant the robot permission to write back to the repo
 permissions:
   contents: write
   pages: write
@@ -17,7 +16,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          # This ensures the bot can push back to the branch
           fetch-depth: 0 
 
       - name: Setup Node.js
@@ -26,7 +24,7 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
-        run: npm install @notionhq/client fs-extra dotenv # Added fs-extra based on your script
+        run: npm install @notionhq/client fs-extra dotenv
 
       - name: Run Notion Sync Script
         run: node sync.js
@@ -39,18 +37,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add _posts/
-          # This line prevents the build from failing if there are NO changes in Notion
           git diff-index --quiet HEAD || (git commit -m "Sync Notion Content" && git push)
 
       - name: Setup Ruby
-              uses: ruby/setup-ruby@v1
-              with:
-                ruby-version: '3.2'
-                bundler-cache: true # This looks for a Gemfile.lock
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true 
 
       - name: Install Jekyll Dependencies
-        run: |
-          bundle install
+        run: bundle install
 
       - name: Build and Deploy to GitHub Pages
         uses: actions/jekyll-build-pages@v1
