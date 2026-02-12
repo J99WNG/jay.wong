@@ -73,46 +73,29 @@ image_2: "${gallery2}"
 async function build() {
   try {
     await fs.ensureDir(postsDir);
-    
-    // 1. Fetch posts once
     const posts = await getPublishedPosts();
 
-    // 2. Debug logs
     console.log(`DEBUG: Notion returned ${posts.length} posts.`);
-    
+
+    // SAFETY CHECK: If no posts, STOP immediately. 
+    // Do not empty the directory, do not pass go.
     if (posts.length === 0) {
-      console.log("⚠️ No posts found. Check: 1. Connection Shared? 2. Status is 'Live'?");
+      console.log("⚠️ No posts found. Stopping to prevent folder deletion.");
       return; 
     }
 
-    if (posts.length > 0) {
-      // Safely log the first title
-      const firstTitle = posts[0].properties.Title?.title[0]?.plain_text || "Untitled";
-      console.log(`DEBUG: First post title found: ${firstTitle}`);
-    }
-
-    // 3. Now it is safe to empty the directory
+    // Only empty the directory if we actually have new data to put in it
     await fs.emptyDir(postsDir);
 
-    // 4. Loop through the posts we already fetched
     for (const post of posts) {
-      const props = post.properties;
+      // ... your existing loop logic ...
+      const year = post.properties["Project Year"]?.number || "2026";
+      const slug = post.properties.Slug?.rich_text[0]?.plain_text || "post";
+      const filename = `${year}-01-01-${slug}.md`;
       
-      // Get the year for the filename
-      const year = props["Project Year"]?.number || "2026";
-      const slug = props.Slug?.rich_text[0]?.plain_text || "post";
-      
-      const frontmatter = createFrontmatter(post);
-      const blocks = await getPageContent(post.id);
-      const htmlBody = convertBlocksToMarkdown(blocks);
-
-      // Jekyll filename format: YYYY-MM-DD-slug.md
-      const filename = `${year}-01-01-${slug}.md`; 
-      
-      await fs.writeFile(path.join(postsDir, filename), frontmatter + "\n" + htmlBody);
-      console.log(`✔ Generated ${filename} for Year ${year}`);
+      await fs.writeFile(path.join(postsDir, filename), createFrontmatter(post) + "\n" + convertBlocksToMarkdown(await getPageContent(post.id)));
+      console.log(`✔ Generated ${filename}`);
     }
-    
     console.log("✅ Build complete");
   } catch (error) {
     console.error("❌ Build failed:", error);
