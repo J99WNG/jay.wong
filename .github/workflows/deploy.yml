@@ -1,0 +1,35 @@
+name: Notion to GitHub Pages
+on:
+  workflow_dispatch: # Allows manual trigger
+  schedule:
+    - cron: '0 * * * *' # Runs every hour automatically
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install @notionhq/client notion-to-md dotenv
+
+      - name: Run Notion Sync Script
+        run: node sync.js
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
+      - name: Setup Ruby (for Jekyll)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build and Deploy to GitHub Pages
+        uses: actions/jekyll-build-pages@v1 # Official Jekyll build action

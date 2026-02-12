@@ -8,12 +8,11 @@
 
     /* epth (The "Body") */
     --roasted-oolong: hsla(30, 20%, 42%, 1);
-    --test: hsla(0, 10%, 40%, 1);
     --lapsang-souchong: hsla(16, 5%, 30%, 1);
 
     /* The Deep Brews (Dark Solids & Text) */
-    --ceylon-leaf: hsla(28, 40%, 16%, 1);
-    --aged-pu-erh: hsla(15, 25%, 12%, 1);
+    --aged-pu-erh: hsla(28, 40%, 20%, 1);
+    --ceylon-leaf: hsla(20, 30%, 14%, 1);
     --assam-black: hsla(23, 40%, 5%, 1);
 
     /* The Vibrant Infusions (Accents & UI States) */

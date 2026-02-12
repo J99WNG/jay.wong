@@ -1,6 +1,8 @@
 /* ==================== Foundations ==================== */
 *, *::before, *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  /* Removes the default mobile gray tap highlight */
+  -webkit-tap-highlight-color: transparent;
 }
 
 header {
@@ -73,7 +75,6 @@ figure {
 }
 
 figure img {
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -127,23 +128,25 @@ caption {
   
 .card:hover,
 .card:active,
-.card:focus {
+.card:focus-visible {
   border: 1px solid var(--terracotta-clay);
   box-shadow: 0px 0px 8px hsla(30, 20%, 85%, 1);
 }
 
 .card-img {
+  height: 100%;
   display: flex; /* Removes bottom whitespace gap */
   flex: 1;       /* Ensures the wrapper takes up space */
   margin: 0;
   padding: 0;
+  
 
   background-color: var(--dried-clay);
 }
 
 .card-img img {
   width: 100%;
-  height: 100%;      /* Changed from auto to 100% to force the stretch */
+  height: auto;      /* Changed from auto to 100% to force the stretch */
   object-fit: cover;
   display: block;
 }
@@ -217,7 +220,7 @@ caption {
 
   /* Sizing */
   width: fit-content;
-  gap: 8px;
+  gap: 0.5rem;
   padding: 0.75em 1em;
   margin: 0;
   border-radius: 0.75rem;
@@ -238,7 +241,7 @@ caption {
 
 .badge:hover,
 .badge:active
-.badge:focus {
+.badge:focus-visible {
   color: var(--masala-chai);
   border: 1px solid var(--masala-chai);
   cursor: default;
@@ -307,7 +310,7 @@ caption {
 /* Hover Effect */
 .custom-table tbody tr:hover,
 .custom-table tbody tr:active,
-.custom-table tbody tr:focus {
+.custom-table tbody tr:focus-visible {
   background-color: var(--steamed-vapor);
   cursor: default;
 }
@@ -325,7 +328,7 @@ caption {
 /* Subtle Hover Effect */
 .bento-item:hover img,
 .bento-item:active img,
-.bento-item:focus img {
+.bento-item:focus-visible img {
   transform: scale(1.05);
 }
 
@@ -370,7 +373,8 @@ caption {
 
 .badge-group {
   display: inline-flex;
-  gap: 0.75rem;
+  column-gap: 0.5rem;
+  row-gap: 0.75rem;
   margin-block: 0.5rem;
   flex-wrap: wrap;
 }
@@ -423,7 +427,7 @@ caption {
 
 .nav-brand svg:hover,
 .nav-brand svg:active,
-.nav-brand svg:focus {
+.nav-brand svg:focus-visible {
   fill: var(--dried-clay);
 }
 
@@ -663,7 +667,7 @@ span.section-subtitle {
 
 .btn:hover,
 .btn:active,
-.btn:focus {
+.btn:focus-visible {
   text-decoration: none;
   transform: scale(0.95);
 }
@@ -677,7 +681,7 @@ span.section-subtitle {
 
 .btn-primary:hover, 
 .btn-primary:active, 
-.btn-primary:focus {
+.btn-primary:focus-visible {
   color: var(--silver-needle);
   background-color: var(--aged-pu-erh);
 }
@@ -691,7 +695,7 @@ span.section-subtitle {
 
 .btn-secondary:hover, 
 .btn-secondary:active, 
-.btn-secondary:focus {
+.btn-secondary:focus-visible {
   color: var(--ceylon-leaf);
 }
 
@@ -704,7 +708,7 @@ span.section-subtitle {
 
 .btn-tertiary:hover, 
 .btn-tertiary:active, 
-.btn-tertiary:focus {
+.btn-tertiary:focus-visible {
   color: var(--ceylon-leaf);
   background-color: var(--steamed-vapor);
 }
@@ -833,7 +837,7 @@ span.section-subtitle {
 
 .footer-social a:hover svg,
 .footer-social a:active svg,
-.footer-social a:focus svg {
+.footer-social a:focus-visible svg {
   cursor: pointer;
   transform: translateY(-1px);
 }
@@ -885,7 +889,7 @@ span.section-subtitle {
 
 .btn-btt .material-symbols-rounded,
 .btn-btt:hover .material-symbols-rounded,
-.btn-btt:focus .material-symbols-rounded,
+.btn-btt:focus-visible .material-symbols-rounded,
 .btn-btt:active .material-symbols-rounded {
   color: var(--silver-needle);
   animation: floatUp 1.5s infinite;

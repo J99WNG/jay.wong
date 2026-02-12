@@ -1,0 +1,19 @@
+{
+  "name": "jw-2025",
+  "version": "1.0.0",
+  "description": "## Prerequisites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "notion": "node scripts/notion-to-jekyll.js",
+    "build": "npm run notion && jekyll build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "dotenv": "^17.2.4",
+    "fs-extra": "^11.3.3"
+  }
+}
