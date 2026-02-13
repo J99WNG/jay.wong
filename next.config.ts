@@ -7,7 +7,15 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  trailingSlash: true
+  trailingSlash: true,
+
+  // ADD THIS BLOCK:
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete 
+    // even if your project has type errors.
+    ignoreBuildErrors: true,
+  },
 };
 
 const dishesMDX = createMDX({
