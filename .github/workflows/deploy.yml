@@ -1,66 +1,40 @@
-name: Notion to GitHub Pages
+name: Deploy Next.js to Pages
+
 on:
-  workflow_dispatch: 
-  schedule:
-    - cron: '0 * * * *' 
+  push:
+    branches: ["main"] # Or "master" depending on your repo
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 
-
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
-      - name: Install Dependencies
-        run: npm install @notionhq/client fs-extra dotenv
-
-      - name: Run Notion Sync Script
-        run: node sync.js
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-
-      - name: Commit and Push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Only stage the _posts folder
-          git add _posts/
-          
-          # Only commit if there are actual changes in the _posts folder
-          if [ -n "$(git status --porcelain _posts/)" ]; then
-            git commit -m "Sync Notion Content"
-            git push
-          else
-            echo "No changes found in Notion posts. Skipping commit."
-          fi
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+          node-version: "20"
+      - name: Install dependencies
+        run: npm install
+      - name: Build with Next.js
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          ruby-version: '3.2'
-          # Temporarily set this to false to force a fresh install 
-          # until we get a "Green" build.
-          bundler-cache: false 
+          path: ./out
 
-      - name: Install Jekyll Dependencies
-        run: |
-          gem install bundler
-          bundle config set --local path 'vendor/bundle'
-          bundle install
-
-      - name: Build and Deploy to GitHub Pages
-        uses: actions/jekyll-build-pages@v1
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

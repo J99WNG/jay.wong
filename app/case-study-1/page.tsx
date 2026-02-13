@@ -1,0 +1,1016 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function CaseStudyOne() {
+    return (
+        <article>
+
+            <section id="landing">
+            <div className="container section-fade">
+
+                <div className="breadcrumb">
+                    <Link href="/#work" title="Back to all projects">
+                        <span className="icon icon-sm" aria-hidden="true">
+                        <span className="material-symbols-rounded arrow_back">
+                            arrow_back
+                        </span>
+                        </span>
+                        
+                        Back to all projects
+                    </Link>
+                    
+                    <Link href="" title="Next case study">
+                        Next case study
+
+                        <span className="icon icon-sm" aria-hidden="true">
+                        <span className="material-symbols-rounded arrow_forward">
+                            arrow_forward
+                        </span>
+                        </span>
+                    </Link>
+                </div>
+
+                <div className="title-block">
+                <p className="small">
+                    2025 / bp / Oil & Gas
+                </p>
+
+                <h1>Shifting IT Support Left at Enterprise Scale</h1>
+
+                <p className="tagline">Reducing repeat IT tickets by 24% at bp through AI-assisted knowledge discovery and content design.</p>
+                </div>
+
+                <div className="bento-grid">
+                <div className="bento-item tall">
+                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
+                            alt="Featured Project"
+                            width={1920} // The actual pixel width
+                            height={1080} // The actual pixel height
+                        />
+                </div>
+                <div className="bento-item">
+                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
+                            alt="Featured Project"
+                            width={1920} // The actual pixel width
+                            height={1080} // The actual pixel height
+                        />
+                </div>
+                <div className="bento-item">
+                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
+                            alt="Featured Project"
+                            width={1920} // The actual pixel width
+                            height={1080} // The actual pixel height
+                        />
+                </div>
+                </div>
+            </div>
+            </section>
+
+            <section id="Snapshot">
+            <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                <h2>Snapshot
+                <br />
+                <span className="section-subtitle">The “too long didn’t read”.</span>
+                </h2>
+                </div>
+
+                <div className="section-content">
+
+                <div className="content-block">
+                    <p className="small">Problem</p>
+                    <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels — increasing operational costs and reducing employee productivity.</p>
+                </div>
+                
+                <div className="content-block">
+                    <p className="small">Outcome</p>
+                    <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume, and shifted demand away from high-cost live support.</p>
+                </div>
+
+                <div className="content-block">
+                    <p className="small">Impact (3 months post-launch)</p>
+
+                    <div className="grid-layout">
+                    <div className="card">
+                        <div className="card-content card-content-secondary">
+                        <p>
+                            <span className="quant">~1,200 </span>
+                            <br />
+                            Repeat tickets avoided
+                        </p>
+                        </div>
+                    </div>
+
+                    <div className="card">
+                        <div className="card-content card-content-secondary">
+                        <p>
+                            <span className="quant">42% → 63% </span>
+                            <br />
+                            Self-serve success rate 
+                        </p>
+                        </div>
+                    </div>
+
+                    <div className="card">
+                        <div className="card-content card-content-secondary">
+                        <p>
+                            <span className="quant">3.6 → 4.4 </span>
+                            <br />
+                            Improved CSAT score
+                        </p>
+                        </div>
+                    </div>
+
+                    <div className="card">
+                        <div className="card-content card-content-secondary">
+                        <p>
+                            <span className="quant">-22% </span>
+                            <br />
+                            Reduced resolution time
+                        </p>
+                        </div>
+                    </div>
+
+                    <div className="card">
+                        <div className="card-content card-content-secondary">
+                        <p>
+                            <span className="quant">+31% </span>
+                            <br />
+                            Improved agent satisifaction
+                        </p>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                
+                <div className="grid-layout">
+
+                    <div className="metadata">
+                    <p className="small">Company</p>
+                    <p>
+                        <span className="icon icon-inline icon-md">
+                        <img 
+                        src="/assets/logos/bp-helios-colour.svg"
+                        alt="bp"
+                        loading="lazy"
+                        />
+                        </span> bp plc</p>
+                    </div>
+
+                    <div className="metadata">
+                    <p className="small">Year / Industry</p>
+                    <p>2025 · Oil & Gas</p>
+                    </div>
+
+                    <div className="metadata">
+                    <p className="small">Role</p>
+                    <p>Lead Product Designer</p>
+                    </div>
+
+                    <div className="metadata">
+                    <p className="small">Timeline</p>
+                    <p>24 weeks (Discovery → MVP)</p>
+                    </div>
+
+                    <div className="metadata">
+                    <p className="small">Scale</p>
+                    <p>Enterprise platform serving <strong>~87,000 employees</strong> globally.</p>
+                    </div>
+
+                    <div className="metadata">
+                    <p className="small">Team</p>
+                    <ul>
+                        <li>1 Product Owner</li>
+                        <li>1 Programme Manager</li>
+                        <li>2 Experience Designers</li>
+                        <li>4 ServiceNow Developers</li>
+                    </ul>
+                    </div>
+
+                </div>
+
+                </div>
+
+            </div>
+
+            </section>
+
+            <div className="container">
+            <hr className="divider" />
+            </div>
+
+            <section>
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>Business context
+                    <br />
+                    <span className="section-subtitle">Why it mattered.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <div className="content-block">
+                    <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests, and basic “how-to” questions.</p>
+                    
+                    <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
+                    </div>
+                    
+                    <div className="content-block">
+                    <h3>Key signals</h3>
+                    <ul>
+                        <li>~40% of service desk tickets were repeatable, low-complexity (L1 and below).</li>
+                        <li>42% of employees failed to resolve issues through existing self-serve channels.</li>
+                        <li>Live agent interactions cost <strong>~8x</strong> more than successful self-serve resolutions.</li>
+                        <li>78% of employees reported frustration with searching and filtering knowledge content.</li>
+                    </ul>
+
+                    <p>This created a compounding problem:</p>
+                    <ul>
+                        <li>Employees lost productivity waiting for support.</li>
+                        <li>Agents spent time on low-value work.</li>
+                        <li>The business absorbed unnecessary cost-to-serve.</li>
+                    </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>Strategic backdrop</h3>
+                    <p>This initiative sat within a broader “Shift Left” transformation roadmap — moving issue resolution as close to the employee as possible to improve efficiency and reduce reliance on L3 live support.</p>
+                    <p>Generative AI was identified as a potential enabler — not to replace agents, but to improve knowledge discovery, summarisation, and confidence in self-serve outcomes.</p>
+                    </div>
+                </div>
+                
+                </div>
+
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="role-heading">
+
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2 className="section-title">My role
+                    <br />
+                    <span className="section-subtitle">Responsibilities and strategic focus.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+
+                    <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
+
+                    <div className="content-block">
+                    <h3>
+                        My core responsibilities
+                    </h3>
+
+                    <ul>
+                        <li>Led discovery, research synthesis, journey mapping, interaction design, and usability testing.</li>
+                        <li>Defined the MVP scope in partnership with the Product Owner, balancing impact vs technical feasibility.</li>
+                        <li>Embedded bp’s design system into the ServiceNow experience, collaborating closely with developers and design engineering.</li>
+                        <li>Acted as design authority across the product triad – aligning product, design, and engineering through bi-weekly sprint rituals.</li>
+                        <li>Facilitated workshops with ITSM leadership and SMEs to align user needs with business goals.</li>
+                    </ul>
+
+                    <blockquote className="notion-quote">
+                        I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains, and adoption — not just usability improvements.
+                    </blockquote>
+                    </div>
+                
+                </div>
+
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="discovery-heading">
+
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2 className="section-title">Discovery and research
+                    <br />
+                    <span className="section-subtitle">Uncovering the insights.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <p className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></p>
+
+                    <div className="content-block">
+                    <h3>Quantitative analysis (ServiceNow analytics)</h3>
+                    
+                    <p>Working with the data team, I reviewed historical ticket and search data:</p>
+
+                    <ul>
+                        <li>~33% of tickets were “how-to” questions already answered in existing knowledge articles.</li>
+                        <li>Knowledge articles averaged ~840 words, with significant drop-off before resolution.</li>
+                        <li>Search success was inconsistent, reinforcing distrust in results.</li>
+                        <li>Employees often escalated after one failed search attempt.</li>
+                    </ul>
+
+                    <blockquote className="notion-quote">
+                        <strong>Insight:</strong> The issue wasn’t lack of content — it was lack of confidence and clarity.
+                    </blockquote>
+                        
+                    <figure>
+                        <img src="/assets/images/case-study-1/bp-quant-data.png"
+                            alt=""/>
+                        
+                        <figcaption>Employees submitting general enquiry requests were searching for answers that exist in knowledge base articles.</figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>1-to-1 interviews with SMEs and power users</h3>
+
+                    <p>I conducted <strong>16 interviews</strong> across US, Europe, and APAC regions with a mix of power users, SMEs, and everyday employees.</p>
+
+                    <div className="content-block">
+                        <h4>
+                        Key synthesised insights
+                        </h4>
+
+                        <ol>
+                        <li><strong>Trust drives behaviour</strong>
+                            <br />
+                            Employees escalated not because answers didn’t exist, but because they didn’t trust search results to be current or relevant.
+                        </li>
+
+                        <li><strong>Long-form content increases escalation</strong>
+                            <br />
+                            Dense articles caused cognitive overload and pushed users toward human support.
+
+                            <blockquote className="notion-quote">
+                            &quot;The [portal] feels like a jungle.&quot;
+                            </blockquote>
+                        </li>
+
+                        <li><strong>Chatbots were perceived as blockers</strong>
+                            <br />
+                            The current chatbot experience delayed access to help rather than speeding it up.
+
+                            <blockquote className="notion-quote">
+                            &quot;I always just keep saying &quot;speak to an agent, speak to an agent&quot; until it lets me speak to an agent.&quot;
+                            </blockquote>
+                        </li>
+
+                        <li><strong>Lack of visibility caused anxiety</strong>
+                            <br />
+                            Once a ticket was raised, users felt disconnected and uninformed about progress.
+
+                            <blockquote className="notion-quote">
+                            &quot;I just want timely updates, sometimes I resubmit my ticket because of the delay.&quot;
+                            </blockquote>
+                        </li>
+                        </ol>
+                    </div>
+                    
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+
+                        <figcaption> </figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>Stakeholder alignment workshop</h3>
+
+                    <p>I facilitated a discovery workshop with ITSM leadership and SMEs to:</p>
+
+                    <ul>
+                        <li>
+                        Share research findings.
+                        </li>
+
+                        <li>
+                        Align on business goals.
+                        </li>
+
+                        <li>
+                        Explore where AI could <strong>responsibly</strong> add value.
+                        </li>
+                    </ul>
+
+                    <p>Leadership aligned on using GenAI as a cost-reduction and productivity lever, with a strong emphasis on transparency, governance, and human fallback.</p>
+
+                    <figure>
+                        <img src="/assets/images/case-study-1/bp-workshop.png"
+                            alt=""/>
+
+                        <figcaption>Our virtual whiteboard across two workshop sessions provided perspectives and ideas.</figcaption>
+                    </figure>
+                    </div>
+                </div>
+                    
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider"/>
+            </div>
+
+            <section aria-labelledby="problem-definition">
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>Problem definition
+                    <br />
+                    <span className="section-subtitle">Turning research into a clear design focus.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <p className="lead">Bringing together user, agent, and business needs, we defined the core problem as:</p>
+
+                    <blockquote className="notion-quote">
+                    Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity, and overwhelmed service desk agents.
+                    </blockquote>
+
+                    <div className="content-block">
+                    <p>This problem had three equally important lenses:</p>
+
+                    <div className="col-3">
+                        <div className="card">
+                        <div className="card-content card-content-tertiary">
+                            <span className="icon icon-lg" aria-hidden="true">
+                                <span className="material-symbols-rounded card-icon" translate="no">emoji_people</span>
+                            </span>
+            
+                            <p className="card-text"><strong>Employees</strong> demand clarity, speed, and reassurance.</p>
+                        </div>
+                        </div>
+            
+                        <div className="card">
+                        <div className="card-content card-content-tertiary">
+                            <span className="icon icon-lg" aria-hidden="true">
+                                <span className="material-symbols-rounded card-icon" translate="no">support_agent</span>
+                            </span>
+            
+                            <p className="card-text"><strong>Agents</strong> need relief from repetitive L1 work.</p>
+                        </div>
+                        </div>
+            
+                        <div className="card">
+                        <div className="card-content card-content-tertiary">
+                            <span className="icon icon-lg" aria-hidden="true">
+                                <span className="material-symbols-rounded card-icon" translate="no">business_center</span>
+                            </span>
+            
+                            <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="goals-heading">
+                <div className="container col-30-70 section-fade">
+                
+                <div className="section-heading">
+                    <h2>Goals & KPIs
+                    <br />
+                    <span className="section-subtitle">Defining what we want to solve.</span>
+                    </h2>
+                </div>
+
+                    <div className="section-content">
+                    <div className="content-block">
+                        <p className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</p>
+
+                        <figure>
+                        <img src="/assets/images/case-study-1/bp-shift-left-diagram.png"
+                                alt="" />
+            
+                        <figcaption>Exact figures regarding per interaction has been simplified for NDA purposes.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div className="content-block">
+                        <h3>
+                        Product goals
+                        </h3>
+
+                        <table className="custom-table">
+                        <thead>
+                            <tr>
+                            <th>Goal</th>
+                            <th>Success metric</th>
+                            <th>Business lever</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>Reduce live support interactions</td>
+                            <td>–20–30% L3 tickets (MVP target)</td>
+                            <td>Cost-to-serve</td>
+                            </tr>
+                            <tr>
+                            <td>Increase self-serve success</td>
+                            <td>75–85% success rate for top queries</td>
+                            <td>Productivity</td>
+                            </tr>
+                            <tr>
+                            <td>Maintain simplicity &amp; accessibility</td>
+                            <td>≤3 steps, WCAG 2.1 AA</td>
+                            <td>Adoption &amp; inclusion</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        
+
+                    </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="ideation-heading">
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>Ideation
+                    <br />
+                    <span className="section-subtitle">Thinking outside the box.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <div className="content-block">
+                    <p className="lead">We explored a wide range of ideas, including:</p>
+
+                    <ul>
+                        <li>
+                        Knowledge base redesign
+                        </li>
+
+                        <li>
+                        Support channel consolidation
+                        </li>
+
+                        <li>
+                        Short-form “how-to” videos
+                        </li>
+
+                        <li>
+                        Proactive Microsoft Teams notification integration
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <p className="lead">
+                        However, given time, budget, and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented — rather than replaced — existing workflows.
+                    </p>
+
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+
+                        <figcaption> </figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>Key trade-offs</h3>
+
+                    <ul>
+                        <li>
+                        De-scoped full automation to avoid AI trust and accuracy risks.
+                        </li>
+
+                        <li>
+                        Prioritised assistive AI with clear escalation paths.
+                        </li>
+
+                        <li>
+                        Chose proven interaction patterns (Jakob’s Law) over experimental UI, taking inspiration from the public domain.
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>MVP focus areas</h3>
+
+                    <ul>
+                        <li>
+                        GenAI enhanced knowledge search & summarisation.
+                        </li>
+
+                        <li>
+                        Clear source transparency and confidence cues.
+                        </li>
+
+                        <li>
+                        Seamless escalation to ticket creation when needed.
+                        </li>
+                    </ul>
+                    </div>
+
+                </div>
+                
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="solution-heading">
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>The solution
+                    <br />
+                    <span className="section-subtitle">Designing the AI-assisted experience.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+
+                    <div className="content-block">
+                    <h3>
+                        Experience principles
+                    </h3>
+
+                    <ul>
+                        <li>
+                        Transparency over automation — always show sources.
+                        </li>
+
+                        <li>
+                        Clarity over completeness — concise, actionable answers.
+                        </li>
+
+                        <li>
+                        Human fallback by default — AI never blocks support.
+                        </li>
+                    </ul>
+
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+                        
+                        <figcaption> </figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>
+                        Information architecture
+                    </h3>
+
+                    <ul>
+                        <li>
+                        Introduced a sidebar mega-menu, replacing top-heavy navigation.
+                        </li>
+
+                        <li>
+                        Grouped tasks, tickets, and approvals by employee intent, not system structure.
+                        </li>
+                    </ul>
+
+                    <figure>
+                        <img src="/assets/images/case-study-1/bp-user-flow.png"
+                            alt=""/>
+
+                        <figcaption>I built out user flow diagrams to break down product features so our triad squad are aligned. This is an example of how a user submits LLM response feedback.</figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>
+                        AI-powered knowledge search
+                    </h3>
+
+                    <ul>
+                        <li>
+                        Natural-language input with concise summarised answers.
+                        </li>
+
+                        <li>
+                        Clear links to original knowledge articles for validation.
+                        </li>
+
+                        <li>
+                        One-click escalation to ticket creation.
+                        </li>
+
+                        <li>
+                        Reassurance microcopy to manage expectations and trust.
+                        </li>
+                    </ul>
+
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+                        
+                        <figcaption> </figcaption>
+                    </figure>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>
+                        Accessibility & inclusion
+                    </h3>
+
+                    <ul>
+                        <li>
+                        WCAG 2.1 AA colour contrast compliance
+                        </li>
+
+                        <li>
+                        Keyboard-navigable menus
+                        </li>
+
+                        <li>
+                        ARIA labelling and alt text across components
+                        </li>
+                    </ul>
+
+                    <p><strong>Result:</strong> No critical accessibility issues identified during testing.</p>
+
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+                        
+                        <figcaption> </figcaption>
+                    </figure>
+                    </div>
+
+                </div>
+                
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="solution-heading">
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>Testing & validation
+                    <br />
+                    <span className="section-subtitle">Shipping the MVP.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <p className="lead">
+                    We tested a high-fidelity Figma prototype mapped closely to ServiceNow capabilities and using the following methods:
+                    </p>
+
+                    <div className="content-block">
+                    <h3>Usability study</h3>
+
+                    <ul>
+                        <li>
+                        8 moderated usability sessions.
+                        </li>
+
+                        <li>
+                        Key tasks: find an answer, raise a ticket, approve a request.
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <h4>Early sentiment (Net Promoter Score)</h4>
+
+                    <p>Initial NPS: 12.5</p>
+
+                    <ul>
+                        <li>
+                        Promoters praised clarity and speed.
+                        </li>
+
+                        <li>
+                        Detractors wanted faster responses and clearer exit routes.
+                        </li>
+                    </ul>
+
+                    <blockquote className="notion-quote">
+                        This validated direction while highlighting areas for iteration.
+                    </blockquote>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>Continuous feedback loop</h3>
+
+                    <ul>
+                        <li>
+                        Internal design–development testing.
+                        </li>
+
+                        <li>
+                        Phased validation of LLM outputs and response quality.
+                        </li>
+
+                        <li>
+                        Rapid triage and iteration during sprints.
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div className="card">
+                    <div className="card-callout">
+                        <div className="content-block">
+                        <h3>Key learning: AI alone wasn’t enough</h3>
+
+                        <p>
+                            While AI summarisation improved scanability, it did not consistently increase self-serve success on its own. In multiple usability sessions, poor outcomes were traced back to the quality and structure of the underlying knowledge base rather than the LLM.
+                        </p>
+                        </div>
+
+                        <div className="content-block">
+                        <h4>Actions taken:</h4>
+
+                        <ul>
+                            <li>
+                            Audited high-traffic knowledge articles feeding the LLM.
+                            </li>
+            
+                            <li>
+                            Partnered with SMEs and content designers to refactor content into: Task-based steps, clear prerequisites, plain-language outcomes.
+                            </li>
+            
+                            <li>
+                            Introduced lightweight &quot;AI optimised&quot; content standards.
+                            </li>
+                        </ul>
+                        </div>
+
+                        <div className="content-block">
+                        <h4>Result</h4>
+
+                        <ul>  
+                            <li>
+                            AI answer usefulness ratings improved by ~15%
+                            </li>
+            
+                            <li>
+                            Repeat escalation for refined queries decreased measurably.
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="impact-heading">
+                <div className="container col-30-70 section-fade">
+                
+                <div className="section-heading">
+                    <h2>Impact & outcomes
+                    <br />
+                    <span className="section-subtitle">What changed because of this work.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+                    <div className="content-block">
+                    <p className="lead">
+                        Within three months of launch:
+                    </p>
+
+                    <ul>
+                        <li>
+                        ~1,200 repeat tickets avoided.
+                        </li>
+
+                        <li>
+                        Increased self-serve resolution rate from 42% → 63%
+                        </li>
+
+                        <li>
+                        Improved CSAT scores from 3.6 → 4.4
+                        </li>
+
+                        <li>
+                        Reduced resolution time by -22%
+                        </li>
+
+                        <li>
+                        Increased agent satisfaction: +31%
+                        </li>
+                    </ul>
+                    </div>
+
+                    <blockquote className="notion-quote">
+                    Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
+                    </blockquote>
+                </div>
+                </div>
+            </section>
+
+            <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <section aria-labelledby="reflection-heading">
+                <div className="container col-30-70 section-fade">
+
+                <div className="section-heading">
+                    <h2>Reflection
+                    <br />
+                    <span className="section-subtitle">Learnings and key takeaways.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+
+                    <div className="content-block">
+                    <h3>What worked</h3>
+
+                        <ul>
+                        <li>
+                            Trust in AI is primarily a design problem, not a technical one.
+                        </li>
+
+                        <li>
+                            Plain language delivered more impact than additional features.
+                        </li>
+
+                        <li>
+                            Early service desk buy-in was critical to adoption.
+                        </li>
+                        </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>What didn’t</h3>
+
+                        <ul>
+                        <li>
+                            AI response latency needs further optimisation.
+                        </li>
+
+                        <li>
+                            Complex, contextual queries still require refinement. GIGO.
+                        </li>
+                        </ul>
+                    </div>
+
+                    <div className="content-block">
+                    <h3>What I’d do next</h3>
+
+                        <ul>
+                        <li>
+                            Introduce personalised support journeys.
+                        </li>
+
+                        <li>
+                            Continuously measure AI answer accuracy over time.
+                        </li>
+
+                        <li>
+                            Further refine human-AI collaboration across the support lifecycle.
+                        </li>
+                        </ul>
+                    </div>
+
+                    <blockquote className="notion-quote">
+                    This project reinforced my shift from designing interfaces to <strong>designing operational systems</strong> — where experience, behaviour, and cost are inseparable.
+                    </blockquote>
+                </div>
+                </div>
+            </section>
+
+        </article>
+
+    );
+}
