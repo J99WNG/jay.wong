@@ -324,7 +324,6 @@ export default function Home() {
                             />
                         </div>
                     </article>
-
                 </div>
 
             </div>

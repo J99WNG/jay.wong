@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { content } from "./content";
 
 export default function CaseStudyOne() {
     return (
         <article>
-
             <section id="landing">
             <div className="container section-fade">
 
@@ -32,37 +32,34 @@ export default function CaseStudyOne() {
 
                 <div className="title-block">
                 <p className="small">
-                    2025 / bp / Oil & Gas
+                    {content.landing.metadata}
                 </p>
 
-                <h1>Shifting IT Support Left at Enterprise Scale</h1>
+                <h1>{content.landing.title}</h1>
 
-                <p className="tagline">Reducing repeat IT tickets by 24% at bp through AI-assisted knowledge discovery and content design.</p>
+                <p className="tagline">{content.landing.summary}</p>
                 </div>
 
                 <div className="bento-grid">
-                <div className="bento-item tall">
-                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
-                            alt="Featured Project"
-                            width={1920} // The actual pixel width
-                            height={1080} // The actual pixel height
-                        />
+                    <div className="bento-item tall">
+                        <Image src={content.landing.heroImage}
+                                alt="Featured Project"
+                                fill // Makes image fill the container
+                                priority // Ensures this image loads fast
+                            />
+                    </div>
+
+                    {content.landing.gallery.map((img, index) => (
+                    <div className="bento-item">
+                        <Image key={index}
+                                src={img} 
+                                alt={`Gallery image ${index + 1}`}
+                                fill // Makes image fill the container
+                            />
+                    </div>
+                    ))}
                 </div>
-                <div className="bento-item">
-                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
-                            alt="Featured Project"
-                            width={1920} // The actual pixel width
-                            height={1080} // The actual pixel height
-                        />
-                </div>
-                <div className="bento-item">
-                    <Image src="/assets/images/case-study-1/bp-thumbnail.png"
-                            alt="Featured Project"
-                            width={1920} // The actual pixel width
-                            height={1080} // The actual pixel height
-                        />
-                </div>
-                </div>
+
             </div>
             </section>
 
@@ -70,9 +67,9 @@ export default function CaseStudyOne() {
             <div className="container col-30-70 section-fade">
 
                 <div className="section-heading">
-                <h2>Snapshot
+                <h2>{content.snapshot.heading}
                 <br />
-                <span className="section-subtitle">The “too long didn’t read”.</span>
+                <span className="section-subtitle">{content.snapshot.subtitle}</span>
                 </h2>
                 </div>
 
@@ -1011,6 +1008,5 @@ export default function CaseStudyOne() {
             </section>
 
         </article>
-
     );
 }

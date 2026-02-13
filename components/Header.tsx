@@ -1,23 +1,34 @@
 'use client';
 
 import Link from 'next/link'; // Import the Next.js Link engine
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-      // Handle the body scroll lock
-      document.body.style.overflow = !isOpen ? 'hidden' : '';
-    };
+    // This effect runs whenever 'isOpen' changes
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        
+        // Cleanup function: ensures scroll is unlocked if component unmounts
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+    const closeMenu = () => setIsOpen(false);
     
     return (
         <header>
             <div className="container">
                 <div className="header-wrapper">
                     {/* Logo */}
-                    <Link href="/" className="nav-brand" aria-label="JW Designs homepage">
+                    <Link href="/" className="nav-brand" aria-label="JW Designs homepage" onClick={closeMenu}>
                         <svg viewBox="0 0 945 426" xmlns="http://www.w3.org/2000/svg">
                             <title>Jay Wong monogram</title>
                             {/* Note: clip-path becomes clipPath in JSX */}
@@ -33,21 +44,22 @@ export default function Header() {
                     {/* Navigation */} {/* Your Menu - applying the 'is-open' class based on state */}
                     <nav className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
                         <ul className="nav-list">
-                            <li><Link href="/#about">About</Link></li>
-                            <li><Link href="/#collaborations">Collaborations</Link></li>
-                            <li><Link href="/#work">Work</Link></li>
+                            <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
+                            <li><Link href="/#collaborations" onClick={closeMenu}>Collaborations</Link></li>
+                            <li><Link href="/#work" onClick={closeMenu}>Work</Link></li>
                             <li>
                                 <Link 
                                     href="/assets/documents/Jay-Wong-CV.pdf"
                                     target="_blank" 
-                                    rel="noopener">
+                                    rel="noopener"
+                                    onClick={closeMenu}>
                                     CV
                                 </Link>
                             </li>
                         </ul>
 
                         {/* CTA */}
-                        <Link href="/#contact" className="btn btn-tertiary btn-nav">Contact</Link>
+                        <Link href="/#contact" className="btn btn-tertiary btn-nav" onClick={closeMenu}>Contact</Link>
                     </nav>
                 
                     {/* Mobile Nav */}
@@ -58,12 +70,10 @@ export default function Header() {
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                         onClick={toggleMenu} // Triggers the state change
                         >
-                        {/* Toggle icons based on state */}
-                        {!isOpen ? (
+
+                        {/* Always render both; CSS handles the animation */}
                         <span className="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
-                        ) : (
                         <span className="material-symbols-rounded icon-close" aria-hidden="true">close</span>
-                        )}
                     </button>
 
                 </div>

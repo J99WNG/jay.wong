@@ -13,6 +13,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+  overflow-x: hidden; /* Prevent horizontal scroll on the root */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 header {
   height: auto;
   width: 100%;
@@ -44,13 +51,8 @@ body {
   font-weight: 400;
   line-height: 1.4;
 
-  overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-
   opacity: 1;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 
 body.loading {
@@ -129,8 +131,7 @@ caption {
     width: 100%;
 
     box-shadow: 0px 0px 4px hsla(30, 20%, 85%, 0.5);
-    transition: transform .25s ease, 
-                box-shadow .25s ease;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
                 
   }
   
@@ -236,7 +237,7 @@ caption {
   /* Typography */
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   line-height: 1;
 
   /* Colour */
@@ -244,7 +245,7 @@ caption {
   background-color: var(--steamed-vapor);
   border: 1px solid var(--dried-clay);
 
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .badge:hover,
@@ -258,18 +259,29 @@ caption {
 /* Animated status dot */
 .status::before {
   content: "";
+  display: inline-block; /* Crucial for transform/scale to work */
+  vertical-align: middle;
   width: 8px;
   height: 8px;
   background: var(--matcha-powder);
   border-radius: 50%;
-  box-shadow: 0 0 0 0 var(--iron-buddha);
+  /* Use a standard rgba for the shadow to ensure the animation is visible */
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--matcha-powder, 0.8); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px var(--jasmine-bud, 00); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--jasmine-bud, 0); }
+  0% { 
+    transform: scale(0.95); 
+    box-shadow: 0 0 0 0 rgba(162, 186, 145, 0.7); /* Example matcha color */
+  }
+  70% { 
+    transform: scale(1); 
+    box-shadow: 0 0 0 6px rgba(162, 186, 145, 1); 
+  }
+  100% { 
+    transform: scale(0.95); 
+    box-shadow: 0 0 0 0 rgba(162, 186, 145, 0.5); 
+  }
 }
 
 .status-text {
@@ -415,7 +427,7 @@ caption {
 
   position: relative;
   pointer-events: auto;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-brand {
@@ -427,10 +439,10 @@ caption {
 
 .nav-brand svg {
   display: block;
-  width: auto;
+  width: 100%;
   height: 2rem;
   fill: var(--silver-needle);
-  transition: fill .2s ease, transform .2s ease;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-brand svg:hover,
@@ -459,7 +471,7 @@ caption {
   transform: translateY(-20px);
   transition: 
         opacity 0.4s ease, 
-        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0.4s;
   z-index: 9998;
 }
@@ -487,7 +499,7 @@ caption {
   font-size: 1.5rem;
   padding-bottom: 0;
   color: var(--white-pekoe);
-  transition: opacity 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-list li:hover,
@@ -516,7 +528,7 @@ caption {
 
   cursor: pointer;
   z-index: 9998;      /* Ensure it stays above the overlay */
-  transition: background 0.2s ease;
+  transition: background 0.4s ease;
   }
 
 .nav-toggle .material-symbols-rounded {
@@ -524,7 +536,7 @@ caption {
   font-size: 2rem;
   color: var(--white-pekoe);
   transition: 
-      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
       opacity 0.3s ease,
       color 0.3s ease;
 }
@@ -605,7 +617,7 @@ section {
   flex-direction: column;
   gap: 2.25rem;
 
-  max-width: 65ch;
+  max-width: 100%;
 }
 
 span.section-subtitle {
@@ -624,7 +636,6 @@ span.section-subtitle {
   transition: 
         opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), 
         transform 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-
 }
 
 .section-fade:first-of-type {
@@ -662,7 +673,7 @@ span.section-subtitle {
   border: none; /* Reset for <button> tags */
 
   /* 5. Animation */
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   transform: scale(1);
 
   box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15);
@@ -769,6 +780,7 @@ span.section-subtitle {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex-shrink: 1;
 }
 
 .contact-stack a {
@@ -785,10 +797,7 @@ span.section-subtitle {
   transform-origin: left;
 }
 
-.contact-text { /* Create the specific underline for just the text */
-  position: relative;
-  display: inline-block;
-}
+
 
 .contact-text::after {
   content: '';
@@ -802,7 +811,7 @@ span.section-subtitle {
   /* Initial State: Invisible and shrunk */
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ==================== Footer ==================== */
@@ -867,8 +876,7 @@ span.section-subtitle {
     );
 
   /* Smooth movement and background fading */
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              background 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Class to strip the background when at footer */
@@ -888,7 +896,7 @@ span.section-subtitle {
   border-radius: 0.75rem;
   pointer-events: auto; /* Re-enable clicking for the button itself */
   font-size: 14px;
-  transition: background .2s ease, transform .2s ease, opacity .3s ease, visibility .3s ease;
+  transition: transform .2s ease, opacity .3s ease, visibility .3s ease;
 }
 
 .btn-btt .material-symbols-rounded,
@@ -907,15 +915,21 @@ span.section-subtitle {
   border-radius: 0.5rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-* {
-  animation: none !important;
-  transition: none !important;
+/* This should be for EVERYONE, or specifically for 'no-preference' */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* This is ONLY to disable flashy stuff for users who get motion sick */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; /* Jump instead of slide */
+  }
 }
 
 .sr-only { /* screen-reader only text */
