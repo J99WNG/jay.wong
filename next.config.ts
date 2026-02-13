@@ -2,24 +2,22 @@ import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
-  output: 'export', // Required for GitHub Pages
+  output: 'export', 
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true, 
   },
-  trailingSlash: true,
+  trailingSlash: false,
 
-  // ADD THIS BLOCK:
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete 
-    // even if your project has type errors.
     ignoreBuildErrors: true,
   },
+  // Optional: If your repo name is NOT 'jaywong.github.io' 
+  // (e.g., it is 'portfolio-site'), you MUST add:
+  // basePath: '/portfolio-site',
 };
 
-const dishesMDX = createMDX({
-  // Add markdown plugins here if needed
-})
+const withMDX = createMDX({});
 
-export default nextConfig;
+// Wrap the config with MDX support
+export default withMDX(nextConfig);

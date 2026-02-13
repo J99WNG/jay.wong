@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from "next/font/google";
 
-import '../styles/colour-system.css';
-import '../styles/typography.css';
-import '../styles/iconography.css';
-import '../styles/globals.css'; // Main styles last
+// Use absolute paths via the @ alias for everything
+import '@/styles/colour-system.css';
+import '@/styles/typography.css';
+import '@/styles/iconography.css';
+import '@/styles/globals.css'; 
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Dock from "../components/Dock";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Dock from "@/components/Dock";
 import FadeObserver from '@/components/FadeObserver';
 
 // Configure the font

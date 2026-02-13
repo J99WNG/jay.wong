@@ -12,11 +12,11 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node", 
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": false,
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
@@ -30,15 +30,13 @@
   },
   "include": [
     "next-env.d.ts",
-    ".next/types/**/*.ts", /* THIS IS THE IMPORTANT LINE */
     "**/*.ts",
     "**/*.tsx",
-    "app",
+    ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "_site",
     ".next",
     "out"
   ]

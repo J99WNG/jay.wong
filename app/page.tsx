@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import HKTClock from "../components/HKTClock"; // Adjust path as needed
+import HKTClock from "@/components/HKTClock"; // Adjust path as needed
 
 export default function Home() {
   return (
