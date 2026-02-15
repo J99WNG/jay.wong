@@ -2,10 +2,11 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from "next/font/google";
 
 // Use absolute paths via the @ alias for everything
+import '@/styles/buttons.css';
 import '@/styles/colour-system.css';
-import '@/styles/typography.css';
 import '@/styles/iconography.css';
-import '@/styles/globals.css'; 
+import '@/styles/typography.css';
+import '@/styles/globals.css';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,9 +14,10 @@ import Dock from "@/components/Dock";
 import FadeObserver from '@/components/FadeObserver';
 
 // Configure the font
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
-  display: 'swap', 
+  display: 'swap', // Prevents layout shift
+  variable: '--font-inter', // Useful for Tailwind
 });
 
 // This is the crucial part for mobile scaling

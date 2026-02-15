@@ -1,10 +1,9 @@
 @import "tailwindcss";
-
 /* Master list of your custom styles */
+@import "../styles/buttons.css";
 @import "../styles/colour-system.css";
-@import "../styles/typography.css";
 @import "../styles/iconography.css";
-
+@import "../styles/typography.css";
 
 /* ==================== Foundations ==================== */
 *, *::before, *::after {
@@ -20,37 +19,22 @@ html, body {
   padding: 0;
 }
 
-header {
-  height: auto;
-  width: 100%;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: box-shadow 200ms ease;
-  z-index: 9998;
-  pointer-events: none;
-
-  background: linear-gradient(            /* Gradient from solid to transparent */
-      to bottom, 
-      hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
-      hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
-  );
-}
-
-section[id] {
-  scroll-margin-top: 0;      
-}
-
 body {
   color: var(--lapsang-souchong);
   background-color: var(--silver-needle);
 
-  font-family: 'Inter', sans-serif;
+  /* Use the variable instead of the string 'Inter' */
+  font-family: var(--font-inter), sans-serif;
+  
   font-optical-sizing: auto;
   font-weight: 400;
   line-height: 1.4;
 
+  /* Add these to match Jekyll's sharper rendering */
+  /* -webkit-font-smoothing: antialiased; */
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
 }
@@ -79,7 +63,7 @@ hr {
 /* ==================== Images ==================== */
 
 figure {
-  margin: 1rem 0;
+  margin-top: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -95,15 +79,14 @@ figure img {
 
 .bento-item {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Ensures height exists so 'fill' works */
   overflow: hidden;
   border-radius: 1rem;
-  background: #f0f0f0;
   border: 1px solid var(--dried-clay);
 }
 
 .bento-item img {
-  width: 100%;
-  height: 100%;
   object-fit: cover; /* This ensures images fill the box without stretching */
   transition: transform 0.5s ease;
 }
@@ -122,11 +105,11 @@ caption {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
-    align-items: center;
 
     background-color: var(--white-pekoe);
     border-radius: 16px;
     border: 1px solid var(--steamed-vapor);
+
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
@@ -143,27 +126,25 @@ caption {
 }
 
 .card-img {
-  height: 100%;
-  display: flex; /* Removes bottom whitespace gap */
   flex: 1;       /* Ensures the wrapper takes up space */
-  margin: 0;
-  padding: 0;
+  position: relative;
+  width: 100%;
+  min-height: 250px;
   
-
   background-color: var(--dried-clay);
 }
 
 .card-img img {
   width: 100%;
-  height: auto;      /* Changed from auto to 100% to force the stretch */
+  height: 100%;      /* Changed from auto to 100% to force the stretch */
   object-fit: cover;
   display: block;
 }
 
 .card-content {                  /* Card title + body */
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
@@ -209,11 +190,7 @@ caption {
   width: fit-content;
   margin-top: 0.5rem;
   justify-content: start;
-
-  /* Colour */
-
 }
-
 
 .card-icon {
   color: var(--masala-chai);
@@ -406,7 +383,25 @@ caption {
 }
 
 
-/* ==================== Navbar ==================== */
+/* ==================== Header ==================== */
+header {
+  height: auto;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: box-shadow 200ms ease;
+  z-index: 9998;
+  pointer-events: none;
+
+  background: linear-gradient(            /* Gradient from solid to transparent */
+      to bottom, 
+      hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
+      hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
+  );
+}
+
 .header-wrapper {
   /* Layout */
   display: flex;
@@ -502,8 +497,9 @@ caption {
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.nav-list li:hover,
-.nav-list a:hover {
+.nav-list a:hover,
+.nav-list a:active,
+.nav-list a:focus-visible {
   color: var(--dried-clay);
 }
 
@@ -597,6 +593,10 @@ caption {
 }
 
 /* ==================== Section ==================== */
+section[id] {
+  scroll-margin-top: 0;      
+}
+
 section {
   display: block;
   align-content: center;
@@ -646,92 +646,6 @@ span.section-subtitle {
   opacity: 1;
   transform: translateY(0) translateZ(0);
   pointer-events: auto;
-}
-
-/* ==================== Buttons ==================== */
-.btn {
-  /* 1. Layout: Flex is king for buttons */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  /* 2. Sizing */
-  width: fit-content;
-  height: auto;
-  padding: 0.75em 1.5em;
-  line-height: 1;
-
-  /* 3. Typography */
-  text-align: center;
-  text-decoration: none;
-  font-size: clamp(14px, 4vw, 16px); /* Use relative units for the middle clamp value */
-  letter-spacing: -0.04rem;
-
-  /* 4. Aesthetics */
-  border-radius: 1rem;
-  border: none; /* Reset for <button> tags */
-
-  /* 5. Animation */
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: scale(1);
-
-  box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15);
-}
-
-.btn:hover,
-.btn:active,
-.btn:focus-visible {
-  text-decoration: none;
-  transform: scale(0.95);
-}
-
-/* Primary */
-.btn-primary {
-  background-color: var(--ceylon-leaf);
-  color: var(--silver-needle);
-  border: 1px solid var(--aged-pu-erh);
-}
-
-.btn-primary:hover, 
-.btn-primary:active, 
-.btn-primary:focus-visible {
-  color: var(--silver-needle);
-  background-color: var(--assam-black);
-}
-
-/* Secondary */
-.btn-secondary {
-  background-color: transparent;
-  color: var(--ceylon-leaf);
-  border: 1px solid var(--ceylon-leaf);
-}
-
-.btn-secondary:hover, 
-.btn-secondary:active, 
-.btn-secondary:focus-visible {
-  color: var(--ceylon-leaf);
-}
-
-/* Tertiary */
-.btn-tertiary {
-  background-color: var(--silver-needle);
-  color: var(--ceylon-leaf);
-  border: 1px solid var(--dried-clay);
-}
-
-.btn-tertiary:hover, 
-.btn-tertiary:active, 
-.btn-tertiary:focus-visible {
-  color: var(--ceylon-leaf);
-  background-color: var(--steamed-vapor);
-}
-
-.btn-nav {
-  width: auto;
-  padding: 0.5em 1.5em;
-  border-radius: 1.25rem;
-  font-size: 1.5rem;
 }
 
 /* ==================== Logo Grid ==================== */
@@ -952,6 +866,11 @@ span.section-subtitle {
   width: 100%;
 }
 
+.bento-item {
+  aspect-ratio: auto; /* Let the grid row height take over */
+  height: 100%;
+}
+
 /* The "Large" image spans from row 1 to row 3 (covering 2 rows) */
 .bento-item.tall {
   grid-row: 1 / 3;
@@ -973,12 +892,15 @@ span.section-subtitle {
 
 .card {
   flex-direction: row;
-  min-height: fit-content;
 }
 
-.card-img, 
+.card-img,
 .card-content {
   flex: 1 1 50%; /* Force both sides to start at 50% width */
+}
+
+.card-img {
+  min-height: auto;
 }
 
 .col-30-70 {

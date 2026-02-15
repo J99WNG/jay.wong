@@ -128,17 +128,6 @@ export default function CaseStudyOne() {
                         </p>
                         </div>
                     </div>
-
-                    <div className="card">
-                        <div className="card-content card-content-secondary">
-                        <p>
-                            <span className="quant">+31% </span>
-                            <br />
-                            Improved agent satisifaction
-                        </p>
-                        </div>
-                    </div>
-
                     </div>
                 </div>
                 
@@ -218,7 +207,7 @@ export default function CaseStudyOne() {
                     <div className="content-block">
                     <h3>Key signals</h3>
                     <ul>
-                        <li>~40% of service desk tickets were repeatable, low-complexity (L1 and below).</li>
+                        <li>~30% of service desk tickets were repeatable, low-complexity (known as Priority 3 tickets).</li>
                         <li>42% of employees failed to resolve issues through existing self-serve channels.</li>
                         <li>Live agent interactions cost <strong>~8x</strong> more than successful self-serve resolutions.</li>
                         <li>78% of employees reported frustration with searching and filtering knowledge content.</li>
@@ -320,7 +309,7 @@ export default function CaseStudyOne() {
                     </blockquote>
                         
                     <figure>
-                        <img src="/assets/images/case-study-1/bp-quant-data.png"
+                        <img src="/assets/images/case-study-1/bp-discovery-quant.png"
                             alt=""/>
                         
                         <figcaption>Employees submitting general enquiry requests were searching for answers that exist in knowledge base articles.</figcaption>
@@ -341,6 +330,10 @@ export default function CaseStudyOne() {
                         <li><strong>Trust drives behaviour</strong>
                             <br />
                             Employees escalated not because answers didn’t exist, but because they didn’t trust search results to be current or relevant.
+
+                            <blockquote className="notion-quote">
+                            &quot;AI is easier and quicker than manually searching on [the employee portal]&quot;
+                            </blockquote>
                         </li>
 
                         <li><strong>Long-form content increases escalation</strong>
@@ -348,7 +341,7 @@ export default function CaseStudyOne() {
                             Dense articles caused cognitive overload and pushed users toward human support.
 
                             <blockquote className="notion-quote">
-                            &quot;The [portal] feels like a jungle.&quot;
+                            &quot;[The portal] feels like a jungle.&quot;
                             </blockquote>
                         </li>
 
@@ -373,10 +366,15 @@ export default function CaseStudyOne() {
                     </div>
                     
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-discovery-persona-map.png"
+                            alt=""/>
+                    </figure>
+
+                    <figure>
+                        <img src="/assets/images/case-study-1/bp-discovery-persona.png"
                             alt=""/>
 
-                        <figcaption> </figcaption>
+                        <figcaption>We categorised our interviewees based on our ITSM persona map –– 63% of users in these sessions were understood to be a 'Trier'. </figcaption>
                     </figure>
                     </div>
 
@@ -431,7 +429,7 @@ export default function CaseStudyOne() {
                     <p className="lead">Bringing together user, agent, and business needs, we defined the core problem as:</p>
 
                     <blockquote className="notion-quote">
-                    Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity, and overwhelmed service desk agents.
+                    Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity, and overwhelmed our service desk agents.
                     </blockquote>
 
                     <div className="content-block">
@@ -517,7 +515,7 @@ export default function CaseStudyOne() {
                         <tbody>
                             <tr>
                             <td>Reduce live support interactions</td>
-                            <td>–20–30% L3 tickets (MVP target)</td>
+                            <td>–20–30% priority 3 (low) tickets (MVP target)</td>
                             <td>Cost-to-serve</td>
                             </tr>
                             <tr>
@@ -584,10 +582,17 @@ export default function CaseStudyOne() {
                     </p>
 
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-ideation-1.png"
                             alt=""/>
 
-                        <figcaption> </figcaption>
+                        <figcaption>With considerations to Jakob's Law, we took inspiration from mature solutions on the public domain.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="/assets/images/case-study-1/bp-ideation-2.png"
+                            alt=""/>
+
+                        <figcaption>I explored various UX patterns with our team using a mixture of low-fidelty to mid-fidelty wireframes.</figcaption>
                     </figure>
                     </div>
 
@@ -811,6 +816,13 @@ export default function CaseStudyOne() {
                         </li>
                     </ul>
 
+                    <figure>
+                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                            alt=""/>
+
+                        <figcaption> </figcaption>
+                    </figure>
+
                     <blockquote className="notion-quote">
                         This validated direction while highlighting areas for iteration.
                     </blockquote>
@@ -891,51 +903,61 @@ export default function CaseStudyOne() {
             <section aria-labelledby="impact-heading">
                 <div className="container col-30-70 section-fade">
                 
-                <div className="section-heading">
-                    <h2>Impact & outcomes
-                    <br />
-                    <span className="section-subtitle">What changed because of this work.</span>
-                    </h2>
-                </div>
-
-                <div className="section-content">
-                    <div className="content-block">
-                    <p className="lead">
-                        Within three months of launch:
-                    </p>
-
-                    <ul>
-                        <li>
-                        ~1,200 repeat tickets avoided.
-                        </li>
-
-                        <li>
-                        Increased self-serve resolution rate from 42% → 63%
-                        </li>
-
-                        <li>
-                        Improved CSAT scores from 3.6 → 4.4
-                        </li>
-
-                        <li>
-                        Reduced resolution time by -22%
-                        </li>
-
-                        <li>
-                        Increased agent satisfaction: +31%
-                        </li>
-                    </ul>
+                    <div className="section-heading">
+                        <h2>Impact & outcomes
+                        <br />
+                        <span className="section-subtitle">What changed because of this work.</span>
+                        </h2>
                     </div>
 
-                    <blockquote className="notion-quote">
-                    Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
-                    </blockquote>
-                </div>
+                    <div className="section-content">
+                        <div className="content-block">
+                            <p className="lead">
+                                Within three months of launch:
+                            </p>
+
+                            <ul>
+                                <li>
+                                ~1,200 repeat tickets avoided.
+                                </li>
+
+                                <li>
+                                Increased self-serve resolution rate from 42% → 63%
+                                </li>
+
+                                <li>
+                                Improved CSAT scores from 3.6 → 4.4
+                                </li>
+
+                                <li>
+                                Reduced resolution time by -22%
+                                </li>
+                            </ul>
+                            </div>
+
+                            <figure>
+                                <img src="/assets/images/case-study-1/bp-impact-1.png"
+                                    alt=""/>
+
+                                <figcaption> </figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="/assets/images/case-study-1/bp-impact-2.png"
+                                    alt=""/>
+
+                                <figcaption>The proportion of Priority 3 (low-complex) tickets dropped by <strong>~24%</strong> relative to the total volume starting in May 2024 (MVP launch), effectively "shifting left" the workload or deflecting simple queries through our GenAI solution amongst other initiatives.</figcaption>
+                            </figure>
+
+                            <blockquote className="notion-quote">
+                            Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
+                            </blockquote>
+                    </div>
                 </div>
             </section>
 
             <div className="container">
-                <hr className="divider" />
+                <hr className="divider"/>
             </div>
 
             <section aria-labelledby="reflection-heading">

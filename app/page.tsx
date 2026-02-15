@@ -319,8 +319,7 @@ export default function Home() {
                         <div className="card-img">
                             <Image src="/assets/images/case-study-1/bp-thumbnail.png"
                                 alt="Featured Project"
-                                width={1920} // The actual pixel width
-                                height={1080} // The actual pixel height
+                                fill
                             />
                         </div>
                     </article>

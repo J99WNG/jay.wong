@@ -1,0 +1,86 @@
+/* ==================== Buttons ==================== */
+.btn {
+    /* 1. Layout: Flex is king for buttons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+  
+    /* 2. Sizing */
+    width: fit-content;
+    height: auto;
+    padding: 0.75em 1.5em;
+    line-height: 1;
+  
+    /* 3. Typography */
+    text-align: center;
+    text-decoration: none;
+    font-size: clamp(14px, 4vw, 16px); /* Use relative units for the middle clamp value */
+    letter-spacing: -0.04rem;
+  
+    /* 4. Aesthetics */
+    border-radius: 1rem;
+    border: none; /* Reset for <button> tags */
+  
+    /* 5. Animation */
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
+  
+    box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15);
+  }
+  
+  .btn:hover,
+  .btn:active,
+  .btn:focus-visible {
+    text-decoration: none;
+    transform: scale(0.95);
+  }
+  
+  /* Primary */
+  .btn-primary {
+    background-color: var(--ceylon-leaf);
+    color: var(--silver-needle);
+    border: 1px solid var(--aged-pu-erh);
+  }
+  
+  .btn-primary:hover, 
+  .btn-primary:active, 
+  .btn-primary:focus-visible {
+    color: var(--silver-needle);
+    background-color: var(--assam-black);
+  }
+  
+  /* Secondary */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--ceylon-leaf);
+    border: 1px solid var(--ceylon-leaf);
+  }
+  
+  .btn-secondary:hover, 
+  .btn-secondary:active, 
+  .btn-secondary:focus-visible {
+    color: var(--ceylon-leaf);
+  }
+  
+  /* Tertiary */
+  .btn-tertiary {
+    background-color: var(--silver-needle);
+    color: var(--ceylon-leaf);
+    border: 1px solid var(--dried-clay);
+  }
+  
+  .btn-tertiary:hover, 
+  .btn-tertiary:active, 
+  .btn-tertiary:focus-visible {
+    color: var(--ceylon-leaf);
+    background-color: var(--steamed-vapor);
+  }
+  
+  .btn-nav {
+    width: auto;
+    padding: 0.5em 1.5em;
+    border-radius: 1.25rem;
+    font-size: 1.5rem;
+  }
