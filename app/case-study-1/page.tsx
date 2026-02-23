@@ -90,7 +90,7 @@ export default function CaseStudyOne() {
 
                     <div className="grid-layout">
                     <div className="card">
-                        <div className="card-content card-content-secondary">
+                        <div className="card-content card-padding-sm">
                         <p>
                             <span className="quant">~1,200 </span>
                             <br />
@@ -100,7 +100,7 @@ export default function CaseStudyOne() {
                     </div>
 
                     <div className="card">
-                        <div className="card-content card-content-secondary">
+                        <div className="card-content card-padding-sm">
                         <p>
                             <span className="quant">42% → 63% </span>
                             <br />
@@ -110,7 +110,7 @@ export default function CaseStudyOne() {
                     </div>
 
                     <div className="card">
-                        <div className="card-content card-content-secondary">
+                        <div className="card-content card-padding-sm">
                         <p>
                             <span className="quant">3.6 → 4.4 </span>
                             <br />
@@ -120,7 +120,7 @@ export default function CaseStudyOne() {
                     </div>
 
                     <div className="card">
-                        <div className="card-content card-content-secondary">
+                        <div className="card-content card-padding-sm">
                         <p>
                             <span className="quant">-22% </span>
                             <br />
@@ -374,7 +374,7 @@ export default function CaseStudyOne() {
                         <img src="/assets/images/case-study-1/bp-discovery-persona.png"
                             alt=""/>
 
-                        <figcaption>We categorised our interviewees based on our ITSM persona map –– 63% of users in these sessions were understood to be a 'Trier'. </figcaption>
+                        <figcaption>We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user. </figcaption>
                     </figure>
                     </div>
 
@@ -437,7 +437,7 @@ export default function CaseStudyOne() {
 
                     <div className="col-3">
                         <div className="card">
-                        <div className="card-content card-content-tertiary">
+                        <div className="card-content card-padding-sm">
                             <span className="icon icon-lg" aria-hidden="true">
                                 <span className="material-symbols-rounded card-icon" translate="no">emoji_people</span>
                             </span>
@@ -447,17 +447,17 @@ export default function CaseStudyOne() {
                         </div>
             
                         <div className="card">
-                        <div className="card-content card-content-tertiary">
+                        <div className="card-content card-padding-sm">
                             <span className="icon icon-lg" aria-hidden="true">
                                 <span className="material-symbols-rounded card-icon" translate="no">support_agent</span>
                             </span>
             
-                            <p className="card-text"><strong>Agents</strong> need relief from repetitive L1 work.</p>
+                            <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
                         </div>
                         </div>
             
                         <div className="card">
-                        <div className="card-content card-content-tertiary">
+                        <div className="card-content card-padding-sm">
                             <span className="icon icon-lg" aria-hidden="true">
                                 <span className="material-symbols-rounded card-icon" translate="no">business_center</span>
                             </span>
@@ -525,7 +525,7 @@ export default function CaseStudyOne() {
                             </tr>
                             <tr>
                             <td>Maintain simplicity &amp; accessibility</td>
-                            <td>≤3 steps, WCAG 2.1 AA</td>
+                            <td>≤3-step interaction flow, WCAG 2.1 AA</td>
                             <td>Adoption &amp; inclusion</td>
                             </tr>
                         </tbody>
@@ -673,7 +673,7 @@ export default function CaseStudyOne() {
                     </ul>
 
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-solution-1.png"
                             alt=""/>
                         
                         <figcaption> </figcaption>
@@ -727,7 +727,7 @@ export default function CaseStudyOne() {
                     </ul>
 
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-solution-2.png"
                             alt=""/>
                         
                         <figcaption> </figcaption>
@@ -756,7 +756,7 @@ export default function CaseStudyOne() {
                     <p><strong>Result:</strong> No critical accessibility issues identified during testing.</p>
 
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-solution-3.png"
                             alt=""/>
                         
                         <figcaption> </figcaption>
@@ -817,10 +817,10 @@ export default function CaseStudyOne() {
                     </ul>
 
                     <figure>
-                        <img src="https://placehold.co/1920x1080/ebe6e0/998066?text=Coming+soon&font=open-sans.png"
+                        <img src="/assets/images/case-study-1/bp-testing-1.png"
                             alt=""/>
 
-                        <figcaption> </figcaption>
+                        <figcaption>Myself and the other designer spent time synthesising and prioritising our early user insights to present back to our PM and developers.</figcaption>
                     </figure>
 
                     <blockquote className="notion-quote">
@@ -1009,15 +1009,15 @@ export default function CaseStudyOne() {
 
                         <ul>
                         <li>
-                            Introduce personalised support journeys.
+                            Introduce personalised support journeys based on user preference and proficiency.
                         </li>
 
                         <li>
-                            Continuously measure AI answer accuracy over time.
+                            Continuously measure AI answer accuracy over time; iterate and refine LLM guardrails and knowledge content intake.
                         </li>
 
                         <li>
-                            Further refine human-AI collaboration across the support lifecycle.
+                            Further refine human-AI collaboration across the IT support journey.
                         </li>
                         </ul>
                     </div>

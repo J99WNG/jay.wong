@@ -84,7 +84,7 @@ export default function Home() {
 
                     <div className="grid-layout">
                         <div className="card">
-                            <div className="card-content card-content-secondary">
+                            <div className="card-content card-padding-md">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">account_tree</span>
                                 </span>
@@ -96,7 +96,7 @@ export default function Home() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-content-secondary">
+                            <div className="card-content card-padding-md">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">category</span>
                                 </span>
@@ -108,7 +108,7 @@ export default function Home() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-content-secondary">
+                            <div className="card-content card-padding-md">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">search_insights</span>
                                 </span>
@@ -120,7 +120,7 @@ export default function Home() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-content-secondary">
+                            <div className="card-content card-padding-md">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">diversity_4</span>
                                 </span>
@@ -287,7 +287,7 @@ export default function Home() {
                 <div className="col-1-layout">
                     {/* Card #1*/}
                     <article className="card">
-                        <div className="card-content card-content-primary">
+                        <div className="card-content card-padding-lg">
                             <p className="small">
                                 2025 / bp / Oil & Gas
                             </p>
@@ -317,7 +317,7 @@ export default function Home() {
                         </div>
 
                         <div className="card-img">
-                            <Image src="/assets/images/case-study-1/bp-thumbnail.png"
+                            <Image src="/assets/images/case-study-1/bp-bento-1.png"
                                 alt="Featured Project"
                                 fill
                             />

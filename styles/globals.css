@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Master list of your custom styles */
 @import "../styles/buttons.css";
 @import "../styles/colour-system.css";
@@ -72,7 +76,7 @@ figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   border: 1px solid var(--dried-clay);
   transition: transform 0.5s ease;
 }
@@ -82,7 +86,7 @@ figure img {
   width: 100%;
   aspect-ratio: 16 / 9; /* Ensures height exists so 'fill' works */
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   border: 1px solid var(--dried-clay);
 }
 
@@ -150,15 +154,15 @@ caption {
   gap: 0.5rem;
 }
 
-.card-content-primary {
+.card-padding-lg {
   padding: 2rem 1.75rem;
 }
 
-.card-content-secondary {
+.card-padding-md {
   padding: 1.75rem 1.5rem;
 }
 
-.card-content-tertiary {
+.card-padding-sm {
   padding: 1.5rem 1.25rem;
 }
 
@@ -207,9 +211,9 @@ caption {
   /* Sizing */
   width: fit-content;
   gap: 0.5rem;
-  padding: 0.5em 0.75em;
+  padding: 0.5rem 0.75rem;
   margin: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 
   /* Typography */
   font-size: 0.75rem;
@@ -332,7 +336,7 @@ caption {
 .grid-layout {
     display: grid;
     place-items: stretch;
-    gap: 2rem;
+    gap: 1.5rem;
     grid-template-columns: 1fr; /* mobile = 1 column */
   }
 
@@ -358,7 +362,7 @@ caption {
   grid-template-areas:
   "visual"
   "content";   /* content appears AFTER visual in layout */
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .btn-group {
@@ -427,9 +431,9 @@ header {
 
 .nav-brand {
   display: flex;
+  width: auto; /* Prevents logo from hogging space on tiny screens */
   align-items: center;
   flex-shrink: 0;
-  max-width: 120px; /* Prevents logo from hogging space on tiny screens */
 }
 
 .nav-brand svg {
@@ -572,7 +576,6 @@ header {
   display: inline-flex;
   flex-direction: column;
   gap: 1.25rem;
-
   grid-area: content;
 }
 
@@ -583,7 +586,7 @@ header {
 }
 
 .hero-img {
-  background-color: var(--terracotta-clay);
+  background-color: var(--dried-clay);
   border-radius: 100%;
   max-width: 100%;
   display: block;
@@ -699,6 +702,7 @@ span.section-subtitle {
 
 .contact-stack a {
   gap: 0.75rem;
+  letter-spacing: -0.08rem;
   font-size: 1.75rem;
 }
 
@@ -862,7 +866,7 @@ span.section-subtitle {
 .bento-grid {
   grid-template-columns: 1.5fr 1fr; 
   grid-template-rows: 1fr 1fr;
-  height: 600px; /* Define a height to see the effect */
+  height: 500px; /* Define a height to see the effect */
   width: 100%;
 }
 

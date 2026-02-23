@@ -59,7 +59,7 @@ export default function Header() {
                         </ul>
 
                         {/* CTA */}
-                        <Link href="/#contact" className="btn btn-tertiary btn-nav" onClick={closeMenu}>Contact</Link>
+                        <Link href="/#contact" className="btn btn-secondary btn-nav" onClick={closeMenu}>Contact</Link>
                     </nav>
                 
                     {/* Mobile Nav */}

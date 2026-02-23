@@ -3,45 +3,60 @@ import { useEffect, useRef } from 'react';
 
 export default function Dock() {
   const dockRef = useRef<HTMLDivElement>(null);
+  const upScrollTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Fix: Define the variable here so the function below can see it
     let lastScrollY = window.scrollY;
-  
+    const SCROLL_UP_DELAY = 1000; // Delay in milliseconds
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollBottom = currentScrollY + window.innerHeight;
       
       const footer = document.querySelector('footer');
       const docHeight = document.documentElement.scrollHeight;
-      const dock = dockRef.current; // Reference to your Dock element
-  
+      const dock = dockRef.current;
+
       if (dock && footer) {
         const footerTrigger = docHeight - footer.offsetHeight;
-  
-        // 1. Visibility Logic (using the local lastScrollY)
+
+        // --- 1. Visibility Logic with Delay ---
+        
         if (currentScrollY > 500 && currentScrollY > lastScrollY) {
+          // SCROLLING DOWN: Show immediately, clear any pending hide timers
+          if (upScrollTimer.current) {
+            clearTimeout(upScrollTimer.current);
+            upScrollTimer.current = null;
+          }
           dock.classList.add('is-visible');
-        } else {
-          dock.classList.remove('is-visible');
+          
+        } else if (currentScrollY < lastScrollY) {
+          // SCROLLING UP: Wait before hiding
+          if (!upScrollTimer.current) {
+            upScrollTimer.current = setTimeout(() => {
+              dock.classList.remove('is-visible');
+              upScrollTimer.current = null;
+            }, SCROLL_UP_DELAY);
+          }
         }
-  
-        // 2. Footer Collision (The Math we discussed)
+
+        // --- 2. Footer Collision ---
         if (scrollBottom > footerTrigger) {
           dock.classList.add('no-bg');
         } else {
           dock.classList.remove('no-bg');
         }
       }
-  
-      // Update the value for the next scroll event
+
       lastScrollY = currentScrollY;
     };
-  
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     
-    // Cleanup to prevent memory leaks
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (upScrollTimer.current) clearTimeout(upScrollTimer.current);
+    };
   }, []);
 
   return (
