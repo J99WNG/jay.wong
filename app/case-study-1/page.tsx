@@ -147,7 +147,7 @@ export default function CaseStudyOne() {
 
                     <div className="metadata">
                     <p className="small">Year / Industry</p>
-                    <p>2025 · Oil & Gas</p>
+                    <p>2025 · Oil &amp; Gas</p>
                     </div>
 
                     <div className="metadata">
@@ -481,7 +481,7 @@ export default function CaseStudyOne() {
                 <div className="container col-30-70 section-fade">
                 
                 <div className="section-heading">
-                    <h2>Goals & KPIs
+                    <h2>Goals &amp; KPIs
                     <br />
                     <span className="section-subtitle">Defining what we want to solve.</span>
                     </h2>
@@ -619,7 +619,7 @@ export default function CaseStudyOne() {
 
                     <ul>
                         <li>
-                        GenAI enhanced knowledge search & summarisation.
+                        GenAI enhanced knowledge search &amp; summarisation.
                         </li>
 
                         <li>
@@ -736,7 +736,7 @@ export default function CaseStudyOne() {
 
                     <div className="content-block">
                     <h3>
-                        Accessibility & inclusion
+                        Accessibility &amp; inclusion
                     </h3>
 
                     <ul>
@@ -776,7 +776,7 @@ export default function CaseStudyOne() {
                 <div className="container col-30-70 section-fade">
 
                 <div className="section-heading">
-                    <h2>Testing & validation
+                    <h2>Testing &amp; validation
                     <br />
                     <span className="section-subtitle">Shipping the MVP.</span>
                     </h2>
@@ -904,7 +904,7 @@ export default function CaseStudyOne() {
                 <div className="container col-30-70 section-fade">
                 
                     <div className="section-heading">
-                        <h2>Impact & outcomes
+                        <h2>Impact &amp; outcomes
                         <br />
                         <span className="section-subtitle">What changed because of this work.</span>
                         </h2>

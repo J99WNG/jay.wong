@@ -422,7 +422,6 @@ header {
 
   /* Colour */
   background: var(--ceylon-leaf);
-  border: 1px solid var(--aged-pu-erh);
 
   position: relative;
   pointer-events: auto;
@@ -431,15 +430,15 @@ header {
 
 .nav-brand {
   display: flex;
-  width: auto; /* Prevents logo from hogging space on tiny screens */
   align-items: center;
   flex-shrink: 0;
 }
 
 .nav-brand svg {
   display: block;
-  width: 100%;
   height: 2rem;
+  width: auto;
+
   fill: var(--silver-needle);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
