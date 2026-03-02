@@ -51,11 +51,11 @@ export const metadata: Metadata = {
 
   // This handles icons and Apple Touch Icons
   icons: {
-    icon: "/assets/images/favicon.svg",
+    icon: "/favicon.svg",
     apple: [
-      { url: "/assets/images/favicon.svg" },
-      { url: "/assets/images/favicon.svg", sizes: "76x76" },
-      { url: "/assets/images/favicon.svg", sizes: "180x180" },
+      { url: "/favicon.svg" },
+      { url: "/favicon.svg", sizes: "76x76" },
+      { url: "/favicon.svg", sizes: "180x180" },
     ],
   },
 };

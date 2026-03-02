@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import HKTClock from "@/components/HKTClock"; // Adjust path as needed
+import CopyEmail from '@/components/CopyEmail';
 
 export default function Home() {
   return (
@@ -23,11 +24,11 @@ export default function Home() {
             
                         {/* CTAs */}
                         <div className="btn-group">
-                            <Link 
-                                href="/#work"
+                            <a
+                                href="#work"
                                 className="btn btn-primary">
                                 View work
-                            </Link>
+                            </a>
             
                             <a
                                 href="https://cal.com/jay-wong/intro"
@@ -65,21 +66,33 @@ export default function Home() {
                 </div>
 
                 <div className="section-content">
-                    <p className="lead">
-                        I&apos;ve spent the last 6 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
-                    </p>
+                    <div className="content-block">
+                        <p className="lead">
+                            I’ve always been someone who observes first.
+                        </p>
+
+                        <p className="lead">
+                        Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct — to observe before reacting — quietly became the foundation of how I solve problems today.
+                        </p>
+                    </div>
 
                     <div className="badge-group">
-                        <p className="badge">UX Research</p>
-                        <p className="badge">UI Design</p>
-                        <p className="badge">Design systems</p>
-                        <p className="badge">Generative AI</p>
-                        <p className="badge">Systems thinking</p>
-                        <p className="badge">Accessibility design</p>
-                        <p className="badge">Agile methodology</p>
-                        <p className="badge">ServiceNow</p>
-                        <p className="badge">HTML</p>
-                        <p className="badge">CSS</p>
+                        <li className="badge">UX Research</li>
+                        <li className="badge">UI Design</li>
+                        <li className="badge">Design systems</li>
+                        <li className="badge">Generative AI</li>
+                        <li className="badge">Systems thinking</li>
+                        <li className="badge">Accessibility design</li>
+                        <li className="badge">Agile methodology</li>
+                        <li className="badge">ServiceNow</li>
+                        <li className="badge">HTML</li>
+                        <li className="badge">CSS</li>
+                    </div>
+
+                    <div className="content-block">
+                        <p>
+                            I&apos;ve spent the last 6 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
+                        </p>
                     </div>
 
                     <div className="grid-layout">
@@ -89,7 +102,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">account_tree</span>
                                 </span>
 
-                                <p className="lead">Strategic Organiser</p>
+                                <h3>Strategic Organiser</h3>
 
                                 <p className="card-text">I bring structure to complexity, keeping teams aligned, focused, and moving fast.</p>
                             </div>
@@ -101,7 +114,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">category</span>
                                 </span>
 
-                                <p className="lead">Cross-Functional</p>
+                                <h3>Cross-Functional</h3>
 
                                 <p className="card-text">Fluency across design, IT, and business — I turn gaps into shared understanding.</p>
                             </div>
@@ -113,7 +126,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">search_insights</span>
                                 </span>
 
-                                <p className="lead">Evidence-Led</p>
+                                <h3>Evidence-Led</h3>
 
                                 <p className="card-text">My decisions are grounded in research, data, and real user needs — not assumptions.</p>
                             </div>
@@ -125,7 +138,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">diversity_4</span>
                                 </span>
                                 
-                                <p className="lead">Collaborative Owner</p>
+                                <h3>Collaborative Owner</h3>
                                 
                                 <p className="card-text">I lead with trust and shared ownership, driving outcomes together, not alone.</p>
                             </div>
@@ -284,8 +297,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="col-1-layout">
-                    {/* Card #1*/}
+                <div className="card-stack">
+                    {/* Card #1 */}
                     <article className="card">
                         <div className="card-content card-padding-lg">
                             <p className="small">
@@ -299,10 +312,9 @@ export default function Home() {
                             </p>
                             
                             <div className="badge-group">
-                                <p className="badge">Energy</p>
+                                <p className="badge">GenAI</p>
                                 <p className="badge">ITSM</p>
                                 <p className="badge">ServiceNow</p>
-                                <p className="badge">GenAI</p>
                             </div>
 
                             <Link className="card-link" href="/case-study-1">
@@ -323,12 +335,49 @@ export default function Home() {
                             />
                         </div>
                     </article>
+
+                    {/* Card #2 */}
+                    <article className="card">
+                        <div className="card-content card-padding-lg">
+                            <p className="small">
+                                2025 / bp / Oil & Gas
+                            </p>
+
+                            <h3 className="card-title">From Fragmented Intranets to a Unified Global Digital Workplace</h3>
+
+                            <p className="card-text">
+                                Leading the consolidation of fragmented workplace services into a unified ServiceNow experience at bp.
+                            </p>
+                            
+                            <div className="badge-group">
+                                <p className="badge">Digital Workplace</p>
+                                <p className="badge">ServiceNow</p>
+                            </div>
+
+                            <Link className="card-link" href="/case-study-2">
+                                View case study
+
+                                <span className="icon icon-sm" aria-hidden="true">
+                                    <span className="material-symbols-rounded arrow_forward">
+                                        arrow_forward
+                                    </span>
+                                </span>
+                            </Link>
+                        </div>
+
+                        <div className="card-img">
+                            <Image src="assets/images/case-study-2/ow-bento-1.png"
+                                alt="Featured Project"
+                                fill
+                            />
+                        </div>
+                    </article>
                 </div>
 
             </div>
         </section>
 
-        {/* CONTACT */}
+        {/* ==================== CONTACT ==================== */}
         <section id="contact" aria-labelledby="contact-title">
             <div className="container col-30-70 section-fade">
 
@@ -341,7 +390,7 @@ export default function Home() {
 
                 <div className="section-content">
 
-                    <p className="tagline">
+                    <p className="lead">
                         Think we could build something exciting? I&apos;d love to hear from you —
                         whether it&apos;s a quick question, collaboration idea, or a full-on project.
                     </p>
@@ -373,31 +422,14 @@ export default function Home() {
                                 Schedule a call
                             </span>
 
-                            <span className="icon icon-lg" aria-hidden="true">
+                            <span className="icon icon-md" aria-hidden="true">
                                 <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
                               </span>
                         </Link>
 
                         
                         {/* Email */}
-                        <Link href="mailto:hello@jaywong.digital"
-                            className="contact-item"
-                            role="listitem">
-
-                            <span className="icon icon-lg" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="80 -800 800 640" fill="currentColor">
-                                    <path d="M146.67-160q-27 0-46.84-19.83Q80-199.67 80-226.67v-506.66q0-27 19.83-46.84Q119.67-800 146.67-800h666.66q27 0 46.84 19.83Q880-760.33 880-733.33v506.66q0 27-19.83 46.84Q840.33-160 813.33-160H146.67ZM480-461q5 0 9.17-1.5 4.16-1.5 8.5-3.83L801.33-662q6-3.67 9-9.5t3-12.83q0-15.34-13.33-23.67-13.33-8.33-27.33.67L480-521.33l-292-186q-14-9-27.67-.84Q146.67-700 146.67-685q0 7.33 3.33 13.5t8.67 9.5l303.66 195.67q4.34 2.33 8.5 3.83Q475-461 480-461Z"/>
-                                </svg>
-                            </span>
-
-                            <span className="contact-text" translate="no">
-                                hello@jaywong.digital
-                            </span>
-
-                            <span className="icon icon-lg" aria-hidden="true">
-                                <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
-                              </span>
-                        </Link>
+                        <CopyEmail />
 
                         {/* LinkedIn */}
                         <Link href="https://linkedin.com/in/jayycwong"
@@ -417,7 +449,7 @@ export default function Home() {
                                 Connect with me
                             </span>
 
-                            <span className="icon icon-lg" aria-hidden="true">
+                            <span className="icon icon-md" aria-hidden="true">
                                 <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
                             </span>
                         </Link>

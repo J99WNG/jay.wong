@@ -25,8 +25,6 @@
     /* 5. Animation */
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     transform: scale(1);
-  
-    box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15);
   }
   
   .btn:hover,
@@ -41,6 +39,8 @@
     background-color: var(--ceylon-leaf);
     color: var(--silver-needle);
     border: 1px solid var(--aged-pu-erh);
+
+    box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15); 
   }
   
   .btn-primary:hover, 
@@ -66,17 +66,17 @@
   
   /* Tertiary */
   .btn-tertiary {
-    background-color: transparent;
-    color: var(--ceylon-leaf);
-    border: 1px solid var(--ceylon-leaf);
+    background-color: var(--masala-chai);
+    color: var(--silver-needle);
+    border: 1px solid var(--milk-tea);
   }
   
   .btn-tertiary:hover, 
   .btn-tertiary:active, 
   .btn-tertiary:focus-visible {
-    background-color: transparent;
-    color: var(--aged-pu-erh);
-    border: 1px solid var(--aged-pu-erh);
+    background-color: var(--milk-tea);
+    color: var(--white-pekoe);
+    border: 1px solid var(--masala-chai);
   }
   
   .btn-nav {
