@@ -24,8 +24,8 @@ export default function FigureModal({ src, alt, caption }) {
   return (
     <>
       {/* --- Trigger: The Figure --- */}
-      <figure className="modal-trigger" onClick={() => setIsOpen(true)}>
-        <div className="image-wrapper">
+      <figure className="modal-trigger">
+        <div className="image-wrapper" onClick={() => setIsOpen(true)}>
           <img src={src} alt={alt} />
 
           <div className="hover-overlay">
@@ -50,7 +50,9 @@ export default function FigureModal({ src, alt, caption }) {
             aria-label="Close modal"
             onClick={() => setIsOpen(false)}
           >
-            <span className="icon material-symbols-rounded">close</span>
+            <span className="icon icon-lg">
+              <span className="material-symbols-rounded">close</span>
+            </span>
           </button>
           
           <div className="container modal-content" onClick={(e) => e.stopPropagation()}>
@@ -63,31 +65,51 @@ export default function FigureModal({ src, alt, caption }) {
 
       <style jsx>{`
         /* Trigger Styles */
-        .modal-trigger { cursor: pointer; margin: 0; }
+        .image-wrapper { cursor: zoom-in; margin: 0; }
         .image-wrapper { position: relative; overflow: hidden; border-radius: 0.75rem; }
         .image-wrapper img { width: 100%; display: block; transition: transform 0.3s ease; }
         
         .hover-overlay {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(0, 0, 0, 0.3);
+          background: rgba(0, 0, 0, 0.2);
           display: flex; align-items: center; justify-content: center;
           opacity: 0; transition: opacity 0.5s ease;
         }
 
         .hover-overlay span { color: white; font-size: 3rem; }
-        .modal-trigger:hover .hover-overlay { opacity: 1; }
-        .modal-trigger:hover img { transform: scale(1.05); }
+        .image-wrapper:hover .hover-overlay { opacity: 1; }
+        .image-wrapper:hover img { transform: scale(1.05); }
 
-        /* Modal Styles */
         .modal-overlay {
-          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(0, 0, 0, 0.8); /* Subtle contrast */
-          backdrop-filter: blur(32px); /* Soft background blur */
-          -webkit-backdrop-filter: blur(32px);
+          position: fixed;
+          inset: 0;
+          width: 100%;
+          height: 100%;
           z-index: 9999;
+
+          /* 1. Semi-transparent background (White or Black works) */
+          background: rgba(0, 0, 0, 0.8);
+
+          /* 2. The "Frost" effect (Standard + Safari support) */
+          backdrop-filter: blur(16px) saturate(160%);
+          -webkit-backdrop-filter: blur(16px) saturate(160%);
+
+          /* 3. Hardware Acceleration (Crucial) */
+          will-change: backdrop-filter, opacity;
+          transform: translateZ(0);
+
+          /* 4. Centering the content */
           display: flex;
           align-items: center;
           justify-content: center;
+
+          /* 5. Smooth entry */
+          animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
 
         .modal-content {
@@ -105,7 +127,7 @@ export default function FigureModal({ src, alt, caption }) {
         }
 
         .modal-caption {
-          color: white;
+          color: var(--silver-needle);
           width: 100%;
           margin-top: 1rem;
           text-align: center; 
@@ -117,8 +139,8 @@ export default function FigureModal({ src, alt, caption }) {
           right: 2rem;
           border: none;
           cursor: pointer;
-          width: 45px;
-          height: 45px;
+          width: 3rem;
+          height: 3rem;
           border-radius: 50%;
           display: flex;
           align-items: center;

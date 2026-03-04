@@ -29,13 +29,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaywong.digital/'), // Change to your actual URL
-  title: "Jay Wong – Solving digital complexity with design",
-  description: "👋 I'm Jay – a product and front-end designer specialising in inclusive, AI-led and service-driven products.",
+  title: "Jay Wong",
+  description: "👋 a product and front-end designer specialising in inclusive, AI-led and service-driven products.",
   
   // This handles your Facebook/OpenGraph tags
   openGraph: {
-    title: "Jay Wong – Solving digital complexity with design",
-    description: "👋 I'm Jay – a product and front-end designer...",
+    title: "Jay Wong",
+    description: "👋 a product and front-end designer specialising in inclusive, AI-led and service-driven products.",
     url: "https://www.jaywong.digital/",
     siteName: "JW Portfolio",
     images: [{ url: "/assets/images/OG-Image.png" }], // No {{ site.baseurl }} needed!
@@ -63,6 +63,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }:
   Readonly<{ children: React.ReactNode; }>) {
   return (
+    
     <html lang="en" className={inter.variable}>
       <head>
         {/* Google Material Symbols Link */}
@@ -72,7 +73,7 @@ export default function RootLayout({ children }:
         />
       </head>
       
-      <body>
+      <body className="relative">
         <Header /> 
 
         <FadeObserver /> {/* Handles all section animations */}
@@ -81,7 +82,6 @@ export default function RootLayout({ children }:
         </main>
 
         <Dock />
-
         <Footer />
       </body>
     </html>

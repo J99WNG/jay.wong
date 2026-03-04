@@ -918,23 +918,23 @@ export default function CaseStudyOne() {
                                 Reduced resolution time by -22%
                                 </li>
                             </ul>
-                            </div>
+                        </div>
 
-                            <FigureModal
-                                src="/assets/images/case-study-1/bp-impact-1.png"
-                                alt=""
-                                caption=""
-                            />
-
-                            <FigureModal
-                                src="/assets/images/case-study-1/bp-impact-2.png"
-                                alt=""
-                                caption="The proportion of Priority 3 (low-complex) tickets dropped by ~24% relative to the total volume starting in May 2024 (MVP launch), effectively shifting left the workload or deflecting simple queries through our GenAI solution amongst other initiatives."
-                            />
-
-                            <blockquote className="notion-quote">
+                        <blockquote className="notion-quote">
                             Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
-                            </blockquote>
+                        </blockquote>
+
+                        <FigureModal
+                            src="/assets/images/case-study-1/bp-impact-1.png"
+                            alt=""
+                            caption=""
+                        />
+
+                        <FigureModal
+                            src="/assets/images/case-study-1/bp-impact-2.png"
+                            alt=""
+                            caption="The proportion of Priority 3 (low-complex) tickets dropped by ~24% relative to the total volume starting in May 2024 (MVP launch), effectively shifting left the workload or deflecting simple queries through our GenAI solution amongst other initiatives."
+                        />
                     </div>
                 </div>
             </section>

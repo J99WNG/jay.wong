@@ -51,7 +51,7 @@ export default function CopyEmail() {
                 .copied-label {
                     position: absolute;
                     left: 0;
-                    color: var(--iron-buddha); /* Or your brand color */
+                    color: var(--iron-buddha);
                 }
                 .fade-in {
                     opacity: 1;

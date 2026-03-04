@@ -24,11 +24,11 @@ export default function Home() {
             
                         {/* CTAs */}
                         <div className="btn-group">
-                            <a
+                            <Link
                                 href="#work"
                                 className="btn btn-primary">
                                 View work
-                            </a>
+                            </Link>
             
                             <a
                                 href="https://cal.com/jay-wong/intro"
@@ -89,12 +89,6 @@ export default function Home() {
                         <li className="badge">CSS</li>
                     </div>
 
-                    <div className="content-block">
-                        <p>
-                            I&apos;ve spent the last 6 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
-                        </p>
-                    </div>
-
                     <div className="grid-layout">
                         <div className="card">
                             <div className="card-content card-padding-md">
@@ -102,7 +96,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">account_tree</span>
                                 </span>
 
-                                <h3>Strategic Organiser</h3>
+                                <p className="lead">Strategic Organiser</p>
 
                                 <p className="card-text">I bring structure to complexity, keeping teams aligned, focused, and moving fast.</p>
                             </div>
@@ -114,7 +108,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">category</span>
                                 </span>
 
-                                <h3>Cross-Functional</h3>
+                                <p className="lead">Cross-Functional</p>
 
                                 <p className="card-text">Fluency across design, IT, and business — I turn gaps into shared understanding.</p>
                             </div>
@@ -126,7 +120,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">search_insights</span>
                                 </span>
 
-                                <h3>Evidence-Led</h3>
+                                <p className="lead">Evidence-Led</p>
 
                                 <p className="card-text">My decisions are grounded in research, data, and real user needs — not assumptions.</p>
                             </div>
@@ -138,7 +132,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded card-icon" translate="no">diversity_4</span>
                                 </span>
                                 
-                                <h3>Collaborative Owner</h3>
+                                <p className="lead">Collaborative Owner</p>
                                 
                                 <p className="card-text">I lead with trust and shared ownership, driving outcomes together, not alone.</p>
                             </div>
@@ -167,7 +161,7 @@ export default function Home() {
                         </p>
     
                         <p>
-                            I bring a collaborative mindset, a strong sense of shared ownership, and a commitment to data-driven decision-making.
+                            I&apos;ve spent the last 6 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
                         </p>
                     </div>
                     

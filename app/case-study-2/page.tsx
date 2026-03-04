@@ -75,7 +75,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2>Snapshot
-                        <br />
+                        <br/>
                         <span className="section-subtitle">The “too long didn&apos;t read”.</span>
                         </h2>
                     </div>
@@ -166,7 +166,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2>Business context
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Why it mattered.</span>
                         </h2>
                     </div>
@@ -206,7 +206,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2 className="section-title">My role
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Ownership and strategic focus.</span>
                         </h2>
                     </div>
@@ -248,7 +248,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Uncovering the insights.</span>
                         </h2>
                     </div>
@@ -262,9 +262,9 @@ export default function CaseStudyTwo() {
                             <p>Desk booking, catering, parking, and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
                                 
                             <FigureModal
-                                src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
+                                src="assets/images/case-study-2/ow-discovery-1.png"
                                 alt=""
-                                caption=""
+                                caption="One location was operating workplace services through more than 8 different touchpoints, scattered across SharePoint pages. This was a repeating theme."
                             />
 
                         </div>
@@ -274,13 +274,11 @@ export default function CaseStudyTwo() {
                             
                             <p>Information and services lived across SharePoint, Viva Engage, PowerApps, and local documents.</p>
 
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="assets/images/case-study-2/ow-discovery-2.png"
+                                alt=""
+                                caption="My audit and mapping of our location in Houston revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
+                            />
                         </div>
 
                         <div className="content-block">
@@ -288,13 +286,11 @@ export default function CaseStudyTwo() {
                             
                             <p>'Bookmarking' was a common behaviour observed — signalling low confidence in findability.</p>
 
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="assets/images/case-study-2/ow-discovery-3.png"
+                                alt=""
+                                caption="User interviews revealed browser bookmarking was frequent and preferred -- users were navigating to pages through bookmarks rather than search or navigation. This was a critical insight that informed our focus on improving navigation and information architecture."
+                            />
                         </div>
 
                         <div className="content-block">
@@ -302,13 +298,11 @@ export default function CaseStudyTwo() {
                             
                             <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
 
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="assets/images/case-study-2/ow-discovery-4.png"
+                                alt=""
+                                caption="Interviews in the Trinidad and Pune locations revealed a strong reliance on informal networks for accessing workplace services. Employees often bypassed official channels, preferring to ask colleagues directly for support. This highlighted the need for a more intuitive and trustworthy digital experience to encourage adoption of formal processes."
+                            />
                         </div>
 
                         <div className="content-block">
@@ -316,13 +310,11 @@ export default function CaseStudyTwo() {
                             
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio — exposing structural misalignment.</p>
 
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="https://placehold.co/1920x1080/fdfaf7/998066?text=Placeholder&font=open-sans.png"
+                                alt=""
+                                caption=""
+                            />
                         </div>
 
                         <blockquote className="notion-quote">
@@ -342,7 +334,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2>Problem definition
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Sharpening the focus.</span>
                         </h2>
                     </div>
@@ -422,7 +414,7 @@ export default function CaseStudyTwo() {
                 
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Defining what we want to solve.</span>
                         </h2>
                     </div>
@@ -460,7 +452,7 @@ export default function CaseStudyTwo() {
                 <div className="container col-30-70 section-fade">
                     <div className="section-heading">
                         <h2>Ideation
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Thinking outside the box.</span>
                         </h2>
                     </div>
@@ -503,7 +495,7 @@ export default function CaseStudyTwo() {
                 <div className="container col-30-70 section-fade">
                     <div className="section-heading">
                         <h2>The solution
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Reimagining the digital workplace.</span>
                         </h2>
                     </div>
@@ -511,13 +503,11 @@ export default function CaseStudyTwo() {
                     <div className="section-content">
 
                         <div className="content-block">
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="assets/images/case-study-2/ow-solution-1.png"
+                                alt=""
+                                caption=""
+                            />
 
                             <h3>
                                 Outcome-led, action-orientated navigation
@@ -549,13 +539,11 @@ export default function CaseStudyTwo() {
                         </div>
 
                         <div className="content-block">
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="assets/images/case-study-2/ow-solution-2.png"
+                                alt=""
+                                caption="A three-tier model was developed to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
+                            />
 
                             <h3>
                                 Global framework with regional adaptability
@@ -574,13 +562,11 @@ export default function CaseStudyTwo() {
                         </div>
 
                         <div className="content-block">
-                            <figure>
-                                <img
-                                    src="https://placehold.co/1920x1080/fdfaf7/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""/>
-                                
-                                <figcaption></figcaption>
-                            </figure>
+                            <FigureModal
+                                src="https://placehold.co/1920x1080/fdfaf7/998066?text=Placeholder&font=open-sans.png"
+                                alt=""
+                                caption=""
+                            />
 
                             <h3>
                                 Platform consolidation
@@ -608,7 +594,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2>Testing &amp; validation
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Shipping the PoC.</span>
                         </h2>
                     </div>
@@ -662,7 +648,7 @@ export default function CaseStudyTwo() {
                 
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
-                        <br />
+                        <br/>
                         <span className="section-subtitle">What changed because of this work.</span>
                         </h2>
                     </div>
@@ -728,7 +714,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-heading">
                         <h2>Reflection
-                        <br />
+                        <br/>
                         <span className="section-subtitle">Learnings and key takeaways.</span>
                         </h2>
                     </div>
@@ -753,7 +739,7 @@ export default function CaseStudyTwo() {
                             
                             <h4>Influence matters as much as interface</h4>
                             <p>
-                            Driving cross-regional alignment and securing senior approval required facilitation, negotiation, and reframing the problem in business language — not just producing strong design artefacts.
+                                Driving cross-regional alignment and securing senior approval required facilitation, negotiation, and reframing the problem in business language — not just producing strong design artefacts.
                             </p>
                         </div>
 
@@ -767,12 +753,12 @@ export default function CaseStudyTwo() {
 
                             <h4>Context emerges continuously in complex organisations</h4>
                             <p>
-                            Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase — it’s ongoing. We adapted our design and rollout strategy accordingly.
+                                Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase — it’s ongoing. We adapted our design and rollout strategy accordingly.
                             </p>
 
                             <h4>Standardisation vs autonomy tension</h4>
                             <p>
-                            Balancing global consistency with location-level variability required careful trade-offs in IA and backend logic. Designing flexibility into the system was essential.
+                                Balancing global consistency with location-level variability required careful trade-offs in IA and backend logic. Designing flexibility into the system was essential, and myself and the team went back and forth on how to approach it.
                             </p>
                         </div>
 
