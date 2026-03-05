@@ -88,11 +88,11 @@ export default function FigureModal({ src, alt, caption }) {
           z-index: 9999;
 
           /* 1. Semi-transparent background (White or Black works) */
-          background: rgba(0, 0, 0, 0.8);
+          background: rgba(0, 0, 0, 0.7);
 
           /* 2. The "Frost" effect (Standard + Safari support) */
-          backdrop-filter: blur(16px) saturate(160%);
-          -webkit-backdrop-filter: blur(16px) saturate(160%);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
 
           /* 3. Hardware Acceleration (Crucial) */
           will-change: backdrop-filter, opacity;

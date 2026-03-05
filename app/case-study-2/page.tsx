@@ -11,9 +11,9 @@ export default function CaseStudyTwo() {
                     <div className="breadcrumb">
                         <Link href="/#work" title="Back to all projects">
                             <span className="icon icon-sm" aria-hidden="true">
-                            <span className="material-symbols-rounded arrow_back">
-                                arrow_back
-                            </span>
+                                <span className="material-symbols-rounded arrow_back">
+                                    arrow_back
+                                </span>
                             </span>
                             
                             Back to all projects
@@ -23,9 +23,9 @@ export default function CaseStudyTwo() {
                             Next case study
 
                             <span className="icon icon-sm" aria-hidden="true">
-                            <span className="material-symbols-rounded arrow_forward">
-                                arrow_forward
-                            </span>
+                                <span className="material-symbols-rounded arrow_forward">
+                                    arrow_forward
+                                </span>
                             </span>
                         </Link>
                     </div>
@@ -132,7 +132,9 @@ export default function CaseStudyTwo() {
                             <div className="metadata">
                                 <p className="small">Timeline</p>
 
-                                <p>8 months (Discovery → Proof of Concept)</p>
+                                <p>8 months
+                                    <br />
+                                    (Discovery → Proof of Concept)</p>
                             </div>
 
                             <div className="metadata">
@@ -216,12 +218,12 @@ export default function CaseStudyTwo() {
                             <p className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</p>
 
                             <ul>
-                                <li>Leading 6-weeks of discovery research across UK, US, India and the Caribbean.</li>
-                                <li>Facilitated cross-regional workshops across 4 time zones.</li>
-                                <li>Mapped end-to-end workplace journeys.</li>
-                                <li>Translated operational data into clear experience strategy – defining problem statements and design principles.</li>
+                                <li>Leading 6-weeks of discovery across UK, US, India and the Caribbean.</li>
+                                <li>Facilitated stakeholder alignment across workplace operations, IT, and regional office teams.</li>
+                                <li>Steering a squad of ServiceNow developers between India and Bulgaria to balance UX ambitions with platform constraints.</li>
+                                <li>Shaped the global rollout strategy by leading data collection across 50+ workplace locations, identifying early adopters and translating operational insights into the core problem statements and experience principles for the programme.</li>
                                 <li>Influenced the move towards a consolidated global information architecture.</li>
-                                <li>Worked in sync with ServiceNow developers to balance UX ambition with platform constraints.</li>
+                                <li>Led the end-to-end experience design for the global workplace hub within ServiceNow.</li>
                             </ul>
                         </div>
                         
@@ -277,7 +279,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-2.png"
                                 alt=""
-                                caption="My audit and mapping of our location in Houston revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
+                                caption="My audit and mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
                             />
                         </div>
 
@@ -311,7 +313,7 @@ export default function CaseStudyTwo() {
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio — exposing structural misalignment.</p>
 
                             <FigureModal
-                                src="https://placehold.co/1920x1080/fdfaf7/998066?text=Placeholder&font=open-sans.png"
+                                src="assets/images/case-study-2/ow-discovery-5.png"
                                 alt=""
                                 caption=""
                             />
@@ -482,6 +484,24 @@ export default function CaseStudyTwo() {
 
                         <div className="content-block">
                             <p className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</p>
+
+                            <FigureModal
+                                src="/assets/images/case-study-2/ow-ideation-1.png"
+                                alt=""
+                                caption=""
+                            />
+
+                            <FigureModal
+                                src="/assets/images/case-study-2/ow-ideation-2.png"
+                                alt=""
+                                caption=""
+                            />
+
+                            <FigureModal
+                                src="/assets/images/case-study-2/ow-ideation-3.png"
+                                alt=""
+                                caption=""
+                            />
                         </div>
                     </div>
                 </div>
@@ -510,31 +530,31 @@ export default function CaseStudyTwo() {
                             />
 
                             <h3>
-                                Outcome-led, action-orientated navigation
+                                Action-orientated, focused navigation
                             </h3>
 
                             <p>Clear, plain-language categories such as:</p>
 
                             <ul>
                                 <li>
-                                “Desk and room bookings”
+                                “Book a desk, room or locker”
                                 </li>
 
                                 <li>
-                                “Access & security”
+                                “Access and security”
                                 </li>
 
                                 <li>
-                                “Equipment & IT”
+                                “Equipment and IT”
                                 </li>
 
                                 <li>
-                                “Moves & changes”
+                                “Shuttle service”
                                 </li>
                             </ul>
 
                             <blockquote className="notion-quote">
-                                This reduced cognitive load and aligned navigation with real-world tasks.
+                                Pairing this with the <a href="https://lawsofux.com/" target="_blank">laws of UX</a>, we reduced cognitive load and aligned navigation with real-world tasks.
                             </blockquote>
                         </div>
 
@@ -563,7 +583,7 @@ export default function CaseStudyTwo() {
 
                         <div className="content-block">
                             <FigureModal
-                                src="https://placehold.co/1920x1080/fdfaf7/998066?text=Placeholder&font=open-sans.png"
+                                src="assets/images/case-study-2/ow-solution-3.png"
                                 alt=""
                                 caption=""
                             />
@@ -727,39 +747,73 @@ export default function CaseStudyTwo() {
                         <div className="content-block">
                             <h3>What worked</h3>
 
-                            <h4>Simplicity is strategic</h4>
-                            <p>
-                                At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.
-                            </p>
+                            <div className="flex flex-col gap-6">
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">abc</span>
+                                    </span>
 
-                            <h4>Phased transformation drives adoption</h4>
-                            <p>
-                                Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence, and allowed regional onboarding to happen sustainably.
-                            </p>
-                            
-                            <h4>Influence matters as much as interface</h4>
-                            <p>
-                                Driving cross-regional alignment and securing senior approval required facilitation, negotiation, and reframing the problem in business language — not just producing strong design artefacts.
-                            </p>
+                                    <p className="lead">Simplicity is strategic</p>
+                    
+                                    <p className="card-text">At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.</p>
+                                </div>
+
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">123</span>
+                                    </span>
+
+                                    <p className="lead">Phased transformation drives adoption</p>
+                    
+                                    <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence, and allowed regional onboarding to happen sustainably.</p>
+                                </div>
+
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">diversity_3</span>
+                                    </span>
+
+                                    <p className="lead">Influence matters as much as interface</p>
+                    
+                                    <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation, and reframing the problem in business language — not just producing strong design artefacts.</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="content-block">
                             <h3>What was challenging</h3>
 
-                            <h4>Governance and restructuring disrupted sprint timelines</h4>
-                            <p>
-                                Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems, and resilient ways of working at enterprise scale.
-                            </p>
+                            <div className="flex flex-col gap-6">
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">view_timeline</span>
+                                    </span>
 
-                            <h4>Context emerges continuously in complex organisations</h4>
-                            <p>
-                                Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase — it’s ongoing. We adapted our design and rollout strategy accordingly.
-                            </p>
+                                    <p className="lead">Governance and restructuring disrupted sprint timelines</p>
+                    
+                                    <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems, and resilient ways of working at enterprise scale.</p>
+                                </div>
 
-                            <h4>Standardisation vs autonomy tension</h4>
-                            <p>
-                                Balancing global consistency with location-level variability required careful trade-offs in IA and backend logic. Designing flexibility into the system was essential, and myself and the team went back and forth on how to approach it.
-                            </p>
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">communication</span>
+                                    </span>
+
+                                    <p className="lead">Context emerges continuously in complex organisations</p>
+                    
+                                    <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase — it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
+                                </div>
+
+                                <div className="card-content">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">code_blocks</span>
+                                    </span>
+
+                                    <p className="lead">Standardisation vs autonomy tension</p>
+                    
+                                    <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential, and myself and the team went back and forth on how best to approach it.</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="content-block">

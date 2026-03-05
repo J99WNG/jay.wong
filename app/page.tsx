@@ -390,13 +390,17 @@ export default function Home() {
                     </p>
 
                     {/* Status */}
-                    <div className="status">
-                        Currently based in
-                        <span className="status-text">
-                            Hong Kong 🇭🇰
-                            <HKTClock />
-                        </span>
+                    <div className="content-block">
+                        <p className="small">Currently based in:</p>
+                        
+                        <div className="status">
+                            <span className="status-text">
+                                Hong Kong 🇭🇰
+                                <HKTClock />
+                            </span>
+                        </div>
                     </div>
+                    
 
                     <div className="contact-stack" role="list">
                         {/* Cal.com */}

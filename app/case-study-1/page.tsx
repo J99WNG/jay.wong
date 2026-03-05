@@ -71,118 +71,116 @@ export default function CaseStudyOne() {
             <div className="container col-30-70 section-fade">
 
                 <div className="section-heading">
-                <h2>Snapshot
-                <br />
-                <span className="section-subtitle">The “too long didn&apos;t read”.</span>
-                </h2>
+                    <h2>Snapshot
+                    <br />
+                    <span className="section-subtitle">The “too long didn&apos;t read”.</span>
+                    </h2>
                 </div>
 
                 <div className="section-content">
+                    <div className="content-block">
+                        <p className="small">Problem</p>
+                        <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels — increasing operational costs and reducing employee productivity.</p>
+                    </div>
+                    
+                    <div className="content-block">
+                        <p className="small">Outcome</p>
+                        <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume, and shifted demand away from high-cost live support.</p>
+                    </div>
 
-                <div className="content-block">
-                    <p className="small">Problem</p>
-                    <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels — increasing operational costs and reducing employee productivity.</p>
-                </div>
-                
-                <div className="content-block">
-                    <p className="small">Outcome</p>
-                    <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume, and shifted demand away from high-cost live support.</p>
-                </div>
+                    <div className="content-block">
+                        <p className="small">Impact (3 months post-launch)</p>
 
-                <div className="content-block">
-                    <p className="small">Impact (3 months post-launch)</p>
+                        <div className="grid-layout">
+                        <div className="card">
+                            <div className="card-content card-padding-sm">
+                            <p>
+                                <span className="quant">~1,200 </span>
+                                <br />
+                                Repeat tickets avoided
+                            </p>
+                            </div>
+                        </div>
 
+                        <div className="card">
+                            <div className="card-content card-padding-sm">
+                            <p>
+                                <span className="quant">+21% </span>
+                                <br />
+                                Self-serve success rate 
+                            </p>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="card-content card-padding-sm">
+                            <p>
+                                <span className="quant">3.6 → 4.2 </span>
+                                <br />
+                                Improved CSAT score
+                            </p>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="card-content card-padding-sm">
+                            <p>
+                                <span className="quant">-18% </span>
+                                <br />
+                                Reduced resolution time
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
                     <div className="grid-layout">
-                    <div className="card">
-                        <div className="card-content card-padding-sm">
-                        <p>
-                            <span className="quant">~1,200 </span>
-                            <br />
-                            Repeat tickets avoided
-                        </p>
+                        <div className="metadata">
+                            <p className="small">Company</p>
+                            <p>
+                                <span className="icon icon-inline icon-md">
+                                <img 
+                                src="/assets/logos/bp-helios-colour.svg"
+                                alt="bp"
+                                loading="lazy"
+                                />
+                                </span> bp plc</p>
                         </div>
-                    </div>
 
-                    <div className="card">
-                        <div className="card-content card-padding-sm">
-                        <p>
-                            <span className="quant">42% → 63% </span>
-                            <br />
-                            Self-serve success rate 
-                        </p>
+                        <div className="metadata">
+                            <p className="small">Year / Industry</p>
+                            <p>2025 · Oil &amp; Gas</p>
                         </div>
-                    </div>
 
-                    <div className="card">
-                        <div className="card-content card-padding-sm">
-                        <p>
-                            <span className="quant">3.6 → 4.2 </span>
-                            <br />
-                            Improved CSAT score
-                        </p>
+                        <div className="metadata">
+                            <p className="small">Role</p>
+                            <p>Lead Product Designer</p>
                         </div>
-                    </div>
 
-                    <div className="card">
-                        <div className="card-content card-padding-sm">
-                        <p>
-                            <span className="quant">-22% </span>
-                            <br />
-                            Reduced resolution time
-                        </p>
+                        <div className="metadata">
+                            <p className="small">Timeline</p>
+                            <p>24 weeks
+                                <br />
+                                (Discovery → MVP)
+                            </p>
                         </div>
-                    </div>
+
+                        <div className="metadata">
+                        <p className="small">Scale</p>
+                        <p>Enterprise platform serving <strong>~87,000 employees</strong> globally.</p>
+                        </div>
+
+                        <div className="metadata">
+                        <p className="small">Team</p>
+                        <ul>
+                            <li>1 Product Owner</li>
+                            <li>1 Programme Manager</li>
+                            <li>2 Experience Designers</li>
+                            <li>4 ServiceNow Developers</li>
+                        </ul>
+                        </div>
                     </div>
                 </div>
-                
-                <div className="grid-layout">
-
-                    <div className="metadata">
-                    <p className="small">Company</p>
-                    <p>
-                        <span className="icon icon-inline icon-md">
-                        <img 
-                        src="/assets/logos/bp-helios-colour.svg"
-                        alt="bp"
-                        loading="lazy"
-                        />
-                        </span> bp plc</p>
-                    </div>
-
-                    <div className="metadata">
-                    <p className="small">Year / Industry</p>
-                    <p>2025 · Oil &amp; Gas</p>
-                    </div>
-
-                    <div className="metadata">
-                    <p className="small">Role</p>
-                    <p>Lead Product Designer</p>
-                    </div>
-
-                    <div className="metadata">
-                    <p className="small">Timeline</p>
-                    <p>24 weeks (Discovery → MVP)</p>
-                    </div>
-
-                    <div className="metadata">
-                    <p className="small">Scale</p>
-                    <p>Enterprise platform serving <strong>~87,000 employees</strong> globally.</p>
-                    </div>
-
-                    <div className="metadata">
-                    <p className="small">Team</p>
-                    <ul>
-                        <li>1 Product Owner</li>
-                        <li>1 Programme Manager</li>
-                        <li>2 Experience Designers</li>
-                        <li>4 ServiceNow Developers</li>
-                    </ul>
-                    </div>
-
-                </div>
-
-                </div>
-
             </div>
 
             </section>
@@ -915,7 +913,7 @@ export default function CaseStudyOne() {
                                 </li>
 
                                 <li>
-                                Reduced resolution time by -22%
+                                Reduced resolution time by -18%
                                 </li>
                             </ul>
                         </div>
