@@ -76,12 +76,12 @@ export default function CaseStudyTwo() {
                     <div className="section-content">
                         <div className="content-block">
                             <p className="small">Problem</p>
-                            <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals, and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets, and unnecessary operational overhead.</p>
+                            <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>
                         </div>
                         
                         <div className="content-block">
                             <p className="small">Outcome</p>
-                            <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow — consolidating journeys, improving findability, and simplifying how employees raise and track workplace requests.</p>
+                            <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow, through consolidating journeys, improving findability and simplifying how employees raise and track workplace requests.</p>
                         </div>
 
                         <div className="content-block">
@@ -133,7 +133,7 @@ export default function CaseStudyTwo() {
                             <div className="metadata">
                                 <p className="small">Scale</p>
 
-                                <p>Enterprise-level rollout, piloted across Pune, Houston, and London.</p>
+                                <p>Enterprise-level rollout, piloted across Pune, Houston and London.</p>
                             </div>
 
                             <div className="metadata">
@@ -172,7 +172,7 @@ export default function CaseStudyTwo() {
                         </div>
                         
                         <div className="content-block">
-                            <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability, and clear ownership. This led to:</p>  
+                            <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
 
                             <ul>
                                 <li>Increased workplace ticket volumes due to misrouted requests.</li>
@@ -212,7 +212,7 @@ export default function CaseStudyTwo() {
 
                             <ul>
                                 <li>Leading 6-weeks of discovery across UK, US, India and the Caribbean.</li>
-                                <li>Facilitated stakeholder alignment across workplace operations, IT, and regional office teams.</li>
+                                <li>Facilitated stakeholder alignment across workplace operations, IT and regional office teams.</li>
                                 <li>Steering a squad of ServiceNow developers between India and Bulgaria to balance UX ambitions with platform constraints.</li>
                                 <li>Shaped the global rollout strategy by leading data collection across 50+ workplace locations, identifying early adopters and translating operational insights into the core problem statements and experience principles for the programme.</li>
                                 <li>Influenced the move towards a consolidated global information architecture.</li>
@@ -249,16 +249,16 @@ export default function CaseStudyTwo() {
                     </div>
 
                     <div className="section-content">
-                        <p className="lead">Through workshops, interviews, journey mapping, office observation, and platform audits, several patterns emerged.</p>
+                        <p className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</p>
 
                         <blockquote className="notion-quote">
                             This wasn’t just a UX issue. It was an operating model issue.
                         </blockquote>
 
                         <div className="content-block">
-                            <h3>Workplace services varied by location — not just region</h3>
+                            <h3>Workplace services varied by location, not just region</h3>
                             
-                            <p>Desk booking, catering, parking, and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
+                            <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
                                 
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-1.png"
@@ -271,7 +271,7 @@ export default function CaseStudyTwo() {
                         <div className="content-block">
                             <h3>Content was deeply fragmented</h3>
                             
-                            <p>Information and services lived across SharePoint, Viva Engage, PowerApps, and local documents.</p>
+                            <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
 
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-2.png"
@@ -283,7 +283,7 @@ export default function CaseStudyTwo() {
                         <div className="content-block">
                             <h3>Search was not trusted</h3>
                             
-                            <p>'Bookmarking' was a common behaviour observed — signalling low confidence in findability.</p>
+                            <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
 
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-3.png"
@@ -307,12 +307,12 @@ export default function CaseStudyTwo() {
                         <div className="content-block">
                             <h3>Governance gaps existed</h3>
                             
-                            <p>One regional office wasn’t even enrolled in the global workplace portfolio — exposing structural misalignment.</p>
+                            <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
 
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-5.png"
                                 alt=""
-                                caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX, and increased operational overhead."
+                                caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX and increased operational overhead."
                             />
                         </div>
                     </div>
@@ -486,13 +486,13 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="/assets/images/case-study-2/ow-ideation-2.png"
                                 alt=""
-                                caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content, and external service providers. The architecture allows services, announcements, and contacts to dynamically adapt based on employee's home or selected location."
+                                caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content and external service providers. The architecture allows services, announcements and workplace contacts to dynamically adapt based on employee's home or selected location."
                             />
 
                             <FigureModal
                                 src="/assets/images/case-study-2/ow-ideation-3.png"
                                 alt=""
-                                caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes, and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
+                                caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
                             />
 
                             <FigureModal
@@ -763,7 +763,7 @@ export default function CaseStudyTwo() {
 
                                     <p className="lead">Phased transformation drives adoption</p>
                     
-                                    <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence, and allowed regional onboarding to happen sustainably.</p>
+                                    <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence and allowed regional onboarding to happen sustainably.</p>
                                 </div>
 
                                 <div className="card-content">
@@ -773,7 +773,7 @@ export default function CaseStudyTwo() {
 
                                     <p className="lead">Influence matters as much as interface</p>
                     
-                                    <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation, and reframing the problem in business language — not just producing strong design artefacts.</p>
+                                    <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation and reframing the problem in business language — not just producing strong design artefacts.</p>
                                 </div>
                             </div>
                         </div>
@@ -789,7 +789,7 @@ export default function CaseStudyTwo() {
 
                                     <p className="lead">Governance and restructuring disrupted sprint timelines</p>
                     
-                                    <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems, and resilient ways of working at enterprise scale.</p>
+                                    <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems and resilient ways of working at enterprise scale.</p>
                                 </div>
 
                                 <div className="card-content">
@@ -799,7 +799,7 @@ export default function CaseStudyTwo() {
 
                                     <p className="lead">Context emerges continuously in complex organisations</p>
                     
-                                    <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase — it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
+                                    <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase, it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
                                 </div>
 
                                 <div className="card-content">
@@ -809,7 +809,7 @@ export default function CaseStudyTwo() {
 
                                     <p className="lead">Standardisation vs autonomy tension</p>
                     
-                                    <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential, and myself and the team went back and forth on how best to approach it.</p>
+                                    <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential – myself and the team went back and forth on how best to approach it.</p>
                                 </div>
                             </div>
                         </div>
@@ -823,7 +823,7 @@ export default function CaseStudyTwo() {
                                 </li>
 
                                 <li>
-                                    Measure behavioural change — particularly reduction in reliance on informal networks (“who you know”).
+                                    Measure behavioural change, particularly reduction in reliance on informal networks (“who you know”).
                                 </li>
 
                                 <li>

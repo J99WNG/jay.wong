@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
     url: "https://jaywong.digital/",
     siteName: "Jay Wong",
-    images: [{ url: "/assets/images/OG-Image.png" }], // No {{ site.baseurl }} needed!
+    images: [{ url: "/assets/images/OG-Image.png" }],
     type: "website",
   },
 

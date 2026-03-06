@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FigureModal from '@/components/FigureModal';
 import NextProjectCTA from '@/components/NextProjectCTA';
+import ScrollToNext from '@/components/ScrollDown';
 
 export default function CaseStudyOne() {
     return (
@@ -56,7 +57,6 @@ export default function CaseStudyOne() {
                             />
                     </div>
                 </div>
-
             </div>
             </section>
 
@@ -73,12 +73,12 @@ export default function CaseStudyOne() {
                 <div className="section-content">
                     <div className="content-block">
                         <p className="small">Problem</p>
-                        <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels — increasing operational costs and reducing employee productivity.</p>
+                        <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels was increasing operational costs and reducing employee productivity.</p>
                     </div>
                     
                     <div className="content-block">
                         <p className="small">Outcome</p>
-                        <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume, and shifted demand away from high-cost live support.</p>
+                        <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>
                     </div>
 
                     <div className="content-block">
@@ -168,7 +168,7 @@ export default function CaseStudyOne() {
                         <ul>
                             <li>1 Product Owner</li>
                             <li>1 Programme Manager</li>
-                            <li>2 Experience Designers</li>
+                            <li>2 Product Designers</li>
                             <li>4 ServiceNow Developers</li>
                         </ul>
                         </div>
@@ -194,7 +194,7 @@ export default function CaseStudyOne() {
 
                 <div className="section-content">
                     <div className="content-block">
-                    <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests, and basic “how-to” questions.</p>
+                    <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests and basic “how-to” questions.</p>
                     
                     <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
                     </div>
@@ -219,7 +219,7 @@ export default function CaseStudyOne() {
                     <div className="content-block">
                     <h3>Strategic backdrop</h3>
                     <p>This initiative sat within a broader “Shift Left” transformation roadmap — moving issue resolution as close to the employee as possible to improve efficiency and reduce reliance on L3 live support.</p>
-                    <p>Generative AI was identified as a potential enabler — not to replace agents, but to improve knowledge discovery, summarisation, and confidence in self-serve outcomes.</p>
+                    <p>Generative AI was identified as a potential enabler; not to replace human agents, but to improve knowledge discovery, summarisation and confidence in self-serve outcomes.</p>
                     </div>
                 </div>
                 
@@ -252,15 +252,15 @@ export default function CaseStudyOne() {
                     </h3>
 
                     <ul>
-                        <li>Led discovery, research synthesis, journey mapping, interaction design, and usability testing.</li>
+                        <li>Led discovery, research synthesis, journey mapping, interaction design and usability testing.</li>
                         <li>Defined the MVP scope in partnership with the Product Owner, balancing impact vs technical feasibility.</li>
                         <li>Embedded bp’s design system into the ServiceNow experience, collaborating closely with developers and design engineering.</li>
-                        <li>Acted as design authority across the product triad – aligning product, design, and engineering through bi-weekly sprint rituals.</li>
+                        <li>Acted as design authority across the product triad – aligning product, design and engineering through bi-weekly sprint rituals.</li>
                         <li>Facilitated workshops with ITSM leadership and SMEs to align user needs with business goals.</li>
                     </ul>
 
                     <blockquote className="notion-quote">
-                        I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains, and adoption — not just usability improvements.
+                        I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains and adoption — not just usability improvements.
                     </blockquote>
                     </div>
                 
@@ -300,7 +300,7 @@ export default function CaseStudyOne() {
                             </ul>
 
                             <blockquote className="notion-quote">
-                                <strong>Insight:</strong> The issue wasn’t lack of content — it was lack of confidence and clarity.
+                                <strong>Insight:</strong> The issue wasn’t content — it was lack of confidence and clarity.
                             </blockquote>
                                 
                             <FigureModal
@@ -313,7 +313,7 @@ export default function CaseStudyOne() {
                         <div className="content-block">
                             <h3>1-to-1 interviews with SMEs and power users</h3>
 
-                            <p>I conducted <strong>16 interviews</strong> across US, Europe, and APAC regions with a mix of power users, SMEs, and everyday employees.</p>
+                            <p>I conducted <strong>16 interviews</strong> across US, Europe and APAC regions with a mix of power users, SMEs and everyday employees.</p>
 
                             <div className="content-block">
                                 <h4>
@@ -391,7 +391,7 @@ export default function CaseStudyOne() {
                                 </li>
                             </ul>
 
-                            <p>Leadership aligned on using GenAI as a cost-reduction and productivity lever, with a strong emphasis on transparency, governance, and human fallback.</p>
+                            <p>Leadership aligned on using GenAI as a cost-reduction and productivity lever, with a strong emphasis on transparency, governance and human fallback.</p>
 
                             <FigureModal
                                 src="/assets/images/case-study-1/bp-workshop.png"
@@ -419,10 +419,10 @@ export default function CaseStudyOne() {
                 </div>
 
                 <div className="section-content">
-                    <p className="lead">Bringing together user, agent, and business needs, we defined the core problem as:</p>
+                    <p className="lead">Bringing together user, agent and business needs, we defined the core problem as:</p>
 
                     <blockquote className="notion-quote">
-                    Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity, and overwhelmed our service desk agents.
+                    Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
                     </blockquote>
 
                     <div className="content-block">
@@ -435,7 +435,7 @@ export default function CaseStudyOne() {
                                     <span className="material-symbols-rounded card-icon" translate="no">emoji_people</span>
                                 </span>
                 
-                                <p className="card-text"><strong>Employees</strong> demand clarity, speed, and reassurance.</p>
+                                <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
                             </div>
                         </div>
             
@@ -567,7 +567,7 @@ export default function CaseStudyOne() {
 
                         <div className="content-block">
                             <p className="lead">
-                                However, given time, budget, and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented — rather than replaced — existing workflows.
+                                However, given time, budget and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented existing workflows, not replace.
                             </p>
 
                             <FigureModal
@@ -675,7 +675,7 @@ export default function CaseStudyOne() {
                                 </li>
 
                                 <li>
-                                Grouped tasks, tickets, and approvals by employee intent, not system structure.
+                                Grouped tasks, tickets and approvals by employee intent, not system structure.
                                 </li>
                             </ul>
 
@@ -997,7 +997,7 @@ export default function CaseStudyOne() {
                         </div>
 
                         <blockquote className="notion-quote">
-                        This project reinforced my shift from designing interfaces to <strong>designing operational systems</strong> — where experience, behaviour, and cost are inseparable.
+                            This project reinforced my shift from designing interfaces to <strong>designing operational systems</strong> where experience, behaviour and cost are inseparable.
                         </blockquote>
                     </div>
                 </div>
