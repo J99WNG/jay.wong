@@ -47,15 +47,6 @@ export default function Header() {
                             <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
                             <li><Link href="/#collaborations" onClick={closeMenu}>Collaborations</Link></li>
                             <li><Link href="/#work" onClick={closeMenu}>Work</Link></li>
-                            <li>
-                                <Link 
-                                    href="/assets/documents/Jay-Wong-CV.pdf"
-                                    target="_blank" 
-                                    rel="noopener"
-                                    onClick={closeMenu}>
-                                    CV
-                                </Link>
-                            </li>
                         </ul>
 
                         {/* CTA */}

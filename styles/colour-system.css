@@ -2,7 +2,7 @@
     /* The Base Layers (Whites & Neutrals) */
     --silver-needle:   hsla(30, 62%, 98%, 1);
     --white-pekoe:     hsla(35, 40%, 96%, 1);
-    --steamed-vapor:   hsla(35, 20%, 90%, 1);  
+    --steamed-vapor:   hsla(35, 20%, 92%, 1);  
 
     /* Depth (The "Body") */
     --dried-clay:      hsla(30, 20%, 85%, 1);  
@@ -11,7 +11,7 @@
 
     /* The Deep Brews (Dark Solids & Text) */
     --aged-pu-erh: hsla(28, 40%, 20%, 1);
-    --ceylon-leaf: hsla(20, 30%, 14%, 1);
+    --ceylon-leaf: hsla(20, 30%, 12%, 1);
     --assam-black: hsla(24, 36%, 7%, 1);
 
     /* The Vibrant Infusions (Accents & UI States) */

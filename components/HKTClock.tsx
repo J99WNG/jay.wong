@@ -14,5 +14,12 @@ export default function Clock() {
         return () => clearInterval(timer);
     }, []);
 
-    return <span id="clock-time">{time || 'Loading...'}</span>;
+    return (                        
+        <div className="status">
+            <span className="status-text">
+                Hong Kong 🇭🇰
+                <span id="clock-time">{time || 'Loading...'}</span>
+            </span>
+        </div>
+    );
 }

@@ -1,11 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from "next/font/google";
 
-// Use absolute paths via the @ alias for everything
-import '@/styles/buttons.css';
-import '@/styles/colour-system.css';
-import '@/styles/iconography.css';
-import '@/styles/typography.css';
 import '@/styles/globals.css';
 
 import Header from "@/components/Header";
@@ -28,16 +23,16 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.jaywong.digital/'), // Change to your actual URL
+  metadataBase: new URL('https://jaywong.digital/'), // Change to your actual URL
   title: "Jay Wong",
-  description: "👋 a product and front-end designer specialising in inclusive, AI-led and service-driven products.",
+  description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
   
   // This handles your Facebook/OpenGraph tags
   openGraph: {
     title: "Jay Wong",
-    description: "👋 a product and front-end designer specialising in inclusive, AI-led and service-driven products.",
-    url: "https://www.jaywong.digital/",
-    siteName: "JW Portfolio",
+    description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
+    url: "https://jaywong.digital/",
+    siteName: "Jay Wong",
     images: [{ url: "/assets/images/OG-Image.png" }], // No {{ site.baseurl }} needed!
     type: "website",
   },
@@ -53,9 +48,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
     apple: [
-      { url: "/favicon.svg" },
-      { url: "/favicon.svg", sizes: "76x76" },
-      { url: "/favicon.svg", sizes: "180x180" },
+      { url: "/favicon.png" },
+      { url: "/favicon.png", sizes: "76x76" },
+      { url: "/favicon.png", sizes: "180x180" },
     ],
   },
 };

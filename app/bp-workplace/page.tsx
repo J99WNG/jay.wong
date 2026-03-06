@@ -1,6 +1,7 @@
 import FigureModal from '@/components/FigureModal';
 import Image from 'next/image';
 import Link from 'next/link';
+import NextProjectCTA from '@/components/NextProjectCTA';
 
 export default function CaseStudyTwo() {
     return (
@@ -8,27 +9,19 @@ export default function CaseStudyTwo() {
             <section id="landing">
                 <div className="container section-fade">
 
-                    <div className="breadcrumb">
-                        <Link href="/#work" title="Back to all projects">
-                            <span className="icon icon-sm" aria-hidden="true">
-                                <span className="material-symbols-rounded arrow_back">
-                                    arrow_back
-                                </span>
-                            </span>
-                            
-                            Back to all projects
-                        </Link>
+                <div className="breadcrumb">
+                    <Link href="/#work" title="Back to all projects">
+                        <span className="icon icon-sm" aria-hidden="true">
+                        <span className="material-symbols-rounded arrow_back">
+                            arrow_back
+                        </span>
+                        </span>
                         
-                        <Link href="" title="Next case study">
-                            Next case study
-
-                            <span className="icon icon-sm" aria-hidden="true">
-                                <span className="material-symbols-rounded arrow_forward">
-                                    arrow_forward
-                                </span>
-                            </span>
-                        </Link>
-                    </div>
+                        Back to all projects
+                    </Link>
+                    
+                    <NextProjectCTA />
+                </div>
 
                     <div className="title-block">
                         <p className="small">
@@ -258,6 +251,10 @@ export default function CaseStudyTwo() {
                     <div className="section-content">
                         <p className="lead">Through workshops, interviews, journey mapping, office observation, and platform audits, several patterns emerged.</p>
 
+                        <blockquote className="notion-quote">
+                            This wasn’t just a UX issue. It was an operating model issue.
+                        </blockquote>
+
                         <div className="content-block">
                             <h3>Workplace services varied by location — not just region</h3>
                             
@@ -279,7 +276,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-2.png"
                                 alt=""
-                                caption="My audit and mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
+                                caption="My audit mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
                             />
                         </div>
 
@@ -291,7 +288,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-3.png"
                                 alt=""
-                                caption="User interviews revealed browser bookmarking was frequent and preferred -- users were navigating to pages through bookmarks rather than search or navigation. This was a critical insight that informed our focus on improving navigation and information architecture."
+                                caption="Users bypassed the system via bookmarks, reducing visibility and governance. This was a critical insight that informed our focus on improving navigation and information architecture."
                             />
                         </div>
 
@@ -315,15 +312,10 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-discovery-5.png"
                                 alt=""
-                                caption=""
+                                caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX, and increased operational overhead."
                             />
                         </div>
-
-                        <blockquote className="notion-quote">
-                            This wasn’t just a UX issue. It was an operating model issue.
-                        </blockquote>
                     </div>
-
                 </div>
             </section>
 
@@ -488,19 +480,25 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="/assets/images/case-study-2/ow-ideation-1.png"
                                 alt=""
-                                caption=""
+                                caption="To ensure design decisions remained grounded in research, I mapped key insights to experience principles and implementation approaches within the ServiceNow platform."
                             />
 
                             <FigureModal
                                 src="/assets/images/case-study-2/ow-ideation-2.png"
                                 alt=""
-                                caption=""
+                                caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content, and external service providers. The architecture allows services, announcements, and contacts to dynamically adapt based on employee's home or selected location."
                             />
 
                             <FigureModal
                                 src="/assets/images/case-study-2/ow-ideation-3.png"
                                 alt=""
-                                caption=""
+                                caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes, and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
+                            />
+
+                            <FigureModal
+                                src="/assets/images/case-study-2/ow-ideation-4.png"
+                                alt=""
+                                caption="Aside from the end-user experience, I defined the onboarding process for workplace locations to enable their services within our ServiceNow model. This work helped establish a scalable foundation for rolling out the workplace experience across 50+ global office locations."
                             />
                         </div>
                     </div>
@@ -526,7 +524,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-solution-1.png"
                                 alt=""
-                                caption=""
+                                caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
                             />
 
                             <h3>
@@ -562,7 +560,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-solution-2.png"
                                 alt=""
-                                caption="A three-tier model was developed to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
+                                caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
                             />
 
                             <h3>
@@ -585,7 +583,7 @@ export default function CaseStudyTwo() {
                             <FigureModal
                                 src="assets/images/case-study-2/ow-solution-3.png"
                                 alt=""
-                                caption=""
+                                caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
                             />
 
                             <h3>
@@ -741,7 +739,7 @@ export default function CaseStudyTwo() {
 
                     <div className="section-content">
                         <blockquote className="notion-quote">
-                            This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces. Although I enjoy the latter more, both remain equally important in my way of working.
+                            This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces.
                         </blockquote>
 
                         <div className="content-block">

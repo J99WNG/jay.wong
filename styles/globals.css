@@ -358,15 +358,6 @@ caption {
   margin: 0;
 }
 
-.hero-wrapper {
-  grid-template-columns: 1fr; /* mobile = 1 column */
-  display: grid;
-  grid-template-areas:
-  "visual"
-  "content";   /* content appears AFTER visual in layout */
-  gap: 1.5rem;
-}
-
 .btn-group {
   display: inline-flex;
   flex-wrap: wrap;
@@ -573,15 +564,26 @@ header {
   padding-block: 7rem;
 }
 
+.hero-wrapper {
+  grid-template-columns: 1fr; /* mobile = 1 column */
+  display: grid;
+  grid-template-areas:
+  "visual"
+  "content";   /* content appears AFTER visual in layout */
+  gap: 1.25rem;
+  align-items: start;
+}
+
 .hero-block {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 1.25rem;
   grid-area: content;
 }
 
 .hero-visual  {
-  border-radius: 4rem;
+  display: flex;
+  justify-content: flex-start;
   height: max-content;
   grid-area: visual;
 }
@@ -589,10 +591,8 @@ header {
 .hero-img {
   background-color: var(--dried-clay);
   border-radius: 100%;
-  max-width: 100%;
+  max-width: 50%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   object-fit: contain;
 }
 
@@ -799,6 +799,7 @@ span.section-subtitle {
 .footer-social a:focus-visible svg {
   cursor: pointer;
   transform: translateY(-1px);
+  color: var(--aged-pu-erh);
 }
 
 /* ==================== Back to top CTA ==================== */
@@ -895,6 +896,19 @@ html:focus-within {
 /* ==================== Responsive system – scale UP at larger viewports ==================== */
 @media (min-width: 768px) {
 
+.hero-wrapper {
+  grid-template-columns: 1fr 1fr; /* mobile = 1 column */
+  grid-template-areas: "content visual";  /* order flips */
+}
+
+.hero-visual {
+  justify-content: center; /* Center image within this div on desktop */
+}
+
+.hero-img {
+  max-width: 100%;
+}
+
 .bento-grid {
   grid-template-columns: 1.5fr 1fr; 
   grid-template-rows: 1fr 1fr;
@@ -950,11 +964,6 @@ html:focus-within {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin: 0;
-}
-
-.hero-wrapper {
-  grid-template-columns: 1fr 1fr; /* mobile = 1 column */
-  grid-template-areas: "content visual";  /* order flips */
 }
 
 .footer-wrapper {

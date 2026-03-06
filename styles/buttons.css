@@ -36,24 +36,23 @@
   
   /* Primary */
   .btn-primary {
-    background-color: var(--ceylon-leaf);
     color: var(--silver-needle);
+    background-color: var(--ceylon-leaf);
     border: 1px solid var(--aged-pu-erh);
-
-    box-shadow: 0px 0px 4px hsla(0 ,0% ,40% , 0.15); 
   }
   
   .btn-primary:hover, 
   .btn-primary:active, 
   .btn-primary:focus-visible {
-    color: var(--silver-needle);
-    background-color: var(--assam-black);
+    color: var(--white-pekoe);
+    background-color: var(--milk-tea);
+    border: 1px solid var(--masala-chai);
   }
   
   /* Secondary */
   .btn-secondary {
-    background-color: var(--silver-needle);
     color: var(--ceylon-leaf);
+    background-color: var(--silver-needle);
     border: 1px solid var(--dried-clay);
   }
   
@@ -66,17 +65,17 @@
   
   /* Tertiary */
   .btn-tertiary {
-    background-color: var(--masala-chai);
-    color: var(--silver-needle);
-    border: 1px solid var(--milk-tea);
+    color: var(--ceylon-leaf);
+    background-color: transparent;
+    border: 1px solid var(--ceylon-leaf);
   }
   
   .btn-tertiary:hover, 
   .btn-tertiary:active, 
   .btn-tertiary:focus-visible {
-    background-color: var(--milk-tea);
-    color: var(--white-pekoe);
-    border: 1px solid var(--masala-chai);
+    color: var(--silver-needle);
+    background-color: var(--aged-pu-erh);
+    border: 1px solid var(--aged-pu-erh);
   }
   
   .btn-nav {

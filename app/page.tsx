@@ -18,8 +18,8 @@ export default function Home() {
                         </h1>
             
                         <p className="tagline">
-                            👋 I&apos;m Jay – a product and front-end designer specialising in inclusive,
-                            AI-led and service-driven products.
+                            👋 I&apos;m Jay – a product and front-end designer shaping inclusive,
+                            AI-led and service-driven experiences at scale.
                         </p>
             
                         {/* CTAs */}
@@ -286,7 +286,13 @@ export default function Home() {
                                 Equally, if something doesn&apos;t resonate, let me hear from you too! Always open to feedback!
                             </p>
     
-                            <p className="nda-disclaimer">*Some work displayed is conceptual, simplified or anonymised due to NDAs.</p>
+                            <div className="flex flex-row gap-1 items-start">
+                                <span className="icon icon-md" aria-hidden="true">
+                                    <span className="material-symbols-rounded" translate="no">info</span>
+                                </span>
+                                
+                                <p className="italic">Some work displayed is conceptual, simplified or anonymised due to NDAs.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,7 +317,7 @@ export default function Home() {
                                 <p className="badge">ServiceNow</p>
                             </div>
 
-                            <Link className="card-link" href="/case-study-1">
+                            <Link className="card-link" href="/bp-itsm-genai">
                                 View case study
 
                                 <span className="icon icon-sm" aria-hidden="true">
@@ -348,7 +354,7 @@ export default function Home() {
                                 <p className="badge">ServiceNow</p>
                             </div>
 
-                            <Link className="card-link" href="/case-study-2">
+                            <Link className="card-link" href="/bp-workplace">
                                 View case study
 
                                 <span className="icon icon-sm" aria-hidden="true">
@@ -392,13 +398,7 @@ export default function Home() {
                     {/* Status */}
                     <div className="content-block">
                         <p className="small">Currently based in:</p>
-                        
-                        <div className="status">
-                            <span className="status-text">
-                                Hong Kong 🇭🇰
-                                <HKTClock />
-                            </span>
-                        </div>
+                        <HKTClock />
                     </div>
                     
 

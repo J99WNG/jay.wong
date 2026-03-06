@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FigureModal from '@/components/FigureModal';
+import NextProjectCTA from '@/components/NextProjectCTA';
 
 export default function CaseStudyOne() {
     return (
@@ -19,15 +20,7 @@ export default function CaseStudyOne() {
                         Back to all projects
                     </Link>
                     
-                    <Link href="" title="Next case study">
-                        Next case study
-
-                        <span className="icon icon-sm" aria-hidden="true">
-                        <span className="material-symbols-rounded arrow_forward">
-                            arrow_forward
-                        </span>
-                        </span>
-                    </Link>
+                    <NextProjectCTA />
                 </div>
 
                 <div className="title-block">
