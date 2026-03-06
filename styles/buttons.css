@@ -45,8 +45,8 @@
   .btn-primary:active, 
   .btn-primary:focus-visible {
     color: var(--white-pekoe);
-    background-color: var(--milk-tea);
-    border: 1px solid var(--masala-chai);
+    background-color: var(--masala-chai);
+    border: 1px solid var(--milk-tea);
   }
   
   /* Secondary */
@@ -74,7 +74,7 @@
   .btn-tertiary:active, 
   .btn-tertiary:focus-visible {
     color: var(--silver-needle);
-    background-color: var(--aged-pu-erh);
+    background-color: var(--ceylon-leaf);
     border: 1px solid var(--aged-pu-erh);
   }
   

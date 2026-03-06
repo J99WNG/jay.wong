@@ -13,7 +13,7 @@
     }
 
     h1.hero-title {
-      font-size: clamp(2.25rem, 5vw, 3.25rem);
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
       margin: 0;
     }
     
@@ -115,8 +115,12 @@
     font-size: 1rem;
     letter-spacing: -0.04rem;
     margin: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
     line-height: 1.6;
+  }
+
+  .metadata li {
+    padding-bottom: 1rem;
   }
 
   li::marker {

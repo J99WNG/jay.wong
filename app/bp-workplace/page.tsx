@@ -644,7 +644,7 @@ export default function CaseStudyTwo() {
                                 </li>
 
                                 <li>
-                                    Reduced average clicks to complete top tasks such as...
+                                    Reduced average clicks to complete critical tasks such as access requests and desk bookings.
                                 </li>
 
                                 <li>

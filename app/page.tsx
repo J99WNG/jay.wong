@@ -80,13 +80,15 @@ export default function Home() {
                         <li className="badge">UX Research</li>
                         <li className="badge">UI Design</li>
                         <li className="badge">Design systems</li>
+                        <li className="badge">Accessible design</li>
+                        <li className="badge">Inclusive design</li>
                         <li className="badge">Generative AI</li>
                         <li className="badge">Systems thinking</li>
-                        <li className="badge">Accessibility design</li>
                         <li className="badge">Agile methodology</li>
                         <li className="badge">ServiceNow</li>
                         <li className="badge">HTML</li>
                         <li className="badge">CSS</li>
+                        <li className="badge">Next.js</li>
                     </div>
 
                     <div className="grid-layout">
@@ -291,7 +293,7 @@ export default function Home() {
                                     <span className="material-symbols-rounded" translate="no">info</span>
                                 </span>
                                 
-                                <p className="italic">Some work displayed is conceptual, simplified or anonymised due to NDAs.</p>
+                                <p className="italic">Some projects are simplified or anonymised to respect client confidentiality and NDAs.</p>
                             </div>
                         </div>
                     </div>
@@ -367,6 +369,34 @@ export default function Home() {
 
                         <div className="card-img">
                             <Image src="assets/images/case-study-2/ow-bento-1.png"
+                                alt="Featured Project"
+                                fill
+                            />
+                        </div>
+                    </article>
+
+                    {/* Card #2 */}
+                    <article className="card">
+                        <div className="card-content card-padding-lg">
+                            <p className="small">
+                                2020 / Credit Suisse / Finance
+                            </p>
+
+                            <h3 className="card-title">Streamlining the KYC Onboarding Experience for Digital Wealth Management</h3>
+
+                            <p className="card-text">
+                                Coming soon.
+                            </p>
+                            
+                            <div className="badge-group">
+                                <p className="badge">FinTech</p>
+                                <p className="badge">Mobile</p>
+                                <p className="badge">Concept</p>
+                            </div>
+                        </div>
+
+                        <div className="card-img">
+                            <Image src="assets/images/case-study-3/cs-bento-1.png"
                                 alt="Featured Project"
                                 fill
                             />

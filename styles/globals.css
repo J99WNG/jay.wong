@@ -577,7 +577,7 @@ header {
 .hero-block {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
   grid-area: content;
 }
 
@@ -589,9 +589,7 @@ header {
 }
 
 .hero-img {
-  background-color: var(--dried-clay);
-  border-radius: 100%;
-  max-width: 50%;
+  max-width: 40%;
   display: block;
   object-fit: contain;
 }
@@ -906,7 +904,7 @@ html:focus-within {
 }
 
 .hero-img {
-  max-width: 100%;
+  max-width: 60%;
 }
 
 .bento-grid {
