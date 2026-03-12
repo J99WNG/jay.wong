@@ -1,4 +1,5 @@
-import FigureModal from '@/components/FigureModal';
+import Section from '@/components/Section';
+import FigureModal from '@/components/ui/FigureModal';
 import Image from 'next/image';
 import Link from 'next/link';
 import NextProjectCTA from '@/components/NextProjectCTA';
@@ -6,62 +7,46 @@ import NextProjectCTA from '@/components/NextProjectCTA';
 export default function CaseStudyTwo() {
     return (
         <article>
-            <section id="landing">
-                <div className="container section-fade">
+            <Section id="landing" isLanding={true}>
+                <NextProjectCTA />
 
-                <div className="breadcrumb">
-                    <Link href="/#work" title="Back to all projects">
-                        <span className="icon icon-sm" aria-hidden="true">
-                        <span className="material-symbols-rounded arrow_back">
-                            arrow_back
-                        </span>
-                        </span>
-                        
-                        Back to all projects
-                    </Link>
-                    
-                    <NextProjectCTA />
+                <div className="title-block">
+                    <p className="small">
+                        2025 / bp / Oil & Gas
+                    </p>
+
+                    <h1>From Fragmented Intranets to a Unified Global Digital Workplace</h1>
+
+                    <p className="tagline">Leading the consolidation of fragmented workplace services into a unified ServiceNow experience at bp.</p>
                 </div>
 
-                    <div className="title-block">
-                        <p className="small">
-                            2025 / bp / Oil & Gas
-                        </p>
-
-                        <h1>From Fragmented Intranets to a Unified Global Digital Workplace</h1>
-
-                        <p className="tagline">Leading the consolidation of fragmented workplace services into a unified ServiceNow experience at bp.</p>
+                <div className="bento-grid">
+                    <div className="bento-item tall">
+                        <Image
+                                src="assets/images/case-study-2/ow-bento-1.png"
+                                alt="Featured Project"
+                                fill // Makes image fill the container
+                                priority // Ensures this image loads fast
+                            />
                     </div>
 
-                    <div className="bento-grid">
-                        <div className="bento-item tall">
-                            <Image
-                                    src="assets/images/case-study-2/ow-bento-1.png"
-                                    alt="Featured Project"
-                                    fill // Makes image fill the container
-                                    priority // Ensures this image loads fast
-                                />
-                        </div>
-
-                        <div className="bento-item">
-                            <Image
-                                    src="assets/images/case-study-2/ow-bento-2.png"
-                                    alt=""
-                                    fill // Makes image fill the container
-                                />
-                        </div>
-
-                        <div className="bento-item">
-                            <Image
-                                    src="assets/images/case-study-2/ow-bento-3.png"
-                                    alt=""
-                                    fill // Makes image fill the container
-                                />
-                        </div>
+                    <div className="bento-item">
+                        <Image
+                                src="assets/images/case-study-2/ow-bento-2.png"
+                                alt=""
+                                fill // Makes image fill the container
+                            />
                     </div>
 
+                    <div className="bento-item">
+                        <Image
+                                src="assets/images/case-study-2/ow-bento-3.png"
+                                alt=""
+                                fill // Makes image fill the container
+                            />
+                    </div>
                 </div>
-            </section>
+            </Section>
 
             <section id="Snapshot">
                 <div className="container col-30-70 section-fade">

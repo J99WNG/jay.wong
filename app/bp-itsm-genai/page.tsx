@@ -1,28 +1,15 @@
+import Section from '@/components/Section';
 import Image from 'next/image';
 import Link from 'next/link';
-import FigureModal from '@/components/FigureModal';
+import FigureModal from '@/components/ui/FigureModal';
 import NextProjectCTA from '@/components/NextProjectCTA';
 import ScrollToNext from '@/components/ScrollDown';
 
 export default function CaseStudyOne() {
     return (
         <article>
-            <section id="landing">
-            <div className="container section-fade">
-
-                <div className="breadcrumb">
-                    <Link href="/#work" title="Back to all projects">
-                        <span className="icon icon-sm" aria-hidden="true">
-                        <span className="material-symbols-rounded arrow_back">
-                            arrow_back
-                        </span>
-                        </span>
-                        
-                        Back to all projects
-                    </Link>
-                    
-                    <NextProjectCTA />
-                </div>
+            <Section id="landing" isLanding={true}>
+                <NextProjectCTA />
 
                 <div className="title-block">
                 <p className="small">
@@ -57,8 +44,7 @@ export default function CaseStudyOne() {
                             />
                     </div>
                 </div>
-            </div>
-            </section>
+            </Section>
 
             <section id="Snapshot">
             <div className="container col-30-70 section-fade">
@@ -82,7 +68,7 @@ export default function CaseStudyOne() {
                     </div>
 
                     <div className="content-block">
-                        <p className="small">Impact (3 months post-launch)</p>
+                        <p className="small">Impact (6 months post-launch)</p>
 
                         <div className="grid-layout">
                         <div className="card">

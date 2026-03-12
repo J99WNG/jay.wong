@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 
 import '@/styles/globals.css';
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Dock from "@/components/Dock";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Dock from "@/components/layout/Dock";
 import FadeObserver from '@/components/FadeObserver';
 
 // Configure the font
@@ -72,9 +72,8 @@ export default function RootLayout({ children }:
         <Header /> 
 
         <FadeObserver /> {/* Handles all section animations */}
-        <main id="main">
-          {children}
-        </main>
+        
+        {children}
 
         <Dock />
         <Footer />

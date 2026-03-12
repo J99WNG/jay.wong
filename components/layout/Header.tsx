@@ -2,6 +2,8 @@
 
 import Link from 'next/link'; // Import the Next.js Link engine
 import { useState, useEffect } from 'react';
+import Button from '../ui/Button';
+import TextLink from '../ui/TextLink';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +52,7 @@ export default function Header() {
                         </ul>
 
                         {/* CTA */}
-                        <Link href="/#contact" className="btn btn-secondary btn-nav" onClick={closeMenu}>Contact</Link>
+                        <Button variant="nav" href="/#contact" onClick={closeMenu}>Contact</Button>
                     </nav>
                 
                     {/* Mobile Nav */}

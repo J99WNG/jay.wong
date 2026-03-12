@@ -4,10 +4,47 @@
 @tailwind utilities;
 
 /* Master list of your custom styles */
-@import "../styles/buttons.css";
 @import "../styles/colour-system.css";
 @import "../styles/iconography.css";
 @import "../styles/typography.css";
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply text-[var(--ceylon-leaf)] font-medium m-0;
+  }
+
+  h1 {
+    /* Using your clamp and custom letter spacing */
+    @apply text-[clamp(2.5rem,5vw,3rem)] leading-[1.2] tracking-[-0.12rem] my-2;
+  }
+
+  h2 {
+    @apply text-[2rem] leading-[1.3] tracking-[-0.1rem];
+  }
+
+  h3 {
+    @apply text-[1.5rem] leading-[1.4] tracking-[-0.08rem];
+  }
+
+  h4 {
+    @apply text-[1.25rem] leading-[1.4] tracking-[-0.06rem];
+  }
+
+  
+
+  /* Links */
+  a {
+    letter-spacing: -0.04rem;
+    color: var(--butterfly-pea);
+    text-decoration: none;
+    position: relative;
+    display: inline-flex; /* Helps with alignment */
+    align-items: center;
+    width: fit-content;
+
+    transition: color 0.2s ease;
+  }
+}
 
 /* ==================== Foundations ==================== */
 *, *::before, *::after {
@@ -206,7 +243,7 @@ caption {
 }
 
 /* ==================== Badge ==================== */
-.badge, .status {
+.badge {
   /* Layout */
   display: flex;
   flex-wrap: wrap;
@@ -243,22 +280,6 @@ caption {
   cursor: default;
 }
 
-/* Animated status dot */
-.status::before {
-  content: "";
-  display: block; /* Crucial for transform/scale to work */
-  width: 8px;
-  height: 8px;
-  background: var(--matcha-powder);
-  border-radius: 50%;
-  /* ADD THESE TWO LINES */
-  will-change: transform;
-  transform-origin: center;
-  transform: translateZ(0);
-  animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
-  flex-shrink: 0;
-}
-
 @keyframes pulse {
   0% { 
     transform: scale(0.90); 
@@ -272,18 +293,6 @@ caption {
     transform: scale(0.9); 
     box-shadow: 0 0 0 0 rgba(162, 186, 145, 0); 
   }
-}
-
-.status-text {
-  display: inline-flex;
-  align-items: center;
-
-  font-family: monospace; /* Monospace prevents text "jumping" as numbers change */
-  font-weight: bold;
-  letter-spacing: 0.1rem;
-
-  gap: 0.5rem;
-  margin: 0;
 }
 
 /* ==================== Table ==================== */
@@ -342,27 +351,12 @@ caption {
     grid-template-columns: 1fr; /* mobile = 1 column */
   }
 
-.card-stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-block-start: 2.5rem;
-}
-
 .col-3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
   margin: 0;
-}
-
-.btn-group {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-block-start: 1rem;
 }
 
 .badge-group {
@@ -379,8 +373,11 @@ caption {
   gap: 0.75rem;
 }
 
-
 /* ==================== Header ==================== */
+:root {
+  --header-height: 4rem; /* Match your header CSS height */
+}
+
 header {
   height: auto;
   width: 100%;
@@ -555,49 +552,7 @@ header {
   transform: rotate(0deg) scale(1);
 }
     
-/* ==================== Hero ==================== */
-#hero,
-#contact,
-#landing {
-  background-color: var(--white-pekoe);
-  min-height: 100vh;
-  padding-block: 7rem;
-}
-
-.hero-wrapper {
-  grid-template-columns: 1fr; /* mobile = 1 column */
-  display: grid;
-  grid-template-areas:
-  "visual"
-  "content";   /* content appears AFTER visual in layout */
-  gap: 1.25rem;
-  align-items: start;
-}
-
-.hero-block {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  grid-area: content;
-}
-
-.hero-visual  {
-  display: flex;
-  justify-content: flex-start;
-  height: max-content;
-  grid-area: visual;
-}
-
-.hero-img {
-  max-width: 40%;
-  display: block;
-  object-fit: contain;
-}
-
 /* ==================== Section ==================== */
-section[id] {
-  scroll-margin-top: 0;
-}
 
 section {
   display: block;
@@ -606,25 +561,6 @@ section {
 
   align-content: center;
   padding-block: 6rem;
-  margin-inline: auto;
-  min-height: fit-content;
-}
-
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0; /* Sits above the bg-color, below the text */
-  opacity: 0.04; 
-  pointer-events: none;
-  /* Use the same Tailwind grain logic here */
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Ensure your section content stays above the grain */
-section > * {
-  position: relative;
-  z-index: 1;
 }
 
 .section-heading {
@@ -647,27 +583,20 @@ span.section-subtitle {
   font-weight: 400;
 }
 
-.section-fade {
-  opacity: 0;
-  /* Use 3D transform to force the GPU to take over */
-  transform: translateY(20px); 
-  /* Tell the browser exactly what is changing so it can pre-prepare */
-  pointer-events: none;
-  will-change: opacity, transform;
-    /* tells browser this element won't affect the rest of the layout */
-  transition: 
-        opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), 
-        transform 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
+@layer components {
+  .section-fade {
+    @apply opacity-0 translate-y-5 pointer-events-none will-change-[opacity,transform];
+    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), 
+                transform 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 
-.section-fade:first-of-type {
-  transform: translateY(0);
-}
-
-.section-fade.appear {        /* Visible state triggered by JavaScript */
-  opacity: 1;
-  transform: translateY(0) translateZ(0);
-  pointer-events: auto;
+  .section-fade:first-of-type {
+    transform: translateY(0);
+  }
+  
+  .section-fade.appear {
+    @apply opacity-100 translate-y-0 pointer-events-auto;
+  }
 }
 
 /* ==================== Logo Grid ==================== */
@@ -711,13 +640,6 @@ span.section-subtitle {
 }
 
 /* ==================== Contact ==================== */
-
-.contact-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  flex-shrink: 1;
-}
 
 .contact-item {
   gap: 0.75rem;
@@ -836,24 +758,6 @@ span.section-subtitle {
   transform: translateX(-50%) translateY(0);
 }
 
-.btn-btt {
-  gap: 0.25rem;
-  padding: 0.5em 1em;
-  border-radius: 0.75rem;
-  pointer-events: auto; /* Re-enable clicking for the button itself */
-  font-size: 14px;
-  transition: transform .2s ease, opacity .3s ease, visibility .3s ease;
-}
-
-.btn-btt .material-symbols-rounded,
-.btn-btt:hover .material-symbols-rounded,
-.btn-btt:focus-visible .material-symbols-rounded,
-.btn-btt:active .material-symbols-rounded {
-  color: var(--silver-needle);
-  animation: floatUp 1.5s infinite;
-  transform: translateY(-2px);
-}
-
 /* ==================== Accessibility & inclusive design ==================== */
 :focus-visible {
   outline: 2px solid var(--butterfly-pea);
@@ -865,7 +769,6 @@ span.section-subtitle {
 html {
   scroll-behavior: auto;
   /* Optional: Add padding so anchors don't hide under a fixed header */
-  scroll-padding-top: 80px; 
 }
 
 /* 2. Enable smooth scroll ONLY for the current page targets */
@@ -998,12 +901,6 @@ html:focus-within {
 }
 
 .nav-toggle { display: none; /* hides burger */ }
-
-.btn-nav {
-    font-size: revert;
-    border-radius: 0.75rem;
-    flex-shrink: 0;
-  }
 
   .footer p {
     text-align: left;

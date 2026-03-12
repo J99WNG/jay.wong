@@ -1,42 +1,4 @@
-  /* Headings */
-  h1, h2, h3, h4 {
-    color: var(--ceylon-leaf);
-    font-weight: 500;
-    margin: 0;
-  }
-
-  h1 {
-      font-size: clamp(2.5rem, 4vw, 3rem);
-      line-height: 1.2;
-      letter-spacing: -0.12rem;
-      margin: 0.5rem 0;
-    }
-
-    h1.hero-title {
-      font-size: clamp(2.5rem, 5vw, 3.25rem);
-      margin: 0;
-    }
-    
-  h2 {
-    font-size: 2rem;
-    line-height: 1.3;
-    letter-spacing: -0.1rem;
-
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    letter-spacing: -0.08rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-    letter-spacing: -0.06rem;
-  }
-    
-  /* Paragraphs */
+/* Paragraphs */
   p {
       font-size: 1rem;
       font-weight: 400;
@@ -71,45 +33,6 @@
       margin-bottom: 0;
     }
     
-  /* Links */
-  a {
-    letter-spacing: -0.04rem;
-    color: var(--butterfly-pea);
-    text-decoration: none;
-    position: relative;
-    display: inline-flex; /* Helps with alignment */
-    align-items: center;
-    width: fit-content;
-
-    transition: color 0.2s ease;
-  }
-
-  a:hover,
-  .contact-item:hover {
-    color: var(--earl-grey);
-  }
-
-  a:not(.nav-brand, .btn, .footer-social a, .breadcrumb a)::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -4px; /* Adjust distance from text */
-    border-radius: 999px;
-    left: 0;
-    background-color: currentColor;
-    
-    /* Initial State: Invisible and shrunk */
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  a:not(.nav-brand, .btn, .footer-social a, .breadcrumb a):hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
   /* Lists */
   li {
     font-size: 1rem;
@@ -120,7 +43,7 @@
   }
 
   .metadata li {
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
   }
 
   li::marker {

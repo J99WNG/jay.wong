@@ -25,14 +25,28 @@ export default function NextProjectCTA() {
   const nextProject = caseStudies[nextIndex];
 
   return (
-    <Link href={`/${nextProject.slug}`} title="Next case study">
-        Next case study
+    <div className="breadcrumb">
+      
+      <Link href="/#work" title="Back to all projects">
+          <span className="icon icon-sm" aria-hidden="true">
+          <span className="material-symbols-rounded arrow_back">
+              arrow_back
+          </span>
+          </span>
+          
+          Back to all projects
+      </Link>
+                    
+      <Link href={`/${nextProject.slug}`} title="Next case study">
+          Next case study
 
-        <span className="icon icon-sm" aria-hidden="true">
-        <span className="material-symbols-rounded arrow_forward">
-            arrow_forward
-        </span>
-        </span>
-    </Link>
+          <span className="icon icon-sm" aria-hidden="true">
+          <span className="material-symbols-rounded arrow_forward">
+              arrow_forward
+          </span>
+          </span>
+      </Link>
+
+    </div>
   );
 }

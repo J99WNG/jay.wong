@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import Button from '../ui/Button';
 
 export default function Dock() {
   const dockRef = useRef<HTMLDivElement>(null);
@@ -76,13 +77,13 @@ export default function Dock() {
   return (
 
 <div className="dock-wrapper" ref={dockRef} id="dock-wrapper">
-    <button className="btn btn-primary btn-btt" aria-label="Back to top" onClick={handleBackToTop}>
+    <Button variant="primary" className="group gap-1 px-3 py-1 rounded-xl text-sm duration-300 pointer-events-auto" aria-label="Back to top" onClick={handleBackToTop}>
         <span className="icon icon-sm" aria-hidden="true">
-            <span className="material-symbols-rounded" translate="no" aria-hidden="true">arrow_upward</span>
+            <span className="material-symbols-rounded transition-transform duration-200 motion-safe:animate-bounce" translate="no" aria-hidden="true">arrow_upward</span>
         </span>
 
         <span>Rise up</span>
-    </button>
+    </Button>
 </div>
   )
 }

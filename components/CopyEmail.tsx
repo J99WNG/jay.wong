@@ -20,7 +20,7 @@ export default function CopyEmail() {
         <>
             <button 
                 onClick={handleCopy}
-                className="contact-item" 
+                className="contact-item"
                 type="button"
                 role="listitem"
             >
@@ -51,7 +51,7 @@ export default function CopyEmail() {
                 .copied-label {
                     position: absolute;
                     left: 0;
-                    color: var(--iron-buddha);
+                    color: var(--matcha-powder);
                 }
                 .fade-in {
                     opacity: 1;

@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import Button from './Button';
 
 export default function FigureModal({ src, alt, caption }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,15 +46,16 @@ export default function FigureModal({ src, alt, caption }) {
           aria-modal="true"
           onClick={() => setIsOpen(false)}
         >
-          <button 
-            className="btn-secondary close-btn" 
+          <Button
+            variant="secondary" 
+            className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full border-none cursor-pointer z-[10000]"
             aria-label="Close modal"
             onClick={() => setIsOpen(false)}
           >
             <span className="icon icon-lg">
               <span className="material-symbols-rounded">close</span>
             </span>
-          </button>
+          </Button>
           
           <div className="container modal-content" onClick={(e) => e.stopPropagation()}>
             <img src={src} alt={alt} />
