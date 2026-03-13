@@ -6,12 +6,9 @@ export default function Dock() {
   const dockRef = useRef<HTMLDivElement>(null);
   const upScrollTimer = useRef<NodeJS.Timeout | null>(null);
 
-  // Requirement 3: Dock button click jumps to top and resets URL
   const handleBackToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Reset URL to base path (removes /#work)
     window.history.replaceState(null, '', window.location.pathname);
   };
 
@@ -29,41 +26,43 @@ export default function Dock() {
       if (dock && footer) {
         const footerTrigger = docHeight - footer.offsetHeight;
 
-        // --- 1. Visibility Logic with Delay ---
+        // --- 1. Visibility Logic ---
         if (currentScrollY > 500 && currentScrollY > lastScrollY) {
-          // SCROLLING DOWN: Show immediately
           if (upScrollTimer.current) {
             clearTimeout(upScrollTimer.current);
             upScrollTimer.current = null;
           }
-          dock.classList.add('is-visible');
+          // translate-y-0 shows the dock
+          dock.classList.add('translate-y-0');
+          dock.classList.remove('translate-y-full');
 
         } else if (currentScrollY < lastScrollY) {
-          // 1. If we are at the very top, hide immediately (no delay)
           if (currentScrollY < 50) {
             if (upScrollTimer.current) {
               clearTimeout(upScrollTimer.current);
               upScrollTimer.current = null;
             }
-            dock.classList.remove('is-visible');
+            dock.classList.add('translate-y-full');
+            dock.classList.remove('translate-y-0');
           } 
-          // 2. If we are just scrolling up normally, use the 1s delay
           else if (!upScrollTimer.current) {
             upScrollTimer.current = setTimeout(() => {
-              dock.classList.remove('is-visible');
+              dock.classList.add('translate-y-full');
+              dock.classList.remove('translate-y-0');
               upScrollTimer.current = null;
             }, SCROLL_UP_DELAY);
           }
         }
 
-        // --- 2. Footer Collision ---
+        // --- 2. Footer Collision (Background Toggle) ---
         if (scrollBottom > footerTrigger) {
-          dock.classList.add('no-bg');
+          dock.classList.add('bg-transparent');
+          dock.classList.remove('bg-gradient-to-t');
         } else {
-          dock.classList.remove('no-bg');
+          dock.classList.remove('bg-transparent');
+          dock.classList.add('bg-gradient-to-t');
         }
       }
-
       lastScrollY = currentScrollY;
     };
 
@@ -75,15 +74,29 @@ export default function Dock() {
   }, []);
 
   return (
-
-<div className="dock-wrapper" ref={dockRef} id="dock-wrapper">
-    <Button variant="primary" className="group gap-1 px-3 py-1 rounded-xl text-sm duration-300 pointer-events-auto" aria-label="Back to top" onClick={handleBackToTop}>
+    <div 
+      ref={dockRef} 
+      id="dock-wrapper"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-full h-16 flex items-center justify-center z-[9999] pointer-events-none transition-transform duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-t from-[hsla(30,62%,98%,0.7)] to-transparent"
+    >
+      <Button 
+        variant="primary" 
+        className="group gap-1 px-3 py-1 rounded-xl text-sm duration-300 pointer-events-auto" 
+        aria-label="Back to top" 
+        onClick={handleBackToTop}
+      >
         <span className="icon icon-sm" aria-hidden="true">
-            <span className="material-symbols-rounded transition-transform duration-200 motion-safe:animate-bounce" translate="no" aria-hidden="true">arrow_upward</span>
+          <span 
+            className="material-symbols-rounded transition-transform duration-200 motion-safe:animate-bounce" 
+            translate="no" 
+            aria-hidden="true"
+          >
+            arrow_upward
+          </span>
         </span>
 
         <span>Rise up</span>
-    </Button>
-</div>
-  )
+      </Button>
+    </div>
+  );
 }

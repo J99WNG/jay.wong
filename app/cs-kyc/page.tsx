@@ -4,7 +4,7 @@ import FigureModal from '@/components/ui/FigureModal';
 import NextProjectCTA from '@/components/NextProjectCTA';
 import { caseStudies } from "@/app/data/caseStudies";
 
-const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
+const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
 export default function Page() {
     return (

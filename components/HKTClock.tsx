@@ -7,7 +7,7 @@ export default function Clock() {
     useEffect(() => {
         const formatter = new Intl.DateTimeFormat('en-GB', {
             timeZone: 'Asia/Hong_Kong',
-            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
         });
 
         const timer = setInterval(() => setTime(formatter.format(new Date())), 1000);

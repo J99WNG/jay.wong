@@ -1,4 +1,3 @@
-// components/Section.tsx
 import React from 'react';
 
 interface SectionProps {
@@ -13,11 +12,11 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
     <section 
       id={id}
       className={`
-        relative overflow-hidden isolate
+        relative overflow-hidden isolate content-center
         /* Conditional logic for landing vs standard sections */
         ${isLanding 
-          ? 'min-h-screen !bg-[var(--white-pekoe)] pt-[calc(var(--header-height)+6rem)] pb-24' 
-          : 'min-h-fit bg-[var(--silver-needle)] py-26'}
+          ? 'min-h-screen bg-[var(--white-pekoe)] pt-[calc(var(--header-height)+6rem)] pb-32' 
+          : 'min-h-fit bg-[var(--silver-needle)] py-32'}
         /* Base styles from your CSS translation */
         scroll-mt-0 mx-auto w-full
         ${className}

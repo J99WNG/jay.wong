@@ -6,7 +6,6 @@
 /* Master list of your custom styles */
 @import "../styles/colour-system.css";
 @import "../styles/iconography.css";
-@import "../styles/typography.css";
 
 @layer base {
   h1, h2, h3, h4 {
@@ -30,7 +29,140 @@
     @apply text-[1.25rem] leading-[1.4] tracking-[-0.06rem];
   }
 
-  
+  /* Paragraphs */
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.04rem;
+    line-height: 1.6;
+    max-width: 65ch;
+
+    margin-block-start: 0;
+    margin-block-end: 0.5rem;
+  }
+
+  p.tagline {
+    letter-spacing: -0.06rem;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    margin: 0;
+  }
+
+  p.lead {
+    color: var(--aged-pu-erh);
+    letter-spacing: -0.06rem;
+    font-size: 1.3rem;
+    font-weight: 450;
+    margin-bottom: 0;
+  }
+
+  p.small {
+    color: var(--roasted-oolong);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.02rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  /* Lists */
+  li {
+  font-size: 1rem;
+  letter-spacing: -0.04rem;
+  margin: 0;
+  padding-bottom: 1.25rem;
+  line-height: 1.6;
+  }
+
+  .metadata li {
+  padding-bottom: 0.75rem;
+  }
+
+  li::marker {
+  color: var(--masala-chai);
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  text-indent: 100px;
+  text-align: start;
+  text-align-last: auto;
+  }
+
+  ul, ol {
+  margin-block: 0;
+  padding-inline-start: 2rem;
+  }
+
+  ul {
+  list-style-type: disc;
+  }
+
+  ol {
+  list-style: decimal-leading-zero;
+  }
+
+  /* Misc */
+  strong {
+  font-weight: 550;
+  }
+
+  span.quant {
+  font-size: 2rem;
+  color: var(--masala-chai);
+  }
+
+  .notion-quote {
+  margin-block: 0.75rem;
+
+  border-left: 3px solid var(--aged-pu-erh);
+  color: var(--aged-pu-erh);
+
+  padding: 0rem 1rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.06rem;
+  line-height: 1.5;
+  }
+
+  .breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin-bottom: 3rem;
+  }
+
+  .breadcrumb a {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 0.25rem;
+
+  /* 2. Sizing */
+  width: fit-content;
+  justify-content: start;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  }
+
+  .breadcrumb a:hover {
+  background-color: var(--steamed-vapor);
+  color: var(--earl-grey);
+  }
+
+  .metadata {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: stretch;
+  padding: 0;
+  gap: 0.5rem;
+  }
+
+  .title-block {
+  display: inline-block;
+  gap: 0.5rem;
+  margin-block-end: 1.5rem;
+  }
 
   /* Links */
   a {
@@ -44,6 +176,29 @@
 
     transition: color 0.2s ease;
   }
+
+  /* Remove default browser focus outline and replace with a custom one */
+  :focus-visible {
+    outline: none;
+    @apply ring-2 ring-[var(--butterfly-pea)] ring-offset-1;
+  }
+
+  /* Optional: Specifically handle links if you want them to look different */
+  a:focus-visible {
+    @apply rounded-lg;
+  }
+
+
+/* ==================== Rounded divider ==================== */
+hr {
+  border: none;
+  border-top: 1px solid var(--dried-clay);
+  border-radius: 999px;
+
+  margin: 0;
+  padding: 0;
+}
+
 }
 
 /* ==================== Foundations ==================== */
@@ -90,16 +245,6 @@ body.loading {
   max-width: 980px;
   margin-inline: auto;
 }
-
-/* ==================== Rounded divider ==================== */
-hr {
-    border: none;
-    border-top: 1px solid var(--dried-clay);
-    border-radius: 999px;
-
-    margin: 0;
-    padding: 0;
-  }
 
 /* ==================== Images ==================== */
 
@@ -378,24 +523,6 @@ caption {
   --header-height: 4rem; /* Match your header CSS height */
 }
 
-header {
-  height: auto;
-  width: 100%;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: box-shadow 200ms ease;
-  z-index: 9998;
-  pointer-events: none;
-
-  background: linear-gradient(            /* Gradient from solid to transparent */
-      to bottom, 
-      hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
-      hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
-  );
-}
-
 .header-wrapper {
   /* Layout */
   display: flex;
@@ -412,32 +539,13 @@ header {
 
   /* Colour */
   background: var(--ceylon-leaf);
+  backdrop-filter: blur(10px);
 
   position: relative;
   pointer-events: auto;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.nav-brand {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
-.nav-brand svg {
-  display: block;
-  height: 2rem;
-  width: auto;
-
-  fill: var(--silver-needle);
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.nav-brand svg:hover,
-.nav-brand svg:active,
-.nav-brand svg:focus-visible {
-  fill: var(--dried-clay);
-}
 
 .nav-menu { /* mobile overlay menu - hidden by default */
   top: calc(100% + 1rem);             /* same as header height */
@@ -553,15 +661,6 @@ header {
 }
     
 /* ==================== Section ==================== */
-
-section {
-  display: block;
-  position: relative;
-  background-color: var(--silver-needle);
-
-  align-content: center;
-  padding-block: 6rem;
-}
 
 .section-heading {
   display: flex;
@@ -722,48 +821,8 @@ span.section-subtitle {
   color: var(--aged-pu-erh);
 }
 
-/* ==================== Back to top CTA ==================== */
-.dock-wrapper {       /* 1. The Dock (The area where the button sits) */
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%); /* Start hidden below screen */
-  width: 100%;
-  height: 4rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  pointer-events: none; /* Allows clicking content 'under' the blur area */
-  
-  background: linear-gradient(            /* Gradient from solid to transparent */
-      to top, 
-      hsla(30, 62%, 98%, 0.8) 0%,   /* Solid at the very top */
-      hsla(30, 62%, 98%, 0) 100%   /* Fully invisible */
-    );
-
-  /* Smooth movement and background fading */
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Class to strip the background when at footer */
-.dock-wrapper.no-bg {
-  background: transparent;
-}
-
-.dock-wrapper.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
 /* ==================== Accessibility & inclusive design ==================== */
-:focus-visible {
-  outline: 2px solid var(--butterfly-pea);
-  outline-offset: 4px;
-  border-radius: 0.5rem;
-}
+
 
 /* 1. Global: Instant jumps for page transitions */
 html {

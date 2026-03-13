@@ -26,12 +26,15 @@ export default function Header() {
     const closeMenu = () => setIsOpen(false);
     
     return (
-        <header>
+        <header className="fixed top-0 left-0 z-[9998] h-auto w-full pointer-events-none bg-gradient-to-b from-[hsla(30,62%,98%,0.7)] to-transparent transition-shadow duration-200 ease-linear">
             <div className="container">
                 <div className="header-wrapper">
                     {/* Logo */}
-                    <Link href="/" className="nav-brand" aria-label="JW Designs homepage" onClick={closeMenu}>
-                        <svg viewBox="0 0 945 426" xmlns="http://www.w3.org/2000/svg">
+                    <Link href="/" id="nav-brand" className="flex items-center basis-auto flex-none group outline-none" aria-label="JW homepage" onClick={closeMenu}>
+                        <svg 
+                        viewBox="0 0 945 426"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="block h-8 w-auto fill-(--silver-needle) transition-colors duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:fill-(--dried-clay) group-focus-visible:fill-(--dried-clay) group-active:fill-(--dried-clay)">
                             <title>Jay Wong monogram</title>
                             {/* Note: clip-path becomes clipPath in JSX */}
                             <g clipPath="url(#clip0_2477_10)">

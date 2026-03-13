@@ -1,29 +1,28 @@
 import Section from '@/components/Section';
 import Image from 'next/image';
-import Link from 'next/link';
 import FigureModal from '@/components/ui/FigureModal';
 import NextProjectCTA from '@/components/NextProjectCTA';
-import ScrollToNext from '@/components/ScrollDown';
+import { caseStudies } from "@/app/data/caseStudies";
 
-export default function CaseStudyOne() {
+const project = caseStudies.find((s) => s.slug === "bp-itsm-genai")!;
+
+export default function Page() {
     return (
         <article>
             <Section id="landing" isLanding={true}>
                 <NextProjectCTA />
 
                 <div className="title-block">
-                <p className="small">
-                    2025 / bp / Oil & Gas
-                </p>
-
-                <h1>Shifting IT Support Left at Enterprise Scale</h1>
-
-                <p className="tagline">Reducing repeat IT tickets by 24% at bp through AI-assisted knowledge discovery and content design.</p>
+                    <p className="small">
+                        {project.year} / {project.company} / {project.industry}
+                    </p>
+                    <h1>{project.title}</h1>
+                    <p className="tagline">{project.tagline}</p>
                 </div>
 
                 <div className="bento-grid">
                     <div className="bento-item tall">
-                        <Image src="/assets/images/case-study-1/bp-bento-1.png"
+                        <Image src={project.bentoImage}
                                 alt="Featured Project"
                                 fill // Makes image fill the container
                                 priority // Ensures this image loads fast
@@ -31,14 +30,14 @@ export default function CaseStudyOne() {
                     </div>
 
                     <div className="bento-item">
-                        <Image src="/assets/images/case-study-1/bp-bento-2.png"
+                        <Image src={project.bentoImage2}
                                 alt="Featured Project"
                                 fill // Makes image fill the container
                             />
                     </div>
 
                     <div className="bento-item">
-                        <Image src="/assets/images/case-study-1/bp-bento-3.png"
+                        <Image src={project.bentoImage3}
                                 alt="Featured Project"
                                 fill // Makes image fill the container
                             />
@@ -46,8 +45,8 @@ export default function CaseStudyOne() {
                 </div>
             </Section>
 
-            <section id="Snapshot">
-            <div className="container col-30-70 section-fade">
+            <Section id="snapshot">
+            <div className="col-30-70">
 
                 <div className="section-heading">
                     <h2>Snapshot
@@ -162,14 +161,14 @@ export default function CaseStudyOne() {
                 </div>
             </div>
 
-            </section>
+            </Section>
 
             <div className="container">
             <hr className="divider" />
             </div>
 
-            <section>
-                <div className="container col-30-70 section-fade">
+            <Section id="context">
+                <div className="col-30-70">
 
                 <div className="section-heading">
                     <h2>Business context
@@ -211,15 +210,15 @@ export default function CaseStudyOne() {
                 
                 </div>
 
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="role-heading">
+            <Section id="role" aria-labelledby="role-heading">
 
-                <div className="container col-30-70 section-fade">
+                <div className="col-30-70">
 
                 <div className="section-heading">
                     <h2 className="section-title">My role
@@ -253,15 +252,15 @@ export default function CaseStudyOne() {
                 </div>
 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="discovery-heading">
+            <Section id="discovery" aria-labelledby="discovery-heading">
 
-                <div className="container col-30-70 section-fade">
+                <div className="col-30-70">
 
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
@@ -388,14 +387,14 @@ export default function CaseStudyOne() {
                     </div>
 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider"/>
             </div>
 
-            <section aria-labelledby="problem-definition">
-                <div className="container col-30-70 section-fade">
+            <Section id="problem" aria-labelledby="problem-definition">
+                <div className="col-30-70">
 
                 <div className="section-heading">
                     <h2>Problem definition
@@ -450,14 +449,14 @@ export default function CaseStudyOne() {
                 </div>
                 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="goals-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="goals" aria-labelledby="goals-heading">
+                <div className="col-30-70">
                 
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
@@ -512,14 +511,14 @@ export default function CaseStudyOne() {
                     </div>
 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="ideation-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="ideation" aria-labelledby="ideation-heading">
+                <div className="col-30-70">
 
                     <div className="section-heading">
                         <h2>Ideation
@@ -607,14 +606,14 @@ export default function CaseStudyOne() {
                     </div>
 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="solution-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="solution" aria-labelledby="solution-heading">
+                <div className="col-30-70">
 
                     <div className="section-heading">
                         <h2>The solution
@@ -729,14 +728,14 @@ export default function CaseStudyOne() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="solution-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="testing">
+                <div className="col-30-70">
 
                 <div className="section-heading">
                     <h2>Testing &amp; validation
@@ -856,14 +855,14 @@ export default function CaseStudyOne() {
                 </div>
                 
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider" />
             </div>
 
-            <section aria-labelledby="impact-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="impact" aria-labelledby="impact-heading">
+                <div className="col-30-70">
                 
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
@@ -914,14 +913,14 @@ export default function CaseStudyOne() {
                         />
                     </div>
                 </div>
-            </section>
+            </Section>
 
             <div className="container">
                 <hr className="divider"/>
             </div>
 
-            <section aria-labelledby="reflection-heading">
-                <div className="container col-30-70 section-fade">
+            <Section id="reflection" aria-labelledby="reflection-heading">
+                <div className="col-30-70">
 
                     <div className="section-heading">
                         <h2>Reflection
@@ -987,7 +986,7 @@ export default function CaseStudyOne() {
                         </blockquote>
                     </div>
                 </div>
-            </section>
+            </Section>
         </article>
     );
 }

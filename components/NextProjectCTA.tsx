@@ -1,11 +1,13 @@
 'use client';
 
+import { s } from 'framer-motion/client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const caseStudies = [
   { slug: 'bp-itsm-genai', title: 'Project Alpha' },
   { slug: 'bp-workplace', title: 'Project Beta' },
+  { slug: 'cs-kyc', title: 'Project Gamma' },
 ];
 
 export default function NextProjectCTA() {
@@ -34,7 +36,7 @@ export default function NextProjectCTA() {
           </span>
           </span>
           
-          Back to all projects
+          Back
       </Link>
                     
       <Link href={`/${nextProject.slug}`} title="Next case study">

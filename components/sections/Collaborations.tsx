@@ -1,6 +1,6 @@
 import Section from "../Section";
 
-export default function About() {
+export default function Collaborations() {
     return (
         <Section id="collaborations">
             <div className="col-30-70">

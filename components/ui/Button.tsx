@@ -15,7 +15,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({ variant = 'primary', href, className, children, ...props }: ButtonProps) {
   
   // 1. Your Base Styles (.btn)
-  const baseStyles = "inline-flex items-center justify-center cursor-pointer overflow-hidden w-fit h-auto px-6 py-2 leading-none text-center no-underline text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-96 focus-visible:scale-96 hover:scale-96";
+  const baseStyles = "inline-flex items-center justify-center cursor-pointer overflow-hidden w-fit h-auto px-6 py-2 leading-none text-center no-underline text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-96 focus-visible:scale-96 hover:scale-96 focus-visible:outline-none focus-visible:ring-2 ";
 
   // 2. Your Variants (.btn-primary, etc.)
   const variants = {
