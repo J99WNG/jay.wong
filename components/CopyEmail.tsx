@@ -20,7 +20,7 @@ export default function CopyEmail() {
         <>
             <button 
                 onClick={handleCopy}
-                className="contact-item"
+                className="contact-item text-[var(--butterfly-pea)] hover:text-[var(--earl-grey)]"
                 type="button"
                 role="listitem"
             >

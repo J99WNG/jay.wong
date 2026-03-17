@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Image from 'next/image';
 import FigureModal from '@/components/ui/FigureModal';
+import { GalleryProvider } from '@/components/ui/GalleryContext';
 import NextProjectCTA from '@/components/NextProjectCTA';
 import { caseStudies } from "@/app/data/caseStudies";
 
@@ -8,6 +9,7 @@ const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
 export default function Page() {
     return (
+    <GalleryProvider>
         <article>
             <Section id="landing" isLanding={true}>
                 <NextProjectCTA />
@@ -825,5 +827,6 @@ export default function Page() {
                 </div>
             </Section>
         </article>
+    </GalleryProvider>
     );
 }

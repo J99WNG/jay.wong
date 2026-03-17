@@ -7,7 +7,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
-    <article className="card">
+    <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104">
       <div className="card-content card-padding-lg">
 
         <p className="small">
@@ -29,7 +29,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
           <TextLink className="card-link" href={`/${slug}`}>
             View case study
             <span className="icon icon-sm" aria-hidden="true">
-              <span className="material-symbols-rounded">arrow_forward</span>
+              <span className="material-symbols-rounded arrow_forward">arrow_forward</span>
             </span>
           </TextLink>
         )}

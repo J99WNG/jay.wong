@@ -2,6 +2,7 @@ import Section from "../Section";
 import HKTClock from "@/components/HKTClock";
 import CopyEmail from '@/components/CopyEmail';
 import TextLink from "../ui/TextLink";
+import Link from "next/link";
 
 export default function Contact() {
     return (
@@ -29,33 +30,14 @@ export default function Contact() {
                     </div>
                     
                     <div className="flex flex-col gap-6 shrink-1" role="list">
-                        {/* Cal.com */}
-                        <TextLink href="https://cal.com/jay-wong/intro"
-                            className="contact-item"
-                            role="listitem">
-
-                            <span className="icon icon-lg" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                    <path d="M320-400h240q17 0 28.5-11.5T600-440v-80l80 80v-240l-80 80v-80q0-17-11.5-28.5T560-720H320q-17 0-28.5 11.5T280-680v240q0 17 11.5 28.5T320-400ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
-                                </svg>
-                            </span>
-
-                            <span className="contact-text" translate="no">
-                                Schedule a call
-                            </span>
-
-                            <span className="icon icon-md" aria-hidden="true">
-                                <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
-                              </span>
-                        </TextLink>
-
-                        
                         {/* Email */}
                         <CopyEmail />
 
                         {/* LinkedIn */}
-                        <TextLink href="https://linkedin.com/in/jayycwong"
+                        <Link href="https://linkedin.com/in/jayycwong"
                             className="contact-item"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             role="listitem">
 
                             <span className="icon icon-lg" aria-hidden="true">
@@ -72,7 +54,29 @@ export default function Contact() {
                             <span className="icon icon-md" aria-hidden="true">
                                 <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
                             </span>
-                        </TextLink>
+                        </Link>
+                        
+                        {/* Cal.com */}
+                        <Link href="https://cal.com/jay-wong/intro"
+                            className="contact-item"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            role="listitem">
+
+                            <span className="icon icon-lg" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M320-400h240q17 0 28.5-11.5T600-440v-80l80 80v-240l-80 80v-80q0-17-11.5-28.5T560-720H320q-17 0-28.5 11.5T280-680v240q0 17 11.5 28.5T320-400ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
+                                </svg>
+                            </span>
+
+                            <span className="contact-text" translate="no">
+                                Schedule a call
+                            </span>
+
+                            <span className="icon icon-md" aria-hidden="true">
+                                <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
+                              </span>
+                        </Link>
                     </div>
                 </div>
             </div>

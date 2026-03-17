@@ -30,12 +30,12 @@ export default function Work() {
                             </span>
                             
                             <p className="italic">Some projects are simplified or anonymised to respect client confidentiality and NDAs.</p>
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-8 mt-6">
+            <div className="flex flex-col items-center gap-8 mt-6">
                 {caseStudies.map((project) => (
                     <CaseStudyCard key={project.slug} project={project} />
                 ))}
