@@ -586,18 +586,6 @@ caption {
   transform: translateY(0);
 }
 
-.nav-list {
-  display: flex;
-  flex-direction: column;             /* <-- forces vertical stack (mobile) */
-  list-style: none;
-  align-items: start;
-  justify-content: center;
-
-  font-weight: 300;
-  gap: 2rem;
-  padding: 0;
-}
-
 .nav-list a,
 .nav-list li {
   font-size: 1.5rem;
@@ -900,10 +888,6 @@ html:focus-within {
   gap: 0;
 }
 
-.nav-list {
-    flex-direction: row;
-    margin: 0 auto;     /* Pushes the button away from the list */
-}
 
 .nav-list a,
 .nav-list li {

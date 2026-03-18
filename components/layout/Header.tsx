@@ -48,7 +48,7 @@ export default function Header() {
 
                     {/* Navigation */} {/* Your Menu - applying the 'is-open' class based on state */}
                     <nav className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-                        <ul className="nav-list">
+                        <ul className="nav-list flex flex-col md:flex-row p-0 list-none gap-6 md:gap-8 items-start md:items-center md:mx-auto md:my-0 justify-center font-light">
                             <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
                             <li><Link href="/#collaborations" onClick={closeMenu}>Collaborations</Link></li>
                             <li><Link href="/#work" onClick={closeMenu}>Work</Link></li>
