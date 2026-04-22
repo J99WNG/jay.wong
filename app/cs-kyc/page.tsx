@@ -120,7 +120,7 @@ export default function Page() {
                                 <div className="metadata">
                                     <p className="small">Team</p>
 
-                                    <p>5 people (Project Manager, Lead Developer, Project Analyst, Business Analyst, Research Analyst)</p>
+                                    <p>5 people (Product Manager/Designer, Lead Developer, Project Analyst, Business Analyst, Research Analyst)</p>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ export default function Page() {
                 </Section>
 
                 <div className="container">
-                <hr className="divider" />
+                    <hr className="divider" />
                 </div>
 
                 <Section id="context">
@@ -143,9 +143,12 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <div className="content-block">
-                                <p className="lead">Credit Suisse's International Wealth Management division manages CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong></p>
 
+                            <p className="lead">
+                                Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
+                            </p>
+                            
+                            <div className="content-block">
                                 <p>The bank's strategy was built on three priorities:</p>
                                 
                                 <ol>
@@ -164,12 +167,17 @@ export default function Page() {
                 
                                 <p>What was actually happening looked quite different. RMs were spending significant parts of their day navigating disconnected systems, chasing KYC documentation, and managing admin that pulled them away from the people they were supposed to be advising.</p>
 
-                                <p>Credit Suisse had invested heavily in its wealth management infrastructure. But the tools being used by the people closest to clients hadn't kept pace. There was an internal CRM and a calendar system, but nothing that put the full picture of an RM's day into a single, mobile-first surface. The result was a productivity gap that had a direct impact on the division's ability to meet its own strategic goals.</p>
-                                
                                 <blockquote className="notion-quote">
-                                    This was the brief that landed in front of our team in September 2019.
+                                    "Relationship managers spend 60 to 70 percent of their time on non-advisory activities."
+                                    <p className="small">McKinsey & Company, 2022</p>
                                 </blockquote>
+
+                                <p>Credit Suisse had invested heavily in its wealth management infrastructure. But the tools being used by the people closest to clients hadn't kept pace. There was an internal CRM and a calendar system, but nothing that put the full picture of an RM's day into a single, mobile-first surface. The result was a productivity gap that had a direct impact on the division's ability to meet its own strategic goals.</p>
                             </div>
+
+                            <p className="lead">
+                                This was the brief that landed in front of our team in September 2019.
+                            </p>
                         </div>
                     
                     </div>
@@ -191,26 +199,31 @@ export default function Page() {
 
                         <div className="section-content">
                             <div className="content-block">
-                                <p className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</p>
-
-                                <ul>
-                                    <li>Leading 6-weeks of discovery across UK, US, India and the Caribbean.</li>
-                                    <li>Facilitated stakeholder alignment across workplace operations, IT and regional office teams.</li>
-                                    <li>Steering a squad of ServiceNow developers between India and Bulgaria to balance UX ambitions with platform constraints.</li>
-                                    <li>Shaped the global rollout strategy by leading data collection across 50+ workplace locations, identifying early adopters and translating operational insights into the core problem statements and experience principles for the programme.</li>
-                                    <li>Influenced the move towards a consolidated global information architecture.</li>
-                                    <li>Led the end-to-end experience design for the global workplace hub within ServiceNow.</li>
-                                </ul>
+                                <p className="lead">I came into this project as Product Manager and Designer. In practice, that meant wearing a few different hats across the eight-month engagement.</p>
                             </div>
                             
                             <div className="content-block">
-                                <p className="lead">Strategically, I focused on:</p>
+                                <h3>Product vision and design</h3>
 
-                                <ul>
-                                    <li>Simplification over feature expansion.</li>
-                                    <li>Global consistency with regional flexibility.</li>
-                                    <li>Shift user behaviour for adoption, not just launch.</li>
-                                </ul>
+                                <p>
+                                    I was responsible for shaping the overall vision and experience of RM Suite. I led the high-fidelity prototype work in Semester 1 using InVision, ran our core ideation sessions, coordinated both stakeholder interviews, and translated what we heard into a prioritised requirements spec the team could build towards. I applied Nielsen's Heuristics throughout the design process to ensure every screen decision was grounded in usability principles.
+                                </p>
+                            </div>
+
+                            <div className='content-block'>
+                                <h3>Project management</h3>
+
+                                <p>
+                                I owned the project structure end to end. I built the Gantt chart, ran weekly standup, maintained the issue log and risk register, and managed scope when the project encountered unexpected constraints. When COVID-19 hit midway through Semester 2 and the team scattered across four different time zones, I kept the work moving and the communication flowing.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>Stakeholder engagement</h3>
+
+                                <p>
+                                    I served as the primary point of contact between our team and Credit Suisse stakeholders. I was present for both the Semester 1 employer showcase and the final virtual demonstration, and I led the sessions where we gathered feedback to refine our direction between semesters.
+                                </p>
                             </div>
                         </div>
 
@@ -232,70 +245,79 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</p>
-
-                            <blockquote className="notion-quote">
-                                This wasn’t just a UX issue. It was an operating model issue.
-                            </blockquote>
+                            <p className="lead">
+                                We started with the Credit Suisse briefing document and a structured research checklist covering KYC regulation, private banking compliance in the UK and EU, FinTech trends, and the daily responsibilities of a Relationship Manager. But reading about a role is very different from understanding it.
+                            </p>
 
                             <div className="content-block">
-                                <h3>Workplace services varied by location, not just region</h3>
+                                <h3>Stakeholder insights</h3>
                                 
-                                <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
-                                    
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-discovery-1.png"
-                                    alt=""
-                                    caption="One location was operating workplace services through more than 8 different touchpoints, scattered across SharePoint pages. This was a repeating theme."
-                                />
+                                <p>
+                                    Our first priority was getting direct access to Credit Suisse's people. We secured two interviews:
+                                </p>
 
+                                <ul>
+                                    <li>
+                                        The first was with Credit Suisse's Regional Head of IT, who gave us a clear view of the technical constraints and what the existing infrastructure could realistically support.
+                                    </li>
+
+                                    <li>
+                                        The second was with Abdul, a serving Relationship Manager (our primary user), who walked us through what his working day actually looked like.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className='content-block'>
+                                <h3>That second conversation changed our direction significantly.</h3>
+
+                                <p>
+                                    What we heard was that the real friction wasn't any single process. It was the fragmentation. An RM's day meant switching between a client management system, a financial news feed, a compliance checklist, and handwritten notes, with nothing connecting them. The cognitive overhead of managing that context-switching was where the time was being lost.
+                                </p>
+                            </div>
+                            
+                            <div className='content-block'>
+                                <h3>Invalidating our assumptions</h3>
+
+                                <p>
+                                    The interviews also surface some important corrections to our early thinking:
+                                </p>
+
+                                <ol>
+                                    <li>
+                                        We had designed a calendar feature into our first prototype. Abdul confirmed Credit Suisse already had their own internal system for that.
+                                    </li>
+
+                                    <li>
+                                        We had assumed the app would be used by both RMs and clients. It wouldn't.
+                                    </li>
+
+                                    <li>
+                                        We had thought KYC consolidation should lead the product. Both stakeholders redirected us toward efficiency and cognitive load reduction as the core goal.
+                                    </li>
+                                </ol>
+                                
+                                <p>
+                                    Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase.
+                                </p>
+
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-discovery-1.png"
+                                    alt=""
+                                    caption="Table goes here"
+                                />
                             </div>
 
                             <div className="content-block">
-                                <h3>Content was deeply fragmented</h3>
-                                
-                                <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
+                                <h3>Ideation technique</h3>
+
+                                <p>
+                                    We also ran a Ketso planning session early in the project, a structured tactile brainstorming method that got the full team contributing ideas in a way a standard whiteboard session rarely does.
+                                </p>
 
                                 <FigureModal
-                                    src="assets/images/case-study-2/ow-discovery-2.png"
+                                    src="assets/images/case-study-3/cs-discovery-2.png"
                                     alt=""
-                                    caption="My audit mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
-                                />
-                            </div>
-
-                            <div className="content-block">
-                                <h3>Search was not trusted</h3>
-                                
-                                <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
-
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-discovery-3.png"
-                                    alt=""
-                                    caption="Users bypassed the system via bookmarks, reducing visibility and governance. This was a critical insight that informed our focus on improving navigation and information architecture."
-                                />
-                            </div>
-
-                            <div className="content-block">
-                                <h3>Culture influenced behaviour</h3>
-                                
-                                <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
-
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-discovery-4.png"
-                                    alt=""
-                                    caption="Interviews in the Trinidad and Pune locations revealed a strong reliance on informal networks for accessing workplace services. Employees often bypassed official channels, preferring to ask colleagues directly for support. This highlighted the need for a more intuitive and trustworthy digital experience to encourage adoption of formal processes."
-                                />
-                            </div>
-
-                            <div className="content-block">
-                                <h3>Governance gaps existed</h3>
-                                
-                                <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
-
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-discovery-5.png"
-                                    alt=""
-                                    caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX and increased operational overhead."
+                                    caption="Photos of Ketso session go here"
                                 />
                             </div>
                         </div>
@@ -318,67 +340,43 @@ export default function Page() {
 
                         <div className="section-content">
                             <div className="content-block">
-                                <p className="lead">I reframed the challenge from:</p>
+                                <p className="lead">After the interviews and analysis, we could frame the problem much more precisely.</p>
 
                                 <blockquote className="notion-quote">
-                                    “Improve digital workplace services through an employee portal”
+                                    Relationship Managers at Credit Suisse don't lack information. They have too much of it, spread across too many places, with no intelligent way to surface what matters right now.
                                 </blockquote>
 
-                                <p>to</p>
-
-                                <blockquote className="notion-quote">
-                                    <p className="small">How might we</p>
-                                    Reduce friction in accessing workplace support globally, while lowering operational cost?
-                                </blockquote>
+                                <p>
+                                The consequence was an RM who started each day already behind, spent time context-switching between systems, and arrived at client meetings less prepared than they should have been.
+                                </p>
                             </div>
                             
                             <div className="content-block">
-                                <p>Core design problems include:</p>
+                                <p>
+                                To structure our response, we ran a PACT Analysis across People, Activities, Context, and Technology. This kept the user at the centre of every decision:
+                                </p>
+                                
+                                <blockquote className="notion-quote">
+                                    RMs were homogeneous users doing largely the same work, but they operated across different time zones, travelled frequently for client meetings, and needed the app to be reliable in environments where office access wasn't guaranteed.
+                                </blockquote>
 
-                                <div className="grid-layout">
-                                    <div className="card">
-                                        <div className="card-content card-padding-sm">
-                                            <span className="icon icon-xl" aria-hidden="true">
-                                                <span className="material-symbols-rounded card-icon" translate="no">explore</span>
-                                            </span>
-                            
-                                            <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
-                                        </div>
-                                    </div>
+                                <p>
+                                We then used MoSCoW prioritisation to separate what we had to build from what would be valuable but non-essential. Of the 12 requirements we identified, 7 landed in the Must and Should categories. Those 7 became our north star for the rest of the project.
+                                </p>
 
-                                    <div className="card">
-                                        <div className="card-content card-padding-sm">
-                                            <span className="icon icon-xl" aria-hidden="true">
-                                                <span className="material-symbols-rounded card-icon" translate="no">quick_reference</span>
-                                            </span>
-                            
-                                            <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
-                                        </div>
-                                    </div>
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-problem-1.png"
+                                    alt=""
+                                    caption="Requirements"
+                                />
 
-                                    <div className="card">
-                                        <div className="card-content card-padding-sm">
-                                            <span className="icon icon-xl" aria-hidden="true">
-                                                <span className="material-symbols-rounded card-icon" translate="no">location_on</span>
-                                            </span>
-                            
-                                            <p className="card-text">Regional inconsistency created cognitive overload.</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="card">
-                                        <div className="card-content card-padding-sm">
-                                            <span className="icon icon-xl" aria-hidden="true">
-                                                <span className="material-symbols-rounded card-icon" translate="no">family_history</span>
-                                            </span>
-                            
-                                            <p className="card-text">Multi-platform governance increased complexity.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-problem-2.png"
+                                    alt=""
+                                    caption="Requirements"
+                                />
                             </div>
                         </div>
-                    
                     </div>
                 </Section>
 
@@ -397,24 +395,59 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <div className="content-block">
-                                <h3>Experience goals</h3>
 
-                                <ol>
-                                    <li>Reduce time-to-find-service.</li>
-                                    <li>Improve clarity of requests status such as for office access or maintenance requests.</li>
-                                    <li>Create a globally consistent but locally adaptable framework.</li>
-                                </ol>
+                            <p className="lead">
+                                The brief asked for three things: innovation, efficiency, and minimisation. We translated those into concrete, measurable targets.
+                            </p>
+
+                            <div className="content-block">
+                                <h3>Primary goal</h3>
+
+                                <p>
+                                    Reduce the number of systems an RM needed to interact with during their working day, replacing fragmentation with a single, unified surface.
+                                </p>
                             </div>
 
                             <div className="content-block">
-                                <h3>Business goals</h3>
+                                <h3>Secondary goal</h3>
 
-                                <ol>
-                                    <li>Reduce reliance on Microsoft SharePoint.</li>
-                                    <li>Consolidate workplace services under one platform.</li>
-                                    <li>Align digital workplace experience with the physical office journey.</li>
-                                </ol>
+                                <p>
+                                    Make client information immediately accessible without requiring the RM to recall it from memory. Navigate by recognition, not recollection.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>Design goal</h3>
+                                
+                                <p>
+                                    Build something that felt consistent with Credit Suisse's existing design language, maintaining continuity with the bold typography and monochrome aesthetic of their current applications.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>Functional success criteria</h3>
+
+                                <ul>
+                                    <li>
+                                        Secure biometric login and access to the daily task view achievable in under 10 seconds.
+                                    </li>
+
+                                    <li>
+                                        All information relevant to a client meeting accessible from a single profile screen.
+                                    </li>
+
+                                    <li>
+                                        Dashboard content updating automatically on refresh, with no manual data entry required.
+                                    </li>
+
+                                    <li>
+                                        At least 5 of the 7 Must and Should requirements delivered in the final product.
+                                    </li>
+                                </ul>
+
+                                <blockquote className="notion-quote">
+                                    We delivered 5 of 7. Real-time Firebase database sync and the timezone feature were descoped due to development constraints in Semester 2.
+                                </blockquote>
                             </div>
                         </div>
 
@@ -435,54 +468,58 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</p>
+                            <p className="lead">Once we had validated requirements and a well-defined problem, ideation felt less like guesswork and more like solving a clear puzzle with defined constraints.</p>
+
+                            <p>
+                            The concept that guided everything was thinking about an RM's day as a single, continuous experience rather than a series of disconnected tasks. We kept asking the same question: what would it look like if everything an RM needed was in one place, presented in the order they would actually need it?
+                            </p>
 
                             <div className="content-block">
-                                <p>Stakeholders were clear:</p>
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-ideation-1.png"
+                                    alt=""
+                                    caption="Mockup of dashboard"
+                                />
 
-                                <blockquote className="notion-quote">
-                                    Consolidate onto ServiceNow and reduce licensing overhead.
-                                </blockquote>
-                            </div>
+                                <h3>
+                                    The modular dashboard
+                                </h3>
 
-                            <div className="content-block">
-                                <p className="lead">
-                                    Our challenge was designing a simplified, scalable framework that could:
+                                <p>
+                                    Rather than building a rigid, fixed-layout homepage, we designed the dashboard as a configurable surface. RMs could see today's tasks, upcoming reminders, and recently accessed clients at a glance. Every element was tappable and connected to a deeper view.
                                 </p>
-
-                                <ul>
-                                    <li>Be rolled out in phases to minimise technical debt.</li>
-                                    <li>Encourage behavioural change and user adoption.</li>
-                                    <li>Support varying levels of service maturity across locations and regions.</li>
-                                </ul>
                             </div>
 
                             <div className="content-block">
-                                <p className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</p>
-
                                 <FigureModal
-                                    src="/assets/images/case-study-2/ow-ideation-1.png"
+                                    src="assets/images/case-study-3/cs-ideation-2.png"
                                     alt=""
-                                    caption="To ensure design decisions remained grounded in research, I mapped key insights to experience principles and implementation approaches within the ServiceNow platform."
+                                    caption="Mockup of trending"
                                 />
 
+                                <h3>
+                                    The Trending panel
+                                </h3>
+
+                                <p>
+                                    We designed a live market data panel aggregating real-time stock movements and financial news, filtered by the regions and sectors relevant to each RM's portfolio. Keeping market intelligence inside the same app, rather than requiring RMs to switch to a news app or Bloomberg terminal, meant one less context switch in an already busy day.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
                                 <FigureModal
-                                    src="/assets/images/case-study-2/ow-ideation-2.png"
+                                    src="assets/images/case-study-3/cs-ideation-3.png"
                                     alt=""
-                                    caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content and external service providers. The architecture allows services, announcements and workplace contacts to dynamically adapt based on employee's home or selected location."
+                                    caption="Mockup of clients"
                                 />
 
-                                <FigureModal
-                                    src="/assets/images/case-study-2/ow-ideation-3.png"
-                                    alt=""
-                                    caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
-                                />
+                                <h3>
+                                    Recognition over recall in the Clients panel
+                                </h3>
 
-                                <FigureModal
-                                    src="/assets/images/case-study-2/ow-ideation-4.png"
-                                    alt=""
-                                    caption="Aside from the end-user experience, I defined the onboarding process for workplace locations to enable their services within our ServiceNow model. This work helped establish a scalable foundation for rolling out the workplace experience across 50+ global office locations."
-                                />
+                                <p>
+                                    One of the more deliberate design decisions was the card-based client grid. Rather than a list of names, each card showed the client's photo, nationality flag, occupation, and region. An RM managing dozens of clients across multiple continents should be able to find who they're looking for by face, not by scrolling through an alphabetical list. This directly applied Nielsen's principle of recognition over recall.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -497,92 +534,81 @@ export default function Page() {
                         <div className="section-heading">
                             <h2>The solution
                             <br/>
-                            <span className="section-subtitle">Reimagining the digital workplace.</span>
+                            <span className="section-subtitle">Solving productivity</span>
                             </h2>
                         </div>
 
                         <div className="section-content">
+                            <p className="lead">
+                            RM Suite shipped as an Android mobile application built in Java using Android Studio, with a Firebase real-time database architecture designed into the backend structure.
+
+                            The core screens, and what each one was built to do:
+                            </p>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-solution-1.png"
-                                    alt=""
-                                    caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
-                                />
-
                                 <h3>
-                                    Action-orientated, focused navigation
-                                </h3>
-
-                                <p>Clear, plain-language categories such as:</p>
-
-                                <ul>
-                                    <li>
-                                    “Book a desk, room or locker”
-                                    </li>
-
-                                    <li>
-                                    “Access and security”
-                                    </li>
-
-                                    <li>
-                                    “Equipment and IT”
-                                    </li>
-
-                                    <li>
-                                    “Shuttle service”
-                                    </li>
-                                </ul>
-
-                                <blockquote className="notion-quote">
-                                    Pairing this with the <a href="https://lawsofux.com/" target="_blank">laws of UX</a>, we reduced cognitive load and aligned navigation with real-world tasks.
-                                </blockquote>
-                            </div>
-
-                            <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-solution-2.png"
-                                    alt=""
-                                    caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
-                                />
-
-                                <h3>
-                                    Global framework with regional adaptability
+                                Login Panel
                                 </h3>
 
                                 <p>
-                                    We designed a consistent backbone structure that:
+                                Two-step authentication combining username/password with biometric fingerprint recognition. For an institution managing client wealth at this scale, security had to be the first design decision, not an afterthought. The screen maintained Credit Suisse's visual identity, bold typeface, monochrome palette, from the first moment.
                                 </p>
-
-                                <ul>
-                                    <li>Standardised core service categories</li>
-                                    <li>Allowed location-specific variations</li>
-                                    <li>Reduced duplication in content governance</li>
-                                    <li>Integrated seamlessly within the ServiceNow out-of-the-box (OOTB) experience to avoid costly customisation.</li>
-                                </ul>
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/case-study-2/ow-solution-3.png"
-                                    alt=""
-                                    caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
-                                />
-
                                 <h3>
-                                    Platform consolidation
+                                Dashboard
                                 </h3>
 
                                 <p>
-                                    Migrated workplace services from SharePoint to ServiceNow, removing dual ownership and simplifying maintenance workflows.
+                                The homepage of the RM's working day. Today's tasks in a clean checklist. Reminders with countdown timers, each linked to the relevant client. A Recent Clients strip for fast access. The whole screen was designed to be scanned in under 30 seconds, giving the RM everything they needed to orient their day before their first meeting.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>
+                                Client List
+                                </h3>
+
+                                <p>
+                                A searchable, sortable grid of all clients, filterable by region, occupation, and recency. Built around visual recognition. A busy RM on the way to a meeting shouldn't have to type a name to find it.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>
+                                Client Profile
+                                </h3>
+
+                                <p>
+                                The deepest layer of the app, and the most important one. A single screen containing client key information, aims and objectives, reminders, market news filtered to that client's specific sectors and regions, portfolio breakdown, risk analysis, and full meeting history. Everything an RM needed to walk into a meeting prepared, without opening a second application.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>
+                                Trending Panel
+                                </h3>
+
+                                <p>
+                                Live market data across EMEA, AMER, and APAC with colour-coded performance indicators. Green for positive movement, red for negative. A curated financial news feed alongside it. Keeping RMs connected to what was moving in the markets their clients were exposed to.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <h3>
+                                Add Panel
+                                </h3>
+
+                                <p>
+                                A single entry point for creating tasks, reminders, meeting notes, and new client profiles. One form, one flow. Everything tagged back to the relevant client automatically.
                                 </p>
                             </div>
 
                             <blockquote className="notion-quote">
-                                The PoC demonstrated how ServiceNow’s out-of-the-box capabilities could be extended — without heavy custom engineering.
+                                The design language across all screens was deliberately minimal. Credit Suisse navy, black, and white. Bold typeface. No decorative elements that didn't earn their space. Every design decision had to answer one question: does this help the RM do their job faster?
                             </blockquote>
                         </div>
-                
                     </div>
                 </Section>
 
@@ -601,40 +627,33 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
+                            <p className="lead">
+                            Testing happened in two rounds, each tied to a client-facing showcase event, judged by Credit Suisse and accompanied by various other blue-chip companies.
+                            </p>
+
                             <div className="content-block">
-                                <p className="lead">
-                                    We validated through:
+                                <h3>
+                                Semester 1: High-fidelity prototype review
+                                </h3>
+
+                                <p>
+                                We presented prototypes to Credit Suisse stakeholders at an Employer Showcase. Out of 10 competing teams, we placed 3rd. More importantly, the event gave us structured access to Credit Suisse’s Regional Head of IT and a serving RM, whose feedback directly shaped what we built in Semester 2. Several features were cut, rerouted, or reprioritised based on those conversation.
                                 </p>
-
-                                <ul>
-                                    <li>Task-based usability testing.</li>
-                                    <li>Scenario-based prototype walkthroughs.</li>
-                                    <li>Stakeholder validation sessions.</li>
-                                    <li>Developer feasibility reviews.</li>
-                                </ul>
                             </div>
-                            
+
                             <div className="content-block">
-                                <h3>Result</h3>
+                                <h3>
+                                Semester 2: Agile development and iteration
+                                </h3>
 
-                                <ul>
-                                    <li>
-                                        +30% task success rate improvement.
-                                    </li>
-
-                                    <li>
-                                        +80% increase in perceived findability.
-                                    </li>
-
-                                    <li>
-                                        Reduced average clicks to complete critical tasks such as access requests and desk bookings.
-                                    </li>
-
-                                    <li>
-                                        Strong stakeholder alignment for phased rollout.
-                                    </li>
-                                </ul>
+                                <p>
+                                In the second semester, the team split into two parallel workstreams. System development, led by myself and the product developer, and project documentation and planning, led by my three other squad members. We worked in Agile sprints, testing each functional module against the MoSCoW requirements as it was built and integrating incrementally.
+                                </p>
                             </div>
+
+                            <blockquote className="notion-quote">
+                            The final product delivered a partially functional front-end covering 5 of the 7 core requirements: biometric login, the modular dashboard with tasks and reminders, the searchable client portfolio, full client profile pages with expandable tabs, and slide-menu navigation throughout. Firebase was partially set up with dummy client and portfolio data converted to JSON format, but full real-time sync wasn't completed within the project window.
+                            </blockquote>
                         </div>
                     
                     </div>
@@ -655,53 +674,27 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <div className="content-block">
-                                <h3>
-                                    Immediate outcomes
-                                </h3>
-
-                                <ul>
-                                    <li>
-                                        Executive-approved blueprint for global consolidation.
-                                    </li>
-
-                                    <li>
-                                        Pilot launch across three major global offices.
-                                    </li>
-
-                                    <li>
-                                        Scalable IA framework covering 15+ workplace and third-party services.
-                                    </li>
-                                </ul>
-                            </div>
+                            <p className="lead">
+                            The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the Semester 1 Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
+                            </p>
 
                             <div className="content-block">
-                                <h3>
-                                    Strategic impact
-                                </h3>
+                                <p>
+                                Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.
+                                </p>
 
-                                <ul>
-                                    <li>
-                                        Shifted narrative from “portal redesign” to “experience transformation”.
-                                    </li>
+                                <p>
+                                At the scale Credit Suisse operates, the time savings achievable from a tool like RM Suite are significant.
+                                </p>
 
-                                    <li>
-                                        Positioned ServiceNow as the single source of truth for accessing workplace services.
-                                    </li>
+                                <p>
+                                    <strong>With 1,140 Relationship Managers across 36 locations, even reducing context-switching by 20 to 30 minutes per person per day translates to tens of thousands of hours annually redirected toward the client relationships that drive revenue.</strong> We didn't have the access or the runway to measure that impact directly, but the foundation for it was there in the product we shipped.
+                                </p>
 
-                                    <li>
-                                        Reduced platform duplication and governance overhead.
-                                    </li>
-
-                                    <li>
-                                        Strengthened the foundation for future service optimisation initiatives.
-                                    </li>
-                                </ul>
+                                <p>
+                                The five delivered requirements covered the core user journeys. An RM could log in securely, review their day, access any client profile, view portfolio and meeting history, and stay current with market movements without leaving the app.
+                                </p>
                             </div>
-
-                            <blockquote className="notion-quote">
-                                The PoC now serves as a reference model for broader ServiceNow transformation efforts.
-                            </blockquote>
                         </div>
                     </div>
                 </Section>
@@ -721,102 +714,44 @@ export default function Page() {
                         </div>
 
                         <div className="section-content">
-                            <blockquote className="notion-quote">
-                                This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces.
-                            </blockquote>
-
                             <div className="content-block">
-                                <h3>What worked</h3>
-
-                                <div className="flex flex-col gap-6">
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">abc</span>
-                                        </span>
-
-                                        <p className="lead">Simplicity is strategic</p>
-                        
-                                        <p className="card-text">At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.</p>
-                                    </div>
-
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">123</span>
-                                        </span>
-
-                                        <p className="lead">Phased transformation drives adoption</p>
-                        
-                                        <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence and allowed regional onboarding to happen sustainably.</p>
-                                    </div>
-
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">diversity_3</span>
-                                        </span>
-
-                                        <p className="lead">Influence matters as much as interface</p>
-                        
-                                        <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation and reframing the problem in business language — not just producing strong design artefacts.</p>
-                                    </div>
-                                </div>
+                                <h3>
+                                The interviews were the most important design tool
+                                </h3>
+                                
+                                <p>
+                                Going into the first showcase with high-fidelity prototypes already built was a risk. It could have locked us into ideas we'd already invested in. Instead, we used the prototypes as conversation starters, held our assumptions loosely, and rebuilt the requirements spec around what we actually heard. Willingness to throw away work when the evidence points somewhere else is a discipline I've carried forward from this project.
+                                </p>
                             </div>
 
                             <div className="content-block">
-                                <h3>What was challenging</h3>
-
-                                <div className="flex flex-col gap-6">
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">view_timeline</span>
-                                        </span>
-
-                                        <p className="lead">Governance and restructuring disrupted sprint timelines</p>
-                        
-                                        <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems and resilient ways of working at enterprise scale.</p>
-                                    </div>
-
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">communication</span>
-                                        </span>
-
-                                        <p className="lead">Context emerges continuously in complex organisations</p>
-                        
-                                        <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase, it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
-                                    </div>
-
-                                    <div className="card-content">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">code_blocks</span>
-                                        </span>
-
-                                        <p className="lead">Standardisation vs autonomy tension</p>
-                        
-                                        <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential – myself and the team went back and forth on how best to approach it.</p>
-                                    </div>
-                                </div>
+                                <h3>
+                                Front-end and back-end need to run in parallel
+                                </h3>
+                                
+                                <p>
+                                We treated the two workstreams as sequential. When front-end development ran longer than expected, Firebase got squeezed out. In a production environment, that trade-off would have had real consequences. Running parallel tracks from day one, with clear integration points and shared ownership of the back-end architecture, is something I would do differently.
+                                </p>
                             </div>
 
                             <div className="content-block">
-                                <h3>What I’d do next</h3>
+                                <h3>
+                                Remote team leadership is its own skill
+                                </h3>
+                                
+                                <p>
+                                COVID hit at the worst possible moment for this project. Team members dispersed across four countries, on different schedules, dealing with personal circumstances none of us had planned for. Keeping the work moving in that environment wasn't about having the right planning tool. It was about showing up consistently, being direct about what still needed to happen, and making it easy for people to contribute even when things were difficult. Those skills don't always show up in a portfolio. They're also the ones that tend to determine whether a product team actually ships.
+                                </p>
+                            </div>
 
-                                <ul>
-                                    <li>
-                                        Measure operational KPIs post-rollout (ticket misrouting, duplicate requests, service completion time).
-                                    </li>
-
-                                    <li>
-                                        Measure behavioural change, particularly reduction in reliance on informal networks (“who you know”).
-                                    </li>
-
-                                    <li>
-                                        Formalise governance frameworks to support future regional onboarding.
-                                    </li>
-
-                                    <li>
-                                        Continue evolving the IA based on real-use adoption patterns.
-                                    </li>
-                                </ul>
+                            <div className="content-block">
+                                <h3>
+                                A crucial moment in the project
+                                </h3>
+                                
+                                <p>
+                                After the stakeholder interviews, we sat down as a team and removed a significant chunk of what we'd already built. We took out the calendar feature. We reframed the onboarding focus. We narrowed the scope around what Credit Suisse's own people had told us actually mattered. That decision, made under deadline pressure, was the one that kept the project honest. It's also the decision I'd point to if someone asked me what good product thinking looks like in practice.
+                                </p>
                             </div>
                         </div>
 

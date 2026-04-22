@@ -73,7 +73,7 @@ export default function Page() {
 
                         <div className="grid-layout">
                         <div className="card">
-                            <div className="card-content card-padding-sm">
+                            <div className="card-content px-6 py-5">
                             <p>
                                 <span className="quant">~1,200 </span>
                                 <br />
@@ -83,7 +83,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-sm">
+                            <div className="card-content px-6 py-5">
                             <p>
                                 <span className="quant">+21% </span>
                                 <br />
@@ -93,7 +93,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-sm">
+                            <div className="card-content px-6 py-5">
                             <p>
                                 <span className="quant">3.6 → 4.2 </span>
                                 <br />
@@ -103,7 +103,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-sm">
+                            <div className="card-content px-6 py-5">
                             <p>
                                 <span className="quant">-18% </span>
                                 <br />
@@ -417,7 +417,7 @@ export default function Page() {
 
                     <div className="col-3">
                         <div className="card">
-                            <div className="card-content card-padding-sm">
+                            <div className="card-content px-6 py-5">
                                 <span className="icon icon-lg" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">emoji_people</span>
                                 </span>
@@ -427,7 +427,7 @@ export default function Page() {
                         </div>
             
                         <div className="card">
-                        <div className="card-content card-padding-sm">
+                        <div className="card-content px-6 py-5">
                             <span className="icon icon-lg" aria-hidden="true">
                                 <span className="material-symbols-rounded card-icon" translate="no">support_agent</span>
                             </span>
@@ -437,7 +437,7 @@ export default function Page() {
                         </div>
             
                         <div className="card">
-                        <div className="card-content card-padding-sm">
+                        <div className="card-content px-6 py-5">
                             <span className="icon icon-lg" aria-hidden="true">
                                 <span className="material-symbols-rounded card-icon" translate="no">business_center</span>
                             </span>

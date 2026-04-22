@@ -35,11 +35,12 @@ export default function About() {
                         <li className="badge">HTML</li>
                         <li className="badge">CSS</li>
                         <li className="badge">Next.js</li>
+                        <li className="badge">Tailwind</li>
                     </div>
 
                     <div className="grid-layout">
                         <div className="card">
-                            <div className="card-content card-padding-md">
+                            <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">account_tree</span>
                                 </span>
@@ -51,7 +52,7 @@ export default function About() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-md">
+                            <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">category</span>
                                 </span>
@@ -63,7 +64,7 @@ export default function About() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-md">
+                            <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">search_insights</span>
                                 </span>
@@ -75,7 +76,7 @@ export default function About() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content card-padding-md">
+                            <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">
                                     <span className="material-symbols-rounded card-icon" translate="no">diversity_4</span>
                                 </span>

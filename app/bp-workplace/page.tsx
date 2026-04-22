@@ -341,7 +341,7 @@ export default function Page() {
 
                             <div className="grid-layout">
                                 <div className="card">
-                                    <div className="card-content card-padding-sm">
+                                    <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
                                             <span className="material-symbols-rounded card-icon" translate="no">explore</span>
                                         </span>
@@ -351,7 +351,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content card-padding-sm">
+                                    <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
                                             <span className="material-symbols-rounded card-icon" translate="no">quick_reference</span>
                                         </span>
@@ -361,7 +361,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content card-padding-sm">
+                                    <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
                                             <span className="material-symbols-rounded card-icon" translate="no">location_on</span>
                                         </span>
@@ -371,7 +371,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content card-padding-sm">
+                                    <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
                                             <span className="material-symbols-rounded card-icon" translate="no">family_history</span>
                                         </span>

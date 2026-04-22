@@ -132,7 +132,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
       {/* Close button — always top-right of overlay */}
       <Button
         autoFocus
-        variant="secondary"
+        variant="primary"
         className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full border-none cursor-pointer z-[10000]"
         aria-label="Close gallery"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
@@ -165,49 +165,62 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
         )}
         
         {total > 1 && (
-            <Button
-              variant=""
-              className="nav-btn nav-prev"
-              aria-label="Previous image"
-              onClick={(e) => { e.stopPropagation(); onPrev(); }}
-            >
-              <span className="icon icon-lg">
-                <span className="material-symbols-rounded text-white">chevron_left</span>
-              </span>
-            </Button>
-          )}
+          <div className="flex flex-col items-center w-full mt-6 gap-4">
 
-          {total > 1 && (
-            <Button
-              variant=""
-              className="nav-btn nav-next"
-              aria-label="Next image"
-              onClick={(e) => { e.stopPropagation(); onNext(); }}
-            >
-              <span className="icon icon-lg">
-                <span className="material-symbols-rounded text-white">chevron_right</span>
-              </span>
-            </Button>
-          )}
+            {/* Main Controls Wrapper */}
+            <div className="flex items-center justify-center w-full gap-4 px-4">
 
-        {total > 1 && (
-          <>
-            <nav className="modal-dots" aria-label="Jump to image">
-              {items.map((item, i) => (
-                <button
-                  key={item.id}
-                  className={`dot ${i === activeIndex ? 'dot-active' : ''}`}
-                  aria-label={`Image ${i + 1}: ${item.alt}`}
-                  aria-current={i === activeIndex ? true : undefined}
-                  onClick={() => goTo(i)}
-                />
-              ))}
-            </nav>
+              {/* Previous Button */}
+              <Button
+                variant=""
+                className="shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 hover:bg-white transition-opacity duration-200"
+                aria-label="Previous image"
+                onClick={(e) => { e.stopPropagation(); onPrev(); }}
+              >
+                <span className="icon icon-lg">
+                  <span className="material-symbols-rounded">chevron_left</span>
+                </span>
+              </Button>
 
-            <p className="modal-counter" aria-hidden="true">
-              {activeIndex + 1} / {total}
-            </p>
-          </>
+              {/* Dots - The "Responsive" Middle */}
+              <nav 
+                className="flex flex-wrap justify-center items-center gap-2 max-w-[200px] sm:max-w-md cursor-pointer" 
+                aria-label="Jump to image"
+              >
+                {items.map((item, i) => (
+                  <button
+                    key={item.id}
+                    className={`transition-all duration-200 rounded-full h-2 w-2 
+                      ${i === activeIndex 
+                        ? 'bg-white scale-125' 
+                        : 'bg-white/30 hover:bg-white/60'
+                      }`}
+                    aria-label={`Image ${i + 1}: ${item.alt}`}
+                    aria-current={i === activeIndex ? true : undefined}
+                    onClick={() => goTo(i)}
+                  />
+                ))}
+              </nav>
+
+              {/* Next Button */}
+              <Button
+                variant=""
+                className="shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 hover:bg-white transition-opacity duration-200"
+                aria-label="Next image"
+                onClick={(e) => { e.stopPropagation(); onNext(); }}
+              >
+                <span className="icon icon-lg">
+                  <span className="material-symbols-rounded">chevron_right</span>
+                </span>
+              </Button>
+
+            </div>
+
+          {/* Counter - Sits neatly below the controls */}
+          <p className="text-white/60 text-sm font-medium" aria-hidden="true">
+            {activeIndex + 1} / {total}
+          </p>
+        </div>
         )}
       </div>
 
@@ -262,60 +275,15 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           animation: imageIn 0.2s ease;
         }
 
-        /* ── Nav buttons (sit on top of image) ─────── */
-        .nav-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 2rem;
-          height: 2rem;
-          border-radius: 50%;
-          background: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: none;
-          cursor: pointer;
-          z-index: 10000;
-          opacity: 0.85;
-          transition: opacity 0.2s;
-        }
-
-        .nav-btn:hover { opacity: 1; }
-
-        .nav-prev { left:  0.75rem; }
-        .nav-next { right: 0.75rem; }
-
         /* ── Caption ───────────────────────────────── */
         .modal-caption {
           color: var(--silver-needle);
           width: 100%;
           margin-top: 1rem;
+          margin-bottom: 0;
           text-align: center;
+          text-size: 0.75rem;
         }
-
-        /* ── Dots ──────────────────────────────────── */
-        .modal-dots {
-          display: flex;
-          gap: 0.5rem;
-          justify-content: center;
-          margin-top: 1rem;
-        }
-
-        .dot {
-          width: 0.5rem;
-          height: 0.5rem;
-          border-radius: 50%;
-          border: none;
-          background: rgba(255, 255, 255, 0.35);
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.2s, transform 0.2s;
-        }
-
-        .dot:hover    { background: rgba(255, 255, 255, 0.65); }
-        .dot-active   { background: white; transform: scale(1.35); }
-        .dot:focus-visible { outline: 2px solid white; outline-offset: 3px; }
 
         /* ── Counter ───────────────────────────────── */
         .modal-counter {
@@ -326,10 +294,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
         /* ── Mobile ────────────────────────────────── */
         @media (max-width: 768px) {
-
           .gallery-image { border-radius: 0.5rem; }
-          .nav-prev      { left:  0.5rem; }
-          .nav-next      { right: 0.5rem; }
         }
       `}</style>
     </div>

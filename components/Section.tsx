@@ -1,39 +1,57 @@
-import React from 'react';
-
-interface SectionProps {
-  id: string;
-  children: React.ReactNode;
-  isLanding?: boolean; // Specialized styling for Hero/Landing
-  className?: string;   // For unique one-off overrides
-}
+'use client';
+import { useEffect, useRef, useState } from 'react';
 
 const Section = ({ id, children, isLanding = false, className = "" }: SectionProps) => {
+  const [isVisible, setIsVisible] = useState(isLanding); // Landing starts visible
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // If it's the landing section, we might not want it to ever fade out
+    if (isLanding) return; 
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Two-way trigger logic
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { 
+        threshold: 0, 
+        // rootMargin creates a 'buffer' so the element is well 
+        // inside the screen before it triggers.
+        rootMargin: '-40% 0px -40% 0px' 
+      }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [isLanding]);
+
   return (
     <section 
       id={id}
+      ref={sectionRef}
       className={`
-        relative overflow-hidden isolate content-center
-        /* Conditional logic for landing vs standard sections */
+        relative overflow-hidden isolate content-center w-full mx-auto
         ${isLanding 
           ? 'min-h-screen bg-[var(--white-pekoe)] pt-[calc(var(--header-height)+6rem)] pb-32' 
           : 'min-h-fit bg-[var(--silver-needle)] py-32'}
-        /* Base styles from your CSS translation */
-        scroll-mt-0 mx-auto w-full
         ${className}
       `}
     >
-      {/* The Grain Overlay (Replaces section::before) */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none select-none"
-        style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` 
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content Wrapper (Z-index 10 ensures it stays above grain) */}
-      <div 
-        className="relative z-10 px-6 container section-fade">
+      {/* ANIMATED CONTENT WRAPPER 
+          We observe the <section> above, which is STABLE (static height).
+          We animate this <div>, which is MOVING. 
+          Because the observer is watching the parent, the movement won't cause a flicker.
+      */}
+      <div className={`
+        relative z-10 px-6 container transition-[opacity,transform] duration-[2000ms]
+        ease-[cubic-bezier(0.215,0.61,0.355,1)] will-change-[opacity,transform]
+        ${isVisible ? 'opacity-100' : 'opacity-0'}
+      `}>
         {children}
       </div>
     </section>

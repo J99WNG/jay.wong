@@ -6,7 +6,6 @@ import '@/styles/globals.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";
-import FadeObserver from '@/components/FadeObserver';
 
 // Configure the font
 const inter = Inter({
@@ -70,8 +69,6 @@ export default function RootLayout({ children }:
       
       <body className="relative">
         <Header /> 
-
-        <FadeObserver /> {/* Handles all section animations */}
         
         {children}
 
