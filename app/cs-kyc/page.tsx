@@ -295,15 +295,11 @@ export default function Page() {
                                         We had thought KYC consolidation should lead the product. Both stakeholders redirected us toward efficiency and cognitive load reduction as the core goal.
                                     </li>
                                 </ol>
-                                
-                                <p>
-                                    Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase.
-                                </p>
 
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-discovery-1.png"
                                     alt=""
-                                    caption="Table goes here"
+                                    caption="Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase."
                                 />
                             </div>
 
@@ -317,7 +313,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-discovery-2.png"
                                     alt=""
-                                    caption="Photos of Ketso session go here"
+                                    caption="Our team discussed various topics to better discover an RM's needs and how we approach the problems outlined in the briefing document."
                                 />
                             </div>
                         </div>
@@ -367,13 +363,13 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-problem-1.png"
                                     alt=""
-                                    caption="Requirements"
+                                    caption="Five functional requirements were refined and taken forward into our design and development iterations."
                                 />
 
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-problem-2.png"
                                     alt=""
-                                    caption="Requirements"
+                                    caption="With our non-functional requirements, we had two that fell into 'Could' priority. These were features we would have included if we had more time, but they weren't essential to the core user experience we wanted to deliver in the project window."
                                 />
                             </div>
                         </div>

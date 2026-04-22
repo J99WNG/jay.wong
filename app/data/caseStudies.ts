@@ -47,11 +47,11 @@ export type CaseStudy = {
       company: "Credit Suisse",
       industry: "Finance",
       title: "Redesigning How 1,140 Relationship Managers Start Their Day",
-      tagline: "A product design and management case study for RM Suite, a mobile platform commissioned by Credit Suisse.",
+      tagline: "A product design and management case study commissioned by Credit Suisse to recover ~136,800 productivity hours annually.",
       badges: ["FinTech", "Mobile", "Concept"],
       bentoImage: "/assets/images/case-study-3/cs-bento-1.png",
       bentoImage2: "https://placehold.co/1920x1080/f9f5f1/998066?text=Coming+soon&font=open-sans.png",
       bentoImage3: "https://placehold.co/1920x1080/f9f5f1/998066?text=Coming+soon&font=open-sans.png",
-      available: false,
+      available: true,
     },
   ];
