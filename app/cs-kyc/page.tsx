@@ -68,7 +68,7 @@ export default function Page() {
                             
                             <div className="content-block">
                                 <p className="small">Outcome</p>
-                                <p>Designed and shipped RM Suite, a conceptual mobile solution bringing everything into one clean, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
+                                <p>Designed RM Suite, a conceptual mobile solution bringing everything into a unified, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
                             </div>
 
                             <div className="content-block">
@@ -102,9 +102,9 @@ export default function Page() {
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Year / Industry</p>
+                                    <p className="small">Industry</p>
 
-                                    <p>2020 · FinTech</p>
+                                    <p>FinTech</p>
                                 </div>
 
                                 <div className="metadata">
@@ -114,9 +114,9 @@ export default function Page() {
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Timeline</p>
+                                    <p className="small">Year / Timeline</p>
 
-                                    <p>8 months
+                                    <p>{project.year} · 8 months
                                         <br />
                                         (Discovery → Proof of Concept)</p>
                                 </div>
@@ -154,7 +154,7 @@ export default function Page() {
 
                         <div className="section-content">
                             <div className="content-block">
-                                <p className="lead">I came into this project as Product Manager and Designer. In practice, that meant wearing a few different hats across the eight-month engagement.</p>
+                                <p className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</p>
                             </div>
                             
                             <div className="content-block">
@@ -423,17 +423,23 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="https://placehold.co/1920x1080/f9f5f1/998066?text=Coming+soon&font=open-sans.png"
-                                    alt=""
-                                    caption="Placeholder"
-                                />
-
                                 <h3>Design goal</h3>
                                 
                                 <p>
-                                    We had no access to Credit Suisse's design system. So that meant we had to build one from scratch that was consistent with Credit Suisse's existing design language, maintaining continuity with their bold typography and monochrome aesthetic.
+                                    We had no access to Credit Suisse's design system. So that meant we had to build one from scratch that was consistent with Credit Suisse's existing design language, maintaining continuity with their bold typography and 'pioneering' aesthetic.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-goals-1.png"
+                                    alt=""
+                                    caption="I started with the foundations, establishing the 'TLC' through studying Credit Suisse's existing digital products and channels – Typography, Layout and Colour."
+                                />
+
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-goals-2.png"
+                                    alt=""
+                                    caption="A more comprehensive design system emerged as we iterated on the prototype, with a focus on modularity and reusability to speed up our agile cycles and maintain visual consistency across the solution."
+                                />
                             </div>
 
                             <div className="content-block">
@@ -441,11 +447,7 @@ export default function Page() {
 
                                 <ul>
                                     <li>
-                                        Secure biometric login and access to the daily task view achievable in under 10 seconds.
-                                    </li>
-
-                                    <li>
-                                        All information relevant to a client meeting accessible from a single profile screen.
+                                        Secure login and access to the daily task view achievable in under 10 seconds.
                                     </li>
 
                                     <li>
@@ -453,13 +455,13 @@ export default function Page() {
                                     </li>
 
                                     <li>
+                                        All information relevant to a client meeting accessible from a single profile screen.
+                                    </li>
+
+                                    <li>
                                         At least 5 of the 7 Must and Should requirements delivered in the final product.
                                     </li>
                                 </ul>
-
-                                <blockquote className="notion-quote">
-                                    We delivered 5 of 7. Real-time Firebase database sync and the timezone feature were descoped due to development constraints in Semester 2.
-                                </blockquote>
                             </div>
                         </div>
 
@@ -560,7 +562,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-1.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="A straightforward login screen to welcome RMs into the app, no messing about."
                                 />
 
                                 <h3>
@@ -568,7 +570,7 @@ export default function Page() {
                                 </h3>
 
                                 <p>
-                                Two-step authentication combining username/password with biometric fingerprint recognition. For an institution managing client wealth at this scale, security had to be the first design decision, not an afterthought. The screen maintained Credit Suisse's visual identity, bold typeface, monochrome palette, from the first moment.
+                                Two-step authentication combining username/password with biometric fingerprint recognition. For an institution managing client wealth at this scale, security had to be the first design decision, not an afterthought. The screen maintained Credit Suisse's visual identity, bold typeface, navy palette, from the first moment.
                                 </p>
                             </div>
 
@@ -576,7 +578,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-2.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
                                 />
 
                                 <h3>
@@ -584,7 +586,7 @@ export default function Page() {
                                 </h3>
 
                                 <p>
-                                The homepage of the RM's working day. Today's tasks in a clean checklist. Reminders with countdown timers, each linked to the relevant client. A Recent Clients strip for fast access. The whole screen was designed to be scanned in under 30 seconds, giving the RM everything they needed to orient their day before their first meeting.
+                                The homepage of the RM's working day. Today's tasks in a clean checklist. Reminders each linked to the relevant client. A Recent Clients widget for fast access. The whole screen was designed to be scanned in under 30 seconds, giving the RM everything they needed to orient their day before their first meeting.
                                 </p>
                             </div>
 
@@ -592,7 +594,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-3.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="We iterated the clients list to be more informative at a glance."
                                 />
 
                                 <h3>
@@ -608,7 +610,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-4.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
                                 />
 
                                 <h3>
@@ -624,7 +626,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-5.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
                                 />
 
                                 <h3>
@@ -640,7 +642,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-6.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
                                 />
 
                                 <h3>
@@ -656,15 +658,15 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-solution-7.png"
                                     alt=""
-                                    caption="Placeholder"
+                                    caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
                                 />
 
                                 <h3>
-                                Add
+                                Add tasks, reminders and notes
                                 </h3>
 
                                 <p>
-                                A single entry point for creating tasks, reminders, meeting notes, and new client profiles. One form, one flow. Everything tagged back to the relevant client automatically.
+                                A single entry point for creating tasks, reminders, and meeting notes. One form, one flow. Everything tagged back to the relevant client automatically.
                                 </p>
                             </div>
 

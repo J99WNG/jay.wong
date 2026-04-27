@@ -128,8 +128,8 @@ export default function Page() {
                         </div>
 
                         <div className="metadata">
-                            <p className="small">Year / Industry</p>
-                            <p>2025 · Oil &amp; Gas</p>
+                            <p className="small">Industry</p>
+                            <p>Oil &amp; Gas</p>
                         </div>
 
                         <div className="metadata">
@@ -138,8 +138,8 @@ export default function Page() {
                         </div>
 
                         <div className="metadata">
-                            <p className="small">Timeline</p>
-                            <p>24 weeks
+                            <p className="small">Year / Timeline</p>
+                            <p>{project.year} · 24 weeks
                                 <br />
                                 (Discovery → MVP)
                             </p>
