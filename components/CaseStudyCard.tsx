@@ -11,7 +11,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
       <div className="card-content card-padding-lg">
 
         <p className="small">
-          {year} / {company} / {industry}
+          {year} · {company} · {industry}
         </p>
 
         <h3 className="card-title">{title}</h3>

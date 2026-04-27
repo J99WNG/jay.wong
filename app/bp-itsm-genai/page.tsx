@@ -16,7 +16,7 @@ export default function Page() {
 
                 <div className="title-block">
                     <p className="small">
-                        {project.year} / {project.company} / {project.industry}
+                        {project.year} · {project.company} · {project.industry}
                     </p>
                     <h1>{project.title}</h1>
                     <p className="tagline">{project.tagline}</p>
@@ -166,6 +166,48 @@ export default function Page() {
             </Section>
 
             <div className="container">
+                <hr className="divider" />
+            </div>
+
+            <Section id="role" aria-labelledby="role-heading">
+
+                <div className="col-30-70">
+
+                <div className="section-heading">
+                    <h2 className="section-title">My role
+                    <br />
+                    <span className="section-subtitle">Responsibilities and strategic focus.</span>
+                    </h2>
+                </div>
+
+                <div className="section-content">
+
+                    <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
+
+                    <div className="content-block">
+                    <h3>
+                        My core responsibilities
+                    </h3>
+
+                    <ul>
+                        <li>Led discovery, research synthesis, journey mapping, interaction design and usability testing.</li>
+                        <li>Defined the MVP scope in partnership with the Product Owner, balancing impact vs technical feasibility.</li>
+                        <li>Embedded bp’s design system into the ServiceNow experience, collaborating closely with developers and design engineering.</li>
+                        <li>Acted as design authority across the product triad – aligning product, design and engineering through bi-weekly sprint rituals.</li>
+                        <li>Facilitated workshops with ITSM leadership and SMEs to align user needs with business goals.</li>
+                    </ul>
+
+                    <blockquote className="notion-quote">
+                        I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains and adoption — not just usability improvements.
+                    </blockquote>
+                    </div>
+                
+                </div>
+
+                </div>
+            </Section>
+
+            <div className="container">
             <hr className="divider" />
             </div>
 
@@ -212,48 +254,6 @@ export default function Page() {
                 
                 </div>
 
-            </Section>
-
-            <div className="container">
-                <hr className="divider" />
-            </div>
-
-            <Section id="role" aria-labelledby="role-heading">
-
-                <div className="col-30-70">
-
-                <div className="section-heading">
-                    <h2 className="section-title">My role
-                    <br />
-                    <span className="section-subtitle">Responsibilities and strategic focus.</span>
-                    </h2>
-                </div>
-
-                <div className="section-content">
-
-                    <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
-
-                    <div className="content-block">
-                    <h3>
-                        My core responsibilities
-                    </h3>
-
-                    <ul>
-                        <li>Led discovery, research synthesis, journey mapping, interaction design and usability testing.</li>
-                        <li>Defined the MVP scope in partnership with the Product Owner, balancing impact vs technical feasibility.</li>
-                        <li>Embedded bp’s design system into the ServiceNow experience, collaborating closely with developers and design engineering.</li>
-                        <li>Acted as design authority across the product triad – aligning product, design and engineering through bi-weekly sprint rituals.</li>
-                        <li>Facilitated workshops with ITSM leadership and SMEs to align user needs with business goals.</li>
-                    </ul>
-
-                    <blockquote className="notion-quote">
-                        I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains and adoption — not just usability improvements.
-                    </blockquote>
-                    </div>
-                
-                </div>
-
-                </div>
             </Section>
 
             <div className="container">

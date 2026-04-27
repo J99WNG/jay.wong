@@ -16,7 +16,7 @@ export default function Page() {
 
                     <div className="title-block">
                         <p className="small">
-                            {project.year} / {project.company} / {project.industry}
+                            {project.year} · {project.company} · {project.industry}
                         </p>
                         <h1>{project.title}</h1>
                         <p className="tagline">{project.tagline}</p>
@@ -63,7 +63,7 @@ export default function Page() {
                         <div className="section-content">
                             <div className="content-block">
                                 <p className="small">Problem</p>
-                                <p>Relationship Managers at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from clients and into unnecessary admin.</p>
+                                <p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client time and into unnecessary admin, costing up to 70% of their day.</p>
                             </div>
                             
                             <div className="content-block">
@@ -74,7 +74,17 @@ export default function Page() {
                             <div className="content-block">
                                 <p className="small">Impact</p>
 
-                                <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by Credit Suisse's Regional Head of IT and a serving Relationship Manager.</p>
+                                <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
+
+                                <div className="card">
+                                    <div className="card-content px-6 py-5">
+                                    <p>
+                                        <span className="quant">~136,800 hrs</span>
+                                        <br />
+                                        Recovered annually by reducing context-switching and admin time.
+                                    </p>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div className="grid-layout">
@@ -132,61 +142,6 @@ export default function Page() {
                     <hr className="divider" />
                 </div>
 
-                <Section id="context">
-                    <div className="col-30-70">
-
-                        <div className="section-heading">
-                            <h2>Business context
-                            <br/>
-                            <span className="section-subtitle">Why it mattered.</span>
-                            </h2>
-                        </div>
-
-                        <div className="section-content">
-
-                            <p className="lead">
-                                Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
-                            </p>
-                            
-                            <div className="content-block">
-                                <p>The bank's strategy was built on three priorities:</p>
-                                
-                                <ol>
-                                    <li>
-                                        Delivering client value
-                                    </li>
-
-                                    <li>
-                                        Enhancing client proximity
-                                    </li>
-
-                                    <li>
-                                        Maximising face time with clients
-                                    </li>
-                                </ol>
-                
-                                <p>What was actually happening looked quite different. RMs were spending significant parts of their day navigating disconnected systems, chasing KYC documentation, and managing admin that pulled them away from the people they were supposed to be advising.</p>
-
-                                <blockquote className="notion-quote">
-                                    "Relationship managers spend 60 to 70 percent of their time on non-advisory activities."
-                                    <p className="small">McKinsey & Company, 2022</p>
-                                </blockquote>
-
-                                <p>Credit Suisse had invested heavily in its wealth management infrastructure. But the tools being used by the people closest to clients hadn't kept pace. There was an internal CRM and a calendar system, but nothing that put the full picture of an RM's day into a single, mobile-first surface. The result was a productivity gap that had a direct impact on the division's ability to meet its own strategic goals.</p>
-                            </div>
-
-                            <p className="lead">
-                                This was the brief that landed in front of our team in September 2019.
-                            </p>
-                        </div>
-                    
-                    </div>
-                </Section>
-
-                <div className="container">
-                    <hr className="divider" />
-                </div>
-
                 <Section id="role" aria-labelledby="role-heading">
                     <div className="col-30-70">
 
@@ -234,6 +189,57 @@ export default function Page() {
                     <hr className="divider" />
                 </div>
 
+                <Section id="context">
+                    <div className="col-30-70">
+
+                        <div className="section-heading">
+                            <h2>Business context
+                            <br/>
+                            <span className="section-subtitle">Why it mattered.</span>
+                            </h2>
+                        </div>
+
+                        <div className="section-content">
+
+                            <p className="lead">
+                                Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
+                            </p>
+                            
+                            <div className="content-block">
+                                <p>The bank's strategy was built on three priorities:</p>
+                                
+                                <ol>
+                                    <li>
+                                        Delivering client value
+                                    </li>
+
+                                    <li>
+                                        Enhancing client proximity
+                                    </li>
+
+                                    <li>
+                                        Maximising face time with clients
+                                    </li>
+                                </ol>
+                
+                                <p>What was actually happening looked quite different. RMs were spending significant parts of their day navigating disconnected systems, chasing KYC documentation, and managing admin that pulled them away from the people they were supposed to be advising.</p>
+
+                                <blockquote className="notion-quote">
+                                    "Relationship managers spend 60 to 70 percent of their time on non-advisory activities."
+                                    <p className="small">McKinsey & Company, 2022</p>
+                                </blockquote>
+
+                                <p>Credit Suisse had invested heavily in its wealth management infrastructure. But the tools being used by the people closest to clients hadn't kept pace. There was an internal CRM and a calendar system, but nothing that put the full picture of an RM's day into a single, mobile-first surface. The result was a productivity gap that had a direct impact on the division's ability to meet its own strategic goals.</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </Section>
+
+                <div className="container">
+                    <hr className="divider" />
+                </div>
+
                 <Section id="discovery" aria-labelledby="discovery-heading">
                     <div className="col-30-70">
 
@@ -258,7 +264,7 @@ export default function Page() {
 
                                 <ul>
                                     <li>
-                                        The first was with Credit Suisse's Regional Head of IT, who gave us a clear view of the technical constraints and what the existing infrastructure could realistically support.
+                                        The first was with Credit Suisse's Regional IT Head of Wealth Management Technology, who gave us a clear view of the technical constraints and what the existing infrastructure could realistically support.
                                     </li>
 
                                     <li>
@@ -271,7 +277,11 @@ export default function Page() {
                                 <h3>That second conversation changed our direction significantly.</h3>
 
                                 <p>
-                                    What we heard was that the real friction wasn't any single process. It was the fragmentation. An RM's day meant switching between a client management system, a financial news feed, a compliance checklist, and handwritten notes, with nothing connecting them. The cognitive overhead of managing that context-switching was where the time was being lost.
+                                    What we heard was that the real friction wasn't any single process. <strong>It was the fragmentation.</strong>
+                                </p>
+
+                                <p>
+                                    An RM's day meant switching between a client management system, a financial news feed, a compliance checklist, and handwritten notes, with nothing connecting them. The cognitive overhead of managing that context-switching was where the time was being lost.
                                 </p>
                             </div>
                             
@@ -413,10 +423,16 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="https://placehold.co/1920x1080/f9f5f1/998066?text=Coming+soon&font=open-sans.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>Design goal</h3>
                                 
                                 <p>
-                                    Build something that felt consistent with Credit Suisse's existing design language, maintaining continuity with the bold typography and monochrome aesthetic of their current applications.
+                                    We had no access to Credit Suisse's design system. So that meant we had to build one from scratch that was consistent with Credit Suisse's existing design language, maintaining continuity with their bold typography and monochrome aesthetic.
                                 </p>
                             </div>
 
@@ -474,7 +490,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-ideation-1.png"
                                     alt=""
-                                    caption="Mockup of dashboard"
+                                    caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
                                 />
 
                                 <h3>
@@ -490,11 +506,11 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-ideation-2.png"
                                     alt=""
-                                    caption="Mockup of trending"
+                                    caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
                                 />
 
                                 <h3>
-                                    The Trending panel
+                                    Trending
                                 </h3>
 
                                 <p>
@@ -506,7 +522,7 @@ export default function Page() {
                                 <FigureModal
                                     src="assets/images/case-study-3/cs-ideation-3.png"
                                     alt=""
-                                    caption="Mockup of clients"
+                                    caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
                                 />
 
                                 <h3>
@@ -536,14 +552,19 @@ export default function Page() {
 
                         <div className="section-content">
                             <p className="lead">
-                            RM Suite shipped as an Android mobile application built in Java using Android Studio, with a Firebase real-time database architecture designed into the backend structure.
-
-                            The core screens, and what each one was built to do:
+                                In the latter half of the project, we iterated from high fidelty wireframes to a proof of concept prototype. The goal was to build something that could be tested and validated against our success criteria, not to create a fully polished, launch-ready product. This began with a more focused design system.
                             </p>
+                            
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-1.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
-                                Login Panel
+                                2FA Login
                                 </h3>
 
                                 <p>
@@ -552,6 +573,12 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-2.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
                                 Dashboard
                                 </h3>
@@ -562,6 +589,12 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-3.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
                                 Client List
                                 </h3>
@@ -572,6 +605,12 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-4.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
                                 Client Profile
                                 </h3>
@@ -582,8 +621,14 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-5.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
-                                Trending Panel
+                                Trending
                                 </h3>
 
                                 <p>
@@ -592,8 +637,30 @@ export default function Page() {
                             </div>
 
                             <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-6.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
                                 <h3>
-                                Add Panel
+                                Notifications
+                                </h3>
+
+                                <p>
+                                Abdul revealed that RMs were missing important reminders because they were buried in email threads or lost in the shuffle of a busy day. We built a notifications system that surfaced those reminders directly in the app, with push notifications for critical deadlines. Every reminder was linked to the relevant client profile, so an RM could jump straight to the information they needed to take action.
+                                </p>
+                            </div>
+
+                            <div className="content-block">
+                                <FigureModal
+                                    src="assets/images/case-study-3/cs-solution-7.png"
+                                    alt=""
+                                    caption="Placeholder"
+                                />
+
+                                <h3>
+                                Add
                                 </h3>
 
                                 <p>
@@ -633,7 +700,7 @@ export default function Page() {
                                 </h3>
 
                                 <p>
-                                We presented prototypes to Credit Suisse stakeholders at an Employer Showcase. Out of 10 competing teams, we placed 3rd. More importantly, the event gave us structured access to Credit Suisse’s Regional Head of IT and a serving RM, whose feedback directly shaped what we built in Semester 2. Several features were cut, rerouted, or reprioritised based on those conversation.
+                                We presented prototypes to Credit Suisse stakeholders at an Employer Showcase. Out of 10 competing teams, we placed 3rd. More importantly, the event gave us structured access to Credit Suisse’s Regional IT Head of Wealth Management Technology and a serving RM, whose feedback directly shaped what we built in Semester 2. Several features were cut, rerouted, or reprioritised based on those conversation.
                                 </p>
                             </div>
 

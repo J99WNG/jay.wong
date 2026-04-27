@@ -16,7 +16,7 @@ export default function Page() {
 
                 <div className="title-block">
                     <p className="small">
-                        {project.year} / {project.company} / {project.industry}
+                        {project.year} · {project.company} · {project.industry}
                     </p>
                     <h1>{project.title}</h1>
                     <p className="tagline">{project.tagline}</p>
@@ -140,46 +140,6 @@ export default function Page() {
             </Section>
 
             <div className="container">
-            <hr className="divider" />
-            </div>
-
-            <Section id="context">
-                <div className="col-30-70">
-
-                    <div className="section-heading">
-                        <h2>Business context
-                        <br/>
-                        <span className="section-subtitle">Why it mattered.</span>
-                        </h2>
-                    </div>
-
-                    <div className="section-content">
-                        <div className="content-block">
-                            <p className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</p>
-                        </div>
-                        
-                        <div className="content-block">
-                            <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
-
-                            <ul>
-                                <li>Increased workplace ticket volumes due to misrouted requests.</li>
-                                <li>Time lost searching for services or vendor providers.</li>
-                                <li>Poor visibility of request status.</li>
-                                <li>Regional inconsistencies that conflicted with bp’s global workplace operating model.</li>
-                            </ul>
-
-                            <p>The challenge was clear:</p>
-
-                            <blockquote className="notion-quote">
-                                "Improve the employee experience while reducing operational and licensing overhead — without a full replatform."
-                            </blockquote>
-                        </div>
-                    </div>
-                
-                </div>
-            </Section>
-
-            <div className="container">
                 <hr className="divider" />
             </div>
 
@@ -218,6 +178,46 @@ export default function Page() {
                         </div>
                     </div>
 
+                </div>
+            </Section>
+
+            <div className="container">
+            <hr className="divider" />
+            </div>
+
+            <Section id="context">
+                <div className="col-30-70">
+
+                    <div className="section-heading">
+                        <h2>Business context
+                        <br/>
+                        <span className="section-subtitle">Why it mattered.</span>
+                        </h2>
+                    </div>
+
+                    <div className="section-content">
+                        <div className="content-block">
+                            <p className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</p>
+                        </div>
+                        
+                        <div className="content-block">
+                            <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
+
+                            <ul>
+                                <li>Increased workplace ticket volumes due to misrouted requests.</li>
+                                <li>Time lost searching for services or vendor providers.</li>
+                                <li>Poor visibility of request status.</li>
+                                <li>Regional inconsistencies that conflicted with bp’s global workplace operating model.</li>
+                            </ul>
+
+                            <p>The challenge was clear:</p>
+
+                            <blockquote className="notion-quote">
+                                "Improve the employee experience while reducing operational and licensing overhead — without a full replatform."
+                            </blockquote>
+                        </div>
+                    </div>
+                
                 </div>
             </Section>
 
