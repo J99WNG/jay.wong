@@ -4,8 +4,25 @@ import FigureModal from '@/components/ui/FigureModal';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
 import NextProjectCTA from '@/components/NextProjectCTA';
 import { caseStudies } from "@/app/data/caseStudies";
+import { Metadata } from 'next'
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
+
+export const metadata: Metadata = {
+    title: project.title,
+    description: project.tagline,
+    openGraph: {
+      title: `${project.title} – Jay Wong`,
+      description: project.tagline,
+      images: [{ url: project.bentoImage }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      images: [project.bentoImage],
+    },
+  }
 
 export default function Page() {
     return (

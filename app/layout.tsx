@@ -23,7 +23,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaywong.digital/'), // Change to your actual URL
-  title: "Jay Wong",
+  alternates: {
+    canonical: '/',  // ← adds <link rel="canonical" href="https://jaywong.digital/">
+  },
+  title: {
+    default: "Jay Wong",
+    template: "%s | Jay Wong",  // ← page titles become e.g. "Case Study | Jay Wong"
+  },
   description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
   
   // This handles your Facebook/OpenGraph tags
