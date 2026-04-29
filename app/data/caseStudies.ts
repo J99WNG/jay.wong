@@ -1,7 +1,7 @@
 // data/caseStudies.ts
 
 export type CaseStudy = {
-    slug: string;           // used for the URL: /bp-itsm-genai
+    slug: string;           // used for the URL: /bp-genai
     year: string;
     company: string;
     industry: string;
@@ -17,7 +17,7 @@ export type CaseStudy = {
   
   export const caseStudies: CaseStudy[] = [
     {
-      slug: "bp-itsm-genai",
+      slug: "bp-genai",
       year: "2025",
       company: "bp",
       industry: "Oil & Gas",

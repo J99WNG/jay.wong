@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const caseStudies = [
-  { slug: 'bp-itsm-genai', title: 'Project Alpha' },
+  { slug: 'bp-genai', title: 'Project Alpha' },
   { slug: 'bp-workplace', title: 'Project Beta' },
   { slug: 'cs-kyc', title: 'Project Gamma' },
 ];

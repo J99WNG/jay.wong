@@ -2,7 +2,7 @@ import Section from '@/components/Section';
 import Image from 'next/image';
 import FigureModal from '@/components/ui/FigureModal';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
-import NextProjectCTA from '@/components/NextProjectCTA';
+import NextProjectCTA from '@/components/ui/NextProjectCTA';
 import { caseStudies } from "@/app/data/caseStudies";
 import { Metadata } from 'next'
 
