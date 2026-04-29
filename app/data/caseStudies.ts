@@ -7,6 +7,7 @@ export type CaseStudy = {
     industry: string;
     title: string;
     tagline: string;        // used on the case study page
+    role: string;
     badges: string[];
     bentoImage: string;
     bentoImage2: string; // second image for the bento card
@@ -22,6 +23,7 @@ export type CaseStudy = {
       industry: "Oil & Gas",
       title: "Shifting IT Support Left at Enterprise Scale",
       tagline: "Reducing repeat IT tickets by 24% through AI-assisted knowledge discovery.",
+      role: "Lead Product Designer",
       badges: ["B2B", "GenAI", "ITSM", "ServiceNow"],
       bentoImage: "/assets/images/case-study-1/bp-bento-1.png",
       bentoImage2: "/assets/images/case-study-1/bp-bento-2.png",
@@ -35,6 +37,7 @@ export type CaseStudy = {
       industry: "Oil & Gas",
       title: "From Fragmented Intranets to a Unified Global Digital Workplace",
       tagline: "Leading the consolidation of fragmented workplace services into a unified ServiceNow experience at bp.",
+      role: "Lead Product Designer",
       badges: ["B2B", "Digital Workplace", "ServiceNow"],
       bentoImage: "/assets/images/case-study-2/ow-bento-1.png",
       bentoImage2: "/assets/images/case-study-2/ow-bento-2.png",
@@ -45,9 +48,10 @@ export type CaseStudy = {
       slug: "cs-kyc",
       year: "2020",
       company: "Credit Suisse",
-      industry: "Finance",
-      title: "Defragmenting How 1,140 Relationship Managers Start Their Day",
+      industry: "FinTech",
+      title: "Reimagining How 1,140 Relationship Managers Start Their Day",
       tagline: "A case study commissioned by Credit Suisse to redirect ~136,800 productivity hours annually towards valuable client-facing time.",
+      role: "Product Manager / Designer",
       badges: ["FinTech", "Mobile", "Concept"],
       bentoImage: "/assets/images/case-study-3/cs-bento-1.png",
       bentoImage2: "/assets/images/case-study-3/cs-bento-2.png",

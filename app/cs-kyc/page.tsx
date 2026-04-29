@@ -121,13 +121,13 @@ export default function Page() {
                                 <div className="metadata">
                                     <p className="small">Industry</p>
 
-                                    <p>FinTech</p>
+                                    <p>{project.industry}</p>
                                 </div>
 
                                 <div className="metadata">
                                     <p className="small">Role</p>
 
-                                    <p>Product Manager / Designer</p>
+                                    <p>{project.role}</p>
                                 </div>
 
                                 <div className="metadata">
