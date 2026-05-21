@@ -18,7 +18,7 @@ export default function Collaborations() {
                         </p>
     
                         <p>
-                            I&apos;ve spent the last 6 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
+                            I&apos;ve spent the last 7 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
                         </p>
                     </div>
                     
