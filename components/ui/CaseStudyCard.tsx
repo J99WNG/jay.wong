@@ -1,6 +1,6 @@
 // components/CaseStudyCard.tsx
 import Image from "next/image";
-import TextLink from "./ui/TextLink";
+import TextLink from "./TextLink";
 import type { CaseStudy } from "@/app/data/caseStudies";
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {

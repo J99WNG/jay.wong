@@ -308,7 +308,7 @@ export default function Page() {
                             </blockquote>
                                 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-discovery-quant.png"
+                                src="/assets/images/bp-genai/bp-discovery-quant.png"
                                 alt=""
                                 caption="Employees submitting general enquiry requests were searching for answers that exist in knowledge base articles."
                             />
@@ -364,13 +364,13 @@ export default function Page() {
                             </div>
                     
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-discovery-persona-map.png"
+                                src="/assets/images/bp-genai/bp-discovery-persona-map.png"
                                 alt=""
                                 caption=""
                             />
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-discovery-persona.png"
+                                src="/assets/images/bp-genai/bp-discovery-persona.png"
                                 alt=""
                                 caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
                             />
@@ -398,7 +398,7 @@ export default function Page() {
                             <p>Leadership aligned on using GenAI as a cost-reduction and productivity lever, with a strong emphasis on transparency, governance and human fallback.</p>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-workshop.png"
+                                src="/assets/images/bp-genai/bp-workshop.png"
                                 alt=""
                                 caption="Our virtual whiteboard across two workshop sessions provided perspectives and ideas."
                             />
@@ -489,7 +489,7 @@ export default function Page() {
                             <p className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</p>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-shift-left-diagram.png"
+                                src="/assets/images/bp-genai/bp-shift-left-diagram.png"
                                 alt=""
                                 caption="Exact figures regarding per interaction has been simplified for NDA purposes."
                             />
@@ -575,13 +575,13 @@ export default function Page() {
                             </p>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-ideation-1.png"
+                                src="/assets/images/bp-genai/bp-ideation-1.png"
                                 alt=""
                                 caption="With considerations to Jakob's Law, we took inspiration from mature solutions on the public domain."
                             />
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-ideation-2.png"
+                                src="/assets/images/bp-genai/bp-ideation-2.png"
                                 alt=""
                                 caption="I explored various UX patterns with our team using a mixture of low-fidelty to mid-fidelty wireframes."
                             />
@@ -662,7 +662,7 @@ export default function Page() {
                             </ul>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-solution-1.png"
+                                src="/assets/images/bp-genai/bp-solution-1.png"
                                 alt=""
                                 caption=""
                             />
@@ -684,7 +684,7 @@ export default function Page() {
                             </ul>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-user-flow.png"
+                                src="/assets/images/bp-genai/bp-user-flow.png"
                                 alt=""
                                 caption="I built out user flow diagrams to break down product features so our triad squad are aligned. This is an example of how a user submits LLM response feedback."
                             />                        
@@ -714,7 +714,7 @@ export default function Page() {
                             </ul>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-solution-2.png"
+                                src="/assets/images/bp-genai/bp-solution-2.png"
                                 alt=""
                                 caption=""
                             />
@@ -740,7 +740,7 @@ export default function Page() {
                             </ul>
 
                             <FigureModal
-                                src="/assets/images/case-study-1/bp-solution-3.png"
+                                src="/assets/images/bp-genai/bp-solution-3.png"
                                 alt=""
                                 caption=""
                             />
@@ -798,7 +798,7 @@ export default function Page() {
                     </ul>
 
                     <FigureModal
-                        src="/assets/images/case-study-1/bp-testing-1.png"
+                        src="/assets/images/bp-genai/bp-testing-1.png"
                         alt=""
                         caption="Myself and the other designer spent time synthesising and prioritising our early user insights to present back to our PM and developers."
                     />
@@ -920,13 +920,13 @@ export default function Page() {
                         </blockquote>
 
                         <FigureModal
-                            src="/assets/images/case-study-1/bp-impact-1.png"
+                            src="/assets/images/bp-genai/bp-impact-1.png"
                             alt=""
                             caption=""
                         />
 
                         <FigureModal
-                            src="/assets/images/case-study-1/bp-impact-2.png"
+                            src="/assets/images/bp-genai/bp-impact-2.png"
                             alt=""
                             caption="The proportion of Priority 3 (low-complex) tickets dropped by ~24% relative to the total volume starting in May 2024 (MVP launch), effectively shifting left the workload or deflecting simple queries through our GenAI solution amongst other initiatives."
                         />

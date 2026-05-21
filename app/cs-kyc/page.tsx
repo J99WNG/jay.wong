@@ -324,7 +324,7 @@ export default function Page() {
                                 </ol>
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-discovery-1.png"
+                                    src="assets/images/cs-kyc/cs-discovery-1.png"
                                     alt=""
                                     caption="Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase."
                                 />
@@ -338,7 +338,7 @@ export default function Page() {
                                 </p>
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-discovery-2.png"
+                                    src="assets/images/cs-kyc/cs-discovery-2.png"
                                     alt=""
                                     caption="Our team discussed various topics to better discover an RM's needs and how we approach the problems outlined in the briefing document."
                                 />
@@ -388,13 +388,13 @@ export default function Page() {
                                 </p>
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-problem-1.png"
+                                    src="assets/images/cs-kyc/cs-problem-1.png"
                                     alt=""
                                     caption="Five functional requirements were refined and taken forward into our design and development iterations."
                                 />
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-problem-2.png"
+                                    src="assets/images/cs-kyc/cs-problem-2.png"
                                     alt=""
                                     caption="With our non-functional requirements, we had two that fell into 'Could' priority. These were features we would have included if we had more time, but they weren't essential to the core user experience we wanted to deliver in the project window."
                                 />
@@ -447,13 +447,13 @@ export default function Page() {
                                 </p>
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-goals-1.png"
+                                    src="assets/images/cs-kyc/cs-goals-1.png"
                                     alt=""
                                     caption="I started with the foundations, establishing the 'TLC' through studying Credit Suisse's existing digital products and channels – Typography, Layout and Colour."
                                 />
 
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-goals-2.png"
+                                    src="assets/images/cs-kyc/cs-goals-2.png"
                                     alt=""
                                     caption="A more comprehensive design system emerged as we iterated on the prototype, with a focus on modularity and reusability to speed up our agile cycles and maintain visual consistency across the solution."
                                 />
@@ -507,7 +507,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-ideation-1.png"
+                                    src="assets/images/cs-kyc/cs-ideation-1.png"
                                     alt=""
                                     caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
                                 />
@@ -523,7 +523,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-ideation-2.png"
+                                    src="assets/images/cs-kyc/cs-ideation-2.png"
                                     alt=""
                                     caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
                                 />
@@ -539,7 +539,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-ideation-3.png"
+                                    src="assets/images/cs-kyc/cs-ideation-3.png"
                                     alt=""
                                     caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
                                 />
@@ -577,7 +577,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-1.png"
+                                    src="assets/images/cs-kyc/cs-solution-1.png"
                                     alt=""
                                     caption="A straightforward login screen to welcome RMs into the app, no messing about."
                                 />
@@ -593,7 +593,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-2.png"
+                                    src="assets/images/cs-kyc/cs-solution-2.png"
                                     alt=""
                                     caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
                                 />
@@ -609,7 +609,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-3.png"
+                                    src="assets/images/cs-kyc/cs-solution-3.png"
                                     alt=""
                                     caption="We iterated the clients list to be more informative at a glance."
                                 />
@@ -625,7 +625,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-4.png"
+                                    src="assets/images/cs-kyc/cs-solution-4.png"
                                     alt=""
                                     caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
                                 />
@@ -641,7 +641,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-5.png"
+                                    src="assets/images/cs-kyc/cs-solution-5.png"
                                     alt=""
                                     caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
                                 />
@@ -657,7 +657,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-6.png"
+                                    src="assets/images/cs-kyc/cs-solution-6.png"
                                     alt=""
                                     caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
                                 />
@@ -673,7 +673,7 @@ export default function Page() {
 
                             <div className="content-block">
                                 <FigureModal
-                                    src="assets/images/case-study-3/cs-solution-7.png"
+                                    src="assets/images/cs-kyc/cs-solution-7.png"
                                     alt=""
                                     caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
                                 />

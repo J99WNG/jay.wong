@@ -234,17 +234,12 @@ body {
   font-weight: 400;
   line-height: 1.4;
 
-  /* Add these to match Jekyll's sharper rendering */
   /* -webkit-font-smoothing: antialiased; */
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
-}
-
-body.loading {
-  opacity: 0;
 }
 
 .container {
