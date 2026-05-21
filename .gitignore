@@ -42,8 +42,6 @@ next-env.d.ts
 
 # ===========================
 
-_archive/
-
 # Environment files
 .env
 .env.local

@@ -143,7 +143,10 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
       </Button>
 
       {/* Content */}
-      <div className="container modal-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="container flex flex-col items-center"
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* Screen reader announcement on navigation */}
         <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -161,7 +164,9 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
         </div>
 
         {current.caption && (
-          <p className="modal-caption">{current.caption}</p>
+          <p className="mt-4 mb-0 w-full max-w-full text-center text-[var(--silver-needle)]">
+            {current.caption}
+          </p>
         )}
         
         {total > 1 && (
@@ -251,16 +256,6 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           to   { opacity: 1; transform: scale(1); }
         }
 
-        /* ── Content shell ─────────────────────────── */
-        .modal-content {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-          max-width: 980px;
-          padding: 1.25rem;
-        }
-
         /* ── Image + nav button wrapper ────────────── */
         .image-container {
           position: relative;
@@ -273,16 +268,6 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           border-radius: 0.75rem;
           display: block;
           animation: imageIn 0.2s ease;
-        }
-
-        /* ── Caption ───────────────────────────────── */
-        .modal-caption {
-          color: var(--silver-needle);
-          width: 100%;
-          margin-top: 1rem;
-          margin-bottom: 0;
-          text-align: center;
-          text-size: 0.75rem;
         }
 
         /* ── Counter ───────────────────────────────── */

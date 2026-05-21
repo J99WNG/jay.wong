@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 const Section = ({ id, children, isLanding = false, className = "" }: SectionProps) => {
   const [isVisible, setIsVisible] = useState(isLanding); // Landing starts visible
   const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // If it's the landing section, we might not want it to ever fade out
@@ -30,6 +31,15 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
     return () => observer.disconnect();
   }, [isLanding]);
 
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const cs = getComputedStyle(el);
+    // #region agent log
+    fetch('http://127.0.0.1:7562/ingest/8ea337b7-5a3a-4be4-bf31-f6a6dcaf1006',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'bf8270'},body:JSON.stringify({sessionId:'bf8270',runId:'post-fix-980',hypothesisId:'A',location:'Section.tsx:content-wrapper',message:'Section content wrapper computed layout',data:{sectionId:id,maxWidth:cs.maxWidth,paddingInlineStart:cs.paddingInlineStart,marginInline:cs.marginInline,matches980pxCap:cs.maxWidth==='980px',usesTailwindContainer:el.classList.contains('container'),className:el.className},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
+  }, [id]);
+
   return (
     <section 
       id={id}
@@ -47,8 +57,10 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
           We animate this <div>, which is MOVING. 
           Because the observer is watching the parent, the movement won't cause a flicker.
       */}
-      <div className={`
-        relative z-10 px-6 container transition-[opacity,transform] duration-[2000ms]
+      <div
+        ref={contentRef}
+        className={`
+        relative z-10 container transition-[opacity,transform] duration-[2000ms]
         ease-[cubic-bezier(0.215,0.61,0.355,1)] will-change-[opacity,transform]
         ${isVisible ? 'opacity-100' : 'opacity-0'}
       `}>

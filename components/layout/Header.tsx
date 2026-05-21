@@ -22,6 +22,15 @@ export default function Header() {
         };
     }, [isOpen]);
 
+    useEffect(() => {
+        const el = document.querySelector('header .container');
+        if (!el) return;
+        const cs = getComputedStyle(el);
+        // #region agent log
+        fetch('http://127.0.0.1:7562/ingest/8ea337b7-5a3a-4be4-bf31-f6a6dcaf1006',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'bf8270'},body:JSON.stringify({sessionId:'bf8270',runId:'post-fix-980',hypothesisId:'A',location:'Header.tsx:header-container',message:'Header container computed layout',data:{maxWidth:cs.maxWidth,paddingInlineStart:cs.paddingInlineStart,marginInline:cs.marginInline,matches980pxCap:cs.maxWidth==='980px',usesTailwindContainer:el.classList.contains('container'),className:el.className},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
+    }, []);
+
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
     
