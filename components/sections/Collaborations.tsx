@@ -35,6 +35,8 @@ const clientLogos: LogoItem[] = [
     id: 'creditsuisse',
     name: 'Credit Suisse',
     src: '/assets/logos/creditsuisse-symbol.svg',
+    roleDescription: 'A case study commissioned by Credit Suisse to redirect ~136,800 productivity hours annually towards valuable client-facing time.',
+    caseStudySlug: '/cs-kyc',
   },
   {
     id: 'ford',

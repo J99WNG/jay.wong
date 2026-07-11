@@ -8,7 +8,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
   return (
     <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104">
-      <div className="card-content card-padding-lg">
+      <div className="card-content p-8 px-7">
 
         <p className="small">
           {year} · {company} · {industry}

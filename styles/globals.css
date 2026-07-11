@@ -360,7 +360,7 @@ caption {
 .card:hover,
 .card:active,
 .card:focus-visible {
-  border: 1px solid var(--color-neutral-400);
+  border: 1px solid var(--color-border-hover);
   box-shadow: 0px 0px 8px hsla(30, 20%, 85%, 0.75);
 }
 
@@ -387,10 +387,6 @@ caption {
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
-}
-
-.card-padding-lg {
-  padding: 2rem 1.75rem;
 }
 
 .card-callout {
@@ -477,6 +473,14 @@ caption {
   100% { 
     transform: scale(0.9); 
     box-shadow: 0 0 0 0 rgba(162, 186, 145, 0); 
+  }
+}
+
+@theme {
+  --animate-blink: blink 0.7s infinite;
+
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 }
 

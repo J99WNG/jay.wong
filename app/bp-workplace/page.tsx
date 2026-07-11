@@ -39,7 +39,7 @@ export const metadata: Metadata = {
                         {project.year} · {project.company} · {project.industry}
                     </p>
                     <h1>{project.title}</h1>
-                    <p className="text-[clamp(1rem,2vw,1.25rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
+                    <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
                 </div>
 
                 <div className="bento-grid">

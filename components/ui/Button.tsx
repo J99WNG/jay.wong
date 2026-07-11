@@ -21,7 +21,7 @@ export default function Button({ variant = 'primary', href, className, children,
   const variants = {
     primary: "text-(--color-neutral-300) bg-(--color-steep-700) border border-(--color-steep-900) hover:text-(--color-neutral-100) hover:bg-(--color-steep-500) hover:border-(--color-steep-300)",
     secondary: "text-text-secondary bg-bg-secondary border border-(--color-neutral-300) hover:bg-(--color-neutral-100) hover:border-transparent",
-    tertiary: "text-text-primary bg-transparent border border-(--color-steep-500) hover:text-text-primary hover:bg-accent-primary hover:border-(--color-orange-400)",
+    tertiary: "text-text-primary bg-transparent border border-(--color-steep-500) hover:text-(--color-neutral-100) hover:bg-accent-primary hover:border-(--color-orange-400)",
     nav: "text-text-secondary bg-bg-secondary border border-(--color-neutral-500) hover:text-text-primary hover:bg-bg-primary hover:border-(--color-neutral-300) w-auto py-1 rounded-2xl text-[1.5rem] md:text-base md:rounded-xl md:shrink-0"
   };
 

@@ -23,12 +23,6 @@ export default function Contact() {
                         whether it&apos;s a quick question, collaboration idea, or a full-on project.
                     </p>
 
-                    {/* Status */}
-                    <div className="content-block">
-                        <p className="text-sm uppercase font-medium my-0 text-text-secondary">Currently online in:</p>
-                        <HKTClock />
-                    </div>
-                    
                     <div className="flex flex-col gap-6 shrink-1" role="list">
                         {/* Email */}
                         <CopyEmail />

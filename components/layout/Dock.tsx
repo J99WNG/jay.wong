@@ -77,7 +77,7 @@ export default function Dock() {
     <div 
       ref={dockRef} 
       id="dock-wrapper"
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-full h-16 flex items-center justify-center z-[9999] pointer-events-none transition-transform duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-t from-[hsla(30,62%,98%,0.7)] to-transparent"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-full h-16 flex items-center justify-center z-[9998] pointer-events-none transition-transform duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-t from-[hsla(30,62%,98%,0.7)] to-transparent"
     >
       <Button 
         variant="primary" 

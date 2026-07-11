@@ -116,7 +116,7 @@ export default function Hero() {
               initial="initial"
               animate="animate"
               variants={typewriterContainer}
-              className="inline-block text-[clamp(1.25rem,2vw,1.5rem)] tracking-tighter m-0"
+              className="inline-block text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight m-0"
             >
               {taglineChars.map((char, index) => (
                 <motion.span 
@@ -127,6 +127,7 @@ export default function Hero() {
                   {char}
                 </motion.span>
               ))}
+              {/* <motion.span className="text-accent-primary animate-blink">|</motion.span> */}
             </motion.p>
           </div>
 

@@ -15,14 +15,14 @@ export default function Clock() {
     }, []);
 
     return (                        
-        <div className="badge">
+        <div className="flex items-center gap-2">
             <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-green-900)] opacity-75"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]"></span>
             </span>
 
-            <span className="inline-flex items-center text-sm leading-none font-mono font-bold tracking-widest gap-2 m-0">
-                Hong Kong 🇭🇰
+            <span className="inline-flex items-center text-sm text-text-secondary uppercase leading-none font-pixel font-black tracking-widest gap-2 m-0">
+                Hong Kong
                 <span id="clock-time">{time || 'Loading...'}</span>
             </span>
         </div>
