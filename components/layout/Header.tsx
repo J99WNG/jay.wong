@@ -22,31 +22,22 @@ export default function Header() {
         };
     }, [isOpen]);
 
-    useEffect(() => {
-        const el = document.querySelector('header .container');
-        if (!el) return;
-        const cs = getComputedStyle(el);
-        // #region agent log
-        fetch('http://127.0.0.1:7562/ingest/8ea337b7-5a3a-4be4-bf31-f6a6dcaf1006',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'bf8270'},body:JSON.stringify({sessionId:'bf8270',runId:'post-fix-980',hypothesisId:'A',location:'Header.tsx:header-container',message:'Header container computed layout',data:{maxWidth:cs.maxWidth,paddingInlineStart:cs.paddingInlineStart,marginInline:cs.marginInline,matches980pxCap:cs.maxWidth==='980px',usesTailwindContainer:el.classList.contains('container'),className:el.className},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
-    }, []);
-
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
     
     return (
         <header className="fixed top-0 left-0 z-[9998] h-auto w-full pointer-events-none bg-gradient-to-b from-[hsla(30,62%,98%,0.7)] to-transparent transition-shadow duration-200 ease-linear">
             <div className="container">
-                <div className="header-wrapper">
+                <div className="relative mx-auto my-4 flex h-16 max-w-full flex-nowrap items-center justify-between rounded-3xl p-4 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-auto bg-(--color-steep-700) backdrop-blur-md">
                     {/* Logo */}
                     <Link href="/" id="nav-brand" className="flex items-center basis-auto flex-none group outline-none" aria-label="JW homepage" onClick={closeMenu}>
                         <svg 
                         viewBox="0 0 945 426"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="block h-8 w-auto fill-(--silver-needle) transition-colors duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:fill-(--dried-clay) group-focus-visible:fill-(--dried-clay) group-active:fill-(--dried-clay)">
+                        className="block h-8 w-auto fill-bg-primary transition-colors duration-400 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:fill-bg-tertiary group-focus-visible:fill-bg-tertiary group-active:fill-bg-tertiary">
                             <title>Jay Wong monogram</title>
-                            {/* Note: clip-path becomes clipPath in JSX */}
-                            <g clipPath="url(#clip0_2477_10)">
+
+                            <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z"/>
                                 <path d="M461.6 425.2H392.1L559.9 65.5C578.5 25.5 618.6 0 662.7 0H732.2L564.4 359.7C545.8 399.7 505.7 425.2 461.6 425.2Z"/>
                                 <path d="M674.2 425.2H604.7L772.5 65.5C791.1 25.5 831.2 0 875.3 0H944.8L777 359.7C758.4 399.7 718.3 425.2 674.2 425.2Z"/>

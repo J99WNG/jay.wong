@@ -17,8 +17,8 @@ export default function Clock() {
     return (                        
         <div className="badge">
             <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--iron-buddha)] opacity-75"></span>
-                <span className="relative inline-flex size-2 rounded-full bg-[var(--matcha-powder)]"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-green-900)] opacity-75"></span>
+                <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]"></span>
             </span>
 
             <span className="inline-flex items-center text-sm leading-none font-mono font-bold tracking-widest gap-2 m-0">

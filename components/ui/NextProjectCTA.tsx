@@ -36,7 +36,7 @@ export default function NextProjectCTA() {
           </span>
           </span>
           
-          Back
+          Back to all
       </Link>
                     
       <Link href={`/${nextProject.slug}`} title="Next case study">

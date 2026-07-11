@@ -14,7 +14,7 @@
   }
   
   .icon-inline {
-    background: var(--white-pekoe);
+    background: var(--color-neutral-200);
     border-radius: 0.25rem;
     padding: 0.25rem;
   }

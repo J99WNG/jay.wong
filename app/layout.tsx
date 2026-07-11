@@ -1,17 +1,24 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local';
 
 import '@/styles/globals.css';
-
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";
+import InitialLoader from '@/components/InitialLoader';
 
-// Configure the font
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap', // Prevents layout shift
-  variable: '--font-inter', // Useful for Tailwind
+// 1. Initialize Inter (Using a variable font file if available)
+const Inter = localFont({
+  src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
+  variable: "--font-inter", // Exposes the CSS variable
+  display: "swap",
+});
+
+// 2. Initialize Geist Pixel
+const geistPixel = localFont({
+  src: "./fonts/GeistPixel-Regular-VariableFont_ELSH.ttf",
+  variable: "--font-geist-pixel",
+  display: "swap",
 });
 
 // This is the crucial part for mobile scaling
@@ -64,7 +71,7 @@ export default function RootLayout({ children }:
   Readonly<{ children: React.ReactNode; }>) {
   return (
     
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${Inter.variable} ${geistPixel.variable}`}>
       <head>
         {/* Google Material Symbols Link */}
         <link 
@@ -74,12 +81,14 @@ export default function RootLayout({ children }:
       </head>
       
       <body className="relative">
-        <Header /> 
-        
-        {children}
+        <InitialLoader>
+          <Header /> 
+          
+          {children}
 
-        <Dock />
-        <Footer />
+          <Dock />
+          <Footer />
+        </InitialLoader>
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
         <p className="card-text">{tagline}</p>
 
-        <div className="badge-group">
+        <div className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap">
           {badges.map((badge) => (
             <p key={badge} className="badge">{badge}</p>
           ))}

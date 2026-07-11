@@ -24,19 +24,22 @@ export const metadata: Metadata = {
     },
   }
 
-export default function Page() {
+export default async function Page() {
+    // Force Next.js to wait for 2 seconds before rendering this page
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     return (
     <GalleryProvider>
         <article>
             <Section id="landing" isLanding={true}>
                 <NextProjectCTA />
 
-                <div className="title-block">
+                <div className="flex flex-col gap-2 mbe-4">
                     <p className="small">
                         {project.year} · {project.company} · {project.industry}
                     </p>
                     <h1>{project.title}</h1>
-                    <p className="tagline">{project.tagline}</p>
+                    <p className="text-[clamp(1rem,2vw,1.25rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
                 </div>
 
                 <div className="bento-grid">
@@ -88,11 +91,11 @@ export default function Page() {
                     <div className="content-block">
                         <p className="small">Impact (6 months post-launch)</p>
 
-                        <div className="grid-layout">
+                        <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                         <div className="card">
                             <div className="card-content px-6 py-5">
                             <p>
-                                <span className="quant">~1,200 </span>
+                                <span className="emphasis">~1,200 </span>
                                 <br />
                                 Repeat tickets avoided
                             </p>
@@ -102,7 +105,7 @@ export default function Page() {
                         <div className="card">
                             <div className="card-content px-6 py-5">
                             <p>
-                                <span className="quant">+21% </span>
+                                <span className="emphasis">+21% </span>
                                 <br />
                                 Self-serve success rate 
                             </p>
@@ -112,7 +115,7 @@ export default function Page() {
                         <div className="card">
                             <div className="card-content px-6 py-5">
                             <p>
-                                <span className="quant">3.6 → 4.2 </span>
+                                <span className="emphasis">3.6 → 4.2 </span>
                                 <br />
                                 Improved CSAT score
                             </p>
@@ -122,7 +125,7 @@ export default function Page() {
                         <div className="card">
                             <div className="card-content px-6 py-5">
                             <p>
-                                <span className="quant">-18% </span>
+                                <span className="emphasis">-18% </span>
                                 <br />
                                 Reduced resolution time
                             </p>
@@ -131,7 +134,7 @@ export default function Page() {
                         </div>
                     </div>
                     
-                    <div className="grid-layout">
+                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                         <div className="metadata">
                             <p className="small">Company</p>
                             <p>

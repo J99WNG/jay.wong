@@ -133,7 +133,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
       <Button
         autoFocus
         variant="primary"
-        className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full border-none cursor-pointer z-[10000]"
+        className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-[10000]"
         aria-label="Close gallery"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
         >
@@ -164,7 +164,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
         </div>
 
         {current.caption && (
-          <p className="mt-4 mb-0 w-full max-w-full text-center text-[var(--silver-needle)]">
+          <p className="mt-4 mb-0 w-full max-w-full text-center text-(--color-neutral-100)">
             {current.caption}
           </p>
         )}
@@ -173,12 +173,12 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           <div className="flex flex-col items-center w-full mt-6 gap-4">
 
             {/* Main Controls Wrapper */}
-            <div className="flex items-center justify-center w-full gap-4 px-4">
+            <div className="flex items-center justify-center w-auto bg-(--color-steep-700) rounded-2xl gap-4 p-2">
 
               {/* Previous Button */}
               <Button
-                variant=""
-                className="shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 hover:bg-white transition-opacity duration-200"
+                variant="nav"
+                className="items-center justify-center w-10 h-10"
                 aria-label="Previous image"
                 onClick={(e) => { e.stopPropagation(); onPrev(); }}
               >
@@ -209,8 +209,8 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
               {/* Next Button */}
               <Button
-                variant=""
-                className="shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 hover:bg-white transition-opacity duration-200"
+                variant="nav"
+                className="items-center justify-center w-10 h-10"
                 aria-label="Next image"
                 onClick={(e) => { e.stopPropagation(); onNext(); }}
               >
@@ -222,7 +222,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
             </div>
 
           {/* Counter - Sits neatly below the controls */}
-          <p className="text-white/60 text-sm font-medium" aria-hidden="true">
+          <p className="text-(--color-neutral-500) text-sm font-medium" aria-hidden="true">
             {activeIndex + 1} / {total}
           </p>
         </div>

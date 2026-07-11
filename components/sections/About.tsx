@@ -1,5 +1,21 @@
 import Section from "../Section";
 
+const skills = [
+    "UX Research",
+    "UI Design",
+    "Design systems",
+    "Accessible design",
+    "Inclusive design",
+    "Generative AI",
+    "Systems thinking",
+    "Agile methodology",
+    "ServiceNow",
+    "HTML",
+    "CSS",
+    "Next.js",
+    "Tailwind",
+  ];
+
 export default function About() {
     return (
         <Section id="about">
@@ -22,23 +38,15 @@ export default function About() {
                         </p>
                     </div>
 
-                    <div className="badge-group">
-                        <li className="badge">UX Research</li>
-                        <li className="badge">UI Design</li>
-                        <li className="badge">Design systems</li>
-                        <li className="badge">Accessible design</li>
-                        <li className="badge">Inclusive design</li>
-                        <li className="badge">Generative AI</li>
-                        <li className="badge">Systems thinking</li>
-                        <li className="badge">Agile methodology</li>
-                        <li className="badge">ServiceNow</li>
-                        <li className="badge">HTML</li>
-                        <li className="badge">CSS</li>
-                        <li className="badge">Next.js</li>
-                        <li className="badge">Tailwind</li>
-                    </div>
+                    <ul className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap list-none p-0">
+                        {skills.map((skill) => (
+                            <li key={skill} className="badge">
+                            {skill}
+                            </li>
+                        ))}
+                    </ul>
 
-                    <div className="grid-layout">
+                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                         <div className="card">
                             <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">

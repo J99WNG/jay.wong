@@ -20,13 +20,9 @@ export default function Work() {
                             Explore a selection of my recent work and get a feel for how I think, collaborate, and design. If it resonates, there’s always room to build something great together.
                         </p>
 
-                        <p>
-                            Equally, if something doesn&apos;t resonate, let me hear from you too! Always open to feedback!
-                        </p>
-
                         <div className="flex flex-row gap-1 items-start">
                             <span className="icon icon-md" aria-hidden="true">
-                                <span className="material-symbols-rounded" translate="no">info</span>
+                                <span className="material-symbols-rounded text-accent-primary" translate="no">info</span>
                             </span>
                             
                             <p className="italic">Some projects are simplified or anonymised to respect client confidentiality and NDAs.</p>

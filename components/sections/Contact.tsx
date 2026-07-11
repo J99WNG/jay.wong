@@ -25,7 +25,7 @@ export default function Contact() {
 
                     {/* Status */}
                     <div className="content-block">
-                        <p className="small">Currently based in:</p>
+                        <p className="text-sm uppercase font-medium my-0 text-text-secondary">Currently online in:</p>
                         <HKTClock />
                     </div>
                     

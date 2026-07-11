@@ -24,19 +24,22 @@ export const metadata: Metadata = {
     },
   }
 
-export default function Page() {
+  export default async function Page() {
+    // Force Next.js to wait for 2 seconds before rendering this page
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    
     return (
         <GalleryProvider>
             <article>
                 <Section id="landing" isLanding={true}>
                     <NextProjectCTA />
 
-                    <div className="title-block">
+                    <div className="flex flex-col gap-2 mbe-4">
                         <p className="small">
                             {project.year} · {project.company} · {project.industry}
                         </p>
                         <h1>{project.title}</h1>
-                        <p className="tagline">{project.tagline}</p>
+                        <p className="text-[clamp(1rem,2vw,1.25rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
                     </div>
 
                     <div className="bento-grid">
@@ -96,7 +99,7 @@ export default function Page() {
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                     <p>
-                                        <span className="quant">~136,800 hrs</span>
+                                        <span className="emphasis">~136,800 hrs</span>
                                         <br />
                                         Recovered annually by reducing context-switching and admin time.
                                     </p>
@@ -104,7 +107,7 @@ export default function Page() {
                                 </div>
                             </div>
                             
-                            <div className="grid-layout">
+                            <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="metadata">
                                     <p className="small">Company</p>
 
@@ -178,7 +181,7 @@ export default function Page() {
                                 <h3>Product vision and design</h3>
 
                                 <p>
-                                    I was responsible for shaping the overall vision and experience of RM Suite. I led the high-fidelity prototype work in Semester 1 using InVision, ran our core ideation sessions, coordinated both stakeholder interviews, and translated what we heard into a prioritised requirements spec the team could build towards. I applied Nielsen's Heuristics throughout the design process to ensure every screen decision was grounded in usability principles.
+                                    I was responsible for shaping the overall vision and experience of RM Suite. I led the high-fidelity prototype work in Showcase 1 using InVision, ran our core ideation sessions, coordinated both stakeholder interviews, and translated what we heard into a prioritised requirements spec the team could build towards. I applied Nielsen's Heuristics throughout the design process to ensure every screen decision was grounded in usability principles.
                                 </p>
                             </div>
 
@@ -186,7 +189,7 @@ export default function Page() {
                                 <h3>Project management</h3>
 
                                 <p>
-                                I owned the project structure end to end. I built the Gantt chart, ran weekly standup, maintained the issue log and risk register, and managed scope when the project encountered unexpected constraints. When COVID-19 hit midway through Semester 2 and the team scattered across four different time zones, I kept the work moving and the communication flowing.
+                                I owned the project structure end to end. I built the Gantt chart, ran weekly standup, maintained the issue log and risk register, and managed scope when the project encountered unexpected constraints. When COVID-19 hit midway through Showcase 2 and the team scattered across four different time zones, I kept the work moving and the communication flowing.
                                 </p>
                             </div>
 
@@ -194,7 +197,7 @@ export default function Page() {
                                 <h3>Stakeholder engagement</h3>
 
                                 <p>
-                                    I served as the primary point of contact between our team and Credit Suisse stakeholders. I was present for both the Semester 1 employer showcase and the final virtual demonstration, and I led the sessions where we gathered feedback to refine our direction between semesters.
+                                    I served as the primary point of contact between our team and Credit Suisse stakeholders. I was present for both the first showcase and the final virtual demonstration, and I led the sessions where we gathered feedback to refine our direction between showcases.
                                 </p>
                             </div>
                         </div>
@@ -715,21 +718,21 @@ export default function Page() {
 
                             <div className="content-block">
                                 <h3>
-                                Semester 1: High-fidelity prototype review
+                                Showcase 1: High-fidelity prototype review
                                 </h3>
 
                                 <p>
-                                We presented prototypes to Credit Suisse stakeholders at an Employer Showcase. Out of 10 competing teams, we placed 3rd. More importantly, the event gave us structured access to Credit Suisse’s Regional IT Head of Wealth Management Technology and a serving RM, whose feedback directly shaped what we built in Semester 2. Several features were cut, rerouted, or reprioritised based on those conversation.
+                                We presented prototypes to Credit Suisse stakeholders at an Employer Showcase. Out of 10 competing teams, we placed 3rd. More importantly, the event gave us structured access to Credit Suisse’s Regional IT Head of Wealth Management Technology and a serving RM, whose feedback directly shaped what we built in showcase 2. Several features were cut, rerouted, or reprioritised based on those conversation.
                                 </p>
                             </div>
 
                             <div className="content-block">
                                 <h3>
-                                Semester 2: Agile development and iteration
+                                Showcase 2: Agile development and iteration
                                 </h3>
 
                                 <p>
-                                In the second semester, the team split into two parallel workstreams. System development, led by myself and the product developer, and project documentation and planning, led by my three other squad members. We worked in Agile sprints, testing each functional module against the MoSCoW requirements as it was built and integrating incrementally.
+                                In the second showcase, the team split into two parallel workstreams. System development, led by myself and the product developer, and project documentation and planning, led by my three other squad members. We worked in Agile sprints, testing each functional module against the MoSCoW requirements as it was built and integrating incrementally.
                                 </p>
                             </div>
 
@@ -757,7 +760,7 @@ export default function Page() {
 
                         <div className="section-content">
                             <p className="lead">
-                            The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the Semester 1 Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
+                            The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the first Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
                             </p>
 
                             <div className="content-block">

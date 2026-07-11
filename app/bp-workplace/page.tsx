@@ -24,19 +24,22 @@ export const metadata: Metadata = {
     },
   }
 
-export default function Page() {
+  export default async function Page() {
+    // Force Next.js to wait for 2 seconds before rendering this page
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     return (
     <GalleryProvider>
         <article>
             <Section id="landing" isLanding={true}>
                 <NextProjectCTA />
 
-                <div className="title-block">
+                <div className="flex flex-col gap-2 mbe-4">
                     <p className="small">
                         {project.year} · {project.company} · {project.industry}
                     </p>
                     <h1>{project.title}</h1>
-                    <p className="tagline">{project.tagline}</p>
+                    <p className="text-[clamp(1rem,2vw,1.25rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
                 </div>
 
                 <div className="bento-grid">
@@ -100,7 +103,7 @@ export default function Page() {
                             </ul>
                         </div>
                         
-                        <div className="grid-layout">
+                        <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                             <div className="metadata">
                                 <p className="small">Company</p>
 
@@ -356,7 +359,7 @@ export default function Page() {
                         <div className="content-block">
                             <p>Core design problems include:</p>
 
-                            <div className="grid-layout">
+                            <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">

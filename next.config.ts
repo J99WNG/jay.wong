@@ -2,7 +2,13 @@ import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
-  output: 'export', 
+  output: 'export',
+  // Allow dev server when opened via Network URL or phone on LAN (not only localhost).
+  // Add your LAN IP from `ipconfig getifaddr en0` if it differs from the Network line in the terminal.
+  allowedDevOrigins: [
+    '127.218.160.167',
+    ...(process.env.ALLOWED_DEV_ORIGINS?.split(',').map((o) => o.trim()).filter(Boolean) ?? []),
+  ],
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true, 
