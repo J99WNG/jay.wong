@@ -105,15 +105,15 @@ export default function Collaborations() {
                     const showTooltip = hoveredItemId === item.id && !!item.roleDescription;
 
                     const CardContent = (
-                      <div className="relative flex h-32 w-full items-center justify-center p-6">
+                      <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
-                        <div className="relative h-16 w-full transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative h-16 w-full transition-all duration-300 group-hover:scale-105 group-active:scale-105 group-focus:scale-105">
                           <Image
                             src={item.src}
                             alt={`${item.name} logo`}
                             fill
                             sizes="(max-width: 768px) 50vw, 33vw"
-                            className="object-contain grayscale opacity-80 transition-all duration-300 ease-in-out group-hover:filter-none group-hover:opacity-100"
+                            className="object-contain grayscale opacity-80 transition-all duration-300 ease-in-out group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus:filter-none group-focus:opacity-100"
                           />
                         </div>
 
@@ -127,7 +127,7 @@ export default function Collaborations() {
                               top: `${mousePos.y}px`,
                               transform: 'translate(-40%, 50%)',
                             }}
-                            className={`fixed pointer-events-none z-50 w-64 rounded-xl bg-(--color-neutral-500) p-2 text-center shadow-xl ring-1 ring-white/10 transition-opacity duration-200 ${
+                            className={`fixed pointer-events-none z-50 w-64 rounded-xl bg-bg-tertiary p-2 text-center shadow-xl ring-1 ring-white/10 transition-opacity duration-200 ${
                               showTooltip ? 'opacity-100' : 'opacity-0'
                             }`}
                           >

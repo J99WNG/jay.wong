@@ -435,7 +435,7 @@ export default async function Page() {
                     <div className="content-block">
                     <p>This problem had three equally important lenses:</p>
 
-                    <div className="col-3">
+                    <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
                         <div className="card">
                             <div className="card-content px-6 py-5">
                                 <span className="icon icon-lg" aria-hidden="true">

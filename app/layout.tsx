@@ -6,11 +6,19 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";
 import InitialLoader from '@/components/InitialLoader';
+import ThemeToggle from '@/components/ThemeToggle';
 
 // 1. Initialize Inter (Using a variable font file if available)
 const Inter = localFont({
   src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
   variable: "--font-inter", // Exposes the CSS variable
+  display: "swap",
+});
+
+// 2. Initialize Inter (Using a variable font file if available)
+const Nohemi = localFont({
+  src: "./fonts/Nohemi-VF.ttf",
+  variable: "--font-nohemi", // Exposes the CSS variable
   display: "swap",
 });
 
@@ -85,7 +93,8 @@ export default function RootLayout({ children }:
           <Header /> 
           
           {children}
-
+          
+          {/* <ThemeToggle /> */}
           <Dock />
           <Footer />
         </InitialLoader>

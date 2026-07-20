@@ -2,60 +2,73 @@
 
 :root {
   /* Crucial for light-dark() to resolve properly */
-  color-scheme: light dark;
+  color-scheme: light;
 
-   /* --- 1. PRIMITIVE TOKENS --- */
-   --color-neutral-100: oklch(0.98 0.001 64);
-   --color-neutral-300: oklch(0.96 0.004 64);
-   --color-neutral-500: oklch(0.92 0.010 64);
-   --color-neutral-700: oklch(0.88 0.016 64);
-   --color-neutral-900: oklch(0.84 0.022 64);
- 
-   --color-steep-100: oklch(0.43 0.036 52);
-   --color-steep-300: oklch(0.312 0.03 52);
-   --color-steep-500: oklch(0.246 0.024 52);
-   --color-steep-700: oklch(0.181 0.017 52);
-   --color-steep-900: oklch(0.115 0.011 52);
- 
-   --color-green-100: oklch(0.90 0.06 110);
-   --color-green-500: oklch(0.65 0.12 140);
-   --color-green-900: oklch(0.45 0.05 150);
+  /* --- PRIMITIVE TOKENS --- */
+  --color-neutral-100: oklch(0.98 0.001 64);
+  --color-neutral-300: oklch(0.96 0.004 64);
+  --color-neutral-500: oklch(0.92 0.010 64);
+  --color-neutral-700: oklch(0.88 0.016 64);
+  --color-neutral-900: oklch(0.84 0.022 64);
 
-   --color-blue-100: oklch(0.865 0.031 271.57);
-   --color-blue-300: oklch(0.665 0.082 271.57);
-   --color-blue-500: oklch(0.465 0.139 271.57);
-   --color-blue-700: oklch(0.265 0.079 271.57);
- 
-   --color-orange-400: oklch(0.70 0.10 45);
-   --color-orange-500: oklch(0.60 0.12 40);
- 
-   --color-red-500: oklch(0.55 0.18 20);
+  --color-steep-100: oklch(0.43 0.036 52);
+  --color-steep-300: oklch(0.312 0.03 52);
+  --color-steep-500: oklch(0.246 0.024 52);
+  --color-steep-700: oklch(0.181 0.017 52);
+  --color-steep-900: oklch(0.115 0.011 52);
+
+  --color-green-100: oklch(0.90 0.06 110);
+  --color-green-500: oklch(0.65 0.12 140);
+  --color-green-900: oklch(0.45 0.05 150);
+
+  --color-blue-100: oklch(0.865 0.031 271.57);
+  --color-blue-300: oklch(0.665 0.082 271.57);
+  --color-blue-500: oklch(0.465 0.139 271.57);
+  --color-blue-700: oklch(0.265 0.079 271.57);
+
+  --color-orange-400: oklch(0.70 0.10 45);
+  --color-orange-500: oklch(0.60 0.12 40);
+
+  --color-red-500: oklch(0.55 0.18 20);
+}
+
+/* Explicit class overrides for manual theme toggling */
+:root.light {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
 }
 
 @theme {
-  /* --- 2. LAYOUT TOKENS --- */
+  /* --- LAYOUT TOKENS --- */
   --container-padding: clamp(0.5rem, 5vw, 1.5rem);
   --container-page: 61.25rem;
 
-  /* --- 3. SEMANTIC COLOR TOKENS --- */
+  /* --- SEMANTIC COLOR TOKENS --- */
   /* Direct mapping from primitive tokens removes the middleman layer */
-  --color-bg-primary: var(--color-neutral-100);
-  --color-bg-secondary: var(--color-neutral-300);
-  --color-bg-tertiary: var(--color-neutral-500);
-  
-  --color-text-primary: var(--color-steep-500);
-  --color-text-secondary: var(--color-steep-300);
-  --color-text-tertiary: var(--color-steep-100);
+  --color-bg-primary: light-dark(var(--color-neutral-100), var(--color-steep-900));
+  --color-bg-secondary: light-dark(var(--color-neutral-300), var(--color-steep-700));
+  --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
+
+  --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
+  --color-text-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
+  --color-text-tertiary: light-dark(var(--color-steep-500), var(--color-neutral-500));
+
+  --color-inverse-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
+  --color-inverse-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
+  --color-inverse-tertiary: light-dark(var(--color-steep-500), var(--color-neutral-500));
 
   --color-accent-primary: var(--color-orange-500);
-  
-  --color-border-base: var(--color-neutral-700);
-  --color-border-muted: var(--color-neutral-500);
-  --color-border-hover: var(--color-neutral-900);
+
+  --color-border-base: light-dark(var(--color-neutral-700), var(--color-steep-300));
+  --color-border-muted: light-dark(var(--color-neutral-500), var(--color-steep-500));
+  --color-border-hover: light-dark(var(--color-neutral-900), var(--color-steep-100));
 }
 
 @theme {
-  /* Override the default sans-serif stack with Inter */
+  /* Override the default sans-serif stack with Nohemi / Inter */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   
   /* Create a custom utility key for your pixel font */
@@ -484,6 +497,21 @@ caption {
   }
 }
 
+@theme {
+  --scale-in-center: scale-in-center 0.5s ease-out forwards;
+
+  @keyframes scale-in-center {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
 /* ==================== Table ==================== */
 
 .custom-table {
@@ -531,14 +559,6 @@ caption {
   grid-template-columns: 1fr; /* One column only */
   grid-template-rows: auto;    /* Let rows grow naturally */
   height: auto;
-}
-
-.col-3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 0;
 }
 
 .content-block {
@@ -740,14 +760,6 @@ html:focus-within {
 /* The "Large" image spans from row 1 to row 3 (covering 2 rows) */
 .bento-item.tall {
   grid-row: 1 / 3;
-}
-
-.col-3 {
-  display: grid;
-  place-items: stretch;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: start;
-  justify-items: start;
 }
 
 .card {

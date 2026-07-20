@@ -26,7 +26,7 @@ export default function Header() {
     const closeMenu = () => setIsOpen(false);
     
     return (
-        <header className="fixed top-0 left-0 z-[9997] h-auto w-full pointer-events-none bg-gradient-to-b from-[hsla(30,62%,98%,0.7)] to-transparent transition-shadow duration-200 ease-linear">
+        <header className="fixed top-0 left-0 z-[9997] h-auto w-full pointer-events-none bg-gradient-to-b from-bg-primary/70 to-transparent transition-all duration-200 ease-linear">
             <div className="container">
                 <div className="relative mx-auto my-4 flex h-16 max-w-full flex-nowrap items-center justify-between rounded-3xl p-4 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-auto bg-(--color-steep-700) backdrop-blur-md">
                     {/* Logo */}

@@ -23,16 +23,12 @@ export default function About() {
                 <div className="section-heading">
                     <h2>About me
                     <br />
-                    <span className="section-subtitle">In a nutshell.</span>
+                    <span className="section-subtitle">To observe first.</span>
                     </h2>
                 </div>
 
                 <div className="section-content">
                     <div className="content-block">
-                        <p className="lead">
-                            I’ve always been someone who observes first.
-                        </p>
-
                         <p className="lead">
                             Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
                         </p>

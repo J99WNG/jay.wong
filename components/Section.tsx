@@ -48,9 +48,10 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
           Because the observer is watching the parent, the movement won't cause a flicker.
       */}
       <div className={`
-        relative z-10 container transition-[opacity,transform] duration-[3000ms]
-        ease-[cubic-bezier(0.215,0.61,0.355,1)] will-change-[opacity,transform]
-        ${isVisible ? 'opacity-100' : 'opacity-0'}
+        relative z-10 container 
+        transition-[opacity,transform,filter] duration-[2000ms] ease-[cubic-bezier(0.215,0.61,0.355,1)] 
+        will-change-[opacity,transform,filter]
+        ${isVisible ? 'opacity-100 blur-none' : 'opacity-0 blur-xs'}
       `}>
         {children}
       </div>
