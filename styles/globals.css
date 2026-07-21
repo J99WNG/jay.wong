@@ -54,7 +54,7 @@
 
   --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-text-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
-  --color-text-tertiary: light-dark(var(--color-steep-500), var(--color-neutral-500));
+  --color-text-tertiary: light-dark(var(--color-steep-100), var(--color-neutral-100));
 
   --color-inverse-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-inverse-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
@@ -221,8 +221,8 @@
   .notion-quote {
   margin-block: 0.75rem;
 
-  border-left: 3px solid var(--color-steep-700);
-  color: var(--color-steep-700);
+  border-left: 3px solid var(--color-text-tertiary);
+  color: var(--color-text-tertiary);
 
   padding: 0rem 1rem;
   font-size: 1.25rem;
@@ -693,6 +693,7 @@ caption {
 span.section-subtitle {
   color: var(--color-text-tertiary);
   font-weight: 400;
+  opacity: 0.8;
 }
 
 /* ==================== Contact ==================== */
