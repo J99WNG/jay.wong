@@ -5,6 +5,7 @@ import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
 
+
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [keywordIndex, setKeywordIndex] = useState(0);
@@ -64,7 +65,7 @@ export default function Hero() {
     },
   };
 
-  const taglineText = "👋 I'm Jay – a product designer and front-end specialist shaping inclusive, AI-led and service-driven experiences at scale.";
+  const taglineText = "👋 I'm Jay – a product designer that operates at the crossroads of design, engineering, and business.";
   const taglineChars = [...taglineText];
 
   return (
@@ -171,7 +172,6 @@ export default function Hero() {
             />
           </motion.div>
         </motion.div>
-
       </div>
     </Section>
   );

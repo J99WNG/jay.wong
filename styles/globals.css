@@ -255,7 +255,7 @@
 
   .breadcrumb a:hover,
   .contact-item:hover {
-  background: var(--color-blue-100);
+  background: var(--color-neutral-500);
   color: var(--color-blue-700);
   }
 
@@ -676,9 +676,10 @@ caption {
 /* ==================== Section ==================== */
 
 .section-heading {
+  position: sticky;
   display: flex;
   flex-direction: column;      /* mobile default */
-  align-items: flex-start;
+  align-self: start;
   margin-bottom: 2rem;
 }
 
@@ -686,7 +687,6 @@ caption {
   display: inline-flex;
   flex-direction: column;
   gap: 2.5rem;
-
   max-width: 100%;
 }
 
@@ -780,7 +780,7 @@ html:focus-within {
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
   gap: 2.5rem;
-  place-items: start;
+  align-items: start;
 }
 
 .nav-menu {

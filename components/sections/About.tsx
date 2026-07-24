@@ -6,7 +6,7 @@ const skills = [
     "Design systems",
     "Accessible design",
     "Inclusive design",
-    "Generative AI",
+    "Conversational AI",
     "Systems thinking",
     "Agile methodology",
     "ServiceNow",

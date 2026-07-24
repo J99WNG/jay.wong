@@ -45,12 +45,12 @@ export const metadata: Metadata = {
     default: "Jay Wong",
     template: "%s | Jay Wong",  // ← page titles become e.g. "Case Study | Jay Wong"
   },
-  description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
+  description: "👋 a product designer that operates at the crossroads of design, engineering, and business.",
   
   // This handles your Facebook/OpenGraph tags
   openGraph: {
     title: "Jay Wong",
-    description: "👋 a product and front-end designer shaping inclusive, AI-led and service-driven experiences at scale.",
+    description: "👋 a product designer that operates at the crossroads of design, engineering, and business.",
     url: "https://jaywong.digital/",
     siteName: "Jay Wong",
     images: [{ url: "/assets/images/OG-Image.png" }],
