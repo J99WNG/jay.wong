@@ -23,7 +23,7 @@ export default function About() {
                 <div className="section-heading">
                     <h2>About me
                     <br />
-                    <span className="section-subtitle">To observe first.</span>
+                    <span className="section-subheading">To observe first.</span>
                     </h2>
                 </div>
 

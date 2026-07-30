@@ -73,7 +73,7 @@ export default async function Page() {
                 <div className="section-heading">
                     <h2>Snapshot
                     <br />
-                    <span className="section-subtitle">The “too long didn&apos;t read”.</span>
+                    <span className="section-subheading">The “too long didn&apos;t read”.</span>
                     </h2>
                 </div>
 
@@ -196,7 +196,7 @@ export default async function Page() {
                 <div className="section-heading">
                     <h2 className="section-title">My role
                     <br />
-                    <span className="section-subtitle">Responsibilities and strategic focus.</span>
+                    <span className="section-subheading">Responsibilities and strategic focus.</span>
                     </h2>
                 </div>
 
@@ -237,7 +237,7 @@ export default async function Page() {
                 <div className="section-heading">
                     <h2>Business context
                     <br />
-                    <span className="section-subtitle">Why it mattered.</span>
+                    <span className="section-subheading">Why it mattered.</span>
                     </h2>
                 </div>
 
@@ -287,7 +287,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
                         <br />
-                        <span className="section-subtitle">Uncovering the insights.</span>
+                        <span className="section-subheading">Uncovering the insights.</span>
                         </h2>
                     </div>
 
@@ -421,7 +421,7 @@ export default async function Page() {
                 <div className="section-heading">
                     <h2>Problem definition
                     <br />
-                    <span className="section-subtitle">Turning research into a clear design focus.</span>
+                    <span className="section-subheading">Turning research into a clear design focus.</span>
                     </h2>
                 </div>
 
@@ -483,7 +483,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
                         <br />
-                        <span className="section-subtitle">Defining what we want to solve.</span>
+                        <span className="section-subheading">Defining what we want to solve.</span>
                         </h2>
                     </div>
 
@@ -545,7 +545,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2>Ideation
                         <br />
-                        <span className="section-subtitle">Thinking outside the box.</span>
+                        <span className="section-subheading">Thinking outside the box.</span>
                         </h2>
                     </div>
 
@@ -640,7 +640,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2>The solution
                         <br />
-                        <span className="section-subtitle">Designing the AI-assisted experience.</span>
+                        <span className="section-subheading">Designing the AI-assisted experience.</span>
                         </h2>
                     </div>
 
@@ -762,7 +762,7 @@ export default async function Page() {
                 <div className="section-heading">
                     <h2>Testing &amp; validation
                     <br />
-                    <span className="section-subtitle">Shipping the MVP.</span>
+                    <span className="section-subheading">Shipping the MVP.</span>
                     </h2>
                 </div>
 
@@ -889,7 +889,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
                         <br />
-                        <span className="section-subtitle">What changed because of this work.</span>
+                        <span className="section-subheading">What changed because of this work.</span>
                         </h2>
                     </div>
 
@@ -947,7 +947,7 @@ export default async function Page() {
                     <div className="section-heading">
                         <h2>Reflection
                         <br />
-                        <span className="section-subtitle">Learnings and key takeaways.</span>
+                        <span className="section-subheading">Learnings and key takeaways.</span>
                         </h2>
                     </div>
 

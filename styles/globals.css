@@ -5,17 +5,17 @@
   color-scheme: light;
 
   /* --- PRIMITIVE TOKENS --- */
-  --color-neutral-100: oklch(0.98 0.001 64);
+  --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
   --color-neutral-300: oklch(0.96 0.004 64);
   --color-neutral-500: oklch(0.92 0.010 64);
   --color-neutral-700: oklch(0.88 0.016 64);
   --color-neutral-900: oklch(0.84 0.022 64);
 
-  --color-steep-100: oklch(0.488 0.017 50);
+  --color-steep-100: oklch(0.488 0.017 50); /* #685D57 */
   --color-steep-300: oklch(0.411 0.014 50);
   --color-steep-500: oklch(0.334 0.011 50);
   --color-steep-700: oklch(0.257 0.009 50);
-  --color-steep-900: oklch(0.18 0.006 50);
+  --color-steep-900: oklch(0.18 0.006 50); /* #14110F */
 
   --color-green-100: oklch(0.90 0.06 110);
   --color-green-500: oklch(0.65 0.12 140);
@@ -684,7 +684,7 @@ caption {
   max-width: 100%;
 }
 
-span.section-subtitle {
+span.section-subheading {
   color: var(--color-text-tertiary);
   font-weight: 400;
 }

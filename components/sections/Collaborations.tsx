@@ -83,7 +83,7 @@ export default function Collaborations() {
           <div className="section-heading">
               <h2>Collaborations
               <br />
-              <span className="section-subtitle">Solving human problems in the AI era.</span>
+              <span className="section-subheading">Solving human problems in the AI era.</span>
               </h2>
           </div>
 

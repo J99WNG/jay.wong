@@ -10,7 +10,7 @@ export default function Work() {
                 <div className="section-heading">
                     <h2>Featured work
                     <br />
-                    <span className="section-subtitle">Kinda rough around the edges.</span>
+                    <span className="section-subheading">Kinda rough around the edges.</span>
                     </h2>
                 </div>
 
