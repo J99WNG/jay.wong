@@ -14,7 +14,8 @@ export default function Hero() {
     "design.",
     "research.",
     "collaboration.",
-    "systems thinking."
+    "systems thinking.",
+    "mentorship."
   ];
 
   // Cycle through the keywords every 2.5 seconds
@@ -145,6 +146,7 @@ export default function Hero() {
             <Button variant="primary" href="#work">
               View work
             </Button>
+
             <Button variant="tertiary" href="https://cal.com/jay-wong/intro" target="_blank" rel="noopener noreferrer">
               Schedule a call
             </Button>
@@ -161,7 +163,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative sm:w-[40%] md:w-[70%] aspect-square min-h-[150px]"
+            className="relative sm:w-[50%] md:w-[70%] aspect-square min-h-[128px]"
           >
             <Image 
               src="/assets/images/jw-notion-face-transparent.png"
@@ -170,6 +172,7 @@ export default function Hero() {
               className="object-contain"
               priority
             />
+
           </motion.div>
         </motion.div>
       </div>

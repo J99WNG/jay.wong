@@ -38,7 +38,7 @@ export default function CopyEmail() {
     return (
         <button 
             onClick={handleCopy}
-            className="contact-item flex items-center gap-3 text-[var(--color-blue-500)] hover:text-[var(--color-blue-700)] transition-colors duration-200"
+            className="contact-item flex items-center gap-3 text-text-link hover:text-[var(--color-blue-700)] transition-colors duration-200"
             type="button"
             aria-label={isCopied ? "Email copied to clipboard" : `Copy email address ${email}`}
         >

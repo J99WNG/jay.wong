@@ -37,7 +37,7 @@ export default function LoadingLogo() {
       <motion.svg
         viewBox="0 0 945 426"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-32 h-auto fill-steep-700" // w-32 equates to 128px width
+        className="w-32 h-auto fill-inverse-primary" // w-32 equates to 128px width
         variants={containerVariants}
         initial="hidden"
         animate="visible"

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local';
 
-import '@/styles/globals.css';
+import '@/styles/global.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";

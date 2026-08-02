@@ -12,7 +12,7 @@ export default function TextLink({ href, children, className = '', external }: T
   const isExternal = external || href.startsWith('http');
   
   // Base classes for the link color and transition
-  const linkClasses = `group relative inline-flex items-center w-fit rounded-md text-[var(--color-blue-500)] hover:text-[var(--color-blue-300)] transition-colors duration-200 tracking-[-0.04rem] ${className}`;
+  const linkClasses = `group relative inline-flex items-center w-fit rounded-md text-text-link hover:text-[var(--color-blue-300)] transition-colors duration-200 tracking-[-0.04rem] ${className}`;
 
   // The content including the animated underline span
   const content = (
