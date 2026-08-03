@@ -55,7 +55,7 @@
   --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
 
   --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
-  --color-text-secondary: light-dark(var(--color-steep-500), var(--color-neutral-500));
+  --color-text-secondary: light-dark(var(--color-steep-300), var(--color-neutral-300));
   --color-text-tertiary: light-dark(var(--color-steep-100), var(--color-neutral-900));
   
   --color-text-link: light-dark(var(--color-blue-500), var(--color-blue-100));

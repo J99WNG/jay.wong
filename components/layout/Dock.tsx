@@ -106,7 +106,7 @@ export default function Dock() {
       <Button 
         variant="primary"
         className="group gap-1 px-2 py-2 rounded-full text-sm duration-300 pointer-events-auto" 
-        aria-label="Back to top" 
+        aria-label="Back to the top of the page"
         onClick={handleBackToTop}
       >
         <span className="icon icon-sm" aria-hidden="true">
