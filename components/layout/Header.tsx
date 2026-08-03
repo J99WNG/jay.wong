@@ -34,7 +34,7 @@ export default function Header() {
                         <svg 
                         viewBox="0 0 945 426"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="block h-8 w-auto fill-bg-primary transition-colors duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-bg-tertiary group-focus-visible:fill-bg-tertiary group-active:fill-bg-tertiary">
+                        className="block h-8 w-auto fill-neutral-100 transition-colors duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700">
                             <title>Jay Wong monogram</title>
 
                             <g>

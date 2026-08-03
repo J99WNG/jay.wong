@@ -133,7 +133,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
       <Button
         autoFocus
         variant="primary"
-        className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-[10000]"
+        className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-10000"
         aria-label="Close gallery"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
         >
@@ -164,7 +164,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
         </div>
 
         {current.caption && (
-          <p className="mt-4 mb-0 w-full max-w-full text-center text-(--color-neutral-100)">
+          <p className="mt-4 mb-0 w-full max-w-full text-center text-neutral-100">
             {current.caption}
           </p>
         )}
@@ -173,11 +173,10 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           <div className="flex flex-col items-center w-full mt-6 gap-4">
 
             {/* Main Controls Wrapper */}
-            <div className="flex items-center justify-center w-auto bg-(--color-steep-700) rounded-2xl gap-4 p-2">
+            <div className="flex items-center justify-center w-auto bg-(--color-steep-900) rounded-3xl gap-3 p-3">
 
               {/* Previous Button */}
               <Button
-                variant="nav"
                 className="items-center justify-center w-10 h-10"
                 aria-label="Previous image"
                 onClick={(e) => { e.stopPropagation(); onPrev(); }}
@@ -197,7 +196,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
                     key={item.id}
                     className={`transition-all duration-200 rounded-full h-2 w-2 
                       ${i === activeIndex 
-                        ? 'bg-white scale-125' 
+                        ? 'bg-white scale-125'
                         : 'bg-white/30 hover:bg-white/60'
                       }`}
                     aria-label={`Image ${i + 1}: ${item.alt}`}
@@ -209,7 +208,6 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
               {/* Next Button */}
               <Button
-                variant="nav"
                 className="items-center justify-center w-10 h-10"
                 aria-label="Next image"
                 onClick={(e) => { e.stopPropagation(); onNext(); }}
