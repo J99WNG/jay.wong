@@ -41,7 +41,7 @@ const clientLogos: LogoItem[] = [
   {
     id: 'ford',
     name: 'Ford Motor',
-    src: '/assets/logos/ford-logo.svg',
+    src: '/assets/logos/ford-logo-2.svg',
   },
   {
     id: 'ibm',

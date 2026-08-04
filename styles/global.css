@@ -152,14 +152,7 @@
 
   /* Paragraphs */
   p {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: -0.04rem;
-    line-height: 1.6;
-    max-width: 65ch;
-
-    margin-block-start: 0;
-    margin-block-end: 0.5rem;
+    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0 mbe-0.5;
   }
 
   p.lead {

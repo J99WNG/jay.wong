@@ -28,11 +28,9 @@ export default function About() {
                 </div>
 
                 <div className="section-content">
-                    <div className="content-block">
-                        <p className="lead">
-                            Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
-                        </p>
-                    </div>
+                    <p className="lead">
+                        Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
+                    </p>
 
                     <ul className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap list-none p-0">
                         {skills.map((skill) => (

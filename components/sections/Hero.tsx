@@ -121,7 +121,7 @@ export default function Hero() {
               initial="initial"
               animate="animate"
               variants={typewriterContainer}
-              className="inline-block text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight m-0"
+              className="inline-block text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight leading-9 m-0"
             >
               {taglineChars.map((char, index) => (
                 <motion.span 
