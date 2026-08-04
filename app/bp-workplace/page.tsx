@@ -43,30 +43,23 @@ export const metadata: Metadata = {
                 </div>
 
                 <div className="bento-grid">
-                    <div className="bento-item tall">
-                        <Image
-                                src={project.bentoImage}
-                                alt="Featured Project"
-                                fill // Makes image fill the container
-                                priority // Ensures this image loads fast
-                            />
-                    </div>
+                    <FigureModal
+                        className="bento-item md:row-span-2"
+                        src={project.bentoImage}
+                        alt="Featured Project"
+                    />
 
-                    <div className="bento-item">
-                        <Image
-                                src={project.bentoImage2}
-                                alt=""
-                                fill // Makes image fill the container
-                            />
-                    </div>
+                    <FigureModal
+                        className="bento-item"
+                        src={project.bentoImage2}
+                        alt=""
+                    />
 
-                    <div className="bento-item">
-                        <Image
-                                src={project.bentoImage3}
-                                alt=""
-                                fill // Makes image fill the container
-                            />
-                    </div>
+                    <FigureModal
+                        className="bento-item"
+                        src={project.bentoImage3}
+                        alt=""
+                    />
                 </div>
             </Section>
 

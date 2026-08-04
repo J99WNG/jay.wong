@@ -40,7 +40,7 @@ export default function About() {
                         ))}
                     </ul>
 
-                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
+                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 sm:grid-cols-2">
                         <div className="card">
                             <div className="card-content px-7 py-6">
                                 <span className="icon icon-xl" aria-hidden="true">

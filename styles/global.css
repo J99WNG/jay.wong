@@ -152,7 +152,7 @@
 
   /* Paragraphs */
   p {
-    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0 mbe-0.5;
+    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0;
   }
 
   p.lead {
@@ -298,45 +298,22 @@ figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.75rem;
-  border: 1px solid var(--color-border-muted);
   transition: transform 0.5s ease;
 }
 
 figcaption,
 caption {
-  margin-top: 0.75rem;
-  color: var(--color-text-tertiary);
-  font-size: 0.75rem;
-  letter-spacing: -0.02rem;
-  text-align: left;
+  @apply mt-3 text-text-tertiary text-xs text-left tracking-tight;
 }
 
 }
-
 
 @layer components {
 
 /* ==================== Images ==================== */
 .bento-item {
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Ensures height exists so 'fill' works */
-  overflow: hidden;
-  border-radius: 0.75rem;
-  border: 1px solid var(--color-border-muted);
-}
-
-.bento-item img {
-  object-fit: cover; /* This ensures images fill the box without stretching */
-  transition: transform 0.5s ease;
-}
-
-/* Subtle Hover Effect */
-.bento-item:hover img,
-.bento-item:active img,
-.bento-item:focus-visible img {
-  transform: scale(1.05);
+  height: 100%;
 }
 
 /* ==================== Card ==================== */
@@ -537,12 +514,7 @@ caption {
 
 /* ==================== Grids & layouts ==================== */
 .bento-grid {
-  display: grid;
-  /* Two equal columns, and two equal rows */
-  gap: 1.5rem;
-  grid-template-columns: 1fr; /* One column only */
-  grid-template-rows: auto;    /* Let rows grow naturally */
-  height: auto;
+  @apply grid grid-cols-1 gap-6 md:h-[500px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2;
 }
 
 .content-block {
@@ -727,23 +699,6 @@ html:focus-within {
 
 /* ==================== Responsive system – scale UP at larger viewports ==================== */
 @media (min-width: 768px) {
-
-  .bento-grid {
-    grid-template-columns: 1.5fr 1fr; 
-    grid-template-rows: 1fr 1fr;
-    height: 500px; /* Define a height to see the effect */
-    width: 100%;
-  }
-
-  .bento-item {
-    aspect-ratio: auto; /* Let the grid row height take over */
-    height: 100%;
-  }
-
-  /* The "Large" image spans from row 1 to row 3 (covering 2 rows) */
-  .bento-item.tall {
-    grid-row: 1 / 3;
-  }
 
   .card {
     flex-direction: row;
