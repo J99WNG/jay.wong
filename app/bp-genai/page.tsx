@@ -87,7 +87,7 @@ export default async function Page() {
                     <div className="content-block">
                         <p className="small">Impact (6 months post-launch)</p>
 
-                        <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
+                        <div className="grid place-items-start justify-start md:place-items-stretch gap-5 grid-cols-1 md:grid-cols-2">
                         <div className="card">
                             <div className="card-content px-6 py-5">
                             <p>

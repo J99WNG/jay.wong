@@ -15,7 +15,7 @@ const Inter = localFont({
   display: "swap",
 });
 
-// 2. Initialize Inter (Using a variable font file if available)
+// 2. Initialize Nohemi (Using a variable font file if available)
 const Nohemi = localFont({
   src: "./fonts/Nohemi-VF.ttf",
   variable: "--font-nohemi", // Exposes the CSS variable

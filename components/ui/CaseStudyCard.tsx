@@ -7,7 +7,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
-    <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104">
+    <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
       <div className="card-content p-8 px-7">
 
         <p className="small">

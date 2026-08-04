@@ -220,7 +220,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
             </div>
 
           {/* Counter - Sits neatly below the controls */}
-          <p className="text-(--color-neutral-500) text-sm font-medium" aria-hidden="true">
+          <p className="text-neutral-500 text-sm font-medium" aria-hidden="true">
             {activeIndex + 1} / {total}
           </p>
         </div>
@@ -241,7 +241,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeIn {
@@ -265,7 +265,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
           height: auto;
           border-radius: 0.75rem;
           display: block;
-          animation: imageIn 0.2s ease;
+          animation: imageIn 0.8s ease;
         }
 
         /* ── Counter ───────────────────────────────── */

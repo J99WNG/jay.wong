@@ -152,7 +152,7 @@
 
   /* Paragraphs */
   p {
-    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0;
+    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0 mbe-0;
   }
 
   p.lead {
@@ -160,7 +160,7 @@
   }
 
   p.small {
-    @apply font-pixel text-sm font-semibold text-text-tertiary tracking-tight uppercase mb-0;
+    @apply font-pixel text-sm font-semibold text-text-tertiary tracking-normal uppercase mb-0;
   }
 
   /* Lists */
@@ -329,7 +329,7 @@ caption {
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);            
+    transition: all 0.4s cubic-bezier(0.25,1,0.5,1);            
   }
   
 .card:hover,
@@ -372,12 +372,6 @@ caption {
   padding: 2rem 1.75rem;
   gap: 1.75rem;
 }
-
-.card p {
-    margin: 0;
-    margin-bottom: 0;
-  }
-
 
 .card-link {
   /* 1. Layout: Flex is king for buttons */
@@ -424,7 +418,7 @@ caption {
   background-color: var(--color-bg-tertiary);
   border: 1px solid var(--color-border-base);
 
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
 .badge:hover,
@@ -514,13 +508,13 @@ caption {
 
 /* ==================== Grids & layouts ==================== */
 .bento-grid {
-  @apply grid grid-cols-1 gap-6 md:h-[500px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2;
+  @apply grid grid-cols-1 gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2;
 }
 
 .content-block {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 /* ==================== Header ==================== */
@@ -547,7 +541,7 @@ caption {
   transform: translateY(-20px);
   transition: 
         opacity 0.4s ease, 
-        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.4s cubic-bezier(0.25,1,0.5,1),
         visibility 0.4s;
   z-index: 9998;
 }
@@ -563,7 +557,7 @@ caption {
   font-size: 1.5rem;
   padding: 0;
   color: var(--color-neutral-100);
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
 .nav-list a:hover,
@@ -601,7 +595,7 @@ caption {
   font-size: 2rem;
   color: var(--color-neutral-100);
   transition: 
-      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.4s cubic-bezier(0.25,1,0.5,1),
       opacity 0.3s ease,
       color 0.3s ease;
 }
@@ -663,7 +657,7 @@ span.section-subheading {
   align-items: center;
   width: fit-content;
 
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
 /* ==================== Accessibility & inclusive design ==================== */

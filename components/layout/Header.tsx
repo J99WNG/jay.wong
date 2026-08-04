@@ -3,22 +3,36 @@
 import Link from 'next/link'; // Import the Next.js Link engine
 import { useState, useEffect } from 'react';
 import Button from '../ui/Button';
-import TextLink from '../ui/TextLink';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    // This effect runs whenever 'isOpen' changes
+    // Track scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 24);
+        };
+
+        handleScroll(); // Set initial state
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = '';
+            document.body.style.overflow = "";
         }
-        
-        // Cleanup function: ensures scroll is unlocked if component unmounts
+
         return () => {
-            document.body.style.overflow = '';
+            document.body.style.overflow = "";
         };
     }, [isOpen]);
 
@@ -26,9 +40,32 @@ export default function Header() {
     const closeMenu = () => setIsOpen(false);
     
     return (
-        <header className="fixed top-0 left-0 z-[9997] h-auto w-full pointer-events-none bg-gradient-to-b from-bg-primary/70 to-transparent transition-all duration-200 ease-linear">
+        <header className="fixed top-0 left-0 z-9997 h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent transition-all duration-200 ease-linear">
             <div className="container">
-                <div className="relative mx-auto my-4 flex h-16 max-w-full flex-nowrap items-center justify-between rounded-3xl p-4 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-auto bg-(--color-steep-900)/90 backdrop-blur-md">
+                <div
+                    className={`
+                        relative
+                        h-16
+                        my-4
+                        mx-auto
+                        p-4
+                        flex
+                        items-center
+                        justify-between
+                        rounded-3xl
+                        pointer-events-auto
+                        backdrop-blur-md
+                        transition-all
+                        duration-500
+                        ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]
+
+                        ${
+                            scrolled
+                                ? "max-w-xl bg-(--color-steep-700)/80"
+                                : "max-w-full bg-(--color-steep-700)"
+                        }
+                    `}
+                >
                     {/* Logo */}
                     <Link href="/" id="nav-brand" className="flex items-center basis-auto flex-none group outline-none" aria-label="JW homepage" onClick={closeMenu}>
                         <svg 

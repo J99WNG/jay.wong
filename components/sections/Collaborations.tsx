@@ -5,7 +5,7 @@ import Section from "../Section";
 import Link from 'next/link';
 import Image from 'next/image';
 
-interface LogoItem {
+interface CompanyLogo {
   id: string;
   name: string;
   src: string;
@@ -13,7 +13,7 @@ interface LogoItem {
   caseStudySlug?: string;  // Optional: If provided, renders an active link
 }
 
-const clientLogos: LogoItem[] = [
+const companyLogos: CompanyLogo[] = [
   {
     id: 'barclays',
     name: 'Barclays',
@@ -68,7 +68,7 @@ const clientLogos: LogoItem[] = [
 
 export default function Collaborations() {
 
-  // Track mouse coordinates and the active item currently hovered
+  // Track mouse coordinates and the active company currently hovered
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredItemId, setHoveredItemId] = useState<string | number | null>(null);
 
@@ -88,29 +88,23 @@ export default function Collaborations() {
           </div>
 
           <div className="section-content">
-              <div className="content-block">
-                  <p className="lead">
-                      My work spans energy, finance, and education, where I’ve partnered with multidisciplinary teams to deliver meaningful, scalable outcomes.
-                  </p>
-
-                  <p>
-                      I&apos;ve spent the last 7 years crafting global, sustainable and inclusive digital experiences. An innate design thinker blended with a strong business acumen — I thrive on bridging the intersections of Design, IT and Business through fostering collaboration and leveraging a user-centred approach to deliver on customer needs and business goals.
-                  </p>
-              </div>
+              <p className="lead">
+                Over the past 7 years I've partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes.  I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I've led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
+              </p>
 
               <div>
                 <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">
-                  {clientLogos.map((item) => {
-                    // Check if the item is hovered AND has a valid description
-                    const showTooltip = hoveredItemId === item.id && !!item.roleDescription;
+                  {companyLogos.map((company) => {
+                    // Check if the company is hovered AND has a valid description
+                    const showTooltip = hoveredItemId === company.id && !!company.roleDescription;
 
                     const CardContent = (
                       <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
                         <div className="relative h-16 w-full transition-all duration-300 group-hover:scale-105 group-active:scale-105 group-focus:scale-105">
                           <Image
-                            src={item.src}
-                            alt={`${item.name} logo`}
+                            src={company.src}
+                            alt={company.name}
                             fill
                             sizes="(max-width: 768px) 50vw, 33vw"
                             className="object-contain grayscale opacity-80 transition-all duration-300 ease-in-out group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus:filter-none group-focus:opacity-100"
@@ -118,10 +112,10 @@ export default function Collaborations() {
                         </div>
 
                         {/* Mouse-Anchored Floating Tooltip */}
-                        {item.roleDescription && (
+                        {company.roleDescription && (
                           <div
                             role="tooltip"
-                            id={`tooltip-${item.id}`}
+                            id={`tooltip-${company.id}`}
                             style={{
                               left: `${mousePos.x}px`,
                               top: `${mousePos.y}px`,
@@ -131,8 +125,8 @@ export default function Collaborations() {
                               showTooltip ? 'opacity-100' : 'opacity-0'
                             }`}
                           >
-                            <span className="block font-bold text-text-primary mb-0.5">{item.name}</span>
-                            <p className="text-xs font-sm leading-relaxed">{item.roleDescription}</p>
+                            <span className="block font-bold text-text-primary mb-0.5">{company.name}</span>
+                            <p className="text-xs font-sm leading-relaxed">{company.roleDescription}</p>
                           </div>
                         )}
                       </div>
@@ -140,16 +134,16 @@ export default function Collaborations() {
 
                     return (
                       <li
-                        key={item.id}
+                        key={company.id}
                         className="group relative card transition-all duration-300 pb-0"
-                        onMouseEnter={() => setHoveredItemId(item.id)}
+                        onMouseEnter={() => setHoveredItemId(company.id)}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={() => setHoveredItemId(null)}
                       >
-                        {item.caseStudySlug ? (
+                        {company.caseStudySlug ? (
                           <Link
-                            href={item.caseStudySlug}
-                            aria-describedby={item.roleDescription ? `tooltip-${item.id}` : undefined}
+                            href={company.caseStudySlug}
+                            aria-describedby={company.roleDescription ? `tooltip-${company.id}` : undefined}
                             className="block w-full h-full rounded-2xl text-inherit focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600"
                           >
                             {CardContent}
@@ -157,9 +151,9 @@ export default function Collaborations() {
                         ) : (
                           <button
                             type="button"
-                            aria-describedby={item.roleDescription ? `tooltip-${item.id}` : undefined}
+                            aria-describedby={company.roleDescription ? `tooltip-${company.id}` : undefined}
                             className={`block w-full h-full text-left rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600 ${
-                              item.roleDescription ? 'cursor-help' : 'cursor-default'
+                              company.roleDescription ? 'cursor-help' : 'cursor-default'
                             }`}
                           >
                             {CardContent}
