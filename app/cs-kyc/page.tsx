@@ -1,9 +1,9 @@
 import Section from '@/components/Section';
 import Image from 'next/image';
-import FigureModal from '@/components/ui/FigureModal';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
-import NextProjectCTA from '@/components/ui/NextProjectCTA';
+import FigureModal from '@/components/ui/FigureModal';
 import { caseStudies } from "@/app/data/caseStudies";
+import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { Metadata } from 'next'
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
@@ -27,41 +27,13 @@ export const metadata: Metadata = {
   export default async function Page() {
     // Force Next.js to wait for 2 seconds before rendering this page
     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    if (!project) return null;
     
     return (
         <GalleryProvider>
             <article>
-                <Section id="landing" isLanding={true}>
-                    <NextProjectCTA />
-
-                    <div className="flex flex-col gap-2 mbe-4">
-                        <p className="small">
-                            {project.year} · {project.company} · {project.industry}
-                        </p>
-                        <h1>{project.title}</h1>
-                        <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.6] tracking-tighter">{project.tagline}</p>
-                    </div>
-
-                    <div className="bento-grid">
-                        <FigureModal
-                            className="bento-item md:row-span-2"
-                            src={project.bentoImage}
-                            alt="Featured Project"
-                        />
-
-                        <FigureModal
-                            className="bento-item"
-                            src={project.bentoImage2}
-                            alt=""
-                        />
-
-                        <FigureModal
-                            className="bento-item"
-                            src={project.bentoImage3}
-                            alt=""
-                        />
-                    </div>
-                </Section>
+                <CaseStudyLanding project={project} />
 
                 <Section id="Snapshot">
                     <div className="col-30-70">

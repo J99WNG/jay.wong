@@ -1,6 +1,6 @@
 import Section from "../Section";
 import HKTClock from "@/components/HKTClock";
-import CopyEmail from '@/components/CopyEmail';
+import CopyEmail from '@/components/ui/CopyEmail';
 import TextLink from "../ui/TextLink";
 import Link from "next/link";
 

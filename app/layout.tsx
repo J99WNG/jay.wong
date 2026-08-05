@@ -6,7 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";
 import InitialLoader from '@/components/InitialLoader';
-import ThemeToggle from '@/components/ThemeToggle';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 // 1. Initialize Inter (Using a variable font file if available)
 const Inter = localFont({
