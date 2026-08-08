@@ -88,7 +88,7 @@ export default function Hero() {
             </span>
 
             {/* 2. Visual Layer: Hidden from screen readers */}
-            <span aria-hidden="true" className=" text-text-primary flex flex-wrap gap-x-3 items-center">
+            <span aria-hidden="true" className=" text-text-primary text-[clamp(2.75rem,5vw,3.5rem)] flex flex-wrap gap-x-3 items-center">
               <span>Solving digital complexity through</span>
               
               {shouldReduceMotion ? (

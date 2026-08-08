@@ -121,7 +121,8 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
   return (
     <div
-      className="modal-overlay"
+      id="scrim-overlay"
+      className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-xs will-change-[backdrop-filter,opacity] transform-[translateZ(0)] flex items-center justify-center animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
       role="dialog"
       aria-modal="true"
       aria-label={`Image ${activeIndex + 1} of ${total}`}
@@ -228,22 +229,6 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
       </div>
 
       <style jsx>{`
-        /* ── Overlay ───────────────────────────────── */
-        .modal-overlay {
-          position: fixed;
-          inset: 0;
-          z-index: 9999;
-          background: rgba(0, 0, 0, 0.7);
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          will-change: backdrop-filter, opacity;
-          transform: translateZ(0);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
         @keyframes fadeIn {
           from { opacity: 0; }
           to   { opacity: 1; }

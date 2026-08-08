@@ -4,7 +4,7 @@ import TextLink from "./TextLink";
 import type { CaseStudy } from "@/app/data/caseStudies";
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
-  const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
+  const { slug, year, company, logo, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
     <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">

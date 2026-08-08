@@ -1,13 +1,13 @@
 'use client';
 
-import { s } from 'framer-motion/client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const caseStudies = [
-  { slug: 'bp-genai', title: 'Project Alpha' },
-  { slug: 'bp-workplace', title: 'Project Beta' },
-  { slug: 'cs-kyc', title: 'Project Gamma' },
+  { slug: 'bp-genai' },
+  { slug: 'bp-workplace' },
+  { slug: 'cs-kyc' },
+  { slug: 'revisiondojo-yc' }
 ];
 
 export default function NextProjectCTA() {
@@ -31,9 +31,9 @@ export default function NextProjectCTA() {
       
       <Link href="/#work" title="Back to all projects">
           <span className="icon icon-sm" aria-hidden="true">
-          <span className="material-symbols-rounded arrow_back">
-              arrow_back
-          </span>
+            <span className="material-symbols-rounded arrow_back">
+                arrow_back
+            </span>
           </span>
           
           Back to all

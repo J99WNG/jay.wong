@@ -29,9 +29,10 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
           className="bento-item md:row-span-2"
           src={project.bentoImage}
           alt={`Featured image for ${project.title}`}
+          priority
         />
-        <FigureModal className="bento-item" src={project.bentoImage2} alt="" />
-        <FigureModal className="bento-item" src={project.bentoImage3} alt="" />
+        <FigureModal className="bento-item" src={project.bentoImage2} alt="" priority />
+        <FigureModal className="bento-item" src={project.bentoImage3} alt="" priority />
       </div>
     </Section>
   );

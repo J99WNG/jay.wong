@@ -16,6 +16,29 @@ const skills = [
     "Tailwind",
   ];
 
+  const strengths = [
+    {
+        icon: "account_tree",
+        title: "Strategic Organiser",
+        text: "I keep teams aligned, focused, and moving fast. Kanbans and PBIs are nothing new to me."
+    },
+    {
+        icon: "category",
+        title: "Cross-Functional",
+        text: "Fluency across design, IT, and business – I turn gaps into shared understanding."
+    },
+    {
+        icon: "search_insights",
+        title: "Evidence-Led",
+        text: "My decisions are grounded in research, data, and real user needs – not assumptions."
+    },
+    {
+        icon: "diversity_4",
+        title: "Collaborative Owner",
+        text: "I lead with trust and shared ownership, driving outcomes together, not alone."
+    }
+];
+
 export default function About() {
     return (
         <Section id="about">
@@ -41,53 +64,21 @@ export default function About() {
                     </ul>
 
                     <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 sm:grid-cols-2">
-                        <div className="card">
-                            <div className="card-content px-7 py-6">
-                                <span className="icon icon-xl" aria-hidden="true">
-                                    <span className="material-symbols-rounded card-icon" translate="no">account_tree</span>
-                                </span>
+                        {strengths.map((item) => (
+                            <div className="card" key={item.title}>
+                                <div className="card-content px-7 py-6">
+                                    <span className="icon icon-xl" aria-hidden="true">
+                                        <span className="material-symbols-rounded card-icon" translate="no">
+                                            {item.icon}
+                                        </span>
+                                    </span>
 
-                                <p className="lead">Strategic Organiser</p>
+                                    <p className="lead">{item.title}</p>
 
-                                <p className="card-text">I bring structure to complexity, keeping teams aligned, focused, and moving fast.</p>
+                                    <p className="card-text">{item.text}</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-content px-7 py-6">
-                                <span className="icon icon-xl" aria-hidden="true">
-                                    <span className="material-symbols-rounded card-icon" translate="no">category</span>
-                                </span>
-
-                                <p className="lead">Cross-Functional</p>
-
-                                <p className="card-text">Fluency across design, IT, and business – I turn gaps into shared understanding.</p>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-content px-7 py-6">
-                                <span className="icon icon-xl" aria-hidden="true">
-                                    <span className="material-symbols-rounded card-icon" translate="no">search_insights</span>
-                                </span>
-
-                                <p className="lead">Evidence-Led</p>
-
-                                <p className="card-text">My decisions are grounded in research, data, and real user needs – not assumptions.</p>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-content px-7 py-6">
-                                <span className="icon icon-xl" aria-hidden="true">
-                                    <span className="material-symbols-rounded card-icon" translate="no">diversity_4</span>
-                                </span>
-                                
-                                <p className="lead">Collaborative Owner</p>
-                                
-                                <p className="card-text">I lead with trust and shared ownership, driving outcomes together, not alone.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
