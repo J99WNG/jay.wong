@@ -31,13 +31,14 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
   }, [isLanding]);
 
   return (
-    <section 
+    <section
       id={id}
       ref={sectionRef}
+      tabIndex={-1}
       className={`
-        relative overflow-hidden isolate content-center w-full mx-auto
-        ${isLanding 
-          ? 'min-h-screen bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32' 
+        relative isolate w-full mx-auto overflow-hidden
+        ${isLanding
+          ? 'min-h-screen bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32'
           : 'min-h-fit bg-bg-primary py-32'}
         ${className}
       `}

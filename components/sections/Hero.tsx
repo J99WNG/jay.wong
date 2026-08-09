@@ -7,6 +7,23 @@ import Button from "../ui/Button";
 
 
 export default function Hero() {
+
+  const scrollToWork = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+  
+    const work = document.getElementById('work');
+    if (!work) return;
+  
+    work.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
+      block: 'start',
+    });
+  
+    work.focus({ preventScroll: true });
+  };
+
   const shouldReduceMotion = useReducedMotion();
   const [keywordIndex, setKeywordIndex] = useState(0);
 
@@ -143,7 +160,7 @@ export default function Hero() {
             transition={{ delay: 2 }}
             className="flex flex-wrap gap-4 items-center"
           >
-            <Button variant="primary" href="#work">
+            <Button variant="primary" href="/#work" onClick={scrollToWork}>
               View work
             </Button>
 

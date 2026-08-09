@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
@@ -22,6 +23,7 @@
     "react-dom": "^19.2.8",
     "tailwind-merge": "^3.5.0"
   },
+  
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

@@ -8,7 +8,7 @@ const skills = [
     "Inclusive design",
     "Conversational AI",
     "Systems thinking",
-    "Agile methodology",
+    "Agile / Scrum Delivery",
     "ServiceNow",
     "HTML",
     "CSS",
@@ -51,6 +51,10 @@ export default function About() {
                 </div>
 
                 <div className="section-content">
+                    <p className="lead">
+                        I build, navigate, and explore the world through the lens of design. I grew up chasing each generation of Nintendos and Sony Ericssons, which shaped my fascination for tech.
+                    </p>
+
                     <p className="lead">
                         Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
                     </p>
