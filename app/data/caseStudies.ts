@@ -23,7 +23,7 @@ export type CaseStudy = {
       company: "General Learning (YC 24)",
       logo: "",
       industry: "EdTech",
-      title: "Introducing a learning mascot to 250,000 students",
+      title: "Scaling a learning mascot to 250,000 students",
       tagline: "Modernising a study content platform through 40,000 AI tutoring sessions per day.",
       role: "Design",
       badges: ["EdTech", "AI Platform", "Brand Strategy"],

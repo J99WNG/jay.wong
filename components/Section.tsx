@@ -36,10 +36,10 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
       ref={sectionRef}
       tabIndex={-1}
       className={`
-        relative isolate w-full mx-auto overflow-hidden
+        relative isolate w-full mx-auto
         ${isLanding
-          ? 'min-h-screen bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32'
-          : 'min-h-fit bg-bg-primary py-32'}
+          ? 'min-h-screen overflow-hidden content-center bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32'
+          : 'min-h-fit overflow-visible bg-bg-primary py-32'}
         ${className}
       `}
     >

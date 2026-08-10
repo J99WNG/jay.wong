@@ -78,7 +78,7 @@ export default function FigureModal({
             flex
             items-center
             justify-center
-            bg-black/20
+            bg-black/40
             opacity-0
             transition-opacity
             duration-300

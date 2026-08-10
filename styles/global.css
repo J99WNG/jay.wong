@@ -160,7 +160,7 @@
   }
 
   p.small {
-    @apply font-pixel text-sm font-semibold text-text-tertiary tracking-normal uppercase mb-0;
+    @apply font-pixel text-sm font-semibold text-text-tertiary tracking-normal uppercase mb-0 max-w-none;
   }
 
   /* Lists */
@@ -225,7 +225,6 @@
   display: flex;
   justify-content: space-between;
   place-items: center;
-  margin-bottom: 3rem;
   }
 
   .breadcrumb a,
@@ -626,9 +625,12 @@ caption {
 
 .section-heading {
   position: sticky;
+  top: var(--header-height);
+  z-index: 1;
   display: flex;
   flex-direction: column;      /* mobile default */
-  align-self: start;
+  align-self: flex-start;
+  height: max-content;
   margin-bottom: 2rem;
 }
 
@@ -637,6 +639,69 @@ caption {
   flex-direction: column;
   gap: 2.5rem;
   max-width: 100%;
+}
+
+/* ==================== Case study navigation ==================== */
+.case-study-navigation {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  right: max(1rem, calc((100vw - var(--container-page)) / 2 - 11rem));
+  width: 10rem;
+  transform: translateY(-50%);
+  padding-left: 1rem;
+  border-left: 1px solid var(--color-border-muted);
+}
+
+.case-study-navigation__label {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-tertiary);
+  font: 600 0.75rem/1 var(--font-geist-pixel), monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.case-study-navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study-navigation li { padding: 0; }
+
+.case-study-navigation a {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  width: 100%;
+  padding: 0.375rem 0;
+  color: var(--color-text-tertiary);
+  font-size: 0.8125rem;
+  line-height: 1.25;
+}
+
+.case-study-navigation a > span {
+  color: var(--color-accent-primary);
+  font-family: var(--font-geist-pixel), monospace;
+  font-size: 0.625rem;
+}
+
+.case-study-navigation a:hover,
+.case-study-navigation a:focus-visible,
+.case-study-navigation a[aria-current='location'] {
+  color: var(--color-text-primary);
+}
+
+article > section[id] {
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+
+@media (max-width: 1199px) {
+  .case-study-navigation {
+    display: none;
+  }
 }
 
 span.section-subheading {
@@ -711,7 +776,7 @@ html:focus-within {
     display: grid;
     grid-template-columns: 0.35fr 0.65fr;
     gap: 2.5rem;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .nav-menu {
