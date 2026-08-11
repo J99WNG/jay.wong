@@ -135,7 +135,7 @@
   }
 
   h1 {
-    @apply text-[clamp(2.5rem,5vw,3rem)] leading-[1.2] m-0;
+    @apply text-[clamp(2rem,5vw,2.5rem)] leading-[1.2] m-0;
   }
 
   h2 {
@@ -522,13 +522,11 @@ caption {
 }
 
 .nav-menu { /* mobile overlay menu - hidden by default */
-  top: calc(100% + 1rem);             /* same as header height */
+  top: calc(100% + 1rem);           /* same as header height */
   width: 100%;
   background: var(--color-steep-700);
-  color: var(--color-neutral-100);
   padding: 1.5rem;
   border-radius: 1.5rem;
-
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -747,12 +745,15 @@ html:focus-within {
 }
 
 .sr-only { /* screen-reader only text */
-  position: absolute;
+	position: absolute;
   width: 1px;
   height: 1px;
-  clip: rect(1px,1px,1px,1px);
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+  border-width: 0;
 }
 
 

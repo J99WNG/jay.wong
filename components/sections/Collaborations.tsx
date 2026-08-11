@@ -89,7 +89,7 @@ export default function Collaborations() {
 
           <div className="section-content">
               <p className="lead">
-                Over the past 7 years I've partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes.  I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I've led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
+                For 7 or so years, I've partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes.  I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I've led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
               </p>
 
               <div>

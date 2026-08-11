@@ -17,14 +17,14 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
 
           <NextProjectCTA />
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <p className="small">
               {project.year} · {project.company} · {project.industry}
             </p>
 
             <h1>{project.title}</h1>
 
-            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.6] tracking-tighter">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tighter">
               {project.tagline}
             </p>
           </div>

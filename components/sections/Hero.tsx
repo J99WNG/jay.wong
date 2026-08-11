@@ -105,7 +105,7 @@ export default function Hero() {
             </span>
 
             {/* 2. Visual Layer: Hidden from screen readers */}
-            <span aria-hidden="true" className=" text-text-primary text-[clamp(2.75rem,5vw,3.5rem)] flex flex-wrap gap-x-3 items-center">
+            <span aria-hidden="true" className=" text-text-primary text-[clamp(2.5rem,5vw,3.25rem)] flex flex-wrap gap-x-3 items-center">
               <span>Solving digital complexity through</span>
               
               {shouldReduceMotion ? (
@@ -131,14 +131,14 @@ export default function Hero() {
           </motion.h1>
 
           {/* Accessible Tagline Typewriter Block */}
-          <div className="m-0 relative text-text-tertiary">
+          <div className="m-0 relative text-text-tertiary/80">
             <span className="sr-only">{taglineText}</span>
             <motion.p
               aria-hidden="true"
               initial="initial"
               animate="animate"
               variants={typewriterContainer}
-              className="inline-block text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight leading-9 m-0"
+              className="inline-block text-[clamp(1.25rem,4vw,1.5rem)] tracking-tight leading-9 m-0"
             >
               {taglineChars.map((char, index) => (
                 <motion.span 
