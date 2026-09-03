@@ -24,10 +24,7 @@ export const metadata: Metadata = {
     },
   }
 
-export default async function Page() {
-    // Force Next.js to wait for 2 seconds before rendering this page
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
+export default function Page() {
     if (!project) return null;
 
     return (
@@ -36,27 +33,27 @@ export default async function Page() {
             <CaseStudyLanding project={project} />
 
             <Section id="snapshot">
-            <div className="col-30-70">
+            <div className="section-grid">
 
                 <div className="section-heading">
                     <h2>Snapshot
                     <br />
-                    <span className="section-subheading">The “too long didn&apos;t read”.</span>
+                    <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
-                    <div className="content-block">
+                <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="flex flex-col gap-2">
                         <p className="small">Problem</p>
                         <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels was increasing operational costs and reducing employee productivity.</p>
                     </div>
                     
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                         <p className="small">Outcome</p>
                         <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>
                     </div>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                         <p className="small">Impact (6 months post-launch)</p>
 
                         <div className="grid place-items-start justify-start md:place-items-stretch gap-5 grid-cols-1 md:grid-cols-2">
@@ -107,10 +104,11 @@ export default async function Page() {
                             <p className="small">Company</p>
                             <p>
                                 <span className="icon icon-inline icon-md">
-                                <img 
-                                src="/assets/logos/bp-helios-colour.svg"
-                                alt="bp"
-                                loading="lazy"
+                                <Image
+                                  src="/assets/logos/bp-helios-colour.svg"
+                                  alt="bp"
+                                  width={24}
+                                  height={24}
                                 />
                                 </span> bp plc</p>
                         </div>
@@ -153,26 +151,26 @@ export default async function Page() {
 
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="role" aria-labelledby="role-heading">
 
-                <div className="col-30-70">
+                <div className="section-grid">
 
                 <div className="section-heading">
                     <h2 className="section-title">My role
                     <br />
-                    <span className="section-subheading">Responsibilities and strategic focus.</span>
+                    <span className="font-normal text-text-tertiary">Responsibilities and strategic focus.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
+                <div className="inline-flex max-w-full flex-col gap-10">
 
                     <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h3>
                         My core responsibilities
                     </h3>
@@ -195,28 +193,28 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
             <hr className="divider" />
             </div>
 
             <Section id="context">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                 <div className="section-heading">
                     <h2>Business context
                     <br />
-                    <span className="section-subheading">Why it mattered.</span>
+                    <span className="font-normal text-text-tertiary">Why it mattered.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
-                    <div className="content-block">
+                <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="flex flex-col gap-2">
                     <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests and basic “how-to” questions.</p>
                     
                     <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
                     </div>
                     
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h3>Key signals</h3>
                     <ul>
                         <li>~30% of service desk tickets were repeatable, low-complexity (known as Priority 3 tickets).</li>
@@ -233,7 +231,7 @@ export default async function Page() {
                     </ul>
                     </div>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h3>Strategic backdrop</h3>
                     <p>This initiative sat within a broader “Shift Left” transformation roadmap — moving issue resolution as close to the employee as possible to improve efficiency and reduce reliance on L3 live support.</p>
                     <p>Generative AI was identified as a potential enabler; not to replace human agents, but to improve knowledge discovery, summarisation and confidence in self-serve outcomes.</p>
@@ -244,25 +242,25 @@ export default async function Page() {
 
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="discovery" aria-labelledby="discovery-heading">
 
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
                         <br />
-                        <span className="section-subheading">Uncovering the insights.</span>
+                        <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
+                    <div className="inline-flex max-w-full flex-col gap-10">
                         <p className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></p>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Quantitative analysis (ServiceNow analytics)</h3>
                             
                             <p>Working with the data team, I reviewed historical ticket and search data:</p>
@@ -285,12 +283,12 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>1-to-1 interviews with SMEs and power users</h3>
 
                             <p>I conducted <strong>16 interviews</strong> across US, Europe and APAC regions with a mix of power users, SMEs and everyday employees.</p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h4>
                                 Key synthesised insights
                                 </h4>
@@ -347,7 +345,7 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Stakeholder alignment workshop</h3>
 
                             <p>I facilitated a discovery workshop with ITSM leadership and SMEs to:</p>
@@ -379,35 +377,35 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider"/>
             </div>
 
             <Section id="problem" aria-labelledby="problem-definition">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                 <div className="section-heading">
                     <h2>Problem definition
                     <br />
-                    <span className="section-subheading">Turning research into a clear design focus.</span>
+                    <span className="font-normal text-text-tertiary">Turning research into a clear design focus.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
+                <div className="inline-flex max-w-full flex-col gap-10">
                     <p className="lead">Bringing together user, agent and business needs, we defined the core problem as:</p>
 
                     <blockquote className="notion-quote">
                     Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
                     </blockquote>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <p>This problem had three equally important lenses:</p>
 
                     <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
                         <div className="card">
                             <div className="card-content px-6 py-5">
                                 <span className="icon icon-lg" aria-hidden="true">
-                                    <span className="material-symbols-rounded card-icon" translate="no">emoji_people</span>
+                                    <span className="material-symbols-rounded text-accent-primary" translate="no">emoji_people</span>
                                 </span>
                 
                                 <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
@@ -417,7 +415,7 @@ export default async function Page() {
                         <div className="card">
                         <div className="card-content px-6 py-5">
                             <span className="icon icon-lg" aria-hidden="true">
-                                <span className="material-symbols-rounded card-icon" translate="no">support_agent</span>
+                                <span className="material-symbols-rounded text-accent-primary" translate="no">support_agent</span>
                             </span>
             
                             <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
@@ -427,7 +425,7 @@ export default async function Page() {
                         <div className="card">
                         <div className="card-content px-6 py-5">
                             <span className="icon icon-lg" aria-hidden="true">
-                                <span className="material-symbols-rounded card-icon" translate="no">business_center</span>
+                                <span className="material-symbols-rounded text-accent-primary" translate="no">business_center</span>
                             </span>
             
                             <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>
@@ -441,22 +439,22 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="goals" aria-labelledby="goals-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                 
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
                         <br />
-                        <span className="section-subheading">Defining what we want to solve.</span>
+                        <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</p>
 
                             <FigureModal
@@ -466,7 +464,7 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>
                             Product goals
                             </h3>
@@ -503,22 +501,22 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="ideation" aria-labelledby="ideation-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Ideation
                         <br />
-                        <span className="section-subheading">Thinking outside the box.</span>
+                        <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">We explored a wide range of ideas, including:</p>
 
                             <ul>
@@ -540,7 +538,7 @@ export default async function Page() {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">
                                 However, given time, budget and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented existing workflows, not replace.
                             </p>
@@ -558,7 +556,7 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Key trade-offs</h3>
 
                             <ul>
@@ -576,7 +574,7 @@ export default async function Page() {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>MVP focus areas</h3>
 
                             <ul>
@@ -598,22 +596,22 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="solution" aria-labelledby="solution-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>The solution
                         <br />
-                        <span className="section-subheading">Designing the AI-assisted experience.</span>
+                        <span className="font-normal text-text-tertiary">Designing the AI-assisted experience.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 Experience principles
                             </h3>
@@ -639,7 +637,7 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 Information architecture
                             </h3>
@@ -661,7 +659,7 @@ export default async function Page() {
                             />                        
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 AI-powered knowledge search
                             </h3>
@@ -691,7 +689,7 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 Accessibility &amp; inclusion
                             </h3>
@@ -720,26 +718,26 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="testing">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                 <div className="section-heading">
                     <h2>Testing &amp; validation
                     <br />
-                    <span className="section-subheading">Shipping the MVP.</span>
+                    <span className="font-normal text-text-tertiary">Shipping the MVP.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
+                <div className="inline-flex max-w-full flex-col gap-10">
                     <p className="lead">
                     We tested a high-fidelity Figma prototype mapped closely to ServiceNow capabilities and using the following methods:
                     </p>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h3>Usability study</h3>
 
                     <ul>
@@ -753,7 +751,7 @@ export default async function Page() {
                     </ul>
                     </div>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h4>Early sentiment (Net Promoter Score)</h4>
 
                     <p>Initial NPS: 12.5</p>
@@ -779,7 +777,7 @@ export default async function Page() {
                     </blockquote>
                     </div>
 
-                    <div className="content-block">
+                    <div className="flex flex-col gap-2">
                     <h3>Continuous feedback loop</h3>
 
                     <ul>
@@ -798,8 +796,8 @@ export default async function Page() {
                     </div>
 
                     <div className="card">
-                    <div className="card-callout">
-                        <div className="content-block">
+                    <div className="flex flex-1 w-full flex-col justify-center gap-7 px-7 py-8">
+                        <div className="flex flex-col gap-2">
                         <h3>Key learning: AI alone wasn’t enough</h3>
 
                         <p>
@@ -807,7 +805,7 @@ export default async function Page() {
                         </p>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                         <h4>Actions taken:</h4>
 
                         <ul>
@@ -825,7 +823,7 @@ export default async function Page() {
                         </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                         <h4>Result</h4>
 
                         <ul>  
@@ -847,22 +845,22 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="impact" aria-labelledby="impact-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                 
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
                         <br />
-                        <span className="section-subheading">What changed because of this work.</span>
+                        <span className="font-normal text-text-tertiary">What changed because of this work.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">
                                 Within six months of launch:
                             </p>
@@ -905,22 +903,22 @@ export default async function Page() {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider"/>
             </div>
 
             <Section id="reflection" aria-labelledby="reflection-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Reflection
                         <br />
-                        <span className="section-subheading">Learnings and key takeaways.</span>
+                        <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <h3>What worked</h3>
 
                             <ul>
@@ -938,7 +936,7 @@ export default async function Page() {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>What didn’t</h3>
 
                             <ul>
@@ -953,7 +951,7 @@ export default async function Page() {
 
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>What I’d do next</h3>
 
                             <ul>

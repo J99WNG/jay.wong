@@ -51,9 +51,6 @@ export default function FigureModal({
           border
           border-border-muted
           cursor-zoom-in
-          focus-visible:outline-none
-          focus-visible:ring-2
-          focus-visible:ring-primary
         "
       >
 
@@ -64,9 +61,9 @@ export default function FigureModal({
           priority={priority}
           className={`
             object-cover
-            transition-transform
-            duration-500
-            group-hover:scale-110
+            motion-safe:transition-transform
+            motion-safe:duration-500
+            motion-safe:group-hover:scale-110
             ${imageClassName ?? ""}
           `}
         />
@@ -80,8 +77,8 @@ export default function FigureModal({
             justify-center
             bg-black/40
             opacity-0
-            transition-opacity
-            duration-300
+            motion-safe:transition-opacity
+            motion-safe:duration-300
             group-hover:opacity-100
           "
         >

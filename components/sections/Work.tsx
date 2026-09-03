@@ -5,17 +5,17 @@ import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 export default function Work() {
     return (
         <Section id="work">
-            <div className="col-30-70">
+            <div className="section-grid">
 
-                <div className="section-heading">
+                <div className="section-heading md:static">
                     <h2>Featured work
                     <br />
-                    <span className="section-subheading">Kinda rough around the edges.</span>
+                    <span className="font-normal text-text-tertiary">Kinda rough around the edges.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
-                    <div className="content-block">
+                <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="flex flex-col gap-2">
                         <p className="lead">
                             Explore a selection of my recent work and get a feel for how I think, collaborate, and design. If it resonates, there’s always room to build something great together.
                         </p>

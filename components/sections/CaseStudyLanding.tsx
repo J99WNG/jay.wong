@@ -2,6 +2,8 @@ import Section from "@/components/Section";
 import NextProjectCTA from "@/components/ui/NextProjectCTA";
 import FigureModal from "@/components/ui/FigureModal";
 import { CaseStudy } from "@/app/data/caseStudies";
+// Kept for the planned case-study navigation treatment.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import CaseStudyNavigation from "@/components/ui/CaseStudyNavigation";
 
 type CaseStudyLandingProps = {
@@ -29,15 +31,15 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             </p>
           </div>
 
-          <div className={project.bentoImage2 || project.bentoImage3 ? 'bento-grid' : 'w-full'}>
+          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid grid-cols-1 gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
             <FigureModal
-              className="bento-item md:row-span-2"
+              className="h-full w-full md:row-span-2"
               src={project.bentoImage}
               alt={`Featured image for ${project.title}`}
               priority
             />
-            {project.bentoImage2 && <FigureModal className="bento-item" src={project.bentoImage2} alt="" priority />}
-            {project.bentoImage3 && <FigureModal className="bento-item" src={project.bentoImage3} alt="" priority />}
+            {project.bentoImage2 && <FigureModal className="h-full w-full" src={project.bentoImage2} alt="" priority />}
+            {project.bentoImage3 && <FigureModal className="h-full w-full" src={project.bentoImage3} alt="" priority />}
           </div>
         </div>
       </Section>

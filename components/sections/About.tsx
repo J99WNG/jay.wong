@@ -43,15 +43,15 @@ const skills = [
 export default function About() {
     return (
         <Section id="about">
-            <div className="col-30-70">
+            <div className="section-grid">
                 <div className="section-heading">
                     <h2>About me
                     <br />
-                    <span className="section-subheading">To observe first.</span>
+                    <span className="font-normal text-text-tertiary">To observe first.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
+                <div className="inline-flex max-w-full flex-col gap-10">
                     <p className="lead">
                         I build, navigate, and explore the world through the lens of design. I grew up chasing each generation of Nintendos and Sony Ericssons, which shaped my fascination for tech.
                     </p>
@@ -75,7 +75,7 @@ export default function About() {
                             <div className="card" key={item.title}>
                                 <div className="card-content px-7 py-6">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">
                                             {item.icon}
                                         </span>
                                     </span>

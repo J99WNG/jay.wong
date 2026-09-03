@@ -24,10 +24,7 @@ export const metadata: Metadata = {
     },
   }
 
-  export default async function Page() {
-    // Force Next.js to wait for 2 seconds before rendering this page
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
+  export default function Page() {
     if (!project) return null;
     
     return (
@@ -36,27 +33,27 @@ export const metadata: Metadata = {
                 <CaseStudyLanding project={project} />
 
                 <Section id="Snapshot">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2>Snapshot
                             <br/>
-                            <span className="section-subheading">The “too long didn&apos;t read”.</span>
+                            <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
-                            <div className="content-block">
+                        <div className="inline-flex max-w-full flex-col gap-10">
+                            <div className="flex flex-col gap-2">
                                 <p className="small">Problem</p>
                                 <p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client time and into unnecessary admin, costing up to 70% of their day.</p>
                             </div>
                             
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <p className="small">Outcome</p>
                                 <p>Designed RM Suite, a conceptual mobile solution bringing everything into a unified, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <p className="small">Impact</p>
 
                                 <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
@@ -78,10 +75,11 @@ export const metadata: Metadata = {
 
                                     <p>
                                         <span className="icon icon-inline icon-md">
-                                        <img 
-                                        src="/assets/logos/creditsuisse-symbol.svg"
-                                        alt="credit suisse"
-                                        loading="lazy"
+                                        <Image
+                                          src="/assets/logos/creditsuisse-symbol.svg"
+                                          alt="Credit Suisse"
+                                          width={24}
+                                          height={24}
                                         />
                                         </span> Credit Suisse</p>
                                 </div>
@@ -123,26 +121,26 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="role" aria-labelledby="role-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2 className="section-title">My role
                             <br/>
-                            <span className="section-subheading">Ownership and strategic focus.</span>
+                            <span className="font-normal text-text-tertiary">Ownership and strategic focus.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
-                            <div className="content-block">
+                        <div className="inline-flex max-w-full flex-col gap-10">
+                            <div className="flex flex-col gap-2">
                                 <p className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</p>
                             </div>
                             
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Product vision and design</h3>
 
                                 <p>
@@ -150,7 +148,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className='content-block'>
+                            <div className='flex flex-col gap-2'>
                                 <h3>Project management</h3>
 
                                 <p>
@@ -158,7 +156,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Stakeholder engagement</h3>
 
                                 <p>
@@ -170,27 +168,27 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="context">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2>Business context
                             <br/>
-                            <span className="section-subheading">Why it mattered.</span>
+                            <span className="font-normal text-text-tertiary">Why it mattered.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
 
                             <p className="lead">
                                 Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
                             </p>
                             
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <p>The bank's strategy was built on three priorities:</p>
                                 
                                 <ol>
@@ -221,26 +219,26 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="discovery" aria-labelledby="discovery-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2 className="section-title">Discovery and research
                             <br/>
-                            <span className="section-subheading">Uncovering the insights.</span>
+                            <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
                             <p className="lead">
                                 We started with the Credit Suisse briefing document and a structured research checklist covering KYC regulation, private banking compliance in the UK and EU, FinTech trends, and the daily responsibilities of a Relationship Manager. But reading about a role is very different from understanding it.
                             </p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Stakeholder insights</h3>
                                 
                                 <p>
@@ -258,7 +256,7 @@ export const metadata: Metadata = {
                                 </ul>
                             </div>
 
-                            <div className='content-block'>
+                            <div className='flex flex-col gap-2'>
                                 <h3>That second conversation changed our direction significantly.</h3>
 
                                 <p>
@@ -270,7 +268,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
                             
-                            <div className='content-block'>
+                            <div className='flex flex-col gap-2'>
                                 <h3>Invalidating our assumptions</h3>
 
                                 <p>
@@ -298,7 +296,7 @@ export const metadata: Metadata = {
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Ideation technique</h3>
 
                                 <p>
@@ -315,22 +313,22 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider"/>
                 </div>
 
                 <Section id="problem" aria-labelledby="problem-definition">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2>Problem definition
                             <br/>
-                            <span className="section-subheading">Sharpening the focus.</span>
+                            <span className="font-normal text-text-tertiary">Sharpening the focus.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
-                            <div className="content-block">
+                        <div className="inline-flex max-w-full flex-col gap-10">
+                            <div className="flex flex-col gap-2">
                                 <p className="lead">After the interviews and analysis, we could frame the problem much more precisely.</p>
 
                                 <blockquote className="notion-quote">
@@ -342,7 +340,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
                             
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <p>
                                 To structure our response, we ran a PACT Analysis across People, Activities, Context, and Technology. This kept the user at the centre of every decision:
                                 </p>
@@ -371,27 +369,27 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="goals" aria-labelledby="goals-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
                     
                         <div className="section-heading">
                             <h2>Goals &amp; KPIs
                             <br/>
-                            <span className="section-subheading">Defining what we want to solve.</span>
+                            <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
 
                             <p className="lead">
                                 The brief asked for three things: innovation, efficiency, and minimisation. We translated those into concrete, measurable targets.
                             </p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Primary goal</h3>
 
                                 <p>
@@ -399,7 +397,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Secondary goal</h3>
 
                                 <p>
@@ -407,7 +405,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Design goal</h3>
                                 
                                 <p>
@@ -427,7 +425,7 @@ export const metadata: Metadata = {
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>Functional success criteria</h3>
 
                                 <ul>
@@ -453,27 +451,27 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="ideation" aria-labelledby="ideation-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
                         <div className="section-heading">
                             <h2>Ideation
                             <br/>
-                            <span className="section-subheading">Thinking outside the box.</span>
+                            <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
                             <p className="lead">Once we had validated requirements and a well-defined problem, ideation felt less like guesswork and more like solving a clear puzzle with defined constraints.</p>
 
                             <p>
                             The concept that guided everything was thinking about an RM's day as a single, continuous experience rather than a series of disconnected tasks. We kept asking the same question: what would it look like if everything an RM needed was in one place, presented in the order they would actually need it?
                             </p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-1.png"
                                     alt=""
@@ -489,7 +487,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-2.png"
                                     alt=""
@@ -505,7 +503,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-3.png"
                                     alt=""
@@ -524,26 +522,26 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="solution" aria-labelledby="solution-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
                         <div className="section-heading">
                             <h2>The solution
                             <br/>
-                            <span className="section-subheading">Solving productivity</span>
+                            <span className="font-normal text-text-tertiary">Solving productivity</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
                             <p className="lead">
                                 In the latter half of the project, we iterated from high fidelty wireframes to a proof of concept prototype. The goal was to build something that could be tested and validated against our success criteria, not to create a fully polished, launch-ready product. This began with a more focused design system.
                             </p>
                             
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-1.png"
                                     alt=""
@@ -559,7 +557,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-2.png"
                                     alt=""
@@ -575,7 +573,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-3.png"
                                     alt=""
@@ -591,7 +589,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-4.png"
                                     alt=""
@@ -607,7 +605,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-5.png"
                                     alt=""
@@ -623,7 +621,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-6.png"
                                     alt=""
@@ -639,7 +637,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-7.png"
                                     alt=""
@@ -662,26 +660,26 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="testing">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2>Testing &amp; validation
                             <br/>
-                            <span className="section-subheading">Shipping the PoC.</span>
+                            <span className="font-normal text-text-tertiary">Shipping the PoC.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
                             <p className="lead">
                             Testing happened in two rounds, each tied to a client-facing showcase event, judged by Credit Suisse and accompanied by various other blue-chip companies.
                             </p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 Showcase 1: High-fidelity prototype review
                                 </h3>
@@ -691,7 +689,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 Showcase 2: Agile development and iteration
                                 </h3>
@@ -709,26 +707,26 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider" />
                 </div>
 
                 <Section id="impact" aria-labelledby="impact-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
                     
                         <div className="section-heading">
                             <h2>Impact &amp; outcomes
                             <br/>
-                            <span className="section-subheading">What changed because of this work.</span>
+                            <span className="font-normal text-text-tertiary">What changed because of this work.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
+                        <div className="inline-flex max-w-full flex-col gap-10">
                             <p className="lead">
                             The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the first Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
                             </p>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <p>
                                 Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.
                                 </p>
@@ -749,22 +747,22 @@ export const metadata: Metadata = {
                     </div>
                 </Section>
 
-                <div className="container">
+                <div className="page-container">
                     <hr className="divider"/>
                 </div>
 
                 <Section id="reflection" aria-labelledby="reflection-heading">
-                    <div className="col-30-70">
+                    <div className="section-grid">
 
                         <div className="section-heading">
                             <h2>Reflection
                             <br/>
-                            <span className="section-subheading">Learnings and key takeaways.</span>
+                            <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
                             </h2>
                         </div>
 
-                        <div className="section-content">
-                            <div className="content-block">
+                        <div className="inline-flex max-w-full flex-col gap-10">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 The interviews were the most important design tool
                                 </h3>
@@ -774,7 +772,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 Front-end and back-end need to run in parallel
                                 </h3>
@@ -784,7 +782,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 Remote team leadership is its own skill
                                 </h3>
@@ -794,7 +792,7 @@ export const metadata: Metadata = {
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="flex flex-col gap-2">
                                 <h3>
                                 A crucial moment in the project
                                 </h3>

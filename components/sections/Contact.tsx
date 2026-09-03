@@ -1,38 +1,39 @@
 import Section from "../Section";
-import HKTClock from "@/components/HKTClock";
 import CopyEmail from '@/components/ui/CopyEmail';
-import TextLink from "../ui/TextLink";
 import Link from "next/link";
 
 export default function Contact() {
     return (
         <Section id="contact" isLanding={true}>
-            <div className="col-30-70">
+            <div className="section-grid">
 
-                <div className="section-heading">
+                <div className="section-heading md:static">
                     <h2>Let&apos;s talk
                     <br />
-                    <span className="section-subheading">Assam or Ceylon tea – no coffee here.</span>
+                    <span className="font-normal text-text-tertiary">Assam or Ceylon tea – no coffee here.</span>
                     </h2>
                 </div>
 
-                <div className="section-content">
+                <div className="inline-flex max-w-full flex-col gap-10">
 
                     <p className="lead">
                         Think we could build something exciting? I&apos;d love to hear from you –
                         whether it&apos;s a quick question, collaboration idea, or a full-on project.
                     </p>
 
-                    <div className="flex flex-col gap-6 shrink" role="list">
+                    <ul className="flex shrink list-none flex-col gap-6 p-0">
                         {/* Email */}
-                        <CopyEmail />
+                        <li className="p-0">
+                            <CopyEmail />
+                        </li>
 
                         {/* LinkedIn */}
-                        <Link href="https://linkedin.com/in/jayycwong"
-                            className="contact-item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            role="listitem">
+                        <li className="p-0">
+                            <Link href="https://linkedin.com/in/jayycwong"
+                                className="contact-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Connect with Jay Wong on LinkedIn (opens in a new tab)">
 
                             <span className="icon icon-lg" aria-hidden="true">
                                 {/* LinkedIn icon */}
@@ -48,14 +49,16 @@ export default function Contact() {
                             <span className="icon icon-md" aria-hidden="true">
                                 <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
                             </span>
-                        </Link>
+                            </Link>
+                        </li>
                         
                         {/* Cal.com */}
-                        <Link href="https://cal.com/jay-wong/intro"
-                            className="contact-item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            role="listitem">
+                        <li className="p-0">
+                            <Link href="https://cal.com/jay-wong/intro"
+                                className="contact-item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Schedule an introductory meeting with Jay Wong on Cal.com (opens in a new tab)">
 
                             <span className="icon icon-lg" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
@@ -70,8 +73,9 @@ export default function Contact() {
                             <span className="icon icon-md" aria-hidden="true">
                                 <span className="material-symbols-rounded arrow_outward" translate="no">arrow_outward</span>
                               </span>
-                        </Link>
-                    </div>
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </Section>

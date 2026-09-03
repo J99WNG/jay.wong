@@ -1,31 +1,32 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 
-export default function LoadingLogo() {
+export default function LoadingLogo({ onComplete }: { onComplete?: () => void }) {
+  const shouldReduceMotion = useReducedMotion();
   // 1. Parent orchestration: Controls the left-to-right timing
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  const containerVariants: Variants = {
+    hidden: { opacity: shouldReduceMotion ? 1 : 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15, // Delay between each shape appearing
-        delayChildren: 0.2,    // Initial pause before the animation starts
+        staggerChildren: shouldReduceMotion ? 0 : 0.15,
+        delayChildren: shouldReduceMotion ? 0 : 0.2,
       },
     },
   };
 
   // 2. Individual shape fluid motion
-  const pathVariants = {
+  const pathVariants: Variants = {
     hidden: { 
-      opacity: 0, 
-      y: 15, // Starts slightly lower for a fluid "rise and fill" feel
+      opacity: shouldReduceMotion ? 1 : 0,
+      y: shouldReduceMotion ? 0 : 15,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: shouldReduceMotion ? 0 : 0.5,
         ease: [0.22, 1, 0.36, 1], // Matches your established premium cubic-bezier
       },
     },
@@ -62,8 +63,9 @@ export default function LoadingLogo() {
           d="M461.6 425.2H392.1L559.9 65.5C578.5 25.5 618.6 0 662.7 0H732.2L564.4 359.7C545.8 399.7 505.7 425.2 461.6 425.2Z"
         />
         {/* 4. Right Bar */}
-        <motion.path 
-          variants={pathVariants} 
+        <motion.path
+          variants={pathVariants}
+          onAnimationComplete={onComplete}
           d="M674.2 425.2H604.7L772.5 65.5C791.1 25.5 831.2 0 875.3 0H944.8L777 359.7C758.4 399.7 718.3 425.2 674.2 425.2Z"
         />
       </motion.svg>

@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import "./iconography.css" layer(components);
 
 :root {
   /* Crucial for light-dark() to resolve properly */
   color-scheme: light dark;
+  --page-gutter: clamp(0.5rem, 5vw, 1.5rem);
 
   /* --- PRIMITIVE TOKENS --- */
   --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
@@ -11,11 +13,11 @@
   --color-neutral-700: oklch(0.88 0.016 64);
   --color-neutral-900: oklch(0.84 0.022 64);
 
-  --color-steep-100: oklch(0.40 0.014 50); /* #685D57 */
-  --color-steep-300: oklch(0.36 0.012 50);
-  --color-steep-500: oklch(0.30 0.010 50);
-  --color-steep-700: oklch(0.22 0.008 50);
-  --color-steep-900: oklch(0.18 0.006 50); /* #14110F */
+  --color-steep-100: oklch(0.40 0.012 50); /* #4D4642 */
+  --color-steep-300: oklch(0.32 0.010 50);
+  --color-steep-500: oklch(0.26 0.008 50);
+  --color-steep-700: oklch(0.18 0.006 50);
+  --color-steep-900: oklch(0.16 0.005 50); /* #0F0D0B */
 
   --color-green-100: oklch(0.90 0.06 110);
   --color-green-500: oklch(0.65 0.12 140);
@@ -43,9 +45,8 @@
   color-scheme: dark;
 }
 
-@theme {
+@theme inline {
   /* --- LAYOUT TOKENS --- */
-  --container-padding: clamp(0.5rem, 5vw, 1.5rem);
   --container-page: 61.25rem;
 
   /* --- SEMANTIC COLOR TOKENS --- */
@@ -53,53 +54,48 @@
   --color-bg-primary: light-dark(var(--color-neutral-100), var(--color-steep-900));
   --color-bg-secondary: light-dark(var(--color-neutral-300), var(--color-steep-700));
   --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
+  --color-bg-inline: light-dark(var(--color-neutral-500), var(--color-steep-500));
 
   --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-text-secondary: light-dark(var(--color-steep-300), var(--color-neutral-300));
   --color-text-tertiary: light-dark(var(--color-steep-100), var(--color-neutral-900));
-  
+
   --color-text-link: light-dark(var(--color-blue-500), var(--color-blue-100));
+  --color-text-link-hover: light-dark(var(--color-blue-700), var(--color-neutral-100));
   --color-text-inverse: light-dark(var(--color-neutral-300), var(--color-steep-900));
+  --color-text-on-accent: light-dark(var(--color-neutral-100), var(--color-steep-900));
+  --color-status-success: light-dark(var(--color-green-900), var(--color-green-100));
+  --color-focus-ring: light-dark(var(--color-blue-500), var(--color-blue-100));
 
   --color-inverse-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-inverse-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
   --color-inverse-tertiary: light-dark(var(--color-steep-500), var(--color-neutral-500));
 
   --color-accent-primary: light-dark(var(--color-orange-500), var(--color-orange-300));
+  --color-accent-interactive: light-dark(var(--color-orange-700), var(--color-orange-300));
 
   --color-border-base: light-dark(var(--color-neutral-700), var(--color-steep-300));
   --color-border-muted: light-dark(var(--color-neutral-500), var(--color-steep-500));
   --color-border-hover: light-dark(var(--color-neutral-900), var(--color-steep-100));
-}
 
-@theme {
-  /* Override the default sans-serif stack with Nohemi / Inter */
+  /* Override the default sans-serif stack with Inter */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   
   /* Create a custom utility key for your pixel font */
   --font-pixel: var(--font-geist-pixel), monospace;
 }
 
-@utility container {
+@utility page-container {
   width: 100%;
   max-width: var(--container-page);
   margin-inline: auto;
-  padding-inline: var(--container-padding);
+  padding-inline: var(--page-gutter);
 }
-
-/* Design tokens (plain CSS — no @apply here) */
-@import "./iconography.css";
 
 @layer base {
   /* ==================== Foundations ==================== */
-  *, *::before, *::after {
-    box-sizing: border-box;
-    /* Removes the default mobile gray tap highlight */
-    -webkit-tap-highlight-color: transparent;
-  }
-
   ::selection {
-    @apply bg-accent-primary text-neutral-100;
+    @apply bg-accent-interactive text-text-on-accent;
   }
 
   @view-transition {
@@ -110,11 +106,11 @@
     overflow-x: hidden; /* Prevent horizontal scroll on the root */
     background-color: var(--color-bg-primary);
     width: 100%;
-    margin: 0;
-    padding: 0;
   }
 
   body {
+    /* Clip sideways overflow while keeping sticky headings tied to the viewport. */
+    overflow-x: clip;
     color: var(--color-text-secondary);
 
     @apply font-sans;
@@ -126,8 +122,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     
-    opacity: 1;
-    transition: opacity 1.5s ease-in-out;
   }
 
   h1, h2, h3, h4 {
@@ -135,7 +129,7 @@
   }
 
   h1 {
-    @apply text-[clamp(2rem,5vw,2.5rem)] leading-[1.2] m-0;
+    @apply text-[clamp(2rem,5vw,2.5rem)] leading-[1.2];
   }
 
   h2 {
@@ -163,40 +157,32 @@
     @apply font-pixel text-sm font-semibold text-text-tertiary tracking-normal uppercase mb-0 max-w-none;
   }
 
-  /* Lists */
-  li {
-  font-size: 1rem;
-  letter-spacing: -0.04rem;
-  margin: 0;
-  padding-bottom: 1rem;
-  line-height: 1.6;
+  /* Prose lists inside case-study sections */
+  article section :where(ul:not([class]), ol:not([class])) > li {
+    font-size: 1rem;
+    letter-spacing: -0.04rem;
+    padding-bottom: 1rem;
+    line-height: 1.6;
   }
 
-  .metadata li {
-  padding-bottom: 0.75rem;
+  article section :where(ul:not([class]), ol:not([class])) > li::marker {
+    color: var(--color-accent-primary);
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
   }
 
-  li::marker {
-  color: var(--color-accent-primary);
-  unicode-bidi: isolate;
-  font-variant-numeric: tabular-nums;
-  text-transform: none;
-  text-indent: 100px;
-  text-align: start;
-  text-align-last: auto;
+  article section :where(ul:not([class]), ol:not([class])) {
+    margin-block: 0;
+    padding-inline-start: 2rem;
   }
 
-  ul, ol {
-  margin-block: 0;
-  padding-inline-start: 2rem;
+  article section ul:not([class]) {
+    list-style-type: disc;
   }
 
-  ul {
-  list-style-type: disc;
-  }
-
-  ol {
-  list-style: decimal-leading-zero;
+  article section ol:not([class]) {
+    list-style: decimal-leading-zero;
   }
 
   /* Misc */
@@ -221,32 +207,9 @@
   line-height: 1.5;
   }
 
-  .breadcrumb {
-  display: flex;
-  justify-content: space-between;
-  place-items: center;
-  }
-
-  .breadcrumb a,
-  .contact-item {
-  /* Layout */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  gap: 0.25rem;
-
-  /* 2. Sizing */
-  width: fit-content;
-  justify-content: start;
-  border-radius: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  }
-
-  .breadcrumb a:hover,
   .contact-item:hover {
   background: var(--color-bg-tertiary);
-  color: var(--color-blue-700);
+  color: var(--color-text-link-hover);
   }
 
   .metadata {
@@ -264,17 +227,19 @@
     color: var(--color-text-link);
     text-decoration: none;
     position: relative;
-    display: inline-flex; /* Helps with alignment */
-    align-items: center;
-    width: fit-content;
-
     transition: color 0.2s ease;
   }
 
-  /* Remove default browser focus outline and replace with a custom one */
+  /* A real outline remains visible when forced-colors mode removes shadows. */
   :focus-visible {
-    outline: none;
-    @apply ring-2 ring-[var(--color-blue-500)] ring-offset-2;
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+  }
+
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline-color: Highlight;
+    }
   }
 
 /* ==================== Rounded divider ==================== */
@@ -283,8 +248,6 @@ hr {
   border-top: 1px solid var(--color-border-muted);
   border-radius: 999px;
 
-  margin: 0;
-  padding: 0;
 }
 
 figure {
@@ -297,7 +260,6 @@ figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
 figcaption,
@@ -308,12 +270,6 @@ caption {
 }
 
 @layer components {
-
-/* ==================== Images ==================== */
-.bento-item {
-  width: 100%;
-  height: 100%;
-}
 
 /* ==================== Card ==================== */
 .card {
@@ -328,15 +284,30 @@ caption {
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
-    transition: all 0.4s cubic-bezier(0.25,1,0.5,1);            
+    transition: border-color 0.4s cubic-bezier(0.25,1,0.5,1),
+                box-shadow 0.4s cubic-bezier(0.25,1,0.5,1),
+                scale 0.4s cubic-bezier(0.25,1,0.5,1);
   }
   
 .card:hover,
 .card:active,
-.card:focus-visible {
+.card:focus-within {
   border: 1px solid var(--color-border-hover);
-  /* box-shadow: 0px 0px 8px hsla(30, 20%, 85%, 0.75); */
-  @apply shadow-md dark:shadow-none;
+  @apply shadow-md;
+}
+
+:root.dark .card:hover,
+:root.dark .card:active,
+:root.dark .card:focus-within {
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .card:hover,
+  :root:not(.light) .card:active,
+  :root:not(.light) .card:focus-within {
+    box-shadow: none;
+  }
 }
 
 .card-img {
@@ -353,6 +324,11 @@ caption {
   display: block;
 }
 
+.card > :focus-visible,
+figure > button:focus-visible {
+  outline-offset: -3px;
+}
+
 .card-content {                  /* Card title + body */
   display: flex;
   flex: 1;
@@ -360,34 +336,6 @@ caption {
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
-}
-
-.card-callout {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: center;
-  width: 100%;
-  padding: 2rem 1.75rem;
-  gap: 1.75rem;
-}
-
-.card-link {
-  /* 1. Layout: Flex is king for buttons */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  gap: 0.25rem;
-
-  /* 2. Sizing */
-  width: fit-content;
-  margin-top: 0.5rem;
-  justify-content: start;
-}
-
-.card-icon {
-  color: var(--color-accent-primary);
 }
 
 /* ==================== Badge ==================== */
@@ -417,53 +365,14 @@ caption {
   background-color: var(--color-bg-tertiary);
   border: 1px solid var(--color-border-base);
 
-  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color 0.4s cubic-bezier(0.25,1,0.5,1),
+              border-color 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
-.badge:hover,
-.badge:active
-.badge:focus-visible {
-  color: var(--color-accent-primary);
-  border: 1px solid var(--color-accent-primary);
+.badge:hover {
+  color: var(--color-accent-interactive);
+  border-color: var(--color-accent-interactive);
   cursor: default;
-}
-
-@keyframes pulse {
-  0% { 
-    transform: scale(0.90); 
-    box-shadow: 0 0 0 0 rgba(162, 186, 145, 0.7); /* Example matcha color */
-  }
-  50% { 
-    transform: scale(1.2); 
-    box-shadow: 0 0 0 6px rgba(162, 186, 145, 1); 
-  }
-  100% { 
-    transform: scale(0.9); 
-    box-shadow: 0 0 0 0 rgba(162, 186, 145, 0); 
-  }
-}
-
-@theme {
-  --animate-blink: blink 0.7s infinite;
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-}
-
-@theme {
-  --scale-in-center: scale-in-center 0.5s ease-out forwards;
-
-  @keyframes scale-in-center {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
 }
 
 /* ==================== Table ==================== */
@@ -473,7 +382,7 @@ caption {
   border-collapse: collapse; /* Removes double borders */
   letter-spacing: -0.04rem;
   background-color: var(--color-bg-secondary);
-  border-radius: 0.5rem;;
+  border-radius: 0.5rem;
   overflow: hidden; /* Clips corners if you have a border */
 }
 
@@ -492,30 +401,14 @@ caption {
   border-bottom: 1px solid var(--color-border-muted);
 }
 
-/* Zebra Striping */
-.custom-table tbody tr:nth-of-type(even) {
-  background-color: var(--color-bg-secondary);
-}
-
 /* Hover Effect */
 .custom-table tbody tr:hover,
-.custom-table tbody tr:active,
-.custom-table tbody tr:focus-visible {
+.custom-table tbody tr:active {
   background-color: var(--color-bg-tertiary);
   cursor: default;
 }
 
 /* ==================== Grids & layouts ==================== */
-.bento-grid {
-  @apply grid grid-cols-1 gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2;
-}
-
-.content-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 /* ==================== Header ==================== */
 :root {
   --header-height: 4rem; /* Match your header CSS height */
@@ -534,17 +427,18 @@ caption {
   position: absolute;
   left: 0;
   pointer-events: none;
+  visibility: hidden;
   opacity: 0;
   transform: translateY(-20px);
   transition: 
         opacity 0.4s ease, 
-        transform 0.4s cubic-bezier(0.25,1,0.5,1),
-        visibility 0.4s;
+        transform 0.4s cubic-bezier(0.25,1,0.5,1);
   z-index: 9998;
 }
 
 .nav-menu.is-open {              /* show when "open" */
   pointer-events: auto;
+  visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
@@ -554,7 +448,7 @@ caption {
   font-size: 1.5rem;
   padding: 0;
   color: var(--color-neutral-100);
-  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
 .nav-list a:hover,
@@ -621,22 +515,19 @@ caption {
     
 /* ==================== Section ==================== */
 
+.page-section {
+  /* Section padding already keeps content clear of the fixed header. */
+  scroll-margin-top: 0;
+}
+
 .section-heading {
-  position: sticky;
-  top: var(--header-height);
+  position: static;
   z-index: 1;
   display: flex;
   flex-direction: column;      /* mobile default */
   align-self: flex-start;
   height: max-content;
   margin-bottom: 2rem;
-}
-
-.section-content {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  max-width: 100%;
 }
 
 /* ==================== Case study navigation ==================== */
@@ -692,25 +583,22 @@ caption {
   color: var(--color-text-primary);
 }
 
-article > section[id] {
-  scroll-margin-top: calc(var(--header-height) + 2rem);
-}
-
 @media (max-width: 1199px) {
   .case-study-navigation {
     display: none;
   }
 }
 
-span.section-subheading {
-  color: var(--color-text-tertiary);
-  font-weight: 400;
-}
-
 /* ==================== Contact ==================== */
 
 .contact-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
   gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
   letter-spacing: -0.08rem;
   font-size: 1.75rem;
 
@@ -720,7 +608,8 @@ span.section-subheading {
   align-items: center;
   width: fit-content;
 
-  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color 0.4s cubic-bezier(0.25,1,0.5,1),
+              background-color 0.4s cubic-bezier(0.25,1,0.5,1);
 }
 
 /* ==================== Accessibility & inclusive design ==================== */
@@ -728,7 +617,6 @@ span.section-subheading {
 /* 1. Global: Instant jumps for page transitions */
 html {
   scroll-behavior: auto;
-  /* Optional: Add padding so anchors don't hide under a fixed header */
 }
 
 /* 2. Enable smooth scroll ONLY for the current page targets */
@@ -742,20 +630,30 @@ html:focus-within {
   html {
     scroll-behavior: auto !important;
   }
-}
 
-.sr-only { /* screen-reader only text */
-	position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 
+  .nav-menu,
+  .nav-toggle,
+  .nav-toggle .material-symbols-rounded {
+    transition: none;
+  }
+
+  .nav-menu {
+    transform: none;
+  }
+
+  .nav-toggle[aria-expanded] .icon-menu,
+  .nav-toggle[aria-expanded] .icon-close {
+    transform: none;
+  }
+}
 
 /* ==================== Responsive system – scale UP at larger viewports ==================== */
 @media (min-width: 768px) {
@@ -773,11 +671,20 @@ html:focus-within {
     min-height: auto;
   }
 
-  .col-30-70 {
+  .section-grid {
     display: grid;
     grid-template-columns: 0.35fr 0.65fr;
     gap: 2.5rem;
     align-items: flex-start;
+  }
+
+  .section-grid > .section-heading {
+    position: sticky;
+    /* Center the full heading, keeping it clear of the floating header on
+       shorter viewports. Sticky positioning keeps it inside its grid row. */
+    top: max(calc(var(--header-height) + 2rem), calc(50vh - var(--section-heading-height, 0px) / 2));
+    top: max(calc(var(--header-height) + 2rem), calc(50dvh - var(--section-heading-height, 0px) / 2));
+    margin-bottom: 0;
   }
 
   .nav-menu {
@@ -786,6 +693,7 @@ html:focus-within {
     align-items: center;
     justify-content: space-between; /* Pushes list and button apart */
     pointer-events: auto;
+    visibility: visible;
     flex: 1;
     background: transparent;
     opacity: 1;

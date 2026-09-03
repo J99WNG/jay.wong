@@ -24,10 +24,7 @@ export const metadata: Metadata = {
     },
   }
 
-  export default async function Page() {
-    // Force Next.js to wait for 2 seconds before rendering this page
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
+  export default function Page() {
     if (!project) return null;
 
     return (
@@ -36,27 +33,27 @@ export const metadata: Metadata = {
             <CaseStudyLanding project={project} />
 
             <Section id="Snapshot">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Snapshot
                         <br/>
-                        <span className="section-subheading">The “too long didn&apos;t read”.</span>
+                        <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="small">Problem</p>
                             <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="small">Outcome</p>
                             <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow, through consolidating journeys, improving findability and simplifying how employees raise and track workplace requests.</p>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="small">Impact</p>
 
                             <ul>
@@ -74,10 +71,11 @@ export const metadata: Metadata = {
 
                                 <p>
                                     <span className="icon icon-inline icon-md">
-                                    <img 
-                                    src="/assets/logos/bp-helios-colour.svg"
-                                    alt="bp"
-                                    loading="lazy"
+                                    <Image
+                                      src="/assets/logos/bp-helios-colour.svg"
+                                      alt="bp"
+                                      width={24}
+                                      height={24}
                                     />
                                     </span> bp plc</p>
                             </div>
@@ -124,22 +122,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="role" aria-labelledby="role-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2 className="section-title">My role
                         <br/>
-                        <span className="section-subheading">Ownership and strategic focus.</span>
+                        <span className="font-normal text-text-tertiary">Ownership and strategic focus.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</p>
 
                             <ul>
@@ -152,7 +150,7 @@ export const metadata: Metadata = {
                             </ul>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">Strategically, I focused on:</p>
 
                             <ul>
@@ -166,26 +164,26 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
             <hr className="divider" />
             </div>
 
             <Section id="context">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Business context
                         <br/>
-                        <span className="section-subheading">Why it mattered.</span>
+                        <span className="font-normal text-text-tertiary">Why it mattered.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</p>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
 
                             <ul>
@@ -206,28 +204,28 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="discovery" aria-labelledby="discovery-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
                         <br/>
-                        <span className="section-subheading">Uncovering the insights.</span>
+                        <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
+                    <div className="inline-flex max-w-full flex-col gap-10">
                         <p className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</p>
 
                         <blockquote className="notion-quote">
                             This wasn’t just a UX issue. It was an operating model issue.
                         </blockquote>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Workplace services varied by location, not just region</h3>
                             
                             <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
@@ -240,7 +238,7 @@ export const metadata: Metadata = {
 
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Content was deeply fragmented</h3>
                             
                             <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
@@ -252,7 +250,7 @@ export const metadata: Metadata = {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Search was not trusted</h3>
                             
                             <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
@@ -264,7 +262,7 @@ export const metadata: Metadata = {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Culture influenced behaviour</h3>
                             
                             <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
@@ -276,7 +274,7 @@ export const metadata: Metadata = {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Governance gaps existed</h3>
                             
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
@@ -291,22 +289,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider"/>
             </div>
 
             <Section id="problem" aria-labelledby="problem-definition">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Problem definition
                         <br/>
-                        <span className="section-subheading">Sharpening the focus.</span>
+                        <span className="font-normal text-text-tertiary">Sharpening the focus.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">I reframed the challenge from:</p>
 
                             <blockquote className="notion-quote">
@@ -321,14 +319,14 @@ export const metadata: Metadata = {
                             </blockquote>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p>Core design problems include:</p>
 
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">explore</span>
+                                            <span className="material-symbols-rounded text-accent-primary" translate="no">explore</span>
                                         </span>
                         
                                         <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
@@ -338,7 +336,7 @@ export const metadata: Metadata = {
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">quick_reference</span>
+                                            <span className="material-symbols-rounded text-accent-primary" translate="no">quick_reference</span>
                                         </span>
                         
                                         <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
@@ -348,7 +346,7 @@ export const metadata: Metadata = {
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">location_on</span>
+                                            <span className="material-symbols-rounded text-accent-primary" translate="no">location_on</span>
                                         </span>
                         
                                         <p className="card-text">Regional inconsistency created cognitive overload.</p>
@@ -358,7 +356,7 @@ export const metadata: Metadata = {
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
                                         <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded card-icon" translate="no">family_history</span>
+                                            <span className="material-symbols-rounded text-accent-primary" translate="no">family_history</span>
                                         </span>
                         
                                         <p className="card-text">Multi-platform governance increased complexity.</p>
@@ -371,22 +369,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="goals" aria-labelledby="goals-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                 
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
                         <br/>
-                        <span className="section-subheading">Defining what we want to solve.</span>
+                        <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <h3>Experience goals</h3>
 
                             <ol>
@@ -396,7 +394,7 @@ export const metadata: Metadata = {
                             </ol>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Business goals</h3>
 
                             <ol>
@@ -410,23 +408,23 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="ideation" aria-labelledby="ideation-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                     <div className="section-heading">
                         <h2>Ideation
                         <br/>
-                        <span className="section-subheading">Thinking outside the box.</span>
+                        <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
+                    <div className="inline-flex max-w-full flex-col gap-10">
                         <p className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</p>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p>Stakeholders were clear:</p>
 
                             <blockquote className="notion-quote">
@@ -434,7 +432,7 @@ export const metadata: Metadata = {
                             </blockquote>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">
                                 Our challenge was designing a simplified, scalable framework that could:
                             </p>
@@ -446,7 +444,7 @@ export const metadata: Metadata = {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</p>
 
                             <FigureModal
@@ -477,22 +475,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="solution" aria-labelledby="solution-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                     <div className="section-heading">
                         <h2>The solution
                         <br/>
-                        <span className="section-subheading">Reimagining the digital workplace.</span>
+                        <span className="font-normal text-text-tertiary">Reimagining the digital workplace.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
+                    <div className="inline-flex max-w-full flex-col gap-10">
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-1.png"
                                 alt=""
@@ -528,7 +526,7 @@ export const metadata: Metadata = {
                             </blockquote>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-2.png"
                                 alt=""
@@ -551,7 +549,7 @@ export const metadata: Metadata = {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-3.png"
                                 alt=""
@@ -575,22 +573,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="testing">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Testing &amp; validation
                         <br/>
-                        <span className="section-subheading">Shipping the PoC.</span>
+                        <span className="font-normal text-text-tertiary">Shipping the PoC.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <p className="lead">
                                 We validated through:
                             </p>
@@ -603,7 +601,7 @@ export const metadata: Metadata = {
                             </ul>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>Result</h3>
 
                             <ul>
@@ -629,22 +627,22 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" />
             </div>
 
             <Section id="impact" aria-labelledby="impact-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
                 
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
                         <br/>
-                        <span className="section-subheading">What changed because of this work.</span>
+                        <span className="font-normal text-text-tertiary">What changed because of this work.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
-                        <div className="content-block">
+                    <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 Immediate outcomes
                             </h3>
@@ -664,7 +662,7 @@ export const metadata: Metadata = {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>
                                 Strategic impact
                             </h3>
@@ -695,32 +693,32 @@ export const metadata: Metadata = {
                 </div>
             </Section>
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider"/>
             </div>
 
             <Section id="reflection" aria-labelledby="reflection-heading">
-                <div className="col-30-70">
+                <div className="section-grid">
 
                     <div className="section-heading">
                         <h2>Reflection
                         <br/>
-                        <span className="section-subheading">Learnings and key takeaways.</span>
+                        <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
                         </h2>
                     </div>
 
-                    <div className="section-content">
+                    <div className="inline-flex max-w-full flex-col gap-10">
                         <blockquote className="notion-quote">
                             This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces.
                         </blockquote>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>What worked</h3>
 
                             <div className="flex flex-col gap-6">
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">abc</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">abc</span>
                                     </span>
 
                                     <p className="lead">Simplicity is strategic</p>
@@ -730,7 +728,7 @@ export const metadata: Metadata = {
 
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">123</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">123</span>
                                     </span>
 
                                     <p className="lead">Phased transformation drives adoption</p>
@@ -740,7 +738,7 @@ export const metadata: Metadata = {
 
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">diversity_3</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">diversity_3</span>
                                     </span>
 
                                     <p className="lead">Influence matters as much as interface</p>
@@ -750,13 +748,13 @@ export const metadata: Metadata = {
                             </div>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>What was challenging</h3>
 
                             <div className="flex flex-col gap-6">
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">view_timeline</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">view_timeline</span>
                                     </span>
 
                                     <p className="lead">Governance and restructuring disrupted sprint timelines</p>
@@ -766,7 +764,7 @@ export const metadata: Metadata = {
 
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">communication</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">communication</span>
                                     </span>
 
                                     <p className="lead">Context emerges continuously in complex organisations</p>
@@ -776,7 +774,7 @@ export const metadata: Metadata = {
 
                                 <div className="card-content">
                                     <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded card-icon" translate="no">code_blocks</span>
+                                        <span className="material-symbols-rounded text-accent-primary" translate="no">code_blocks</span>
                                     </span>
 
                                     <p className="lead">Standardisation vs autonomy tension</p>
@@ -786,7 +784,7 @@ export const metadata: Metadata = {
                             </div>
                         </div>
 
-                        <div className="content-block">
+                        <div className="flex flex-col gap-2">
                             <h3>What I’d do next</h3>
 
                             <ul>

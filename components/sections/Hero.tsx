@@ -43,7 +43,7 @@ export default function Hero() {
   // Standard Fade-Up Variants
   const fadeInUp = {
     initial: { 
-      opacity: 0, 
+      opacity: shouldReduceMotion ? 1 : 0,
       y: shouldReduceMotion ? 0 : 20 
     },
     animate: { 
@@ -51,7 +51,7 @@ export default function Hero() {
       y: 0 
     },
     transition: { 
-      duration: 0.8, 
+      duration: shouldReduceMotion ? 0 : 0.8,
       ease: [0.22, 1, 0.36, 1],
     }
   };
@@ -62,17 +62,17 @@ export default function Hero() {
     animate: {
       transition: {
         staggerChildren: shouldReduceMotion ? 0 : 0.02,
-        delayChildren: 0.4,
+        delayChildren: shouldReduceMotion ? 0 : 0.4,
       },
     },
   };
 
   // 2. Individual Character Variants
   const characterVariants = {
-    initial: { opacity: 0 },
+    initial: { opacity: shouldReduceMotion ? 1 : 0 },
     animate: { 
       opacity: 1, 
-      transition: { duration: 0.005 }
+      transition: { duration: shouldReduceMotion ? 0 : 0.005 }
     },
   };
 
@@ -88,7 +88,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.2 }}
             className="relative"
           >
             {/* 1. Accessible Layer: Hidden visually, but read clearly by screen readers */}
@@ -149,7 +149,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
-            transition={{ delay: 2 }}
+            transition={{ delay: shouldReduceMotion ? 0 : 2 }}
             className="flex flex-wrap gap-4 items-center"
           >
             <Button variant="primary" href="/#work" onClick={scrollToWork}>
@@ -164,14 +164,25 @@ export default function Hero() {
 
         {/* Right Column / Visual */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{
+            opacity: shouldReduceMotion ? 1 : 0,
+            scale: shouldReduceMotion ? 1 : 0.9,
+          }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1,
+            ease: "easeOut",
+            delay: shouldReduceMotion ? 0 : 0.5,
+          }}
           className="flex-1 flex justify-start md:justify-center w-full shrink-0"
         >
           <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: shouldReduceMotion ? 0 : [0, -15, 0] }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 5,
+              repeat: shouldReduceMotion ? 0 : Infinity,
+              ease: "easeInOut",
+            }}
             className="relative sm:w-[50%] md:w-[70%] aspect-square min-h-[128px]"
           >
             <Image 

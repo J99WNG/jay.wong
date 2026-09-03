@@ -12,14 +12,14 @@ export default function TextLink({ href, children, className = '', external }: T
   const isExternal = external || href.startsWith('http');
   
   // Base classes for the link color and transition
-  const linkClasses = `group relative inline-flex items-center w-fit rounded-md text-text-link hover:text-[var(--color-blue-300)] transition-colors duration-200 tracking-[-0.04rem] ${className}`;
+  const linkClasses = `group relative inline-flex items-center w-fit rounded-md text-text-link hover:text-text-link-hover motion-safe:transition-colors motion-safe:duration-200 tracking-[-0.04rem] ${className}`;
 
   // The content including the animated underline span
   const content = (
     <>
       {children}
       {/* The Underline - Animated via the 'group-hover' class */}
-      <span className="absolute bottom-[-4px] left-0 h-[2px] w-full scale-x-0 bg-current transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-right group-hover:scale-x-100 group-hover:origin-left" />
+      <span className="absolute bottom-[-4px] left-0 h-[2px] w-full scale-x-0 bg-current motion-safe:transition-transform motion-safe:duration-400 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] origin-right group-hover:scale-x-100 group-hover:origin-left" />
     </>
   );
 

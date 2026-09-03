@@ -6,62 +6,69 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
+  type ReactNode,
+  type TouchEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
 import Button from './Button';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
 
-const GalleryContext = createContext(null);
+type GalleryItem = {
+  id: string;
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+type GalleryContextValue = {
+  register: (item: GalleryItem) => () => void;
+  open: (id: string) => void;
+};
+
+const GalleryContext = createContext<GalleryContextValue | null>(null);
+const subscribeToMount = () => () => {};
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
-export function GalleryProvider({ children }) {
-  const [items, setItems]             = useState([]);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [mounted, setMounted]         = useState(false);
+export function GalleryProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
 
-  // Guard against SSR — createPortal needs document.body
-  useEffect(() => setMounted(true), []);
-
-  const register = useCallback(({ id, src, alt, caption }) => {
+  const register = useCallback(({ id, src, alt, caption }: GalleryItem) => {
     setItems(prev => [...prev, { id, src, alt, caption }]);
     return () => setItems(prev => prev.filter(item => item.id !== id));
   }, []);
 
-  const open = useCallback((id) => {
-    setItems(current => {
-      const idx = current.findIndex(item => item.id === id);
-      if (idx >= 0) setActiveIndex(idx);
-      return current;
-    });
-  }, []);
+  const open = useCallback((id: string) => {
+    const index = items.findIndex(item => item.id === id);
+    if (index >= 0) setActiveIndex(index);
+  }, [items]);
 
   const close  = useCallback(() => setActiveIndex(null), []);
-  const goTo   = useCallback((i) => setActiveIndex(i), []);
+  const goTo = useCallback((index: number) => setActiveIndex(index), []);
 
   const goPrev = useCallback(() =>
-    setActiveIndex(i => (i > 0 ? i - 1 : items.length - 1)),
+    setActiveIndex(index => index !== null && index > 0 ? index - 1 : items.length - 1),
   [items.length]);
 
   const goNext = useCallback(() =>
-    setActiveIndex(i => (i < items.length - 1 ? i + 1 : 0)),
+    setActiveIndex(index => index !== null && index < items.length - 1 ? index + 1 : 0),
   [items.length]);
 
-  // Clamp index if an item unmounts while the gallery is open
-  useEffect(() => {
-    if (activeIndex !== null && activeIndex >= items.length) {
-      setActiveIndex(items.length > 0 ? items.length - 1 : null);
-    }
-  }, [items.length, activeIndex]);
+  const visibleIndex = activeIndex === null || items.length === 0
+    ? null
+    : Math.min(activeIndex, items.length - 1);
 
   return (
     <GalleryContext.Provider value={{ register, open }}>
       {children}
-      {activeIndex !== null && mounted && createPortal(
+      {visibleIndex !== null && mounted && createPortal(
         <GalleryModal
           items={items}
-          activeIndex={activeIndex}
+          activeIndex={visibleIndex}
           onClose={close}
           onPrev={goPrev}
           onNext={goNext}
@@ -83,14 +90,30 @@ export function useGallery() {
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
 
-function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
+type GalleryModalProps = {
+  items: GalleryItem[];
+  activeIndex: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+  goTo: (index: number) => void;
+};
+
+function GalleryModal({
+  items,
+  activeIndex,
+  onClose,
+  onPrev,
+  onNext,
+  goTo,
+}: GalleryModalProps) {
   const current     = items[activeIndex];
   const total       = items.length;
-  const touchStartX = useRef(null);
+  const touchStartX = useRef<number | null>(null);
 
   // Keyboard navigation + scroll lock
   useEffect(() => {
-    const onKey = (e) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape')     onClose();
       if (e.key === 'ArrowLeft')  onPrev();
       if (e.key === 'ArrowRight') onNext();
@@ -104,15 +127,16 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
   }, [onClose, onPrev, onNext]);
 
   // Swipe support
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 50) {
-      delta < 0 ? onNext() : onPrev();
+      if (delta < 0) onNext();
+      else onPrev();
     }
     touchStartX.current = null;
   };
@@ -122,7 +146,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
   return (
     <div
       id="scrim-overlay"
-      className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-xs will-change-[backdrop-filter,opacity] transform-[translateZ(0)] flex items-center justify-center animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
+      className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-xs will-change-[backdrop-filter,opacity] transform-[translateZ(0)] flex items-center justify-center motion-safe:animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
       role="dialog"
       aria-modal="true"
       aria-label={`Image ${activeIndex + 1} of ${total}`}
@@ -145,7 +169,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
       {/* Content */}
       <div
-        className="container flex flex-col items-center"
+        className="page-container flex flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
 
@@ -156,6 +180,8 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
 
         {/* image-container is the positioning context for nav buttons */}
         <div className="image-container">
+          {/* The gallery preserves each source image's intrinsic aspect ratio. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             key={activeIndex}
             src={current.src}
@@ -169,7 +195,7 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
             {current.caption}
           </p>
         )}
-        
+
         {total > 1 && (
           <div className="flex flex-col items-center w-full mt-6 gap-4">
 
@@ -188,15 +214,15 @@ function GalleryModal({ items, activeIndex, onClose, onPrev, onNext, goTo }) {
               </Button>
 
               {/* Dots - The "Responsive" Middle */}
-              <nav 
-                className="flex flex-wrap justify-center items-center gap-2 max-w-[200px] sm:max-w-md cursor-pointer" 
+              <nav
+                className="flex flex-wrap justify-center items-center gap-2 max-w-[200px] sm:max-w-md cursor-pointer"
                 aria-label="Jump to image"
               >
                 {items.map((item, i) => (
                   <button
                     key={item.id}
-                    className={`transition-all duration-200 rounded-full h-2 w-2 
-                      ${i === activeIndex 
+                    className={`motion-safe:transition-[scale,background-color] motion-safe:duration-200 rounded-full h-2 w-2
+                      ${i === activeIndex
                         ? 'bg-white scale-125'
                         : 'bg-white/30 hover:bg-white/60'
                       }`}

@@ -1,39 +1,39 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 
 type Theme = 'system' | 'light' | 'dark';
 
+const subscribeToMount = () => () => {};
+
+const applyTheme = (newTheme: Theme) => {
+  const root = document.documentElement;
+  root.classList.remove('light', 'dark');
+
+  if (newTheme === 'light') {
+    root.classList.add('light');
+  } else if (newTheme === 'dark') {
+    root.classList.add('dark');
+  }
+
+  // Force browser to re-parse /favicon.svg with active class context
+  const faviconLink = document.querySelector<HTMLLinkElement>("link[rel*='icon']");
+  if (faviconLink) {
+    const baseUrl = faviconLink.href.split('?')[0];
+    faviconLink.href = `${baseUrl}?v=${newTheme}-${Date.now()}`;
+  }
+};
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('system');
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'system';
+    return (localStorage.getItem('theme-preference') as Theme | null) ?? 'system';
+  });
+  const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme-preference') as Theme | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      applyTheme(savedTheme);
-    }
-    setMounted(true);
-  }, []);
-
-  const applyTheme = (newTheme: Theme) => {
-    const root = document.documentElement;
-    root.classList.remove('light', 'dark');
-
-    if (newTheme === 'light') {
-      root.classList.add('light');
-    } else if (newTheme === 'dark') {
-      root.classList.add('dark');
-    }
-
-    // Force browser to re-parse /favicon.svg with active class context
-    const faviconLink = document.querySelector<HTMLLinkElement>("link[rel*='icon']");
-    if (faviconLink) {
-      const baseUrl = faviconLink.href.split('?')[0];
-      faviconLink.href = `${baseUrl}?v=${newTheme}-${Date.now()}`;
-    }
-  };
+    applyTheme(theme);
+  }, [theme]);
 
   const cycleTheme = () => {
     const nextTheme: Theme = 
@@ -42,7 +42,6 @@ export default function ThemeToggle() {
 
     setTheme(nextTheme);
     localStorage.setItem('theme-preference', nextTheme);
-    applyTheme(nextTheme);
   };
 
   if (!mounted) return null;
@@ -53,7 +52,7 @@ export default function ThemeToggle() {
         onClick={cycleTheme}
         type="button"
         aria-label={`Current theme: ${theme}. Click to switch theme.`}
-        className="flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md  hover:cursor-pointer transition-all duration-200 focus-visible:outline-2 focus-visible:outline-accent-primary"
+        className="flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-200"
       >
         <span className="icon icon-sm" aria-hidden="true">
           <span className="material-symbols-rounded select-none" aria-hidden="true">

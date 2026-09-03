@@ -15,13 +15,6 @@ const Inter = localFont({
   display: "swap",
 });
 
-// 2. Initialize Nohemi (Using a variable font file if available)
-const Nohemi = localFont({
-  src: "./fonts/Nohemi-VF.ttf",
-  variable: "--font-nohemi", // Exposes the CSS variable
-  display: "swap",
-});
-
 // 2. Initialize Geist Pixel
 const geistPixel = localFont({
   src: "./fonts/GeistPixel-Regular-VariableFont_ELSH.ttf",
@@ -29,11 +22,9 @@ const geistPixel = localFont({
   display: "swap",
 });
 
-// This is the crucial part for mobile scaling
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1, // Optional: prevents "accidental zoom" on inputs
 }
 
 export const metadata: Metadata = {
@@ -77,9 +68,14 @@ export default function RootLayout({ children }:
   Readonly<{ children: React.ReactNode; }>) {
   return (
     
-    <html lang="en" className={`${Inter.variable} ${geistPixel.variable}`}>
+    <html
+      lang="en"
+      className={`${Inter.variable} ${geistPixel.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <head>
         {/* Google Material Symbols Link */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link 
           rel="stylesheet" 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" 

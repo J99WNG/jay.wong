@@ -4,10 +4,12 @@ import TextLink from "./TextLink";
 import type { CaseStudy } from "@/app/data/caseStudies";
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
+  // `logo` is retained for the planned branded card treatment.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { slug, year, company, logo, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
-    <article className="card focus-visible:scale-104 hover:scale-104 active:scale-104 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+    <article className="card motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.25,1,0.5,1)]">
       <div className="card-content p-8 px-7">
 
         <p className="small">
@@ -26,7 +28,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
         {/* Only show the link if the case study is live */}
         {available && (
-          <TextLink className="card-link" href={`/${slug}`}>
+          <TextLink className="mt-2 cursor-pointer justify-start gap-1" href={`/${slug}`}>
             View case study
             <span className="icon icon-sm" aria-hidden="true">
               <span className="material-symbols-rounded arrow_forward">arrow_forward</span>

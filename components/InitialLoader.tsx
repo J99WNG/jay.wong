@@ -1,30 +1,31 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import LoadingLogo from './LoadingLogo';
 
 export default function InitialLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
+  const finishLoading = useCallback(() => setIsLoading(false), []);
 
   useEffect(() => {
-    // Disable scrolling immediately when mounted
-    if (isLoading) {
-      document.body.classList.add('overflow-hidden');
-    }
+    if (!isLoading) return;
 
-    // Unmount the loader after the animation completes (approx 1.5s total duration)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.body.classList.remove('overflow-hidden');
-    }, 1500);
+    document.body.classList.add('overflow-hidden');
 
-    // Cleanup ensures scrolling is re-enabled if the component unmounts early
+    // Reduced-motion users bypass the animation. Otherwise this timeout only
+    // acts as a safety net if the animation completion event does not fire.
+    const fallbackTimer = window.setTimeout(
+      finishLoading,
+      shouldReduceMotion ? 0 : 4000,
+    );
+
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(fallbackTimer);
       document.body.classList.remove('overflow-hidden');
     };
-  }, [isLoading]);
+  }, [finishLoading, isLoading, shouldReduceMotion]);
 
   return (
     <>
@@ -32,10 +33,13 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
         {isLoading && (
           <motion.div
             key="loader"
-            exit={{ opacity: 0, transition: { duration: 1 } }} // Fades the whole overlay out smoothly
+            exit={{
+              opacity: 0,
+              transition: { duration: shouldReduceMotion ? 0 : 0.4 },
+            }}
             className="fixed inset-0 z-[9999]"
           >
-            <LoadingLogo />
+            <LoadingLogo onComplete={finishLoading} />
           </motion.div>
         )}
       </AnimatePresence>

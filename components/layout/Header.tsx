@@ -16,6 +16,7 @@ export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const pendingTarget = useRef<ScrollTarget | null>(null);
+    const menuToggleRef = useRef<HTMLButtonElement>(null);
 
     const scrollToTarget = useCallback((target: ScrollTarget) => {
         if (target === 'top') {
@@ -80,26 +81,40 @@ export default function Header() {
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
 
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key !== 'Escape') return;
+
+            setIsOpen(false);
+            window.requestAnimationFrame(() => menuToggleRef.current?.focus());
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen]);
+
     const handleTargetClick = (event: MouseEvent<HTMLElement>, target: ScrollTarget) => {
         event.preventDefault();
         navigateTo(target);
     };
 
     return (
-        <header className="fixed top-0 left-0 z-9997 h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
-            <div className="container">
-                <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+        <header className="fixed top-0 left-0 z-9997 h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+            <div className="page-container">
+                <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color,backdrop-filter] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
                     <Link
                         href={HOME_PATH}
                         id="nav-brand"
-                        className="flex items-center basis-auto flex-none group outline-none"
+                        className="flex items-center basis-auto flex-none rounded-lg group"
                         aria-label="Back to the top of the homepage"
                         onClick={(event) => handleTargetClick(event, 'top')}
                     >
                         <svg
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="block h-8 w-auto fill-neutral-100 transition-colors duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
+                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-400 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
                         >
                             <title>Jay Wong monogram</title>
                             <g>
@@ -111,16 +126,8 @@ export default function Header() {
                         </svg>
                     </Link>
 
-                    <nav id="nav-primary" className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-                        <ul className="nav-list flex flex-col md:flex-row p-0 list-none gap-6 md:gap-8 items-start md:items-center md:mx-auto md:my-0 justify-center font-light">
-                            <li><Link href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
-                            <li><Link href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
-                            <li><Link href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
-                        </ul>
-                        <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
-                    </nav>
-
                     <button
+                        ref={menuToggleRef}
                         className="nav-toggle"
                         type="button"
                         aria-expanded={isOpen}
@@ -131,6 +138,15 @@ export default function Header() {
                         <span className="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
                         <span className="material-symbols-rounded icon-close" aria-hidden="true">close</span>
                     </button>
+
+                    <nav id="nav-primary" className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
+                        <ul className="nav-list flex flex-col md:flex-row p-0 list-none gap-6 md:gap-8 items-start md:items-center md:mx-auto md:my-0 justify-center font-light">
+                            <li><Link className="rounded-md" href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
+                            <li><Link className="rounded-md" href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
+                            <li><Link className="rounded-md" href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
+                        </ul>
+                        <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
+                    </nav>
                 </div>
             </div>
         </header>

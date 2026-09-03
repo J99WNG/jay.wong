@@ -25,7 +25,7 @@ export default function MathsGenieShowcase() {
 
   return (
     <>
-      <div className="content-block">
+      <div className="flex flex-col gap-2">
         <h3>Meet the Genie</h3>
         <p>One persona, expressed across the product. Explore the original Rive animations.</p>
         <div className={styles.personaPanel}>
@@ -42,7 +42,7 @@ export default function MathsGenieShowcase() {
         </div>
       </div>
 
-      <div className="content-block">
+      <div className="flex flex-col gap-2">
         <h3>A shared system, built to scale</h3>
         <p>Buttons and a revision card from the shared Figma library. Switch themes, hover or focus to explore their states. Tap a sample to hold its hover state.</p>
         <div className={styles.systemPanel} data-theme={mode}>

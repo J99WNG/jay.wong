@@ -55,10 +55,11 @@ export default function NextProjectCTA() {
     availableCaseStudies[(currentIndex + 1) % availableCaseStudies.length];
 
   return (
-    <div className="breadcrumb">
+    <div className="flex items-center justify-between">
       <Link
         href={HOME_PATH}
         title="Back to all projects"
+        className="inline-flex w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
         onClick={(event: MouseEvent<HTMLAnchorElement>) => {
           event.preventDefault();
           navigateToWork();
@@ -70,7 +71,11 @@ export default function NextProjectCTA() {
         Back to all
       </Link>
 
-      <Link href={`/${nextProject.slug}`} title="Next case study">
+      <Link
+        href={`/${nextProject.slug}`}
+        title="Next case study"
+        className="inline-flex w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
+      >
         Next case study
         <span className="icon icon-sm" aria-hidden="true">
           <span className="material-symbols-rounded arrow_forward">arrow_forward</span>

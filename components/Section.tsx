@@ -14,8 +14,27 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const headings = sectionRef.current?.querySelectorAll<HTMLElement>(
+      '.section-grid > .section-heading'
+    );
+    if (!headings?.length) return;
+
+    // Measure the full heading so wrapped titles stay centered without a
+    // transform that would move them outside their section at its boundaries.
+    const observer = new ResizeObserver((entries) => {
+      entries.forEach(({ target, borderBoxSize }) => {
+        const height = borderBoxSize[0]?.blockSize ?? target.getBoundingClientRect().height;
+        (target as HTMLElement).style.setProperty('--section-heading-height', `${height}px`);
+      });
+    });
+
+    headings.forEach((heading) => observer.observe(heading));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     // If it's the landing section, we might not want it to ever fade out
-    if (isLanding) return; 
+    if (isLanding) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -26,11 +45,11 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
           setIsVisible(false);
         }
       },
-      { 
-        threshold: 0, 
-        // rootMargin creates a 'buffer' so the element is well 
+      {
+        threshold: 0,
+        // rootMargin creates a 'buffer' so the element is well
         // inside the screen before it triggers.
-        rootMargin: '-40% 0px -40% 0px' 
+        rootMargin: '-40% 0px -40% 0px'
       }
     );
 
@@ -44,23 +63,27 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
       ref={sectionRef}
       tabIndex={-1}
       className={`
-        relative isolate w-full mx-auto
+        page-section relative isolate w-full mx-auto
+        print:min-h-0 print:overflow-visible
         ${isLanding
           ? 'min-h-screen overflow-hidden content-center bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32'
           : 'min-h-fit overflow-visible bg-bg-primary py-32'}
         ${className}
       `}
     >
-      {/* ANIMATED CONTENT WRAPPER 
+      {/* ANIMATED CONTENT WRAPPER
           We observe the <section> above, which is STABLE (static height).
-          We animate this <div>, which is MOVING. 
+          We animate this <div>, which is MOVING.
           Because the observer is watching the parent, the movement won't cause a flicker.
       */}
       <div className={`
-        relative z-10 container 
-        transition-[opacity,transform,filter] duration-[2000ms] ease-[cubic-bezier(0.215,0.61,0.355,1)] 
-        will-change-[opacity,transform,filter]
-        ${isVisible ? 'opacity-100 blur-none' : 'opacity-0 blur-xs'}
+        relative z-10 page-container
+        opacity-100 blur-none
+        motion-safe:transition-[opacity,filter] motion-safe:duration-[2000ms]
+        motion-safe:ease-[cubic-bezier(0.215,0.61,0.355,1)]
+        motion-safe:will-change-[opacity,filter]
+        print:opacity-100 print:blur-none print:transition-none
+        ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-xs'}
       `}>
         {children}
       </div>

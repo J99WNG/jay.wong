@@ -1,9 +1,31 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useReducedMotion } from "framer-motion";
 
 const cardBase =
-  "group/card absolute aspect-[4/3] w-[72%] origin-center overflow-hidden rounded-xl border border-border-muted bg-bg-secondary shadow-xl transition-[transform,box-shadow,border-color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:z-30 hover:rotate-0 hover:scale-[1.04] hover:border-border-hover hover:shadow-2xl focus-visible:z-30 focus-visible:rotate-0 focus-visible:scale-[1.04] focus-visible:border-border-hover motion-reduce:transition-none sm:w-[56%] md:w-[48%]";
+  "group/card absolute aspect-[4/3] w-[72%] origin-center overflow-hidden rounded-xl border border-border-muted bg-bg-secondary shadow-xl motion-safe:transition-[rotate,scale,box-shadow,border-color] motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:will-change-[rotate,scale] hover:z-30 motion-safe:hover:rotate-0 motion-safe:hover:scale-[1.04] hover:border-border-hover hover:shadow-2xl focus-visible:z-30 motion-safe:focus-visible:rotate-0 motion-safe:focus-visible:scale-[1.04] focus-visible:border-border-hover sm:w-[56%] md:w-[48%]";
 
 export default function ShuffleDeck() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (shouldReduceMotion) {
+      video.pause();
+      video.currentTime = 0;
+      return;
+    }
+
+    void video.play().catch(() => {
+      // Browsers may still block autoplay despite the video being muted.
+    });
+  }, [shouldReduceMotion]);
+
   return (
     <div
       className="relative isolate h-[17rem] w-full sm:h-[20rem] md:h-[19rem]"
@@ -18,7 +40,7 @@ export default function ShuffleDeck() {
           alt="Jay with a multidisciplinary design team"
           fill
           sizes="(max-width: 640px) 72vw, (max-width: 768px) 56vw, 31vw"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.03] group-focus-visible/card:scale-[1.03] motion-reduce:transition-none"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
         />
       </figure>
 
@@ -27,8 +49,9 @@ export default function ShuffleDeck() {
         className={`${cardBase} left-[14%] top-1 z-20 rotate-[2.5deg] sm:left-[22%] md:left-[26%]`}
       >
         <video
-          className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.03] group-focus-visible/card:scale-[1.03] motion-reduce:transition-none"
-          autoPlay
+          ref={videoRef}
+          className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
+          autoPlay={!shouldReduceMotion}
           muted
           loop
           playsInline
@@ -48,7 +71,7 @@ export default function ShuffleDeck() {
           alt="Jay and colleagues at Product Design Week London"
           fill
           sizes="(max-width: 640px) 72vw, (max-width: 768px) 56vw, 31vw"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.03] group-focus-visible/card:scale-[1.03] motion-reduce:transition-none"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
         />
       </figure>
     </div>

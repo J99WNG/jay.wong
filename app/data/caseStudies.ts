@@ -20,7 +20,7 @@ export type CaseStudy = {
     {
       slug: "mathsgenie",
       year: "2026",
-      company: "General Learning (YC 24)",
+      company: "General Learning (YC F24)",
       logo: "",
       industry: "EdTech",
       title: "Relaunching MathsGenie: 242,000 daily users at its peak",

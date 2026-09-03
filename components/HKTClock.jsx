@@ -17,7 +17,7 @@ export default function Clock() {
     return (                        
         <div className="flex items-center gap-2">
             <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-green-900)] opacity-75"></span>
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-green-900)] opacity-75 motion-safe:animate-ping"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]"></span>
             </span>
 

@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className="h-fit md:h-16 bg-bg-secondary" aria-label="Footer">
 
-            <div className="container">
+            <div className="page-container">
                 <hr className="divider" aria-hidden="true" />
             
                 <div id="footer-wrapper" className="flex flex-col items-center gap-4 py-4 px-0 md:flex-row md:justify-between">

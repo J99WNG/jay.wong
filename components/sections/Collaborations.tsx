@@ -102,15 +102,15 @@ export default function Collaborations() {
 
   return (
     <Section id="collaborations">
-      <div className="col-30-70">
+      <div className="section-grid">
           <div className="section-heading">
               <h2>Collaborations
               <br />
-              <span className="section-subheading">Solving human problems in the AI era.</span>
+              <span className="font-normal text-text-tertiary">Solving human problems in the AI era.</span>
               </h2>
           </div>
 
-          <div className="section-content">
+          <div className="inline-flex max-w-full flex-col gap-10">
               <p className="lead">
                 Over the past seven years, I&apos;ve helped multidisciplinary teams turn complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
               </p>
@@ -121,13 +121,13 @@ export default function Collaborations() {
                     const CardContent = (
                       <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
-                        <div className="relative h-16 w-full transition-all duration-300 group-hover:scale-105 group-active:scale-105 group-focus:scale-105">
+                        <div className="relative h-16 w-full motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105 motion-safe:group-active:scale-105 motion-safe:group-focus-within:scale-105">
                           <Image
                             src={company.src}
                             alt={company.name}
                             fill
                             sizes="(max-width: 768px) 50vw, 33vw"
-                            className="object-contain grayscale opacity-80 transition-all duration-300 ease-in-out group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus:filter-none group-focus:opacity-100"
+                            className="object-contain grayscale opacity-80 motion-safe:transition-[filter,opacity] motion-safe:duration-300 motion-safe:ease-in-out group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus-within:filter-none group-focus-within:opacity-100"
                           />
                         </div>
 
@@ -137,7 +137,7 @@ export default function Collaborations() {
                     return (
                       <li
                         key={company.id}
-                        className="group relative card transition-all duration-300 pb-0"
+                        className="group relative card motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-300 pb-0"
                         onPointerEnter={(event) => {
                           if (!company.roleDescription) return;
                           setActiveCompanyId(company.id);
@@ -157,7 +157,7 @@ export default function Collaborations() {
                           <Link
                             href={company.caseStudySlug}
                             aria-describedby={company.roleDescription ? `tooltip-${company.id}` : undefined}
-                            className="block w-full h-full rounded-2xl text-inherit focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600"
+                            className="block w-full h-full rounded-2xl text-inherit"
                           >
                             {CardContent}
                           </Link>
@@ -165,7 +165,7 @@ export default function Collaborations() {
                           <button
                             type="button"
                             aria-describedby={company.roleDescription ? `tooltip-${company.id}` : undefined}
-                            className={`block w-full h-full text-left rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600 ${
+                            className={`block w-full h-full text-left rounded-2xl ${
                               company.roleDescription ? 'cursor-help' : 'cursor-default'
                             }`}
                           >
