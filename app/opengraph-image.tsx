@@ -38,7 +38,7 @@ export default async function OpenGraphImage() {
           background: ogColors.backgroundSecondary,
           color: ogColors.textPrimary,
           fontFamily: 'Inter',
-          padding: '68px 76px',
+          padding: '4rem 6rem',
         }}
       >
         <div
@@ -52,8 +52,8 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: 'flex',
-              fontSize: 48,
-              lineHeight: 1.08,
+              fontSize: 46,
+              lineHeight: 1.2,
               letterSpacing: '-0.045em',
               fontWeight: 500,
             }}
@@ -64,27 +64,14 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: 'flex',
-              marginTop: 28,
+              marginTop: 32,
               color: ogColors.textSecondary,
-              fontSize: 22,
+              fontSize: 28,
               lineHeight: 1.35,
               letterSpacing: '-0.025em',
             }}
           >
             {heroContent.tagline.replace(/^👋\s*/, '')}
-          </div>
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginTop: 32,
-              color: ogColors.textTertiary,
-              fontSize: 24,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            jaywong.digital
           </div>
         </div>
 

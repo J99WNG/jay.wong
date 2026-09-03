@@ -1,0 +1,121 @@
+.personaPanel {
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border-muted);
+  border-radius: 20px;
+  background: var(--color-bg-secondary);
+}
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px; }
+.control[aria-pressed='true'] { outline: 2px solid currentColor; outline-offset: -2px; }
+.animationStage { height: 300px; padding: 24px; background: #e9edff; }
+.canvas { height: 100%; width: 100%; }
+.loading { display: grid; height: 300px; place-items: center; color: #2f3440; }
+.playback { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 16px 20px 0; }
+.caption { padding: 12px 20px 20px; font-size: 14px; line-height: 1.5; }
+
+/* Values from the YesGenie library, scoped to this specimen only.
+   Figma uses Geom. Use the portfolio's bundled Inter until a webfont is supplied.
+   Sources: Button 2707:2199; Card 2707:2182/2185 and 2706:1870/1872. */
+.systemPanel {
+  --mg-primary: #7fa2ff;
+  --mg-primary-hover: #a3beff;
+  --mg-primary-text: #2f3440;
+  --mg-primary-border: #2f3440;
+  --mg-primary-border-hover: #1f232b;
+  --mg-secondary: #1f232b;
+  --mg-secondary-hover: #2f3440;
+  --mg-border: #2f3440;
+  --mg-border-hover: #474e5c;
+  --mg-text: #fafbff;
+  --mg-muted: #c9cfdb;
+  --mg-link: #7fa2ff;
+  --mg-link-hover: #a3beff;
+  --mg-card: #2f3440;
+  --mg-card-hover: #474e5c;
+  --mg-card-border: #474e5c;
+  --mg-card-border-hover: #5f6775;
+  margin: 16px 0 12px;
+  border: 1px solid var(--color-border-muted);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--mg-secondary);
+  color: var(--mg-text);
+  font-family: var(--font-inter), sans-serif;
+}
+.systemPanel[data-theme='light'] {
+  --mg-primary: #3756bf;
+  --mg-primary-hover: #476dd9;
+  --mg-primary-text: #e2e6f0;
+  --mg-primary-border: #e2e6f0;
+  --mg-primary-border-hover: #c9cfdb;
+  --mg-secondary: #f2f4fa;
+  --mg-secondary-hover: #fafbff;
+  --mg-border: #e2e6f0;
+  --mg-border-hover: #f2f4fa;
+  --mg-text: #1f232b;
+  --mg-muted: #5f6775;
+  --mg-link: #5a85f2;
+  --mg-link-hover: #7fa2ff;
+  --mg-card: #e2e6f0;
+  --mg-card-hover: #fafbff;
+  --mg-card-border: #c9cfdb;
+  --mg-card-border-hover: #e2e6f0;
+}
+.themeControl {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font: 500 13px/1.2 var(--font-inter), sans-serif;
+  color: var(--mg-text);
+  cursor: pointer;
+}
+.themeControl[aria-pressed='true'] { background: var(--mg-card); }
+.samples { padding: 20px 24px 32px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
+.buttonRow { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.sampleButton {
+  border: 1px solid var(--mg-border);
+  border-bottom-width: 2px;
+  border-radius: 12px;
+  padding: 12px;
+  font: 500 16px/1 var(--font-inter), sans-serif;
+  letter-spacing: -0.32px;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+  cursor: pointer;
+  transition: background-color 160ms, border-color 160ms, color 160ms;
+}
+.primary { background: var(--mg-primary); color: var(--mg-primary-text); border-color: var(--mg-primary-border); }
+.primary:is(:hover, :focus-visible, [data-held='true']) { background: var(--mg-primary-hover); border-color: var(--mg-primary-border-hover); }
+.secondary { background: var(--mg-secondary); color: var(--mg-text); }
+.secondary:is(:hover, :focus-visible, [data-held='true']) { background: var(--mg-secondary-hover); border-color: var(--mg-border-hover); }
+.tertiary { background: transparent; border-color: transparent; color: var(--mg-link); }
+.tertiary:is(:hover, :focus-visible, [data-held='true']) { color: var(--mg-link-hover); }
+.sampleCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 386px;
+  max-width: 100%;
+  min-height: 119px;
+  padding: 24px;
+  border: 1px solid var(--mg-card-border);
+  border-radius: 20px;
+  background: var(--mg-card);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms, border-color 160ms;
+}
+.sampleCard:is(:hover, :focus-visible, [data-held='true']) { background: var(--mg-card-hover); border-color: var(--mg-card-border-hover); }
+.cardTitle { font-size: 28px; font-weight: 500; letter-spacing: -0.56px; line-height: normal; color: var(--mg-text); }
+.cardBody { font-size: 16px; font-weight: 400; letter-spacing: -0.32px; line-height: normal; color: var(--mg-muted); }
+.cardTitle, .cardBody { text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+.systemPanel button:focus-visible { outline: 2px solid var(--mg-primary); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .sampleButton, .sampleCard { transition: none; }
+}
+@media (max-width: 480px) {
+  .animationStage { height: 240px; }
+  .samples { padding-inline: 16px; }
+  .sampleCard { padding: 20px; }
+  .buttonRow { gap: 8px; }
+}

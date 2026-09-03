@@ -18,16 +18,16 @@ export type CaseStudy = {
   
   export const caseStudies: CaseStudy[] = [
     {
-      slug: "revisiondojo-yc",
+      slug: "mathsgenie",
       year: "2026",
       company: "General Learning (YC 24)",
       logo: "",
       industry: "EdTech",
-      title: "Scaling a learning mascot to 250,000 students",
-      tagline: "Modernising a study content platform through 40,000 AI tutoring sessions per day.",
+      title: "Relaunching MathsGenie: 242,000 daily users at its peak",
+      tagline: "Shaping an AI tutor handling 40,000+ daily messages, with a new persona and a shared design system.",
       role: "Design",
       badges: ["EdTech", "AI Platform", "Brand Strategy"],
-      bentoImage: "/assets/images/revisiondojo-yc/mathsgenie-bento-1.png",
+      bentoImage: "/assets/images/mathsgenie/mathsgenie-bento-1.png",
       bentoImage2: "",
       bentoImage3: "",
       available: false,

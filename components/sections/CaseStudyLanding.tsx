@@ -29,15 +29,15 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             </p>
           </div>
 
-          <div className="bento-grid">
+          <div className={project.bentoImage2 || project.bentoImage3 ? 'bento-grid' : 'w-full'}>
             <FigureModal
               className="bento-item md:row-span-2"
               src={project.bentoImage}
               alt={`Featured image for ${project.title}`}
               priority
             />
-            <FigureModal className="bento-item" src={project.bentoImage2} alt="" priority />
-            <FigureModal className="bento-item" src={project.bentoImage3} alt="" priority />
+            {project.bentoImage2 && <FigureModal className="bento-item" src={project.bentoImage2} alt="" priority />}
+            {project.bentoImage3 && <FigureModal className="bento-item" src={project.bentoImage3} alt="" priority />}
           </div>
         </div>
       </Section>

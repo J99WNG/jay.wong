@@ -10,5 +10,5 @@ export const heroContent = {
     'mentorship.',
   ],
   tagline:
-    "👋 I'm Jay – a product designer that operates at the crossroads of design, engineering, and business.",
+    "👋 I’m Jay, a product designer who turns ambiguity into aligned strategy and shipped products at the intersection of design, engineering, and business.",
 } as const;

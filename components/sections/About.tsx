@@ -1,4 +1,5 @@
 import Section from "../Section";
+import ShuffleDeck from "../ui/ShuffleDeck";
 
 const skills = [
     "UX Research",
@@ -19,23 +20,23 @@ const skills = [
   const strengths = [
     {
         icon: "account_tree",
-        title: "Strategic Organiser",
-        text: "I keep teams aligned, focused, and moving fast. Kanbans and PBIs are nothing new to me."
+        title: "Strategic Operator",
+        text: "Turns ambiguous opportunities into clear product direction, practical priorities, and measurable outcomes."
     },
     {
         icon: "category",
-        title: "Cross-Functional",
-        text: "Fluency across design, IT, and business – I turn gaps into shared understanding."
+        title: "Cross-Functional Partner",
+        text: "Creates alignment across design, engineering, business, and globally distributed teams."
     },
     {
         icon: "search_insights",
-        title: "Evidence-Led",
-        text: "My decisions are grounded in research, data, and real user needs – not assumptions."
+        title: "Evidence-Led Designer",
+        text: "Grounds decisions in research, behavioural data, usability testing, and real user needs."
     },
     {
         icon: "diversity_4",
-        title: "Collaborative Owner",
-        text: "I lead with trust and shared ownership, driving outcomes together, not alone."
+        title: "Agentic Builder",
+        text: "Uses Claude, Codex, Cursor, and MCP-connected workflows to accelerate research, prototyping, design systems, and product operations."
     }
 ];
 
@@ -55,10 +56,12 @@ export default function About() {
                         I build, navigate, and explore the world through the lens of design. I grew up chasing each generation of Nintendos and Sony Ericssons, which shaped my fascination for tech.
                     </p>
 
+                    <ShuffleDeck />
+
                     <p className="lead">
                         Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
                     </p>
-
+                    
                     <ul className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap list-none p-0">
                         {skills.map((skill) => (
                             <li key={skill} className="badge">

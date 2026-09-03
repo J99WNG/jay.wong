@@ -112,7 +112,7 @@ export default function Collaborations() {
 
           <div className="section-content">
               <p className="lead">
-                For 7 or so years, I&apos;ve partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes. I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I&apos;ve led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
+                Over the past seven years, I&apos;ve helped multidisciplinary teams turn complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
               </p>
 
               <div>
