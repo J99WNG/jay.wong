@@ -4,6 +4,7 @@ import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
 import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
+import { heroContent } from "@/app/data/heroContent";
 
 
 export default function Hero() {
@@ -27,25 +28,17 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [keywordIndex, setKeywordIndex] = useState(0);
 
-  const keywords = [
-    "design.",
-    "research.",
-    "collaboration.",
-    "systems thinking.",
-    "mentorship."
-  ];
-
   // Cycle through the keywords every 2.5 seconds
   useEffect(() => {
     // Pause the ticker if reduced motion is enabled
     if (shouldReduceMotion) return;
 
     const interval = setInterval(() => {
-      setKeywordIndex((prev) => (prev + 1) % keywords.length);
+      setKeywordIndex((prev) => (prev + 1) % heroContent.keywords.length);
     }, 2500);
 
     return () => clearInterval(interval);
-  }, [shouldReduceMotion, keywords.length]);
+  }, [shouldReduceMotion]);
 
   // Standard Fade-Up Variants
   const fadeInUp = {
@@ -83,8 +76,7 @@ export default function Hero() {
     },
   };
 
-  const taglineText = "👋 I'm Jay – a product designer that operates at the crossroads of design, engineering, and business.";
-  const taglineChars = [...taglineText];
+  const taglineChars = [...heroContent.tagline];
 
   return (
     <Section id="hero" isLanding={true}>
@@ -101,12 +93,12 @@ export default function Hero() {
           >
             {/* 1. Accessible Layer: Hidden visually, but read clearly by screen readers */}
             <span className="sr-only">
-              Solving digital complexity through design, research, collaboration and systems thinking.
+              {heroContent.accessibleHeadline}
             </span>
 
             {/* 2. Visual Layer: Hidden from screen readers */}
             <span aria-hidden="true" className=" text-text-primary text-[clamp(2.5rem,5vw,3.25rem)] flex flex-wrap gap-x-3 items-center">
-              <span>Solving digital complexity through</span>
+              <span>{heroContent.headline}</span>
               
               {shouldReduceMotion ? (
                 <span>design, research, collaboration and systems thinking.</span>
@@ -122,7 +114,7 @@ export default function Hero() {
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="col-start-1 row-start-1 text-accent-primary font-pixel tracking-tight" // Optional: Add a text color here to make it pop!
                     >
-                      {keywords[keywordIndex]}
+                    {heroContent.keywords[keywordIndex]}
                     </motion.span>
                   </AnimatePresence>
                 </span>
@@ -132,7 +124,7 @@ export default function Hero() {
 
           {/* Accessible Tagline Typewriter Block */}
           <div className="m-0 relative text-text-tertiary/80">
-            <span className="sr-only">{taglineText}</span>
+            <span className="sr-only">{heroContent.tagline}</span>
             <motion.p
               aria-hidden="true"
               initial="initial"

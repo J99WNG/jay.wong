@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     description: "👋 a product designer that operates at the crossroads of design, engineering, and business.",
     url: "https://jaywong.digital/",
     siteName: "Jay Wong",
-    images: [{ url: "/assets/images/OG-Image.png" }],
     type: "website",
   },
 
@@ -61,7 +60,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Jay Wong – Solving digital complexity with design",
-    images: ["/assets/images/OG-Image.png"],
   },
 
   // This handles icons and Apple Touch Icons
