@@ -1,5 +1,13 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+
+interface SectionProps {
+  id: string;
+  children: ReactNode;
+  isLanding?: boolean;
+  className?: string;
+}
 
 const Section = ({ id, children, isLanding = false, className = "" }: SectionProps) => {
   const [isVisible, setIsVisible] = useState(isLanding); // Landing starts visible

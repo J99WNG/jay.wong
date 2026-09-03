@@ -23,7 +23,7 @@ export default function Contact() {
                         whether it&apos;s a quick question, collaboration idea, or a full-on project.
                     </p>
 
-                    <div className="flex flex-col gap-6 shrink-1" role="list">
+                    <div className="flex flex-col gap-6 shrink" role="list">
                         {/* Email */}
                         <CopyEmail />
 

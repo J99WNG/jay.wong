@@ -4,6 +4,7 @@ import { useState } from "react";
 import Section from "../Section";
 import Link from 'next/link';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 
 interface CompanyLogo {
   id: string;
@@ -68,13 +69,35 @@ const companyLogos: CompanyLogo[] = [
 
 export default function Collaborations() {
 
-  // Track mouse coordinates and the active company currently hovered
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [hoveredItemId, setHoveredItemId] = useState<string | number | null>(null);
+  const [activeCompanyId, setActiveCompanyId] = useState<string | null>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    // Track cursor relative to the viewport window coordinates
-    setMousePos({ x: e.clientX, y: e.clientY });
+  const activeCompany = companyLogos.find(({ id }) => id === activeCompanyId);
+
+  const positionTooltip = (clientX: number, clientY: number) => {
+    const tooltipWidth = 256;
+    const tooltipHeight = 144;
+    const pointerOffset = 16;
+    const viewportPadding = 8;
+
+    const fitsToRight = clientX + pointerOffset + tooltipWidth + viewportPadding <= window.innerWidth;
+    const fitsBelow = clientY + pointerOffset + tooltipHeight + viewportPadding <= window.innerHeight;
+
+    const x = fitsToRight
+      ? clientX + pointerOffset
+      : clientX - tooltipWidth - pointerOffset;
+    const y = fitsBelow
+      ? clientY + pointerOffset
+      : clientY - tooltipHeight - pointerOffset;
+
+    setMousePos({
+      x: Math.max(viewportPadding, x),
+      y: Math.max(viewportPadding, y),
+    });
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLLIElement>) => {
+    positionTooltip(event.clientX, event.clientY);
   };
 
   return (
@@ -89,15 +112,12 @@ export default function Collaborations() {
 
           <div className="section-content">
               <p className="lead">
-                For 7 or so years, I've partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes.  I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I've led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
+                For 7 or so years, I&apos;ve partnered with multidisciplinary teams across energy, finance, and education to turn ambiguous problems into shipped, measurable outcomes. I sit at the intersection of Design, IT, and Business – not as a buzzword, but as a practice: I&apos;ve led discovery with engineers and stakeholders, translated research into design systems, and shipped products used by thousands of customers at organisations like bp and Credit Suisse.
               </p>
 
               <div>
                 <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">
                   {companyLogos.map((company) => {
-                    // Check if the company is hovered AND has a valid description
-                    const showTooltip = hoveredItemId === company.id && !!company.roleDescription;
-
                     const CardContent = (
                       <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
@@ -111,24 +131,6 @@ export default function Collaborations() {
                           />
                         </div>
 
-                        {/* Mouse-Anchored Floating Tooltip */}
-                        {company.roleDescription && (
-                          <div
-                            role="tooltip"
-                            id={`tooltip-${company.id}`}
-                            style={{
-                              left: `${mousePos.x}px`,
-                              top: `${mousePos.y}px`,
-                              transform: 'translate(-40%, 50%)',
-                            }}
-                            className={`fixed pointer-events-none z-50 w-64 rounded-xl bg-bg-tertiary p-2 text-center shadow-xl ring-1 ring-white/10 transition-opacity duration-200 ${
-                              showTooltip ? 'opacity-100' : 'opacity-0'
-                            }`}
-                          >
-                            <span className="block font-bold text-text-primary mb-0.5">{company.name}</span>
-                            <p className="text-xs font-sm leading-relaxed">{company.roleDescription}</p>
-                          </div>
-                        )}
                       </div>
                     );
 
@@ -136,9 +138,20 @@ export default function Collaborations() {
                       <li
                         key={company.id}
                         className="group relative card transition-all duration-300 pb-0"
-                        onMouseEnter={() => setHoveredItemId(company.id)}
-                        onMouseMove={handleMouseMove}
-                        onMouseLeave={() => setHoveredItemId(null)}
+                        onPointerEnter={(event) => {
+                          if (!company.roleDescription) return;
+                          setActiveCompanyId(company.id);
+                          positionTooltip(event.clientX, event.clientY);
+                        }}
+                        onPointerMove={company.roleDescription ? handlePointerMove : undefined}
+                        onPointerLeave={() => setActiveCompanyId(null)}
+                        onFocus={(event) => {
+                          if (!company.roleDescription) return;
+                          const bounds = event.currentTarget.getBoundingClientRect();
+                          setActiveCompanyId(company.id);
+                          positionTooltip(bounds.right, bounds.top + bounds.height / 2);
+                        }}
+                        onBlur={() => setActiveCompanyId(null)}
                       >
                         {company.caseStudySlug ? (
                           <Link
@@ -166,6 +179,19 @@ export default function Collaborations() {
               </div>
           </div>
       </div>
+
+      {activeCompany?.roleDescription && typeof document !== 'undefined' && createPortal(
+        <div
+          role="tooltip"
+          id={`tooltip-${activeCompany.id}`}
+          style={{ left: mousePos.x, top: mousePos.y }}
+          className="pointer-events-none fixed z-[10000] w-64 rounded-xl bg-bg-tertiary p-2 text-center shadow-xl ring-1 ring-white/10"
+        >
+          <span className="mb-0.5 block font-semibold text-text-primary tracking-tight">{activeCompany.name}</span>
+          <p className="text-xs leading-relaxed">{activeCompany.roleDescription}</p>
+        </div>,
+        document.body,
+      )}
     </Section>
   );
 }
