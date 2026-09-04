@@ -47,7 +47,7 @@ export default function ThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-5 right-5 z-9999">
+    <div className="fixed bottom-5 right-5 z-(--layer-utility)">
       <button
         onClick={cycleTheme}
         type="button"

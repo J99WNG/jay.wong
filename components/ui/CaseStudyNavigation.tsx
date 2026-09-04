@@ -27,6 +27,7 @@ export default function CaseStudyNavigation() {
   const [activeId, setActiveId] = useState<string>();
 
   useEffect(() => {
+    // Build the navigation from each case-study section's primary heading.
     const sections = Array.from(document.querySelectorAll<HTMLElement>('article > section[id]'))
       .filter((section) => section.id !== 'landing');
     const navigationItems = sections.flatMap((section) => {
@@ -40,6 +41,7 @@ export default function CaseStudyNavigation() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setItems(navigationItems);
 
+    // Track the section crossing the viewport's reading line.
     let frame = 0;
     const updateActiveSection = () => {
       cancelAnimationFrame(frame);
@@ -71,18 +73,20 @@ export default function CaseStudyNavigation() {
     const section = document.getElementById(id);
     if (!section) return;
 
-    window.history.pushState(null, '', `#${id}`);
+    // Keep the visible URL clean while retaining semantic fragment links.
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
     section.focus({ preventScroll: true });
     section.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
   };
 
   return (
     <nav
-      className="group fixed right-0 top-[50dvh] z-20 hidden w-[min(18rem,calc(100vw-1.5rem))] -translate-y-1/2 translate-x-[calc(100%-3.5rem)] transform-gpu [--nav-spring:cubic-bezier(0.34,1.42,0.64,1)] transition-transform duration-[420ms] ease-[var(--nav-spring)] will-change-transform hover:translate-x-0 focus-within:translate-x-0 motion-reduce:transition-none md:block"
+      className="group fixed right-0 top-[50dvh] z-(--layer-page-navigation) hidden w-56 -translate-y-1/2 translate-x-40 transform-gpu [--nav-spring:cubic-bezier(0.34,1.42,0.64,1)] transition-transform duration-[420ms] ease-[var(--nav-spring)] will-change-transform hover:translate-x-0 focus-within:translate-x-0 motion-reduce:transition-none md:block lg:w-64 lg:translate-x-48"
       aria-label="On this page"
     >
+      {/* Resting state: one compact tab for each section. */}
       <div
-        className="pointer-events-none absolute left-0 top-1/2 z-20 flex w-14 -translate-y-1/2 flex-col items-center gap-3 transition-[opacity,transform] duration-300 ease-[var(--nav-spring)] after:absolute after:-bottom-4 after:right-0 after:-top-4 after:w-px after:bg-border-base after:content-[''] group-hover:translate-x-3 group-hover:scale-95 group-hover:opacity-0 group-focus-within:translate-x-3 group-focus-within:scale-95 group-focus-within:opacity-0 motion-reduce:transition-none"
+        className="pointer-events-none absolute left-0 top-1/2 z-20 flex w-16 -translate-y-1/2 flex-col items-center gap-3 transition-[opacity,transform] duration-300 ease-[var(--nav-spring)] after:absolute after:-bottom-4 after:right-0 after:-top-4 after:w-px after:bg-border-base after:content-[''] group-hover:translate-x-3 group-hover:scale-95 group-hover:opacity-0 group-focus-within:translate-x-3 group-focus-within:scale-95 group-focus-within:opacity-0 motion-reduce:transition-none"
         aria-hidden="true"
       >
         {items.map((item) => (
@@ -97,7 +101,9 @@ export default function CaseStudyNavigation() {
           />
         ))}
       </div>
-      <div className="relative isolate max-h-[calc(100dvh-4rem)] overflow-y-auto bg-transparent px-6 py-5 before:absolute before:inset-0 before:-z-10 before:origin-right before:translate-x-5 before:scale-x-[0.96] before:rounded-l-3xl before:bg-linear-to-r before:from-transparent before:via-bg-secondary/25 before:to-bg-secondary/50 before:opacity-0 before:content-[''] before:transition-[opacity,transform] before:duration-[420ms] before:ease-[var(--nav-spring)] group-hover:before:translate-x-0 group-hover:before:scale-x-100 group-hover:before:opacity-100 group-focus-within:before:translate-x-0 group-focus-within:before:scale-x-100 group-focus-within:before:opacity-100 motion-reduce:before:transition-none">
+
+      {/* Expanded state: gradient backdrop and accessible section links. */}
+      <div className="relative max-h-[calc(100dvh-4rem)] overflow-y-auto rounded-l-3xl bg-linear-to-r from-transparent via-bg-secondary/85 to-bg-secondary px-4 py-5">
         <p
           className="mb-2 translate-x-3 font-pixel text-xs font-semibold uppercase leading-none tracking-[0.04em] text-text-tertiary opacity-0 transition-[opacity,transform] delay-75 duration-300 ease-[var(--nav-spring)] group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 motion-reduce:transition-none"
           aria-hidden="true"
@@ -112,7 +118,7 @@ export default function CaseStudyNavigation() {
                   'relative flex min-h-11 w-full items-center rounded-xl px-3 py-2.5 text-sm leading-tight transition-[color,background-color,transform] duration-300 ease-[var(--nav-spring)] focus-visible:outline-offset-[-3px] motion-reduce:transition-none',
                   activeId === item.id
                     ? 'bg-transparent font-medium text-accent-interactive hover:bg-transparent hover:text-accent-interactive focus-visible:bg-transparent'
-                    : 'text-text-tertiary hover:bg-bg-tertiary/50 hover:text-text-primary focus-visible:bg-bg-tertiary/50 focus-visible:text-text-primary',
+                    : 'text-text-tertiary hover:bg-bg-tertiary/70 hover:text-text-primary focus-visible:bg-bg-tertiary/70 focus-visible:text-text-primary',
                 )}
                 href={`#${item.id}`}
                 onClick={(event) => navigateToSection(event, item.id)}

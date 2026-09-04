@@ -6,6 +6,13 @@
   color-scheme: light dark;
   --page-gutter: clamp(0.5rem, 5vw, 1.5rem);
 
+  /* Global stacking order. Component-internal layers should use small local
+     values (for example 1–3) inside an isolated stacking context. */
+  --layer-page-navigation: 10;
+  --layer-utility: 20;
+  --layer-header: 30;
+  --layer-loader: 100;
+
   /* --- PRIMITIVE TOKENS --- */
   --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
   --color-neutral-300: oklch(0.96 0.004 64);
@@ -433,7 +440,7 @@ figure > button:focus-visible {
   transition: 
         opacity 0.4s ease, 
         transform 0.4s cubic-bezier(0.25,1,0.5,1);
-  z-index: 9998;
+  z-index: 1;
 }
 
 .nav-menu.is-open {              /* show when "open" */
@@ -477,7 +484,7 @@ figure > button:focus-visible {
   background: transparent;
 
   cursor: pointer;
-  z-index: 9998;      /* Ensure it stays above the overlay */
+  z-index: 2; /* Above the menu within the header's local stacking context. */
   transition: background 0.4s ease;
   }
 
@@ -522,7 +529,6 @@ figure > button:focus-visible {
 
 .section-heading {
   position: static;
-  z-index: 1;
   display: flex;
   flex-direction: column;      /* mobile default */
   align-self: flex-start;

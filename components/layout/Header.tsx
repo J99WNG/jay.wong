@@ -101,7 +101,7 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 z-9997 h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+        <header className="fixed top-0 left-0 z-(--layer-header) h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
             <div className="page-container">
                 <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color,backdrop-filter] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
                     <Link

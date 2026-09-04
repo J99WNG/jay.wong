@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
 import { useGallery } from './GalleryContext';
 
@@ -24,16 +24,20 @@ export default function FigureModal({
   priority = false,
 }: FigureModalProps) {
   const id = useId();
+  const figureRef = useRef<HTMLElement>(null);
   const { register, open } = useGallery();
 
   useEffect(() => {
-    return register({ id, src, alt, caption });
+    const element = figureRef.current;
+    if (!element) return;
+
+    return register({ id, src, alt, caption, element });
   }, [id, src, alt, caption, register]);
 
   const handleOpen = () => open(id);
 
   return (
-    <figure className={className}>
+    <figure ref={figureRef} className={className}>
       <button
         type="button"
         onClick={handleOpen}

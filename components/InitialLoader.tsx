@@ -37,15 +37,20 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
               opacity: 0,
               transition: { duration: shouldReduceMotion ? 0 : 0.4 },
             }}
-            className="fixed inset-0 z-[9999]"
+            className="fixed inset-0 z-(--layer-loader)"
+            role="status"
+            aria-label="Loading content"
           >
             <LoadingLogo onComplete={finishLoading} />
           </motion.div>
         )}
       </AnimatePresence>
       
-      {/* Your actual site content sits behind it */}
-      {children}
+      {/* Keep background UI out of the focus and accessibility trees while the
+          blocking loader is visible. Reduced-motion users bypass it. */}
+      <div inert={isLoading} aria-hidden={isLoading || undefined}>
+        {children}
+      </div>
     </>
   );
 }

@@ -20,6 +20,7 @@ type GalleryItem = {
   src: string;
   alt: string;
   caption?: string;
+  element: HTMLElement;
 };
 
 type GalleryContextValue = {
@@ -37,8 +38,8 @@ export function GalleryProvider({ children }: { children: ReactNode }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
 
-  const register = useCallback(({ id, src, alt, caption }: GalleryItem) => {
-    setItems(prev => [...prev, { id, src, alt, caption }]);
+  const register = useCallback(({ id, src, alt, caption, element }: GalleryItem) => {
+    setItems(prev => [...prev, { id, src, alt, caption, element }]);
     return () => setItems(prev => prev.filter(item => item.id !== id));
   }, []);
 
@@ -110,28 +111,72 @@ function GalleryModal({
   const current     = items[activeIndex];
   const total       = items.length;
   const touchStartX = useRef<number | null>(null);
+  const dialogRef   = useRef<HTMLDialogElement>(null);
 
-  // Keyboard navigation + scroll lock
+  const requestClose = useCallback(() => {
+    if (dialogRef.current?.open) dialogRef.current.close();
+    onClose();
+
+    // The page may now be positioned at a different figure. Move focus there
+    // as well so visual position and keyboard/screen-reader position agree.
+    window.requestAnimationFrame(() => {
+      current.element.querySelector<HTMLButtonElement>('button')?.focus({
+        preventScroll: true,
+      });
+    });
+  }, [current.element, onClose]);
+
+  // A modal dialog enters the browser's top layer, making the document behind
+  // it inert without competing with application z-index values.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousRootOverflow = document.documentElement.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      if (dialog.open) dialog.close();
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousRootOverflow;
+    };
+  }, []);
+
+  // Keep the document underneath aligned with the image selected in the
+  // modal. This is programmatic scrolling only; the modal remains the sole
+  // interactive surface until it closes.
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      current.element.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth',
+        block: 'center',
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [current.element]);
+
+  // Keyboard image navigation. Escape is handled by the dialog's cancel event.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape')     onClose();
       if (e.key === 'ArrowLeft')  onPrev();
       if (e.key === 'ArrowRight') onNext();
     };
     document.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
-    };
-  }, [onClose, onPrev, onNext]);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onPrev, onNext]);
 
   // Swipe support
-  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+  const handleTouchStart = (e: TouchEvent<HTMLDialogElement>) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = (e: TouchEvent<HTMLDialogElement>) => {
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 50) {
@@ -144,13 +189,16 @@ function GalleryModal({
   if (!current) return null;
 
   return (
-    <div
+    <dialog
+      ref={dialogRef}
       id="scrim-overlay"
-      className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-xs will-change-[backdrop-filter,opacity] transform-[translateZ(0)] flex items-center justify-center motion-safe:animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
-      role="dialog"
-      aria-modal="true"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 p-0 text-inherit backdrop-blur-xs will-change-[backdrop-filter,opacity] flex items-center justify-center motion-safe:animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
       aria-label={`Image ${activeIndex + 1} of ${total}`}
-      onClick={onClose}
+      onCancel={(event) => {
+        event.preventDefault();
+        requestClose();
+      }}
+      onClick={requestClose}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -158,9 +206,9 @@ function GalleryModal({
       <Button
         autoFocus
         variant="primary"
-        className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer z-10000"
+        className="absolute top-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer"
         aria-label="Close gallery"
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        onClick={(e) => { e.stopPropagation(); requestClose(); }}
         >
         <span className="icon icon-lg">
           <span className="material-symbols-rounded">close</span>
@@ -169,7 +217,7 @@ function GalleryModal({
 
       {/* Content */}
       <div
-        className="page-container flex flex-col items-center"
+        className="page-container flex max-h-dvh flex-col items-center overflow-hidden py-4"
         onClick={(e) => e.stopPropagation()}
       >
 
@@ -269,11 +317,17 @@ function GalleryModal({
         .image-container {
           position: relative;
           width: 100%;
+          min-height: 0;
+          display: flex;
+          justify-content: center;
         }
 
         .gallery-image {
-          width: 100%;
+          width: auto;
+          max-width: 100%;
           height: auto;
+          max-height: calc(100dvh - 12rem);
+          object-fit: contain;
           border-radius: 0.75rem;
           display: block;
           animation: imageIn 0.8s ease;
@@ -291,6 +345,6 @@ function GalleryModal({
           .gallery-image { border-radius: 0.5rem; }
         }
       `}</style>
-    </div>
+    </dialog>
   );
 }

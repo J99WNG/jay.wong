@@ -34,7 +34,7 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
 
   return (
     // The wrapper covers the screen, centers the logo, and adds a subtle backdrop blur
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-bg-primary backdrop-blur-sm">
+    <div className="flex h-full w-full items-center justify-center bg-bg-primary backdrop-blur-sm">
       <motion.svg
         viewBox="0 0 945 426"
         xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +42,7 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        aria-label="Loading..."
-        role="status"
+        aria-hidden="true"
       >
         {/* Reordered paths from Left to Right to naturally follow the staggerChildren array */}
         
