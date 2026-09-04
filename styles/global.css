@@ -530,65 +530,6 @@ figure > button:focus-visible {
   margin-bottom: 2rem;
 }
 
-/* ==================== Case study navigation ==================== */
-.case-study-navigation {
-  position: fixed;
-  z-index: 20;
-  top: 50%;
-  right: max(1rem, calc((100vw - var(--container-page)) / 2 - 11rem));
-  width: 10rem;
-  transform: translateY(-50%);
-  padding-left: 1rem;
-  border-left: 1px solid var(--color-border-muted);
-}
-
-.case-study-navigation__label {
-  margin: 0 0 0.75rem;
-  color: var(--color-text-tertiary);
-  font: 600 0.75rem/1 var(--font-geist-pixel), monospace;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.case-study-navigation ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.case-study-navigation li { padding: 0; }
-
-.case-study-navigation a {
-  display: grid;
-  grid-template-columns: 1.75rem minmax(0, 1fr);
-  width: 100%;
-  padding: 0.375rem 0;
-  color: var(--color-text-tertiary);
-  font-size: 0.8125rem;
-  line-height: 1.25;
-}
-
-.case-study-navigation a > span {
-  color: var(--color-accent-primary);
-  font-family: var(--font-geist-pixel), monospace;
-  font-size: 0.625rem;
-}
-
-.case-study-navigation a:hover,
-.case-study-navigation a:focus-visible,
-.case-study-navigation a[aria-current='location'] {
-  color: var(--color-text-primary);
-}
-
-@media (max-width: 1199px) {
-  .case-study-navigation {
-    display: none;
-  }
-}
-
 /* ==================== Contact ==================== */
 
 .contact-item {
@@ -674,7 +615,7 @@ html:focus-within {
   .section-grid {
     display: grid;
     grid-template-columns: 0.35fr 0.65fr;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: flex-start;
   }
 

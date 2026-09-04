@@ -24,7 +24,7 @@ export type CaseStudy = {
       logo: "",
       industry: "EdTech",
       title: "Relaunching MathsGenie: 242,000 daily users at its peak",
-      tagline: "Shaping an AI tutor handling 40,000+ daily messages, with a new persona and a shared design system.",
+      tagline: "Shaping an AI tutor handling 40,000+ daily messages, with a new companion and a shared design system.",
       role: "Design",
       badges: ["EdTech", "AI Platform", "Brand Strategy"],
       bentoImage: "/assets/images/mathsgenie/mathsgenie-bento-1.png",

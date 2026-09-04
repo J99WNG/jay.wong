@@ -1,0 +1,34 @@
+:root {
+    /* The Base Layers (Whites & Neutrals) */
+    --silver-needle:   hsla(30, 62%, 98%, 1);
+    --white-pekoe:     hsla(35, 40%, 96%, 1);
+    --steamed-vapor:   hsla(35, 20%, 92%, 1);  
+
+    /* Depth (The "Body") */
+    --dried-clay:      hsla(30, 20%, 85%, 1);  
+    --roasted-oolong: hsla(30, 18%, 56%, 1);
+    --lapsang-souchong: hsla(16, 8%, 36%, 1);
+
+    /* The Deep Brews (Dark Solids & Text) */
+    --aged-pu-erh: hsla(28, 40%, 20%, 1);
+    --ceylon-leaf: hsla(20, 30%, 12%, 1);
+    --assam-black: hsla(24, 36%, 7%, 1);
+
+    /* The Vibrant Infusions (Accents & UI States) */
+
+        /* Green */
+        --jasmine-bud: hsla(70, 40%, 88%, 1);
+        --matcha-powder:  hsla(94, 42%, 62%, 1);
+        --iron-buddha:hsla(120, 15%, 40%, 1);
+
+        /* Blue */
+        --earl-grey:	hsla(200, 15%, 50%, 1);
+        --butterfly-pea: hsla(230, 45%, 45%, 1);
+
+        /* Yellow */
+        --milk-tea:hsla(24, 52%, 55%, 1);
+        --masala-chai:	hsla(24, 52%, 50%, 1);
+
+        /* Red */
+        --hibiscus-tisane: hsla(350, 60%, 50%, 1);
+    }

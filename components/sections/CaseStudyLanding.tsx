@@ -2,8 +2,6 @@ import Section from "@/components/Section";
 import NextProjectCTA from "@/components/ui/NextProjectCTA";
 import FigureModal from "@/components/ui/FigureModal";
 import { CaseStudy } from "@/app/data/caseStudies";
-// Kept for the planned case-study navigation treatment.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import CaseStudyNavigation from "@/components/ui/CaseStudyNavigation";
 
 type CaseStudyLandingProps = {
@@ -13,7 +11,7 @@ type CaseStudyLandingProps = {
 export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
   return (
     <>
-      {/* <CaseStudyNavigation /> */}
+      <CaseStudyNavigation />
       <Section id="landing" isLanding>
         <div className="flex flex-col gap-8">
 
