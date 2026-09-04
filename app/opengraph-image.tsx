@@ -20,7 +20,7 @@ export default async function OpenGraphImage() {
   const [interFont, portrait] = await Promise.all([
     readFile(path.join(process.cwd(), 'app/fonts/Inter-OG.ttf')),
     readFile(
-      path.join(process.cwd(), 'public/assets/images/jw-notion-face-transparent.png'),
+      path.join(process.cwd(), 'public/assets/images/jw-headshot-transparent.png'),
     ),
   ]);
 
@@ -52,7 +52,7 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: 'flex',
-              fontSize: 46,
+              fontSize: 48,
               lineHeight: 1.2,
               letterSpacing: '-0.045em',
               fontWeight: 500,

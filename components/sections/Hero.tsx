@@ -80,10 +80,10 @@ export default function Hero() {
 
   return (
     <Section id="hero" isLanding={true}>
-      <div className="mx-auto flex flex-col-reverse md:flex-row items-center gap-5">
+      <div className="mx-auto flex flex-col-reverse items-center gap-5 text-center md:flex-row md:text-left">
         
         {/* Left Column */}
-        <div className="flex flex-1 flex-col gap-6">
+        <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
           <motion.h1
             initial="initial"
             animate="animate"
@@ -97,7 +97,7 @@ export default function Hero() {
             </span>
 
             {/* 2. Visual Layer: Hidden from screen readers */}
-            <span aria-hidden="true" className=" text-text-primary text-[clamp(2.5rem,5vw,3.25rem)] flex flex-wrap gap-x-3 items-center">
+            <span aria-hidden="true" className="text-text-primary text-[clamp(2.5rem,5vw,3.25rem)] flex flex-wrap justify-center gap-x-3 items-center md:justify-start">
               <span>{heroContent.headline}</span>
               
               {shouldReduceMotion ? (
@@ -150,7 +150,7 @@ export default function Hero() {
             animate="animate"
             variants={fadeInUp}
             transition={{ delay: shouldReduceMotion ? 0 : 2 }}
-            className="flex flex-wrap gap-4 items-center"
+            className="flex flex-wrap justify-center gap-4 items-center md:justify-start"
           >
             <Button variant="primary" href="/#work" onClick={scrollToWork}>
               View work
@@ -163,38 +163,28 @@ export default function Hero() {
         </div>
 
         {/* Right Column / Visual */}
-        <motion.div 
-          initial={{
-            opacity: shouldReduceMotion ? 1 : 0,
-            scale: shouldReduceMotion ? 1 : 0.9,
-          }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: shouldReduceMotion ? 0 : 1,
-            ease: "easeOut",
-            delay: shouldReduceMotion ? 0 : 0.5,
-          }}
-          className="flex-1 flex justify-start md:justify-center w-full shrink-0"
-        >
-          <motion.div
-            animate={{ y: shouldReduceMotion ? 0 : [0, -15, 0] }}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 5,
-              repeat: shouldReduceMotion ? 0 : Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative sm:w-[50%] md:w-[70%] aspect-square min-h-[128px]"
-          >
+        <div className="flex-1 flex justify-center w-full h-full">
+          <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150 before:absolute before:left-[8%] before:top-[14%] before:z-0 before:aspect-square before:w-[84%] before:rounded-full before:bg-accent-primary before:content-['']">
+            {/* The lower portrait is cropped to the circle, clipping the shoulders. */}
             <Image 
-              src="/assets/images/jw-notion-face-transparent.png"
-              alt="Notion-style portrait sketch of Jay"
+              src="/assets/images/jw-headshot-transparent.png"
+              alt="Portrait of Jay Wong"
               fill
-              className="object-contain"
+              className="object-contain [clip-path:circle(42%_at_50%_56%)]"
               priority
             />
 
-          </motion.div>
-        </motion.div>
+            {/* A matching upper layer lets the head sit just outside the circle. */}
+            <Image
+              src="/assets/images/jw-headshot-transparent.png"
+              alt=""
+              aria-hidden="true"
+              fill
+              className="pointer-events-none object-contain [clip-path:inset(0_0_44%_0)]"
+              priority
+            />
+          </div>
+        </div>
       </div>
     </Section>
   );
