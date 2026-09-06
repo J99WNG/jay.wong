@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
 import { useGallery } from './GalleryContext';
+import Icon from './Icon';
 
 type FigureModalProps = {
   src: string;
@@ -47,7 +48,7 @@ export default function FigureModal({
           group  
           relative
           block
-          aspect-[16/9]
+          aspect-video
           h-full
           w-full
           overflow-hidden
@@ -79,18 +80,15 @@ export default function FigureModal({
             flex
             items-center
             justify-center
-            bg-black/40
+            bg-black/50
+            backdrop-blur-xs
             opacity-0
             motion-safe:transition-opacity
             motion-safe:duration-300
             group-hover:opacity-100
           "
         >
-          <span className="icon icon-xl text-text-inverse">
-            <span className="material-symbols-rounded">
-              open_in_full
-            </span>
-          </span>
+          <Icon name="maximize-2" size="xl" className="text-text-inverse" />
         </div>
 
       </button>

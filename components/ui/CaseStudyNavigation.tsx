@@ -118,7 +118,7 @@ export default function CaseStudyNavigation() {
                   'relative flex min-h-11 w-full items-center rounded-xl px-3 py-2.5 text-sm leading-tight transition-[color,background-color,transform] duration-300 ease-[var(--nav-spring)] focus-visible:outline-offset-[-3px] motion-reduce:transition-none',
                   activeId === item.id
                     ? 'bg-transparent font-medium text-accent-interactive hover:bg-transparent hover:text-accent-interactive focus-visible:bg-transparent'
-                    : 'text-text-tertiary hover:bg-bg-tertiary/70 hover:text-text-primary focus-visible:bg-bg-tertiary/70 focus-visible:text-text-primary',
+                    : 'text-text-tertiary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',
                 )}
                 href={`#${item.id}`}
                 onClick={(event) => navigateToSection(event, item.id)}

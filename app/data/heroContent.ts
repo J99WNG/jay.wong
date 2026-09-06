@@ -1,7 +1,7 @@
 export const heroContent = {
   headline: 'Solving digital complexity through',
   accessibleHeadline:
-    'Solving digital complexity through design, research, collaboration and systems thinking.',
+    'Solving digital complexity through design, research, collaboration, systems thinking and mentorship.',
   keywords: [
     'design.',
     'research.',
@@ -10,5 +10,5 @@ export const heroContent = {
     'mentorship.',
   ],
   tagline:
-    "👋 I’m Jay, a product designer who turns ambiguity into aligned strategy and shipped products at the intersection of design, engineering, and business.",
+    "👋 I'm Jay, a product designer working across design, technology and business to turn ambiguous problems into frictionless, scalable experiences.",
 } as const;

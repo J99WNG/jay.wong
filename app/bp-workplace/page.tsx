@@ -1,28 +1,15 @@
 import Section from '@/components/Section';
-import Image from 'next/image';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
 import FigureModal from '@/components/ui/FigureModal';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
-import { Metadata } from 'next'
+import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
+import BrandMark from '@/components/ui/BrandMark';
+import Icon from '@/components/ui/Icon';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
-export const metadata: Metadata = {
-    title: project.title,
-    description: project.tagline,
-    openGraph: {
-      title: `${project.title} – Jay Wong`,
-      description: project.tagline,
-      images: [{ url: project.bentoImage }],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: project.title,
-      images: [project.bentoImage],
-    },
-  }
+export const metadata = createCaseStudyMetadata(project);
 
   export default function Page() {
     if (!project) return null;
@@ -70,14 +57,7 @@ export const metadata: Metadata = {
                                 <p className="small">Company</p>
 
                                 <p>
-                                    <span className="icon icon-inline icon-md">
-                                    <Image
-                                      src="/assets/logos/bp-helios-colour.svg"
-                                      alt="bp"
-                                      width={24}
-                                      height={24}
-                                    />
-                                    </span> bp plc</p>
+                                    <BrandMark src="/assets/logos/bp-helios-colour.svg" /> bp plc</p>
                             </div>
 
                             <div className="metadata">
@@ -325,9 +305,7 @@ export const metadata: Metadata = {
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded text-accent-primary" translate="no">explore</span>
-                                        </span>
+                                        <Icon name="compass" size="xl" className="text-accent-primary" />
                         
                                         <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
                                     </div>
@@ -335,9 +313,7 @@ export const metadata: Metadata = {
 
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded text-accent-primary" translate="no">quick_reference</span>
-                                        </span>
+                                        <Icon name="book-open-text" size="xl" className="text-accent-primary" />
                         
                                         <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
                                     </div>
@@ -345,9 +321,7 @@ export const metadata: Metadata = {
 
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded text-accent-primary" translate="no">location_on</span>
-                                        </span>
+                                        <Icon name="map-pin" size="xl" className="text-accent-primary" />
                         
                                         <p className="card-text">Regional inconsistency created cognitive overload.</p>
                                     </div>
@@ -355,9 +329,7 @@ export const metadata: Metadata = {
 
                                 <div className="card">
                                     <div className="card-content px-6 py-5">
-                                        <span className="icon icon-xl" aria-hidden="true">
-                                            <span className="material-symbols-rounded text-accent-primary" translate="no">family_history</span>
-                                        </span>
+                                        <Icon name="workflow" size="xl" className="text-accent-primary" />
                         
                                         <p className="card-text">Multi-platform governance increased complexity.</p>
                                     </div>
@@ -717,30 +689,18 @@ export const metadata: Metadata = {
 
                             <div className="flex flex-col gap-6">
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">abc</span>
-                                    </span>
-
                                     <p className="lead">Simplicity is strategic</p>
                     
                                     <p className="card-text">At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.</p>
                                 </div>
 
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">123</span>
-                                    </span>
-
                                     <p className="lead">Phased transformation drives adoption</p>
                     
                                     <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence and allowed regional onboarding to happen sustainably.</p>
                                 </div>
 
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">diversity_3</span>
-                                    </span>
-
                                     <p className="lead">Influence matters as much as interface</p>
                     
                                     <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation and reframing the problem in business language — not just producing strong design artefacts.</p>
@@ -753,30 +713,18 @@ export const metadata: Metadata = {
 
                             <div className="flex flex-col gap-6">
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">view_timeline</span>
-                                    </span>
-
                                     <p className="lead">Governance and restructuring disrupted sprint timelines</p>
                     
                                     <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems and resilient ways of working at enterprise scale.</p>
                                 </div>
 
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">communication</span>
-                                    </span>
-
                                     <p className="lead">Context emerges continuously in complex organisations</p>
                     
                                     <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase, it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
                                 </div>
 
                                 <div className="card-content">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">code_blocks</span>
-                                    </span>
-
                                     <p className="lead">Standardisation vs autonomy tension</p>
                     
                                     <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential – myself and the team went back and forth on how best to approach it.</p>

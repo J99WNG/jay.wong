@@ -37,7 +37,7 @@ export default function Button(props: ButtonProps) {
 
   // 2. Your Variants (.btn-primary, etc.)
   const variants = {
-    primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary border border-border-base hover:border-border-hover",
+    primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary border-border-base hover:border-border-hover",
     secondary: "text-text-secondary bg-bg-secondary hover:bg-bg-primary border border-border-muted hover:border-transparent",
     tertiary: "text-text-primary hover:text-text-on-accent bg-transparent hover:bg-accent-interactive border border-border-base hover:border-accent-interactive",
     nav: "text-text-secondary hover:text-text-primary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-border-hover w-auto py-1 rounded-2xl text-[1.5rem] md:text-base md:rounded-xl md:shrink-0",

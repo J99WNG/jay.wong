@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Icon from './Icon';
 
 export default function CopyEmail() {
     const email = "hello@jaywong.digital";
@@ -43,12 +44,7 @@ export default function CopyEmail() {
             type="button"
             aria-label={`Copy email address ${email}`}
         >
-            {/* Left Mail Icon */}
-            <span className="icon icon-lg" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                    <path d="m480-920 362 216q18 11 28 30t10 40v434q0 33-23.5 56.5T800-120H160q-33 0-56.5-23.5T80-200v-434q0-21 10-40t28-30l362-216Zm0 466 312-186-312-186-312 186 312 186Zm0 94L160-552v352h640v-352L480-360Zm0 160h320-640 320Z"/>
-                </svg>
-            </span>
+            <Icon name="mail" size="lg" />
 
             {/* Middle Dynamic Text Layout Container */}
             <div className="relative text-left min-h-[1.5rem] flex items-center overflow-hidden">
@@ -71,18 +67,14 @@ export default function CopyEmail() {
             </div>
 
             {/* Right Action Feedback Icon (Dual Nodes prevent text flicker structural layout shifts) */}
-            <span className="icon icon-md relative" aria-hidden="true">
-                <span className={`material-symbols-rounded absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+            <span className="relative inline-flex size-6" aria-hidden="true">
+                <Icon name="copy" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-0 scale-75 rotate-45' : 'opacity-100 scale-100 rotate-0'
-                }`}>
-                    content_copy
-                </span>
+                }`} />
                 
-                <span className={`material-symbols-rounded absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                <Icon name="check" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-45'
-                }`}>
-                    check
-                </span>
+                }`} />
             </span>
         </button>
         <span className="sr-only" aria-live="polite" aria-atomic="true">

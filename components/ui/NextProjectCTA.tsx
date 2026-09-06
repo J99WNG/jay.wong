@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { type MouseEvent, useCallback } from 'react';
 import { caseStudies } from '@/app/data/caseStudies';
+import Icon from './Icon';
 
 const HOME_PATH = '/';
 const scrollBehavior = () =>
@@ -58,28 +59,22 @@ export default function NextProjectCTA() {
     <div className="flex items-center justify-between">
       <Link
         href={HOME_PATH}
-        title="Back to all projects"
-        className="inline-flex w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
+        className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
         onClick={(event: MouseEvent<HTMLAnchorElement>) => {
           event.preventDefault();
           navigateToWork();
         }}
       >
-        <span className="icon icon-sm" aria-hidden="true">
-          <span className="material-symbols-rounded arrow_back">arrow_back</span>
-        </span>
+        <Icon name="arrow-left" size="sm" motion="left" />
         Back to all
       </Link>
 
       <Link
         href={`/${nextProject.slug}`}
-        title="Next case study"
-        className="inline-flex w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
+        className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
       >
         Next case study
-        <span className="icon icon-sm" aria-hidden="true">
-          <span className="material-symbols-rounded arrow_forward">arrow_forward</span>
-        </span>
+        <Icon name="arrow-right" size="sm" motion="right" />
       </Link>
     </div>
   );

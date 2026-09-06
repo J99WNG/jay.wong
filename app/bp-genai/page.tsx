@@ -1,28 +1,15 @@
 import Section from '@/components/Section';
-import Image from 'next/image';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
 import FigureModal from '@/components/ui/FigureModal';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
-import { Metadata } from 'next'
+import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
+import BrandMark from '@/components/ui/BrandMark';
+import Icon from '@/components/ui/Icon';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
-export const metadata: Metadata = {
-    title: project.title,
-    description: project.tagline,
-    openGraph: {
-      title: `${project.title} – Jay Wong`,
-      description: project.tagline,
-      images: [{ url: project.bentoImage }],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: project.title,
-      images: [project.bentoImage],
-    },
-  }
+export const metadata = createCaseStudyMetadata(project);
 
 export default function Page() {
     if (!project) return null;
@@ -103,14 +90,7 @@ export default function Page() {
                         <div className="metadata">
                             <p className="small">Company</p>
                             <p>
-                                <span className="icon icon-inline icon-md">
-                                <Image
-                                  src="/assets/logos/bp-helios-colour.svg"
-                                  alt="bp"
-                                  width={24}
-                                  height={24}
-                                />
-                                </span> bp plc</p>
+                                <BrandMark src="/assets/logos/bp-helios-colour.svg" /> bp plc</p>
                         </div>
 
                         <div className="metadata">
@@ -404,9 +384,7 @@ export default function Page() {
                     <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
                         <div className="card">
                             <div className="card-content px-6 py-5">
-                                <span className="icon icon-lg" aria-hidden="true">
-                                    <span className="material-symbols-rounded text-accent-primary" translate="no">emoji_people</span>
-                                </span>
+                                <Icon name="users-round" size="lg" className="text-accent-primary" />
                 
                                 <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
                             </div>
@@ -414,9 +392,7 @@ export default function Page() {
             
                         <div className="card">
                         <div className="card-content px-6 py-5">
-                            <span className="icon icon-lg" aria-hidden="true">
-                                <span className="material-symbols-rounded text-accent-primary" translate="no">support_agent</span>
-                            </span>
+                            <Icon name="headset" size="lg" className="text-accent-primary" />
             
                             <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
                         </div>
@@ -424,9 +400,7 @@ export default function Page() {
             
                         <div className="card">
                         <div className="card-content px-6 py-5">
-                            <span className="icon icon-lg" aria-hidden="true">
-                                <span className="material-symbols-rounded text-accent-primary" translate="no">business_center</span>
-                            </span>
+                            <Icon name="briefcase-business" size="lg" className="text-accent-primary" />
             
                             <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>
                         </div>

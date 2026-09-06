@@ -1,28 +1,14 @@
 import Section from '@/components/Section';
-import Image from 'next/image';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
 import FigureModal from '@/components/ui/FigureModal';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
-import { Metadata } from 'next'
+import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
+import BrandMark from '@/components/ui/BrandMark';
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
-export const metadata: Metadata = {
-    title: project.title,
-    description: project.tagline,
-    openGraph: {
-      title: `${project.title} – Jay Wong`,
-      description: project.tagline,
-      images: [{ url: project.bentoImage }],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: project.title,
-      images: [project.bentoImage],
-    },
-  }
+export const metadata = createCaseStudyMetadata(project);
 
   export default function Page() {
     if (!project) return null;
@@ -74,14 +60,7 @@ export const metadata: Metadata = {
                                     <p className="small">Company</p>
 
                                     <p>
-                                        <span className="icon icon-inline icon-md">
-                                        <Image
-                                          src="/assets/logos/creditsuisse-symbol.svg"
-                                          alt="Credit Suisse"
-                                          width={24}
-                                          height={24}
-                                        />
-                                        </span> Credit Suisse</p>
+                                        <BrandMark src="/assets/logos/creditsuisse-symbol.svg" /> Credit Suisse</p>
                                 </div>
 
                                 <div className="metadata">

@@ -163,7 +163,19 @@ export default function Hero() {
         </div>
 
         {/* Right Column / Visual */}
-        <div className="flex-1 flex justify-center w-full h-full">
+        <motion.div
+          initial={{
+            opacity: shouldReduceMotion ? 1 : 0,
+            scale: shouldReduceMotion ? 1 : 0.9,
+          }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1,
+            ease: "easeOut",
+            delay: shouldReduceMotion ? 0 : 0.5,
+          }}
+          className="flex-1 flex justify-center w-full h-full"
+        >
           <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150 before:absolute before:left-[8%] before:top-[14%] before:z-0 before:aspect-square before:w-[84%] before:rounded-full before:bg-accent-primary before:content-['']">
             {/* The lower portrait is cropped to the circle, clipping the shoulders. */}
             <Image 
@@ -184,7 +196,7 @@ export default function Hero() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

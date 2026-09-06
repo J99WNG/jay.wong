@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import Dock from "@/components/layout/Dock";
 import InitialLoader from '@/components/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { siteMetadata } from '@/app/data/siteMetadata';
 
 // 1. Initialize Inter (Using a variable font file if available)
 const Inter = localFont({
@@ -28,29 +29,30 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jaywong.digital/'), // Change to your actual URL
+  metadataBase: new URL(siteMetadata.url),
   alternates: {
-    canonical: '/',  // ← adds <link rel="canonical" href="https://jaywong.digital/">
+    canonical: '/',
   },
   title: {
-    default: "Jay Wong",
-    template: "%s | Jay Wong",  // ← page titles become e.g. "Case Study | Jay Wong"
+    default: siteMetadata.homepageTitle,
+    template: siteMetadata.titleTemplate,
   },
-  description: "👋 a product designer that operates at the crossroads of design, engineering, and business.",
+  description: siteMetadata.description,
   
   // This handles your Facebook/OpenGraph tags
   openGraph: {
-    title: "Jay Wong",
-    description: "👋 a product designer that operates at the crossroads of design, engineering, and business.",
-    url: "https://jaywong.digital/",
-    siteName: "Jay Wong",
+    title: siteMetadata.homepageTitle,
+    description: siteMetadata.description,
+    url: siteMetadata.url,
+    siteName: siteMetadata.name,
     type: "website",
   },
 
   // This handles your Twitter tags
   twitter: {
     card: "summary_large_image",
-    title: "Jay Wong – Solving digital complexity with design",
+    title: siteMetadata.homepageTitle,
+    description: siteMetadata.description,
   },
 
   // This handles icons and Apple Touch Icons
@@ -73,15 +75,6 @@ export default function RootLayout({ children }:
       className={`${Inter.variable} ${geistPixel.variable}`}
       data-scroll-behavior="smooth"
     >
-      <head>
-        {/* Google Material Symbols Link */}
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link 
-          rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" 
-        />
-      </head>
-      
       <body className="relative">
         <InitialLoader>
           <Header /> 

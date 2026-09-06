@@ -1,27 +1,13 @@
-import type { Metadata } from 'next';
 import Section from '@/components/Section';
 import { GalleryProvider } from '@/components/ui/GalleryContext';
 import { CaseStudyLanding } from '@/components/sections/CaseStudyLanding';
-import MathsGenieShowcase from '@/components/sections/MathsGenieShowcase';
 import { caseStudies } from '@/app/data/caseStudies';
+import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
+import MathsGenieShowcase from './MathsGenieShowcase';
 
 const project = caseStudies.find((study) => study.slug === 'mathsgenie')!;
 
-export const metadata: Metadata = {
-  title: project.title,
-  description: project.tagline,
-  openGraph: {
-    title: `${project.title} – Jay Wong`,
-    description: project.tagline,
-    images: [{ url: project.bentoImage }],
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: project.title,
-    images: [project.bentoImage],
-  },
-};
+export const metadata = createCaseStudyMetadata(project);
 
 export default function Page() {
   return (
@@ -63,7 +49,7 @@ export default function Page() {
 
               <div className="flex flex-col gap-2">
                 <p className="small">Impact</p>
-                <div className="grid gap-5 grid-cols-1 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div className="card">
                     <div className="card-content px-6 py-5">
                       <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
@@ -78,7 +64,7 @@ export default function Page() {
                 <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
               </div>
 
-              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="metadata">
                   <p className="small">Platform</p>
                   <p>MathsGenie · UK EdTech</p>
@@ -99,7 +85,7 @@ export default function Page() {
             <div className="section-heading">
               <h2>Selected work<br /><span className="font-normal text-text-tertiary">Personality, made reusable.</span></h2>
             </div>
-            <div className="inline-flex max-w-full flex-col gap-10 min-w-0">
+            <div className="inline-flex max-w-full min-w-0 flex-col gap-10">
               <MathsGenieShowcase />
             </div>
           </div>

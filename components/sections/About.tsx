@@ -1,94 +1,80 @@
 import Section from "../Section";
 import ShuffleDeck from "../ui/ShuffleDeck";
+import StrengthsTimeline from "../ui/StrengthsTimeline";
+import ToolsDeck from "../ui/ToolsGrid";
 
-const skills = [
-    "UX Research",
-    "UI Design",
-    "Design systems",
-    "Accessible design",
-    "Inclusive design",
-    "Conversational AI",
-    "Systems thinking",
-    "Agile / Scrum Delivery",
-    "ServiceNow",
-    "HTML",
-    "CSS",
-    "Next.js",
-    "Tailwind",
-  ];
+const proofPoints = [
+  { value: "7 years", label: "Designing digital products" },
+  { value: "87,000+", label: "Enterprise employees reached" },
+  { value: "≈250,000", label: "Students reached" },
+] as const;
 
-  const strengths = [
-    {
-        icon: "account_tree",
-        title: "Strategic Operator",
-        text: "Turns ambiguous opportunities into clear product direction, practical priorities, and measurable outcomes."
-    },
-    {
-        icon: "category",
-        title: "Cross-Functional Partner",
-        text: "Creates alignment across design, engineering, business, and globally distributed teams."
-    },
-    {
-        icon: "search_insights",
-        title: "Evidence-Led Designer",
-        text: "Grounds decisions in research, behavioural data, usability testing, and real user needs."
-    },
-    {
-        icon: "diversity_4",
-        title: "Agentic Builder",
-        text: "Uses Claude, Codex, Cursor, and MCP-connected workflows to accelerate research, prototyping, design systems, and product operations."
-    }
-];
+export default function AboutDraft() {
+  return (
+    <Section id="about">
+      <div className="section-grid">
+        <div className="section-heading">
+          <h2>
+            About me
+            <br />
+            <span className="font-normal text-text-tertiary">
+              Curious by nature. Practical by design.
+            </span>
+          </h2>
+        </div>
 
-export default function About() {
-    return (
-        <Section id="about">
-            <div className="section-grid">
-                <div className="section-heading">
-                    <h2>About me
-                    <br />
-                    <span className="font-normal text-text-tertiary">To observe first.</span>
-                    </h2>
+        <div className="inline-flex max-w-full flex-col gap-12">
+          <div className="flex flex-col gap-7">
+            <p className="lead">
+              I&apos;m Jay, a product designer that enjoys simplifying complex things. I&apos;ve spent the past seven years asking
+              awkward questions, spotting patterns, and helping teams turn
+              fuzzy ideas into products people can actually use.
+            </p>
+
+            <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {proofPoints.map((item) => (
+                <div
+                  key={item.label}
+                  className="card flex flex-col gap-1 py-5 px-5"
+                >
+                  <dt className="order-2 text-sm tracking-tight text-text-tertiary">
+                    {item.label}
+                  </dt>
+                  <dd className="order-1 m-0 text-2xl font-medium tracking-tight text-text-primary">
+                    {item.value}
+                  </dd>
                 </div>
+              ))}
+            </dl>
+          </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
-                    <p className="lead">
-                        I build, navigate, and explore the world through the lens of design. I grew up chasing each generation of Nintendos and Sony Ericssons, which shaped my fascination for tech.
-                    </p>
+          <ShuffleDeck />
 
-                    <ShuffleDeck />
-
-                    <p className="lead">
-                        Growing up, I wasn’t the loudest person in the room. I paid attention. I noticed patterns in how people interacted, how spaces made others feel, how small details could change the tone of a conversation. That instinct – to observe before reacting – quietly became the foundation of how I solve problems today.
-                    </p>
-                    
-                    <ul className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap list-none p-0">
-                        {skills.map((skill) => (
-                            <li key={skill} className="badge">
-                            {skill}
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 sm:grid-cols-2">
-                        {strengths.map((item) => (
-                            <div className="card" key={item.title}>
-                                <div className="card-content px-7 py-6">
-                                    <span className="icon icon-xl" aria-hidden="true">
-                                        <span className="material-symbols-rounded text-accent-primary" translate="no">
-                                            {item.icon}
-                                        </span>
-                                    </span>
-
-                                    <p className="lead">{item.title}</p>
-
-                                    <p className="card-text">{item.text}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+          <div className="content-block flex flex-col gap-8">
+            <div className="flex flex-col gap-2">
+              <h3>How I show up</h3>
+              <p className="lead">
+                I&apos;m usually the person asking one more “why?”, prompting a
+                thought to make it tangible, or bringing the right people into
+                the same conversation. I like structure, but I&apos;m not precious
+                about process. My aim is always to understand what matters and
+                make something useful.
+              </p>
             </div>
-        </Section>
-    )
+
+            <StrengthsTimeline />
+          </div>
+
+          <div className="content-block flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <h3>Tools I work with</h3>
+              <p>A practical mix for designing, aligning, building, and shipping.</p>
+            </div>
+
+            <ToolsDeck />
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
 }

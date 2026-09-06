@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Button from '../ui/Button';
+import Icon from '../ui/Icon';
 
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
@@ -114,9 +115,9 @@ export default function Header() {
                         <svg
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
                             className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-400 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
                         >
-                            <title>Jay Wong monogram</title>
                             <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z" />
                                 <path d="M461.6 425.2H392.1L559.9 65.5C578.5 25.5 618.6 0 662.7 0H732.2L564.4 359.7C545.8 399.7 505.7 425.2 461.6 425.2Z" />
@@ -135,15 +136,16 @@ export default function Header() {
                         aria-label={isOpen ? 'Close menu' : 'Open menu'}
                         onClick={() => setIsOpen((open) => !open)}
                     >
-                        <span className="material-symbols-rounded icon-menu" aria-hidden="true">menu</span>
-                        <span className="material-symbols-rounded icon-close" aria-hidden="true">close</span>
+                        <Icon name="menu" className="icon-menu" />
+                        <Icon name="x" className="icon-close" />
                     </button>
 
                     <nav id="nav-primary" className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
                         <ul className="nav-list flex flex-col md:flex-row p-0 list-none gap-6 md:gap-8 items-start md:items-center md:mx-auto md:my-0 justify-center font-light">
+                            <li><Link className="rounded-md" href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                             <li><Link className="rounded-md" href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                             <li><Link className="rounded-md" href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
-                            <li><Link className="rounded-md" href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
+
                         </ul>
                         <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
                     </nav>

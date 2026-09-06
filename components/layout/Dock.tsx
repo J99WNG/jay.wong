@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import Button from '../ui/Button';
+import Icon from '../ui/Icon';
 
 export default function Dock() {
   const dockRef = useRef<HTMLDivElement>(null);
@@ -101,23 +102,19 @@ export default function Dock() {
     <div 
       ref={dockRef} 
       id="dock"
-      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full bg-gradient-to-t from-bg-primary/70 to-transparent motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-linear"
+      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full bg-linear-to-t from-bg-primary/70 to-transparent motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-linear"
     >
       <Button 
         variant="primary"
-        className="group gap-1 px-2 py-2 rounded-full text-sm duration-300 pointer-events-auto" 
+        className="group size-8 p-0 rounded-full duration-300 pointer-events-auto"
         aria-label="Back to the top of the page"
         onClick={handleBackToTop}
       >
-        <span className="icon icon-sm" aria-hidden="true">
-          <span 
-            className="material-symbols-rounded motion-safe:animate-bounce motion-safe:transition-transform motion-safe:duration-200"
-            translate="no" 
-            aria-hidden="true"
-          >
-            arrow_upward
-          </span>
-        </span>
+        <Icon
+          name="arrow-up"
+          size="sm"
+          className="motion-safe:animate-bounce motion-safe:transition-transform motion-safe:duration-200"
+        />
       </Button>
     </div>
   );

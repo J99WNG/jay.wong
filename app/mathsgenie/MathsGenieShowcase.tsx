@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
 import styles from './MathsGenieShowcase.module.css';
 
-const GenieAnimation = dynamic(() => import('@/components/ui/GenieAnimation'), {
+const GenieAnimation = dynamic(() => import('./GenieAnimation'), {
   ssr: false,
   loading: () => <div className={styles.loading}>Loading Genie…</div>,
 });

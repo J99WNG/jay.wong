@@ -2,6 +2,7 @@
 import Image from "next/image";
 import TextLink from "./TextLink";
 import type { CaseStudy } from "@/app/data/caseStudies";
+import Icon from "./Icon";
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
   // `logo` is retained for the planned branded card treatment.
@@ -30,9 +31,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         {available && (
           <TextLink className="mt-2 cursor-pointer justify-start gap-1" href={`/${slug}`}>
             View case study
-            <span className="icon icon-sm" aria-hidden="true">
-              <span className="material-symbols-rounded arrow_forward">arrow_forward</span>
-            </span>
+            <Icon name="arrow-right" size="sm" motion="right" />
           </TextLink>
         )}
 

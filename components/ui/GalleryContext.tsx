@@ -12,6 +12,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import Button from './Button';
+import Icon from './Icon';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
 
@@ -192,7 +193,7 @@ function GalleryModal({
     <dialog
       ref={dialogRef}
       id="scrim-overlay"
-      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 p-0 text-inherit backdrop-blur-xs will-change-[backdrop-filter,opacity] flex items-center justify-center motion-safe:animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 text-inherit backdrop-blur-sm will-change-[backdrop-filter,opacity] flex items-center justify-center motion-safe:animate-[fadeIn_0.8s_cubic-bezier(0.16,1,0.3,1)]"
       aria-label={`Image ${activeIndex + 1} of ${total}`}
       onCancel={(event) => {
         event.preventDefault();
@@ -210,9 +211,7 @@ function GalleryModal({
         aria-label="Close gallery"
         onClick={(e) => { e.stopPropagation(); requestClose(); }}
         >
-        <span className="icon icon-lg">
-          <span className="material-symbols-rounded">close</span>
-        </span>
+        <Icon name="x" size="lg" />
       </Button>
 
       {/* Content */}
@@ -252,13 +251,11 @@ function GalleryModal({
 
               {/* Previous Button */}
               <Button
-                className="items-center justify-center w-10 h-10"
+                className="items-center justify-center size-11 p-0"
                 aria-label="Previous image"
                 onClick={(e) => { e.stopPropagation(); onPrev(); }}
               >
-                <span className="icon icon-lg">
-                  <span className="material-symbols-rounded">chevron_left</span>
-                </span>
+                <Icon name="chevron-left" size="lg" />
               </Button>
 
               {/* Dots - The "Responsive" Middle */}
@@ -269,27 +266,30 @@ function GalleryModal({
                 {items.map((item, i) => (
                   <button
                     key={item.id}
-                    className={`motion-safe:transition-[scale,background-color] motion-safe:duration-200 rounded-full h-2 w-2
-                      ${i === activeIndex
-                        ? 'bg-white scale-125'
-                        : 'bg-white/30 hover:bg-white/60'
-                      }`}
+                    className="group flex size-3 items-center justify-center rounded-full hover:cursor-pointer"
                     aria-label={`Image ${i + 1}: ${item.alt}`}
                     aria-current={i === activeIndex ? true : undefined}
                     onClick={() => goTo(i)}
-                  />
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`size-2 rounded-full motion-safe:transition-[scale,background-color] motion-safe:duration-200 ${
+                        i === activeIndex
+                          ? 'scale-125 bg-white w-4'
+                          : 'bg-white/30 group-hover:bg-white/60'
+                      }`}
+                    />
+                  </button>
                 ))}
               </nav>
 
               {/* Next Button */}
               <Button
-                className="items-center justify-center w-10 h-10"
+                className="items-center justify-center size-11 p-0"
                 aria-label="Next image"
                 onClick={(e) => { e.stopPropagation(); onNext(); }}
               >
-                <span className="icon icon-lg">
-                  <span className="material-symbols-rounded">chevron_right</span>
-                </span>
+                <Icon name="chevron-right" size="lg" />
               </Button>
 
             </div>

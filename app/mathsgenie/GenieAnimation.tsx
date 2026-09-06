@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Alignment, Fit, Layout, RuntimeLoader, useRive } from '@rive-app/react-canvas';
-import Button from './Button';
-import styles from '@/components/sections/MathsGenieShowcase.module.css';
+import Button from '@/components/ui/Button';
+import styles from './MathsGenieShowcase.module.css';
 
 // Keep the runtime and its WASM version together; no third-party CDN is needed.
 RuntimeLoader.setWasmUrl('/assets/rive/rive-2.41.1.wasm');

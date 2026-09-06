@@ -1,8 +1,15 @@
 'use client';
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
+import Icon, { type IconName } from './Icon';
 
 type Theme = 'system' | 'light' | 'dark';
+
+const themeIcons: Record<Theme, IconName> = {
+  system: 'monitor',
+  light: 'sun',
+  dark: 'moon',
+};
 
 const subscribeToMount = () => () => {};
 
@@ -46,19 +53,18 @@ export default function ThemeToggle() {
 
   if (!mounted) return null;
 
+  const nextTheme: Theme =
+    theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
+
   return (
     <div className="fixed bottom-5 right-5 z-(--layer-utility)">
       <button
         onClick={cycleTheme}
         type="button"
-        aria-label={`Current theme: ${theme}. Click to switch theme.`}
-        className="flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-200"
+        aria-label={`Switch to ${nextTheme} theme`}
+        className="flex min-h-11 items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-200"
       >
-        <span className="icon icon-sm" aria-hidden="true">
-          <span className="material-symbols-rounded select-none" aria-hidden="true">
-            {theme === 'light' ? 'light_mode' : theme === 'dark' ? 'dark_mode' : 'desktop_windows'}
-          </span>
-        </span>
+        <Icon name={themeIcons[theme]} size="sm" />
         
         <span className="text-xs font-medium capitalize tracking-tight hidden sm:inline">
           {theme}

@@ -112,10 +112,10 @@ export default function Collaborations() {
 
           <div className="inline-flex max-w-full flex-col gap-10">
               <p className="lead">
-                Over the past seven years, I&apos;ve helped multidisciplinary teams turn complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
+                I&apos;ve worked in multidisciplinary teams turning complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
               </p>
 
-              <div>
+              <div className="logo-grid">
                 <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">
                   {companyLogos.map((company) => {
                     const CardContent = (
