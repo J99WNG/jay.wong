@@ -16,9 +16,9 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
           {year} · {company} · {industry}
         </p>
 
-        <h3 className="card-title">{title}</h3>
+        <h3>{title}</h3>
 
-        <p className="card-text">{tagline}</p>
+        <p>{tagline}</p>
 
         <div className="inline-flex gap-x-2 gap-y-3 mt-2 flex-wrap">
           {badges.map((badge) => (

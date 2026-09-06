@@ -66,8 +66,8 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
         page-section relative isolate w-full mx-auto
         print:min-h-0 print:overflow-visible
         ${isLanding
-          ? 'min-h-screen overflow-hidden content-center bg-bg-secondary pt-[calc(var(--header-height)+6rem)] pb-32'
-          : 'min-h-fit overflow-visible bg-bg-primary py-32'}
+          ? 'min-h-screen overflow-hidden content-center bg-bg-secondary md:pt-[calc(var(--header-height)+6rem)] md:pb-32'
+          : 'min-h-fit overflow-visible bg-bg-primary py-25'}
         ${className}
       `}
     >

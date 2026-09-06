@@ -1,3 +1,5 @@
+'use client';
+
 import Section from "../Section";
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";

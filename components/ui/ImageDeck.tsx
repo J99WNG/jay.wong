@@ -9,7 +9,7 @@ const cardBase =
 
 type CardId = "team" | "workshop" | "conference";
 
-export default function ShuffleDeck() {
+export default function ImageDeck() {
   const deckRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldReduceMotion = useReducedMotion();

@@ -1,5 +1,7 @@
+'use client';
+
 import Section from "../Section";
-import ShuffleDeck from "../ui/ShuffleDeck";
+import ImageDeck from "../ui/ImageDeck";
 import StrengthsTimeline from "../ui/StrengthsTimeline";
 import ToolsDeck from "../ui/ToolsGrid";
 
@@ -48,7 +50,7 @@ export default function AboutDraft() {
             </dl>
           </div>
 
-          <ShuffleDeck />
+          <ImageDeck />
 
           <div className="content-block flex flex-col gap-8">
             <div className="flex flex-col gap-2">
@@ -65,7 +67,7 @@ export default function AboutDraft() {
             <StrengthsTimeline />
           </div>
 
-          <div className="content-block flex flex-col gap-6">
+          <div className="content-block flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <h3>Tools I work with</h3>
               <p>A practical mix for designing, aligning, building, and shipping.</p>
