@@ -46,11 +46,11 @@ export default function ToolsGrid() {
           </span>
 
           <span className="min-w-0">
-            <span className="block text-sm font-medium text-text-primary">
+            <span className="block text-base font-medium text-text-primary">
               {tool.name}
             </span>
 
-            <span className="block text-xs text-text-tertiary">
+            <span className="block text-sm text-text-tertiary">
               {tool.category}
             </span>
           </span>
