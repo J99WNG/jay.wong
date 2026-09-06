@@ -12,9 +12,8 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
   return (
     <>
       <CaseStudyNavigation />
-      <Section id="landing" isLanding>
+      <Section id="landing" isLanding={true}>
         <div className="flex flex-col gap-8">
-
           <NextProjectCTA />
 
           <div className="flex flex-col gap-3">
