@@ -4,6 +4,7 @@ import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
 import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
+import FluidOrb from "../ui/FluidOrb";
 import { heroContent } from "@/app/data/heroContent";
 
 
@@ -176,7 +177,12 @@ export default function Hero() {
           }}
           className="flex-1 flex justify-center w-full h-full"
         >
-          <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150 before:absolute before:left-[8%] before:top-[14%] before:z-0 before:aspect-square before:w-[84%] before:rounded-full before:bg-accent-primary before:content-['']">
+          <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150">
+            <FluidOrb
+              aria-hidden="true"
+              className="absolute left-[8%] top-[14%] z-0"
+            />
+
             {/* The lower portrait is cropped to the circle, clipping the shoulders. */}
             <Image 
               src="/assets/images/jw-headshot-transparent.png"

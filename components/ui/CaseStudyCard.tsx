@@ -35,7 +35,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         )}
       </div>
 
-      <div className="relative flex md:w-1/2 w-full min-h-[250px] md:min-h-auto">
+      <div className="relative flex md:w-1/2 w-full aspect-video md:min-h-auto">
         <Image 
           className="block w-full h-full object-cover"
           src={bentoImage} alt={title} fill />
