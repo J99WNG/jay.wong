@@ -45,7 +45,7 @@ export default function Page() {
 
                         <div className="grid place-items-start justify-start md:place-items-stretch gap-5 grid-cols-1 md:grid-cols-2">
                         <div className="card">
-                            <div className="card-content px-6 py-5">
+                            <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <p>
                                 <span className="emphasis">~1,200 </span>
                                 <br />
@@ -55,7 +55,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content px-6 py-5">
+                            <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <p>
                                 <span className="emphasis">+21% </span>
                                 <br />
@@ -65,7 +65,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content px-6 py-5">
+                            <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <p>
                                 <span className="emphasis">3.6 → 4.2 </span>
                                 <br />
@@ -75,7 +75,7 @@ export default function Page() {
                         </div>
 
                         <div className="card">
-                            <div className="card-content px-6 py-5">
+                            <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <p>
                                 <span className="emphasis">-18% </span>
                                 <br />
@@ -90,7 +90,7 @@ export default function Page() {
                         <div className="metadata">
                             <p className="small">Company</p>
                             <p>
-                                <BrandMark src="/assets/logos/bp-helios-colour.svg" /> bp plc</p>
+                                <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm'/> bp plc</p>
                         </div>
 
                         <div className="metadata">
@@ -383,7 +383,7 @@ export default function Page() {
 
                     <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
                         <div className="card">
-                            <div className="card-content px-6 py-5">
+                            <div className="flex justify-start w-full gap-2 px-6 py-5">
                                 <Icon name="users-round" size="lg" className="text-accent-primary" />
                 
                                 <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
@@ -391,7 +391,7 @@ export default function Page() {
                         </div>
             
                         <div className="card">
-                        <div className="card-content px-6 py-5">
+                        <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <Icon name="headset" size="lg" className="text-accent-primary" />
             
                             <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
@@ -399,7 +399,7 @@ export default function Page() {
                         </div>
             
                         <div className="card">
-                        <div className="card-content px-6 py-5">
+                        <div className="flex justify-start w-full gap-2 px-6 py-5">
                             <Icon name="briefcase-business" size="lg" className="text-accent-primary" />
             
                             <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>

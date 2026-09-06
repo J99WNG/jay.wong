@@ -11,8 +11,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
   return (
     <article className="card motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.25,1,0.5,1)]">
-      <div className="card-content p-8 px-7">
-
+      <div className="flex flex-1 md:w-1/2 flex-col gap-2 p-8 px-7">
         <p className="small">
           {year} · {company} · {industry}
         </p>
@@ -21,7 +20,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
         <p className="card-text">{tagline}</p>
 
-        <div className="inline-flex gap-x-2 gap-y-3 my-2 flex-wrap">
+        <div className="inline-flex gap-x-2 gap-y-3 mt-2 flex-wrap">
           {badges.map((badge) => (
             <p key={badge} className="badge">{badge}</p>
           ))}
@@ -34,11 +33,12 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
             <Icon name="arrow-right" size="sm" motion="right" />
           </TextLink>
         )}
-
       </div>
 
-      <div className="card-img">
-        <Image src={bentoImage} alt={title} fill />
+      <div className="relative flex md:w-1/2 w-full min-h-[250px] md:min-h-auto">
+        <Image 
+          className="block w-full h-full object-cover"
+          src={bentoImage} alt={title} fill />
       </div>
     </article>
   );

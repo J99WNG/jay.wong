@@ -45,7 +45,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
 
                                 <div className="card">
-                                    <div className="card-content px-6 py-5">
+                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
                                     <p>
                                         <span className="emphasis">~136,800 hrs</span>
                                         <br />
@@ -60,7 +60,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     <p className="small">Company</p>
 
                                     <p>
-                                        <BrandMark src="/assets/logos/creditsuisse-symbol.svg" /> Credit Suisse</p>
+                                        <BrandMark src="/assets/logos/creditsuisse-symbol.svg" size='sm' /> Credit Suisse</p>
                                 </div>
 
                                 <div className="metadata">

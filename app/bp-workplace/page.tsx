@@ -57,7 +57,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p className="small">Company</p>
 
                                 <p>
-                                    <BrandMark src="/assets/logos/bp-helios-colour.svg" /> bp plc</p>
+                                    <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm' /> bp plc</p>
                             </div>
 
                             <div className="metadata">
@@ -304,32 +304,32 @@ export const metadata = createCaseStudyMetadata(project);
 
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
-                                    <div className="card-content px-6 py-5">
-                                        <Icon name="compass" size="xl" className="text-accent-primary" />
+                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
+                                        <Icon name="compass" size="lg" className="text-accent-primary" />
                         
                                         <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
                                     </div>
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content px-6 py-5">
-                                        <Icon name="book-open-text" size="xl" className="text-accent-primary" />
+                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
+                                        <Icon name="book-open-text" size="lg" className="text-accent-primary" />
                         
                                         <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
                                     </div>
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content px-6 py-5">
-                                        <Icon name="map-pin" size="xl" className="text-accent-primary" />
+                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
+                                        <Icon name="map-pin" size="lg" className="text-accent-primary" />
                         
                                         <p className="card-text">Regional inconsistency created cognitive overload.</p>
                                     </div>
                                 </div>
 
                                 <div className="card">
-                                    <div className="card-content px-6 py-5">
-                                        <Icon name="workflow" size="xl" className="text-accent-primary" />
+                                    <div className="flex justify-start content-center w-full gap-2 px-6 py-5">
+                                        <Icon name="workflow" size="lg" className="text-accent-primary" />
                         
                                         <p className="card-text">Multi-platform governance increased complexity.</p>
                                     </div>
@@ -688,19 +688,19 @@ export const metadata = createCaseStudyMetadata(project);
                             <h3>What worked</h3>
 
                             <div className="flex flex-col gap-6">
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Simplicity is strategic</p>
                     
                                     <p className="card-text">At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.</p>
                                 </div>
 
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Phased transformation drives adoption</p>
                     
                                     <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence and allowed regional onboarding to happen sustainably.</p>
                                 </div>
 
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Influence matters as much as interface</p>
                     
                                     <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation and reframing the problem in business language — not just producing strong design artefacts.</p>
@@ -712,19 +712,19 @@ export const metadata = createCaseStudyMetadata(project);
                             <h3>What was challenging</h3>
 
                             <div className="flex flex-col gap-6">
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Governance and restructuring disrupted sprint timelines</p>
                     
                                     <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems and resilient ways of working at enterprise scale.</p>
                                 </div>
 
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Context emerges continuously in complex organisations</p>
                     
                                     <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase, it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
                                 </div>
 
-                                <div className="card-content">
+                                <div className="flex flex-col gap-1">
                                     <p className="lead">Standardisation vs autonomy tension</p>
                     
                                     <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential – myself and the team went back and forth on how best to approach it.</p>

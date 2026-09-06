@@ -61,7 +61,7 @@
   --color-bg-primary: light-dark(var(--color-neutral-100), var(--color-steep-900));
   --color-bg-secondary: light-dark(var(--color-neutral-300), var(--color-steep-700));
   --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
-  --color-bg-inline: light-dark(var(--color-neutral-500), var(--color-steep-500));
+  --color-bg-inline: light-dark(var(--color-neutral-300), var(--color-steep-500));
 
   --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-text-secondary: light-dark(var(--color-steep-300), var(--color-neutral-300));
@@ -317,32 +317,9 @@ caption {
   }
 }
 
-.card-img {
-  flex: 1;       /* Ensures the wrapper takes up space */
-  position: relative;
-  width: 100%;
-  min-height: 250px;
-}
-
-.card-img img {
-  width: 100%;
-  height: 100%;      /* Changed from auto to 100% to force the stretch */
-  object-fit: cover;
-  display: block;
-}
-
 .card > :focus-visible,
 figure > button:focus-visible {
   outline-offset: -3px;
-}
-
-.card-content {                  /* Card title + body */
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  gap: 0.5rem;
 }
 
 /* ==================== Badge ==================== */
@@ -606,15 +583,6 @@ html:focus-within {
 
   .card {
     flex-direction: row;
-  }
-
-  .card-img,
-  .card-content {
-    flex: 1 1 50%; /* Force both sides to start at 50% width */
-  }
-
-  .card-img {
-    min-height: auto;
   }
 
   .section-grid {
