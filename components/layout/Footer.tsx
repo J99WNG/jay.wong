@@ -12,8 +12,9 @@ export default function Footer() {
             <div className="page-container">
                 <hr className="divider" aria-hidden="true" />
             
-                <div id="footer-wrapper" className="flex flex-col items-center gap-4 py-4 px-0 md:flex-row md:justify-between">
-                    <p className="font-pixel text-sm text-text-secondary text-center m-0 md:text-left">
+                <div className="flex flex-col items-center gap-4 py-4 px-0 md:flex-row md:justify-between">
+                    
+                    <p className="font-pixel text-sm font-semibold tracking-normal text-text-secondary text-center m-0 md:text-left">
                         © {currentYear} Jay Wong. Built by me + a bit of ai.
                     </p>
 

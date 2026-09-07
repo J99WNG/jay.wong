@@ -5,6 +5,7 @@ import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
 import FluidOrb from "../ui/FluidOrb";
+import HKTClock from "@/components/HKTClock.jsx";
 import { heroContent } from "@/app/data/heroContent";
 import { motionDelay, motionDuration, motionEase, motionStagger } from "@/lib/motion";
 

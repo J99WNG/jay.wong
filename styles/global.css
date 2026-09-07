@@ -214,11 +214,6 @@
   line-height: 1.5;
   }
 
-  .contact-item:hover {
-  background: var(--color-bg-tertiary);
-  color: var(--color-text-link-hover);
-  }
-
   .metadata {
   display: inline-flex;
   flex-direction: column;
@@ -534,6 +529,11 @@ figure > button:focus-visible {
   transition: color var(--motion-duration-standard) var(--motion-ease-standard),
               background-color var(--motion-duration-standard) var(--motion-ease-standard);
 }
+
+.contact-item:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-link-hover);
+  }
 
 /* ==================== Accessibility & inclusive design ==================== */
 

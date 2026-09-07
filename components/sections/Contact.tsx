@@ -37,7 +37,7 @@ export default function Contact() {
 
                             <Icon name="linkedin" size="lg" />
 
-                            <span className="contact-text">
+                            <span>
                                 Connect with me
                             </span>
 
@@ -55,7 +55,7 @@ export default function Contact() {
 
                             <Icon name="video" size="lg" />
 
-                            <span className="contact-text" translate="no">
+                            <span>
                                 Schedule a call
                             </span>
 

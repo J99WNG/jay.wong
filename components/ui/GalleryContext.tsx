@@ -266,16 +266,16 @@ function GalleryModal({
                 {items.map((item, i) => (
                   <button
                     key={item.id}
-                    className="group flex size-3 items-center justify-center rounded-full hover:cursor-pointer"
+                    className="group flex size-auto items-center justify-center rounded-full hover:cursor-pointer"
                     aria-label={`Image ${i + 1}: ${item.alt}`}
                     aria-current={i === activeIndex ? true : undefined}
                     onClick={() => goTo(i)}
                   >
                     <span
                       aria-hidden="true"
-                      className={`size-2 rounded-full motion-safe:transition-[scale,background-color] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] ${
+                      className={`size-2 rounded-full motion-safe:transition-[scale,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] ${
                         i === activeIndex
-                          ? 'scale-125 bg-white w-4'
+                          ? 'bg-white w-4'
                           : 'bg-white/30 group-hover:bg-white/60'
                       }`}
                     />
