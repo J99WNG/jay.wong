@@ -13,7 +13,6 @@ export const dynamic = 'force-static';
 const profile = {
   name: 'Jay Wong',
   role: 'Product Designer',
-  disciplines: 'Design, Manager, Builder',
   url: 'jaywong.digital',
   location: 'Dubai, United Arab Emirates',
 } as const;
@@ -33,10 +32,9 @@ function Monogram() {
   return (
     <svg
       viewBox="0 0 945 426"
-      width="178"
-      height="80"
+      width="256"
       aria-hidden="true"
-      style={{ display: 'flex', color: colors.textPrimary }}
+      style={{ color: colors.textPrimary }}
     >
       {/* The exact four paths used by the header brand mark. Embedding them
           avoids an external asset fetch while Next renders the social image. */}
@@ -78,10 +76,10 @@ export default async function OpenGraphImage() {
             flexDirection: 'column',
             background: colors.surface,
             overflow: 'hidden',
-            padding: '64px 72px 56px',
+            padding: '80px',
           }}
         >
-          {/* The top rule borrows the reference's strongest framing gesture,
+          {/* Border-top borrows the reference's strongest framing gesture,
               recolored with the portfolio's light-theme accent. */}
           <div
             style={{
@@ -89,8 +87,7 @@ export default async function OpenGraphImage() {
               top: 0,
               left: 0,
               width: '100%',
-              height: 8,
-              display: 'flex',
+              height: 16,
               background: colors.accent,
             }}
           />
@@ -102,6 +99,7 @@ export default async function OpenGraphImage() {
               display: 'flex',
               flexDirection: 'column',
               marginTop: 'auto',
+              gap: '20',
             }}
           >
             {/* 64 / 32 / 20px mirror Tailwind's 4px-rooted type rhythm and
@@ -109,7 +107,7 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 display: 'flex',
-                fontSize: 64,
+                fontSize: 72,
                 lineHeight: 1,
                 letterSpacing: '-0.04em',
                 fontWeight: 500,
@@ -121,34 +119,28 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 display: 'flex',
-                marginTop: 24,
-                color: colors.textSecondary,
-                fontSize: 32,
+                color: colors.textTertiary,
+                fontSize: 40,
                 lineHeight: 1.25,
                 letterSpacing: '-0.025em',
               }}
             >
               {profile.role}
-              <span style={{ color: colors.textTertiary }}>
-                {' '}, {profile.disciplines}
-              </span>
             </div>
 
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginTop: 48,
-                color: colors.textTertiary,
-                fontSize: 20,
+                marginTop: 64,
+                color: colors.textSecondary,
+                fontSize: 32,
                 lineHeight: 1.4,
                 letterSpacing: '-0.015em',
               }}
             >
-              <span style={{ color: colors.accent, fontWeight: 500 }}>
-                {profile.url}
-              </span>
-              <span style={{ margin: '0 12px' }}>,</span>
+              <span style={{ color: colors.accent, fontWeight: 500 }}>{profile.url}</span>
+              <span style={{ margin: '0px 12px' }}>•</span>
               <span>{profile.location}</span>
             </div>
           </div>
@@ -162,7 +154,7 @@ export default async function OpenGraphImage() {
           name: 'Inter',
           data: interFont,
           style: 'normal',
-          weight: 500,
+          weight: 400,
         },
       ],
     },
