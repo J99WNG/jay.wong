@@ -12,5 +12,5 @@ export const heroContent = {
     'mentorship.',
   ],
   tagline:
-    "👋 I'm Jay, a product designer working across design, engineering and business to turn ambiguous problems into frictionless, scalable experiences.",
+    "👋 I'm Jay, a product designer that pivots across design, engineering and business to turn ambiguous problems into frictionless, scalable experiences.",
 } as const;

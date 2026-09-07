@@ -50,7 +50,7 @@ export default function ToolsGrid() {
               {tool.name}
             </span>
 
-            <span className="block text-sm text-text-tertiary">
+            <span className="block text-xs text-text-tertiary">
               {tool.category}
             </span>
           </span>

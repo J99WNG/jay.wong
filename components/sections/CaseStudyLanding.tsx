@@ -32,7 +32,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
         <div className="flex flex-col gap-8">
           <NextProjectCTA />
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <p className="small">
               {project.year} · {project.company} · {project.industry}
             </p>

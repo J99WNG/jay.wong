@@ -107,9 +107,9 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 display: 'flex',
-                fontSize: 72,
+                fontSize: 80,
                 lineHeight: 1,
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.03em',
                 fontWeight: 500,
               }}
             >
@@ -120,9 +120,9 @@ export default async function OpenGraphImage() {
               style={{
                 display: 'flex',
                 color: colors.textTertiary,
-                fontSize: 40,
+                fontSize: 44,
                 lineHeight: 1.25,
-                letterSpacing: '-0.025em',
+                letterSpacing: '-0.02em',
               }}
             >
               {profile.role}

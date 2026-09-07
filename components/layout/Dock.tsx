@@ -102,7 +102,7 @@ export default function Dock() {
     <div 
       ref={dockRef} 
       id="dock"
-      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
+      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)]"
     >
       <Button 
         variant="primary"
