@@ -4,10 +4,15 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
 import styles from './MathsGenieShowcase.module.css';
+import MathsGenieLibraryDemo from './MathsGenieLibraryDemo';
 
-const GenieAnimation = dynamic(() => import('./GenieAnimation'), {
+const RivePlayer = dynamic(() => import('@/components/ui/RivePlayer'), {
   ssr: false,
-  loading: () => <div className={styles.loading}>Loading Genie…</div>,
+  loading: () => (
+    <div className="grid h-[300px] place-items-center text-[var(--mg-neutral-800)]">
+      Loading Genie…
+    </div>
+  ),
 });
 
 const personas = [
@@ -19,8 +24,6 @@ const personas = [
 
 export default function MathsGenieShowcase() {
   const [selected, setSelected] = useState(0);
-  const [mode, setMode] = useState<'light' | 'dark'>('dark');
-  const [pinned, setPinned] = useState<string | null>(null);
   const persona = personas[selected];
 
   return (
@@ -37,44 +40,20 @@ export default function MathsGenieShowcase() {
               </Button>
             ))}
           </div>
-          <GenieAnimation key={persona.file} file={persona.file} label={`Genie ${persona.name.toLowerCase()} animation`} />
+          <RivePlayer
+            key={persona.file}
+            className="rounded-none border-0 bg-[var(--mg-neutral-900)]"
+            src={`/assets/images/mathsgenie/rive/${persona.file}.riv`}
+            label={`Genie ${persona.name.toLowerCase()} animation`}
+          />
           <p className={styles.caption}>{persona.description}</p>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
         <h3>A shared system, built to scale</h3>
-        <p>Buttons and a revision card from the shared Figma library. Switch themes, hover or focus to explore their states. Tap a sample to hold its hover state.</p>
-        <div className={styles.systemPanel} data-theme={mode}>
-          <div className={styles.toolbar} role="group" aria-label="Component preview theme">
-            {(['light', 'dark'] as const).map((theme) => (
-              <button key={theme} type="button" className={styles.themeControl}
-                aria-pressed={mode === theme} onClick={() => setMode(theme)}>
-                {theme === 'light' ? 'Light' : 'Dark'}
-              </button>
-            ))}
-          </div>
-          <div className={styles.samples}>
-            <div className={styles.buttonRow}>
-              {(['primary', 'secondary', 'tertiary'] as const).map((variant) => (
-                <button key={variant} type="button"
-                  className={`${styles.sampleButton} ${styles[variant]}`}
-                  data-held={pinned === variant} aria-pressed={pinned === variant}
-                  aria-label={`${variant} button: hold hover state`}
-                  onClick={() => setPinned(pinned === variant ? null : variant)}>
-                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
-                </button>
-              ))}
-            </div>
-            <button type="button" className={styles.sampleCard}
-              data-held={pinned === 'card'} aria-pressed={pinned === 'card'}
-              aria-label="GCSE Revision card: hold hover state"
-              onClick={() => setPinned(pinned === 'card' ? null : 'card')}>
-              <span className={styles.cardTitle}>GCSE Revision</span>
-              <span className={styles.cardBody}>Video tutorials, practice exam style questions and answers</span>
-            </button>
-          </div>
-        </div>
+        <p>Interactive examples from the shared Figma library. Switch themes, focus or hover controls, and select states to explore how the system behaves.</p>
+        <MathsGenieLibraryDemo />
       </div>
     </>
   );

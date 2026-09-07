@@ -26,14 +26,14 @@ const strengths = [
   {
     icon: "users-round",
     title: "Build with people, not around them",
-    text: "I work openly with product, engineering, and stakeholders—sharing the thinking early and shaping the answer together.",
+    text: "I work collaboratively with product, engineering, and stakeholders to share thinking early and shaping the answer together.",
     skills: ["Design systems", "Token architecture","WCAG Accessibility", "Cross-functional delivery"],
   },
   {
     icon: "bot",
     title: "Let the tools do the busywork",
-    text: "I use AI and code to speed up repetitive work, leaving more room for judgement, craft, and conversations that move the product forward.",
-    skills: ["Agentic workflows","MCP Framework", "SKILL.md", "Rapid prototyping", "Front-end development"],
+    text: "I use agents and design-to-code workflows to accelerate repetitive work, leaving more room for judgement, craft, and conversations that move products forward.",
+    skills: ["Agentic workflows","MCP Framework", "SKILL.md", "Rapid prototyping", "Front-end fluency"],
   },
 ] as const satisfies ReadonlyArray<{
   icon: IconName;

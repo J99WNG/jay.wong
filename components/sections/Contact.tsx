@@ -5,10 +5,10 @@ import Icon from '@/components/ui/Icon';
 
 export default function Contact() {
     return (
-        <Section id="contact" isLanding={true}>
+        <Section id="contact" isLanding={true} stickyHeading={false}>
             <div className="section-grid">
 
-                <div className="section-heading md:static">
+                <div className="section-heading">
                     <h2>Let&apos;s talk
                     <br />
                     <span className="font-normal text-text-tertiary">Assam or Ceylon tea. No coffee here.</span>

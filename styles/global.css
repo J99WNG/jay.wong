@@ -61,7 +61,6 @@
   --color-bg-primary: light-dark(var(--color-neutral-100), var(--color-steep-900));
   --color-bg-secondary: light-dark(var(--color-neutral-300), var(--color-steep-700));
   --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
-  --color-bg-inline: light-dark(var(--color-neutral-300), var(--color-steep-500));
 
   --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
   --color-text-secondary: light-dark(var(--color-steep-300), var(--color-neutral-300));
@@ -592,7 +591,7 @@ html:focus-within {
     align-items: flex-start;
   }
 
-  .section-grid > .section-heading {
+  .page-section[data-sticky-heading='true'] .section-grid > .section-heading {
     position: sticky;
     /* Center the full heading, keeping it clear of the floating header on
        shorter viewports. Sticky positioning keeps it inside its grid row. */

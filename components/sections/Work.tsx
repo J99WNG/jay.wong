@@ -6,10 +6,10 @@ import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 
 export default function Work() {
     return (
-        <Section id="work">
+        <Section id="work" stickyHeading={false}>
             <div className="section-grid">
 
-                <div className="section-heading md:static">
+                <div className="section-heading">
                     <h2>Featured work
                     <br />
                     <span className="font-normal text-text-tertiary">A few problems I've helped solve.</span>
@@ -33,4 +33,3 @@ export default function Work() {
         </Section>
     )
 };
-            

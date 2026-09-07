@@ -4,8 +4,8 @@ import {
   ArrowLeft, ArrowRight, ArrowUp, ArrowUpRight, BookOpenText,
   BriefcaseBusiness, ChartNoAxesCombined, Check, ChevronLeft, ChevronRight,
   Compass, Copy, Ear, GitBranch, Headset, Linkedin, Mail, MapPin, Maximize2,
-  Menu, Monitor, Moon, Sparkles, Sun, UsersRound, Video,
-  Waypoints, Workflow, X, Bot,
+  Menu, Monitor, Moon, Pause, Play, Search, Settings, Sparkles, Sun, UsersRound, Video,
+  Waypoints, Workflow, X, Bot, CircleHelp, FileText, Home, Calculator,
 } from 'lucide-react';
 
 /*
@@ -36,6 +36,10 @@ const icons = {
   menu: Menu,
   monitor: Monitor,
   moon: Moon,
+  pause: Pause,
+  play: Play,
+  search: Search,
+  settings: Settings,
   sparkles: Sparkles,
   sun: Sun,
   'users-round': UsersRound,
@@ -44,6 +48,10 @@ const icons = {
   workflow: Workflow,
   x: X,
   bot: Bot,
+  'circle-help': CircleHelp,
+  'file-text': FileText,
+  home: Home,
+  calculator: Calculator,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof icons;

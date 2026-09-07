@@ -6,14 +6,23 @@ interface SectionProps {
   id: string;
   children: ReactNode;
   isLanding?: boolean;
+  stickyHeading?: boolean;
   className?: string;
 }
 
-const Section = ({ id, children, isLanding = false, className = "" }: SectionProps) => {
+const Section = ({
+  id,
+  children,
+  isLanding = false,
+  stickyHeading = true,
+  className = "",
+}: SectionProps) => {
   const [isVisible, setIsVisible] = useState(isLanding); // Landing starts visible
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!stickyHeading) return;
+
     const headings = sectionRef.current?.querySelectorAll<HTMLElement>(
       '.section-grid > .section-heading'
     );
@@ -30,7 +39,7 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
 
     headings.forEach((heading) => observer.observe(heading));
     return () => observer.disconnect();
-  }, []);
+  }, [stickyHeading]);
 
   useEffect(() => {
     // If it's the landing section, we might not want it to ever fade out
@@ -62,6 +71,7 @@ const Section = ({ id, children, isLanding = false, className = "" }: SectionPro
       id={id}
       ref={sectionRef}
       tabIndex={-1}
+      data-sticky-heading={stickyHeading || undefined}
       className={`
         page-section relative isolate w-full mx-auto py-25
         print:min-h-0 print:overflow-visible
