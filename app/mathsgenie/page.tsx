@@ -144,8 +144,6 @@ export default function Page() {
             </div>
           </div>
         </Section>
-
-        <div className="page-container"><hr className="divider" /></div>
       </article>
     </GalleryProvider>
   );

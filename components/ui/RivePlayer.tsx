@@ -89,7 +89,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
       </div>
       <button
         type="button"
-        className="absolute right-3 bottom-3 z-[2] grid size-11 cursor-pointer place-items-center rounded-full border border-[var(--mg-rive-control-border)] bg-[var(--mg-rive-control-bg)] text-[var(--mg-neutral-50)] backdrop-blur-lg transition-[background-color,transform] duration-[160ms] ease-out hover:bg-[var(--mg-primary-800)] active:scale-[.96] focus-visible:outline-[3px] focus-visible:outline-offset-3 focus-visible:outline-[var(--mg-primary-300)] disabled:cursor-wait disabled:opacity-[.55] motion-reduce:transition-none"
+        className="absolute right-3 bottom-3 z-[2] grid size-11 cursor-pointer place-items-center rounded-full border border-[var(--mg-rive-control-border)] bg-[var(--mg-rive-control-bg)] text-[var(--mg-neutral-50)] backdrop-blur-lg transition-[background-color,transform] duration-[var(--motion-duration-fast)] ease-[var(--motion-ease-standard)] hover:bg-[var(--mg-primary-800)] active:scale-[.96] focus-visible:outline-[3px] focus-visible:outline-offset-3 focus-visible:outline-[var(--mg-primary-300)] disabled:cursor-wait disabled:opacity-[.55] motion-reduce:transition-none"
         disabled={!rive || failed || reducedMotion}
         aria-label={reducedMotion ? `${label} disabled by reduced-motion preference` : playing ? `Pause ${label}` : `Play ${label}`}
         aria-pressed={playing}

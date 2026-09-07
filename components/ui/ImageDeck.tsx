@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 
 const cardBase =
-  "group/card absolute aspect-[4/3] w-[72%] origin-center cursor-pointer touch-manipulation overflow-hidden rounded-xl border border-border-muted bg-bg-secondary p-0 shadow-xl motion-safe:transition-[rotate,scale,box-shadow,border-color] motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:will-change-[rotate,scale] hover:z-30 motion-safe:hover:rotate-0 motion-safe:hover:scale-[1.04] hover:border-border-hover hover:shadow-2xl focus-visible:z-30 motion-safe:focus-visible:rotate-0 motion-safe:focus-visible:scale-[1.04] focus-visible:border-border-hover data-[active=true]:z-30 motion-safe:data-[active=true]:rotate-0 motion-safe:data-[active=true]:scale-[1.04] data-[active=true]:border-border-hover data-[active=true]:shadow-2xl sm:w-[56%] md:w-[48%]";
+  "group/card absolute aspect-[4/3] w-[72%] origin-center cursor-pointer touch-manipulation overflow-hidden rounded-xl border border-border-muted bg-bg-secondary p-0 shadow-xl motion-safe:transition-[rotate,scale,box-shadow,border-color] motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:will-change-[rotate,scale] hover:z-30 motion-safe:hover:rotate-0 motion-safe:hover:scale-[1.04] hover:border-border-hover hover:shadow-2xl focus-visible:z-30 motion-safe:focus-visible:rotate-0 motion-safe:focus-visible:scale-[1.04] focus-visible:border-border-hover data-[active=true]:z-30 motion-safe:data-[active=true]:rotate-0 motion-safe:data-[active=true]:scale-[1.04] data-[active=true]:border-border-hover data-[active=true]:shadow-2xl sm:w-[56%] md:w-[48%]";
 
 type CardId = "team" | "workshop" | "conference";
 
@@ -66,7 +66,7 @@ export default function ImageDeck() {
           alt="Jay with a multidisciplinary design team"
           fill
           sizes="(max-width: 640px) 72vw, (max-width: 768px) 56vw, 31vw"
-          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-standard)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
         />
       </button>
 
@@ -80,7 +80,7 @@ export default function ImageDeck() {
       >
         <video
           ref={videoRef}
-          className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
+          className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-standard)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
           autoPlay={!shouldReduceMotion}
           muted
           loop
@@ -105,7 +105,7 @@ export default function ImageDeck() {
           alt="Jay and colleagues at Product Design Week London"
           fill
           sizes="(max-width: 640px) 72vw, (max-width: 768px) 56vw, 31vw"
-          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-standard)] motion-safe:group-hover/card:scale-[1.03] motion-safe:group-focus-visible/card:scale-[1.03]"
         />
       </button>
       </div>

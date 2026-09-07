@@ -102,9 +102,9 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 z-(--layer-header) h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+        <header className="fixed top-0 left-0 z-(--layer-header) h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)]">
             <div className="page-container">
-                <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color,backdrop-filter] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.175,0.885,0.32,1.275)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+                <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color,backdrop-filter] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
                     <Link
                         href={HOME_PATH}
                         id="nav-brand"
@@ -116,7 +116,7 @@ export default function Header() {
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
-                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-400 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
+                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
                         >
                             <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z" />

@@ -52,37 +52,22 @@
 .icon-motion-left,
 .icon-motion-right,
 .icon-motion-up-right {
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform var(--motion-duration-fast) var(--motion-ease-spring);
 }
 
 a:hover .icon-motion-up-right,
 a:focus-visible .icon-motion-up-right {
-  animation: iconUpRight 1.2s infinite ease-in-out;
+  animation: motion-nudge-up-right var(--motion-duration-loop) infinite var(--motion-ease-in-out);
 }
 
 a:hover .icon-motion-right,
 a:focus-visible .icon-motion-right {
-  animation: iconRight 1s ease-in-out infinite;
+  animation: motion-nudge-right var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
 }
 
 a:hover .icon-motion-left,
 a:focus-visible .icon-motion-left {
-  animation: iconLeft 1s ease-in-out infinite;
-}
-
-@keyframes iconUpRight {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(4px, -4px); }
-}
-
-@keyframes iconRight {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(6px); }
-}
-
-@keyframes iconLeft {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-6px); }
+  animation: motion-nudge-left var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

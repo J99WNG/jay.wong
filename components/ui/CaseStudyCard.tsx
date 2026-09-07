@@ -10,7 +10,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, logo, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
-    <article className="card motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.25,1,0.5,1)]">
+    <article className="card motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
       <div className="flex flex-1 md:w-1/2 flex-col gap-2 p-8 px-7">
         <p className="small">
           {year} · {company} · {industry}

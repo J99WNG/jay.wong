@@ -121,13 +121,13 @@ export default function Collaborations() {
                     const CardContent = (
                       <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
-                        <div className="relative h-16 w-full motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105 motion-safe:group-active:scale-105 motion-safe:group-focus-within:scale-105">
+                        <div className="relative h-16 w-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:group-hover:scale-105 motion-safe:group-active:scale-105 motion-safe:group-focus-within:scale-105">
                           <Image
                             src={company.src}
                             alt={company.name}
                             fill
                             sizes="(max-width: 768px) 50vw, 33vw"
-                            className="object-contain grayscale opacity-80 motion-safe:transition-[filter,opacity] motion-safe:duration-300 motion-safe:ease-in-out group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus-within:filter-none group-focus-within:opacity-100"
+                            className="object-contain grayscale opacity-80 motion-safe:transition-[filter,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus-within:filter-none group-focus-within:opacity-100"
                           />
                         </div>
 
@@ -137,7 +137,7 @@ export default function Collaborations() {
                     return (
                       <li
                         key={company.id}
-                        className="group relative card motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-300 pb-0"
+                        className="group relative card motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] pb-0"
                         onPointerEnter={(event) => {
                           if (!company.roleDescription) return;
                           setActiveCompanyId(company.id);

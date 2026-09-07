@@ -166,7 +166,9 @@
   line-height: 1;
   letter-spacing: -.32px;
   cursor: pointer;
-  transition: background-color 160ms, border-color 160ms, color 160ms;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-standard),
+              border-color var(--motion-duration-fast) var(--motion-ease-standard),
+              color var(--motion-duration-fast) var(--motion-ease-standard);
 }
 .primary { background: var(--mg-primary); color: var(--mg-primary-text); border-color: var(--mg-primary-border); }
 .primary:is(:hover, :focus-visible, [data-held='true']) { background: var(--mg-primary-hover); border-color: var(--mg-primary-border-hover); }
@@ -188,7 +190,8 @@
   background: var(--mg-card);
   color: var(--mg-text);
   text-align: left;
-  transition: background-color 160ms, border-color 160ms;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-standard),
+              border-color var(--motion-duration-fast) var(--motion-ease-standard);
 }
 button.sampleCard { cursor: pointer; }
 .sampleCard:is(button):is(:hover, :focus-visible, [data-held='true']) { background: var(--mg-card-hover); border-color: var(--mg-card-border-hover); }
@@ -223,10 +226,6 @@ button.sampleCard { cursor: pointer; }
 .avatar { width: 24px; height: 24px; border-radius: 999px; background: var(--mg-muted); }
 
 .systemPanel button:focus-visible { outline: 3px solid var(--mg-primary); outline-offset: 3px; }
-
-@media (prefers-reduced-motion: reduce) {
-  .sampleButton, .sampleCard { transition: none; }
-}
 
 @media (max-width: 640px) {
   .libraryHeader { align-items: flex-start; flex-direction: column; }

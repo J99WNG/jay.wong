@@ -89,8 +89,8 @@ const Section = ({
       <div className={`
         relative page-container
         opacity-100 blur-none
-        motion-safe:transition-[opacity,filter] motion-safe:duration-[2000ms]
-        motion-safe:ease-[cubic-bezier(0.215,0.61,0.355,1)]
+        motion-safe:transition-[opacity,filter] motion-safe:duration-[var(--motion-duration-slow)]
+        motion-safe:ease-[var(--motion-ease-standard)]
         motion-safe:will-change-[opacity,filter]
         print:opacity-100 print:blur-none print:transition-none
         ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-xs'}

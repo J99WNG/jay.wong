@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/motion';
 
 export default function LoadingLogo({ onComplete }: { onComplete?: () => void }) {
   const shouldReduceMotion = useReducedMotion();
@@ -10,8 +11,8 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.15,
-        delayChildren: shouldReduceMotion ? 0 : 0.2,
+        staggerChildren: shouldReduceMotion ? 0 : motionStagger.items,
+        delayChildren: shouldReduceMotion ? 0 : motionDelay.standard,
       },
     },
   };
@@ -26,8 +27,8 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
       opacity: 1,
       y: 0,
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.5,
-        ease: [0.22, 1, 0.36, 1], // Matches your established premium cubic-bezier
+        duration: shouldReduceMotion ? 0 : motionDuration.slow,
+        ease: motionEase.standard,
       },
     },
   };

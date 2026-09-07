@@ -102,18 +102,18 @@ export default function Dock() {
     <div 
       ref={dockRef} 
       id="dock"
-      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-linear"
+      className="fixed bottom-0 w-full h-16 flex items-center justify-center z-(--layer-utility) pointer-events-none translate-y-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
     >
       <Button 
         variant="primary"
-        className="group size-8 p-0 rounded-full duration-300 pointer-events-auto"
+        className="group size-8 p-0 rounded-full pointer-events-auto"
         aria-label="Back to the top of the page"
         onClick={handleBackToTop}
       >
         <Icon
           name="arrow-up"
           size="sm"
-          className="motion-safe:animate-bounce motion-safe:transition-transform motion-safe:duration-200"
+          className="motion-safe:animate-bounce motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-fast)]"
         />
       </Button>
     </div>

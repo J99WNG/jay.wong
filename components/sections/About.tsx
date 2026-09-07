@@ -5,12 +5,6 @@ import ImageDeck from "../ui/ImageDeck";
 import StrengthsTimeline from "../ui/StrengthsTimeline";
 import ToolsDeck from "../ui/ToolsGrid";
 
-const proofPoints = [
-  { value: "7 years", label: "Designing digital products" },
-  { value: "87,000+", label: "Enterprise employees reached" },
-  { value: "≈250,000", label: "Students reached" },
-] as const;
-
 export default function AboutDraft() {
   return (
     <Section id="about">
@@ -32,22 +26,6 @@ export default function AboutDraft() {
               awkward questions, spotting patterns, and helping teams turn
               fuzzy ideas into products people can actually use.
             </p>
-
-            <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {proofPoints.map((item) => (
-                <div
-                  key={item.label}
-                  className="card flex flex-col gap-1 py-5 px-5"
-                >
-                  <dt className="order-2 text-sm tracking-tight text-text-tertiary">
-                    {item.label}
-                  </dt>
-                  <dd className="order-1 m-0 text-2xl font-medium tracking-tight text-text-primary">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           <ImageDeck />

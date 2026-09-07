@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import LoadingLogo from './LoadingLogo';
+import { motionDuration } from '@/lib/motion';
 
 export default function InitialLoader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,7 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
             key="loader"
             exit={{
               opacity: 0,
-              transition: { duration: shouldReduceMotion ? 0 : 0.4 },
+              transition: { duration: shouldReduceMotion ? 0 : motionDuration.standard },
             }}
             className="fixed inset-0 z-(--layer-loader)"
             role="status"

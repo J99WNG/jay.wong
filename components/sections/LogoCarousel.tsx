@@ -107,7 +107,7 @@ function LogoItem({
         width={company.width}
         height={48}
         sizes={`${company.width}px`}
-        className="h-12 w-auto object-contain grayscale opacity-70 transition-[filter,opacity] duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+        className="h-12 w-auto object-contain grayscale opacity-70 transition-[filter,opacity] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-standard)] group-hover:grayscale-0 group-hover:opacity-100"
       />
     </motion.li>
   );

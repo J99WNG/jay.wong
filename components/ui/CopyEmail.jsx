@@ -40,7 +40,7 @@ export default function CopyEmail() {
         <>
         <button 
             onClick={handleCopy}
-            className="contact-item flex items-center gap-3 text-text-link hover:text-text-link-hover motion-safe:transition-colors motion-safe:duration-200"
+            className="contact-item flex items-center gap-3 text-text-link hover:text-text-link-hover motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
             type="button"
             aria-label={`Copy email address ${email}`}
         >
@@ -49,7 +49,7 @@ export default function CopyEmail() {
             {/* Middle Dynamic Text Layout Container */}
             <div className="relative text-left min-h-[1.5rem] flex items-center overflow-hidden">
                 <span 
-                    className={`motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-300 transform select-all motion-reduce:translate-y-0 ${
+                    className={`motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] transform select-all motion-reduce:translate-y-0 ${
                         isCopied ? 'opacity-0 -translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'
                     }`} 
                     translate="no"
@@ -58,7 +58,7 @@ export default function CopyEmail() {
                 </span>
 
                 <span 
-                    className={`absolute left-0 whitespace-nowrap text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-300 transform motion-reduce:translate-y-0 ${
+                    className={`absolute left-0 whitespace-nowrap text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:translate-y-0 ${
                         isCopied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
                     }`}
                 >
@@ -68,11 +68,11 @@ export default function CopyEmail() {
 
             {/* Right Action Feedback Icon (Dual Nodes prevent text flicker structural layout shifts) */}
             <span className="relative inline-flex size-6" aria-hidden="true">
-                <Icon name="copy" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                <Icon name="copy" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-0 scale-75 rotate-45' : 'opacity-100 scale-100 rotate-0'
                 }`} />
                 
-                <Icon name="check" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-200 transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                <Icon name="check" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-45'
                 }`} />
             </span>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./motion.css";
 @import "./iconography.css" layer(components);
 
 :root {
@@ -233,7 +234,7 @@
     color: var(--color-text-link);
     text-decoration: none;
     position: relative;
-    transition: color 0.2s ease;
+    transition: color var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   /* A real outline remains visible when forced-colors mode removes shadows. */
@@ -290,9 +291,9 @@ caption {
     overflow: hidden;               /* keeps image corners rounded */
     width: 100%;
 
-    transition: border-color 0.4s cubic-bezier(0.25,1,0.5,1),
-                box-shadow 0.4s cubic-bezier(0.25,1,0.5,1),
-                scale 0.4s cubic-bezier(0.25,1,0.5,1);
+    transition: border-color var(--motion-duration-standard) var(--motion-ease-standard),
+                box-shadow var(--motion-duration-standard) var(--motion-ease-standard),
+                scale var(--motion-duration-standard) var(--motion-ease-spring);
   }
   
 .card:hover,
@@ -348,8 +349,8 @@ figure > button:focus-visible {
   background-color: var(--color-bg-tertiary);
   border: 1px solid var(--color-border-base);
 
-  transition: color 0.4s cubic-bezier(0.25,1,0.5,1),
-              border-color 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color var(--motion-duration-standard) var(--motion-ease-standard),
+              border-color var(--motion-duration-standard) var(--motion-ease-standard);
 }
 
 .badge:hover {
@@ -414,8 +415,8 @@ figure > button:focus-visible {
   opacity: 0;
   transform: translateY(-20px);
   transition: 
-        opacity 0.4s ease, 
-        transform 0.4s cubic-bezier(0.25,1,0.5,1);
+        opacity var(--motion-duration-standard) var(--motion-ease-standard),
+        transform var(--motion-duration-standard) var(--motion-ease-standard);
   z-index: 1;
 }
 
@@ -431,7 +432,7 @@ figure > button:focus-visible {
   font-size: 1.5rem;
   padding: 0;
   color: var(--color-neutral-100);
-  transition: color 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color var(--motion-duration-standard) var(--motion-ease-standard);
 }
 
 .nav-list a:hover,
@@ -461,16 +462,16 @@ figure > button:focus-visible {
 
   cursor: pointer;
   z-index: 2; /* Above the menu within the header's local stacking context. */
-  transition: background 0.4s ease;
+  transition: background var(--motion-duration-standard) var(--motion-ease-standard);
   }
 
 .nav-toggle .icon {
   position: absolute; /* Stack them on top of each other */
   color: var(--color-neutral-100);
   transition: 
-      transform 0.4s cubic-bezier(0.25,1,0.5,1),
-      opacity 0.3s ease,
-      color 0.3s ease;
+      transform var(--motion-duration-standard) var(--motion-ease-spring),
+      opacity var(--motion-duration-fast) var(--motion-ease-standard),
+      color var(--motion-duration-fast) var(--motion-ease-standard);
 }
       
 /* 3. CLOSED State (Default) */
@@ -530,8 +531,8 @@ figure > button:focus-visible {
   align-items: center;
   width: fit-content;
 
-  transition: color 0.4s cubic-bezier(0.25,1,0.5,1),
-              background-color 0.4s cubic-bezier(0.25,1,0.5,1);
+  transition: color var(--motion-duration-standard) var(--motion-ease-standard),
+              background-color var(--motion-duration-standard) var(--motion-ease-standard);
 }
 
 /* ==================== Accessibility & inclusive design ==================== */
@@ -547,20 +548,8 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* 3. Accessibility override */
+/* Component-specific reduced-motion states; global timing lives in motion.css. */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto !important;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
   .nav-menu,
   .nav-toggle,
   .nav-toggle .icon {

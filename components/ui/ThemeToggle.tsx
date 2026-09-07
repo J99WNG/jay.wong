@@ -62,7 +62,7 @@ export default function ThemeToggle() {
         onClick={cycleTheme}
         type="button"
         aria-label={`Switch to ${nextTheme} theme`}
-        className="flex min-h-11 items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-200"
+        className="flex min-h-11 items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
       >
         <Icon name={themeIcons[theme]} size="sm" />
         

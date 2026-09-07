@@ -30,7 +30,7 @@ export default function ToolsGrid() {
           className="group/tool flex items-center gap-3 rounded-lg py-2 focus-visible:outline-offset-4"
         >
           <span
-            className={`flex size-11 shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-sm motion-safe:transition-[rotate,scale] motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:will-change-[rotate,scale] motion-safe:group-hover/tool:scale-110 motion-safe:group-focus-visible/tool:scale-110 ${
+            className={`flex size-11 shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-sm motion-safe:transition-[rotate,scale] motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:will-change-[rotate,scale] motion-safe:group-hover/tool:scale-110 motion-safe:group-focus-visible/tool:scale-110 ${
               index % 2 === 0
                 ? "motion-safe:group-hover/tool:-rotate-6 motion-safe:group-focus-visible/tool:-rotate-6"
                 : "motion-safe:group-hover/tool:rotate-6 motion-safe:group-focus-visible/tool:rotate-6"

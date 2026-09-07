@@ -6,6 +6,7 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import FluidOrb from "../ui/FluidOrb";
 import { heroContent } from "@/app/data/heroContent";
+import { motionDelay, motionDuration, motionEase, motionStagger } from "@/lib/motion";
 
 
 export default function Hero() {
@@ -52,8 +53,8 @@ export default function Hero() {
       y: 0 
     },
     transition: { 
-      duration: shouldReduceMotion ? 0 : 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      duration: shouldReduceMotion ? 0 : motionDuration.slow,
+      ease: motionEase.standard,
     }
   };
 
@@ -62,8 +63,8 @@ export default function Hero() {
     initial: {},
     animate: {
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.02,
-        delayChildren: shouldReduceMotion ? 0 : 0.4,
+        staggerChildren: shouldReduceMotion ? 0 : motionStagger.characters,
+        delayChildren: shouldReduceMotion ? 0 : motionDuration.standard,
       },
     },
   };
@@ -73,7 +74,7 @@ export default function Hero() {
     initial: { opacity: shouldReduceMotion ? 1 : 0 },
     animate: { 
       opacity: 1, 
-      transition: { duration: shouldReduceMotion ? 0 : 0.005 }
+      transition: { duration: shouldReduceMotion ? 0 : motionDuration.instant }
     },
   };
 
@@ -89,7 +90,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.2 }}
+            transition={{ delay: shouldReduceMotion ? 0 : motionDelay.standard }}
             className="relative"
           >
             {/* 1. Accessible Layer: Hidden visually, but read clearly by screen readers */}
@@ -112,7 +113,7 @@ export default function Hero() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      transition={{ duration: motionDuration.standard, ease: motionEase.inOut }}
                       className="col-start-1 row-start-1 text-accent-primary font-pixel tracking-tight" // Optional: Add a text color here to make it pop!
                     >
                     {heroContent.keywords[keywordIndex]}
@@ -150,7 +151,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             variants={fadeInUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 2 }}
+            transition={{ delay: shouldReduceMotion ? 0 : motionDelay.heroActions }}
             className="flex flex-wrap justify-center gap-4 items-center md:justify-start"
           >
             <Button variant="primary" href="/#work" onClick={scrollToWork}>
@@ -171,9 +172,9 @@ export default function Hero() {
           }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            duration: shouldReduceMotion ? 0 : 1,
-            ease: "easeOut",
-            delay: shouldReduceMotion ? 0 : 0.5,
+            duration: shouldReduceMotion ? 0 : motionDuration.slow,
+            ease: motionEase.standard,
+            delay: shouldReduceMotion ? 0 : motionDuration.standard,
           }}
           className="flex-1 flex justify-center w-full h-full"
         >

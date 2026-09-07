@@ -67,7 +67,8 @@ export default function FigureModal({
           className={`
             object-cover
             motion-safe:transition-transform
-            motion-safe:duration-500
+            motion-safe:duration-[var(--motion-duration-standard)]
+            motion-safe:ease-[var(--motion-ease-standard)]
             motion-safe:group-hover:scale-110
             ${imageClassName ?? ""}
           `}
@@ -84,7 +85,8 @@ export default function FigureModal({
             backdrop-blur-xs
             opacity-0
             motion-safe:transition-opacity
-            motion-safe:duration-300
+            motion-safe:duration-[var(--motion-duration-standard)]
+            motion-safe:ease-[var(--motion-ease-standard)]
             group-hover:opacity-100
           "
         >
