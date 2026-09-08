@@ -68,19 +68,22 @@ export default function Page() {
 
               <div className="flex flex-col gap-2">
                 <p className="small">Impact</p>
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  <div className="card">
-                    <div className="flex justify-center w-full gap-2 px-6 py-5">
-                      <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
+
+                <div className="flex flex-col gap-3">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div className="card">
+                      <div className="flex justify-center w-full gap-2 px-6 py-5">
+                        <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
+                      </div>
+                    </div>
+                    <div className="card">
+                      <div className="flex justify-center w-full gap-2 px-6 py-5">
+                        <p><span className="emphasis">40,000+</span><br />Daily messages handled by the AI tutoring feature.</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="card">
-                    <div className="flex justify-center w-full gap-2 px-6 py-5">
-                      <p><span className="emphasis">40,000+</span><br />Daily messages handled by the AI tutoring feature.</p>
-                    </div>
-                  </div>
+                  <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
                 </div>
-                <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

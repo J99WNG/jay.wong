@@ -57,7 +57,7 @@ export default function ThemeToggle() {
     theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
 
   return (
-    <div className="fixed bottom-5 right-5 z-(--layer-utility)">
+    <div className="fixed bottom-5 right-4 z-(--layer-utility)">
       <button
         onClick={cycleTheme}
         type="button"

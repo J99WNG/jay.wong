@@ -59,7 +59,7 @@ export default function NextProjectCTA() {
     <div className="flex items-center justify-between">
       <Link
         href={HOME_PATH}
-        className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
+        className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-2xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
         onClick={(event: MouseEvent<HTMLAnchorElement>) => {
           event.preventDefault();
           navigateToWork();

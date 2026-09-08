@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import Icon from '../ui/Icon';
+import { ProgressiveBlur } from '../ui/ProgressiveBlur';
 
 export default function Dock() {
   const dockRef = useRef<HTMLDivElement>(null);
@@ -54,13 +55,13 @@ export default function Dock() {
         }
       }
 
-      // --- 2. Footer Collision (Background Toggle) ---
+      // --- 2. Footer Collision (Blur Toggle) ---
+      const blur = dock.querySelector<HTMLElement>('.gradient-blur');
+
       if (scrollBottom > footerTrigger) {
-        dock.classList.add('bg-transparent');
-        dock.classList.remove('bg-gradient-to-t');
+        blur?.classList.add('opacity-0');
       } else {
-        dock.classList.remove('bg-transparent');
-        dock.classList.add('bg-gradient-to-t');
+        blur?.classList.remove('opacity-0');
       }
     };
 
@@ -106,7 +107,7 @@ export default function Dock() {
     >
       <Button 
         variant="primary"
-        className="group size-8 p-0 rounded-full pointer-events-auto"
+        className="group relative z-10 size-8 p-0 rounded-full pointer-events-auto"
         aria-label="Back to the top of the page"
         onClick={handleBackToTop}
       >
@@ -116,6 +117,12 @@ export default function Dock() {
           className="motion-safe:animate-bounce motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-fast)]"
         />
       </Button>
+
+      <ProgressiveBlur
+        className="z-0 motion-safe:transition-opacity motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)]"
+        height="100%"
+        position="bottom"
+      />
     </div>
   );
 }

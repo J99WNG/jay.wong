@@ -131,7 +131,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 <h3>Project management</h3>
 
                                 <p>
-                                I owned the project structure end to end. I built the Gantt chart, ran weekly standup, maintained the issue log and risk register, and managed scope when the project encountered unexpected constraints. When COVID-19 hit midway through Showcase 2 and the team scattered across four different time zones, I kept the work moving and the communication flowing.
+                                I owned the project structure end to end. I built the Gantt chart, ran weekly standup, maintained the issue log and risk register, and managed scope when the project encountered unexpected constraints. When COVID-19 hit and the team scattered across four different time zones, I kept the work moving and the communication flowing.
                                 </p>
                             </div>
 

@@ -8,6 +8,7 @@ import Icon from '../ui/Icon';
 
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
+const NAV_LINK_STYLES = 'inline-flex min-h-11 w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98] md:min-h-0 md:w-auto md:py-1.5';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -102,9 +103,11 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 z-(--layer-header) h-auto w-full pointer-events-none bg-linear-to-b from-bg-primary/70 to-transparent motion-safe:transition-[background-color,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)]">
-            <div className="page-container">
-                <div className={`relative h-16 my-4 mx-auto p-4 flex items-center justify-between rounded-3xl pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color,backdrop-filter] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+        <header className="fixed top-0 left-0 isolate z-(--layer-header) h-auto w-full pointer-events-none">
+            <div className="page-container relative z-10">
+                {/* Primary nav surface: full-width at the top, then compact after scrolling. */}
+                <div id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl px-4 py-2.5 pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] md:flex md:h-16 md:justify-between ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+                    {/* Brand mark doubles as a shortcut back to the top of the homepage. */}
                     <Link
                         href={HOME_PATH}
                         id="nav-brand"
@@ -116,7 +119,7 @@ export default function Header() {
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
-                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
+                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
                         >
                             <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z" />
@@ -127,27 +130,42 @@ export default function Header() {
                         </svg>
                     </Link>
 
+                    {/* Mobile control morphs between the menu and close icons. */}
                     <button
                         ref={menuToggleRef}
-                        className="nav-toggle"
+                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 md:hidden"
                         type="button"
                         aria-expanded={isOpen}
                         aria-controls="nav-primary"
                         aria-label={isOpen ? 'Close menu' : 'Open menu'}
                         onClick={() => setIsOpen((open) => !open)}
                     >
-                        <Icon name="menu" className="icon-menu" />
-                        <Icon name="x" className="icon-close" />
+                        <Icon
+                            name="menu"
+                            className="absolute rotate-0 scale-100 text-neutral-100 opacity-100 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-180 group-aria-expanded:scale-50 group-aria-expanded:opacity-0 motion-reduce:rotate-0 motion-reduce:scale-100"
+                        />
+                        <Icon
+                            name="x"
+                            className="absolute -rotate-180 scale-50 text-neutral-100 opacity-0 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-0 group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:rotate-0 motion-reduce:scale-100"
+                        />
                     </button>
 
-                    <nav id="nav-primary" className={`nav-menu ${isOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-                        <ul className="nav-list flex flex-col md:flex-row p-0 list-none gap-6 md:gap-8 items-start md:items-center md:mx-auto md:my-0 justify-center font-light">
-                            <li><Link className="rounded-md" href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
-                            <li><Link className="rounded-md" href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
-                            <li><Link className="rounded-md" href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
-
-                        </ul>
-                        <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
+                    {/* Navigation links become a floating tray on mobile and sit inline on desktop. */}
+                    <nav
+                        id="nav-primary"
+                        className={`col-span-2 grid w-full grid-rows-[0fr] motion-safe:[transition:grid-template-rows_var(--motion-duration-standard)_var(--motion-ease-spring),visibility_0s_linear_var(--motion-duration-standard)] motion-reduce:transition-none md:col-auto md:visible md:pointer-events-auto md:block md:flex-1 md:transition-none ${isOpen ? 'visible pointer-events-auto grid-rows-[1fr] [transition-delay:0s]' : 'invisible pointer-events-none'}`}
+                        aria-label="Main navigation"
+                    >
+                        <div className="min-h-0 overflow-hidden md:contents">
+                            <div className={`flex flex-col gap-6 pt-4 motion-safe:transition-[opacity,translate] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-reduce:transition-none md:flex-row md:items-center md:justify-between md:pt-0 md:opacity-100 md:translate-y-0 ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
+                                <ul className="flex list-none flex-col items-stretch justify-center gap-2 p-0 text-2xl font-light text-neutral-100 md:mx-auto md:my-0 md:flex-row md:items-center md:text-base">
+                                    <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
+                                    <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
+                                    <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
+                                </ul>
+                                <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
+                            </div>
+                        </div>
                     </nav>
                 </div>
             </div>

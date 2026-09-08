@@ -1,15 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  type MotionValue,
+} from 'framer-motion';
+import Icon from '@/components/ui/Icon';
 
 type NavigationItem = {
   id: string;
   label: string;
 };
 
-const scrollBehavior = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+// Mirrors the standard duration and easing vocabulary in styles/motion.css.
+const TRAY_SPRING = { type: 'spring', bounce: 0.14, duration: 0.4 } as const;
+const LAYER_TRANSITION = { duration: 0.2, ease: [0.22, 1, 0.36, 1] } as const;
 
 const getHeadingLabel = (heading: HTMLHeadingElement) => {
   const directText = Array.from(heading.childNodes)
@@ -22,9 +32,53 @@ const getHeadingLabel = (heading: HTMLHeadingElement) => {
   return directText || heading.getAttribute('aria-label') || '';
 };
 
+function ProgressIndicator({ progress }: { progress: MotionValue<number> }) {
+  return (
+    <span className="relative grid size-5 shrink-0 place-items-center" aria-hidden="true">
+      <svg className="absolute inset-0 size-full -rotate-90" viewBox="0 0 32 32">
+        <circle
+          cx="16"
+          cy="16"
+          r="13"
+          fill="none"
+          strokeWidth="3"
+          className="stroke-border-base"
+        />
+        <motion.circle
+          cx="16"
+          cy="16"
+          r="13"
+          fill="none"
+          pathLength="4"
+          strokeLinecap="round"
+          strokeWidth="3"
+          className="stroke-accent-interactive"
+          style={{ pathLength: progress }}
+        />
+      </svg>
+    </span>
+  );
+}
+
 export default function CaseStudyNavigation() {
   const [items, setItems] = useState<NavigationItem[]>([]);
   const [activeId, setActiveId] = useState<string>();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const restoreTriggerFocus = useRef(false);
+  const scrollLock = useRef(false);
+  const scrollLockTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.3,
+  });
+  const displayedProgress = reduceMotion ? scrollYProgress : progress;
 
   useEffect(() => {
     // Build the navigation from each case-study section's primary heading.
@@ -36,14 +90,14 @@ export default function CaseStudyNavigation() {
       return label ? [{ id: section.id, label }] : [];
     });
 
-    // The headings are server-rendered siblings, so they can only be collected
-    // once this client component has mounted.
+    // The headings are server-rendered siblings and are collected after mount.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setItems(navigationItems);
 
     // Track the section crossing the viewport's reading line.
     let frame = 0;
     const updateActiveSection = () => {
+      if (scrollLock.current) return;
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const readingLine = window.innerHeight * 0.35;
@@ -66,72 +120,172 @@ export default function CaseStudyNavigation() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnOutsidePress = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      restoreTriggerFocus.current = true;
+      setOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsidePress);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePress);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (open) {
+      closeButtonRef.current?.focus();
+    } else if (restoreTriggerFocus.current) {
+      triggerRef.current?.focus();
+      restoreTriggerFocus.current = false;
+    }
+  }, [open]);
+
+  useEffect(() => () => clearTimeout(scrollLockTimer.current), []);
+
   if (!items.length) return null;
+
+  const activeLabel = items.find((item) => item.id === activeId)?.label ?? 'Sections';
 
   const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     const section = document.getElementById(id);
     if (!section) return;
 
+    scrollLock.current = true;
+    clearTimeout(scrollLockTimer.current);
+    scrollLockTimer.current = setTimeout(() => {
+      scrollLock.current = false;
+    }, reduceMotion ? 0 : 700);
+
+    setActiveId(id);
+    setOpen(false);
     // Keep the visible URL clean while retaining semantic fragment links.
     window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
     section.focus({ preventScroll: true });
-    section.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
+    section.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start',
+    });
   };
 
   return (
     <nav
-      className="group fixed right-0 top-[50dvh] z-(--layer-page-navigation) hidden w-56 -translate-y-1/2 translate-x-40 transform-gpu transition-transform duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] will-change-transform hover:translate-x-0 focus-within:translate-x-0 motion-reduce:transition-none md:block lg:w-64 lg:translate-x-48"
+      ref={rootRef}
+      className="fixed right-4 bottom-20 z-(--layer-page-navigation) max-w-[calc(100vw-1.5rem)] md:bottom-auto md:top-1/2 md:-translate-y-1/2"
       aria-label="On this page"
     >
-      {/* Resting state: one compact tab for each section. */}
-      <div
-        className="pointer-events-none absolute left-0 top-1/2 z-20 flex w-16 -translate-y-1/2 flex-col items-center gap-3 transition-[opacity,transform] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] after:absolute after:-bottom-4 after:right-0 after:-top-4 after:w-px after:bg-border-base after:content-[''] group-hover:translate-x-3 group-hover:scale-95 group-hover:opacity-0 group-focus-within:translate-x-3 group-focus-within:scale-95 group-focus-within:opacity-0 motion-reduce:transition-none"
-        aria-hidden="true"
+      <motion.div
+        layout
+        className={clsx(
+          'overflow-hidden border border-border-base bg-linear-to-br from-bg-primary/90 via-bg-secondary/90 to-bg-secondary/95 shadow-lg backdrop-blur-xl',
+          open ? 'w-56 rounded-3xl p-2 sm:w-60' : 'w-auto rounded-full p-1',
+        )}
+        transition={reduceMotion ? { duration: 0 } : TRAY_SPRING}
       >
-        {items.map((item) => (
-          <span
-            key={item.id}
-            className={clsx(
-              'block h-1 origin-center rounded-full transition-[width,background-color,transform] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] motion-reduce:transition-none',
-              activeId === item.id
-                ? 'w-6 scale-x-105 bg-text-secondary'
-                : 'w-4 bg-text-tertiary',
-            )}
-          />
-        ))}
-      </div>
+        <AnimatePresence initial={false} mode="popLayout">
+          {open ? (
+            <motion.div
+              key="tray"
+              id="case-study-sections"
+              initial={reduceMotion ? false : { opacity: 0, filter: 'blur(3px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(3px)' }}
+              transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
+            >
+              {/* Tray header and close control. */}
+              <div className="flex min-h-11 items-center justify-between gap-3 px-3">
+                <div className="flex min-w-0 items-center gap-2">
+                  <ProgressIndicator progress={displayedProgress} />
+                  <p className="truncate font-pixel text-xs font-semibold uppercase leading-none tracking-[0.04em] text-text-secondary">
+                    On this page
+                  </p>
+                </div>
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-full text-text-secondary motion-safe:transition-[color,background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary hover:text-text-primary active:scale-95 focus-visible:bg-bg-tertiary"
+                  onClick={() => {
+                    restoreTriggerFocus.current = true;
+                    setOpen(false);
+                  }}
+                  aria-label="Close page sections"
+                >
+                  <Icon name="x" size="sm" />
+                </button>
+              </div>
 
-      {/* Expanded state: gradient backdrop and accessible section links. */}
-      <div className="relative max-h-[calc(100dvh-4rem)] overflow-y-auto rounded-l-3xl bg-linear-to-r from-transparent via-bg-secondary/85 to-bg-secondary px-4 py-5">
-        <p
-          className="mb-2 translate-x-3 font-pixel text-xs font-semibold uppercase leading-none tracking-[0.04em] text-text-tertiary opacity-0 transition-[opacity,transform] delay-[var(--motion-delay-short)] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 motion-reduce:transition-none"
-          aria-hidden="true"
-        >
-          On this page
-        </p>
-        <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-          {items.map((item) => (
-            <li className="p-0" key={item.id}>
-              <a
-                className={clsx(
-                  'relative flex min-h-11 w-full items-center rounded-xl px-3 py-2.5 text-sm leading-tight transition-[color,background-color,transform] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px] motion-reduce:transition-none',
-                  activeId === item.id
-                    ? 'bg-transparent font-medium text-accent-interactive hover:bg-transparent hover:text-accent-interactive focus-visible:bg-transparent'
-                    : 'text-text-tertiary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',
-                )}
-                href={`#${item.id}`}
-                onClick={(event) => navigateToSection(event, item.id)}
-                aria-current={activeId === item.id ? 'location' : undefined}
-              >
-                <span className="translate-x-3 overflow-hidden text-ellipsis whitespace-nowrap opacity-0 transition-[opacity,transform] delay-[var(--motion-delay-short)] duration-[var(--motion-duration-standard)] ease-[var(--motion-ease-spring)] group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 motion-reduce:transition-none">
-                  {item.label}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+              {/* Scrollable section tray. */}
+              <ul className="m-0 max-h-[min(65dvh,30rem)] list-none overflow-y-auto p-0">
+                {items.map((item, index) => (
+                  <motion.li
+                    className="p-0"
+                    key={item.id}
+                    initial={reduceMotion ? false : { opacity: 0, x: 8, filter: 'blur(2px)' }}
+                    animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                    transition={
+                      reduceMotion
+                        ? { duration: 0 }
+                        : { ...LAYER_TRANSITION, delay: 0.075 + index * 0.025 }
+                    }
+                  >
+                    <a
+                      className={clsx(
+                        'flex min-h-11 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px]',
+                        activeId === item.id
+                          ? 'font-medium text-accent-interactive'
+                          : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',
+                      )}
+                      href={`#${item.id}`}
+                      onClick={(event) => navigateToSection(event, item.id)}
+                      aria-current={activeId === item.id ? 'location' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          ) : (
+            <motion.button
+              ref={triggerRef}
+              key="trigger"
+              type="button"
+              className="flex h-auto max-w-full cursor-pointer items-center gap-2 rounded-full py-1 pr-2 pl-1 text-left text-text-primary motion-safe:transition-[background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary active:scale-[0.97] focus-visible:bg-bg-tertiary"
+              onClick={() => setOpen(true)}
+              aria-expanded="false"
+              aria-controls="case-study-sections"
+              aria-label={`Open page sections. Current section: ${activeLabel}`}
+              initial={reduceMotion ? false : { opacity: 0, filter: 'blur(3px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(3px)' }}
+              transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
+            >
+              <ProgressIndicator progress={displayedProgress} />
+              <AnimatePresence initial={false} mode="popLayout">
+                <motion.span
+                  key={activeId ?? 'sections'}
+                  className="max-w-32 truncate whitespace-nowrap text-sm font-medium leading-none sm:max-w-40"
+                  initial={reduceMotion ? false : { opacity: 0, filter: 'blur(2px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(2px)' }}
+                  transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
+                >
+                  {activeLabel}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </nav>
   );
 }

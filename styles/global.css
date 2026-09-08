@@ -388,107 +388,8 @@ figure > button:focus-visible {
 }
 
 /* ==================== Grids & layouts ==================== */
-/* ==================== Header ==================== */
 :root {
   --header-height: 4rem; /* Match your header CSS height */
-}
-
-.nav-menu { /* mobile overlay menu - hidden by default */
-  top: calc(100% + 1rem);           /* same as header height */
-  width: 100%;
-  background: var(--color-steep-700);
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  position: absolute;
-  left: 0;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: 
-        opacity var(--motion-duration-standard) var(--motion-ease-standard),
-        transform var(--motion-duration-standard) var(--motion-ease-standard);
-  z-index: 1;
-}
-
-.nav-menu.is-open {              /* show when "open" */
-  pointer-events: auto;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nav-list a,
-.nav-list li {
-  font-size: 1.5rem;
-  padding: 0;
-  color: var(--color-neutral-100);
-  transition: color var(--motion-duration-standard) var(--motion-ease-standard);
-}
-
-.nav-list a:hover,
-.nav-list a:active,
-.nav-list a:focus-visible {
-  color: var(--color-neutral-500);
-}
-
-.nav-toggle {               /* hamburger button (mobile) */
-  /* Layout */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; /* Anchor for absolute icons */
-  border: none;
-
-  /* Sizing */
-  width: 2.75rem;
-  height: 2.75rem;
-  padding: 0;
-  margin: 0;
-  border-radius: 1rem;
-  flex-shrink: 0;
-
-  /* Colour */
-  background: transparent;
-
-  cursor: pointer;
-  z-index: 2; /* Above the menu within the header's local stacking context. */
-  transition: background var(--motion-duration-standard) var(--motion-ease-standard);
-  }
-
-.nav-toggle .icon {
-  position: absolute; /* Stack them on top of each other */
-  color: var(--color-neutral-100);
-  transition: 
-      transform var(--motion-duration-standard) var(--motion-ease-spring),
-      opacity var(--motion-duration-fast) var(--motion-ease-standard),
-      color var(--motion-duration-fast) var(--motion-ease-standard);
-}
-      
-/* 3. CLOSED State (Default) */
-.nav-toggle[aria-expanded="false"] .icon-close {
-  opacity: 0;
-  transform: rotate(-180deg) scale(0.5); /* Spin out and shrink */
-}
-
-.nav-toggle[aria-expanded="false"] .icon-menu {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-/* 4. OPEN State */
-.nav-toggle[aria-expanded="true"] .icon-menu {
-  opacity: 0;
-  transform: rotate(180deg) scale(0.5); /* Spin out and shrink */
-}
-
-.nav-toggle[aria-expanded="true"] .icon-close {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
 }
     
 /* ==================== Section ==================== */
@@ -548,24 +449,6 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* Component-specific reduced-motion states; global timing lives in motion.css. */
-@media (prefers-reduced-motion: reduce) {
-  .nav-menu,
-  .nav-toggle,
-  .nav-toggle .icon {
-    transition: none;
-  }
-
-  .nav-menu {
-    transform: none;
-  }
-
-  .nav-toggle[aria-expanded] .icon-menu,
-  .nav-toggle[aria-expanded] .icon-close {
-    transform: none;
-  }
-}
-
 /* ==================== Responsive system – scale UP at larger viewports ==================== */
 @media (min-width: 768px) {
 
@@ -588,28 +471,6 @@ html:focus-within {
     top: max(calc(var(--header-height) + 2rem), calc(50dvh - var(--section-heading-height, 0px) / 2));
     margin-bottom: 0;
   }
-
-  .nav-menu {
-    position: static;      /* ← back in the layout */
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; /* Pushes list and button apart */
-    pointer-events: auto;
-    visibility: visible;
-    flex: 1;
-    background: transparent;
-    opacity: 1;
-    transform: none;
-    padding: 0;            /* remove big mobile padding */
-    gap: 0;
-  }
-
-  .nav-list a,
-  .nav-list li {
-      font-size: revert;
-  }
-
-  .nav-toggle { display: none; /* hides burger */ }
 
   }
 
