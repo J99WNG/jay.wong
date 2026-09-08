@@ -267,63 +267,63 @@ export default function Page() {
                             <h3>1-to-1 interviews with SMEs and power users</h3>
 
                             <p>I conducted <strong>16 interviews</strong> across US, Europe and APAC regions with a mix of power users, SMEs and everyday employees.</p>
-
-                            <div className="content-block">
-                                <h4>
-                                Key synthesised insights
-                                </h4>
-
-                                <ol>
-                                <li><strong>Trust drives behaviour</strong>
-                                    <br />
-                                    Employees escalated not because answers didn’t exist, but because they didn’t trust search results to be current or relevant.
-
-                                    <blockquote className="notion-quote">
-                                    &quot;AI is easier and quicker than manually searching on [the employee portal]&quot;
-                                    </blockquote>
-                                </li>
-
-                                <li><strong>Long-form content increases escalation</strong>
-                                    <br />
-                                    Dense articles caused cognitive overload and pushed users toward human support.
-
-                                    <blockquote className="notion-quote">
-                                    &quot;[The portal] feels like a jungle.&quot;
-                                    </blockquote>
-                                </li>
-
-                                <li><strong>Chatbots were perceived as blockers</strong>
-                                    <br />
-                                    The current chatbot experience delayed access to help rather than speeding it up.
-
-                                    <blockquote className="notion-quote">
-                                    &quot;I always just keep saying &quot;speak to an agent, speak to an agent&quot; until it lets me speak to an agent.&quot;
-                                    </blockquote>
-                                </li>
-
-                                <li><strong>Lack of visibility caused anxiety</strong>
-                                    <br />
-                                    Once a ticket was raised, users felt disconnected and uninformed about progress.
-
-                                    <blockquote className="notion-quote">
-                                    &quot;I just want timely updates, sometimes I resubmit my ticket because of the delay.&quot;
-                                    </blockquote>
-                                </li>
-                                </ol>
-                            </div>
-                    
-                            <FigureModal
-                                src="/assets/images/bp-genai/bp-discovery-persona-map.png"
-                                alt=""
-                                caption=""
-                            />
-
-                            <FigureModal
-                                src="/assets/images/bp-genai/bp-discovery-persona.png"
-                                alt=""
-                                caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
-                            />
                         </div>
+                        
+                        <div className="content-block">
+                            <h4>
+                            Key synthesised insights
+                            </h4>
+
+                            <ol>
+                            <li><strong>Trust drives behaviour</strong>
+                                <br />
+                                Employees escalated not because answers didn’t exist, but because they didn’t trust search results to be current or relevant.
+
+                                <blockquote className="notion-quote">
+                                &quot;AI is easier and quicker than manually searching on [the employee portal]&quot;
+                                </blockquote>
+                            </li>
+
+                            <li><strong>Long-form content increases escalation</strong>
+                                <br />
+                                Dense articles caused cognitive overload and pushed users toward human support.
+
+                                <blockquote className="notion-quote">
+                                &quot;[The portal] feels like a jungle.&quot;
+                                </blockquote>
+                            </li>
+
+                            <li><strong>Chatbots were perceived as blockers</strong>
+                                <br />
+                                The current chatbot experience delayed access to help rather than speeding it up.
+
+                                <blockquote className="notion-quote">
+                                &quot;I always just keep saying &quot;speak to an agent, speak to an agent&quot; until it lets me speak to an agent.&quot;
+                                </blockquote>
+                            </li>
+
+                            <li><strong>Lack of visibility caused anxiety</strong>
+                                <br />
+                                Once a ticket was raised, users felt disconnected and uninformed about progress.
+
+                                <blockquote className="notion-quote">
+                                &quot;I just want timely updates, sometimes I resubmit my ticket because of the delay.&quot;
+                                </blockquote>
+                            </li>
+                            </ol>
+                        </div>
+                    
+                        <FigureModal
+                            src="/assets/images/bp-genai/bp-discovery-persona-map.png"
+                            alt=""
+                            caption=""
+                        />
+
+                        <FigureModal
+                            src="/assets/images/bp-genai/bp-discovery-persona.png"
+                            alt=""
+                            caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
+                        />
 
                         <div className="content-block">
                             <h3>Stakeholder alignment workshop</h3>
@@ -379,34 +379,15 @@ export default function Page() {
                     </blockquote>
 
                     <div className="content-block">
-                    <p>This problem had three equally important lenses:</p>
+                        <p>This problem had three equally important lenses:</p>
 
-                    <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
-                        <div className="card">
-                            <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                <UsersRound aria-hidden="true" size={64} className="text-accent-primary" />
-                
-                                <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
-                            </div>
-                        </div>
-            
-                        <div className="card">
-                        <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <Headset aria-hidden="true" size={64} className="text-accent-primary" />
-            
-                            <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
-                        </div>
-                        </div>
-            
-                        <div className="card">
-                        <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <BriefcaseBusiness aria-hidden="true" size={64} className="text-accent-primary" />
-            
-                            <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>
-                        </div>
-                        </div>
-                    </div>
+                        <ol>
+                            <li><strong>Employees</strong> demand clarity, speed and reassurance.</li>
 
+                            <li><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</li>
+
+                            <li><strong>The Business</strong> require sustainable cost-to-serve reduction.</li>
+                        </ol>
                     </div>
                 </div>
                 
@@ -728,9 +709,11 @@ export default function Page() {
                     <div className="content-block">
                     <h4>Early sentiment (Net Promoter Score)</h4>
 
-                    <p>Initial NPS: 12.5</p>
-
                     <ul>
+                        <li>
+                        Initial NPS: 12.5
+                        </li>
+
                         <li>
                         Promoters praised clarity and speed.
                         </li>
