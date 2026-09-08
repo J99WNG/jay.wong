@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { type MouseEvent, useCallback } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { caseStudies } from '@/app/data/caseStudies';
-import Icon from './Icon';
 
 const HOME_PATH = '/';
 const scrollBehavior = () =>
@@ -65,7 +65,7 @@ export default function NextProjectCTA() {
           navigateToWork();
         }}
       >
-        <Icon name="arrow-left" size="sm" motion="left" />
+        <ArrowLeft aria-hidden="true" size={16} className="motion-icon-left" />
         Back to all
       </Link>
 
@@ -74,7 +74,7 @@ export default function NextProjectCTA() {
         className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
       >
         Next case study
-        <Icon name="arrow-right" size="sm" motion="right" />
+        <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
       </Link>
     </div>
   );

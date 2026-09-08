@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { ContactRound, Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
-import Icon from '../ui/Icon';
 
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
@@ -140,12 +140,12 @@ export default function Header() {
                         aria-label={isOpen ? 'Close menu' : 'Open menu'}
                         onClick={() => setIsOpen((open) => !open)}
                     >
-                        <Icon
-                            name="menu"
+                        <Menu
+                            aria-hidden="true"
                             className="absolute rotate-0 scale-100 text-neutral-100 opacity-100 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-180 group-aria-expanded:scale-50 group-aria-expanded:opacity-0 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />
-                        <Icon
-                            name="x"
+                        <X
+                            aria-hidden="true"
                             className="absolute -rotate-180 scale-50 text-neutral-100 opacity-0 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-0 group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />
                     </button>
@@ -157,13 +157,21 @@ export default function Header() {
                         aria-label="Main navigation"
                     >
                         <div className="min-h-0 overflow-hidden md:contents">
-                            <div className={`flex flex-col gap-6 pt-4 motion-safe:transition-[opacity,translate] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-reduce:transition-none md:flex-row md:items-center md:justify-between md:pt-0 md:opacity-100 md:translate-y-0 ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
-                                <ul className="flex list-none flex-col items-stretch justify-center gap-2 p-0 text-2xl font-light text-neutral-100 md:mx-auto md:my-0 md:flex-row md:items-center md:text-base">
+                            <div className={`flex flex-col gap-3 py-4 motion-safe:transition-[opacity,translate] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-reduce:transition-none md:flex-row md:items-center md:justify-between md:py-0 md:opacity-100 md:translate-y-0 ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
+                                <ul className="flex list-none flex-col items-stretch justify-center gap-3 p-0 text-2xl font-light text-neutral-100 md:mx-auto md:my-0 md:flex-row md:items-center md:text-base">
                                     <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
                                 </ul>
-                                <Button variant="nav" href="/#contact" onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}>Contact</Button>
+                                <Button
+                                    variant="nav"
+                                    href="/#contact"
+                                    onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}
+                                    suffixIcon={<ContactRound size={16} />}
+                                    revealIcon
+                                >
+                                    Contact
+                                </Button>
                             </div>
                         </div>
                     </nav>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Alignment, Fit, Layout, RuntimeLoader, useRive } from '@rive-app/react-canvas';
-import Icon from './Icon';
+import { Pause, Play } from 'lucide-react';
 
 RuntimeLoader.setWasmUrl('/assets/rive/rive-2.41.1.wasm');
 RuntimeLoader.setWasmFallbackUrl(null);
@@ -33,6 +33,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
     getServerReducedMotion,
   );
   const playing = playRequested && !reducedMotion;
+  const PlaybackIcon = playing ? Pause : Play;
   const { rive, RiveComponent } = useRive({
     src,
     stateMachines: 'State Machine 1',
@@ -72,20 +73,22 @@ export default function RivePlayer({ src, label, className = '', compact = false
   return (
     <div
       ref={host}
-      className={`relative w-full overflow-hidden rounded-xl border border-border-muted bg-[var(--mg-neutral-900)] ${compact ? 'h-full min-h-[180px]' : ''} ${className}`}
+      className={`relative w-full overflow-hidden rounded-xl bg-[var(--mg-neutral-900)] ${compact ? 'h-full min-h-[180px]' : ''} ${className}`}
     >
       <div
         className={`w-full p-6 ${compact ? 'h-full min-h-[180px]' : 'h-[300px]'}`}
         role="img"
         aria-label={label}
       >
-        {failed ? (
-          <p className="grid h-full place-items-center text-center text-[var(--mg-neutral-50)]">
-            This animation couldn&apos;t load.
-          </p>
-        ) : (
-          <RiveComponent className="h-full w-full" aria-hidden="true" />
-        )}
+        <div className="relative h-full w-full overflow-hidden rounded-lg">
+          {failed ? (
+            <p className="grid h-full place-items-center text-center text-[var(--mg-neutral-50)]">
+              This animation couldn&apos;t load.
+            </p>
+          ) : (
+            <RiveComponent className="h-full w-full" aria-hidden="true" />
+          )}
+        </div>
       </div>
       <button
         type="button"
@@ -95,7 +98,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
         aria-pressed={playing}
         onClick={() => setPlayRequested((current) => !current)}
       >
-        <Icon name={playing ? 'pause' : 'play'} size="md" />
+        <PlaybackIcon aria-hidden="true" />
       </button>
     </div>
   );

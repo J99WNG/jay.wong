@@ -58,7 +58,7 @@ const Section = ({
         threshold: 0,
         // rootMargin creates a 'buffer' so the element is well
         // inside the screen before it triggers.
-        rootMargin: '-40% 0px -40% 0px'
+        rootMargin: '-60% 0px -60% 0px'
       }
     );
 
@@ -89,7 +89,8 @@ const Section = ({
       <div className={`
         relative page-container
         opacity-100 blur-none
-        motion-safe:transition-[opacity,filter,blur] motion-safe:duration-[var(--motion-duration-slow)]
+        motion-safe:transition-[opacity,filter,blur]
+        motion-safe:duration-[var(--motion-duration-slow)]
         motion-safe:ease-[var(--motion-ease-standard)]
         motion-safe:will-change-[opacity,filter]
         print:opacity-100 print:blur-none print:transition-none

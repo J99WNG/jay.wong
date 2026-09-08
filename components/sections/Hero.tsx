@@ -5,9 +5,9 @@ import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
 import FluidOrb from "../ui/FluidOrb";
-import HKTClock from "@/components/HKTClock.jsx";
 import { heroContent } from "@/app/data/heroContent";
 import { motionDelay, motionDuration, motionEase, motionStagger } from "@/lib/motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 
 export default function Hero() {
@@ -155,11 +155,25 @@ export default function Hero() {
             transition={{ delay: shouldReduceMotion ? 0 : motionDelay.heroActions }}
             className="flex flex-wrap justify-center gap-4 items-center md:justify-start"
           >
-            <Button variant="primary" href="/#work" onClick={scrollToWork}>
+            <Button
+              variant="primary"
+              href="/#work"
+              onClick={scrollToWork}
+              suffixIcon={<ArrowDown size={16} />}
+              revealIcon
+            >
               View work
             </Button>
 
-            <Button variant="tertiary" href="https://cal.com/jay-wong/intro" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="tertiary"
+              href="https://cal.com/jay-wong/intro"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Schedule a call (opens in a new tab)"
+              suffixIcon={<ArrowUpRight size={16} />}
+              revealIcon
+            >
               Schedule a call
             </Button>
           </motion.div>

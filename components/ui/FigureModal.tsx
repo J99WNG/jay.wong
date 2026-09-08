@@ -2,8 +2,8 @@
 
 import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
+import { Maximize2 } from 'lucide-react';
 import { useGallery } from './GalleryContext';
-import Icon from './Icon';
 
 type FigureModalProps = {
   src: string;
@@ -90,7 +90,7 @@ export default function FigureModal({
             group-hover:opacity-100
           "
         >
-          <Icon name="maximize-2" size="xl" className="text-text-inverse" />
+          <Maximize2 aria-hidden="true" size={48} className="text-text-inverse" />
         </div>
 
       </button>

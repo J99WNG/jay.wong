@@ -43,6 +43,28 @@
   50% { transform: translateX(-6px); }
 }
 
+/* Directional cues respond with their parent link, keeping the full target interactive. */
+.motion-icon-left,
+.motion-icon-right,
+.motion-icon-up-right {
+  transition: transform var(--motion-duration-fast) var(--motion-ease-spring);
+}
+
+a:hover .motion-icon-left,
+a:focus-visible .motion-icon-left {
+  animation: motion-nudge-left var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
+}
+
+a:hover .motion-icon-right,
+a:focus-visible .motion-icon-right {
+  animation: motion-nudge-right var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
+}
+
+a:hover .motion-icon-up-right,
+a:focus-visible .motion-icon-up-right {
+  animation: motion-nudge-up-right var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
+}
+
 /* One global accessibility rule covers CSS, Tailwind utilities, and keyframes. */
 @media (prefers-reduced-motion: reduce) {
   html {

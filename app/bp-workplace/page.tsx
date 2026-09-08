@@ -5,7 +5,7 @@ import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
-import Icon from '@/components/ui/Icon';
+import { BookOpenText, Compass, MapPin, Workflow } from 'lucide-react';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
@@ -305,7 +305,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
                                     <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <Icon name="compass" size="lg" className="text-accent-primary" />
+                                        <Compass aria-hidden="true" size={32} className="text-accent-primary" />
                         
                                         <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
                                     </div>
@@ -313,7 +313,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                                 <div className="card">
                                     <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <Icon name="book-open-text" size="lg" className="text-accent-primary" />
+                                        <BookOpenText aria-hidden="true" size={32} className="text-accent-primary" />
                         
                                         <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
                                     </div>
@@ -321,7 +321,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                                 <div className="card">
                                     <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <Icon name="map-pin" size="lg" className="text-accent-primary" />
+                                        <MapPin aria-hidden="true" size={32} className="text-accent-primary" />
                         
                                         <p className="card-text">Regional inconsistency created cognitive overload.</p>
                                     </div>
@@ -329,7 +329,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                                 <div className="card">
                                     <div className="flex justify-start content-center w-full gap-2 px-6 py-5">
-                                        <Icon name="workflow" size="lg" className="text-accent-primary" />
+                                        <Workflow aria-hidden="true" size={32} className="text-accent-primary" />
                         
                                         <p className="card-text">Multi-platform governance increased complexity.</p>
                                     </div>

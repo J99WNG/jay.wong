@@ -2,6 +2,10 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
 
+// Parked renderer retained as the editable source for future OG iterations.
+// Do not rename this file to `opengraph-image.tsx`: static exports emit that
+// metadata route without an extension, which GitHub Pages serves as octet-stream.
+
 export const alt = 'Jay Wong — Product Designer in Dubai, United Arab Emirates.';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';

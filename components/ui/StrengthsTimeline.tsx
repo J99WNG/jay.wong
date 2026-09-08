@@ -8,35 +8,35 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import Icon, { type IconName } from './Icon';
+import { Bot, Ear, UsersRound, Waypoints, type LucideIcon } from 'lucide-react';
 
 const strengths = [
   {
-    icon: "ear",
+    icon: Ear,
     title: "Listen before solving",
     text: "I pay attention to what people say, what they leave unsaid, and the small frictions that point to the real problem.",
     skills: ["UX research", "Research synthesis", "Usability testing","Web analytics"],
   },
   {
-    icon: "waypoints",
+    icon: Waypoints,
     title: "Make sense of the messy middle",
     text: "I connect research, product goals, and technical realities into a direction people can understand and act on.",
     skills: ["Product management","Product strategy", "Journey mapping", "Information architecture"],
   },
   {
-    icon: "users-round",
+    icon: UsersRound,
     title: "Build with people, not around them",
     text: "I work collaboratively with product, engineering, and stakeholders to share thinking early and shaping the answer together.",
-    skills: ["Design systems", "Token architecture","WCAG Accessibility", "Cross-functional delivery"],
+    skills: ["Product operations","Design operations","Design systems", "Token architecture","WCAG Accessibility"],
   },
   {
-    icon: "bot",
+    icon: Bot,
     title: "Let the tools do the busywork",
     text: "I use agents and design-to-code workflows to accelerate repetitive work, leaving more room for judgement, craft, and conversations that move products forward.",
-    skills: ["Agentic workflows","MCP Framework", "SKILL.md", "Rapid prototyping", "Front-end fluency"],
+    skills: ["MCP Frameworks", "SKILL.md", "Rapid prototyping", "Front-end fluency"],
   },
 ] as const satisfies ReadonlyArray<{
-  icon: IconName;
+  icon: LucideIcon;
   title: string;
   text: string;
   skills: readonly string[];
@@ -56,6 +56,7 @@ function TimelineStep({
   progress: MotionValue<number>;
   reduceMotion: boolean;
 }) {
+  const StrengthIcon = item.icon;
   const stepStart = index / strengths.length;
   const stepEnd = (index + 0.56) / strengths.length;
   const nextStep = (index + 1) / strengths.length;
@@ -86,13 +87,13 @@ function TimelineStep({
           style={{ scale: reduceMotion ? 1 : iconScale }}
           className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-3xl bg-bg-tertiary text-text-tertiary sm:size-16"
         >
-          <Icon name={item.icon} size="lg" />
+          <StrengthIcon aria-hidden="true" size={32} />
 
           <motion.span
             style={{ opacity: reduceMotion ? 1 : activeOpacity }}
             className="absolute inset-0 flex items-center justify-center rounded-3xl bg-accent-interactive text-text-on-accent"
           >
-            <Icon name={item.icon} size="lg" />
+            <StrengthIcon aria-hidden="true" size={32} />
           </motion.span>
         </motion.span>
 

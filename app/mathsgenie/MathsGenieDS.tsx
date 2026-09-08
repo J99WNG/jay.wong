@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Icon from '@/components/ui/Icon';
+import { ArrowDown, ArrowUp, ChevronDown, FileText, Home, Search, Settings, Sparkles, X } from 'lucide-react';
 import styles from './MathsGenieShowcase.module.css';
 
 const subjects = ['Full', 'GCSE Maths', 'GCSE Statistics', 'Edexcel IGCSE (Mathematics A)', 'AS Level Maths', 'A Level Maths'];
@@ -35,11 +35,11 @@ export default function MathsGenieLibraryDemo() {
           <strong className={styles.wordmark}><span aria-hidden="true">🧞</span> MathsGenie</strong>
           <div className={styles.navLinks}>
             {['GCSE', 'AS Level', 'A Level', 'IGCSE', 'KS2'].map((item) => (
-              <button type="button" key={item}>{item}<span aria-hidden="true">⌄</span></button>
+              <button type="button" key={item}>{item} <ChevronDown size={16} aria-hidden="true" /></button>
             ))}
           </div>
           <div className={styles.navActions}>
-            <span className={styles.navSearch}><Icon name="search" size="sm" /> Search</span>
+            <span className={styles.navSearch}><Search aria-hidden="true" size={16} /> Search</span>
             <button type="button" className={styles.loginButton}>Log in</button>
             <button type="button" className={`${styles.sampleButton} ${styles.primary}`}>Sign up</button>
           </div>
@@ -49,12 +49,12 @@ export default function MathsGenieLibraryDemo() {
       <Specimen title="Search inputs">
         <div className={styles.searchRow}>
           <label className={styles.searchInput}>
-            <Icon name="search" size="md" />
+            <Search aria-hidden="true" />
             <span className="sr-only">Search</span>
             <input type="search" placeholder="Search" />
           </label>
           <label className={`${styles.searchInput} ${styles.heroSearch}`}>
-            <Icon name="search" size="md" />
+            <Search aria-hidden="true" />
             <span className="sr-only">What are you studying for?</span>
             <input type="search" placeholder="What are you studying for?" />
           </label>
@@ -99,7 +99,7 @@ export default function MathsGenieLibraryDemo() {
             <span className={`${styles.sampleButton} ${styles.secondary}`}>Revisit</span>
           </button>
           <article className={styles.sampleCard}>
-            <span className={`${styles.paperPill} ${styles.paperOne}`}><Icon name="file-text" size="sm" /> Paper 1</span>
+            <span className={`${styles.paperPill} ${styles.paperOne}`}><FileText aria-hidden="true" size={16} /> Paper 1</span>
             <span className={styles.cardTitle}>Thursday 14 May 2026</span>
             <span className={styles.cardBody}>9:00</span>
             <span className={styles.cardFooter}><span className={`${styles.sampleButton} ${styles.secondary}`}>Revise</span><small>11 days left</small></span>
@@ -114,9 +114,9 @@ export default function MathsGenieLibraryDemo() {
 
       <Specimen title="Paper pills">
         <div className={styles.pillRow}>
-          <span className={`${styles.paperPill} ${styles.paperOne}`}><Icon name="file-text" size="sm" /> Paper 1</span>
-          <span className={`${styles.paperPill} ${styles.paperTwo}`}><Icon name="file-text" size="sm" /> Paper 2</span>
-          <span className={`${styles.paperPill} ${styles.paperThree}`}><Icon name="file-text" size="sm" /> Paper 3</span>
+          <span className={`${styles.paperPill} ${styles.paperOne}`}><FileText aria-hidden="true" size={16} /> Paper 1</span>
+          <span className={`${styles.paperPill} ${styles.paperTwo}`}><FileText aria-hidden="true" size={16} /> Paper 2</span>
+          <span className={`${styles.paperPill} ${styles.paperThree}`}><FileText aria-hidden="true" size={16} /> Paper 3</span>
         </div>
       </Specimen>
 
@@ -126,13 +126,13 @@ export default function MathsGenieLibraryDemo() {
             {alerts.welcome && (
               <div className={`${styles.carouselAlert} ${styles.welcomeAlert}`} role="status">
                 <span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span>
-                <button type="button" aria-label="Dismiss welcome alert" onClick={() => setAlerts((current) => ({ ...current, welcome: false }))}><Icon name="x" size="sm" /></button>
+                <button type="button" aria-label="Dismiss welcome alert" onClick={() => setAlerts((current) => ({ ...current, welcome: false }))}><X aria-hidden="true" size={16} /></button>
               </div>
             )}
             {alerts.subjects && (
               <div className={styles.carouselAlert} role="status">
                 <span>We&apos;ve expanded the magic. Explore 100+ subjects tailored for your exact exam board. <u>Find my subject</u></span>
-                <button type="button" aria-label="Dismiss subjects alert" onClick={() => setAlerts((current) => ({ ...current, subjects: false }))}><Icon name="x" size="sm" /></button>
+                <button type="button" aria-label="Dismiss subjects alert" onClick={() => setAlerts((current) => ({ ...current, subjects: false }))}><X aria-hidden="true" size={16} /></button>
               </div>
             )}
           </div>
@@ -146,14 +146,16 @@ export default function MathsGenieLibraryDemo() {
           <p>Study</p>
           {sidebarItems.map((item, index) => (
             <button type="button" key={item} aria-current={index === 2 ? 'page' : undefined}>
-              <Icon name={index === 2 ? 'sparkles' : 'home'} size="sm" />
+              {index === 2
+                ? <Sparkles aria-hidden="true" size={16} />
+                : <Home aria-hidden="true" size={16} />}
               <span>{item}</span>
               {index > 0 && <small>{index === 2 ? '60% off' : 'New'}</small>}
             </button>
           ))}
           <div className={styles.sidebarFooter}>
-            <button type="button"><Icon name="arrow-up" size="sm" /> Upgrade <small>60% off</small></button>
-            <span><span className={styles.avatar} />Firstname Surname <Icon name="settings" size="sm" /></span>
+            <button type="button"><ArrowUp aria-hidden="true" size={16} /> Upgrade <small>60% off</small></button>
+            <span><span className={styles.avatar} />Firstname Surname <Settings aria-hidden="true" size={16} /></span>
           </div>
         </aside>
       </Specimen>
@@ -168,7 +170,9 @@ function Specimen({ title, hint, children }: { title: string; hint?: string; chi
         <h4>{title}</h4>
         {hint && <p>{hint}</p>}
       </div>
-      <div className={styles.specimenCanvas}>{children}</div>
+      <div className={styles.specimenCanvas}>
+        <div className={styles.specimenStage}>{children}</div>
+      </div>
     </section>
   );
 }

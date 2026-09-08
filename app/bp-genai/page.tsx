@@ -5,7 +5,7 @@ import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
-import Icon from '@/components/ui/Icon';
+import { BriefcaseBusiness, Headset, UsersRound } from 'lucide-react';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
@@ -384,7 +384,7 @@ export default function Page() {
                     <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
                         <div className="card">
                             <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                <Icon name="users-round" size="lg" className="text-accent-primary" />
+                                <UsersRound aria-hidden="true" size={64} className="text-accent-primary" />
                 
                                 <p className="card-text"><strong>Employees</strong> demand clarity, speed and reassurance.</p>
                             </div>
@@ -392,7 +392,7 @@ export default function Page() {
             
                         <div className="card">
                         <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <Icon name="headset" size="lg" className="text-accent-primary" />
+                            <Headset aria-hidden="true" size={64} className="text-accent-primary" />
             
                             <p className="card-text"><strong>Agents</strong> need relief from repetitive P1 work ("how to", "where can").</p>
                         </div>
@@ -400,7 +400,7 @@ export default function Page() {
             
                         <div className="card">
                         <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <Icon name="briefcase-business" size="lg" className="text-accent-primary" />
+                            <BriefcaseBusiness aria-hidden="true" size={64} className="text-accent-primary" />
             
                             <p className="card-text"><strong>The business</strong> require sustainable cost-to-serve reduction.</p>
                         </div>

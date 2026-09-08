@@ -4,6 +4,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
   useSyncExternalStore,
@@ -11,10 +12,8 @@ import {
   type TouchEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Button from './Button';
-import Icon from './Icon';
-
-// ─── Context ──────────────────────────────────────────────────────────────────
 
 type GalleryItem = {
   id: string;
@@ -32,16 +31,16 @@ type GalleryContextValue = {
 const GalleryContext = createContext<GalleryContextValue | null>(null);
 const subscribeToMount = () => () => {};
 
-// ─── Provider ─────────────────────────────────────────────────────────────────
-
 export function GalleryProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
 
-  const register = useCallback(({ id, src, alt, caption, element }: GalleryItem) => {
-    setItems(prev => [...prev, { id, src, alt, caption, element }]);
-    return () => setItems(prev => prev.filter(item => item.id !== id));
+  const register = useCallback((item: GalleryItem) => {
+    setItems((currentItems) => [...currentItems, item]);
+    return () => {
+      setItems((currentItems) => currentItems.filter(({ id }) => id !== item.id));
+    };
   }, []);
 
   const open = useCallback((id: string) => {
@@ -49,16 +48,20 @@ export function GalleryProvider({ children }: { children: ReactNode }) {
     if (index >= 0) setActiveIndex(index);
   }, [items]);
 
-  const close  = useCallback(() => setActiveIndex(null), []);
+  const close = useCallback(() => setActiveIndex(null), []);
   const goTo = useCallback((index: number) => setActiveIndex(index), []);
 
-  const goPrev = useCallback(() =>
-    setActiveIndex(index => index !== null && index > 0 ? index - 1 : items.length - 1),
-  [items.length]);
+  const goPrev = useCallback(() => {
+    setActiveIndex((index) =>
+      index !== null && index > 0 ? index - 1 : items.length - 1,
+    );
+  }, [items.length]);
 
-  const goNext = useCallback(() =>
-    setActiveIndex(index => index !== null && index < items.length - 1 ? index + 1 : 0),
-  [items.length]);
+  const goNext = useCallback(() => {
+    setActiveIndex((index) =>
+      index !== null && index < items.length - 1 ? index + 1 : 0,
+    );
+  }, [items.length]);
 
   const visibleIndex = activeIndex === null || items.length === 0
     ? null
@@ -67,30 +70,32 @@ export function GalleryProvider({ children }: { children: ReactNode }) {
   return (
     <GalleryContext.Provider value={{ register, open }}>
       {children}
-      {visibleIndex !== null && mounted && createPortal(
-        <GalleryModal
-          items={items}
-          activeIndex={visibleIndex}
-          onClose={close}
-          onPrev={goPrev}
-          onNext={goNext}
-          goTo={goTo}
-        />,
-        document.body
-      )}
+      {visibleIndex !== null &&
+        mounted &&
+        createPortal(
+          <GalleryModal
+            items={items}
+            activeIndex={visibleIndex}
+            onClose={close}
+            onPrev={goPrev}
+            onNext={goNext}
+            goTo={goTo}
+          />,
+          document.body,
+        )}
     </GalleryContext.Provider>
   );
 }
 
-// ─── Hook ─────────────────────────────────────────────────────────────────────
-
 export function useGallery() {
   const ctx = useContext(GalleryContext);
-  if (!ctx) throw new Error('<FigureModal> or <GalleryImage> must be a descendant of <GalleryProvider>');
+  if (!ctx) {
+    throw new Error(
+      '<FigureModal> or <GalleryImage> must be a descendant of <GalleryProvider>',
+    );
+  }
   return ctx;
 }
-
-// ─── Modal ────────────────────────────────────────────────────────────────────
 
 type GalleryModalProps = {
   items: GalleryItem[];
@@ -109,17 +114,16 @@ function GalleryModal({
   onNext,
   goTo,
 }: GalleryModalProps) {
-  const current     = items[activeIndex];
-  const total       = items.length;
-  const touchStartX = useRef<number | null>(null);
-  const dialogRef   = useRef<HTMLDialogElement>(null);
+  const current = items[activeIndex];
+  const total = items.length;
+  const captionId = useId();
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const requestClose = useCallback(() => {
     if (dialogRef.current?.open) dialogRef.current.close();
     onClose();
 
-    // The page may now be positioned at a different figure. Move focus there
-    // as well so visual position and keyboard/screen-reader position agree.
     window.requestAnimationFrame(() => {
       current.element.querySelector<HTMLButtonElement>('button')?.focus({
         preventScroll: true,
@@ -127,8 +131,6 @@ function GalleryModal({
     });
   }, [current.element, onClose]);
 
-  // A modal dialog enters the browser's top layer, making the document behind
-  // it inert without competing with application z-index values.
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
@@ -146,9 +148,6 @@ function GalleryModal({
     };
   }, []);
 
-  // Keep the document underneath aligned with the image selected in the
-  // modal. This is programmatic scrolling only; the modal remains the sole
-  // interactive surface until it closes.
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       current.element.scrollIntoView({
@@ -162,29 +161,23 @@ function GalleryModal({
     return () => window.cancelAnimationFrame(frame);
   }, [current.element]);
 
-  // Keyboard image navigation. Escape is handled by the dialog's cancel event.
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft')  onPrev();
-      if (e.key === 'ArrowRight') onNext();
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [onPrev, onNext]);
-
-  // Swipe support
-  const handleTouchStart = (e: TouchEvent<HTMLDialogElement>) => {
-    touchStartX.current = e.touches[0].clientX;
+  const handleTouchStart = (event: TouchEvent<HTMLDialogElement>) => {
+    const touch = event.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
   };
 
-  const handleTouchEnd = (e: TouchEvent<HTMLDialogElement>) => {
-    if (touchStartX.current === null) return;
-    const delta = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(delta) > 50) {
-      if (delta < 0) onNext();
+  const handleTouchEnd = (event: TouchEvent<HTMLDialogElement>) => {
+    if (!touchStart.current) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStart.current.x;
+    const deltaY = touch.clientY - touchStart.current.y;
+    touchStart.current = null;
+
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) onNext();
       else onPrev();
     }
-    touchStartX.current = null;
   };
 
   if (!current) return null;
@@ -193,148 +186,136 @@ function GalleryModal({
     <dialog
       ref={dialogRef}
       id="scrim-overlay"
-      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 text-inherit backdrop-blur-sm will-change-[backdrop-filter,opacity] flex items-center justify-center motion-safe:animate-[motion-fade-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
+      className="fixed inset-0 m-0 hidden h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 p-0 text-inherit backdrop-blur-sm will-change-[backdrop-filter,opacity] open:block motion-safe:animate-[motion-fade-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
       aria-label={`Image ${activeIndex + 1} of ${total}`}
+      aria-describedby={current.caption ? captionId : undefined}
       onCancel={(event) => {
         event.preventDefault();
         requestClose();
       }}
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          onPrev();
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          onNext();
+        }
+      }}
       onClick={requestClose}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onTouchCancel={() => {
+        touchStart.current = null;
+      }}
     >
-      {/* Close button — always top-right of overlay */}
+
+      {/* Close Modal Button */}
       <Button
         autoFocus
+        type="button"
+        iconOnly
         variant="primary"
-        className="absolute top-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full cursor-pointer"
+        className="absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-10 size-12 rounded-full shadow-lg"
         aria-label="Close gallery"
-        onClick={(e) => { e.stopPropagation(); requestClose(); }}
-        >
-        <Icon name="x" size="lg" />
+        onClick={(event) => {
+          event.stopPropagation();
+          requestClose();
+        }}
+      >
+        <X aria-hidden="true" className="shrink-0" size={24}  />
       </Button>
 
-      {/* Content */}
       <div
-        className="page-container flex max-h-dvh flex-col items-center overflow-hidden py-4"
-        onClick={(e) => e.stopPropagation()}
+        className="page-container grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden pb-[max(1rem,env(safe-area-inset-bottom))] pt-[calc(4.5rem+env(safe-area-inset-top))]"
+        onClick={(event) => event.stopPropagation()}
       >
-
-        {/* Screen reader announcement on navigation */}
         <p className="sr-only" aria-live="polite" aria-atomic="true">
           Image {activeIndex + 1} of {total}: {current.alt}
         </p>
 
-        {/* image-container is the positioning context for nav buttons */}
-        <div className="image-container">
-          {/* The gallery preserves each source image's intrinsic aspect ratio. */}
+        <figure className="m-0 grid min-h-full grid-rows-[minmax(0,1fr)_auto] items-center gap-4 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             key={activeIndex}
             src={current.src}
             alt={current.alt}
-            className="gallery-image"
+            className="block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain md:rounded-xl motion-safe:animate-[motion-scale-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
           />
-        </div>
 
-        {current.caption && (
-          <p className="mt-4 mb-0 w-full max-w-full text-center text-neutral-100">
-            {current.caption}
-          </p>
-        )}
-
+          {current.caption && (
+            <figcaption
+              id={captionId}
+              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-base leading-7 tracking-tighter text-neutral-100"
+            >
+              {current.caption}
+            </figcaption>
+          )}
+        </figure>
+        
+        {/* Figure Counter */}
         {total > 1 && (
-          <div className="flex flex-col items-center w-full mt-6 gap-4">
+          <div className="flex w-full shrink-0 flex-col items-center gap-2">
+            <p className="text-neutral-500 text-sm font-medium" aria-hidden="true">
+              {activeIndex + 1} / {total}
+            </p>
 
-            {/* Main Controls Wrapper */}
-            <div className="flex items-center justify-center w-auto bg-(--color-steep-900) rounded-3xl gap-3 p-3">
-
+            <div className="flex max-w-full items-center justify-center gap-2 rounded-3xl bg-(--color-steep-900) p-2 shadow-lg sm:gap-3 sm:p-3">
+              
               {/* Previous Button */}
               <Button
-                className="items-center justify-center size-11 p-0"
+                type="button"
+                iconOnly
+                variant="primary"
+                className="size-10 shrink-0 rounded-full"
                 aria-label="Previous image"
-                onClick={(e) => { e.stopPropagation(); onPrev(); }}
+                onClick={onPrev}
               >
-                <Icon name="chevron-left" size="lg" />
+                <ChevronLeft aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
               </Button>
 
-              {/* Dots - The "Responsive" Middle */}
+              {/* Dots Indicator */}
               <nav
-                className="flex flex-wrap justify-center items-center gap-2 max-w-[200px] sm:max-w-md cursor-pointer"
+                className="flex max-w-[calc(100vw-10.5rem)] flex-wrap items-center justify-center gap-2 sm:max-w-md"
                 aria-label="Jump to image"
               >
                 {items.map((item, i) => (
-                  <button
+                  <Button
                     key={item.id}
-                    className="group flex size-auto items-center justify-center rounded-full hover:cursor-pointer"
+                    type="button"
+                    variant="tertiary"
+                    className="h-2 w-auto shrink-0 rounded-full border-0 bg-transparent p-0 hover:bg-white/10"
                     aria-label={`Image ${i + 1}: ${item.alt}`}
-                    aria-current={i === activeIndex ? true : undefined}
+                    aria-current={i === activeIndex ? 'true' : undefined}
                     onClick={() => goTo(i)}
                   >
                     <span
                       aria-hidden="true"
-                      className={`size-2 rounded-full motion-safe:transition-[scale,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] ${
+                      className={`h-2 rounded-full motion-safe:transition-[width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] ${
                         i === activeIndex
                           ? 'bg-white w-4'
-                          : 'bg-white/30 group-hover:bg-white/60'
+                          : 'w-2 bg-white/30 group-hover:bg-white/60'
                       }`}
                     />
-                  </button>
+                  </Button>
                 ))}
               </nav>
 
               {/* Next Button */}
               <Button
-                className="items-center justify-center size-11 p-0"
+                type="button"
+                iconOnly
+                variant="primary"
+                className="size-10 shrink-0 rounded-full"
                 aria-label="Next image"
-                onClick={(e) => { e.stopPropagation(); onNext(); }}
+                onClick={onNext}
               >
-                <Icon name="chevron-right" size="lg" />
+                <ChevronRight aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
               </Button>
-
             </div>
-
-          {/* Counter - Sits neatly below the controls */}
-          <p className="text-neutral-500 text-sm font-medium" aria-hidden="true">
-            {activeIndex + 1} / {total}
-          </p>
-        </div>
+          </div>
         )}
       </div>
-
-      <style jsx>{`
-        /* ── Image + nav button wrapper ────────────── */
-        .image-container {
-          position: relative;
-          width: 100%;
-          min-height: 0;
-          display: flex;
-          justify-content: center;
-        }
-
-        .gallery-image {
-          width: auto;
-          max-width: 100%;
-          height: auto;
-          max-height: calc(100dvh - 12rem);
-          object-fit: contain;
-          border-radius: 0.75rem;
-          display: block;
-          animation: motion-scale-in var(--motion-duration-slow) var(--motion-ease-standard) both;
-        }
-
-        /* ── Counter ───────────────────────────────── */
-        .modal-counter {
-          margin-top: 0.75rem;
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 0.875rem;
-        }
-
-        /* ── Mobile ────────────────────────────────── */
-        @media (max-width: 768px) {
-          .gallery-image { border-radius: 0.5rem; }
-        }
-      `}</style>
     </dialog>
   );
 }

@@ -1,7 +1,7 @@
 import Section from "../Section";
 import CopyEmail from '@/components/ui/CopyEmail';
 import Link from "next/link";
-import Icon from '@/components/ui/Icon';
+import { ArrowUpRight, Linkedin, Video } from 'lucide-react';
 
 export default function Contact() {
     return (
@@ -23,43 +23,43 @@ export default function Contact() {
 
                     <ul className="flex shrink list-none flex-col gap-6 p-0">
                         {/* Email */}
-                        <li className="p-0">
+                        <li>
                             <CopyEmail />
                         </li>
 
                         {/* LinkedIn */}
-                        <li className="p-0">
+                        <li>
                             <Link href="https://linkedin.com/in/jayycwong"
                                 className="contact-item"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Connect with Jay Wong on LinkedIn (opens in a new tab)">
 
-                            <Icon name="linkedin" size="lg" />
+                            <Linkedin aria-hidden="true" size={32} />
 
                             <span>
                                 Connect with me
                             </span>
 
-                            <Icon name="arrow-up-right" motion="up-right" />
+                            <ArrowUpRight aria-hidden="true" className="motion-icon-up-right" />
                             </Link>
                         </li>
                         
                         {/* Cal.com */}
-                        <li className="p-0">
+                        <li>
                             <Link href="https://cal.com/jay-wong/intro"
                                 className="contact-item"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Schedule an introductory meeting with Jay Wong on Cal.com (opens in a new tab)">
 
-                            <Icon name="video" size="lg" />
+                            <Video aria-hidden="true" size={32} />
 
                             <span>
                                 Schedule a call
                             </span>
 
-                            <Icon name="arrow-up-right" motion="up-right" />
+                            <ArrowUpRight aria-hidden="true" className="motion-icon-up-right" />
                             </Link>
                         </li>
                     </ul>

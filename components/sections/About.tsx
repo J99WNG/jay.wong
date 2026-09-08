@@ -21,7 +21,7 @@ export default function AboutDraft() {
 
         <div className="section-content">
             <p className="lead">
-              I&apos;m Jay, a product designer that enjoys simplifying complex things. I&apos;ve spent the past seven years asking
+              I have an innate fascination to simplify complex things through the lens of design. I&apos;ve spent the past seven years asking
               awkward questions, spotting patterns, and helping teams turn
               fuzzy ideas into products people can actually use.
             </p>

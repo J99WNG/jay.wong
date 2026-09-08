@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 import Button from '../ui/Button';
-import Icon from '../ui/Icon';
 
-export default function Dock() {
+export default function BackToTop() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -56,21 +56,21 @@ export default function Dock() {
 
   return (
     <div
-      id="dock"
-      className={`fixed right-5 bottom-20 z-(--layer-utility) pointer-events-none motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] ${
-        showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+      id="backToTop"
+      className={`fixed right-5 bottom-18 z-(--layer-utility) pointer-events-none motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+        showBackToTop ? 'translate-y-0 opacity-100' : 'opacity-0'
       }`}
       aria-hidden={!showBackToTop}
     >
       <Button
         variant="primary"
         revealLabel="Back to top"
-        className={`min-h-10 min-w-10 px-3 py-2 text-sm rounded-full ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        className={`min-h-10 min-w-10 px-3 py-2 text-xs rounded-full ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
         aria-label="Back to the top of the page"
         tabIndex={showBackToTop ? undefined : -1}
         onClick={handleBackToTop}
       >
-        <Icon name="arrow-up" size="sm" />
+        <ArrowUp aria-hidden="true" size={16} />
       </Button>
     </div>
   );

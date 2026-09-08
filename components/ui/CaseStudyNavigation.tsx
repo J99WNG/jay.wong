@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+import { X } from 'lucide-react';
 import {
   AnimatePresence,
   motion,
@@ -10,7 +11,6 @@ import {
   useSpring,
   type MotionValue,
 } from 'framer-motion';
-import Icon from '@/components/ui/Icon';
 
 type NavigationItem = {
   id: string;
@@ -219,7 +219,7 @@ export default function CaseStudyNavigation() {
                   }}
                   aria-label="Close page sections"
                 >
-                  <Icon name="x" size="sm" />
+                  <X aria-hidden="true" size={16} />
                 </button>
               </div>
 

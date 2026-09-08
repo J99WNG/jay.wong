@@ -2,7 +2,7 @@
 import Image from "next/image";
 import TextLink from "./TextLink";
 import type { CaseStudy } from "@/app/data/caseStudies";
-import Icon from "./Icon";
+import { ArrowRight } from 'lucide-react';
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
   // `logo` is retained for the planned branded card treatment.
@@ -10,8 +10,8 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, logo, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
-    <article className="card motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
-      <div className="flex flex-1 md:w-1/2 flex-col gap-2 p-8 px-7">
+    <article className="card md:flex-row motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
+      <div className="flex md:w-1/2 flex-col gap-2 p-8 px-7">
         <p className="small">
           {year} · {company} · {industry}
         </p>
@@ -30,7 +30,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         {available && (
           <TextLink className="mt-2 cursor-pointer justify-start gap-1" href={`/${slug}`}>
             View case study
-            <Icon name="arrow-right" size="sm" motion="right" />
+            <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
           </TextLink>
         )}
       </div>

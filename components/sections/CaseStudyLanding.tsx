@@ -27,7 +27,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
 
   return (
     <>
-      {/* Case-study navigation is local to case-study pages; the dock stays global. */}
+      {/* Case-study navigation is local to case-study pages; the backToTop stays global */}
       <CaseStudyNavigation />
       <Section id="landing" isLanding={true}>
         <div className="flex flex-col gap-8">

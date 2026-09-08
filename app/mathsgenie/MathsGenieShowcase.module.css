@@ -30,6 +30,8 @@
   --mg-rive-control-border: rgb(255 255 255 / 24%);
   --mg-rive-control-bg: rgb(20 31 77 / 88%);
   --mg-primary-overlay: rgb(20 31 77 / 12%);
+  --mg-workshop-line: color-mix(in srgb, var(--mg-primary-300) 22%, transparent);
+  --mg-workshop-edge: color-mix(in srgb, var(--mg-primary-300) 32%, transparent);
 }
 
 .personaPanel {
@@ -64,6 +66,7 @@
   --mg-card-hover: var(--mg-neutral-700);
   --mg-card-border: var(--mg-neutral-700);
   --mg-card-border-hover: var(--mg-neutral-600);
+  --mg-workshop-surface: var(--mg-neutral-800);
   margin-top: 16px;
   overflow: hidden;
   border: 1px solid var(--color-border-muted);
@@ -92,6 +95,9 @@
   --mg-card-hover: var(--mg-neutral-50);
   --mg-card-border: var(--mg-neutral-300);
   --mg-card-border-hover: var(--mg-neutral-200);
+  --mg-workshop-surface: var(--mg-neutral-100);
+  --mg-workshop-line: color-mix(in srgb, var(--mg-primary-700) 18%, transparent);
+  --mg-workshop-edge: color-mix(in srgb, var(--mg-primary-700) 28%, transparent);
 }
 
 .libraryHeader {
@@ -114,7 +120,23 @@
 .specimenHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 24px 8px; }
 .specimenHeading h4 { color: var(--mg-text); font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
 .specimenHeading p { color: var(--mg-subtle); font-size: 1rem; text-align: right; }
-.specimenCanvas { padding: 16px 24px 24px; overflow: hidden; }
+.specimenCanvas {
+  overflow: hidden;
+  padding: 16px 24px 24px;
+}
+.specimenStage {
+  min-width: 0;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid var(--mg-workshop-edge);
+  border-radius: 12px;
+  background-color: var(--mg-workshop-surface);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 6px,
+    var(--mg-workshop-line) 6px 7px
+  );
+}
 
 .demoNav {
   display: flex;

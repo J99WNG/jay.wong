@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
+import { Monitor, Moon, Sun, type LucideIcon } from 'lucide-react';
 import Button from './Button';
-import Icon, { type IconName } from './Icon';
 
 type Theme = 'system' | 'light' | 'dark';
 
-const themeIcons: Record<Theme, IconName> = {
-  system: 'monitor',
-  light: 'sun',
-  dark: 'moon',
+const themeIcons: Record<Theme, LucideIcon> = {
+  system: Monitor,
+  light: Sun,
+  dark: Moon,
 };
 
 const subscribeToMount = () => () => {};
@@ -56,6 +56,7 @@ export default function ThemeToggle() {
 
   const nextTheme: Theme =
     theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
+  const ThemeIcon = themeIcons[theme];
 
   return (
     <div className="fixed bottom-5 right-5 z-(--layer-utility)">
@@ -67,7 +68,7 @@ export default function ThemeToggle() {
         variant="secondary"
         className="min-h-10 min-w-10 px-3 py-2 rounded-full text-xs font-medium capitalize tracking-tight bg-bg-secondary hover:bg-bg-tertiary text-text-primary border-border-base hover:border-border-hover shadow-md"
       >
-        <Icon name={themeIcons[theme]} size="sm" />
+        <ThemeIcon aria-hidden="true" size={16} />
       </Button>
     </div>
   );

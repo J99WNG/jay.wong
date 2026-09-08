@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import '@/styles/global.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Dock from "@/components/layout/Dock";
+import BackToTop from "@/components/layout/BackToTop";
 import InitialLoader from '@/components/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import { siteMetadata } from '@/app/data/siteMetadata';
@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     url: siteMetadata.url,
     siteName: siteMetadata.name,
+    // Use an extension-bearing static asset so strict preview clients such as
+    // Messages receive `image/png` instead of `application/octet-stream`.
+    images: [siteMetadata.socialImage],
     type: "website",
   },
 
@@ -53,6 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteMetadata.homepageTitle,
     description: siteMetadata.description,
+    images: [siteMetadata.socialImage],
   },
 
   // This handles icons and Apple Touch Icons
@@ -82,7 +86,7 @@ export default function RootLayout({ children }:
           {children}
           
           <ThemeToggle />
-          <Dock />
+          <BackToTop />
           <Footer />
         </InitialLoader>
       </body>
