@@ -4,7 +4,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
 import styles from './MathsGenieShowcase.module.css';
-import MathsGenieLibraryDemo from './MathsGenieLibraryDemo';
+import MathsGenieLibraryDemo from './MathsGenieDS';
 
 const RivePlayer = dynamic(() => import('@/components/ui/RivePlayer'), {
   ssr: false,

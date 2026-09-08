@@ -16,8 +16,8 @@ export default function Work() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
-                    <div className="flex flex-col gap-2">
+                <div className="section-content">
+                    <div className="content-block">
                         <p className="lead">
                             Explore a selection of my work. Get a feel for how I think, collaborate, and design. If it resonates, there’s always room to build something great together.
                         </p>

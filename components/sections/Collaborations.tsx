@@ -110,7 +110,7 @@ export default function Collaborations() {
               </h2>
           </div>
 
-          <div className="inline-flex max-w-full flex-col gap-10">
+          <div className="section-content">
               <p className="lead">
                 I&apos;ve worked in multidisciplinary teams turning complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
               </p>

@@ -3,7 +3,7 @@
 import Section from "../Section";
 import ImageDeck from "../ui/ImageDeck";
 import StrengthsTimeline from "../ui/StrengthsTimeline";
-import ToolsDeck from "../ui/ToolsGrid";
+import ToolsGrid from "../ui/ToolsGrid";
 
 export default function AboutDraft() {
   return (
@@ -19,19 +19,16 @@ export default function AboutDraft() {
           </h2>
         </div>
 
-        <div className="inline-flex max-w-full flex-col gap-12">
-          <div className="flex flex-col gap-7">
+        <div className="section-content">
             <p className="lead">
               I&apos;m Jay, a product designer that enjoys simplifying complex things. I&apos;ve spent the past seven years asking
               awkward questions, spotting patterns, and helping teams turn
               fuzzy ideas into products people can actually use.
             </p>
-          </div>
 
-          <ImageDeck />
+            <ImageDeck />
 
-          <div className="content-block flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
+            <div className="content-block">
               <h3>How I show up</h3>
               <p className="lead">
                 I&apos;m usually the person asking one more “why?”, prompting a
@@ -43,16 +40,13 @@ export default function AboutDraft() {
             </div>
 
             <StrengthsTimeline />
-          </div>
 
-          <div className="content-block flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
+            <div className="content-block">
               <h3>Tools I work with</h3>
               <p>A practical mix for designing, aligning, building, and shipping.</p>
             </div>
 
-            <ToolsDeck />
-          </div>
+            <ToolsGrid />
         </div>
       </div>
     </Section>

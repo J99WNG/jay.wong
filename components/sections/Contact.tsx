@@ -15,7 +15,7 @@ export default function Contact() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
+                <div className="section-content">
 
                     <p className="lead">
                         Think we could build something exciting? I'm always open to interesting problems, thoughtful conversations and opportunities to build something meaningful.

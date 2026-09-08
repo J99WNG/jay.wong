@@ -180,14 +180,14 @@ export default function CaseStudyNavigation() {
   return (
     <nav
       ref={rootRef}
-      className="fixed right-4 bottom-20 z-(--layer-page-navigation) max-w-[calc(100vw-1.5rem)] md:bottom-auto md:top-1/2 md:-translate-y-1/2"
+      className="fixed bottom-5 left-1/2 z-(--layer-page-navigation) max-w-[calc(100vw-8rem)] -translate-x-1/2"
       aria-label="On this page"
     >
       <motion.div
         layout
         className={clsx(
           'overflow-hidden border border-border-base bg-linear-to-br from-bg-primary/90 via-bg-secondary/90 to-bg-secondary/95 shadow-lg backdrop-blur-xl',
-          open ? 'w-56 rounded-3xl p-2 sm:w-60' : 'w-auto rounded-full p-1',
+          open ? 'w-60 max-w-[calc(100vw-8rem)] rounded-3xl p-3' : 'w-auto rounded-full p-1',
         )}
         transition={reduceMotion ? { duration: 0 } : TRAY_SPRING}
       >
@@ -202,10 +202,10 @@ export default function CaseStudyNavigation() {
               transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
             >
               {/* Tray header and close control. */}
-              <div className="flex min-h-11 items-center justify-between gap-3 px-3">
+              <div className="flex min-h-10 items-center justify-between gap-3">
                 <div className="flex min-w-0 items-center gap-2">
                   <ProgressIndicator progress={displayedProgress} />
-                  <p className="truncate font-pixel text-xs font-semibold uppercase leading-none tracking-[0.04em] text-text-secondary">
+                  <p className="truncate font-pixel text-xs uppercase leading-none tracking-[0.04em] text-text-secondary">
                     On this page
                   </p>
                 </div>
@@ -239,7 +239,7 @@ export default function CaseStudyNavigation() {
                   >
                     <a
                       className={clsx(
-                        'flex min-h-11 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px]',
+                        'flex min-h-10 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px]',
                         activeId === item.id
                           ? 'font-medium text-accent-interactive'
                           : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',

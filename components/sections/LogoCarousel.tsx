@@ -142,7 +142,7 @@ export default function LogoCarousel() {
       className="!overflow-hidden !py-8 scroll-mt-[calc(var(--header-height)+1rem)]"
     >
       <div className="mb-6 flex items-center justify-between gap-4">
-        <h2 className="font-pixel text-xs font-semibold uppercase leading-none tracking-[0.08em] text-text-tertiary">
+        <h2 className="font-pixel text-xs uppercase leading-none tracking-[0.08em] text-text-tertiary">
           Past collaborations
         </h2>
       </div>

@@ -121,7 +121,7 @@ export default function Clock() {
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]" />
             </span>
 
-            <span className="m-0 inline-flex items-center gap-2 text-sm font-black uppercase leading-none tracking-wide text-text-secondary font-pixel">
+            <span className="m-0 inline-flex items-center gap-2 font-pixel text-sm uppercase leading-none tracking-wide text-text-secondary">
                 Hong Kong
                 <time
                     id="clock-time"

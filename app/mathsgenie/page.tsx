@@ -33,8 +33,8 @@ export default function Page() {
               </h2>
             </div>
 
-            <div className="inline-flex max-w-full flex-col gap-10">
-              <div className="flex flex-col gap-2">
+            <div className="section-content">
+              <div className="content-block">
                 <p className="small">Problem</p>
                 <p>MathsGenie was a newly acquired, content-only exam preparation platform used by around 300,000 students across the UK. The business wanted to align it with its other learning platforms through:</p>
                 <ul>
@@ -46,17 +46,17 @@ export default function Page() {
                 <p>In a seed-stage company searching for product–market fit, speed and commercial alignment led the brief, sometimes at the expense of customer needs. The working principle was 80/20: focus effort on the changes that could solve the most immediate problems.</p>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="content-block">
                 <p className="small">Outcome</p>
                 <p>I led the relaunch from a static content product into an AI-layered, gamified learning experience. My focus was giving the AI tutor a distinct persona, supported by reusable interface and motion components that engineering could carry into the product.</p>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="content-block">
                 <p className="small">My contribution · Persona creation</p>
                 <p>I defined the tutor&apos;s visual identity, voice and interaction personality, shaping how the Genie appeared, spoke and responded. Working closely with engineering on conversational UI patterns, I carried that persona into the tutoring experience as it scaled to more than 40,000 messages a day.</p>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="content-block">
                 <p className="small">My contribution · Systems and motion</p>
                 <ul>
                   <li>Unified the design systems of three subsidiary platforms into a single Figma source of truth.</li>
@@ -66,7 +66,7 @@ export default function Page() {
                 </ul>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="content-block">
                 <p className="small">Impact</p>
 
                 <div className="flex flex-col gap-3">
@@ -107,7 +107,7 @@ export default function Page() {
             <div className="section-heading">
               <h2>Selected work<br /><span className="font-normal text-text-tertiary">Personality, made reusable.</span></h2>
             </div>
-            <div className="inline-flex max-w-full min-w-0 flex-col gap-10">
+            <div className="section-content min-w-0">
               <MathsGenieShowcase />
             </div>
           </div>
@@ -120,8 +120,8 @@ export default function Page() {
             <div className="section-heading">
               <h2>Reflection<br /><span className="font-normal text-text-tertiary">Too much change, too soon.</span></h2>
             </div>
-            <div className="inline-flex max-w-full flex-col gap-10">
-              <div className="flex flex-col gap-2">
+            <div className="section-content">
+              <div className="content-block">
                 <h3>We got the pace and timing wrong</h3>
                 <p>We pushed too many changes at once during a critical exam season. Students went from a familiar, content-heavy revision site to:</p>
                 <ul>
@@ -133,7 +133,7 @@ export default function Page() {
                 <p>We changed both how students studied and how they accessed the resources they relied on.</p>
                 <p>NPS reached −30. The usage figures showed the platform&apos;s reach, but the feedback exposed how disruptive the relaunch had been for students at a moment when continuity mattered.</p>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="content-block">
                 <h3>What I would do differently</h3>
                 <p>As a product designer, I should have done more to manage expectations and influence the founders&apos; decisions with user feedback and research. I would bring evidence of students&apos; needs into scope and timing discussions earlier, making the trade-offs between commercial ambition and disruption explicit.</p>
                 <p>I would:</p>

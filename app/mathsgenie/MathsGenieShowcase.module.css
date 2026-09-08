@@ -209,9 +209,9 @@ button.sampleCard { cursor: pointer; }
 .paperThree { border-color: var(--mg-warning-700); background: var(--mg-warning-100); color: var(--mg-warning-700); }
 
 .alertStack { display: grid; gap: 10px; }
-.carouselAlert { display: flex; min-height: 42px; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border-block: 1px solid var(--mg-primary-500); background: var(--mg-primary-400); color: var(--mg-primary-950); font-size: 14px; text-align: center; }
+.carouselAlert { display: flex; min-height: 42px; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-block: 1px solid var(--mg-primary-500); background: var(--mg-primary-400); color: var(--mg-primary-950); font-size: 14px; text-align: center; }
 .welcomeAlert { border-color: var(--mg-info-800); background: var(--mg-info-400); color: var(--mg-info-800); }
-.carouselAlert button { display: grid; width: 28px; height: 28px; flex: none; place-items: center; margin-left: auto; border-radius: 999px; cursor: pointer; }
+.carouselAlert button { display: grid; width: 28px; height: 28px; flex: none; place-items: center; border-radius: 999px; cursor: pointer; }
 .carouselAlert button:hover { background: var(--mg-primary-overlay); }
 
 .demoSidebar { position: relative; display: flex; width: 224px; height: 430px; flex-direction: column; gap: 6px; padding: 18px 12px 12px; border-radius: 8px; background: var(--mg-card); color: var(--mg-text); }

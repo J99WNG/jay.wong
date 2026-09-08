@@ -161,7 +161,7 @@
   }
 
   p.small {
-    @apply font-pixel text-sm font-semibold text-text-tertiary tracking-normal uppercase mb-0 max-w-none;
+    @apply font-pixel text-sm text-text-tertiary tracking-normal uppercase mb-0 max-w-none;
   }
 
   /* Prose lists inside case-study sections */
@@ -399,6 +399,21 @@ figure > button:focus-visible {
   scroll-margin-top: 0;
 }
 
+/* Primary vertical stack inside a section's content column. */
+.section-content {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 100%;
+}
+
+/* Related heading, copy, list, or media grouped within section content. */
+.content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .section-heading {
   position: static;
   display: flex;
@@ -406,6 +421,7 @@ figure > button:focus-visible {
   align-self: flex-start;
   height: max-content;
   margin-bottom: 2rem;
+  @apply md:mb-0;
 }
 
 /* ==================== Contact ==================== */

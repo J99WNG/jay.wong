@@ -16,6 +16,7 @@ type CommonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'nav';
   className?: string;
   children?: ReactNode;
+  revealLabel?: ReactNode;
 };
 
 type LinkButtonProps = CommonProps &
@@ -31,9 +32,9 @@ type NativeButtonProps = CommonProps &
 type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 export default function Button(props: ButtonProps) {
-  const { variant = 'primary', className, children } = props;
+  const { variant = 'primary', className, children, revealLabel } = props;
   // 1. Your Base Styles (.btn)
-  const baseStyles = "inline-flex items-center justify-center cursor-pointer overflow-hidden w-fit h-auto px-6 py-2 leading-none text-center no-underline text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl motion-safe:transition-[scale,color,background-color,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
+  const baseStyles = "group inline-flex items-center justify-center cursor-pointer overflow-hidden w-fit h-auto px-6 py-2 leading-none text-center no-underline text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl motion-safe:transition-[scale,color,background-color,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
 
   // 2. Your Variants (.btn-primary, etc.)
   const variants = {
@@ -45,6 +46,19 @@ export default function Button(props: ButtonProps) {
 
   const combinedClasses = cn(baseStyles, variants[variant], className);
 
+  // Keep the label mounted for assistive tech; only its visual width and opacity
+  // change on hover or keyboard focus. Reduced-motion users get an instant reveal.
+  const content = (
+    <>
+      {children}
+      {revealLabel && (
+        <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-40 group-hover:ml-2 group-hover:opacity-100 group-focus-visible:max-w-40 group-focus-visible:ml-2 group-focus-visible:opacity-100 motion-safe:transition-[max-width,margin,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)]">
+          {revealLabel}
+        </span>
+      )}
+    </>
+  );
+
   // If it has an href, render an internal or external link.
   if ('href' in props && props.href) {
     const href = props.href;
@@ -53,6 +67,7 @@ export default function Button(props: ButtonProps) {
     delete linkProps.variant;
     delete linkProps.className;
     delete linkProps.children;
+    delete linkProps.revealLabel;
     const isExternal = href.startsWith('http');
 
     if (isExternal) {
@@ -62,7 +77,7 @@ export default function Button(props: ButtonProps) {
           className={combinedClasses} 
           {...linkProps as AnchorHTMLAttributes<HTMLAnchorElement>}
         >
-          {children}
+          {content}
         </a>
       );
     }
@@ -73,7 +88,7 @@ export default function Button(props: ButtonProps) {
         className={combinedClasses}
         {...linkProps as AnchorHTMLAttributes<HTMLAnchorElement>}
       >
-        {children}
+        {content}
       </Link>
     );
   }
@@ -85,13 +100,14 @@ export default function Button(props: ButtonProps) {
   delete buttonProps.variant;
   delete buttonProps.className;
   delete buttonProps.children;
+  delete buttonProps.revealLabel;
 
   return (
     <button
       className={combinedClasses}
       {...buttonProps as ButtonHTMLAttributes<HTMLButtonElement>}
     >
-      {children}
+      {content}
     </button>
   );
 }

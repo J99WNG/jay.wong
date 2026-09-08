@@ -29,18 +29,18 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="small">Problem</p>
                             <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="small">Outcome</p>
                             <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow, through consolidating journeys, improving findability and simplifying how employees raise and track workplace requests.</p>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="small">Impact</p>
 
                             <ul>
@@ -116,8 +116,8 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</p>
 
                             <ul>
@@ -130,7 +130,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="lead">Strategically, I focused on:</p>
 
                             <ul>
@@ -158,12 +158,12 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</p>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
 
                             <ul>
@@ -198,14 +198,14 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="section-content">
                         <p className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</p>
 
                         <blockquote className="notion-quote">
                             This wasn’t just a UX issue. It was an operating model issue.
                         </blockquote>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Workplace services varied by location, not just region</h3>
                             
                             <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
@@ -218,7 +218,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Content was deeply fragmented</h3>
                             
                             <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
@@ -230,7 +230,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Search was not trusted</h3>
                             
                             <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
@@ -242,7 +242,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Culture influenced behaviour</h3>
                             
                             <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
@@ -254,7 +254,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Governance gaps existed</h3>
                             
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
@@ -283,8 +283,8 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">I reframed the challenge from:</p>
 
                             <blockquote className="notion-quote">
@@ -299,7 +299,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </blockquote>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p>Core design problems include:</p>
 
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
@@ -355,8 +355,8 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <h3>Experience goals</h3>
 
                             <ol>
@@ -366,7 +366,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ol>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Business goals</h3>
 
                             <ol>
@@ -393,10 +393,10 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="section-content">
                         <p className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</p>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p>Stakeholders were clear:</p>
 
                             <blockquote className="notion-quote">
@@ -404,7 +404,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </blockquote>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="lead">
                                 Our challenge was designing a simplified, scalable framework that could:
                             </p>
@@ -416,7 +416,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</p>
 
                             <FigureModal
@@ -460,9 +460,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="section-content">
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-1.png"
                                 alt=""
@@ -498,7 +498,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </blockquote>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-2.png"
                                 alt=""
@@ -521,7 +521,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <FigureModal
                                 src="assets/images/bp-workplace/ow-solution-3.png"
                                 alt=""
@@ -559,8 +559,8 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">
                                 We validated through:
                             </p>
@@ -573,7 +573,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Result</h3>
 
                             <ul>
@@ -613,8 +613,8 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <h3>
                                 Immediate outcomes
                             </h3>
@@ -634,7 +634,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>
                                 Strategic impact
                             </h3>
@@ -679,12 +679,12 @@ export const metadata = createCaseStudyMetadata(project);
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="section-content">
                         <blockquote className="notion-quote">
                             This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces.
                         </blockquote>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>What worked</h3>
 
                             <div className="flex flex-col gap-6">
@@ -708,7 +708,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>What was challenging</h3>
 
                             <div className="flex flex-col gap-6">
@@ -732,7 +732,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>What I’d do next</h3>
 
                             <ul>

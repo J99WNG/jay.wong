@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
+import Button from './Button';
 import Icon, { type IconName } from './Icon';
 
 type Theme = 'system' | 'light' | 'dark';
@@ -57,19 +58,17 @@ export default function ThemeToggle() {
     theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
 
   return (
-    <div className="fixed bottom-5 right-4 z-(--layer-utility)">
-      <button
+    <div className="fixed bottom-5 right-5 z-(--layer-utility)">
+      <Button
         onClick={cycleTheme}
         type="button"
-        aria-label={`Switch to ${nextTheme} theme`}
-        className="flex min-h-11 items-center justify-center gap-2 px-3 py-2 rounded-full bg-bg-secondary hover:bg-bg-tertiary text-text-primary border border-border-base hover:border-border-hover shadow-md hover:cursor-pointer motion-safe:transition-[color,background-color,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
+        aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
+        revealLabel={theme}
+        variant="secondary"
+        className="min-h-10 min-w-10 px-3 py-2 rounded-full text-xs font-medium capitalize tracking-tight bg-bg-secondary hover:bg-bg-tertiary text-text-primary border-border-base hover:border-border-hover shadow-md"
       >
         <Icon name={themeIcons[theme]} size="sm" />
-        
-        <span className="text-xs font-medium capitalize tracking-tight hidden sm:inline">
-          {theme}
-        </span>
-      </button>
+      </Button>
     </div>
   );
 }

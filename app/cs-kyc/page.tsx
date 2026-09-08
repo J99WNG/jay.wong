@@ -28,18 +28,18 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
-                            <div className="flex flex-col gap-2">
+                        <div className="section-content">
+                            <div className="content-block">
                                 <p className="small">Problem</p>
                                 <p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client time and into unnecessary admin, costing up to 70% of their day.</p>
                             </div>
                             
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <p className="small">Outcome</p>
                                 <p>Designed RM Suite, a conceptual mobile solution bringing everything into a unified, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <p className="small">Impact</p>
 
                                 <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
@@ -114,12 +114,12 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
-                            <div className="flex flex-col gap-2">
+                        <div className="section-content">
+                            <div className="content-block">
                                 <p className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</p>
                             </div>
                             
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Product vision and design</h3>
 
                                 <p>
@@ -127,7 +127,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className='flex flex-col gap-2'>
+                            <div className='content-block'>
                                 <h3>Project management</h3>
 
                                 <p>
@@ -135,7 +135,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Stakeholder engagement</h3>
 
                                 <p>
@@ -161,13 +161,13 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
 
                             <p className="lead">
                                 Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
                             </p>
                             
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <p>The bank's strategy was built on three priorities:</p>
                                 
                                 <ol>
@@ -212,12 +212,12 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
                             <p className="lead">
                                 We started with the Credit Suisse briefing document and a structured research checklist covering KYC regulation, private banking compliance in the UK and EU, FinTech trends, and the daily responsibilities of a Relationship Manager. But reading about a role is very different from understanding it.
                             </p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Stakeholder insights</h3>
                                 
                                 <p>
@@ -235,7 +235,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </ul>
                             </div>
 
-                            <div className='flex flex-col gap-2'>
+                            <div className='content-block'>
                                 <h3>That second conversation changed our direction significantly.</h3>
 
                                 <p>
@@ -247,7 +247,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
                             
-                            <div className='flex flex-col gap-2'>
+                            <div className='content-block'>
                                 <h3>Invalidating our assumptions</h3>
 
                                 <p>
@@ -275,7 +275,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Ideation technique</h3>
 
                                 <p>
@@ -306,8 +306,8 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
-                            <div className="flex flex-col gap-2">
+                        <div className="section-content">
+                            <div className="content-block">
                                 <p className="lead">After the interviews and analysis, we could frame the problem much more precisely.</p>
 
                                 <blockquote className="notion-quote">
@@ -319,7 +319,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
                             
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <p>
                                 To structure our response, we ran a PACT Analysis across People, Activities, Context, and Technology. This kept the user at the centre of every decision:
                                 </p>
@@ -362,13 +362,13 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
 
                             <p className="lead">
                                 The brief asked for three things: innovation, efficiency, and minimisation. We translated those into concrete, measurable targets.
                             </p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Primary goal</h3>
 
                                 <p>
@@ -376,7 +376,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Secondary goal</h3>
 
                                 <p>
@@ -384,7 +384,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Design goal</h3>
                                 
                                 <p>
@@ -404,7 +404,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>Functional success criteria</h3>
 
                                 <ul>
@@ -443,14 +443,14 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
                             <p className="lead">Once we had validated requirements and a well-defined problem, ideation felt less like guesswork and more like solving a clear puzzle with defined constraints.</p>
 
                             <p>
                             The concept that guided everything was thinking about an RM's day as a single, continuous experience rather than a series of disconnected tasks. We kept asking the same question: what would it look like if everything an RM needed was in one place, presented in the order they would actually need it?
                             </p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-1.png"
                                     alt=""
@@ -466,7 +466,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-2.png"
                                     alt=""
@@ -482,7 +482,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-ideation-3.png"
                                     alt=""
@@ -514,13 +514,13 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
                             <p className="lead">
                                 In the latter half of the project, we iterated from high fidelty wireframes to a proof of concept prototype. The goal was to build something that could be tested and validated against our success criteria, not to create a fully polished, launch-ready product. This began with a more focused design system.
                             </p>
                             
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-1.png"
                                     alt=""
@@ -536,7 +536,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-2.png"
                                     alt=""
@@ -552,7 +552,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-3.png"
                                     alt=""
@@ -568,7 +568,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-4.png"
                                     alt=""
@@ -584,7 +584,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-5.png"
                                     alt=""
@@ -600,7 +600,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-6.png"
                                     alt=""
@@ -616,7 +616,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <FigureModal
                                     src="assets/images/cs-kyc/cs-solution-7.png"
                                     alt=""
@@ -653,12 +653,12 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
                             <p className="lead">
                             Testing happened in two rounds, each tied to a client-facing showcase event, judged by Credit Suisse and accompanied by various other blue-chip companies.
                             </p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>
                                 Showcase 1: High-fidelity prototype review
                                 </h3>
@@ -668,7 +668,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>
                                 Showcase 2: Agile development and iteration
                                 </h3>
@@ -700,12 +700,12 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
+                        <div className="section-content">
                             <p className="lead">
                             The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the first Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
                             </p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <p>
                                 Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.
                                 </p>
@@ -740,8 +740,8 @@ export const metadata = createCaseStudyMetadata(project);
                             </h2>
                         </div>
 
-                        <div className="inline-flex max-w-full flex-col gap-10">
-                            <div className="flex flex-col gap-2">
+                        <div className="section-content">
+                            <div className="content-block">
                                 <h3>
                                 The interviews were the most important design tool
                                 </h3>
@@ -751,7 +751,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>
                                 Front-end and back-end need to run in parallel
                                 </h3>
@@ -761,7 +761,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>
                                 Remote team leadership is its own skill
                                 </h3>
@@ -771,7 +771,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h3>
                                 A crucial moment in the project
                                 </h3>

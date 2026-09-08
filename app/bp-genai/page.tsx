@@ -29,18 +29,18 @@ export default function Page() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
-                    <div className="flex flex-col gap-2">
+                <div className="section-content">
+                    <div className="content-block">
                         <p className="small">Problem</p>
                         <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels was increasing operational costs and reducing employee productivity.</p>
                     </div>
                     
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                         <p className="small">Outcome</p>
                         <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                         <p className="small">Impact (6 months post-launch)</p>
 
                         <div className="grid place-items-start justify-start md:place-items-stretch gap-5 grid-cols-1 md:grid-cols-2">
@@ -146,11 +146,11 @@ export default function Page() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
+                <div className="section-content">
 
                     <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h3>
                         My core responsibilities
                     </h3>
@@ -187,14 +187,14 @@ export default function Page() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
-                    <div className="flex flex-col gap-2">
+                <div className="section-content">
+                    <div className="content-block">
                     <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests and basic “how-to” questions.</p>
                     
                     <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
                     </div>
                     
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h3>Key signals</h3>
                     <ul>
                         <li>~30% of service desk tickets were repeatable, low-complexity (known as Priority 3 tickets).</li>
@@ -211,7 +211,7 @@ export default function Page() {
                     </ul>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h3>Strategic backdrop</h3>
                     <p>This initiative sat within a broader “Shift Left” transformation roadmap — moving issue resolution as close to the employee as possible to improve efficiency and reduce reliance on L3 live support.</p>
                     <p>Generative AI was identified as a potential enabler; not to replace human agents, but to improve knowledge discovery, summarisation and confidence in self-serve outcomes.</p>
@@ -237,10 +237,10 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
+                    <div className="section-content">
                         <p className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></p>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Quantitative analysis (ServiceNow analytics)</h3>
                             
                             <p>Working with the data team, I reviewed historical ticket and search data:</p>
@@ -263,12 +263,12 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>1-to-1 interviews with SMEs and power users</h3>
 
                             <p>I conducted <strong>16 interviews</strong> across US, Europe and APAC regions with a mix of power users, SMEs and everyday employees.</p>
 
-                            <div className="flex flex-col gap-2">
+                            <div className="content-block">
                                 <h4>
                                 Key synthesised insights
                                 </h4>
@@ -325,7 +325,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Stakeholder alignment workshop</h3>
 
                             <p>I facilitated a discovery workshop with ITSM leadership and SMEs to:</p>
@@ -371,14 +371,14 @@ export default function Page() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
+                <div className="section-content">
                     <p className="lead">Bringing together user, agent and business needs, we defined the core problem as:</p>
 
                     <blockquote className="notion-quote">
                     Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
                     </blockquote>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <p>This problem had three equally important lenses:</p>
 
                     <div className="flex flex-col gap-4 m-0 items-stretch md:flex-row">
@@ -427,8 +427,8 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</p>
 
                             <FigureModal
@@ -438,7 +438,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>
                             Product goals
                             </h3>
@@ -489,8 +489,8 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">We explored a wide range of ideas, including:</p>
 
                             <ul>
@@ -512,7 +512,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <p className="lead">
                                 However, given time, budget and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented existing workflows, not replace.
                             </p>
@@ -530,7 +530,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>Key trade-offs</h3>
 
                             <ul>
@@ -548,7 +548,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>MVP focus areas</h3>
 
                             <ul>
@@ -584,8 +584,8 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <h3>
                                 Experience principles
                             </h3>
@@ -611,7 +611,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>
                                 Information architecture
                             </h3>
@@ -633,7 +633,7 @@ export default function Page() {
                             />                        
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>
                                 AI-powered knowledge search
                             </h3>
@@ -663,7 +663,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>
                                 Accessibility &amp; inclusion
                             </h3>
@@ -706,12 +706,12 @@ export default function Page() {
                     </h2>
                 </div>
 
-                <div className="inline-flex max-w-full flex-col gap-10">
+                <div className="section-content">
                     <p className="lead">
                     We tested a high-fidelity Figma prototype mapped closely to ServiceNow capabilities and using the following methods:
                     </p>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h3>Usability study</h3>
 
                     <ul>
@@ -725,7 +725,7 @@ export default function Page() {
                     </ul>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h4>Early sentiment (Net Promoter Score)</h4>
 
                     <p>Initial NPS: 12.5</p>
@@ -751,7 +751,7 @@ export default function Page() {
                     </blockquote>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="content-block">
                     <h3>Continuous feedback loop</h3>
 
                     <ul>
@@ -771,7 +771,7 @@ export default function Page() {
 
                     <div className="card">
                     <div className="flex flex-1 w-full flex-col justify-center gap-7 px-7 py-8">
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                         <h3>Key learning: AI alone wasn’t enough</h3>
 
                         <p>
@@ -779,7 +779,7 @@ export default function Page() {
                         </p>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                         <h4>Actions taken:</h4>
 
                         <ul>
@@ -797,7 +797,7 @@ export default function Page() {
                         </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                         <h4>Result</h4>
 
                         <ul>  
@@ -833,8 +833,8 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <p className="lead">
                                 Within six months of launch:
                             </p>
@@ -891,8 +891,8 @@ export default function Page() {
                         </h2>
                     </div>
 
-                    <div className="inline-flex max-w-full flex-col gap-10">
-                        <div className="flex flex-col gap-2">
+                    <div className="section-content">
+                        <div className="content-block">
                             <h3>What worked</h3>
 
                             <ul>
@@ -910,7 +910,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>What didn’t</h3>
 
                             <ul>
@@ -925,7 +925,7 @@ export default function Page() {
 
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="content-block">
                             <h3>What I’d do next</h3>
 
                             <ul>
