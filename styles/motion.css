@@ -43,6 +43,56 @@
   50% { transform: translateX(-6px); }
 }
 
+/* Mobile navigation is a composed transition: the tray changes height while
+ * its contents fade and de-focus. Visibility waits only when closing so the
+ * fade can finish, but becomes immediate when opening. */
+.mobile-nav-tray {
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    grid-template-rows var(--motion-duration-standard) var(--motion-ease-in-out),
+    visibility 0s linear var(--motion-duration-standard);
+}
+
+.mobile-nav-content {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--motion-duration-standard) var(--motion-ease-in-out),
+    filter var(--motion-duration-standard) var(--motion-ease-in-out),
+    transform var(--motion-duration-standard) var(--motion-ease-spring);
+}
+
+.mobile-nav-tray[data-open='true'] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.mobile-nav-tray[data-open='true'] .mobile-nav-content {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .mobile-nav-tray {
+    visibility: visible;
+    pointer-events: auto;
+    transition: none;
+  }
+
+  .mobile-nav-content {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Directional cues respond with their parent link, keeping the full target interactive. */
 .motion-icon-left,
 .motion-icon-right,
@@ -69,6 +119,11 @@ a:focus-visible .motion-icon-up-right {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
+  }
+
+  /* Do not retain the mobile tray's delayed visibility when motion is off. */
+  .mobile-nav-tray {
+    transition: none;
   }
 
   *,

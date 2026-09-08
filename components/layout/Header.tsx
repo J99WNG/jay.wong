@@ -8,7 +8,7 @@ import Button from '../ui/Button';
 
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
-const NAV_LINK_STYLES = 'inline-flex min-h-11 w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98] md:min-h-0 md:w-auto md:py-1.5';
+const NAV_LINK_STYLES = 'inline-flex min-h-11 w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98] sm:min-h-0 sm:w-auto sm:py-1.5';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -19,6 +19,7 @@ export default function Header() {
     const router = useRouter();
     const pendingTarget = useRef<ScrollTarget | null>(null);
     const menuToggleRef = useRef<HTMLButtonElement>(null);
+    const navSurfaceRef = useRef<HTMLDivElement>(null);
 
     const scrollToTarget = useCallback((target: ScrollTarget) => {
         if (target === 'top') {
@@ -97,6 +98,20 @@ export default function Header() {
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [isOpen]);
 
+    useEffect(() => {
+        if (!isOpen) return;
+
+        // Pointer events cover both mouse clicks and touchscreen taps. Keep
+        // taps inside the header interactive; any tap outside closes the tray.
+        const handleOutsidePress = (event: PointerEvent) => {
+            if (navSurfaceRef.current?.contains(event.target as Node)) return;
+            setIsOpen(false);
+        };
+
+        document.addEventListener('pointerdown', handleOutsidePress);
+        return () => document.removeEventListener('pointerdown', handleOutsidePress);
+    }, [isOpen]);
+
     const handleTargetClick = (event: MouseEvent<HTMLElement>, target: ScrollTarget) => {
         event.preventDefault();
         navigateTo(target);
@@ -106,7 +121,7 @@ export default function Header() {
         <header className="fixed top-0 left-0 isolate z-(--layer-header) h-auto w-full pointer-events-none">
             <div className="page-container relative z-10">
                 {/* Primary nav surface: full-width at the top, then compact after scrolling. */}
-                <div id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl px-4 py-2.5 pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] md:flex md:h-16 md:justify-between ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+                <div ref={navSurfaceRef} id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl px-4 py-2.5 pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] sm:flex sm:h-16 sm:justify-between ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
                     {/* Brand mark doubles as a shortcut back to the top of the homepage. */}
                     <Link
                         href={HOME_PATH}
@@ -133,7 +148,7 @@ export default function Header() {
                     {/* Mobile control morphs between the menu and close icons. */}
                     <button
                         ref={menuToggleRef}
-                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 md:hidden"
+                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 sm:hidden"
                         type="button"
                         aria-expanded={isOpen}
                         aria-controls="nav-primary"
@@ -153,12 +168,15 @@ export default function Header() {
                     {/* Navigation links become a floating tray on mobile and sit inline on desktop. */}
                     <nav
                         id="nav-primary"
-                        className={`col-span-2 grid w-full grid-rows-[0fr] motion-safe:[transition:grid-template-rows_var(--motion-duration-standard)_var(--motion-ease-spring),visibility_0s_linear_var(--motion-duration-standard)] motion-reduce:transition-none md:col-auto md:visible md:pointer-events-auto md:block md:flex-1 md:transition-none ${isOpen ? 'visible pointer-events-auto grid-rows-[1fr] [transition-delay:0s]' : 'invisible pointer-events-none'}`}
+                        data-open={isOpen}
+                        className="mobile-nav-tray col-span-2 grid w-full sm:col-auto sm:block sm:flex-1"
                         aria-label="Main navigation"
                     >
-                        <div className="min-h-0 overflow-hidden md:contents">
-                            <div className={`flex flex-col gap-3 py-4 motion-safe:transition-[opacity,translate] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-reduce:transition-none md:flex-row md:items-center md:justify-between md:py-0 md:opacity-100 md:translate-y-0 ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
-                                <ul className="flex list-none flex-col items-stretch justify-center gap-3 p-0 text-2xl font-light text-neutral-100 md:mx-auto md:my-0 md:flex-row md:items-center md:text-base">
+                        <div className="min-h-0 overflow-hidden sm:contents">
+                            {/* The content fades and de-focuses while the tray changes height;
+                                both directions use the same standard motion timing. */}
+                            <div className="mobile-nav-content flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
+                                <ul className="flex list-none flex-col items-stretch justify-center gap-3 p-0 text-2xl font-light text-neutral-100 sm:mx-auto sm:my-0 sm:flex-row sm:items-center sm:text-base">
                                     <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>

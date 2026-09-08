@@ -12,6 +12,7 @@ import {
   type TouchEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { getImageProps } from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Button from './Button';
 
@@ -119,6 +120,7 @@ function GalleryModal({
   const captionId = useId();
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
 
   const requestClose = useCallback(() => {
     if (dialogRef.current?.open) dialogRef.current.close();
@@ -149,17 +151,28 @@ function GalleryModal({
   }, []);
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      current.element.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-          ? 'auto'
-          : 'smooth',
-        block: 'center',
-      });
-    });
+    if (total < 2) return;
 
-    return () => window.cancelAnimationFrame(frame);
-  }, [current.element]);
+    // Warm only the neighbouring images. This keeps arrow/swipe navigation
+    // responsive without eagerly downloading every large case-study asset.
+    const adjacentIndexes = new Set([
+      (activeIndex - 1 + total) % total,
+      (activeIndex + 1) % total,
+    ]);
+
+    adjacentIndexes.forEach((index) => {
+      const { props } = getImageProps({
+        src: items[index].src,
+        alt: '',
+        fill: true,
+        sizes: '100vw',
+      });
+      const preload = new window.Image();
+      preload.srcset = props.srcSet ?? '';
+      preload.sizes = props.sizes ?? '100vw';
+      preload.src = props.src;
+    });
+  }, [activeIndex, items, total]);
 
   const handleTouchStart = (event: TouchEvent<HTMLDialogElement>) => {
     const touch = event.touches[0];
@@ -181,6 +194,15 @@ function GalleryModal({
   };
 
   if (!current) return null;
+
+  // Keep Next's optimized source set, but let the selected image use its own
+  // aspect ratio so its visible edges size and round consistently.
+  const { props: currentImageProps } = getImageProps({
+    src: current.src,
+    alt: current.alt,
+    fill: true,
+    sizes: '100vw',
+  });
 
   return (
     <dialog
@@ -235,12 +257,22 @@ function GalleryModal({
         </p>
 
         <figure className="m-0 grid min-h-full grid-rows-[minmax(0,1fr)_auto] items-center gap-4 overflow-hidden">
+          {/* Intrinsic sizing prevents portrait and unusually wide figures from
+              inheriting a full-screen box while retaining optimized candidates. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             key={activeIndex}
-            src={current.src}
+            src={currentImageProps.src}
+            srcSet={currentImageProps.srcSet}
+            sizes={currentImageProps.sizes}
             alt={current.alt}
-            className="block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain md:rounded-xl motion-safe:animate-[motion-scale-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
+            loading="eager"
+            onLoad={() => setLoadedSrc(current.src)}
+            className={`block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+              loadedSrc === current.src
+                ? ''
+                : 'motion-safe:opacity-0 motion-safe:blur-xs motion-safe:scale-[0.99]'
+            }`}
           />
 
           {current.caption && (

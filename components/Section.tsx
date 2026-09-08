@@ -56,9 +56,10 @@ const Section = ({
       },
       {
         threshold: 0,
-        // rootMargin creates a 'buffer' so the element is well
-        // inside the screen before it triggers.
-        rootMargin: '-60% 0px -60% 0px'
+        // Keep a real trigger area in the middle 40% of the screen. Shrinking
+        // both edges by 60% creates a negative-height area in iOS Safari, so
+        // non-landing content can stay transparent even after it is on screen.
+        rootMargin: '-30% 0px -30% 0px'
       }
     );
 
@@ -89,12 +90,11 @@ const Section = ({
       <div className={`
         relative page-container
         opacity-100 blur-none
-        motion-safe:transition-[opacity,filter,blur]
+        motion-safe:transition-[opacity,filter]
         motion-safe:duration-[var(--motion-duration-slow)]
-        motion-safe:ease-[var(--motion-ease-standard)]
-        motion-safe:will-change-[opacity,filter]
+        motion-safe:ease-[var(--motion-ease-in-out)]
         print:opacity-100 print:blur-none print:transition-none
-        ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-xs'}
+        ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-sm'}
       `}>
         {children}
       </div>

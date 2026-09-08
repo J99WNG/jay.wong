@@ -64,6 +64,9 @@ export default function FigureModal({
           alt={alt}
           fill
           priority={priority}
+          // The gallery uses the same 100vw candidate, so opening an image can
+          // reuse the thumbnail's optimized request instead of fetching it twice.
+          sizes="100vw"
           className={`
             object-cover
             motion-safe:transition-transform
