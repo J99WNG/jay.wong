@@ -64,8 +64,8 @@ export default function BackToTop() {
     >
       <Button
         variant="primary"
+        className={`min-h-10 min-w-10 px-3 text-xs rounded-full shadow-md ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
         revealLabel="Back to top"
-        className={`min-h-10 min-w-10 px-3 py-2 text-xs rounded-full ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
         aria-label="Back to the top of the page"
         tabIndex={showBackToTop ? undefined : -1}
         onClick={handleBackToTop}

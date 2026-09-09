@@ -180,13 +180,13 @@ export default function CaseStudyNavigation() {
   return (
     <nav
       ref={rootRef}
-      className="fixed bottom-5 left-1/2 z-(--layer-page-navigation) max-w-[calc(100vw-8rem)] -translate-x-1/2"
+      className="fixed bottom-5 left-1/2 z-(--layer-page-navigation) max-w-fit -translate-x-1/2"
       aria-label="On this page"
     >
       <motion.div
         layout
         className={clsx(
-          'overflow-hidden border border-border-base bg-linear-to-br from-bg-primary/90 via-bg-secondary/90 to-bg-secondary/95 shadow-lg backdrop-blur-xl',
+          'overflow-hidden border border-border-base bg-linear-to-br from-bg-primary/80 via-bg-secondary/85 to-bg-secondary/90 shadow-lg backdrop-blur-md',
           open ? 'w-60 max-w-[calc(100vw-8rem)] rounded-3xl p-3' : 'w-auto rounded-full p-1',
         )}
         transition={reduceMotion ? { duration: 0 } : TRAY_SPRING}
@@ -273,7 +273,7 @@ export default function CaseStudyNavigation() {
               <AnimatePresence initial={false} mode="popLayout">
                 <motion.span
                   key={activeId ?? 'sections'}
-                  className="max-w-32 truncate whitespace-nowrap text-sm font-medium leading-none sm:max-w-40"
+                  className="max-w-fit truncate whitespace-nowrap text-sm font-medium leading-none"
                   initial={reduceMotion ? false : { opacity: 0, filter: 'blur(2px)' }}
                   animate={{ opacity: 1, filter: 'blur(0px)' }}
                   exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(2px)' }}

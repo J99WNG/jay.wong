@@ -21,6 +21,7 @@ const geistPixel = localFont({
   src: "./fonts/GeistPixel-Regular-VariableFont_ELSH.ttf",
   variable: "--font-geist-pixel",
   display: "swap",
+  weight: "400",
 });
 
 export const viewport: Viewport = {
@@ -90,8 +91,9 @@ export default function RootLayout({ children }:
           
           {children}
           
-          <ThemeToggle />
           <BackToTop />
+          <ThemeToggle />
+          
           <Footer />
         </InitialLoader>
       </body>

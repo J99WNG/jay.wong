@@ -31,14 +31,14 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [keywordIndex, setKeywordIndex] = useState(0);
 
-  // Cycle through the keywords every 2.5 seconds
+  // Cycle through the keywords every X seconds
   useEffect(() => {
     // Pause the ticker if reduced motion is enabled
     if (shouldReduceMotion) return;
 
     const interval = setInterval(() => {
       setKeywordIndex((prev) => (prev + 1) % heroContent.keywords.length);
-    }, 2500);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [shouldReduceMotion]);
@@ -104,7 +104,7 @@ export default function Hero() {
               <span>{heroContent.headline}</span>
               
               {shouldReduceMotion ? (
-                <span>design, research, collaboration and systems thinking.</span>
+                <span>design, research, collaboration, systems thinking and mentorship.</span>
               ) : (
                 /* CSS Grid trick ensures entering and exiting text occupy the exact same space to prevent layout shifting */
                 <span className="inline-grid min-w-[200px]"> 
@@ -126,8 +126,9 @@ export default function Hero() {
           </motion.h1>
 
           {/* Accessible Tagline Typewriter Block */}
-          <div className="m-0 relative text-text-tertiary/80">
+          <div className="m-0 relative text-text-tertiary/90">
             <span className="sr-only">{heroContent.tagline}</span>
+
             <motion.p
               aria-hidden="true"
               initial="initial"
@@ -139,7 +140,6 @@ export default function Hero() {
                 <motion.span 
                   key={index} 
                   variants={characterVariants}
-                  className="inline"
                 >
                   {char}
                 </motion.span>
@@ -148,6 +148,7 @@ export default function Hero() {
             </motion.p>
           </div>
 
+          {/* Button group */}
           <motion.div
             initial="initial"
             animate="animate"

@@ -118,8 +118,8 @@ function TimelineStep({
         className="flex flex-col gap-3 pb-10 sm:pb-12"
       >
         <div className="flex flex-col gap-2">
-          <h4 className="text-text-primary">{item.title}</h4>
-          <p className="text-text-secondary">{item.text}</p>
+          <h4>{item.title}</h4>
+          <p>{item.text}</p>
         </div>
 
         <ul

@@ -8,7 +8,8 @@ import Button from '../ui/Button';
 
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
-const NAV_LINK_STYLES = 'inline-flex min-h-11 w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98] sm:min-h-0 sm:w-auto sm:py-1.5';
+
+const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98]';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -175,12 +176,13 @@ export default function Header() {
                         <div className="min-h-0 overflow-hidden sm:contents">
                             {/* The content fades and de-focuses while the tray changes height;
                                 both directions use the same standard motion timing. */}
-                            <div className="mobile-nav-content flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
+                            <div className="mobile-nav-content flex flex-col sm:gap-2 gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
                                 <ul className="flex list-none flex-col items-stretch justify-center gap-3 p-0 text-2xl font-light text-neutral-100 sm:mx-auto sm:my-0 sm:flex-row sm:items-center sm:text-base">
                                     <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
                                 </ul>
+
                                 <Button
                                     variant="nav"
                                     href="/#contact"

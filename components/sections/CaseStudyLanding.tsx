@@ -40,7 +40,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
 
             <h1>{project.title}</h1>
 
-            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tighter">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tight">
               {project.tagline}
             </p>
           </div>

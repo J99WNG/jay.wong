@@ -11,6 +11,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
 
   return (
     <article className="card md:flex-row motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
+      {/* Card Content */}
       <div className="flex md:w-1/2 flex-col gap-2 p-6">
         <p className="small">
           {year} · {company} · {industry}
@@ -35,6 +36,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         )}
       </div>
 
+      {/* Card Image */}
       <div className="relative flex md:w-1/2 w-full aspect-video md:min-h-auto">
         <Image 
           className="block w-full h-full object-cover"
