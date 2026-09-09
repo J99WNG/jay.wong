@@ -7,7 +7,11 @@
   },
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
-    "build": "next build && node scripts/publish-og-image.mjs",
+    "generate:favicons": "node --import tsx scripts/social-assets/generate-favicons.ts",
+    "generate:og": "node --import tsx scripts/social-assets/generate-opengraph-image.tsx",
+    "generate:social-assets": "npm run generate:favicons && npm run generate:og",
+    "prebuild": "npm run generate:social-assets",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
@@ -30,7 +34,9 @@
     "eslint": "^9",
     "eslint-config-next": "^16.3.4",
     "postcss": "^8.5.8",
+    "sharp": "0.35.4",
     "tailwindcss": "^4.2.1",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

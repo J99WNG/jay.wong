@@ -14,6 +14,27 @@ const themeIcons: Record<Theme, LucideIcon> = {
 
 const subscribeToMount = () => () => {};
 
+const syncFavicon = (theme: Theme) => {
+  // A favicon is loaded as a separate document, so it cannot inherit the
+  // website's .light/.dark class. Add one final, active icon link that points
+  // directly to the matching generated asset instead.
+  let faviconLink = document.querySelector<HTMLLinkElement>('#active-theme-favicon');
+
+  if (!faviconLink) {
+    faviconLink = document.createElement('link');
+    faviconLink.id = 'active-theme-favicon';
+    faviconLink.rel = 'icon';
+    faviconLink.sizes = '512x512';
+    document.head.appendChild(faviconLink);
+  }
+
+  const isSystemTheme = theme === 'system';
+  faviconLink.type = isSystemTheme ? 'image/svg+xml' : 'image/png';
+  faviconLink.href = isSystemTheme
+    ? `/favicon.svg?v=${Date.now()}`
+    : `/favicon-${theme}.png?v=${Date.now()}`;
+};
+
 const applyTheme = (newTheme: Theme) => {
   const root = document.documentElement;
   root.classList.remove('light', 'dark');
@@ -24,12 +45,7 @@ const applyTheme = (newTheme: Theme) => {
     root.classList.add('dark');
   }
 
-  // Force browser to re-parse /favicon.svg with active class context
-  const faviconLink = document.querySelector<HTMLLinkElement>("link[rel*='icon']");
-  if (faviconLink) {
-    const baseUrl = faviconLink.href.split('?')[0];
-    faviconLink.href = `${baseUrl}?v=${newTheme}-${Date.now()}`;
-  }
+  syncFavicon(newTheme);
 };
 
 export default function ThemeToggle() {
@@ -41,6 +57,16 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     applyTheme(theme);
+
+    if (theme !== 'system') return;
+
+    // Some browsers cache SVG favicons aggressively. Refresh the adaptive SVG
+    // when the OS theme changes so the browser chrome stays in sync too.
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleSystemThemeChange = () => syncFavicon('system');
+    systemTheme.addEventListener('change', handleSystemThemeChange);
+
+    return () => systemTheme.removeEventListener('change', handleSystemThemeChange);
   }, [theme]);
 
   const cycleTheme = () => {
