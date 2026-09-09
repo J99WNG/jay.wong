@@ -5,7 +5,6 @@ import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
-import { BriefcaseBusiness, Headset, UsersRound } from 'lucide-react';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 

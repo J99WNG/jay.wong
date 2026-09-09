@@ -39,8 +39,6 @@
   --color-orange-300: oklch(0.687 0.133 40);
   --color-orange-500: oklch(0.6 0.119 40);
   --color-orange-700: oklch(0.5 0.099 40);
-
-  --color-red-500: oklch(0.55 0.18 20);
 }
 
 /* Explicit class overrides for manual theme toggling */

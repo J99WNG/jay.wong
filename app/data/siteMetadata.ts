@@ -16,6 +16,9 @@ export const siteMetadata = {
     url: '/opengraph-image.png',
     width: 1200,
     height: 630,
+    type: 'image/png',
+    // Social preview images are raster content. This text gives screen-reader
+    // users the same identity and location information shown in the artwork.
     alt: 'Jay Wong — Product Designer in Dubai, United Arab Emirates.',
   },
   // The Hero tagline remains the single source of truth for the site description.

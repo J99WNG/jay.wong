@@ -59,13 +59,18 @@ export const metadata: Metadata = {
     images: [siteMetadata.socialImage],
   },
 
-  // This handles icons and Apple Touch Icons
+  // Site icons are separate from the large OG artwork. Messaging apps choose
+  // whether to show one; offering ICO, SVG, PNG and Apple variants gives older
+  // crawlers and modern assistive platforms compatible options.
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "256x256", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: [
-      { url: "/favicon.png" },
-      { url: "/favicon.png", sizes: "76x76" },
-      { url: "/favicon.png", sizes: "180x180" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
     ],
   },
 };

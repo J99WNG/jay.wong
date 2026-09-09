@@ -2,14 +2,15 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
 
-// Parked renderer retained as the editable source for future OG iterations.
-// Do not rename this file to `opengraph-image.tsx`: static exports emit that
-// metadata route without an extension, which GitHub Pages serves as octet-stream.
+// DESIGNER EDITING GUIDE
+// This file is the editable source for the social preview artwork. Change the
+// profile copy, colors, type sizes, spacing, or SVG below, then run `npm run build`.
+// The post-build script publishes the rendered result as /opengraph-image.png.
+// Keep this source route separate: GitHub Pages serves extensionless generated
+// routes as generic binary files, which strict clients such as Messages reject.
 
 export const alt = 'Jay Wong — Product Designer in Dubai, United Arab Emirates.';
 export const size = { width: 1200, height: 630 };
-export const contentType = 'image/png';
-export const runtime = 'nodejs';
 export const dynamic = 'force-static';
 
 // Keep the OG card as a stable introduction to the portfolio. It intentionally
@@ -52,12 +53,13 @@ function Monogram() {
   );
 }
 
-export default async function OpenGraphImage() {
-  // The renderer cannot parse the site's variable Inter file. This static
-  // Inter face is reliable in Satori; lowercase copy stays within its glyph set.
-  const interFont = await readFile(
-    path.join(process.cwd(), 'app/fonts/Inter-OG.ttf'),
-  );
+export async function GET() {
+  // next/og needs static font files rather than the variable font used by the
+  // website. Both are still Inter, so the artwork matches the site's typography.
+  const [interRegular, interMedium] = await Promise.all([
+    readFile(path.join(process.cwd(), 'app/fonts/Inter-OG-Regular.ttf')),
+    readFile(path.join(process.cwd(), 'app/fonts/Inter-OG-Medium.ttf')),
+  ]);
 
   return new ImageResponse(
     (
@@ -111,7 +113,7 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 display: 'flex',
-                fontSize: 80,
+                fontSize: 72,
                 lineHeight: 1,
                 letterSpacing: '-0.03em',
                 fontWeight: 500,
@@ -124,9 +126,9 @@ export default async function OpenGraphImage() {
               style={{
                 display: 'flex',
                 color: colors.textTertiary,
-                fontSize: 44,
+                fontSize: 40,
                 lineHeight: 1.25,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.04em',
               }}
             >
               {profile.role}
@@ -140,7 +142,7 @@ export default async function OpenGraphImage() {
                 color: colors.textSecondary,
                 fontSize: 32,
                 lineHeight: 1.4,
-                letterSpacing: '-0.015em',
+                letterSpacing: '-0.03em',
               }}
             >
               <span style={{ color: colors.accent, fontWeight: 500 }}>{profile.url}</span>
@@ -156,9 +158,15 @@ export default async function OpenGraphImage() {
       fonts: [
         {
           name: 'Inter',
-          data: interFont,
+          data: interRegular,
           style: 'normal',
           weight: 400,
+        },
+        {
+          name: 'Inter',
+          data: interMedium,
+          style: 'normal',
+          weight: 500,
         },
       ],
     },
