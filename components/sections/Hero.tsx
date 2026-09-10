@@ -8,6 +8,7 @@ import FluidOrb from "../ui/FluidOrb";
 import { heroContent } from "@/app/data/heroContent";
 import { motionDelay, motionDuration, motionEase, motionStagger } from "@/lib/motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { usePageReady } from "../InitialLoader";
 
 
 export default function Hero() {
@@ -29,19 +30,20 @@ export default function Hero() {
   };
 
   const shouldReduceMotion = useReducedMotion();
+  const isPageReady = usePageReady();
   const [keywordIndex, setKeywordIndex] = useState(0);
 
   // Cycle through the keywords every X seconds
   useEffect(() => {
     // Pause the ticker if reduced motion is enabled
-    if (shouldReduceMotion) return;
+    if (shouldReduceMotion || !isPageReady) return;
 
     const interval = setInterval(() => {
       setKeywordIndex((prev) => (prev + 1) % heroContent.keywords.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [shouldReduceMotion]);
+  }, [isPageReady, shouldReduceMotion]);
 
   // Standard Fade-Up Variants
   const fadeInUp = {
@@ -65,7 +67,7 @@ export default function Hero() {
     animate: {
       transition: {
         staggerChildren: shouldReduceMotion ? 0 : motionStagger.characters,
-        delayChildren: shouldReduceMotion ? 0 : motionDuration.standard,
+        delayChildren: shouldReduceMotion ? 0 : motionDelay.standard,
       },
     },
   };
@@ -89,7 +91,7 @@ export default function Hero() {
         <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
           <motion.h1
             initial="initial"
-            animate="animate"
+            animate={isPageReady ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ delay: shouldReduceMotion ? 0 : motionDelay.standard }}
             className="relative"
@@ -111,8 +113,10 @@ export default function Hero() {
                   <AnimatePresence mode="popLayout">
                     <motion.span
                       key={keywordIndex}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={false}
+                      animate={isPageReady
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: motionDuration.standard, ease: motionEase.inOut }}
                       className="col-start-1 row-start-1 text-accent-primary font-pixel tracking-tight" // Optional: Add a text color here to make it pop!
@@ -132,7 +136,7 @@ export default function Hero() {
             <motion.p
               aria-hidden="true"
               initial="initial"
-              animate="animate"
+              animate={isPageReady ? "animate" : "initial"}
               variants={typewriterContainer}
               className="inline-block text-[clamp(1.25rem,4vw,1.5rem)] tracking-tight leading-9 m-0"
             >
@@ -151,7 +155,7 @@ export default function Hero() {
           {/* Button group */}
           <motion.div
             initial="initial"
-            animate="animate"
+            animate={isPageReady ? "animate" : "initial"}
             variants={fadeInUp}
             transition={{ delay: shouldReduceMotion ? 0 : motionDelay.heroActions }}
             className="flex flex-wrap justify-center gap-4 items-center md:justify-start"
@@ -186,19 +190,24 @@ export default function Hero() {
             opacity: shouldReduceMotion ? 1 : 0,
             scale: shouldReduceMotion ? 1 : 0.9,
           }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={isPageReady
+            ? { opacity: 1, scale: 1 }
+            : { opacity: shouldReduceMotion ? 1 : 0, scale: shouldReduceMotion ? 1 : 0.9 }}
           transition={{
             duration: shouldReduceMotion ? 0 : motionDuration.slow,
             ease: motionEase.standard,
-            delay: shouldReduceMotion ? 0 : motionDuration.standard,
+            delay: shouldReduceMotion ? 0 : motionDelay.standard,
           }}
           className="flex-1 flex justify-center w-full h-full"
         >
           <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150">
-            <FluidOrb
-              aria-hidden="true"
-              className="absolute left-[8%] top-[14%] z-0"
-            />
+            {/* Mount the continuously animated canvas only when the loader is gone. */}
+            {isPageReady && (
+              <FluidOrb
+                aria-hidden="true"
+                className="absolute left-[8%] top-[14%] z-0"
+              />
+            )}
 
             {/* The lower portrait is cropped to the circle, clipping the shoulders. */}
             <Image 

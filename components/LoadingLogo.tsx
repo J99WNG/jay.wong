@@ -1,11 +1,26 @@
 'use client';
 
+import { useCallback, useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/motion';
 
+const MONOGRAM_LOOPS = 3;
+
 export default function LoadingLogo({ onComplete }: { onComplete?: () => void }) {
   const shouldReduceMotion = useReducedMotion();
-  // 1. Parent orchestration: Controls the left-to-right timing
+  const [loop, setLoop] = useState(1);
+
+  // Remounting the SVG replays the complete staggered sequence as one loop.
+  const finishLoop = useCallback(() => {
+    if (shouldReduceMotion || loop === MONOGRAM_LOOPS) {
+      onComplete?.();
+      return;
+    }
+
+    setLoop((currentLoop) => currentLoop + 1);
+  }, [loop, onComplete, shouldReduceMotion]);
+
+  // Parent orchestration controls the left-to-right timing.
   const containerVariants: Variants = {
     hidden: { opacity: shouldReduceMotion ? 1 : 0 },
     visible: {
@@ -17,18 +32,19 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
     },
   };
 
-  // 2. Individual shape fluid motion
+  // Each shape settles in, pauses briefly, then clears for the next loop.
   const pathVariants: Variants = {
     hidden: { 
       opacity: shouldReduceMotion ? 1 : 0,
       y: shouldReduceMotion ? 0 : 15,
     },
     visible: {
-      opacity: 1,
-      y: 0,
+      opacity: shouldReduceMotion ? 1 : [0, 1, 1, 0],
+      y: shouldReduceMotion ? 0 : [15, 0, 0, -8],
       transition: {
         duration: shouldReduceMotion ? 0 : motionDuration.slow,
         ease: motionEase.standard,
+        times: shouldReduceMotion ? undefined : [0, 0.2, 0.75, 1],
       },
     },
   };
@@ -37,15 +53,16 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
     // The wrapper covers the screen, centers the logo, and adds a subtle backdrop blur
     <div className="flex h-full w-full items-center justify-center bg-bg-primary backdrop-blur-sm">
       <motion.svg
+        key={loop}
         viewBox="0 0 945 426"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-32 h-auto fill-inverse-primary group" // w-32 equates to 128px width
+        className="h-auto w-32 fill-inverse-primary"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         aria-hidden="true"
       >
-        {/* Reordered paths from Left to Right to naturally follow the staggerChildren array */}
+        {/* Paths are ordered left-to-right to match the staggered reveal. */}
         
         {/* 1. Circle */}
         <motion.path 
@@ -65,7 +82,7 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
         {/* 4. Right Bar */}
         <motion.path
           variants={pathVariants}
-          onAnimationComplete={onComplete}
+          onAnimationComplete={finishLoop}
           d="M674.2 425.2H604.7L772.5 65.5C791.1 25.5 831.2 0 875.3 0H944.8L777 359.7C758.4 399.7 718.3 425.2 674.2 425.2Z"
         />
       </motion.svg>

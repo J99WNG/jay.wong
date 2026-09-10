@@ -85,16 +85,14 @@ export default function ThemeToggle() {
   const ThemeIcon = themeIcons[theme];
 
   return (
-    <div className="fixed bottom-5 right-5 z-(--layer-utility)">
-      <Button
-        variant="secondary"
-        className="min-h-10 min-w-10 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md"
-        onClick={cycleTheme}
-        aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
-        revealLabel={theme}
-      >
-        <ThemeIcon aria-hidden="true" size={16} />
-      </Button>
-    </div>
+    <Button
+      variant="secondary"
+      className="min-h-10 min-w-10 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md"
+      onClick={cycleTheme}
+      aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
+      revealLabel={theme}
+    >
+      <ThemeIcon aria-hidden="true" size={16} />
+    </Button>
   );
 }

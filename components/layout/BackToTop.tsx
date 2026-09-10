@@ -55,23 +55,19 @@ export default function BackToTop() {
   }, []);
 
   return (
-    <div
+    <Button
       id="backToTop"
-      className={`fixed right-5 bottom-18 z-(--layer-utility) pointer-events-none motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+      variant="primary"
+      className={`min-h-10 min-w-10 px-3 text-xs rounded-full shadow-md motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
         showBackToTop ? 'translate-y-0 opacity-100' : 'opacity-0'
-      }`}
+      } ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      revealLabel="Back to top"
+      aria-label="Back to the top of the page"
       aria-hidden={!showBackToTop}
+      tabIndex={showBackToTop ? undefined : -1}
+      onClick={handleBackToTop}
     >
-      <Button
-        variant="primary"
-        className={`min-h-10 min-w-10 px-3 text-xs rounded-full shadow-md ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        revealLabel="Back to top"
-        aria-label="Back to the top of the page"
-        tabIndex={showBackToTop ? undefined : -1}
-        onClick={handleBackToTop}
-      >
-        <ArrowUp aria-hidden="true" size={16} />
-      </Button>
-    </div>
+      <ArrowUp aria-hidden="true" size={16} />
+    </Button>
   );
 }

@@ -21,7 +21,7 @@ const strengths = [
     icon: Waypoints,
     title: "Make sense of the messy middle",
     text: "I connect research, product goals, and technical realities into a direction people can understand and act on.",
-    skills: ["Product management","Product strategy", "Journey mapping", "Information architecture"],
+    skills: ["Product management","Product strategy", "BPMN", "Information architecture"],
   },
   {
     icon: UsersRound,

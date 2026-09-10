@@ -407,7 +407,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <div className="content-block">
                                 <h3>Functional success criteria</h3>
 
-                                <ul>
+                                <ol>
                                     <li>
                                         Secure login and access to the daily task view achievable in under 10 seconds.
                                     </li>
@@ -423,7 +423,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     <li>
                                         At least 5 of the 7 Must and Should requirements delivered in the final product.
                                     </li>
-                                </ul>
+                                </ol>
                             </div>
                         </div>
 
@@ -451,12 +451,6 @@ export const metadata = createCaseStudyMetadata(project);
                             </p>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-ideation-1.png"
-                                    alt=""
-                                    caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
-                                />
-
                                 <h3>
                                     The modular dashboard
                                 </h3>
@@ -464,15 +458,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                     Rather than building a rigid, fixed-layout homepage, we designed the dashboard as a configurable surface. RMs could see today's tasks, upcoming reminders, and recently accessed clients at a glance. Every element was tappable and connected to a deeper view.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-ideation-1.png"
+                                    alt=""
+                                    caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-ideation-2.png"
-                                    alt=""
-                                    caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
-                                />
-
                                 <h3>
                                     Trending
                                 </h3>
@@ -480,15 +474,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                     We designed a live market data panel aggregating real-time stock movements and financial news, filtered by the regions and sectors relevant to each RM's portfolio. Keeping market intelligence inside the same app, rather than requiring RMs to switch to a news app or Bloomberg terminal, meant one less context switch in an already busy day.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-ideation-2.png"
+                                    alt=""
+                                    caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-ideation-3.png"
-                                    alt=""
-                                    caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
-                                />
-
                                 <h3>
                                     Recognition over recall in the Clients panel
                                 </h3>
@@ -496,6 +490,12 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                     One of the more deliberate design decisions was the card-based client grid. Rather than a list of names, each card showed the client's photo, nationality flag, occupation, and region. An RM managing dozens of clients across multiple continents should be able to find who they're looking for by face, not by scrolling through an alphabetical list. This directly applied Nielsen's principle of recognition over recall.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-ideation-3.png"
+                                    alt=""
+                                    caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
+                                />
                             </div>
                         </div>
                     </div>
@@ -521,12 +521,6 @@ export const metadata = createCaseStudyMetadata(project);
                             
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-1.png"
-                                    alt=""
-                                    caption="A straightforward login screen to welcome RMs into the app, no messing about."
-                                />
-
                                 <h3>
                                 2FA Login
                                 </h3>
@@ -534,15 +528,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 Two-step authentication combining username/password with biometric fingerprint recognition. For an institution managing client wealth at this scale, security had to be the first design decision, not an afterthought. The screen maintained Credit Suisse's visual identity, bold typeface, navy palette, from the first moment.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-1.png"
+                                    alt=""
+                                    caption="A straightforward login screen to welcome RMs into the app, no messing about."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-2.png"
-                                    alt=""
-                                    caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
-                                />
-
                                 <h3>
                                 Dashboard
                                 </h3>
@@ -550,15 +544,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 The homepage of the RM's working day. Today's tasks in a clean checklist. Reminders each linked to the relevant client. A Recent Clients widget for fast access. The whole screen was designed to be scanned in under 30 seconds, giving the RM everything they needed to orient their day before their first meeting.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-2.png"
+                                    alt=""
+                                    caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-3.png"
-                                    alt=""
-                                    caption="We iterated the clients list to be more informative at a glance."
-                                />
-
                                 <h3>
                                 Client List
                                 </h3>
@@ -566,15 +560,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 A searchable, sortable grid of all clients, filterable by region, occupation, and recency. Built around visual recognition. A busy RM on the way to a meeting shouldn't have to type a name to find it.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-3.png"
+                                    alt=""
+                                    caption="We iterated the clients list to be more informative at a glance."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-4.png"
-                                    alt=""
-                                    caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
-                                />
-
                                 <h3>
                                 Client Profile
                                 </h3>
@@ -582,15 +576,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 The deepest layer of the app, and the most important one. A single screen containing client key information, aims and objectives, reminders, market news filtered to that client's specific sectors and regions, portfolio breakdown, risk analysis, and full meeting history. Everything an RM needed to walk into a meeting prepared, without opening a second application.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-4.png"
+                                    alt=""
+                                    caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-5.png"
-                                    alt=""
-                                    caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
-                                />
-
                                 <h3>
                                 Trending
                                 </h3>
@@ -598,15 +592,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 Live market data across EMEA, AMER, and APAC with colour-coded performance indicators. Green for positive movement, red for negative. A curated financial news feed alongside it. Keeping RMs connected to what was moving in the markets their clients were exposed to.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-5.png"
+                                    alt=""
+                                    caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-6.png"
-                                    alt=""
-                                    caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
-                                />
-
                                 <h3>
                                 Notifications
                                 </h3>
@@ -614,15 +608,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 Abdul revealed that RMs were missing important reminders because they were buried in email threads or lost in the shuffle of a busy day. We built a notifications system that surfaced those reminders directly in the app, with push notifications for critical deadlines. Every reminder was linked to the relevant client profile, so an RM could jump straight to the information they needed to take action.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-6.png"
+                                    alt=""
+                                    caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
+                                />
                             </div>
 
                             <div className="content-block">
-                                <FigureModal
-                                    src="assets/images/cs-kyc/cs-solution-7.png"
-                                    alt=""
-                                    caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
-                                />
-
                                 <h3>
                                 Add tasks, reminders and notes
                                 </h3>
@@ -630,6 +624,12 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>
                                 A single entry point for creating tasks, reminders, and meeting notes. One form, one flow. Everything tagged back to the relevant client automatically.
                                 </p>
+
+                                <FigureModal
+                                    src="assets/images/cs-kyc/cs-solution-7.png"
+                                    alt=""
+                                    caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
+                                />
                             </div>
 
                             <blockquote className="notion-quote">
@@ -705,23 +705,21 @@ export const metadata = createCaseStudyMetadata(project);
                             The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the first Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
                             </p>
 
-                            <div className="content-block">
-                                <p>
-                                Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.
-                                </p>
+                            <p>
+                            Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.
+                            </p>
 
-                                <p>
-                                At the scale Credit Suisse operates, the time savings achievable from a tool like RM Suite are significant.
-                                </p>
+                            <p>
+                            At the scale Credit Suisse operates, the time savings achievable from a tool like RM Suite are significant.
+                            </p>
 
-                                <p>
-                                    <strong>With 1,140 Relationship Managers across 36 locations, even reducing context-switching by 20 to 30 minutes per person per day translates to tens of thousands of hours annually redirected toward the client relationships that drive revenue.</strong> We didn't have the access or the runway to measure that impact directly, but the foundation for it was there in the product we shipped.
-                                </p>
+                            <p>
+                                <strong>With 1,140 Relationship Managers across 36 locations, even reducing context-switching by 20 to 30 minutes per person per day translates to tens of thousands of hours annually redirected toward the client relationships that drive revenue.</strong> We didn't have the access or the runway to measure that impact directly, but the foundation for it was there in the product we shipped.
+                            </p>
 
-                                <p>
-                                The five delivered requirements covered the core user journeys. An RM could log in securely, review their day, access any client profile, view portfolio and meeting history, and stay current with market movements without leaving the app.
-                                </p>
-                            </div>
+                            <p>
+                            The five delivered requirements covered the core user journeys. An RM could log in securely, review their day, access any client profile, view portfolio and meeting history, and stay current with market movements without leaving the app.
+                            </p>
                         </div>
                     </div>
                 </Section>

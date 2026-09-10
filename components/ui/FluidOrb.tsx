@@ -213,7 +213,10 @@ const FluidOrb = ({
     const render = (now: number) => {
       gl.uniform1f(uTime, reduce ? 0 : (now - start) / 1000)
       gl.drawArrays(gl.TRIANGLES, 0, 6)
-      raf = requestAnimationFrame(render)
+
+      // Reduced-motion users get the same artwork as a still image without a
+      // hidden animation loop consuming resources.
+      if (!reduce) raf = requestAnimationFrame(render)
     }
     render(start)
 
