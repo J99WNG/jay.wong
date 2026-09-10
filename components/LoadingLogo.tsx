@@ -39,19 +39,19 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
       y: shouldReduceMotion ? 0 : 15,
     },
     visible: {
-      opacity: shouldReduceMotion ? 1 : [0, 1, 1, 0],
-      y: shouldReduceMotion ? 0 : [15, 0, 0, -8],
+      opacity: shouldReduceMotion ? 1 : [0, 0, 0, 1],
+      y: shouldReduceMotion ? 0 : [15, 0, 0, 0],
       transition: {
-        duration: shouldReduceMotion ? 0 : motionDuration.slow,
+        duration: shouldReduceMotion ? 0 : motionDuration.standard,
         ease: motionEase.standard,
-        times: shouldReduceMotion ? undefined : [0, 0.2, 0.75, 1],
+        times: shouldReduceMotion ? undefined : [0.1, 0.4, 0.75, 1],
       },
     },
   };
 
   return (
     // The wrapper covers the screen, centers the logo, and adds a subtle backdrop blur
-    <div className="flex h-full w-full items-center justify-center bg-bg-primary backdrop-blur-sm">
+    <div className="flex h-full w-full items-center justify-center bg-bg-primary">
       <motion.svg
         key={loop}
         viewBox="0 0 945 426"

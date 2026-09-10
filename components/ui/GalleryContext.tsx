@@ -256,7 +256,7 @@ function GalleryModal({
           Image {activeIndex + 1} of {total}: {current.alt}
         </p>
 
-        <figure className="m-0 grid min-h-full grid-rows-[minmax(0,1fr)_auto] items-center gap-4 overflow-hidden">
+        <figure className="m-0 grid min-h-full items-center gap-4 overflow-hidden">
           {/* Intrinsic sizing prevents portrait and unusually wide figures from
               inheriting a full-screen box while retaining optimized candidates. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -278,7 +278,7 @@ function GalleryModal({
           {current.caption && (
             <figcaption
               id={captionId}
-              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-base leading-7 tracking-tighter text-neutral-100"
+              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-base tracking-tighter text-neutral-100"
             >
               {current.caption}
             </figcaption>
@@ -288,7 +288,7 @@ function GalleryModal({
         {/* Figure Counter */}
         {total > 1 && (
           <div className="flex w-full shrink-0 flex-col items-center gap-2">
-            <p className="text-neutral-500 text-sm font-medium" aria-hidden="true">
+            <p className="text-neutral-500 text-sm font-pixel font-medium" aria-hidden="true">
               {activeIndex + 1} / {total}
             </p>
 

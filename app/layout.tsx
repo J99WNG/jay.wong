@@ -104,7 +104,7 @@ export default function RootLayout({ children }:
 
           {/* Global utilities share one position and stack independently of page navigation. */}
           <div
-            className="fixed right-5 bottom-5 z-(--layer-utility) flex flex-col items-end gap-3"
+            className="fixed right-4 bottom-4 z-(--layer-utility) flex flex-col items-end gap-3"
             role="group"
             aria-label="Page utilities"
           >

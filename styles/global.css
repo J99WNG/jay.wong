@@ -13,6 +13,8 @@
   --layer-header: 30;
   --layer-loader: 100;
 
+  --header-height: 4rem; /* Match your header CSS height */
+  
   /* --- PRIMITIVE TOKENS --- */
   --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
   --color-neutral-300: oklch(0.96 0.004 64);
@@ -108,21 +110,17 @@
 
   html, body {
     overflow-x: hidden; /* Prevent horizontal scroll on the root */
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-primary);
     width: 100%;
   }
 
   body {
     /* Clip sideways overflow while keeping sticky headings tied to the viewport. */
     overflow-x: clip;
-
-    @apply font-sans text-text-secondary/80;
-    
     font-optical-sizing: auto;
-    
-    /* -webkit-font-smoothing: antialiased; */
-    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility; 
+
+    @apply font-sans text-text-secondary/80 subpixel-antialiased;
   }
 
   h1, h2, h3, h4 {
@@ -138,11 +136,11 @@
   }
 
   h3 {
-    @apply text-[1.5rem] leading-[1.4] mb-1;
+    @apply text-2xl;
   }
 
   h4 {
-    @apply text-[1.125rem] leading-[1.4];
+    @apply text-lg;
   }
 
   /* Paragraphs */
@@ -192,34 +190,20 @@
   }
 
   .notion-quote {
-  margin-block: 0.75rem;
-
-  border-left: 3px solid var(--color-text-tertiary);
-  color: var(--color-text-tertiary);
-
-  padding: 0rem 1rem;
-  font-size: 1.25rem;
-  letter-spacing: -0.06rem;
-  line-height: 1.5;
+    @apply my-3 px-4 text-text-tertiary text-xl tracking-tighter border-l-3 border-text-tertiary;
   }
 
   .metadata {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: start;
-  width: stretch;
-  padding: 0;
-  gap: 0.5rem;
+    @apply flex flex-col gap-1;
   }
 
   ul, ol {
-    margin-block: 0;
-    padding-inline-start: 1.5rem;
+    @apply my-0 ps-6;
   }
 
   /* Links */
   a {
-    letter-spacing: -0.04rem;
+    @apply tracking-tight;
     color: var(--color-text-link);
     text-decoration: none;
     position: relative;
@@ -240,22 +224,15 @@
 
 /* ==================== Rounded divider ==================== */
 hr {
-  border: none;
-  border-top: 1px solid var(--color-border-muted);
-  border-radius: 999px;
-
+  @apply border-t border-border-muted rounded-full
 }
 
 figure {
-  margin-bottom: 0.5rem;
-  position: relative;
-  overflow: hidden;
+  @apply relative overflow-hidden my-2;
 }
 
 figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 
 figcaption,
@@ -269,16 +246,7 @@ caption {
 
 /* ==================== Card ==================== */
 .card {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-
-    background-color: var(--color-bg-secondary);
-    border-radius: 16px;
-    border: 1px solid var(--color-border-muted);
-
-    overflow: hidden;               /* keeps image corners rounded */
-    width: 100%;
+    @apply flex flex-col-reverse overflow-hidden w-full justify-center bg-bg-secondary border border-border-muted rounded-2xl;
 
     transition: border-color var(--motion-duration-standard) var(--motion-ease-standard),
                 box-shadow var(--motion-duration-standard) var(--motion-ease-standard),
@@ -288,8 +256,7 @@ caption {
 .card:hover,
 .card:active,
 .card:focus-within {
-  border: 1px solid var(--color-border-hover);
-  @apply shadow-md;
+  @apply hover:border-border-hover hover:shadow-md;
 }
 
 :root.dark .card:hover,
@@ -377,45 +344,29 @@ figure > button:focus-visible {
 /* Hover Effect */
 .custom-table tbody tr:hover,
 .custom-table tbody tr:active {
-  background-color: var(--color-bg-tertiary);
+  background-color: var(--color-bg-primary);
   cursor: default;
-}
-
-/* ==================== Grids & layouts ==================== */
-:root {
-  --header-height: 4rem; /* Match your header CSS height */
 }
     
 /* ==================== Section ==================== */
 
 .page-section {
   /* Section padding already keeps content clear of the fixed header. */
-  scroll-margin-top: 0;
+  @apply scroll-mt-0;
 }
 
 /* Primary vertical stack inside a section's content column. */
 .section-content {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  max-width: 100%;
+  @apply inline-flex flex-col gap-10 max-w-full;
 }
 
 /* Related heading, copy, list, or media grouped within section content. */
 .content-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  @apply flex flex-col gap-2
 }
 
 .section-heading {
-  position: static;
-  display: flex;
-  flex-direction: column;      /* mobile default */
-  align-self: flex-start;
-  height: max-content;
-  margin-bottom: 2rem;
-  @apply md:mb-0;
+  @apply static flex flex-col self-start h-max mb-8 md:mb-0;
 }
 
 /* ==================== Contact ==================== */

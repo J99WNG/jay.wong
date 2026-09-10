@@ -23,3 +23,16 @@ export const motionStagger = {
   characters: 0.02,
   items: 0.15,
 } as const;
+
+/* Shared rolling-slot motion used by the clock and rotating hero keyword. */
+export const tickerTransition = {
+  type: 'spring',
+  visualDuration: 0.55,
+  bounce: 0.18,
+} as const;
+
+export const tickerMask = `linear-gradient(to bottom,
+  transparent 0%,
+  black 24%,
+  black 76%,
+  transparent 100%)`;

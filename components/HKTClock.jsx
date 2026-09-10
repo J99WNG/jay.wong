@@ -2,17 +2,10 @@
 
 import { memo, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { tickerMask, tickerTransition } from '@/lib/motion';
 
 const TIME_ZONE = 'Asia/Hong_Kong';
 const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-// Softens the top and bottom edges so digits feel like they roll through a slot.
-// Move the black stops inward for more fade, or outward for a crisper crop.
-const MASK = `linear-gradient(to bottom,
-    transparent 0%,
-    black 24%,
-    black 76%,
-    transparent 100%)`;
 
 const formatter = new Intl.DateTimeFormat('en-US', {
     timeZone: TIME_ZONE,
@@ -41,14 +34,12 @@ function getHongKongTime() {
 const TickerDigit = memo(function TickerDigit({ value, reduceMotion }) {
     // These are the main motion-tuning controls: visualDuration sets perceived
     // speed, while bounce sets how playful or restrained the landing feels.
-    const transition = reduceMotion
-        ? { duration: 0 }
-        : { type: 'spring', visualDuration: 0.55, bounce: 0.18 };
+    const transition = reduceMotion ? { duration: 0 } : tickerTransition;
 
     return (
         <span
             className="relative inline-grid h-[1.5em] overflow-hidden leading-[1.5]"
-            style={{ maskImage: MASK, WebkitMaskImage: MASK }}
+            style={{ maskImage: tickerMask, WebkitMaskImage: tickerMask }}
         >
             {/* All ten invisible faces share one grid cell. Their widest face
                 defines a permanent slot width, so changing digits cannot reflow the clock. */}

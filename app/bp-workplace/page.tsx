@@ -172,7 +172,9 @@ export const metadata = createCaseStudyMetadata(project);
                                 <li>Poor visibility of request status.</li>
                                 <li>Regional inconsistencies that conflicted with bp’s global workplace operating model.</li>
                             </ul>
+                        </div>
 
+                        <div className="content-block">
                             <p>The challenge was clear:</p>
 
                             <blockquote className="notion-quote">
@@ -302,7 +304,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block">
                             <p>Core design problems include:</p>
 
-                            <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
+                            <div className="grid place-items-start justify-start md:place-items-stretch gap-4 grid-cols-1 md:grid-cols-2">
                                 <div className="card">
                                     <div className="flex justify-start w-full gap-2 px-6 py-5">
                                         <Compass aria-hidden="true" size={32} className="text-accent-primary" />
@@ -370,7 +372,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <h3>Business goals</h3>
 
                             <ol>
-                                <li>Reduce reliance on Microsoft SharePoint.</li>
+                                <li>Reduce reliance on Microsoft SharePoint to lower licensing and cloud storage costs.</li>
                                 <li>Consolidate workplace services under one platform.</li>
                                 <li>Align digital workplace experience with the physical office journey.</li>
                             </ol>
@@ -463,12 +465,6 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-content">
 
                         <div className="content-block">
-                            <FigureModal
-                                src="assets/images/bp-workplace/ow-solution-1.png"
-                                alt=""
-                                caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
-                            />
-
                             <h3>
                                 Action-orientated, focused navigation
                             </h3>
@@ -496,15 +492,15 @@ export const metadata = createCaseStudyMetadata(project);
                             <blockquote className="notion-quote">
                                 Pairing this with the <a href="https://lawsofux.com/" target="_blank">laws of UX</a>, we reduced cognitive load and aligned navigation with real-world tasks.
                             </blockquote>
+
+                            <FigureModal
+                                src="assets/images/bp-workplace/ow-solution-1.png"
+                                alt=""
+                                caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
+                            />
                         </div>
 
                         <div className="content-block">
-                            <FigureModal
-                                src="assets/images/bp-workplace/ow-solution-2.png"
-                                alt=""
-                                caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
-                            />
-
                             <h3>
                                 Global framework with regional adaptability
                             </h3>
@@ -519,15 +515,15 @@ export const metadata = createCaseStudyMetadata(project);
                                 <li>Reduced duplication in content governance</li>
                                 <li>Integrated seamlessly within the ServiceNow out-of-the-box (OOTB) experience to avoid costly customisation.</li>
                             </ul>
+
+                            <FigureModal
+                                src="assets/images/bp-workplace/ow-solution-2.png"
+                                alt=""
+                                caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
+                            />
                         </div>
 
                         <div className="content-block">
-                            <FigureModal
-                                src="assets/images/bp-workplace/ow-solution-3.png"
-                                alt=""
-                                caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
-                            />
-
                             <h3>
                                 Platform consolidation
                             </h3>
@@ -535,6 +531,12 @@ export const metadata = createCaseStudyMetadata(project);
                             <p>
                                 Migrated workplace services from SharePoint to ServiceNow, removing dual ownership and simplifying maintenance workflows.
                             </p>
+
+                            <FigureModal
+                                src="assets/images/bp-workplace/ow-solution-3.png"
+                                alt=""
+                                caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
+                            />
                         </div>
 
                         <blockquote className="notion-quote">

@@ -6,7 +6,13 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import FluidOrb from "../ui/FluidOrb";
 import { heroContent } from "@/app/data/heroContent";
-import { motionDelay, motionDuration, motionEase, motionStagger } from "@/lib/motion";
+import {
+  motionDelay,
+  motionDuration,
+  motionEase,
+  motionStagger,
+  tickerTransition,
+} from "@/lib/motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { usePageReady } from "../InitialLoader";
 
@@ -108,20 +114,31 @@ export default function Hero() {
               {shouldReduceMotion ? (
                 <span>design, research, collaboration, systems thinking and mentorship.</span>
               ) : (
-                /* CSS Grid trick ensures entering and exiting text occupy the exact same space to prevent layout shifting */
-                <span className="inline-grid min-w-[200px]"> 
-                  <AnimatePresence mode="popLayout">
+                /* Match the clock: invisible words reserve one stable slot while
+                   animated words roll through an absolutely positioned layer. */
+                <span
+                  className="relative inline-grid h-[1.2em] overflow-hidden leading-[1.2] text-accent-primary font-pixel tracking-tight"
+                >
+                  {heroContent.keywords.map((keyword) => (
+                    <span
+                      key={keyword}
+                      aria-hidden="true"
+                      className="invisible whitespace-nowrap [grid-area:1/1]"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+
+                  <AnimatePresence initial={false}>
                     <motion.span
                       key={keywordIndex}
-                      initial={false}
-                      animate={isPageReady
-                        ? { opacity: 1, y: 0 }
-                        : { opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: motionDuration.standard, ease: motionEase.inOut }}
-                      className="col-start-1 row-start-1 text-accent-primary font-pixel tracking-tight" // Optional: Add a text color here to make it pop!
+                      className="absolute inset-0 flex items-center justify-center whitespace-nowrap md:justify-start"
+                      initial={{ y: '100%', opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: '-100%', opacity: 0 }}
+                      transition={tickerTransition}
                     >
-                    {heroContent.keywords[keywordIndex]}
+                      {heroContent.keywords[keywordIndex]}
                     </motion.span>
                   </AnimatePresence>
                 </span>
