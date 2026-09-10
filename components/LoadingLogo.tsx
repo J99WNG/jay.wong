@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/motion';
 
-const MONOGRAM_LOOPS = 3;
+const MONOGRAM_LOOPS = 1;
 
 export default function LoadingLogo({ onComplete }: { onComplete?: () => void }) {
   const shouldReduceMotion = useReducedMotion();
@@ -42,7 +42,7 @@ export default function LoadingLogo({ onComplete }: { onComplete?: () => void })
       opacity: shouldReduceMotion ? 1 : [0, 0, 0, 1],
       y: shouldReduceMotion ? 0 : [15, 0, 0, 0],
       transition: {
-        duration: shouldReduceMotion ? 0 : motionDuration.standard,
+        duration: shouldReduceMotion ? 0 : motionDuration.slow,
         ease: motionEase.standard,
         times: shouldReduceMotion ? undefined : [0.1, 0.4, 0.75, 1],
       },
