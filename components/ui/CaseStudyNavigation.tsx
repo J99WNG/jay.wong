@@ -183,11 +183,12 @@ export default function CaseStudyNavigation() {
       className="fixed bottom-4 left-1/2 z-(--layer-page-navigation) max-w-fit -translate-x-1/2"
       aria-label="On this page"
     >
+      {/* Background behaviour rest + active state */}
       <motion.div
         layout
         className={clsx(
-          'border border-border-base bg-linear-to-br from-bg-primary/80 via-bg-secondary/85 to-bg-secondary/90 shadow-lg backdrop-blur-md',
-          open ? 'w-60 max-w-[calc(100vw-8rem)] rounded-3xl p-3' : 'w-auto rounded-full p-1',
+          'border border-border-base bg-bg-secondary/80 shadow-lg backdrop-blur-md',
+          open ? 'w-60 max-w-[calc(100vw-8rem)] rounded-3xl p-3' : 'w-auto rounded-2xl p-1',
         )}
         transition={reduceMotion ? { duration: 0 } : TRAY_SPRING}
       >
@@ -205,10 +206,13 @@ export default function CaseStudyNavigation() {
               <div className="flex min-h-10 items-center justify-between gap-3">
                 <div className="flex min-w-0 items-center gap-2">
                   <ProgressIndicator progress={displayedProgress} />
+
                   <p className="truncate font-pixel text-xs uppercase leading-none tracking-[0.04em] text-text-secondary">
                     On this page
                   </p>
                 </div>
+
+                {/* X Close Button */}
                 <button
                   ref={closeButtonRef}
                   type="button"
@@ -237,6 +241,8 @@ export default function CaseStudyNavigation() {
                         : { ...LAYER_TRANSITION, delay: 0.075 + index * 0.025 }
                     }
                   >
+
+                    {/* List item */}
                     <a
                       className={clsx(
                         'flex min-h-10 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px]',
@@ -259,7 +265,7 @@ export default function CaseStudyNavigation() {
               ref={triggerRef}
               key="trigger"
               type="button"
-              className="flex h-fit max-w-full cursor-pointer items-center gap-2 rounded-full py-1 pr-2 pl-1 text-left text-text-primary motion-safe:transition-[background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary active:scale-[0.97] focus-visible:bg-bg-tertiary"
+              className="flex h-fit max-w-full cursor-pointer items-center gap-2 rounded-xl py-1 pr-2 pl-1 text-left text-text-primary motion-safe:transition-[background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary active:scale-[0.97] focus-visible:bg-bg-tertiary"
               onClick={() => setOpen(true)}
               aria-expanded="false"
               aria-controls="case-study-sections"

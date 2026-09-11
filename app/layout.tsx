@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import '@/styles/global.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import BackToTop from "@/components/layout/BackToTop";
+import BackToTop from "@/components/ui/BackToTop";
 import InitialLoader from '@/components/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import { siteMetadata } from '@/app/data/siteMetadata';

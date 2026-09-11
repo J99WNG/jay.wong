@@ -177,7 +177,7 @@ export default function Header() {
                             {/* The content fades and de-focuses while the tray changes height;
                                 both directions use the same standard motion timing. */}
                             <div className="mobile-nav-content flex flex-col sm:gap-2 gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
-                                <ul className="flex list-none flex-col items-stretch justify-center gap-3 p-0 text-2xl font-light text-neutral-100 sm:mx-auto sm:my-0 sm:flex-row sm:items-center sm:text-base">
+                                <ul className="flex list-none flex-col items-center justify-center gap-3 p-0 text-2xl font-light text-neutral-100 sm:mx-auto sm:my-0 sm:flex-row sm:text-base">
                                     <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>

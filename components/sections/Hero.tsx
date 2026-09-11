@@ -147,7 +147,7 @@ export default function Hero() {
           </motion.h1>
 
           {/* Accessible Tagline Typewriter Block */}
-          <div className="m-0 relative text-text-tertiary/90">
+          <div className="m-0 relative">
             <span className="sr-only">{heroContent.tagline}</span>
 
             <motion.p
@@ -155,7 +155,7 @@ export default function Hero() {
               initial="initial"
               animate={isPageReady ? "animate" : "initial"}
               variants={typewriterContainer}
-              className="inline-block text-[clamp(1.25rem,4vw,1.5rem)] tracking-tight leading-9 m-0"
+              className="inline-block text-[clamp(1.25rem,4vw,1.5rem)] text-text-tertiary/90 tracking-tight leading-8 m-0"
             >
               {taglineChars.map((char, index) => (
                 <motion.span 

@@ -48,14 +48,14 @@ export default function Button(props: ButtonProps) {
   } = props;
 
   // 1. Your Base Styles
-  const baseStyles = "group inline-flex w-fit h-auto px-6 py-2 items-center justify-center cursor-pointer no-underline overflow-hidden leading-none text-center text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl motion-safe:transition-[scale,color,background-color,border-color,box-shadow,padding] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
+  const baseStyles = "group inline-flex w-auto h-auto px-6 py-2 items-center justify-center cursor-pointer no-underline overflow-hidden leading-none text-center text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl motion-safe:transition-[scale,color,background-color,border-color,box-shadow,padding] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
 
   // 2. Your Variants
   const variants = {
     primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary",
     secondary: "text-text-secondary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-transparent",
     tertiary: "text-text-primary hover:text-text-on-accent bg-transparent hover:bg-accent-interactive border border-border-base hover:border-accent-interactive",
-    nav: "text-text-secondary hover:text-text-primary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-border-hover w-auto py-1 mx-2 sm:m-0 rounded-2xl text-[1.5rem] sm:text-base sm:rounded-xl sm:shrink-0",
+    nav: "text-text-secondary hover:text-text-primary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-border-hover sm:py-1 mx-2 sm:m-0 rounded-2xl sm:rounded-xl text-[1.5rem] sm:text-base sm:shrink-0",
   };
 
   const combinedClasses = cn(

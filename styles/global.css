@@ -256,7 +256,7 @@ caption {
 .card:hover,
 .card:active,
 .card:focus-within {
-  @apply hover:border-border-hover hover:shadow-md;
+  @apply hover:border-border-hover hover:shadow-lg ;
 }
 
 :root.dark .card:hover,
