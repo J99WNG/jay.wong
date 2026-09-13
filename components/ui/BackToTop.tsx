@@ -58,7 +58,7 @@ export default function BackToTop() {
     <Button
       id="backToTop"
       variant="primary"
-      className={`min-h-10 min-w-10 px-3 text-xs rounded-full shadow-md motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+      className={`min-h-11 min-w-11 px-3 text-xs rounded-full shadow-md motion-safe:transition-[opacity,transform] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
         showBackToTop ? 'translate-y-0 opacity-100' : 'opacity-0'
       } ${showBackToTop ? 'pointer-events-auto' : 'pointer-events-none'}`}
       revealLabel="Back to top"

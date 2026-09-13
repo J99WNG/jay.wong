@@ -73,7 +73,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
   return (
     <div
       ref={host}
-      className={`relative w-full overflow-hidden rounded-xl bg-[var(--mg-neutral-900)] ${compact ? 'h-full min-h-[180px]' : ''} ${className}`}
+      className={`relative w-full overflow-hidden rounded-xl bg-[var(--mg-rive-surface-bg)] ${compact ? 'h-full min-h-[180px]' : ''} ${className}`}
     >
       <div
         className={`w-full p-6 ${compact ? 'h-full min-h-[180px]' : 'h-[300px]'}`}
@@ -82,7 +82,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
       >
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           {failed ? (
-            <p className="grid h-full place-items-center text-center text-[var(--mg-neutral-50)]">
+            <p className="grid h-full place-items-center text-center text-[var(--mg-rive-content)]">
               This animation couldn&apos;t load.
             </p>
           ) : (
@@ -92,7 +92,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
       </div>
       <button
         type="button"
-        className="absolute right-3 bottom-3 z-[2] grid size-11 cursor-pointer place-items-center rounded-full border border-[var(--mg-rive-control-border)] bg-[var(--mg-rive-control-bg)] text-[var(--mg-neutral-50)] backdrop-blur-lg transition-[background-color,transform] duration-[var(--motion-duration-fast)] ease-[var(--motion-ease-standard)] hover:bg-[var(--mg-primary-800)] active:scale-[.96] focus-visible:outline-[3px] focus-visible:outline-offset-3 focus-visible:outline-[var(--mg-primary-300)] disabled:cursor-wait disabled:opacity-[.55] motion-reduce:transition-none"
+        className="absolute right-3 bottom-3 z-[2] grid size-11 cursor-pointer place-items-center rounded-full border border-[var(--mg-rive-control-border)] bg-[var(--mg-rive-control-bg)] text-[var(--mg-rive-content)] backdrop-blur-lg transition-[background-color,transform] duration-[var(--motion-duration-fast)] ease-[var(--motion-ease-standard)] hover:bg-[var(--mg-rive-control-bg-hover)] active:scale-[.96] focus-visible:outline-[3px] focus-visible:outline-offset-3 focus-visible:outline-[var(--mg-rive-focus)] disabled:cursor-wait disabled:opacity-[.55] motion-reduce:transition-none"
         disabled={!rive || failed || reducedMotion}
         aria-label={reducedMotion ? `${label} disabled by reduced-motion preference` : playing ? `Pause ${label}` : `Play ${label}`}
         aria-pressed={playing}

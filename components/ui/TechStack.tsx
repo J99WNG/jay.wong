@@ -17,7 +17,7 @@ const tools = [
   { name: "ServiceNow", category: "Enterprise", icon: "/assets/tools/servicenow.svg" },
 ] as const;
 
-export default function ToolsGrid() {
+export default function TechStack() {
   return (
     <ul
       className="grid grid-cols-2 gap-x-4 gap-y-3 list-none p-0 sm:grid-cols-3"

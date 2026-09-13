@@ -105,10 +105,10 @@ export default function Clock() {
     const readableTime = `${display.digits} ${display.dayPeriod}`;
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="inline-flex items-center gap-2 bg-bg-tertiary rounded-full px-3 py-0.5">
             {/* Presence indicator: a static green core with a pulsing outer ring. */}
             <span className="relative flex size-2" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-green-900)] opacity-75 motion-safe:animate-ping" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-green-100)] motion-safe:animate-ping" />
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]" />
             </span>
 

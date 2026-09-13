@@ -187,8 +187,6 @@ export default function Header() {
                                     variant="nav"
                                     href="/#contact"
                                     onClick={(event: MouseEvent<HTMLElement>) => handleTargetClick(event, 'contact')}
-                                    suffixIcon={<ContactRound size={16} />}
-                                    revealIcon
                                 >
                                     Contact
                                 </Button>

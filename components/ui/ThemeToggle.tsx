@@ -87,7 +87,7 @@ export default function ThemeToggle() {
   return (
     <Button
       variant="secondary"
-      className="min-h-10 min-w-10 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md"
+      className="min-h-11 min-w-11 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md"
       onClick={cycleTheme}
       aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
       revealLabel={theme}

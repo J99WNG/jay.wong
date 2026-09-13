@@ -48,7 +48,7 @@ export default function Button(props: ButtonProps) {
   } = props;
 
   // 1. Your Base Styles
-  const baseStyles = "group inline-flex w-auto h-auto px-6 py-2 items-center justify-center cursor-pointer no-underline overflow-hidden leading-none text-center text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl motion-safe:transition-[scale,color,background-color,border-color,box-shadow,padding] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
+  const baseStyles = "group inline-flex w-auto h-auto px-6 py-2 items-center justify-center cursor-pointer no-underline overflow-hidden leading-none text-center text-inherit text-[clamp(14px,4vw,16px)] tracking-tighter rounded-2xl [&>svg]:shrink-0 motion-safe:transition-[scale,color,background-color,border-color,box-shadow,padding] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:active:scale-96 motion-safe:focus-visible:scale-96 motion-safe:hover:scale-96";
 
   // 2. Your Variants
   const variants = {

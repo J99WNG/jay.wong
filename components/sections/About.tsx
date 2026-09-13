@@ -3,9 +3,9 @@
 import Section from "../Section";
 import ImageDeck from "../ui/ImageDeck";
 import StrengthsTimeline from "../ui/StrengthsTimeline";
-import ToolsGrid from "../ui/ToolsGrid";
+import TechStack from "../ui/TechStack";
 
-export default function AboutDraft() {
+export default function About() {
   return (
     <Section id="about">
       <div className="section-grid">
@@ -42,11 +42,13 @@ export default function AboutDraft() {
             <StrengthsTimeline />
 
             <div className="content-block">
-              <h3>Tools I work with</h3>
+              <h3>Teck stack</h3>
               <p>A practical mix for designing, aligning, building, and shipping.</p>
+
+              <TechStack />
             </div>
 
-            <ToolsGrid />
+
         </div>
       </div>
     </Section>

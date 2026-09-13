@@ -17,9 +17,9 @@
   
   /* --- PRIMITIVE TOKENS --- */
   --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
-  --color-neutral-300: oklch(0.96 0.004 64);
-  --color-neutral-500: oklch(0.92 0.010 64);
-  --color-neutral-700: oklch(0.88 0.016 64);
+  --color-neutral-300: oklch(0.96 0.004 64); /* #F4F1EF */
+  --color-neutral-500: oklch(0.92 0.010 64); /* #e9e3de */
+  --color-neutral-700: oklch(0.88 0.016 64); /* #dfd5cd */
   --color-neutral-900: oklch(0.84 0.020 64); /* #D4C8BD */
 
   --color-steep-100: oklch(0.33 0.008 56); /* #393431 */
@@ -109,9 +109,7 @@
   }
 
   html, body {
-    overflow-x: hidden; /* Prevent horizontal scroll on the root */
-    background-color: var(--color-bg-primary);
-    width: 100%;
+    @apply overflow-x-hidden /* Prevent horizontal scroll on the root */ bg-bg-secondary w-full;
   }
 
   body {
@@ -180,6 +178,23 @@
   }
 
   /* Misc */
+  code {
+    @apply rounded-md border border-border-muted bg-bg-tertiary px-1.5 py-0.5 font-mono text-[0.875em] font-medium leading-normal text-text-primary;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    overflow-wrap: anywhere;
+  }
+
+  /* A preformatted code block owns its surrounding surface and spacing. */
+  pre code {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
   strong {
   font-weight: 600;
   }

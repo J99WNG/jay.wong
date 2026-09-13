@@ -3,8 +3,8 @@ import { GalleryProvider } from '@/components/ui/GalleryContext';
 import { CaseStudyLanding } from '@/components/sections/CaseStudyLanding';
 import { caseStudies } from '@/app/data/caseStudies';
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
-import MathsGenieShowcase from './MathsGenieShowcase';
-import styles from './MathsGenieShowcase.module.css';
+import { BrandLanguageFigure, SelectedWorkDemos, TokenArchitectureFigure } from './components';
+import styles from './mathsgenie.module.css';
 import localFont from 'next/font/local';
 
 const geom = localFont({
@@ -69,21 +69,17 @@ export default function Page() {
               <div className="content-block">
                 <p className="small">Impact</p>
 
-                <div className="flex flex-col gap-3">
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div className="card">
-                      <div className="flex justify-center w-full gap-2 px-6 py-5">
-                        <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
-                      </div>
-                    </div>
-                    <div className="card">
-                      <div className="flex justify-center w-full gap-2 px-6 py-5">
-                        <p><span className="emphasis">40,000+</span><br />Daily messages handled by the AI tutoring feature.</p>
-                      </div>
-                    </div>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div className="card flex justify-center w-full gap-2 p-5">
+                    <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
                   </div>
-                  <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
+
+                  <div className="card flex justify-center w-full gap-2 p-5">
+                    <p><span className="emphasis">40,000+</span><br />Daily messages handled by the AI tutoring feature.</p>
+                  </div>
                 </div>
+
+                <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -102,13 +98,77 @@ export default function Page() {
 
         <div className="page-container"><hr className="divider" /></div>
 
+        <Section id="design-language">
+          <div className="section-grid">
+            <div className="section-heading">
+              <h2>One design language<br /><span className="font-normal text-text-tertiary">Three products, one family.</span></h2>
+            </div>
+            <div className="section-content min-w-0">
+              <div className="content-block">
+                <h3>Shared character without flattening the brands</h3>
+                <p>I brought MathsGenie into the same product family as RevisionDojo and OnePrep while leaving room for each platform&apos;s curriculum, audience and mascot to feel distinct. The shared language came from a small set of recognisable principles:</p>
+                <ul>
+                  <li>Expressive mascots that reassure, celebrate progress and make feedback feel less mechanical.</li>
+                  <li>Simple geometric forms and rounded components that make dense learning tools easier to approach.</li>
+                  <li>Gamification tied to useful habits: returning, practising, reflecting and completing the next step.</li>
+                  <li>Springy micro-interactions that acknowledge input quickly without slowing down study.</li>
+                </ul>
+              </div>
+
+              <BrandLanguageFigure />
+
+              <div className="content-block">
+                <h3>Figma and production as one system</h3>
+                <p>The library only worked if design and code described the same thing. I aligned Figma variants with component props, interaction states and Tailwind-facing semantic tokens so teams could trace a decision from a design frame to its production implementation.</p>
+                <ul>
+                  <li>One shared Figma library held foundations, components and product patterns.</li>
+                  <li>Variant names matched mode, hierarchy, size and state in code.</li>
+                  <li>Motion references described timing, easing and state changes for engineering.</li>
+                  <li>Platform accents and mascot behavior stayed local while component anatomy remained shared.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <div className="page-container"><hr className="divider" /></div>
+
+        <Section id="token-architecture">
+          <div className="section-grid">
+            <div className="section-heading">
+              <h2>Token architecture<br /><span className="font-normal text-text-tertiary">Name the role, then choose the value.</span></h2>
+            </div>
+            <div className="section-content min-w-0">
+              <div className="content-block">
+                <h3>Stable roles across themes and products</h3>
+                <p>I separated raw palette values from the jobs they perform. Primitive OKLCH tokens describe colour; semantic tokens describe purpose. A component asks for <code>action.primary.background</code> or <code>border.validation.negative</code>, rather than depending on a particular blue or red.</p>
+                <ul>
+                  <li>Primitive scales provide predictable lightness and chroma in OKLCH.</li>
+                  <li>Semantic roles cover surfaces, text, borders, actions, feedback and validation.</li>
+                  <li>Primary through quaternary actions create a clear hierarchy without one-off styling.</li>
+                  <li>Rest, hover, focus, active, invalid and disabled states are designed as part of each component.</li>
+                </ul>
+              </div>
+
+              <TokenArchitectureFigure />
+
+              <div className="content-block">
+                <h3>Atomic structure and engineering handoff</h3>
+                <p>Atomic design kept the system legible as it grew: foundations feed tokens, tokens style components, and components combine into patterns such as revision cards, navigation and feedback flows. I recorded naming, state behavior, accessibility requirements and Figma-to-code mappings in <code>DESIGN.md</code>, giving engineering a reference that could be reviewed alongside production changes.</p>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <div className="page-container"><hr className="divider" /></div>
+
         <Section id="selected-work">
           <div className="section-grid">
             <div className="section-heading">
               <h2>Selected work<br /><span className="font-normal text-text-tertiary">Personality, made reusable.</span></h2>
             </div>
             <div className="section-content min-w-0">
-              <MathsGenieShowcase />
+              <SelectedWorkDemos />
             </div>
           </div>
         </Section>
