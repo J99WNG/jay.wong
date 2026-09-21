@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { ContactRound, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
 
 const HOME_PATH = '/';

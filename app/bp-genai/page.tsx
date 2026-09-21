@@ -5,6 +5,7 @@ import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
+import StreamingText from '@/components/ui/StreamingText';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
@@ -147,7 +148,7 @@ export default function Page() {
 
                 <div className="section-content">
 
-                    <p className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</p>
+                    <StreamingText className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</StreamingText>
 
                     <div className="content-block">
                     <h3>
@@ -188,7 +189,7 @@ export default function Page() {
 
                 <div className="section-content">
                     <div className="content-block">
-                    <p className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests and basic “how-to” questions.</p>
+                    <StreamingText className="lead">bp’s internal IT service desk was under sustained pressure from a high volume of repetitive, low-complexity queries — think password resets, access requests and basic “how-to” questions.</StreamingText>
                     
                     <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
                     </div>
@@ -237,7 +238,7 @@ export default function Page() {
                     </div>
 
                     <div className="section-content">
-                        <p className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></p>
+                        <StreamingText className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></StreamingText>
 
                         <div className="content-block">
                             <h3>Quantitative analysis (ServiceNow analytics)</h3>
@@ -371,7 +372,7 @@ export default function Page() {
                 </div>
 
                 <div className="section-content">
-                    <p className="lead">Bringing together user, agent and business needs, we defined the core problem as:</p>
+                    <StreamingText className="lead">Bringing together user, agent and business needs, we defined the core problem as:</StreamingText>
 
                     <blockquote className="notion-quote">
                     Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
@@ -409,7 +410,7 @@ export default function Page() {
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</p>
+                            <StreamingText className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</StreamingText>
 
                             <FigureModal
                                 src="/assets/images/bp-genai/bp-shift-left-diagram.png"
@@ -471,7 +472,7 @@ export default function Page() {
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">We explored a wide range of ideas, including:</p>
+                            <StreamingText className="lead">We explored a wide range of ideas, including:</StreamingText>
 
                             <ul>
                                 <li>
@@ -493,9 +494,9 @@ export default function Page() {
                         </div>
 
                         <div className="content-block">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 However, given time, budget and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented existing workflows, not replace.
-                            </p>
+                            </StreamingText>
 
                             <FigureModal
                                 src="/assets/images/bp-genai/bp-ideation-1.png"
@@ -687,9 +688,9 @@ export default function Page() {
                 </div>
 
                 <div className="section-content">
-                    <p className="lead">
+                    <StreamingText className="lead">
                     We tested a high-fidelity Figma prototype mapped closely to ServiceNow capabilities and using the following methods:
-                    </p>
+                    </StreamingText>
 
                     <div className="content-block">
                     <h3>Usability study</h3>
@@ -817,9 +818,9 @@ export default function Page() {
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 Within six months of launch:
-                            </p>
+                            </StreamingText>
 
                             <ul>
                                 <li>

@@ -2,6 +2,7 @@ import Section from "../Section";
 import CopyEmail from '@/components/ui/CopyEmail';
 import Link from "next/link";
 import { ArrowUpRight, Linkedin, Video } from 'lucide-react';
+import StreamingText from '@/components/ui/StreamingText';
 
 export default function Contact() {
     return (
@@ -17,9 +18,9 @@ export default function Contact() {
 
                 <div className="section-content">
 
-                    <p className="lead">
+                    <StreamingText className="lead">
                         Think we could build something exciting? I'm always open to interesting problems, thoughtful conversations and opportunities to build something meaningful.
-                    </p>
+                    </StreamingText>
 
                     <ul className="flex shrink list-none flex-col gap-6 p-0">
                         {/* Email */}

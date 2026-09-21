@@ -3,6 +3,7 @@ import Image from "next/image";
 const tools = [
   { name: "Figma", category: "Design", icon: "/assets/tools/figma.svg" },
   { name: "Sketch", category: "Design", icon: "/assets/tools/sketch.svg" },
+  { name: "Adobe CC", category: "Design", icon: "/assets/tools/adobe.svg" },
   { name: "Storybook", category: "Systems", icon: "/assets/tools/storybook.svg" },
   { name: "Zeplin", category: "Handoff", icon: "/assets/tools/zeplin.svg" },
   { name: "Claude", category: "AI", icon: "/assets/tools/claude.svg" },

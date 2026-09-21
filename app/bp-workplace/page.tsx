@@ -6,6 +6,7 @@ import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import { BookOpenText, Compass, MapPin, Workflow } from 'lucide-react';
+import StreamingText from '@/components/ui/StreamingText';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
@@ -118,7 +119,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</p>
+                            <StreamingText className="lead">As the sole Product Designer embedded within the delivery squad, I was responsible for:</StreamingText>
 
                             <ul>
                                 <li>Leading 6-weeks of discovery across UK, US, India and the Caribbean.</li>
@@ -131,7 +132,7 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
                         
                         <div className="content-block">
-                            <p className="lead">Strategically, I focused on:</p>
+                            <StreamingText className="lead">Strategically, I focused on:</StreamingText>
 
                             <ul>
                                 <li>Simplification over feature expansion.</li>
@@ -160,7 +161,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</p>
+                            <StreamingText className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</StreamingText>
                         </div>
                         
                         <div className="content-block">
@@ -201,7 +202,7 @@ export const metadata = createCaseStudyMetadata(project);
                     </div>
 
                     <div className="section-content">
-                        <p className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</p>
+                        <StreamingText className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</StreamingText>
 
                         <blockquote className="notion-quote">
                             This wasn’t just a UX issue. It was an operating model issue.
@@ -287,7 +288,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">I reframed the challenge from:</p>
+                            <StreamingText className="lead">I reframed the challenge from:</StreamingText>
 
                             <blockquote className="notion-quote">
                                 “Improve digital workplace services through an employee portal”
@@ -396,7 +397,7 @@ export const metadata = createCaseStudyMetadata(project);
                     </div>
 
                     <div className="section-content">
-                        <p className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</p>
+                        <StreamingText className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</StreamingText>
 
                         <div className="content-block">
                             <p>Stakeholders were clear:</p>
@@ -407,9 +408,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="content-block">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 Our challenge was designing a simplified, scalable framework that could:
-                            </p>
+                            </StreamingText>
 
                             <ul>
                                 <li>Be rolled out in phases to minimise technical debt.</li>
@@ -419,7 +420,7 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="content-block">
-                            <p className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</p>
+                            <StreamingText className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</StreamingText>
 
                             <FigureModal
                                 src="/assets/images/bp-workplace/ow-ideation-1.png"
@@ -563,9 +564,9 @@ export const metadata = createCaseStudyMetadata(project);
 
                     <div className="section-content">
                         <div className="content-block">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 We validated through:
-                            </p>
+                            </StreamingText>
 
                             <ul>
                                 <li>Task-based usability testing.</li>
@@ -691,19 +692,19 @@ export const metadata = createCaseStudyMetadata(project);
 
                             <div className="flex flex-col gap-6">
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Simplicity is strategic</p>
+                                    <StreamingText className="lead">Simplicity is strategic</StreamingText>
                     
                                     <p className="card-text">At enterprise scale, simplification of interactions and experiences delivers more value than adding functionality.</p>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Phased transformation drives adoption</p>
+                                    <StreamingText className="lead">Phased transformation drives adoption</StreamingText>
                     
                                     <p className="card-text">Rather than positioning this as a “big bang” redesign, a phased rollout reduced risk, built confidence and allowed regional onboarding to happen sustainably.</p>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Influence matters as much as interface</p>
+                                    <StreamingText className="lead">Influence matters as much as interface</StreamingText>
                     
                                     <p className="card-text">Driving cross-regional alignment and securing senior approval required facilitation, negotiation and reframing the problem in business language — not just producing strong design artefacts.</p>
                                 </div>
@@ -715,19 +716,19 @@ export const metadata = createCaseStudyMetadata(project);
 
                             <div className="flex flex-col gap-6">
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Governance and restructuring disrupted sprint timelines</p>
+                                    <StreamingText className="lead">Governance and restructuring disrupted sprint timelines</StreamingText>
                     
                                     <p className="card-text">Mid-project restructuring required rebuilding parts of the solution. It reinforced the importance of documentation, design systems and resilient ways of working at enterprise scale.</p>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Context emerges continuously in complex organisations</p>
+                                    <StreamingText className="lead">Context emerges continuously in complex organisations</StreamingText>
                     
                                     <p className="card-text">Despite structured discovery, critical operational nuances surfaced throughout the project. This highlighted that enterprise discovery is not a phase, it’s ongoing. We adapted our design and rollout strategy accordingly.</p>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <p className="lead">Standardisation vs autonomy tension</p>
+                                    <StreamingText className="lead">Standardisation vs autonomy tension</StreamingText>
                     
                                     <p className="card-text">Balancing global consistency with location-level variability required trade-offs in IA and backend logic. Designing flexibility into the system was essential – myself and the team went back and forth on how best to approach it.</p>
                                 </div>

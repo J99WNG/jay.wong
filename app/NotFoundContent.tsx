@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { usePageReady } from '@/components/InitialLoader';
 import Button from '@/components/ui/Button';
+import StreamingText from '@/components/ui/StreamingText';
 import { motionDelay, motionDuration, motionEase } from '@/lib/motion';
 
 export default function NotFoundContent() {
@@ -32,10 +33,10 @@ export default function NotFoundContent() {
             <h1 id="not-found-title" className="text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.05]">
               This page has wandered off.
             </h1>
-            <p className="lead">
+            <StreamingText className="lead">
               The link may be outdated, or the page may have moved. Let&apos;s get you
               back somewhere useful.
-            </p>
+            </StreamingText>
           </div>
 
           {/* Two familiar destinations are enough here: a safe reset and a

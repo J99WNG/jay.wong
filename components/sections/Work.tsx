@@ -3,6 +3,7 @@
 import Section from "../Section";
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import StreamingText from "@/components/ui/StreamingText";
 
 export default function Work() {
     return (
@@ -18,9 +19,9 @@ export default function Work() {
 
                 <div className="section-content">
                     <div className="content-block">
-                        <p className="lead">
+                        <StreamingText className="lead">
                             Explore a selection of my work. Get a feel for how I think, collaborate, and design. If it resonates, there’s always room to build something great together.
-                        </p>
+                        </StreamingText>
                     </div>
                 </div>
             </div>

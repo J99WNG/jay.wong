@@ -133,4 +133,18 @@ a:focus-visible .motion-icon-up-right {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* Off-screen streaming words must remain readable when motion is reduced. */
+  [data-stream-word] {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
+
+/* Printing may happen before every paragraph has entered the viewport. */
+@media print {
+  [data-stream-word] {
+    opacity: 1 !important;
+    filter: none !important;
+  }
 }

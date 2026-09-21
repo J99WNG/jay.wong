@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "./motion.css";
 
+/* Crucial for light-dark() to resolve properly */
 :root {
-  /* Crucial for light-dark() to resolve properly */
   color-scheme: light dark;
   --page-gutter: clamp(0.5rem, 5vw, 1.5rem);
 
@@ -21,8 +21,8 @@
   --color-neutral-500: oklch(0.92 0.010 64); /* #e9e3de */
   --color-neutral-700: oklch(0.88 0.016 64); /* #dfd5cd */
   --color-neutral-900: oklch(0.84 0.020 64); /* #D4C8BD */
-
   --color-steep-100: oklch(0.33 0.008 56); /* #393431 */
+
   --color-steep-300: oklch(0.27 0.007 56); /* #292623 */
   --color-steep-500: oklch(0.22 0.005 56); /* #1C1A18 */
   --color-steep-700: oklch(0.17 0.004 56); /* #110F0E */

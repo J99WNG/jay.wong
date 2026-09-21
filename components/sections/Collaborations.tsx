@@ -5,6 +5,7 @@ import Section from "../Section";
 import Link from 'next/link';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
+import StreamingText from '@/components/ui/StreamingText';
 
 interface CompanyLogo {
   id: string;
@@ -111,9 +112,9 @@ export default function Collaborations() {
           </div>
 
           <div className="section-content">
-              <p className="lead">
+              <StreamingText className="lead">
                 I&apos;ve worked in multidisciplinary teams turning complex, ambiguous problems into shipped outcomes. That includes AI-assisted support for 87,000+ bp employees, a global workplace experience spanning 15+ services and 50+ locations, and an AI study companion serving approximately 250,000 students.
-              </p>
+              </StreamingText>
 
               <div className="logo-grid">
                 <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">

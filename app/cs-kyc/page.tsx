@@ -5,6 +5,7 @@ import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
+import StreamingText from '@/components/ui/StreamingText';
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
@@ -114,7 +115,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                         <div className="section-content">
                             <div className="content-block">
-                                <p className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</p>
+                                <StreamingText className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</StreamingText>
                             </div>
                             
                             <div className="content-block">
@@ -161,9 +162,9 @@ export const metadata = createCaseStudyMetadata(project);
 
                         <div className="section-content">
 
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
-                            </p>
+                            </StreamingText>
                             
                             <div className="content-block">
                                 <p>The bank's strategy was built on three priorities:</p>
@@ -211,9 +212,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 We started with the Credit Suisse briefing document and a structured research checklist covering KYC regulation, private banking compliance in the UK and EU, FinTech trends, and the daily responsibilities of a Relationship Manager. But reading about a role is very different from understanding it.
-                            </p>
+                            </StreamingText>
 
                             <div className="content-block">
                                 <h3>Stakeholder insights</h3>
@@ -306,7 +307,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                         <div className="section-content">
                             <div className="content-block">
-                                <p className="lead">After the interviews and analysis, we could frame the problem much more precisely.</p>
+                                <StreamingText className="lead">After the interviews and analysis, we could frame the problem much more precisely.</StreamingText>
 
                                 <blockquote className="notion-quote">
                                     Relationship Managers at Credit Suisse don't lack information. They have too much of it, spread across too many places, with no intelligent way to surface what matters right now.
@@ -362,9 +363,9 @@ export const metadata = createCaseStudyMetadata(project);
 
                         <div className="section-content">
 
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 The brief asked for three things: innovation, efficiency, and minimisation. We translated those into concrete, measurable targets.
-                            </p>
+                            </StreamingText>
 
                             <div className="content-block">
                                 <h3>Primary goal</h3>
@@ -442,7 +443,7 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">Once we had validated requirements and a well-defined problem, ideation felt less like guesswork and more like solving a clear puzzle with defined constraints.</p>
+                            <StreamingText className="lead">Once we had validated requirements and a well-defined problem, ideation felt less like guesswork and more like solving a clear puzzle with defined constraints.</StreamingText>
 
                             <p>
                             The concept that guided everything was thinking about an RM's day as a single, continuous experience rather than a series of disconnected tasks. We kept asking the same question: what would it look like if everything an RM needed was in one place, presented in the order they would actually need it?
@@ -513,9 +514,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">
+                            <StreamingText className="lead">
                                 In the latter half of the project, we iterated from high fidelty wireframes to a proof of concept prototype. The goal was to build something that could be tested and validated against our success criteria, not to create a fully polished, launch-ready product. This began with a more focused design system.
-                            </p>
+                            </StreamingText>
                             
 
                             <div className="content-block">
@@ -652,9 +653,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">
+                            <StreamingText className="lead">
                             Testing happened in two rounds, each tied to a client-facing showcase event, judged by Credit Suisse and accompanied by various other blue-chip companies.
-                            </p>
+                            </StreamingText>
 
                             <div className="content-block">
                                 <h3>
@@ -699,9 +700,9 @@ export const metadata = createCaseStudyMetadata(project);
                         </div>
 
                         <div className="section-content">
-                            <p className="lead">
+                            <StreamingText className="lead">
                             The most direct measure was finishing as a top 3 finalist out of 10 competing teams at the first Employer Showcase. That was a competitive result judged by industry stakeholders who had reviewed all the solutions presented.
-                            </p>
+                            </StreamingText>
 
                             <p>
                             Beyond the ranking, the validation from Credit Suisse's own people mattered more to me. The fact that our stakeholder interviews revealed we had gotten several early assumptions wrong, and that we rebuilt the requirements around what we heard rather than defending what we'd already designed, was proof that the product process was functioning the way it should.

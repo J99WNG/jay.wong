@@ -21,6 +21,7 @@ export const motionEase = {
 
 export const motionStagger = {
   characters: 0.02,
+  words: 0.025,
   items: 0.15,
 } as const;
 

@@ -4,6 +4,7 @@ import Section from "../Section";
 import ImageDeck from "../ui/ImageDeck";
 import StrengthsTimeline from "../ui/StrengthsTimeline";
 import TechStack from "../ui/TechStack";
+import StreamingText from "../ui/StreamingText";
 
 export default function About() {
   return (
@@ -20,29 +21,29 @@ export default function About() {
         </div>
 
         <div className="section-content">
-            <p className="lead">
+            <StreamingText className="lead">
               I have an innate fascination to simplify complex things through the lens of design. I&apos;ve spent the past seven years asking
               awkward questions, spotting patterns, and helping teams turn
               fuzzy ideas into products people can actually use.
-            </p>
+            </StreamingText>
 
             <ImageDeck />
 
             <div className="content-block">
               <h3>How I show up</h3>
-              <p className="lead">
+              <StreamingText className="lead">
                 I&apos;m usually the person asking one more “why?”, prompting a
                 thought to make it tangible, or bringing the right people into
                 the same conversation. I like structure, but I&apos;m not precious
                 about process. My aim is always to understand what matters and
                 make something useful.
-              </p>
+              </StreamingText>
             </div>
 
             <StrengthsTimeline />
 
             <div className="content-block">
-              <h3>Teck stack</h3>
+              <h3>Tech stack</h3>
               <p>A practical mix for designing, aligning, building, and shipping.</p>
 
               <TechStack />
