@@ -29,6 +29,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
     <>
       {/* Case-study navigation is local to case-study pages; the backToTop stays global */}
       <CaseStudyNavigation />
+      
       <Section id="landing" isLanding={true}>
         <div className="flex flex-col gap-8">
           <NextProjectCTA />

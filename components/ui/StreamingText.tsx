@@ -14,6 +14,7 @@ import { motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/mo
 
 type StreamingTextProps = ComponentPropsWithoutRef<'p'> & {
   children: ReactNode;
+  startWhen?: boolean;
 };
 
 const wordVariants: Variants = {
@@ -76,12 +77,16 @@ function renderStreamingNode(
 export default function StreamingText({
   children,
   className,
+  startWhen = true,
   ...paragraphProps
 }: StreamingTextProps) {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(paragraphRef, { once: true, amount: 0.35 });
-  const isVisible = shouldReduceMotion || isInView;
+
+  // Optional gating lets above-the-fold copy wait for a loader or route transition
+  // while every existing in-view usage keeps its original behaviour by default.
+  const isVisible = shouldReduceMotion || (startWhen && isInView);
   const nextWord = { current: 0 };
 
   return (

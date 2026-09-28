@@ -5,12 +5,12 @@ import Section from "../Section";
 import Image from "next/image";
 import Button from "../ui/Button";
 import FluidOrb from "../ui/FluidOrb";
+import StreamingText from "../ui/StreamingText";
 import { heroContent } from "@/app/data/heroContent";
 import {
   motionDelay,
   motionDuration,
   motionEase,
-  motionStagger,
   tickerTransition,
 } from "@/lib/motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -66,28 +66,6 @@ export default function Hero() {
       ease: motionEase.standard,
     }
   };
-
-  // 1. Tagline Typewriter Parent
-  const typewriterContainer = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : motionStagger.characters,
-        delayChildren: shouldReduceMotion ? 0 : motionDelay.standard,
-      },
-    },
-  };
-
-  // 2. Individual Character Variants
-  const characterVariants = {
-    initial: { opacity: shouldReduceMotion ? 1 : 0 },
-    animate: { 
-      opacity: 1, 
-      transition: { duration: shouldReduceMotion ? 0 : motionDuration.instant }
-    },
-  };
-
-  const taglineChars = [...heroContent.tagline];
 
   return (
     <Section id="hero" isLanding={true}>
@@ -146,28 +124,16 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          {/* Accessible Tagline Typewriter Block */}
-          <div className="m-0 relative">
-            <span className="sr-only">{heroContent.tagline}</span>
-
-            <motion.p
-              aria-hidden="true"
-              initial="initial"
-              animate={isPageReady ? "animate" : "initial"}
-              variants={typewriterContainer}
-              className="inline-block text-[clamp(1.25rem,4vw,1.5rem)] text-text-tertiary/90 tracking-tight leading-8 m-0"
-            >
-              {taglineChars.map((char, index) => (
-                <motion.span 
-                  key={index} 
-                  variants={characterVariants}
-                >
-                  {char}
-                </motion.span>
-              ))}
-              {/* <motion.span className="text-accent-primary animate-blink">|</motion.span> */}
-            </motion.p>
-          </div>
+          {/* Stream whole words instead of typing individual characters. The
+              page-ready gate prevents the sequence playing behind the loader. */}
+          {/* Tailwind pairs each responsive text size with its default leading,
+              keeping multiline rhythm proportional without a custom clamp. */}
+          <StreamingText
+            startWhen={isPageReady}
+            className="m-0 inline-block text-xl text-text-tertiary/90 tracking-tight md:text-2xl md:leading-9"
+          >
+            {heroContent.tagline}
+          </StreamingText>
 
           {/* Button group */}
           <motion.div
