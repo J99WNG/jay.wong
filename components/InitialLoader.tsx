@@ -1,6 +1,13 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import LoadingLogo from './LoadingLogo';
 import { motionDuration } from '@/lib/motion';
@@ -30,12 +37,28 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
     return () => window.clearTimeout(fallbackTimer);
   }, [finishLoading, isLoading, shouldReduceMotion]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isPageReady) return;
 
-    // Keep the page fixed until the loader's exit transition has also ended.
-    document.body.classList.add('overflow-hidden');
-    return () => document.body.classList.remove('overflow-hidden');
+    // Lock both scrolling elements until the loader's exit transition ends.
+    // Preserve inline values so other scroll-management UI is not disrupted.
+    const scrollingElements = [document.documentElement, document.body];
+    const previousStyles = scrollingElements.map((element) => ({
+      overflow: element.style.overflow,
+      overscrollBehavior: element.style.overscrollBehavior,
+    }));
+
+    scrollingElements.forEach((element) => {
+      element.style.overflow = 'hidden';
+      element.style.overscrollBehavior = 'none';
+    });
+
+    return () => {
+      scrollingElements.forEach((element, index) => {
+        element.style.overflow = previousStyles[index].overflow;
+        element.style.overscrollBehavior = previousStyles[index].overscrollBehavior;
+      });
+    };
   }, [isPageReady]);
 
   return (

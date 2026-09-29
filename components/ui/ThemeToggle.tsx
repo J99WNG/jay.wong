@@ -35,7 +35,7 @@ const syncFavicon = (theme: Theme) => {
     : `/favicon-${theme}.png?v=${Date.now()}`;
 };
 
-const applyTheme = (newTheme: Theme) => {
+const applyThemeClass = (newTheme: Theme) => {
   const root = document.documentElement;
   root.classList.remove('light', 'dark');
 
@@ -44,7 +44,10 @@ const applyTheme = (newTheme: Theme) => {
   } else if (newTheme === 'dark') {
     root.classList.add('dark');
   }
+};
 
+const applyTheme = (newTheme: Theme) => {
+  applyThemeClass(newTheme);
   syncFavicon(newTheme);
 };
 
@@ -74,8 +77,28 @@ export default function ThemeToggle() {
       theme === 'system' ? 'light' : 
       theme === 'light' ? 'dark' : 'system';
 
-    setTheme(nextTheme);
-    localStorage.setItem('theme-preference', nextTheme);
+    const updateTheme = () => {
+      // Apply the class synchronously so the browser captures the new palette
+      // inside the view transition rather than one React render later.
+      applyThemeClass(nextTheme);
+      setTheme(nextTheme);
+      localStorage.setItem('theme-preference', nextTheme);
+    };
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !document.startViewTransition) {
+      updateTheme();
+      return;
+    }
+
+    // Native view transitions provide a lightweight crossfade without adding
+    // animation state or another dependency. The class scopes its CSS to this
+    // interaction only, leaving page-navigation transitions untouched.
+    const root = document.documentElement;
+    root.classList.add('theme-transition');
+    const transition = document.startViewTransition(updateTheme);
+    const removeTransitionClass = () => root.classList.remove('theme-transition');
+    void transition.finished.then(removeTransitionClass, removeTransitionClass);
   };
 
   if (!mounted) return null;

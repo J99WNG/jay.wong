@@ -43,6 +43,22 @@
   50% { transform: translateX(-6px); }
 }
 
+/* Theme changes fade the new palette over a frozen snapshot of the old one.
+ * The temporary class is added only by ThemeToggle, so route transitions keep
+ * their browser defaults. Unsupported and reduced-motion browsers skip this. */
+html.theme-transition::view-transition-old(root),
+html.theme-transition::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+
+html.theme-transition::view-transition-old(root) {
+  animation: none;
+}
+
+html.theme-transition::view-transition-new(root) {
+  animation: motion-fade-in var(--motion-duration-standard) var(--motion-ease-standard);
+}
+
 /* Mobile navigation is a composed transition: the tray changes height while
  * its contents fade and de-focus. Visibility waits only when closing so the
  * fade can finish, but becomes immediate when opening. */
