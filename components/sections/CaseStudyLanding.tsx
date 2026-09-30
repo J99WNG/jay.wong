@@ -11,10 +11,14 @@ type CaseStudyLandingProps = {
 
 export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
   const renderBentoItem = (src: string, label: string, className: string, priority = false) => {
+    // FigureModal renders a <figure>, which has global block margins. Reset all
+    // bento children so mixed image and Rive tiles share the same grid edges.
+    const bentoItemClassName = `${className} m-0 min-h-0`;
+
     if (src.endsWith('.riv')) {
       return (
         <RivePlayer
-          className={className}
+          className={bentoItemClassName}
           src={src}
           label={label}
           compact
@@ -22,7 +26,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
       );
     }
 
-    return <FigureModal className={className} src={src} alt={label} priority={priority} />;
+    return <FigureModal className={bentoItemClassName} src={src} alt={label} priority={priority} />;
   };
 
   return (
@@ -46,7 +50,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             </p>
           </div>
 
-          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid grid-cols-1 gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
+          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid min-h-0 grid-cols-1 items-stretch gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
             {renderBentoItem(project.bentoImage, `Featured image for ${project.title}`, 'h-full w-full md:row-span-2', true)}
             {project.bentoImage2 && renderBentoItem(project.bentoImage2, `${project.company} chat animation`, 'h-full w-full')}
             {project.bentoImage3 && renderBentoItem(project.bentoImage3, `${project.company} carpet animation`, 'h-full w-full')}

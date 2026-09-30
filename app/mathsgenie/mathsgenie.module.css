@@ -31,9 +31,6 @@
   --mg-warning-700: oklch(0.5173 0.1498 39.7);
   --mg-negative-100: oklch(0.95 0.03 24.2);
   --mg-negative-700: oklch(0.55 0.18 24.2);
-  --mg-brand-revisiondojo: oklch(0.5906 0.2199 296);
-  --mg-brand-oneprep: oklch(0.7982 0.1191 193.7);
-  --mg-brand-mathsgenie: oklch(0.8220 0.1527 170.8);
 
   /* Component-level roles shared by the Rive and system demonstrations. */
   --mg-rive-surface-bg: var(--mg-neutral-900);
@@ -66,14 +63,6 @@
   --mg-feedback-negative-text: var(--mg-negative-700);
   --mg-feedback-negative-border: var(--mg-negative-700);
   --mg-rating-star: var(--mg-warning-500);
-  --mg-brand-card-bg: var(--mg-neutral-50);
-  --mg-brand-card-text: var(--mg-neutral-800);
-  --mg-brand-card-muted: var(--mg-neutral-600);
-  --mg-brand-canvas-bg: var(--mg-neutral-100);
-  --mg-brand-canvas-grid: color-mix(in srgb, var(--mg-primary-500) 13%, transparent);
-  --mg-brand-connector: color-mix(in srgb, var(--mg-primary-600) 48%, transparent);
-  --mg-brand-node-border: var(--mg-neutral-300);
-  --mg-brand-node-shadow: color-mix(in srgb, var(--mg-neutral-900) 12%, transparent);
   --mg-code-bg: var(--mg-primary-50);
   --mg-code-text: var(--mg-primary-800);
   --mg-code-border: var(--mg-primary-200);
@@ -342,92 +331,14 @@ button.sampleCard { cursor: pointer; }
 
 .systemPanel button:focus-visible { outline: 3px solid var(--mg-border-focus); outline-offset: 3px; }
 
-/* Cross-platform language shown as a connected product-family canvas. */
-.brandSystemPanel {
-  overflow: hidden;
-  border: 1px solid var(--color-border-muted);
-  border-radius: 20px;
-  background-color: var(--mg-brand-canvas-bg);
-  background-image:
-    linear-gradient(var(--mg-brand-canvas-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--mg-brand-canvas-grid) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.brandCanvas { position: relative; min-height: 520px; isolation: isolate; }
-.brandConnections {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  stroke: var(--mg-brand-connector);
-  stroke-width: 1.5;
-  stroke-dasharray: 5 7;
-}
-.brandConnections path {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-}
-.brandConnections circle { fill: var(--mg-brand-connector); stroke: none; }
-.brandFamily {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: min(42%, 340px);
-  min-width: 280px;
-  overflow: hidden;
-  border: 1px solid var(--mg-brand-node-border);
-  border-radius: 24px;
-  background: var(--mg-brand-card-bg);
-  box-shadow: 0 20px 50px var(--mg-brand-node-shadow);
-  color: var(--mg-brand-card-text);
-  transform: translate(-50%, -50%);
-}
-.brandLogoNode {
-  --brand-accent: var(--mg-brand-mathsgenie);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 18px;
-  min-height: 92px;
-  padding: 16px 20px;
-  border-left: 5px solid var(--brand-accent);
-}
-.brandLogoNode + .brandLogoNode { border-top: 1px solid var(--mg-brand-node-border); }
-.mathsGenie { --brand-accent: var(--mg-brand-mathsgenie); }
-.revisionDojo { --brand-accent: var(--mg-brand-revisiondojo); }
-.onePrep { --brand-accent: var(--mg-brand-oneprep); }
-.brandLogoNode img { width: 100%; height: auto; max-height: 46px; object-fit: contain; object-position: left center; }
-.brandLogoNode span { color: var(--mg-brand-card-muted); font-size: 12px; white-space: nowrap; }
-.sharedGrammar li {
-  position: absolute;
-  z-index: 2;
-  display: grid;
-  min-height: 42px;
-  place-items: center;
-  padding: 9px 14px;
-  border: 1px solid var(--mg-brand-node-border);
-  border-radius: 999px;
-  background: var(--mg-brand-card-bg);
-  box-shadow: 0 8px 24px var(--mg-brand-node-shadow);
-  color: var(--mg-brand-card-text);
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-  animation: brandNodeFloat 4.8s ease-in-out var(--brand-node-delay, 0s) infinite alternate;
-}
-.nodeCharacter { top: 13%; left: 8%; }
-.nodeGeometric { --brand-node-delay: -.8s; top: 13%; right: 8%; }
-.nodePlayful { --brand-node-delay: -1.6s; top: 49%; right: 4%; }
-.nodeHabit { --brand-node-delay: -2.4s; right: 14%; bottom: 10%; }
-.nodeMotion { --brand-node-delay: -3.2s; bottom: 11%; left: 10%; }
-
-@keyframes brandNodeFloat {
-  from { transform: translateY(-3px); }
-  to { transform: translateY(4px); }
+/* Tailwind removes list markers globally while the case-study base layer adds
+   indentation. Internal diagrams own their alignment and reset both here. */
+.tokenFlow,
+.borderStates,
+.feedbackDemo ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Token path mirrors DESIGN.md: primitive → semantic → component → pattern. */
@@ -498,16 +409,9 @@ button.sampleCard { cursor: pointer; }
   .demoNav { gap: 12px; }
   .navLinks { display: none; }
   .heroSearch input { font-size: 19px; }
-  .brandCanvas { display: grid; gap: 20px; min-height: 0; padding: 24px; }
-  .brandConnections { display: none; }
-  .brandFamily { position: relative; top: auto; left: auto; width: 100%; min-width: 0; transform: none; }
-  .brandLogoNode { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .sharedGrammar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-  .sharedGrammar li { position: static; animation: none; }
   .borderStates { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sharedGrammar li { animation: none; }
   .sampleButton { transition: none; }
 }

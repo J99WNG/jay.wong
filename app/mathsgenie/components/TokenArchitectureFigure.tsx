@@ -16,7 +16,7 @@ export function TokenArchitectureFigure() {
       </figcaption>
 
       {/* Designer reference: the labels mirror the naming path recorded in DESIGN.md. */}
-      <ol className={styles.tokenFlow}>
+      <ol className={styles.tokenFlow} role="list">
         <li>
           <span className={styles.tokenLayer}>Primitive</span>
           <code>primary.400</code>
@@ -56,7 +56,7 @@ export function TokenArchitectureFigure() {
 
         <section aria-labelledby="border-states-title">
           <h4 id="border-states-title">Border states</h4>
-          <ul className={styles.borderStates}>
+          <ul className={styles.borderStates} role="list">
             <li data-state="rest"><span>Rest</span></li>
             <li data-state="hover"><span>Hover</span></li>
             <li data-state="focus"><span>Focus</span></li>
@@ -68,7 +68,7 @@ export function TokenArchitectureFigure() {
 
       <section className={styles.feedbackDemo} aria-labelledby="feedback-states-title">
         <h4 id="feedback-states-title">Feedback and validation</h4>
-        <ul className="p-0">
+        <ul role="list">
           {feedbackStates.map(({ name, copy, icon: StateIcon, tone }) => (
             <li key={name} className={styles[tone]}>
               <StateIcon aria-hidden="true" size={18} />
