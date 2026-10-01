@@ -5,14 +5,8 @@ import { caseStudies } from '@/app/data/caseStudies';
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import { BrandLanguageFigure, SelectedWorkDemos, TokenArchitectureFigure } from './components';
 import styles from './mathsgenie.module.css';
-import localFont from 'next/font/local';
-
-const geom = localFont({
-  src: '../fonts/Geom-Variable.woff2',
-  variable: '--font-geom',
-  weight: '300 900',
-  display: 'swap',
-});
+import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
+import { mathsGenieDisplay } from './fonts';
 
 const project = caseStudies.find((study) => study.slug === 'mathsgenie')!;
 
@@ -21,7 +15,7 @@ export const metadata = createCaseStudyMetadata(project);
 export default function Page() {
   return (
     <GalleryProvider>
-      <article className={`${geom.variable} ${styles.mathsGenieRoute}`}>
+      <article className={`${mathsGenieDisplay.variable} ${styles.mathsGenieRoute}`}>
         <CaseStudyLanding project={project} />
 
         <Section id="snapshot">
@@ -69,15 +63,10 @@ export default function Page() {
               <div className="content-block">
                 <p className="small">Impact</p>
 
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  <div className="card flex justify-center w-full gap-2 p-5">
-                    <p><span className="emphasis">242,000</span><br />Peak daily active users within two weeks of the relaunch.</p>
-                  </div>
-
-                  <div className="card flex justify-center w-full gap-2 p-5">
-                    <p><span className="emphasis">40,000+</span><br />Daily messages handled by the AI tutoring feature.</p>
-                  </div>
-                </div>
+                <MetricGrid columns={2} ariaLabel="MathsGenie relaunch impact">
+                  <MetricCard value="242,000" label="Peak daily active users within two weeks of the relaunch." />
+                  <MetricCard value="40,000+" label="Daily messages handled by the AI tutoring feature." />
+                </MetricGrid>
 
                 <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
               </div>

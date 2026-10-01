@@ -4,14 +4,14 @@ This document records the contract between the MathsGenie Figma library and the 
 
 ## System model
 
-The system follows four layers:
+The case-study demo uses Tailwind's standard scales directly. This keeps the implementation legible and avoids a second component API inside the CSS module.
 
-1. **Primitive** — palette, type, spacing, radius and motion values. Colour primitives use OKLCH so lightness and chroma can be adjusted predictably.
-2. **Semantic** — stable roles such as `action.primary.background`, `text.secondary`, `surface.raised` and `border.validation.negative`.
-3. **Component** — buttons, inputs, cards, badges, alerts, segmented controls, navigation and sidebars.
-4. **Pattern** — assembled learning experiences such as revision cards, next-step prompts, onboarding and reward flows.
+1. **Foundation** — The original MathsGenie OKLCH primary, neutral and status scales remain the source palette. Route-scoped aliases let conventional Tailwind colour utilities consume those values without replacing the brand system. Inter is the body face; the route-local Geom class is reserved for component headings, strong titles and large CTAs at `text-xl` or above.
+2. **Scale** — Layout favours spacing steps `2`, `3`, `4`, `5`, `6` and `8`; radius steps `lg`, `xl`, `2xl` and `full`; and Tailwind's named type sizes.
+3. **Component** — buttons, inputs, cards, badges, alerts, segmented controls, navigation and sidebars compose those utilities in JSX.
+4. **Pattern** — components combine into revision cards, next-step prompts, onboarding and reward flows.
 
-Components must consume semantic roles. A raw palette value should appear only in the primitive declaration block.
+Arbitrary-value utilities are excluded from the MathsGenie components. Add a named Tailwind theme utility when a repeated value is genuinely missing from the standard scale.
 
 ## Figma-to-code naming
 
@@ -24,7 +24,7 @@ Figma properties map directly to code-facing concepts:
 | Size | Component size | `sm`, `md`, `lg`, `xl` |
 | State | Interaction state | `rest`, `hover`, `focus`, `active`, `invalid`, `disabled` |
 
-The original Figma button collection defines primary, secondary and tertiary variants. Quaternary is the quietest production role for low-priority actions and uses a muted border and text treatment.
+The original Figma button collection defines primary, secondary and tertiary variants. Quaternary remains the quietest role for low-priority actions. Each variant is a small Tailwind class composition rather than a CSS-module selector.
 
 ## Interaction and border roles
 
@@ -41,7 +41,7 @@ Positive, information, warning and negative feedback each have background, text 
 
 ## Motion
 
-Mascot and interface motion use shared duration and easing tokens. Spring-like movement should acknowledge an action, reinforce progress or connect two states. Respect `prefers-reduced-motion`, keep controls usable when animation is absent, and avoid making motion the only signal of a state change.
+Interface feedback uses Tailwind's `duration-200`, `ease-out`, translate and scale utilities. Mascot playback still respects `prefers-reduced-motion`, viewport visibility and document visibility. Controls remain usable without animation, and motion is never the only state signal.
 
 ## Brand boundaries
 
@@ -50,8 +50,9 @@ MathsGenie, RevisionDojo and OnePrep share component anatomy, geometry, motion r
 ## Review checklist
 
 - Figma variant and production state names match.
-- Component styles use semantic tokens.
-- New palette values are expressed in OKLCH and documented as primitives.
+- Component styles use named Tailwind utilities.
+- Components do not introduce arbitrary-value utilities.
+- Spacing, radius, type and motion stay on the reduced scale above.
 - Hover, focus, active, invalid and disabled states are covered where relevant.
 - Text and controls retain sufficient contrast in both themes.
 - Keyboard order, accessible names and reduced-motion behavior are verified.

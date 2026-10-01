@@ -5,9 +5,7 @@ import type { CaseStudy } from "@/app/data/caseStudies";
 import { ArrowRight } from 'lucide-react';
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
-  // `logo` is retained for the planned branded card treatment.
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { slug, year, company, logo, industry, title, tagline, badges, bentoImage, available } = project;
+  const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
 
   return (
     <article className="card md:flex-row motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">

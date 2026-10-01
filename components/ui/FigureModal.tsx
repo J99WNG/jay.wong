@@ -32,7 +32,7 @@ export default function FigureModal({
     const element = figureRef.current;
     if (!element) return;
 
-    return register({ id, src, alt, caption, element });
+    return register({ kind: 'image', id, src, alt, caption, element });
   }, [id, src, alt, caption, register]);
 
   const handleOpen = () => open(id);

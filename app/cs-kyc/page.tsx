@@ -6,6 +6,7 @@ import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
+import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
@@ -43,13 +44,12 @@ export const metadata = createCaseStudyMetadata(project);
                             <div className="content-block">
                                 <p className="small">Impact</p>
 
-                                <div className="card flex justify-start w-full gap-3 p-5">
-                                    <p>
-                                        <span className="emphasis">~136,800 hrs</span>
-                                        <br />
-                                        Recovered annually by reducing context-switching and admin time.
-                                    </p>
-                                </div>
+                                <MetricGrid columns={1} ariaLabel="Projected productivity impact">
+                                    <MetricCard
+                                        value="~136,800 hrs"
+                                        label="Recovered annually by reducing context-switching and admin time."
+                                    />
+                                </MetricGrid>
 
                                 <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
                             </div>

@@ -16,13 +16,17 @@ import { getImageProps } from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Button from './Button';
 
-type GalleryItem = {
+type GalleryItemBase = {
   id: string;
-  src: string;
   alt: string;
   caption?: string;
   element: HTMLElement;
 };
+
+export type GalleryItem = GalleryItemBase & (
+  | { kind: 'image'; src: string; content?: never }
+  | { kind: 'content'; content: ReactNode; src?: never }
+);
 
 type GalleryContextValue = {
   register: (item: GalleryItem) => () => void;
@@ -92,7 +96,7 @@ export function useGallery() {
   const ctx = useContext(GalleryContext);
   if (!ctx) {
     throw new Error(
-      '<FigureModal> or <GalleryImage> must be a descendant of <GalleryProvider>',
+      '<FigureModal> or <ExpandableFigure> must be a descendant of <GalleryProvider>',
     );
   }
   return ctx;
@@ -161,8 +165,10 @@ function GalleryModal({
     ]);
 
     adjacentIndexes.forEach((index) => {
+      const item = items[index];
+      if (item.kind !== 'image') return;
       const { props } = getImageProps({
-        src: items[index].src,
+        src: item.src,
         alt: '',
         fill: true,
         sizes: '100vw',
@@ -197,19 +203,21 @@ function GalleryModal({
 
   // Keep Next's optimized source set, but let the selected image use its own
   // aspect ratio so its visible edges size and round consistently.
-  const { props: currentImageProps } = getImageProps({
-    src: current.src,
-    alt: current.alt,
-    fill: true,
-    sizes: '100vw',
-  });
+  const currentImageProps = current.kind === 'image'
+    ? getImageProps({
+        src: current.src,
+        alt: current.alt,
+        fill: true,
+        sizes: '100vw',
+      }).props
+    : null;
 
   return (
     <dialog
       ref={dialogRef}
       id="scrim-overlay"
       className="fixed inset-0 m-0 hidden h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 p-0 text-inherit backdrop-blur-sm will-change-[backdrop-filter,opacity] open:block motion-safe:animate-[motion-fade-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
-      aria-label={`Image ${activeIndex + 1} of ${total}`}
+      aria-label={`Figure ${activeIndex + 1} of ${total}`}
       aria-describedby={current.caption ? captionId : undefined}
       onCancel={(event) => {
         event.preventDefault();
@@ -253,27 +261,31 @@ function GalleryModal({
         onClick={(event) => event.stopPropagation()}
       >
         <p className="sr-only" aria-live="polite" aria-atomic="true">
-          Image {activeIndex + 1} of {total}: {current.alt}
+          Figure {activeIndex + 1} of {total}: {current.alt}
         </p>
 
         <figure className="m-0 grid min-h-full items-center gap-4 overflow-hidden">
-          {/* Intrinsic sizing prevents portrait and unusually wide figures from
-              inheriting a full-screen box while retaining optimized candidates. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            key={activeIndex}
-            src={currentImageProps.src}
-            srcSet={currentImageProps.srcSet}
-            sizes={currentImageProps.sizes}
-            alt={current.alt}
-            loading="eager"
-            onLoad={() => setLoadedSrc(current.src)}
-            className={`block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
-              loadedSrc === current.src
-                ? ''
-                : 'motion-safe:opacity-0 motion-safe:blur-xs motion-safe:scale-[0.99]'
-            }`}
-          />
+          {current.kind === 'image' && currentImageProps ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              key={activeIndex}
+              src={currentImageProps.src}
+              srcSet={currentImageProps.srcSet}
+              sizes={currentImageProps.sizes}
+              alt={current.alt}
+              loading="eager"
+              onLoad={() => setLoadedSrc(current.src)}
+              className={`block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+                loadedSrc === current.src
+                  ? ''
+                  : 'motion-safe:opacity-0 motion-safe:blur-xs motion-safe:scale-[0.99]'
+              }`}
+            />
+          ) : (
+            <div className="h-full w-full overflow-auto rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8">
+              {current.content}
+            </div>
+          )}
 
           {current.caption && (
             <figcaption
@@ -300,7 +312,7 @@ function GalleryModal({
                 iconOnly
                 variant="primary"
                 className="size-10 shrink-0 rounded-full"
-                aria-label="Previous image"
+                aria-label="Previous figure"
                 onClick={onPrev}
               >
                 <ChevronLeft aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
@@ -309,7 +321,7 @@ function GalleryModal({
               {/* Dots Indicator */}
               <nav
                 className="flex max-w-[calc(100vw-10.5rem)] flex-wrap items-center justify-center gap-2 sm:max-w-md"
-                aria-label="Jump to image"
+                aria-label="Jump to figure"
               >
                 {items.map((item, i) => (
                   <Button
@@ -317,7 +329,7 @@ function GalleryModal({
                     type="button"
                     variant="tertiary"
                     className="h-2 w-auto shrink-0 rounded-full border-0 bg-transparent p-0 hover:bg-white/10"
-                    aria-label={`Image ${i + 1}: ${item.alt}`}
+                    aria-label={`Figure ${i + 1}: ${item.alt}`}
                     aria-current={i === activeIndex ? 'true' : undefined}
                     onClick={() => goTo(i)}
                   >
@@ -339,7 +351,7 @@ function GalleryModal({
                 iconOnly
                 variant="primary"
                 className="size-10 shrink-0 rounded-full"
-                aria-label="Next image"
+                aria-label="Next figure"
                 onClick={onNext}
               >
                 <ChevronRight aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />

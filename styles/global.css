@@ -14,15 +14,15 @@
   --layer-loader: 100;
 
   --header-height: 4rem; /* Match your header CSS height */
-  
+
   /* --- PRIMITIVE TOKENS --- */
   --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
   --color-neutral-300: oklch(0.96 0.004 64); /* #F4F1EF */
   --color-neutral-500: oklch(0.92 0.010 64); /* #e9e3de */
   --color-neutral-700: oklch(0.88 0.016 64); /* #dfd5cd */
   --color-neutral-900: oklch(0.84 0.020 64); /* #D4C8BD */
-  --color-steep-100: oklch(0.33 0.008 56); /* #393431 */
 
+  --color-steep-100: oklch(0.33 0.008 56); /* #393431 */
   --color-steep-300: oklch(0.27 0.007 56); /* #292623 */
   --color-steep-500: oklch(0.22 0.005 56); /* #1C1A18 */
   --color-steep-700: oklch(0.17 0.004 56); /* #110F0E */
@@ -86,7 +86,7 @@
 
   /* Override the default sans-serif stack with Inter */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  
+
   /* Create a custom utility key for your pixel font */
   --font-pixel: var(--font-geist-pixel), monospace;
 }
@@ -118,7 +118,7 @@
     font-optical-sizing: auto;
     text-rendering: optimizeLegibility; 
 
-    @apply font-sans text-text-secondary/80 subpixel-antialiased;
+    @apply font-sans text-text-secondary/80 subpixel-antialiased tracking-tighter;
   }
 
   h1, h2, h3, h4 {
@@ -143,38 +143,53 @@
 
   /* Paragraphs */
   p {
-    @apply text-base font-normal tracking-tighter leading-7 max-w-[65ch] mbs-0 mbe-0;
+    @apply text-base font-normal leading-7 mbs-0 mbe-0;
   }
 
   p.lead {
-    @apply tracking-tighter text-text-secondary/90 text-xl font-[450] leading-8 mb-0;
+    @apply text-text-secondary/90 text-xl font-[450] leading-8 mb-0;
   }
 
   p.small {
     @apply font-pixel text-sm text-text-tertiary tracking-normal uppercase mb-0;
   }
 
-  /* Prose lists inside case-study sections */
-  article section :where(ul:not([class]), ol:not([class])) > li {
-    font-size: 1rem;
-    letter-spacing: -0.04rem;
-    padding-bottom: 1rem;
-    line-height: 1.6;
+  .eyebrow {
+    @apply block font-pixel text-sm leading-snug tracking-wide uppercase text-accent-interactive;
   }
 
-  article section :where(ul:not([class]), ol:not([class])) > li::marker {
-    color: var(--color-accent-primary);
-    unicode-bidi: isolate;
-    font-variant-numeric: tabular-nums;
-    text-transform: none;
+  /* Global defaults for semantic content lists. Component and role=list
+     patterns own their marker and spacing behaviour. */
+  ul:not([class]):not([role='list']),
+  ol:not([class]):not([role='list']) {
+    @apply mb-3 ps-6;
   }
 
-  article section ul:not([class]) {
-    list-style-type: disc;
+  ul:not([class]):not([role='list']) > li,
+  ol:not([class]):not([role='list']) > li {
+    @apply ps-1 text-base leading-relaxed;
   }
 
-  article section ol:not([class]) {
-    list-style: decimal-leading-zero;
+  ul:not([class]):not([role='list']) > li + li,
+  ol:not([class]):not([role='list']) > li + li {
+    @apply mt-3;
+  }
+
+  ul:not([class]):not([role='list']) > li::marker,
+  ol:not([class]):not([role='list']) > li::marker {
+    @apply text-accent-primary;
+  }
+
+  ul:not([class]):not([role='list']) {
+    @apply list-disc;
+  }
+
+  ol:not([class]):not([role='list']) {
+    @apply list-[decimal-leading-zero];
+  }
+
+  ol:not([class]):not([role='list']) > li::marker {
+    @apply font-pixel text-sm tabular-nums;
   }
 
   /* Misc */
@@ -199,21 +214,12 @@
   font-weight: 600;
   }
 
-  span.emphasis {
-  font-size: 2rem;
-  color: var(--color-accent-primary);
-  }
-
   .notion-quote {
     @apply my-3 px-4 text-text-tertiary text-xl tracking-tighter border-l-3 border-text-tertiary;
   }
 
   .metadata {
     @apply flex flex-col gap-1;
-  }
-
-  ul, ol {
-    @apply my-0 ps-6;
   }
 
   /* Links */
@@ -333,34 +339,31 @@ figure > button:focus-visible {
 /* ==================== Table ==================== */
 
 .custom-table {
-  width: 100%;
+  @apply w-full overflow-hidden rounded-lg bg-bg-secondary tracking-tight;
   border-collapse: collapse; /* Removes double borders */
-  letter-spacing: -0.04rem;
-  background-color: var(--color-bg-secondary);
-  border-radius: 0.5rem;
-  overflow: hidden; /* Clips corners if you have a border */
 }
 
 .custom-table thead tr {
-  background-color: var(--color-bg-tertiary);
-  color: var(--color-inverse-primary);
-  text-align: left;
+  @apply bg-bg-tertiary text-left text-text-primary;
 }
 
 .custom-table th, 
 .custom-table td {
-  padding: 0.75rem;
+  @apply p-3 text-left align-top;
+}
+
+.custom-table tbody th {
+  @apply w-28 font-pixel text-sm font-normal uppercase text-text-primary;
 }
 
 .custom-table tbody tr {
-  border-bottom: 1px solid var(--color-border-muted);
+  @apply border-b border-border-muted last:border-b-0;
 }
 
 /* Hover Effect */
 .custom-table tbody tr:hover,
 .custom-table tbody tr:active {
-  background-color: var(--color-bg-primary);
-  cursor: default;
+  @apply cursor-default bg-bg-primary;
 }
     
 /* ==================== Section ==================== */

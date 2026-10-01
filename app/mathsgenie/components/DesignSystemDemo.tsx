@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { DesignSystemSpecimens, type AlertState } from './DesignSystemSpecimens';
+import { cn } from '@/lib/utils';
 import styles from '../mathsgenie.module.css';
 
 export function DesignSystemDemo() {
@@ -18,19 +19,33 @@ export function DesignSystemDemo() {
     setAlerts((current) => ({ ...current, [name]: false }));
   };
 
+  const dark = mode === 'dark';
+
   return (
-    <div className={styles.systemPanel} data-theme={mode}>
-      <div className={styles.libraryHeader}>
+    <div className={cn(
+      styles.systemPanel,
+      'mt-4 overflow-hidden rounded-2xl border font-sans',
+      dark ? 'border-slate-700 bg-slate-950 text-slate-50' : 'border-slate-200 bg-slate-50 text-slate-950',
+    )} data-theme={mode}>
+      <div className={cn(
+        'flex flex-col gap-4 border-b px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6',
+        dark ? 'border-slate-700' : 'border-slate-200',
+      )}>
         <div>
-          <p className={styles.eyebrow}>YesGenie library</p>
-          <p className={styles.libraryIntro}>Reusable foundations for navigation, discovery, revision and feedback.</p>
+          <p className="text-xs font-semibold tracking-wider text-indigo-500 uppercase">YesGenie library</p>
+          <p className={cn('mt-1 text-sm', dark ? 'text-slate-300' : 'text-slate-600')}>Reusable foundations for navigation, discovery, revision and feedback.</p>
         </div>
-        <div className={styles.modeSwitch} role="group" aria-label="Component preview theme">
+        <div className={cn('flex gap-1 rounded-xl p-1', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Component preview theme">
           {(['light', 'dark'] as const).map((theme) => (
             <button
               key={theme}
               type="button"
-              className={styles.themeControl}
+              className={cn(
+                'cursor-pointer rounded-lg px-3 py-2 text-sm font-medium capitalize',
+                mode === theme
+                  ? 'bg-indigo-600 text-white'
+                  : dark ? 'text-slate-200 hover:bg-slate-700' : 'text-slate-700 hover:bg-slate-300',
+              )}
               aria-pressed={mode === theme}
               onClick={() => setMode(theme)}
             >
@@ -48,6 +63,7 @@ export function DesignSystemDemo() {
         alerts={alerts}
         onDismissAlert={dismissAlert}
         onResetAlerts={() => setAlerts({ welcome: true, subjects: true })}
+        dark={dark}
       />
     </div>
   );

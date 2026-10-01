@@ -1,119 +1,55 @@
 import Image from 'next/image';
 
-// Desktop positions create a compact triangular cluster. The shared mobile
-// classes below replace every item with normal document flow at 640px.
 const brands = [
-  {
-    name: 'MathsGenie',
-    logo: '/assets/images/mathsgenie/brands/mathsgenie.svg',
-    width: 329,
-    position: 'top-0 left-0 w-[46%]',
-    delay: '0s',
-  },
-  {
-    name: 'RevisionDojo',
-    logo: '/assets/images/mathsgenie/brands/revisiondojo.svg',
-    width: 256,
-    position: 'top-2.5 right-0 w-[42%]',
-    delay: '-1.8s',
-  },
-  {
-    name: 'OnePrep',
-    logo: '/assets/images/mathsgenie/brands/oneprep.svg',
-    width: 270,
-    position: 'bottom-0 left-1/2 w-[43%] -translate-x-1/2',
-    delay: '-3.6s',
-  },
+  { name: 'MathsGenie', logo: '/assets/images/mathsgenie/brands/mathsgenie.svg', width: 329 },
+  { name: 'RevisionDojo', logo: '/assets/images/mathsgenie/brands/revisiondojo.svg', width: 256 },
+  { name: 'OnePrep', logo: '/assets/images/mathsgenie/brands/oneprep.svg', width: 270 },
 ] as const;
 
-// Each principle owns its canvas position. Keeping these values beside the
-// copy makes future diagram edits possible without tracing CSS selectors.
 const principles = [
-  { label: 'Character-led', position: 'top-[13%] left-[8%]', delay: '0s' },
-  { label: 'Geometric', position: 'top-[13%] right-[8%]', delay: '-.8s' },
-  { label: 'Playful', position: 'top-[49%] right-[4%]', delay: '-1.6s' },
-  { label: 'Habit-forming', position: 'right-[14%] bottom-[10%]', delay: '-2.4s' },
-  { label: 'Springy motion', position: 'bottom-[11%] left-[10%]', delay: '-3.2s' },
+  { label: 'Character-led', position: 'top-6 left-6' },
+  { label: 'Geometric', position: 'top-6 right-6' },
+  { label: 'Playful', position: 'top-1/2 right-6' },
+  { label: 'Habit-forming', position: 'right-12 bottom-6' },
+  { label: 'Springy motion', position: 'bottom-6 left-12' },
 ] as const;
+
+const logoClass = 'block h-12 w-auto max-w-none object-contain transition duration-200 hover:-translate-y-1 hover:scale-105 hover:drop-shadow-lg';
+const pillClass = 'rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-lg transition duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-xl';
 
 export function BrandLanguageFigure() {
   return (
-    <figure
-      className="my-2 overflow-hidden rounded-[20px] border border-[var(--color-border-muted)]"
-      style={{
-        // A light workshop grid belongs only to this figure, so it stays here.
-        backgroundColor: 'var(--mg-neutral-100)',
-        backgroundImage: [
-          'linear-gradient(color-mix(in srgb, var(--mg-primary-500) 13%, transparent) 1px, transparent 1px)',
-          'linear-gradient(90deg, color-mix(in srgb, var(--mg-primary-500) 13%, transparent) 1px, transparent 1px)',
-        ].join(', '),
-        backgroundSize: '32px 32px',
-      }}
-    >
-      <figcaption className="sr-only">
-        Three General Learning platforms grouped with shared geometry, character and interaction principles.
-      </figcaption>
+    <figure className="my-2 overflow-hidden rounded-2xl border border-border-muted bg-slate-100 font-sans">
+      <figcaption className="sr-only">Three General Learning platforms grouped with shared geometry, character and interaction principles.</figcaption>
 
-      <div className="relative isolate min-h-[520px] max-[640px]:grid max-[640px]:min-h-0 max-[640px]:gap-5 max-[640px]:p-6">
-        {/* Logos cluster on desktop and return to a simple stack on mobile. */}
-        <ul
-          className="absolute top-1/2 left-1/2 z-[1] m-0 h-44 w-[min(58%,480px)] -translate-x-1/2 -translate-y-1/2 list-none p-0 max-[640px]:relative max-[640px]:top-auto max-[640px]:left-auto max-[640px]:mx-auto max-[640px]:my-5 max-[640px]:h-auto max-[640px]:w-[min(72%,260px)] max-[640px]:translate-x-0 max-[640px]:translate-y-0"
-          aria-label="General Learning product family"
-          role="list"
-        >
+      {/* Mobile uses normal flow so the labels and logos cannot collide. */}
+      <div className="grid gap-6 p-6 sm:hidden">
+        <ul className="m-0 grid list-none gap-5 p-0" aria-label="General Learning product family" role="list">
           {brands.map((brand) => (
-            <li
-              key={brand.name}
-              className={`absolute min-w-0 max-[640px]:static max-[640px]:w-full max-[640px]:translate-x-0 max-[640px]:[&+li]:mt-5 ${brand.position}`}
-            >
-              <Image
-                className="block h-auto max-h-16 w-full object-contain motion-safe:animate-[mathsgenie-brand-logo-float_5.4s_ease-in-out_infinite_alternate] motion-reduce:animate-none"
-                style={{ animationDelay: brand.delay }}
-                src={brand.logo}
-                alt={`${brand.name} logo`}
-                width={brand.width}
-                height={64}
-              />
+            <li key={brand.name} className="flex justify-center">
+              <Image className={logoClass} src={brand.logo} alt={`${brand.name} logo`} width={brand.width} height={64} />
             </li>
           ))}
         </ul>
-
-        {/* Principle pills are spatial labels; their list order remains logical for assistive technology. */}
-        <ul
-          className="m-0 list-none p-0 max-[640px]:flex max-[640px]:flex-wrap max-[640px]:justify-center max-[640px]:gap-2"
-          aria-label="Shared design language"
-          role="list"
-        >
-          {principles.map((principle) => (
-            <li
-              key={principle.label}
-              className={`absolute z-[2] grid min-h-[42px] place-items-center whitespace-nowrap rounded-full border px-3.5 py-[9px] text-[13px] font-semibold motion-safe:animate-[mathsgenie-brand-node-float_4.8s_ease-in-out_infinite_alternate] motion-reduce:animate-none max-[640px]:static max-[640px]:animate-none ${principle.position}`}
-              style={{
-                animationDelay: principle.delay,
-                backgroundColor: 'var(--mg-neutral-50)',
-                borderColor: 'var(--mg-neutral-300)',
-                boxShadow: '0 8px 24px color-mix(in srgb, var(--mg-neutral-900) 12%, transparent)',
-                color: 'var(--mg-neutral-800)',
-              }}
-            >
-              {principle.label}
-            </li>
-          ))}
+        <ul className="m-0 flex list-none flex-wrap justify-center gap-2 p-0" aria-label="Shared design language" role="list">
+          {principles.map((principle) => <li key={principle.label} className={pillClass}>{principle.label}</li>)}
         </ul>
       </div>
 
-      {/* Keyframes are intentionally local to this one-off case-study figure. */}
-      <style>{`
-        @keyframes mathsgenie-brand-node-float {
-          from { transform: translateY(-3px); }
-          to { transform: translateY(4px); }
-        }
-
-        @keyframes mathsgenie-brand-logo-float {
-          from { transform: translateY(-2px) rotate(-0.35deg); }
-          to { transform: translateY(3px) rotate(0.35deg); }
-        }
-      `}</style>
+      {/* The first two logos share a row and OnePrep takes the next row, keeping
+          the product family close to the centre without overlapping. */}
+      <div className="relative hidden min-h-96 sm:block">
+        <ul className="absolute inset-x-0 top-20 m-0 flex list-none flex-wrap justify-center gap-x-8 gap-y-12 px-12 py-0" aria-label="General Learning product family" role="list">
+          {brands.map((brand, index) => (
+            <li key={brand.name} className={index === 2 ? 'flex basis-full justify-center' : ''}>
+              <Image className={logoClass} src={brand.logo} alt={`${brand.name} logo`} width={brand.width} height={64} />
+            </li>
+          ))}
+        </ul>
+        <ul className="m-0 list-none p-0" aria-label="Shared design language" role="list">
+          {principles.map((principle) => <li key={principle.label} className={`absolute ${pillClass} ${principle.position}`}>{principle.label}</li>)}
+        </ul>
+      </div>
     </figure>
   );
 }

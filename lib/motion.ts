@@ -10,7 +10,6 @@ export const motionDuration = {
 export const motionDelay = {
   short: 0.075,
   standard: 0.2,
-  heroActions: 2,
 } as const;
 
 export const motionEase = {

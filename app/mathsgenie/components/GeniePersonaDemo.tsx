@@ -3,12 +3,11 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
-import styles from '../mathsgenie.module.css';
 
 const RivePlayer = dynamic(() => import('@/components/ui/RivePlayer'), {
   ssr: false,
   loading: () => (
-    <div className="grid h-[300px] place-items-center text-text-secondary">
+    <div className="grid h-72 place-items-center text-text-secondary">
       Loading Genie…
     </div>
   ),
@@ -26,15 +25,15 @@ export function GeniePersonaDemo() {
   const persona = personas[selected];
 
   return (
-    <div className={styles.personaPanel}>
-      <div className={styles.toolbar} role="group" aria-label="Choose a Genie animation">
+    <div className="mt-4 overflow-hidden rounded-2xl border border-border-muted bg-bg-secondary font-sans">
+      <div className="flex flex-wrap gap-2 p-4" role="group" aria-label="Choose a Genie animation">
         {personas.map((item, index) => (
           <Button
             key={item.file}
             type="button"
             variant="secondary"
             aria-pressed={selected === index}
-            className={styles.control}
+            className={selected === index ? 'ring-2 ring-current ring-inset' : undefined}
             onClick={() => setSelected(index)}
           >
             {item.name}
@@ -47,7 +46,7 @@ export function GeniePersonaDemo() {
         src={`/assets/images/mathsgenie/rive/${persona.file}.riv`}
         label={`Genie ${persona.name.toLowerCase()} animation`}
       />
-      <p className={styles.caption}>{persona.description}</p>
+      <p className="px-5 pt-3 pb-5 text-sm leading-6">{persona.description}</p>
     </div>
   );
 }

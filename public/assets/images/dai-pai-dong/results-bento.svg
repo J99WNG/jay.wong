@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#111113"/>
+  <path d="M80 126H1120" stroke="#343438"/>
+  <text x="80" y="82" fill="#E47B60" font-family="monospace" font-size="22">GOOGLE BUSINESS PROFILE · MAY—SEP 2026</text>
+  <circle cx="300" cy="425" r="170" stroke="#2C2C31" stroke-width="56"/>
+  <path d="M300 255a170 170 0 1 1-108 301" stroke="#E47B60" stroke-width="56" stroke-linecap="butt"/>
+  <path d="M192 556a170 170 0 0 1-62-131c0-54 25-104 62-136" stroke="#E1A23F" stroke-width="56"/>
+  <text x="300" y="410" fill="#F4F1EC" font-family="monospace" font-size="54" text-anchor="middle">45,063</text>
+  <text x="300" y="452" fill="#A5A5AA" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">PROFILE VIEWS</text>
+  <g font-family="monospace">
+    <text x="570" y="270" fill="#A5A5AA" font-size="22">SEARCH APPEARANCES</text>
+    <text x="570" y="345" fill="#F4F1EC" font-size="68">19,187</text>
+    <rect x="570" y="390" width="470" height="12" rx="6" fill="#2C2C31"/>
+    <rect x="570" y="390" width="390" height="12" rx="6" fill="#E47B60"/>
+    <text x="570" y="485" fill="#A5A5AA" font-size="22">CUSTOMER ACTIONS</text>
+    <text x="570" y="560" fill="#F4F1EC" font-size="68">8,584</text>
+    <rect x="570" y="605" width="470" height="12" rx="6" fill="#2C2C31"/>
+    <rect x="570" y="605" width="320" height="12" rx="6" fill="#E1A23F"/>
+  </g>
+</svg>

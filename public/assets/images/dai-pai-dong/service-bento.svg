@@ -1,0 +1,43 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#111113"/>
+  <text x="74" y="82" fill="#E47B60" font-family="monospace" font-size="22">SERVICE BLUEPRINT</text>
+  <text x="74" y="135" fill="#F4F1EC" font-family="Arial, sans-serif" font-size="34" font-weight="600">From fragmented signals to one shared view</text>
+  <g transform="translate(74 210)">
+    <rect width="478" height="470" rx="26" fill="#17171A" stroke="#343438"/>
+    <rect width="478" height="8" rx="4" fill="#D25D51"/>
+    <text x="28" y="62" fill="#A5A5AA" font-family="monospace" font-size="18">CURRENT STATE</text>
+    <text x="28" y="106" fill="#F4F1EC" font-family="Arial, sans-serif" font-size="26" font-weight="600">Many signals</text>
+    <g font-family="Arial, sans-serif" font-size="18">
+      <rect x="28" y="156" width="195" height="72" rx="14" fill="#202024"/>
+      <text x="48" y="199" fill="#F4F1EC">Phone calls</text>
+      <rect x="255" y="156" width="195" height="72" rx="14" fill="#202024"/>
+      <text x="275" y="199" fill="#F4F1EC">Walk-ins</text>
+      <rect x="28" y="258" width="195" height="72" rx="14" fill="#202024"/>
+      <text x="48" y="301" fill="#F4F1EC">Paper ledger</text>
+      <rect x="255" y="258" width="195" height="72" rx="14" fill="#202024"/>
+      <text x="275" y="301" fill="#F4F1EC">Radios</text>
+    </g>
+    <path d="M239 357v52" stroke="#D25D51" stroke-width="3"/>
+    <path d="m229 397 10 12 10-12" stroke="#D25D51" stroke-width="3"/>
+    <text x="239" y="446" fill="#D25D51" font-family="monospace" font-size="20" text-anchor="middle">MANAGER BOTTLENECK</text>
+  </g>
+  <g transform="translate(648 210)">
+    <rect width="478" height="470" rx="26" fill="#17171A" stroke="#343438"/>
+    <rect width="478" height="8" rx="4" fill="#E47B60"/>
+    <text x="28" y="62" fill="#E47B60" font-family="monospace" font-size="18">FUTURE STATE</text>
+    <text x="28" y="106" fill="#F4F1EC" font-family="Arial, sans-serif" font-size="26" font-weight="600">One shared view</text>
+    <g font-family="Arial, sans-serif" font-size="18">
+      <rect x="28" y="156" width="195" height="72" rx="14" fill="#202024" stroke="#E47B60"/>
+      <text x="48" y="199" fill="#F4F1EC">Bookings</text>
+      <rect x="255" y="156" width="195" height="72" rx="14" fill="#202024" stroke="#E47B60"/>
+      <text x="275" y="199" fill="#F4F1EC">Walk-ins</text>
+      <rect x="28" y="258" width="195" height="72" rx="14" fill="#202024" stroke="#E47B60"/>
+      <text x="48" y="301" fill="#F4F1EC">Table states</text>
+      <rect x="255" y="258" width="195" height="72" rx="14" fill="#202024" stroke="#E47B60"/>
+      <text x="275" y="301" fill="#F4F1EC">Wait order</text>
+    </g>
+    <path d="M239 357v52" stroke="#E47B60" stroke-width="3"/>
+    <path d="m229 397 10 12 10-12" stroke="#E47B60" stroke-width="3"/>
+    <text x="239" y="446" fill="#E47B60" font-family="monospace" font-size="20" text-anchor="middle">CALMER DECISIONS</text>
+  </g>
+</svg>

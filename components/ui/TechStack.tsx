@@ -51,7 +51,7 @@ export default function TechStack() {
               {tool.name}
             </span>
 
-            <span className="block text-xs text-text-tertiary">
+            <span className="block text-xs tracking-normal text-text-tertiary">
               {tool.category}
             </span>
           </span>

@@ -18,6 +18,21 @@ export type CaseStudy = {
   
   export const caseStudies: CaseStudy[] = [
     {
+      slug: "dai-pai-dong",
+      year: "Ongoing",
+      company: "Supreme Roast Goose King",
+      logo: "",
+      industry: "Hospitality",
+      title: "Bringing Order to Chaos Without Losing the Dai Pai Dong Spirit",
+      tagline: "A phased service transformation spanning discoverability, communication and a pre-launch operations MVP.",
+      role: "Service Designer / Product Designer",
+      badges: ["Service Design", "Hospitality", "Digital Transformation"],
+      bentoImage: "/assets/images/dai-pai-dong/case-study-logo.svg",
+      bentoImage2: "/assets/images/dai-pai-dong/results-bento.svg",
+      bentoImage3: "/assets/images/dai-pai-dong/service-bento.svg",
+      available: false,
+    },
+    {
       slug: "mathsgenie",
       year: "2026",
       company: "General Learning (YC F24)",

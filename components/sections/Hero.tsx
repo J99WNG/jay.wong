@@ -11,6 +11,7 @@ import {
   motionDelay,
   motionDuration,
   motionEase,
+  motionStagger,
   tickerTransition,
 } from "@/lib/motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -67,17 +68,31 @@ export default function Hero() {
     }
   };
 
+  // Let the column orchestrate its motion children instead of assigning
+  // unrelated delays to each element. StreamingText keeps its own word timing.
+  const columnStagger = {
+    initial: {},
+    animate: {
+      transition: {
+        delayChildren: shouldReduceMotion ? 0 : motionDelay.standard,
+        staggerChildren: shouldReduceMotion ? 0 : motionStagger.items,
+      },
+    },
+  };
+
   return (
     <Section id="hero" isLanding={true}>
       <div className="mx-auto flex flex-col-reverse items-center gap-5 text-center md:flex-row md:text-left">
         
         {/* Left Column */}
-        <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
+        <motion.div
+          initial="initial"
+          animate={isPageReady ? "animate" : "initial"}
+          variants={columnStagger}
+          className="flex flex-1 flex-col items-center gap-6 md:items-start"
+        >
           <motion.h1
-            initial="initial"
-            animate={isPageReady ? "animate" : "initial"}
             variants={fadeInUp}
-            transition={{ delay: shouldReduceMotion ? 0 : motionDelay.standard }}
             className="relative"
           >
             {/* 1. Accessible Layer: Hidden visually, but read clearly by screen readers */}
@@ -137,10 +152,7 @@ export default function Hero() {
 
           {/* Button group */}
           <motion.div
-            initial="initial"
-            animate={isPageReady ? "animate" : "initial"}
             variants={fadeInUp}
-            transition={{ delay: shouldReduceMotion ? 0 : motionDelay.heroActions }}
             className="flex flex-wrap justify-center gap-4 items-center md:justify-start"
           >
             <Button
@@ -165,7 +177,7 @@ export default function Hero() {
               Schedule a call
             </Button>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Right Column / Visual */}
         <motion.div

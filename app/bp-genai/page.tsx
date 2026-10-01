@@ -6,6 +6,7 @@ import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
+import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
@@ -43,47 +44,12 @@ export default function Page() {
                     <div className="content-block">
                         <p className="small">Impact (6 months post-launch)</p>
 
-                        <div className="grid place-items-start justify-start md:place-items-stretch gap-5 grid-cols-1 md:grid-cols-2">
-                        <div className="card">
-                            <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <p>
-                                <span className="emphasis">~1,200 </span>
-                                <br />
-                                Repeat tickets avoided
-                            </p>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <p>
-                                <span className="emphasis">+21% </span>
-                                <br />
-                                Self-serve success rate 
-                            </p>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <p>
-                                <span className="emphasis">3.6 → 4.2 </span>
-                                <br />
-                                Improved CSAT score
-                            </p>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="flex justify-start w-full gap-2 px-6 py-5">
-                            <p>
-                                <span className="emphasis">-18% </span>
-                                <br />
-                                Reduced resolution time
-                            </p>
-                            </div>
-                        </div>
-                        </div>
+                        <MetricGrid columns={2} ariaLabel="Impact six months after launch">
+                            <MetricCard value="~1,200" label="Repeat tickets avoided" />
+                            <MetricCard value="+21%" label="Self-serve success rate" />
+                            <MetricCard value="3.6 → 4.2" label="Improved CSAT score" />
+                            <MetricCard value="−18%" label="Reduced resolution time" />
+                        </MetricGrid>
                     </div>
                     
                     <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
