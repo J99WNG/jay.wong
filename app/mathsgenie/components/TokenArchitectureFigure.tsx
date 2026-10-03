@@ -1,10 +1,22 @@
 import { CheckCircle2, CircleAlert, Info, TriangleAlert } from 'lucide-react';
+import { Fragment } from 'react';
 import { cn } from '@/lib/utils';
 import styles from '../mathsgenie.module.css';
 
-const tokenLayers = [
-  { layer: 'Primitive', code: 'primary.400', note: 'oklch(0.726 0.141 267.2)', preview: 'swatch' },
-  { layer: 'Semantic', code: 'action.primary.background', note: 'Role remains stable across themes', preview: 'swatch' },
+const primitiveTokens = [
+  { token: 'primary.100', value: 'oklch(0.942 0.028 265.5)', shade: 'bg-indigo-100' },
+  { token: 'primary.400', value: 'oklch(0.726 0.141 267.2)', shade: 'bg-indigo-400' },
+  { token: 'primary.800', value: 'oklch(0.412 0.146 268.2)', shade: 'bg-indigo-800' },
+  { token: 'neutral.900', value: 'oklch(0.256 0.016 264.2)', shade: 'bg-slate-950' },
+] as const;
+
+const semanticTokens = [
+  { token: 'action.primary.background', value: 'oklch(0.726 0.141 267.2)', shade: 'bg-indigo-400' },
+  { token: 'surface.raised', value: 'oklch(0.325 0.022 267.3)', shade: 'bg-slate-800' },
+  { token: 'feedback.negative.background', value: 'oklch(0.950 0.030 24.2)', shade: 'bg-red-100' },
+] as const;
+
+const assembledTokens = [
   { layer: 'Component', code: 'button.primary.rest', note: 'Rest, hover, focus and disabled', preview: 'button' },
   { layer: 'Pattern', code: 'revision.next-step', note: 'Assembled from tested atoms', preview: 'pattern' },
 ] as const;
@@ -18,24 +30,58 @@ const feedbackStates = [
 
 const buttonBase = 'inline-flex w-full items-center justify-center rounded-xl border border-b-2 px-3 py-3 text-base font-medium leading-none transition duration-200 active:translate-y-px';
 
+function FlowArrow() {
+  return <li className="mx-auto grid size-6 place-items-center rounded-full border border-slate-700 bg-slate-950 text-indigo-400" aria-hidden="true">↓</li>;
+}
+
+function TokenCollection({
+  layer,
+  tokens,
+}: {
+  layer: 'Primitive' | 'Semantic';
+  tokens: readonly { token: string; value: string; shade: string }[];
+}) {
+  return (
+    <li className="grid gap-2">
+      <div className="grid min-w-0 gap-4 rounded-2xl border border-slate-700 bg-slate-800 p-5">
+        <span className="text-xs font-semibold tracking-wider text-indigo-400 uppercase">{layer}</span>
+        <ul className="m-0 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2" role="list">
+          {tokens.map((token) => (
+            <li key={token.token} className="grid min-w-0 gap-3 rounded-xl border border-slate-700 bg-slate-950 p-4">
+              <code className="w-fit max-w-full text-sm">{token.token}</code>
+              <span className={cn('h-10 w-full rounded-lg border border-slate-600', token.shade)} role="img" aria-label={`${token.token} colour shade`} />
+              <small className="text-xs leading-5 text-slate-300">{token.value}</small>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </li>
+  );
+}
+
 export function TokenArchitectureFigure() {
   return (
     <figure className={cn(styles.tokenArchitecture, 'mt-4 overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 p-6 font-sans text-slate-50')}>
       <figcaption className="sr-only">Primitive OKLCH values flow into semantic roles, component states and reusable product patterns.</figcaption>
 
       <ol className="m-0 grid list-none gap-2 p-0" role="list">
-        {tokenLayers.map((token, index) => (
-          <li key={token.layer} className="grid gap-2">
+        <TokenCollection layer="Primitive" tokens={primitiveTokens} />
+        <FlowArrow />
+        <TokenCollection layer="Semantic" tokens={semanticTokens} />
+        <FlowArrow />
+        {assembledTokens.map((token, index) => (
+          <Fragment key={token.layer}>
+          <li>
             <div className="flex min-w-0 flex-col items-start gap-3 rounded-2xl border border-slate-700 bg-slate-800 p-5">
               <span className="text-xs font-semibold tracking-wider text-indigo-400 uppercase">{token.layer}</span>
               <code className="text-sm">{token.code}</code>
-              {token.preview === 'swatch' && <span className="h-9 w-full rounded-lg border border-slate-600 bg-indigo-400" aria-hidden="true" />}
               {token.preview === 'button' && <button type="button" className={cn(buttonBase, 'border-slate-950 bg-indigo-400 text-slate-950 hover:bg-indigo-300')}>Continue</button>}
               {token.preview === 'pattern' && <span className="flex w-full items-center justify-between gap-2 rounded-lg border border-slate-700 bg-slate-950 p-3 text-xs text-slate-300">12 questions <strong className="text-indigo-400">Continue</strong></span>}
               <small className="text-xs leading-5 text-slate-300">{token.note}</small>
             </div>
-            {index < tokenLayers.length - 1 && <span className="mx-auto grid size-6 place-items-center rounded-full border border-slate-700 bg-slate-950 text-indigo-400" aria-hidden="true">↓</span>}
           </li>
+          {index < assembledTokens.length - 1 && <FlowArrow />}
+          </Fragment>
         ))}
       </ol>
 
@@ -68,7 +114,7 @@ export function TokenArchitectureFigure() {
           {feedbackStates.map(({ name, copy, icon: StateIcon, className }) => (
             <li key={name} className={cn('flex items-center gap-3 rounded-xl border p-3', className)}>
               <StateIcon aria-hidden="true" size={18} />
-              <span className="flex flex-col text-sm"><strong>{name}</strong>{copy}</span>
+              <span className="flex flex-col text-sm"><strong className="text-base">{name}</strong>{copy}</span>
             </li>
           ))}
         </ul>

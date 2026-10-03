@@ -1,6 +1,6 @@
 import Section from '@/components/Section';
-import { GalleryProvider } from '@/components/ui/GalleryContext';
-import FigureModal from '@/components/ui/FigureModal';
+import { LightboxProvider } from '@/components/ui/LightboxGallery';
+import LightboxImage from '@/components/ui/LightboxImage';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
@@ -16,7 +16,7 @@ export const metadata = createCaseStudyMetadata(project);
     if (!project) return null;
     
     return (
-        <GalleryProvider>
+        <LightboxProvider>
             <article>
                 <CaseStudyLanding project={project} />
 
@@ -267,7 +267,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     </li>
                                 </ol>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-discovery-1.png"
                                     alt=""
                                     caption="Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase."
@@ -281,7 +281,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     We also ran a Ketso planning session early in the project, a structured tactile brainstorming method that got the full team contributing ideas in a way a standard whiteboard session rarely does.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-discovery-2.png"
                                     alt=""
                                     caption="Our team discussed various topics to better discover an RM's needs and how we approach the problems outlined in the briefing document."
@@ -331,13 +331,13 @@ export const metadata = createCaseStudyMetadata(project);
                                 We then used MoSCoW prioritisation to separate what we had to build from what would be valuable but non-essential. Of the 12 requirements we identified, 7 landed in the Must and Should categories. Those 7 became our north star for the rest of the project.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-problem-1.png"
                                     alt=""
                                     caption="Five functional requirements were refined and taken forward into our design and development iterations."
                                 />
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-problem-2.png"
                                     alt=""
                                     caption="With our non-functional requirements, we had two that fell into 'Could' priority. These were features we would have included if we had more time, but they weren't essential to the core user experience we wanted to deliver in the project window."
@@ -390,13 +390,13 @@ export const metadata = createCaseStudyMetadata(project);
                                     We had no access to Credit Suisse's design system. So that meant we had to build one from scratch that was consistent with Credit Suisse's existing design language, maintaining continuity with their bold typography and 'pioneering' aesthetic.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-goals-1.png"
                                     alt=""
                                     caption="I started with the foundations, establishing the 'TLC' through studying Credit Suisse's existing digital products and channels – Typography, Layout and Colour."
                                 />
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-goals-2.png"
                                     alt=""
                                     caption="A more comprehensive design system emerged as we iterated on the prototype, with a focus on modularity and reusability to speed up our agile cycles and maintain visual consistency across the solution."
@@ -458,7 +458,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     Rather than building a rigid, fixed-layout homepage, we designed the dashboard as a configurable surface. RMs could see today's tasks, upcoming reminders, and recently accessed clients at a glance. Every element was tappable and connected to a deeper view.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-ideation-1.png"
                                     alt=""
                                     caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
@@ -474,7 +474,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     We designed a live market data panel aggregating real-time stock movements and financial news, filtered by the regions and sectors relevant to each RM's portfolio. Keeping market intelligence inside the same app, rather than requiring RMs to switch to a news app or Bloomberg terminal, meant one less context switch in an already busy day.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-ideation-2.png"
                                     alt=""
                                     caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
@@ -490,7 +490,7 @@ export const metadata = createCaseStudyMetadata(project);
                                     One of the more deliberate design decisions was the card-based client grid. Rather than a list of names, each card showed the client's photo, nationality flag, occupation, and region. An RM managing dozens of clients across multiple continents should be able to find who they're looking for by face, not by scrolling through an alphabetical list. This directly applied Nielsen's principle of recognition over recall.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-ideation-3.png"
                                     alt=""
                                     caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
@@ -528,7 +528,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Two-step authentication combining username/password with biometric fingerprint recognition. For an institution managing client wealth at this scale, security had to be the first design decision, not an afterthought. The screen maintained Credit Suisse's visual identity, bold typeface, navy palette, from the first moment.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-1.png"
                                     alt=""
                                     caption="A straightforward login screen to welcome RMs into the app, no messing about."
@@ -544,7 +544,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 The homepage of the RM's working day. Today's tasks in a clean checklist. Reminders each linked to the relevant client. A Recent Clients widget for fast access. The whole screen was designed to be scanned in under 30 seconds, giving the RM everything they needed to orient their day before their first meeting.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-2.png"
                                     alt=""
                                     caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
@@ -560,7 +560,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 A searchable, sortable grid of all clients, filterable by region, occupation, and recency. Built around visual recognition. A busy RM on the way to a meeting shouldn't have to type a name to find it.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-3.png"
                                     alt=""
                                     caption="We iterated the clients list to be more informative at a glance."
@@ -576,7 +576,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 The deepest layer of the app, and the most important one. A single screen containing client key information, aims and objectives, reminders, market news filtered to that client's specific sectors and regions, portfolio breakdown, risk analysis, and full meeting history. Everything an RM needed to walk into a meeting prepared, without opening a second application.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-4.png"
                                     alt=""
                                     caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
@@ -592,7 +592,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Live market data across EMEA, AMER, and APAC with colour-coded performance indicators. Green for positive movement, red for negative. A curated financial news feed alongside it. Keeping RMs connected to what was moving in the markets their clients were exposed to.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-5.png"
                                     alt=""
                                     caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
@@ -608,7 +608,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Abdul revealed that RMs were missing important reminders because they were buried in email threads or lost in the shuffle of a busy day. We built a notifications system that surfaced those reminders directly in the app, with push notifications for critical deadlines. Every reminder was linked to the relevant client profile, so an RM could jump straight to the information they needed to take action.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-6.png"
                                     alt=""
                                     caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
@@ -624,7 +624,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 A single entry point for creating tasks, reminders, and meeting notes. One form, one flow. Everything tagged back to the relevant client automatically.
                                 </p>
 
-                                <FigureModal
+                                <LightboxImage
                                     src="assets/images/cs-kyc/cs-solution-7.png"
                                     alt=""
                                     caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
@@ -782,6 +782,6 @@ export const metadata = createCaseStudyMetadata(project);
                     </div>
                 </Section>
             </article>
-        </GalleryProvider>
+        </LightboxProvider>
     );
 }

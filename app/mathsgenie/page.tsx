@@ -1,5 +1,5 @@
 import Section from '@/components/Section';
-import { GalleryProvider } from '@/components/ui/GalleryContext';
+import { LightboxProvider } from '@/components/ui/LightboxGallery';
 import { CaseStudyLanding } from '@/components/sections/CaseStudyLanding';
 import { caseStudies } from '@/app/data/caseStudies';
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
@@ -14,8 +14,8 @@ export const metadata = createCaseStudyMetadata(project);
 
 export default function Page() {
   return (
-    <GalleryProvider>
-      <article className={`${mathsGenieDisplay.variable} ${styles.mathsGenieRoute}`}>
+    <article className={`${mathsGenieDisplay.variable} ${styles.mathsGenieRoute}`}>
+      <LightboxProvider>
         <CaseStudyLanding project={project} />
 
         <Section id="snapshot">
@@ -196,7 +196,7 @@ export default function Page() {
             </div>
           </div>
         </Section>
-      </article>
-    </GalleryProvider>
+      </LightboxProvider>
+    </article>
   );
 }

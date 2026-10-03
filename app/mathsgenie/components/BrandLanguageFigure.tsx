@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { MathsGenieGalleryFigure } from './MathsGenieGalleryFigure';
 
 const brands = [
   { name: 'MathsGenie', logo: '/assets/images/mathsgenie/brands/mathsgenie.svg', width: 329 },
@@ -8,7 +9,7 @@ const brands = [
 
 const principles = [
   { label: 'Character-led', position: 'top-6 left-6' },
-  { label: 'Geometric', position: 'top-6 right-6' },
+  { label: 'Geometric', position: 'top-6 right-20' },
   { label: 'Playful', position: 'top-1/2 right-6' },
   { label: 'Habit-forming', position: 'right-12 bottom-6' },
   { label: 'Springy motion', position: 'bottom-6 left-12' },
@@ -17,11 +18,9 @@ const principles = [
 const logoClass = 'block h-12 w-auto max-w-none object-contain transition duration-200 hover:-translate-y-1 hover:scale-105 hover:drop-shadow-lg';
 const pillClass = 'rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-lg transition duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-xl';
 
-export function BrandLanguageFigure() {
+function BrandLanguageCanvas() {
   return (
-    <figure className="my-2 overflow-hidden rounded-2xl border border-border-muted bg-slate-100 font-sans">
-      <figcaption className="sr-only">Three General Learning platforms grouped with shared geometry, character and interaction principles.</figcaption>
-
+    <div className="overflow-hidden rounded-2xl bg-slate-100 font-sans">
       {/* Mobile uses normal flow so the labels and logos cannot collide. */}
       <div className="grid gap-6 p-6 sm:hidden">
         <ul className="m-0 grid list-none gap-5 p-0" aria-label="General Learning product family" role="list">
@@ -50,6 +49,21 @@ export function BrandLanguageFigure() {
           {principles.map((principle) => <li key={principle.label} className={`absolute ${pillClass} ${principle.position}`}>{principle.label}</li>)}
         </ul>
       </div>
-    </figure>
+    </div>
+  );
+}
+
+export function BrandLanguageFigure() {
+  const alt = 'MathsGenie, RevisionDojo and OnePrep clustered around five shared design-language principles';
+
+  return (
+    <MathsGenieGalleryFigure
+      alt={alt}
+      caption="Three General Learning platforms connected by character-led, geometric, playful and habit-forming design principles."
+      className="my-2 overflow-hidden rounded-2xl border border-border-muted"
+      expandedContent={<div className="grid min-h-full place-items-center"><div className="w-full max-w-5xl"><BrandLanguageCanvas /></div></div>}
+    >
+      <BrandLanguageCanvas />
+    </MathsGenieGalleryFigure>
   );
 }

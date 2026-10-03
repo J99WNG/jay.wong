@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ArrowUp, ChevronDown, FileText, Home, Search, Settings, Sparkles, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ComponentSpecimen } from './ComponentSpecimen';
@@ -60,9 +61,11 @@ export function DesignSystemSpecimens(props: DesignSystemSpecimensProps) {
 function NavigationSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
     <ComponentSpecimen title="Navigation" dark={dark}>
-      <nav className={cn('flex w-max min-w-full items-center gap-3 rounded-2xl border px-3 py-2 text-xs sm:gap-6', dark ? 'border-slate-700 bg-slate-800' : 'border-slate-300 bg-white')} aria-label="Example MathsGenie navigation">
-        <strong className="flex items-center gap-1 whitespace-nowrap text-base"><span aria-hidden="true">🧞</span> MathsGenie</strong>
-        <div className="hidden flex-1 items-center gap-2 sm:flex">
+      <nav className={cn('mx-auto flex w-5xl origin-center scale-50 items-center gap-6 rounded-2xl border px-6 py-4 text-base', dark ? 'border-slate-700 bg-slate-800' : 'border-slate-300 bg-white')} aria-label="Example MathsGenie navigation">
+        <span className={cn('shrink-0 rounded-lg px-2 py-1', dark && 'bg-slate-50')}>
+          <Image className="h-10 w-auto" src="/assets/images/mathsgenie/brands/mathsgenie.svg" alt="MathsGenie" width={329} height={60} />
+        </span>
+        <div className="flex flex-1 items-center gap-3">
           {['GCSE', 'AS Level', 'A Level', 'IGCSE', 'KS2'].map((item) => (
             <button type="button" className="flex cursor-pointer items-center gap-1 p-2 whitespace-nowrap" key={item}>{item} <ChevronDown size={16} aria-hidden="true" /></button>
           ))}
@@ -93,9 +96,9 @@ function SearchSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
 
 function SegmentedControlSpecimen({ selectedSubject, onSelectSubject, dark }: DesignSystemSpecimensProps) {
   return (
-    <ComponentSpecimen title="Segmented control" hint="The full-width control is deliberately clipped by the specimen frame." dark={dark}>
-      <div className="w-full overflow-hidden">
-        <div className={cn('flex w-max items-center gap-1 rounded-2xl p-2', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Qualification filter">
+    <ComponentSpecimen title="Segmented control" hint="The complete control is scaled into the workshop frame." dark={dark}>
+      <div className="mx-auto w-5xl origin-center scale-50">
+        <div className={cn('flex w-full items-center gap-1 rounded-2xl p-2', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Qualification filter">
           {subjects.map((subject) => {
             const selected = selectedSubject === subject;
             return <button key={subject} type="button" className={cn(styles.displayType, 'shrink-0 cursor-pointer rounded-xl px-3 py-2 text-xl', selected ? 'bg-indigo-600 text-white' : dark ? 'text-slate-50 hover:bg-indigo-200 hover:text-indigo-700' : 'text-slate-950 hover:bg-indigo-100 hover:text-indigo-700')} aria-pressed={selected} onClick={() => onSelectSubject(subject)}>{subject}</button>;
@@ -109,6 +112,7 @@ function SegmentedControlSpecimen({ selectedSubject, onSelectSubject, dark }: De
 function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpecimensProps) {
   return (
     <ComponentSpecimen title="Buttons and cards" dark={dark}>
+      <div className="mx-auto w-full origin-center scale-75">
       <div className="mb-5 flex flex-wrap gap-3">
         {(['primary', 'secondary', 'tertiary'] as const).map((variant) => (
           <button key={variant} type="button" className={buttonClass(variant, dark, held === variant)} aria-pressed={held === variant} onClick={() => onToggleHeld(variant)}>{variant.charAt(0).toUpperCase() + variant.slice(1)}</button>
@@ -131,8 +135,9 @@ function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpeci
         <article className={cardClass(dark)}>
           <span className="flex w-full justify-between text-xs text-indigo-500">GB <span>May 12, 2025</span></span>
           <strong className={cardTitleClass}>Marcus R. <span className="float-right font-sans text-sm tracking-normal text-amber-400" aria-label="4.5 out of 5 stars">★★★★½</span></strong>
-          <span className={cn('text-sm leading-5', dark ? 'text-slate-300' : 'text-slate-600')}>“YesGenie helps me understand the ‘why’ behind the maths.”</span>
+          <span className={cn('text-sm leading-5', dark ? 'text-slate-300' : 'text-slate-600')}>“MathsGenie helps me understand the ‘why’ behind the maths.”</span>
         </article>
+      </div>
       </div>
     </ComponentSpecimen>
   );
@@ -154,10 +159,12 @@ function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: 
   const dismissClass = 'grid size-7 shrink-0 cursor-pointer place-items-center rounded-full hover:bg-black/10';
   return (
     <ComponentSpecimen title="Carousel alert" dark={dark}>
+      <div className="mx-auto w-5xl origin-center scale-50">
       {alerts.welcome || alerts.subjects ? <div className="grid gap-2">
         {alerts.welcome && <div className="flex min-h-12 items-center justify-between gap-2 border-y border-cyan-800 bg-cyan-300 px-3 py-2 text-center text-sm text-cyan-950" role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss welcome alert" onClick={() => onDismissAlert('welcome')}><X aria-hidden="true" size={16} /></button></div>}
         {alerts.subjects && <div className="flex min-h-12 items-center justify-between gap-2 border-y border-slate-950 bg-indigo-400 px-3 py-2 text-center text-sm text-slate-950" role="status"><span>We&apos;ve expanded the magic. Explore 100+ subjects tailored for your exact exam board. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss subjects alert" onClick={() => onDismissAlert('subjects')}><X aria-hidden="true" size={16} /></button></div>}
       </div> : <button type="button" className={buttonClass('secondary', dark)} onClick={onResetAlerts}>Reset alerts</button>}
+      </div>
     </ComponentSpecimen>
   );
 }
@@ -165,7 +172,7 @@ function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: 
 function SidebarSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
     <ComponentSpecimen title="Sidebar" dark={dark}>
-      <aside className={cn('flex h-96 w-56 flex-col gap-2 rounded-lg p-3', dark ? 'bg-slate-800 text-slate-50' : 'bg-white text-slate-950')} aria-label="Example study navigation">
+      <aside className={cn('mx-auto flex h-96 w-56 origin-center scale-75 flex-col gap-2 rounded-lg p-3', dark ? 'bg-slate-800 text-slate-50' : 'bg-white text-slate-950')} aria-label="Example study navigation">
         <p className={cn('px-2 pb-1 text-xs uppercase', dark ? 'text-slate-400' : 'text-slate-500')}>Study</p>
         {sidebarItems.map((item, index) => {
           const current = index === 2;

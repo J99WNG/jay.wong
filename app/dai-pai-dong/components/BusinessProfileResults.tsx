@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { MapPin, MousePointerClick, Phone, Search } from 'lucide-react';
+import { BookOpenText, MapPin, MousePointerClick, Phone, Search } from 'lucide-react';
 
 import styles from '../dai-pai-dong.module.css';
 
@@ -71,24 +71,31 @@ function SearchView() {
 function ActionsView() {
   return (
     <div>
-      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><MousePointerClick aria-hidden="true" /><span><strong>8,584</strong>profile interactions</span></div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><MousePointerClick aria-hidden="true" /><span><strong>8,675</strong>profile interactions</span></div>
+      <div className="grid gap-4 sm:grid-cols-3">
         <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
           <MapPin aria-hidden="true" />
           <span>Direction requests</span>
-          <strong>4,923</strong>
+          <strong>4,980</strong>
           <i><b style={{ width: '57.4%' }} /></i>
           <small>57.4% of recorded interactions</small>
         </article>
         <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
           <Phone aria-hidden="true" />
           <span>Calls</span>
-          <strong>2,473</strong>
-          <i><b style={{ width: '28.8%' }} /></i>
-          <small>28.8% of recorded interactions</small>
+          <strong>2,490</strong>
+          <i><b style={{ width: '28.7%' }} /></i>
+          <small>28.7% of recorded interactions</small>
+        </article>
+        <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
+          <BookOpenText aria-hidden="true" />
+          <span>Menu-content views</span>
+          <strong>1,205</strong>
+          <i><b style={{ width: '13.9%' }} /></i>
+          <small>13.9% of recorded interactions</small>
         </article>
       </div>
-      <p className={styles.canvasInsight}>The remaining 1,188 interactions were recorded across other profile actions. October is excluded because it was incomplete.</p>
+      <p className={styles.canvasInsight}>Calls and direction requests accounted for 86.1% of all interactions, indicating that most recorded activity was tied to booking enquiries or plans to visit. October is excluded because it was incomplete.</p>
     </div>
   );
 }

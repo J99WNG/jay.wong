@@ -12,6 +12,9 @@ export const siteMetadata = {
   // Match the GitHub Pages CNAME so crawlers can fetch metadata and assets
   // without crossing the apex-to-www redirect.
   url: 'https://www.jaywong.digital',
+  // This stable, square portrait is the preferred homepage image for search.
+  // Social platforms continue to use the separate branded artwork below.
+  profileImage: '/assets/images/jay-wong-headshot.png',
   socialImage: {
     url: '/opengraph-image.png',
     width: 1200,

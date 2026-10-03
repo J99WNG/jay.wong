@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
+import { MathsGenieGalleryFigure } from './MathsGenieGalleryFigure';
 
 const RivePlayer = dynamic(() => import('@/components/ui/RivePlayer'), {
   ssr: false,
@@ -24,9 +25,18 @@ export function GeniePersonaDemo() {
   const [selected, setSelected] = useState(0);
   const persona = personas[selected];
 
-  return (
-    <div className="mt-4 overflow-hidden rounded-2xl border border-border-muted bg-bg-secondary font-sans">
-      <div className="flex flex-wrap gap-2 p-4" role="group" aria-label="Choose a Genie animation">
+  const canvas = (
+    <div className="flex aspect-video w-full flex-col gap-4 bg-bg-secondary p-4">
+      <div className="min-h-0 flex-1">
+        <RivePlayer
+          key={persona.file}
+          compact
+          className="h-full min-h-0 rounded-xl border-0"
+          src={`/assets/images/mathsgenie/rive/${persona.file}.riv`}
+          label={`Genie ${persona.name.toLowerCase()} animation`}
+        />
+      </div>
+      <div className="flex shrink-0 flex-wrap justify-center gap-2" role="group" aria-label="Choose a Genie animation">
         {personas.map((item, index) => (
           <Button
             key={item.file}
@@ -40,13 +50,17 @@ export function GeniePersonaDemo() {
           </Button>
         ))}
       </div>
-      <RivePlayer
-        key={persona.file}
-        className="rounded-none border-0"
-        src={`/assets/images/mathsgenie/rive/${persona.file}.riv`}
-        label={`Genie ${persona.name.toLowerCase()} animation`}
-      />
-      <p className="px-5 pt-3 pb-5 text-sm leading-6">{persona.description}</p>
     </div>
+  );
+
+  return (
+    <MathsGenieGalleryFigure
+      alt={`Genie ${persona.name.toLowerCase()} animation and persona selector`}
+      caption={persona.description}
+      className="mt-4 overflow-hidden rounded-2xl border border-border-muted bg-bg-secondary font-sans"
+      expandedContent={<div className="mx-auto grid min-h-full w-full max-w-5xl place-items-center">{canvas}</div>}
+    >
+      {canvas}
+    </MathsGenieGalleryFigure>
   );
 }

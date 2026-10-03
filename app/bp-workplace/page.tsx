@@ -1,6 +1,6 @@
 import Section from '@/components/Section';
-import { GalleryProvider } from '@/components/ui/GalleryContext';
-import FigureModal from '@/components/ui/FigureModal';
+import { LightboxProvider } from '@/components/ui/LightboxGallery';
+import LightboxImage from '@/components/ui/LightboxImage';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
@@ -16,7 +16,7 @@ export const metadata = createCaseStudyMetadata(project);
     if (!project) return null;
 
     return (
-    <GalleryProvider>
+    <LightboxProvider>
         <article>
             <CaseStudyLanding project={project} />
 
@@ -213,7 +213,7 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
                                 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-discovery-1.png"
                                 alt=""
                                 caption="One location was operating workplace services through more than 8 different touchpoints, scattered across SharePoint pages. This was a repeating theme."
@@ -226,7 +226,7 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-discovery-2.png"
                                 alt=""
                                 caption="My audit mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
@@ -238,7 +238,7 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-discovery-3.png"
                                 alt=""
                                 caption="Users bypassed the system via bookmarks, reducing visibility and governance. This was a critical insight that informed our focus on improving navigation and information architecture."
@@ -250,7 +250,7 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-discovery-4.png"
                                 alt=""
                                 caption="Interviews in the Trinidad and Pune locations revealed a strong reliance on informal networks for accessing workplace services. Employees often bypassed official channels, preferring to ask colleagues directly for support. This highlighted the need for a more intuitive and trustworthy digital experience to encourage adoption of formal processes."
@@ -262,7 +262,7 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-discovery-5.png"
                                 alt=""
                                 caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX and increased operational overhead."
@@ -422,25 +422,25 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block">
                             <StreamingText className="lead">We iterated from lightweight structural improvements to a fully outcome-led navigation model.</StreamingText>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-workplace/ow-ideation-1.png"
                                 alt=""
                                 caption="To ensure design decisions remained grounded in research, I mapped key insights to experience principles and implementation approaches within the ServiceNow platform."
                             />
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-workplace/ow-ideation-2.png"
                                 alt=""
                                 caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content and external service providers. The architecture allows services, announcements and workplace contacts to dynamically adapt based on employee's home or selected location."
                             />
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-workplace/ow-ideation-3.png"
                                 alt=""
                                 caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
                             />
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-workplace/ow-ideation-4.png"
                                 alt=""
                                 caption="Aside from the end-user experience, I defined the onboarding process for workplace locations to enable their services within our ServiceNow model. This work helped establish a scalable foundation for rolling out the workplace experience across 50+ global office locations."
@@ -494,7 +494,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Pairing this with the <a href="https://lawsofux.com/" target="_blank">laws of UX</a>, we reduced cognitive load and aligned navigation with real-world tasks.
                             </blockquote>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-solution-1.png"
                                 alt=""
                                 caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
@@ -517,7 +517,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 <li>Integrated seamlessly within the ServiceNow out-of-the-box (OOTB) experience to avoid costly customisation.</li>
                             </ul>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-solution-2.png"
                                 alt=""
                                 caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
@@ -533,7 +533,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Migrated workplace services from SharePoint to ServiceNow, removing dual ownership and simplifying maintenance workflows.
                             </p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="assets/images/bp-workplace/ow-solution-3.png"
                                 alt=""
                                 caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
@@ -761,6 +761,6 @@ export const metadata = createCaseStudyMetadata(project);
                 </div>
             </Section>
         </article>
-    </GalleryProvider>
+    </LightboxProvider>
     );
 }

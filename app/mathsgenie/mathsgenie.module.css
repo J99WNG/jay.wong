@@ -78,10 +78,6 @@
   /* Shared RivePlayer consumes these only while rendered in this route. */
   --mg-rive-surface-bg: var(--mg-neutral-900);
   --mg-rive-content: var(--mg-neutral-50);
-  --mg-rive-control-border: color-mix(in srgb, var(--mg-neutral-0) 24%, transparent);
-  --mg-rive-control-bg: color-mix(in srgb, var(--mg-primary-950) 88%, transparent);
-  --mg-rive-control-bg-hover: var(--mg-primary-800);
-  --mg-rive-focus: var(--mg-primary-300);
 }
 
 /* Geom is route-local and opt-in. Case-study headings continue to use the

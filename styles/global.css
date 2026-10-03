@@ -134,7 +134,7 @@
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 
   h4 {
@@ -267,18 +267,13 @@ caption {
 
 /* ==================== Card ==================== */
 .card {
-    @apply flex flex-col-reverse overflow-hidden w-full justify-center bg-bg-secondary border border-border-muted rounded-2xl;
+    @apply flex flex-col-reverse overflow-hidden w-full justify-center bg-bg-secondary rounded-2xl
+    border border-transparent hover:border-border-hover hover:shadow-lg active:border-border-hover active:shadow-lg focus-within:border-border-hover focus-within:shadow-lg;
 
     transition: border-color var(--motion-duration-standard) var(--motion-ease-standard),
                 box-shadow var(--motion-duration-standard) var(--motion-ease-standard),
                 scale var(--motion-duration-standard) var(--motion-ease-spring);
   }
-  
-.card:hover,
-.card:active,
-.card:focus-within {
-  @apply hover:border-border-hover hover:shadow-lg ;
-}
 
 :root.dark .card:hover,
 :root.dark .card:active,
@@ -380,7 +375,7 @@ figure > button:focus-visible {
 
 /* Related heading, copy, list, or media grouped within section content. */
 .content-block {
-  @apply flex flex-col gap-2
+  @apply flex flex-col gap-2;
 }
 
 .section-heading {

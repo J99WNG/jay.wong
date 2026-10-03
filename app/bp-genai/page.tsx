@@ -1,6 +1,6 @@
 import Section from '@/components/Section';
-import { GalleryProvider } from '@/components/ui/GalleryContext';
-import FigureModal from '@/components/ui/FigureModal';
+import { LightboxProvider } from '@/components/ui/LightboxGallery';
+import LightboxImage from '@/components/ui/LightboxImage';
 import { caseStudies } from "@/app/data/caseStudies";
 import { CaseStudyLanding } from "@/components/sections/CaseStudyLanding";
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
@@ -16,7 +16,7 @@ export default function Page() {
     if (!project) return null;
 
     return (
-    <GalleryProvider>
+    <LightboxProvider>
         <article>
             <CaseStudyLanding project={project} />
 
@@ -222,7 +222,7 @@ export default function Page() {
                                 <strong>Insight:</strong> The issue wasn’t content — it was lack of confidence and clarity.
                             </blockquote>
                                 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-discovery-quant.png"
                                 alt=""
                                 caption="Employees submitting general enquiry requests were searching for answers that exist in knowledge base articles."
@@ -279,13 +279,13 @@ export default function Page() {
                             </ol>
                         </div>
                     
-                        <FigureModal
+                        <LightboxImage
                             src="/assets/images/bp-genai/bp-discovery-persona-map.png"
                             alt=""
                             caption=""
                         />
 
-                        <FigureModal
+                        <LightboxImage
                             src="/assets/images/bp-genai/bp-discovery-persona.png"
                             alt=""
                             caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
@@ -312,7 +312,7 @@ export default function Page() {
 
                             <p>Leadership aligned on using GenAI as a cost-reduction and productivity lever, with a strong emphasis on transparency, governance and human fallback.</p>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-workshop.png"
                                 alt=""
                                 caption="Our virtual whiteboard across two workshop sessions provided perspectives and ideas."
@@ -378,7 +378,7 @@ export default function Page() {
                         <div className="content-block">
                             <StreamingText className="lead">This initiative directly supported the &quot;Shift Left&quot; strategy.</StreamingText>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-shift-left-diagram.png"
                                 alt=""
                                 caption="Exact figures regarding per interaction has been simplified for NDA purposes."
@@ -464,13 +464,13 @@ export default function Page() {
                                 However, given time, budget and organisational readiness, we focused on a <strong>Generative AI-assisted self-serve model</strong> that augmented existing workflows, not replace.
                             </StreamingText>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-ideation-1.png"
                                 alt=""
                                 caption="With considerations to Jakob's Law, we took inspiration from mature solutions on the public domain."
                             />
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-ideation-2.png"
                                 alt=""
                                 caption="I explored various UX patterns with our team using a mixture of low-fidelty to mid-fidelty wireframes."
@@ -551,7 +551,7 @@ export default function Page() {
                                 </li>
                             </ul>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-solution-1.png"
                                 alt=""
                                 caption=""
@@ -573,7 +573,7 @@ export default function Page() {
                                 </li>
                             </ul>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-user-flow.png"
                                 alt=""
                                 caption="I built out user flow diagrams to break down product features so our triad squad are aligned. This is an example of how a user submits LLM response feedback."
@@ -603,7 +603,7 @@ export default function Page() {
                                 </li>
                             </ul>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-solution-2.png"
                                 alt=""
                                 caption=""
@@ -629,7 +629,7 @@ export default function Page() {
                                 </li>
                             </ul>
 
-                            <FigureModal
+                            <LightboxImage
                                 src="/assets/images/bp-genai/bp-solution-3.png"
                                 alt=""
                                 caption=""
@@ -689,7 +689,7 @@ export default function Page() {
                         </li>
                     </ul>
 
-                    <FigureModal
+                    <LightboxImage
                         src="/assets/images/bp-genai/bp-testing-1.png"
                         alt=""
                         caption="Myself and the other designer spent time synthesising and prioritising our early user insights to present back to our PM and developers."
@@ -811,13 +811,13 @@ export default function Page() {
                             Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
                         </blockquote>
 
-                        <FigureModal
+                        <LightboxImage
                             src="/assets/images/bp-genai/bp-impact-1.png"
                             alt=""
                             caption=""
                         />
 
-                        <FigureModal
+                        <LightboxImage
                             src="/assets/images/bp-genai/bp-impact-2.png"
                             alt=""
                             caption="The proportion of Priority 3 (low-complex) tickets dropped by ~24% relative to the total volume starting in May 2024 (MVP launch), effectively shifting left the workload or deflecting simple queries through our GenAI solution amongst other initiatives."
@@ -899,6 +899,6 @@ export default function Page() {
                 </div>
             </Section>
         </article>
-    </GalleryProvider>
+    </LightboxProvider>
     );
 }

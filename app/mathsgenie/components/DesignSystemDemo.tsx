@@ -24,15 +24,15 @@ export function DesignSystemDemo() {
   return (
     <div className={cn(
       styles.systemPanel,
-      'mt-4 overflow-hidden rounded-2xl border font-sans',
-      dark ? 'border-slate-700 bg-slate-950 text-slate-50' : 'border-slate-200 bg-slate-50 text-slate-950',
+      'mt-4 grid gap-6 font-sans',
+      dark ? 'text-slate-50' : 'text-slate-950',
     )} data-theme={mode}>
       <div className={cn(
-        'flex flex-col gap-4 border-b px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6',
-        dark ? 'border-slate-700' : 'border-slate-200',
+        'flex flex-col gap-4 rounded-2xl border px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6',
+        dark ? 'border-slate-700 bg-slate-950' : 'border-slate-200 bg-slate-50',
       )}>
         <div>
-          <p className="text-xs font-semibold tracking-wider text-indigo-500 uppercase">YesGenie library</p>
+          <p className="text-xs font-semibold tracking-wider text-indigo-500 uppercase">MathsGenie library</p>
           <p className={cn('mt-1 text-sm', dark ? 'text-slate-300' : 'text-slate-600')}>Reusable foundations for navigation, discovery, revision and feedback.</p>
         </div>
         <div className={cn('flex gap-1 rounded-xl p-1', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Component preview theme">

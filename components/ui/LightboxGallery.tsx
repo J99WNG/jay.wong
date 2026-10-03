@@ -7,41 +7,43 @@ import {
   useId,
   useRef,
   useState,
-  useSyncExternalStore,
   type ReactNode,
   type TouchEvent,
 } from 'react';
-import { createPortal } from 'react-dom';
-import { getImageProps } from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Button from './Button';
 
-type GalleryItemBase = {
+type LightboxItemBase = {
   id: string;
   alt: string;
   caption?: string;
   element: HTMLElement;
 };
 
-export type GalleryItem = GalleryItemBase & (
+// Images have an optimized source; diagrams and live components keep their
+// own semantic React markup instead of being flattened into an image/canvas.
+type LightboxItemDefinition = Omit<LightboxItemBase, 'id' | 'element'> & (
   | { kind: 'image'; src: string; content?: never }
   | { kind: 'content'; content: ReactNode; src?: never }
 );
 
-type GalleryContextValue = {
-  register: (item: GalleryItem) => () => void;
+export type LightboxItem = LightboxItemBase & LightboxItemDefinition;
+
+type LightboxContextValue = {
+  register: (item: LightboxItem) => () => void;
   open: (id: string) => void;
 };
 
-const GalleryContext = createContext<GalleryContextValue | null>(null);
-const subscribeToMount = () => () => {};
+const LightboxContext = createContext<LightboxContextValue | null>(null);
 
-export function GalleryProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<GalleryItem[]>([]);
+// The provider is the shared registry and controller for figures scattered
+// throughout a case-study page. It is what makes cross-figure navigation
+// possible without moving every figure into one gallery component.
+export function LightboxProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<LightboxItem[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
 
-  const register = useCallback((item: GalleryItem) => {
+  const register = useCallback((item: LightboxItem) => {
     setItems((currentItems) => [...currentItems, item]);
     return () => {
       setItems((currentItems) => currentItems.filter(({ id }) => id !== item.id));
@@ -73,37 +75,65 @@ export function GalleryProvider({ children }: { children: ReactNode }) {
     : Math.min(activeIndex, items.length - 1);
 
   return (
-    <GalleryContext.Provider value={{ register, open }}>
+    <LightboxContext.Provider value={{ register, open }}>
       {children}
-      {visibleIndex !== null &&
-        mounted &&
-        createPortal(
-          <GalleryModal
-            items={items}
-            activeIndex={visibleIndex}
-            onClose={close}
-            onPrev={goPrev}
-            onNext={goNext}
-            goTo={goTo}
-          />,
-          document.body,
-        )}
-    </GalleryContext.Provider>
+      {visibleIndex !== null && (
+        <LightboxDialog
+          items={items}
+          activeIndex={visibleIndex}
+          onClose={close}
+          onPrev={goPrev}
+          onNext={goNext}
+          goTo={goTo}
+        />
+      )}
+    </LightboxContext.Provider>
   );
 }
 
-export function useGallery() {
-  const ctx = useContext(GalleryContext);
+export function useLightbox() {
+  const ctx = useContext(LightboxContext);
   if (!ctx) {
     throw new Error(
-      '<FigureModal> or <ExpandableFigure> must be a descendant of <GalleryProvider>',
+      '<LightboxImage> or <LightboxContent> must be a descendant of <LightboxProvider>',
     );
   }
   return ctx;
 }
 
-type GalleryModalProps = {
-  items: GalleryItem[];
+/** Registers one inline figure and returns the ref and action its trigger needs. */
+export function useLightboxItem(definition: LightboxItemDefinition) {
+  const id = useId();
+  const figureRef = useRef<HTMLElement>(null);
+  const { register, open } = useLightbox();
+  const { alt, caption, kind } = definition;
+  const src = kind === 'image' ? definition.src : undefined;
+  const content = kind === 'content' ? definition.content : undefined;
+
+  useEffect(() => {
+    const element = figureRef.current;
+    if (!element) return;
+
+    if (kind === 'image' && src) {
+      return register({ kind, id, src, alt, caption, element });
+    }
+
+    return register({
+      kind: 'content',
+      id,
+      alt,
+      caption,
+      content,
+      element,
+    });
+  }, [alt, caption, content, id, kind, register, src]);
+
+  const openLightbox = useCallback(() => open(id), [id, open]);
+  return { figureRef, openLightbox };
+}
+
+type LightboxDialogProps = {
+  items: LightboxItem[];
   activeIndex: number;
   onClose: () => void;
   onPrev: () => void;
@@ -111,14 +141,14 @@ type GalleryModalProps = {
   goTo: (index: number) => void;
 };
 
-function GalleryModal({
+function LightboxDialog({
   items,
   activeIndex,
   onClose,
   onPrev,
   onNext,
   goTo,
-}: GalleryModalProps) {
+}: LightboxDialogProps) {
   const current = items[activeIndex];
   const total = items.length;
   const captionId = useId();
@@ -154,33 +184,14 @@ function GalleryModal({
     };
   }, []);
 
-  useEffect(() => {
-    if (total < 2) return;
-
-    // Warm only the neighbouring images. This keeps arrow/swipe navigation
-    // responsive without eagerly downloading every large case-study asset.
-    const adjacentIndexes = new Set([
-      (activeIndex - 1 + total) % total,
-      (activeIndex + 1) % total,
-    ]);
-
-    adjacentIndexes.forEach((index) => {
-      const item = items[index];
-      if (item.kind !== 'image') return;
-      const { props } = getImageProps({
-        src: item.src,
-        alt: '',
-        fill: true,
-        sizes: '100vw',
-      });
-      const preload = new window.Image();
-      preload.srcset = props.srcSet ?? '';
-      preload.sizes = props.sizes ?? '100vw';
-      preload.src = props.src;
-    });
-  }, [activeIndex, items, total]);
-
   const handleTouchStart = (event: TouchEvent<HTMLDialogElement>) => {
+    // Live content may implement its own horizontal gestures; only image
+    // figures opt into the lightbox's swipe navigation.
+    if (current.kind === 'content') {
+      touchStart.current = null;
+      return;
+    }
+
     const touch = event.touches[0];
     touchStart.current = { x: touch.clientX, y: touch.clientY };
   };
@@ -201,29 +212,30 @@ function GalleryModal({
 
   if (!current) return null;
 
-  // Keep Next's optimized source set, but let the selected image use its own
-  // aspect ratio so its visible edges size and round consistently.
-  const currentImageProps = current.kind === 'image'
-    ? getImageProps({
-        src: current.src,
-        alt: current.alt,
-        fill: true,
-        sizes: '100vw',
-      }).props
-    : null;
-
   return (
     <dialog
       ref={dialogRef}
-      id="scrim-overlay"
+      id="lightbox-dialog"
       className="fixed inset-0 m-0 hidden h-dvh max-h-none w-full max-w-none overflow-hidden overscroll-none border-0 bg-black/70 p-0 text-inherit backdrop-blur-sm will-change-[backdrop-filter,opacity] open:block motion-safe:animate-[motion-fade-in_var(--motion-duration-slow)_var(--motion-ease-standard)_both]"
       aria-label={`Figure ${activeIndex + 1} of ${total}`}
       aria-describedby={current.caption ? captionId : undefined}
+      aria-modal="true"
       onCancel={(event) => {
         event.preventDefault();
         requestClose();
       }}
       onKeyDown={(event) => {
+        // Let an expanded live component own its arrow keys. Gallery keyboard
+        // navigation remains available from the surrounding modal controls.
+        if (
+          event.defaultPrevented ||
+          (current.kind === 'content' &&
+            event.target instanceof Element &&
+            event.target.closest('[data-lightbox-content]'))
+        ) {
+          return;
+        }
+
         if (event.key === 'ArrowLeft') {
           event.preventDefault();
           onPrev();
@@ -239,39 +251,21 @@ function GalleryModal({
         touchStart.current = null;
       }}
     >
-
-      {/* Close Modal Button */}
-      <Button
-        autoFocus
-        type="button"
-        iconOnly
-        variant="primary"
-        className="absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-10 size-12 rounded-full shadow-lg"
-        aria-label="Close gallery"
-        onClick={(event) => {
-          event.stopPropagation();
-          requestClose();
-        }}
-      >
-        <X aria-hidden="true" className="shrink-0" size={24}  />
-      </Button>
-
       <div
-        className="page-container grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden pb-[max(1rem,env(safe-area-inset-bottom))] pt-[calc(4.5rem+env(safe-area-inset-top))]"
+        className="page-container grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]"
         onClick={(event) => event.stopPropagation()}
       >
         <p className="sr-only" aria-live="polite" aria-atomic="true">
-          Figure {activeIndex + 1} of {total}: {current.alt}
+          Figure {activeIndex + 1} of {total}
+          {current.alt ? `: ${current.alt}` : ''}
         </p>
 
-        <figure className="m-0 grid min-h-full items-center gap-4 overflow-hidden">
-          {current.kind === 'image' && currentImageProps ? (
+        <figure className="m-0 grid min-h-0 grid-rows-[minmax(0,1fr)_auto] items-center gap-4 overflow-hidden">
+          {current.kind === 'image' ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
               key={activeIndex}
-              src={currentImageProps.src}
-              srcSet={currentImageProps.srcSet}
-              sizes={currentImageProps.sizes}
+              src={current.src}
               alt={current.alt}
               loading="eager"
               onLoad={() => setLoadedSrc(current.src)}
@@ -282,7 +276,12 @@ function GalleryModal({
               }`}
             />
           ) : (
-            <div className="h-full w-full overflow-auto rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8">
+            // This neutral wrapper is intentionally a div: the supplied live
+            // content owns its headings, sections, SVGs, media, and landmarks.
+            <div
+              data-lightbox-content
+              className="h-full w-full overflow-auto rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8"
+            >
               {current.content}
             </div>
           )}
@@ -290,37 +289,22 @@ function GalleryModal({
           {current.caption && (
             <figcaption
               id={captionId}
-              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-base tracking-tighter text-neutral-100"
+              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-sm tracking-tighter text-neutral-100"
             >
               {current.caption}
             </figcaption>
           )}
         </figure>
-        
-        {/* Figure Counter */}
-        {total > 1 && (
-          <div className="flex w-full shrink-0 flex-col items-center gap-2">
-            <p className="text-neutral-500 text-sm font-pixel font-medium" aria-hidden="true">
-              {activeIndex + 1} / {total}
-            </p>
 
-            <div className="flex max-w-full items-center justify-center gap-2 rounded-3xl bg-(--color-steep-900) p-2 shadow-lg sm:gap-3 sm:p-3">
-              
-              {/* Previous Button */}
-              <Button
-                type="button"
-                iconOnly
-                variant="primary"
-                className="size-10 shrink-0 rounded-full"
-                aria-label="Previous figure"
-                onClick={onPrev}
-              >
-                <ChevronLeft aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
-              </Button>
+        <div className="flex w-full shrink-0 flex-col items-center gap-3">
+          {total > 1 && (
+            <>
+              <p className="text-neutral-500 text-sm font-pixel font-medium" aria-hidden="true">
+                {activeIndex + 1} / {total}
+              </p>
 
-              {/* Dots Indicator */}
               <nav
-                className="flex max-w-[calc(100vw-10.5rem)] flex-wrap items-center justify-center gap-2 sm:max-w-md"
+                className="flex max-w-full flex-wrap items-center justify-center gap-2 sm:max-w-md"
                 aria-label="Jump to figure"
               >
                 {items.map((item, i) => (
@@ -329,7 +313,7 @@ function GalleryModal({
                     type="button"
                     variant="tertiary"
                     className="h-2 w-auto shrink-0 rounded-full border-0 bg-transparent p-0 hover:bg-white/10"
-                    aria-label={`Figure ${i + 1}: ${item.alt}`}
+                    aria-label={`Go to figure ${i + 1}${item.alt ? `: ${item.alt}` : ''}`}
                     aria-current={i === activeIndex ? 'true' : undefined}
                     onClick={() => goTo(i)}
                   >
@@ -344,21 +328,53 @@ function GalleryModal({
                   </Button>
                 ))}
               </nav>
+            </>
+          )}
 
-              {/* Next Button */}
+          <div
+            className="flex items-center justify-center gap-3"
+            role="group"
+            aria-label="Lightbox controls"
+          >
+            {total > 1 && (
               <Button
                 type="button"
                 iconOnly
                 variant="primary"
-                className="size-10 shrink-0 rounded-full"
+                className="size-10 shrink-0 rounded-2xl"
+                aria-label="Previous figure"
+                onClick={onPrev}
+              >
+                <ChevronLeft aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
+              </Button>
+            )}
+
+            <Button
+              autoFocus
+              type="button"
+              iconOnly
+              variant="primary"
+              className="size-10 shrink-0 rounded-full"
+              aria-label="Close gallery"
+              onClick={requestClose}
+            >
+              <X aria-hidden="true" className="shrink-0" size={24} />
+            </Button>
+
+            {total > 1 && (
+              <Button
+                type="button"
+                iconOnly
+                variant="primary"
+                className="size-10 shrink-0 rounded-2xl"
                 aria-label="Next figure"
                 onClick={onNext}
               >
                 <ChevronRight aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
               </Button>
-            </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </dialog>
   );

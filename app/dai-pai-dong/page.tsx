@@ -2,14 +2,13 @@ import Section from '@/components/Section';
 import { caseStudies } from '@/app/data/caseStudies';
 import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import { CaseStudyLanding } from '@/components/sections/CaseStudyLanding';
-import { GalleryProvider } from '@/components/ui/GalleryContext';
+import { LightboxProvider } from '@/components/ui/LightboxGallery';
+import LightboxImage from '@/components/ui/LightboxImage';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
 
-import AnnotatedRushPhoto from './components/AnnotatedRushPhoto';
 import BusinessProfileResults from './components/BusinessProfileResults';
 import ContextEvidence from './components/ContextEvidence';
-import EvidencePlaceholder from './components/EvidencePlaceholder';
 import PrototypeEmbed from './components/PrototypeEmbed';
 import ServiceJourneyComparison from './components/ServiceJourneyComparison';
 import styles from './dai-pai-dong.module.css';
@@ -28,7 +27,7 @@ export default function Page() {
   if (!project) return null;
 
   return (
-    <GalleryProvider>
+    <LightboxProvider>
       <article>
         <CaseStudyLanding project={project} />
 
@@ -62,13 +61,11 @@ export default function Page() {
                 <MetricGrid columns={3} ariaLabel="Observed Google Business Profile outcomes">
                   <MetricCard value="45,063" label="Business Profile views" />
                   <MetricCard value="19,187" label="Search appearances" />
-                  <MetricCard value="8,584" label="Profile interactions" />
-                  <MetricCard value="2,473" label="Calls from Google" />
-                  <MetricCard value="4,923" label="Direction requests" />
+                  <MetricCard value="8,675" label="Total interactions" />
+                  <MetricCard value="57.4%" label="Direction requests" />
+                  <MetricCard value="28.7%" label="Calls from Google" />
+                  <MetricCard value="13.9%" label="Menu-content views" />
                 </MetricGrid>
-                <p className="text-sm text-text-tertiary">
-                  These are absolute Google Business Profile results. No reliable pre-change baseline exists, so I do not claim a percentage uplift or sole-cause attribution.
-                </p>
               </div>
 
               <div className="content-block">
@@ -95,20 +92,12 @@ export default function Page() {
                   <p>新志興至尊燒鵝大王<br />Supreme Roast Goose King</p>
                 </div>
                 <div className="metadata">
-                  <p className="small">Industry</p>
-                  <p>Hospitality · Independent F&amp;B</p>
-                </div>
-                <div className="metadata">
                   <p className="small">Role</p>
                   <p>Embedded Service Designer<br />Product Designer</p>
                 </div>
                 <div className="metadata">
                   <p className="small">Timeline</p>
                   <p>2025–2026 · Ongoing</p>
-                </div>
-                <div className="metadata">
-                  <p className="small">Working model</p>
-                  <p>Independent advisor embedded with ownership, management and floor staff.</p>
                 </div>
                 <div className="metadata">
                   <p className="small">Methods</p>
@@ -137,29 +126,13 @@ export default function Page() {
               </StreamingText>
 
               <div className="content-block">
-                <h3>Service and product design</h3>
-                <p>
-                  I mapped how demand moved from search, social media, telephone and walk-in arrival into table allocation and food service. I translated that operating reality into an incremental roadmap and designed and built the reservation-management MVP.
-                </p>
+                <h3>An end-to-end remit</h3>
+                <ul>
+                  <li><strong>Service and product design:</strong> mapped demand from search and arrival through table allocation, then designed and built the reservation-management MVP.</li>
+                  <li><strong>Technology and adoption:</strong> owned local SEO and Google Business Profile improvements, maintained CCTV, phones and POS equipment, supported staff with radios and Keeta, and advised on ethical AI adoption.</li>
+                  <li><strong>Customer translation:</strong> helped international visitors navigate the menu and dining culture, exposing friction around finding, booking and entering the restaurant.</li>
+                </ul>
               </div>
-
-              <div className="content-block">
-                <h3>Technology and adoption</h3>
-                <p>
-                  My role also covered the practical work that makes transformation credible in a small business: Google profile ownership, local SEO, phone and CCTV support, POS maintenance, AI literacy and decisions about which technology not to introduce yet.
-                </p>
-              </div>
-
-              <div className="content-block">
-                <h3>Customer and cultural translation</h3>
-                <p>
-                  I helped foreign visitors navigate the menu and dining culture, translated between English and Cantonese, and acted as an informal food guide. Those interactions exposed where the restaurant’s character delighted newcomers—and where uncertainty about location, booking and arrival created avoidable friction.
-                </p>
-              </div>
-
-              <blockquote className="notion-quote">
-                The design challenge was not “How do we digitise a restaurant?” It was “Where can digital coordination create breathing room without turning a dai pai dong into a generic hospitality product?”
-              </blockquote>
             </div>
           </div>
         </Section>
@@ -185,17 +158,14 @@ export default function Page() {
                 <span className="eyebrow">Culture primer · 大牌檔</span>
                 <h3>What is a dai pai dong?</h3>
                 <p>
-                  A <em>dai pai dong</em> is Hong Kong’s informal street-side cooked-food tradition—open-fronted, lively and known for wok cooking, shared tables and direct, family-like service. The Cantonese name is commonly understood as “big licence stall,” referring to the large hawker licence once displayed by operators.
-                </p>
-                <p>
-                  Supreme Roast Goose King operates in this cultural and service tradition. The official figures below refer more narrowly to licensed on-street pitches, not every restaurant popularly described as a dai pai dong.
+                  A <em>dai pai dong</em> is Hong Kong’s informal street-side cooked-food tradition. It is open-fronted, lively and known for wok cooking, shared tables and direct, family-like service. Supreme Roast Goose King operates in this tradition, although official “licensed pitch” figures use a narrower definition.
                 </p>
               </aside>
 
               <div className="content-block">
                 <h3>Hospitality competition had changed</h3>
                 <p>
-                  The restaurant was competing not only with nearby dining rooms, but with the lower prices, polished service and deeply digitised customer journeys available across the border in Shenzhen. Hong Kong’s F&amp;B pressure is broader than any one cause: high operating costs, cautious spending and outbound dining all shape the market.
+                  Competition included nearby restaurants and the lower prices, polished service and digitised customer journeys available across the border in Shenzhen. High operating costs, cautious spending and outbound dining were all putting pressure on Hong Kong’s F&amp;B sector.
                 </p>
               </div>
 
@@ -227,12 +197,17 @@ export default function Page() {
 
             <div className="section-content">
               <StreamingText className="lead">
-                This was retrospective, embedded discovery rather than a formal research programme. Months of helping the restaurant and talking informally with staff revealed repeated behaviours, but I have not invented interview counts, transcripts or precision the evidence cannot support.
+                Months embedded in the service exposed repeated behaviours across busy evenings. This was contextual observation and informal conversation, not a formal study with interview counts or transcripts.
               </StreamingText>
 
-              <AnnotatedRushPhoto />
+              <LightboxImage
+                className="m-0"
+                src="/assets/images/dai-pai-dong/dpd-discovery-1.png"
+                alt="Friday dinner service at Supreme Roast Goose King, with the manager in a purple shirt handling a crowd near the reception point."
+                caption="Friday dinner service. The manager in the purple shirt is handling the crowd while the handwritten ledger sits in the foreground. 新志興訂座記錄 translates as ‘Supreme Roast Goose King reservation record.’"
+              />
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4">
                 <article className={styles.insightCard}>
                   <span className="eyebrow mb-3">01 · Demand converges</span>
                   <h3>One person becomes the interface</h3>
@@ -240,41 +215,77 @@ export default function Page() {
                 </article>
                 <article className={styles.insightCard}>
                   <span className="eyebrow mb-3">02 · Paper is flexible</span>
-                  <h3>The ledger works—until it has to scale</h3>
+                  <h3>The ledger works until demand peaks</h3>
                   <p>Hand-drawn pages adapt to the night, but provide no shared live view, recovery path or useful operating history.</p>
                 </article>
                 <article className={styles.insightCard}>
-                  <span className="eyebrow mb-3">03 · Technology is uneven</span>
-                  <h3>Digital confidence varies</h3>
-                  <p>Retirees, hikers, sports teams, tourists and Mainland workers arrive with different languages, expectations and channels such as WeChat.</p>
+                  <span className="eyebrow mb-3">03 · Access varies</span>
+                  <h3>One digital path would exclude people</h3>
+                  <p>Retirees, tourists, sports teams and Mainland workers arrive with different languages, confidence and channels. The informal welcome remains part of the value.</p>
                 </article>
-                <article className={styles.insightCard}>
-                  <span className="eyebrow mb-3">04 · The service is social</span>
-                  <h3>Informality is part of the value</h3>
-                  <p>The rough, familial tone is not a defect to polish away. It is a core part of what customers come to experience.</p>
-                </article>
-              </div>
-
-              <div className={styles.quotePlaceholder}>
-                <strong>Editorial placeholder · validate before publishing</strong>
-                <p>Suggested staff paraphrase: “When the phone, the queue and the tables all need me at once, I have to keep the whole night in my head.”</p>
               </div>
 
               <div className="content-block">
                 <h3>Public reviews as triangulation, not proof</h3>
                 <p>
-                  Accessible public reviews repeatedly describe a popular, good-value restaurant where advance booking is sensible and crowding is common. Because the available review set is sparse, inconsistent and often dated, I used it only to test whether observed themes appeared outside the team—not to manufacture wait-time data or competitor benchmarks.
+                  I grouped repeated observations across publicly indexed customer reviews and retained both praise and criticism. The sample is small, fragmented across platforms and partly historical, so it validates themes but not their prevalence, exact wait times or performance against competitors.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <EvidencePlaceholder
-                  title="The ledger in use"
-                  brief="Capture an overhead close-up of a real service page, with customer phone numbers redacted, showing how columns and dates are improvised."
+              <div className="grid gap-4">
+                <article className={styles.insightCard}>
+                  <span className="eyebrow mb-3">01 · Character</span>
+                  <h3>The setting is part of the value</h3>
+                  <p>
+                    Communal tables, outdoor energy, generous sharing plates and old-Hong-Kong character are recurring positives. These are part of the experience, not rough edges to polish away.
+                  </p>
+                </article>
+                <article className={styles.insightCard}>
+                  <span className="eyebrow mb-3">02 · Demand</span>
+                  <h3>Popularity creates pressure</h3>
+                  <p>
+                    Crowds, full seating and booking ahead recur across the feedback. They signal demand, but also expose arrival anxiety and a service bottleneck when staff must reconcile reservations and walk-ins during the rush.
+                  </p>
+                </article>
+                <article className={styles.insightCard}>
+                  <span className="eyebrow mb-3">03 · Food</span>
+                  <h3>Consistency matters more than novelty</h3>
+                  <p>
+                    Roast goose anchors expectations, but mixed comments across dishes expose consistency as the main experience risk.
+                  </p>
+                </article>
+              </div>
+
+              <div className="border-l-2 border-accent-primary pl-5">
+                <span className="eyebrow mb-3 block">Synthesis</span>
+                <p className="lead">
+                  Reviewers value the restaurant’s character. The opportunity is to make that same experience easier to access and more consistent.
+                </p>
+              </div>
+
+              <div>
+                <p className="small mb-2">Directional review sources</p>
+                <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-text-tertiary">
+                  <a href="https://www.google.com/maps/search/%E6%96%B0%E5%BF%97%E8%88%88%E8%87%B3%E5%B0%8A%E7%87%92%E9%B5%9D%E5%A4%A7%E7%8E%8B%2C%2B" target="_blank" rel="noreferrer">Google Maps listing</a>
+                  <a href="https://www.tripadvisor.com.tw/Restaurant_Review-g294217-d15075388-Reviews-Xin_Zhixing-Hong_Kong.html" target="_blank" rel="noreferrer">Tripadvisor reviews</a>
+                  <a href="https://hk.trip.com/restaurant/china/hong-kong/detail/restaurant-11753773/" target="_blank" rel="noreferrer">Trip.com reviews</a>
+                  <a href="https://roasterpig.blogspot.com/2019/04/ngau-chi-wan-duck-hkfd.html" target="_blank" rel="noreferrer">Independent dining account</a>
+                  <a href="https://www.youtube.com/watch?v=set1t4ruM50" target="_blank" rel="noreferrer">Critical video review</a>
+                </div>
+              </div>
+
+              <div className="grid gap-6">
+                <LightboxImage
+                  className="m-0"
+                  src="/assets/images/dai-pai-dong/dpd-discovery-2.png"
+                  alt="The restaurant’s handwritten reservation book, with customer details obscured."
+                  caption="The reservation book adapts to each service, but availability has to be interpreted from handwriting and memory."
                 />
-                <EvidencePlaceholder
-                  title="Radio → cashier → POS handoff"
-                  brief="Photograph the handoff from floor staff to cashier to show how spoken updates and paper orders become kitchen tickets."
+                <LightboxImage
+                  className="m-0"
+                  src="/assets/images/dai-pai-dong/dpd-discovery-3.png"
+                  alt="Handwritten booking notes, walk-in slips and stationery at the restaurant reception point."
+                  caption="Bookings and walk-in notes share the reception surface, leaving the manager to reconcile them during service."
                 />
               </div>
             </div>
@@ -295,7 +306,7 @@ export default function Page() {
 
             <div className="section-content">
               <StreamingText className="lead">
-                The bottleneck was not the absence of an app. It was the absence of shared operational awareness at the exact moment demand peaked.
+                The missing piece was a shared operational view at the exact moment demand peaked.
               </StreamingText>
             </div>
           </div>
@@ -318,7 +329,7 @@ export default function Page() {
             </div>
 
             <div className="section-content">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-3">
                 <article className={styles.principleCard}>
                   <span className="eyebrow mb-3">Preserve</span>
                   <h3>Keep the welcome human</h3>
@@ -327,12 +338,7 @@ export default function Page() {
                 <article className={styles.principleCard}>
                   <span className="eyebrow mb-3">Fit</span>
                   <h3>Work with existing habits</h3>
-                  <p>Radios and the POS remain. The MVP focuses narrowly on the missing coordination layer around tables and arrivals.</p>
-                </article>
-                <article className={styles.principleCard}>
-                  <span className="eyebrow mb-3">Reduce</span>
-                  <h3>Lower the learning cost</h3>
-                  <p>Plain language, large targets, familiar table labels and at-a-glance states matter more than feature density.</p>
+                  <p>Radios and the POS remain. The MVP adds only the missing table-and-arrival view, using familiar labels and at-a-glance states.</p>
                 </article>
                 <article className={styles.principleCard}>
                   <span className="eyebrow mb-3">Sequence</span>
@@ -346,7 +352,7 @@ export default function Page() {
                 <tbody>
                   <tr><th scope="row">Now</th><td>Discoverability, public information, social communication, bookings, queue and table visibility.</td></tr>
                   <tr><th scope="row">Preserve</th><td>Existing POS, kitchen tickets, radio coordination, informal hospitality and a phone path for non-digital customers.</td></tr>
-                  <tr><th scope="row">Later</th><td>WhatsApp API, customer-facing waiting tickets and operational reporting—only after staff validation.</td></tr>
+                  <tr><th scope="row">Later</th><td>WhatsApp API, customer-facing waiting tickets and operational reporting after staff validation.</td></tr>
                   <tr><th scope="row">Not now</th><td>POS replacement, customer-facing AI, mandatory self-service or multiple delivery platforms with added fees.</td></tr>
                 </tbody>
               </table>
@@ -371,10 +377,7 @@ export default function Page() {
                 <p className="eyebrow">Phase 01 · Be found</p>
                 <h3>Turn location into an advantage</h3>
                 <p>
-                  I corrected and developed the Google Business Profile so customers could find the entrance, call the current number, check operating details and navigate from Choi Hung MTR. Search behaviour also revealed demand beyond branded queries: “restaurants” alone generated 8,317 appearances during the reporting window.
-                </p>
-                <p>
-                  From May to September 2026, the profile recorded 45,063 views, 19,187 search appearances and 8,584 interactions—including 2,473 calls and 4,923 direction requests. These totals demonstrate meaningful use of the channel, but without a reliable prior baseline they are not presented as uplift.
+                  I rebuilt the Google Business Profile around accurate contact details, operating information, entrance discovery and navigation from Choi Hung MTR. From May to September 2026 it recorded 45,063 views and 8,675 interactions; calls and direction requests made up 86.1% of those actions. “Restaurants” alone generated 8,317 search appearances, showing reach beyond customers already searching for the name.
                 </p>
               </div>
 
@@ -384,31 +387,21 @@ export default function Page() {
                 <p className="eyebrow">Phase 02 · Communicate</p>
                 <h3>Give a traditional business a living public voice</h3>
                 <p>
-                  I established Facebook and Instagram as practical service channels—not a glossy brand campaign. They created somewhere to communicate contact changes, opening hours, public holidays and neighbourhood regeneration updates while helping younger locals recognise the restaurant before they arrived.
-                </p>
-                <p>
-                  I brought in a content and videography team, shaped the content rhythm and defined a voice that felt closer to the floor: direct, playful and familial. The aim was to retain the roughness of dai pai dong conversation rather than imitate formal dining language.
+                  I established Facebook and Instagram as practical service channels for contact changes, opening hours, holidays and regeneration updates. I also commissioned a content team and defined a direct, playful, familial voice that felt recognisable as the restaurant.
                 </p>
                 <a href="https://www.facebook.com/profile.php?id=61586171286658" target="_blank" rel="noreferrer">View the restaurant’s Facebook presence</a>
               </div>
-
-              <EvidencePlaceholder
-                title="Content production and tone"
-                brief="Add a three-frame contact sheet showing a filming session, one operational update and one community-facing post, with final captions approved by the restaurant."
-              />
 
               <div className="content-block">
                 <p className="eyebrow">Phase 03 · Coordinate</p>
                 <h3>Design one calm view for the busiest moment</h3>
                 <p>
-                  “Tonight” is a mobile-first table, booking and walk-in notebook designed around the manager’s shift—not a generic reservation platform. It shows table readiness, occupied time, reservations due soon, walk-in order, estimated waits and whether an available table fits a party.
+                  “Tonight” is a mobile-first table, booking and walk-in notebook designed around the manager’s shift. It shows table readiness, occupied time, reservations due soon, walk-in order, estimated waits and whether an available table fits a party.
                 </p>
                 <ul>
-                  <li>Eight table cards with ready, occupied, reserved and cleaning states.</li>
-                  <li>Upcoming bookings with arrival actions and seating preferences.</li>
-                  <li>Walk-in tickets with elapsed and estimated waiting time.</li>
-                  <li>Table-fit cues to support faster, fairer seating decisions.</li>
-                  <li>English, Traditional Chinese and Simplified Chinese language options.</li>
+                  <li>One view of ready, occupied, reserved and cleaning tables.</li>
+                  <li>Bookings, walk-in order, wait estimates and table-fit cues.</li>
+                  <li>English, Traditional Chinese and Simplified Chinese support.</li>
                 </ul>
                 <p>
                   The prototype is intentionally pre-launch. It has not yet been tested with staff or connected to live customer data, so the case study makes no claim about reduced waits, fewer errors or revenue impact.
@@ -434,15 +427,13 @@ export default function Page() {
 
             <div className="section-content">
               <StreamingText className="lead">
-                The next release should be earned through staff use—not assumed from a polished prototype.
+                Staff use must determine the next release. A polished prototype is not enough.
               </StreamingText>
 
               <ol>
-                <li><strong>Shadow mode:</strong> run “Tonight” alongside the paper book for selected services, comparing accuracy without forcing staff to abandon a trusted fallback.</li>
-                <li><strong>Staff validation:</strong> test common actions during a realistic rush—add a walk-in, find a booking, hold a table, seat a party and recover from a mistake.</li>
-                <li><strong>Operational pilot:</strong> use one manager and a limited table set before expanding to the full floor.</li>
-                <li><strong>Customer acknowledgement:</strong> introduce simple WhatsApp booking confirmations and queue tickets only after the internal record is dependable.</li>
-                <li><strong>Service learning:</strong> review waits, no-shows and overrides with staff, then remove anything that adds work without improving decisions.</li>
+                <li><strong>Shadow and validate:</strong> run “Tonight” beside the paper book, testing the essential rush-hour tasks without removing a trusted fallback.</li>
+                <li><strong>Pilot and measure:</strong> use one manager and a limited table set; compare accuracy, effort, waits and overrides after each service.</li>
+                <li><strong>Expand only when dependable:</strong> add WhatsApp acknowledgements and customer queue tickets after staff trust the internal record.</li>
               </ol>
 
               <blockquote className="notion-quote">
@@ -490,62 +481,25 @@ export default function Page() {
 
               <div className="content-block">
                 <h3>Evidence limitations</h3>
-                <ul>
-                  <li>The discovery record is based on embedded observation and informal conversations, not a formal sample with interview counts.</li>
-                  <li>Public reviews are directional signals, not a representative dataset.</li>
-                  <li>Google metrics have no reliable pre-change baseline and cannot be compared with competitors’ private dashboards.</li>
-                  <li>The operational MVP remains untested and contains sample data only.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        <Divider />
-
-        <Section id="reflection">
-          <div className="section-grid">
-            <div className="section-heading">
-              <h2>
-                Reflection
-                <br />
-                <span className="font-normal text-text-tertiary">Modernisation as stewardship.</span>
-              </h2>
-            </div>
-
-            <div className="section-content">
-              <StreamingText className="lead">
-                This project reframed transformation for me: the most responsible solution was not the biggest platform, but the smallest sequence of changes the restaurant could understand, trust and sustain.
-              </StreamingText>
-
-              <div className="content-block">
-                <h3>What worked</h3>
                 <p>
-                  Starting with discoverability created visible value without changing the dinner service. It also gave the restaurant a more reliable public front door while I continued learning how the operation behaved behind it.
+                  Discovery came from embedded observation and informal conversations; reviews are directional, Google metrics lack a reliable pre-change baseline, and the operational MVP remains untested with sample data. The case study therefore separates observed digital outcomes from future operational hypotheses.
                 </p>
               </div>
 
               <div className="content-block">
-                <h3>What remains unresolved</h3>
+                <h3>What this changed in my practice</h3>
                 <p>
-                  The MVP still needs evidence from the people who will depend on it under pressure. The next design decisions should come from real parallel use: which states are understood, which actions slow staff down and when paper remains the safer fallback.
-                </p>
-              </div>
-
-              <div className="content-block">
-                <h3>What I would strengthen</h3>
-                <p>
-                  I would formalise the research trail earlier: consented staff quotes, timed observations, booking-error logs and baseline service measures. That would turn a rich lived understanding into stronger evidence for prioritisation and later impact measurement.
+                  The right transformation was the smallest sequence the restaurant could trust and sustain. Starting with discoverability created visible value without disturbing service. Next time, I would formalise the research trail earlier with consented quotes, timed observations and booking-error baselines.
                 </p>
               </div>
 
               <blockquote className="notion-quote">
-                Preserving a service does not mean freezing it in time. It means changing the invisible machinery carefully enough that the experience people value can continue.
+                Preserve the experience people value by changing its invisible machinery carefully.
               </blockquote>
             </div>
           </div>
         </Section>
       </article>
-    </GalleryProvider>
+    </LightboxProvider>
   );
 }

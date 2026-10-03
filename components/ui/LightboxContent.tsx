@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useId, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Maximize2 } from 'lucide-react';
 
-import { useGallery } from './GalleryContext';
+import { useLightboxItem } from '@/components/ui/LightboxGallery';
 
-type ExpandableFigureProps = {
+type LightboxContentProps = {
   children: ReactNode;
   expandedContent?: ReactNode;
   alt: string;
@@ -14,48 +14,32 @@ type ExpandableFigureProps = {
   buttonClassName?: string;
 };
 
-function LatestContent({ contentRef }: { contentRef: { current: ReactNode } }) {
-  return contentRef.current;
-}
-
-export default function ExpandableFigure({
+/** A semantic figure trigger for diagrams, media, and other live React content. */
+export default function LightboxContent({
   children,
   expandedContent,
   alt,
   caption,
   className,
   buttonClassName,
-}: ExpandableFigureProps) {
-  const id = useId();
-  const figureRef = useRef<HTMLElement>(null);
-  const { register, open } = useGallery();
+}: LightboxContentProps) {
   const content = expandedContent ?? children;
-  const contentRef = useRef(content);
-
-  useEffect(() => {
-    contentRef.current = content;
-  }, [content]);
-
-  useEffect(() => {
-    const element = figureRef.current;
-    if (!element) return;
-    return register({
-      kind: 'content',
-      id,
-      alt,
-      caption,
-      content: <LatestContent contentRef={contentRef} />,
-      element,
-    });
-  }, [alt, caption, id, register]);
+  const { figureRef, openLightbox } = useLightboxItem({
+    kind: 'content',
+    content,
+    alt,
+    caption,
+  });
 
   return (
     <figure ref={figureRef} className={className}>
       <div className="group relative">
         {children}
+        {/* Keep preview children non-interactive: this overlay is the single
+            operable trigger. Interactive controls belong in expandedContent. */}
         <button
           type="button"
-          onClick={() => open(id)}
+          onClick={openLightbox}
           aria-haspopup="dialog"
           aria-label={`Expand figure: ${alt}`}
           className={`absolute inset-0 cursor-zoom-in border-0 bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 ${buttonClassName ?? ''}`}

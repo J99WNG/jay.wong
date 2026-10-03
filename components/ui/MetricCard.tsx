@@ -40,7 +40,7 @@ export function MetricGrid({
   return (
     <ul
       className={cn(
-        'm-0 grid list-none auto-rows-fr gap-8 p-0 my-4',
+        'm-0 grid list-none auto-rows-fr gap-8 p-0 mb-4',
         columnClasses,
         className,
       )}

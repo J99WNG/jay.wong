@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
 import { Maximize2 } from 'lucide-react';
-import { useGallery } from './GalleryContext';
+import { useLightboxItem } from '@/components/ui/LightboxGallery';
 
-type FigureModalProps = {
+type LightboxImageProps = {
   src: string;
   alt: string;
   caption?: string;
@@ -16,34 +15,33 @@ type FigureModalProps = {
   priority?: boolean;
 };
 
-export default function FigureModal({
+/** An inline image figure that registers itself with the page lightbox. */
+export default function LightboxImage({
   src,
   alt,
   caption,
   className,
   imageClassName,
   priority = false,
-}: FigureModalProps) {
-  const id = useId();
-  const figureRef = useRef<HTMLElement>(null);
-  const { register, open } = useGallery();
+}: LightboxImageProps) {
+  const triggerLabel = alt.trim()
+    ? `View full size: ${alt}`
+    : 'View image full size';
 
-  useEffect(() => {
-    const element = figureRef.current;
-    if (!element) return;
-
-    return register({ kind: 'image', id, src, alt, caption, element });
-  }, [id, src, alt, caption, register]);
-
-  const handleOpen = () => open(id);
+  const { figureRef, openLightbox } = useLightboxItem({
+    kind: 'image',
+    src,
+    alt,
+    caption,
+  });
 
   return (
     <figure ref={figureRef} className={className}>
       <button
         type="button"
-        onClick={handleOpen}
+        onClick={openLightbox}
         aria-haspopup="dialog"
-        aria-label={`View full size: ${alt}`}
+        aria-label={triggerLabel}
         className="
           group  
           relative
@@ -64,8 +62,6 @@ export default function FigureModal({
           alt={alt}
           fill
           priority={priority}
-          // The gallery uses the same 100vw candidate, so opening an image can
-          // reuse the thumbnail's optimized request instead of fetching it twice.
           sizes="100vw"
           className={`
             object-cover

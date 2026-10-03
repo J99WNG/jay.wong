@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 
-import ExpandableFigure from '@/components/ui/ExpandableFigure';
+import LightboxContent from '@/components/ui/LightboxContent';
 import styles from '../dai-pai-dong.module.css';
 
 type EvidenceItem = {
@@ -27,7 +27,7 @@ const evidence: EvidenceItem[] = [
     id: 'stalls',
     eyebrow: 'Cultural scarcity',
     title: 'Licensed on-street pitches continued to disappear',
-    summary: 'The official count fell from 22 in 2021 to 17 at the end of 2023—a 23% decline in two years.',
+    summary: 'The official count fell from 22 in 2021 to 17 at the end of 2023, a 23% decline in two years.',
     sourceTitle: 'Hong Kong Government · Written reply on cooked-food hawker licences',
     sourceUrl: 'https://www.info.gov.hk/gia/general/202407/10/P2024071000422p.htm',
     visual: 'stalls',
@@ -108,7 +108,7 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
   );
 
   return (
-    <ExpandableFigure
+    <LightboxContent
       className="m-0"
       buttonClassName="rounded-2xl"
       alt={`${item.title}. ${item.summary}`}
@@ -133,7 +133,7 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
         </div>
         <EvidenceVisual type={item.visual} />
       </article>
-    </ExpandableFigure>
+    </LightboxContent>
   );
 }
 

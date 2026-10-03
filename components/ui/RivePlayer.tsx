@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Alignment, Fit, Layout, RuntimeLoader, useRive } from '@rive-app/react-canvas';
-import { Pause, Play } from 'lucide-react';
 
 RuntimeLoader.setWasmUrl('/assets/rive/rive-2.41.1.wasm');
 RuntimeLoader.setWasmFallbackUrl(null);
@@ -26,14 +25,11 @@ const getServerReducedMotion = () => false;
 export default function RivePlayer({ src, label, className = '', compact = false }: RivePlayerProps) {
   const host = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
-  const [playRequested, setPlayRequested] = useState(true);
   const reducedMotion = useSyncExternalStore(
     subscribeToReducedMotion,
     getReducedMotion,
     getServerReducedMotion,
   );
-  const playing = playRequested && !reducedMotion;
-  const PlaybackIcon = playing ? Pause : Play;
   const { rive, RiveComponent } = useRive({
     src,
     stateMachines: 'State Machine 1',
@@ -47,7 +43,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
 
     let visible = true;
     const syncPlayback = () => {
-      if (playing && visible && !document.hidden) {
+      if (!reducedMotion && visible && !document.hidden) {
         rive.play('State Machine 1');
       } else {
         rive.pause();
@@ -68,7 +64,7 @@ export default function RivePlayer({ src, label, className = '', compact = false
       document.removeEventListener('visibilitychange', onVisibilityChange);
       rive.pause();
     };
-  }, [rive, playing]);
+  }, [rive, reducedMotion]);
 
   return (
     <div
@@ -90,16 +86,6 @@ export default function RivePlayer({ src, label, className = '', compact = false
           )}
         </div>
       </div>
-      <button
-        type="button"
-        className="absolute right-3 bottom-3 z-[2] grid size-11 cursor-pointer place-items-center rounded-full border border-[var(--mg-rive-control-border)] bg-[var(--mg-rive-control-bg)] text-[var(--mg-rive-content)] backdrop-blur-lg transition-[background-color,transform] duration-[var(--motion-duration-fast)] ease-[var(--motion-ease-standard)] hover:bg-[var(--mg-rive-control-bg-hover)] active:scale-[.96] focus-visible:outline-[3px] focus-visible:outline-offset-3 focus-visible:outline-[var(--mg-rive-focus)] disabled:cursor-wait disabled:opacity-[.55] motion-reduce:transition-none"
-        disabled={!rive || failed || reducedMotion}
-        aria-label={reducedMotion ? `${label} disabled by reduced-motion preference` : playing ? `Pause ${label}` : `Play ${label}`}
-        aria-pressed={playing}
-        onClick={() => setPlayRequested((current) => !current)}
-      >
-        <PlaybackIcon aria-hidden="true" />
-      </button>
     </div>
   );
 }

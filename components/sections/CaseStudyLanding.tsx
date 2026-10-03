@@ -1,6 +1,6 @@
 import Section from "@/components/Section";
 import NextProjectCTA from "@/components/ui/NextProjectCTA";
-import FigureModal from "@/components/ui/FigureModal";
+import LightboxImage from "@/components/ui/LightboxImage";
 import { CaseStudy } from "@/app/data/caseStudies";
 import CaseStudyNavigation from "@/components/ui/CaseStudyNavigation";
 import RivePlayer from "@/components/ui/RivePlayer";
@@ -11,7 +11,7 @@ type CaseStudyLandingProps = {
 
 export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
   const renderBentoItem = (src: string, label: string, className: string, priority = false) => {
-    // FigureModal renders a <figure>, which has global block margins. Reset all
+    // LightboxImage renders a <figure>, which has global block margins. Reset all
     // bento children so mixed image and Rive tiles share the same grid edges.
     const bentoItemClassName = `${className} m-0 min-h-0`;
 
@@ -26,7 +26,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
       );
     }
 
-    return <FigureModal className={bentoItemClassName} src={src} alt={label} priority={priority} />;
+    return <LightboxImage className={bentoItemClassName} src={src} alt={label} priority={priority} />;
   };
 
   return (
@@ -39,9 +39,9 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
           <NextProjectCTA />
 
           <div className="flex flex-col gap-2">
-            <p className="small">
+            <span className="font-pixel text-base sm:text-lg uppercase tracking-normal text-text-">
               {project.year} · {project.company} · {project.industry}
-            </p>
+            </span>
 
             <h1>{project.title}</h1>
 

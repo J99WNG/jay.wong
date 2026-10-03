@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 
-import ExpandableFigure from '@/components/ui/ExpandableFigure';
+import LightboxContent from '@/components/ui/LightboxContent';
 import styles from '../dai-pai-dong.module.css';
 
 type JourneyMode = 'current' | 'future';
@@ -90,7 +90,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
   const journey = journeys[mode];
 
   return (
-    <ExpandableFigure
+    <LightboxContent
       className="m-0"
       buttonClassName="rounded-2xl"
       alt={`${journey.eyebrow}: ${journey.title}`}
@@ -140,7 +140,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
           ))}
         </div>
       </div>
-    </ExpandableFigure>
+    </LightboxContent>
   );
 }
 
