@@ -94,6 +94,13 @@
   letter-spacing: .01em;
 }
 
+/* Supporting copy remains neutral and readable even when it sits inside an
+   interactive card whose direct label uses Geom. */
+.systemPanel span {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  letter-spacing: normal;
+}
+
 .systemPanel {
   --mg-heading-text: var(--mg-neutral-50);
 }

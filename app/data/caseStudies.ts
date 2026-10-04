@@ -13,7 +13,7 @@ export type CaseStudy = {
     bentoImage: string;
     bentoImage2: string; // second image for the bento card
     bentoImage3: string; // third image for the bento card
-    available: boolean;     // false = "Coming soon", hides link
+    available: boolean;
   };
   
   export const caseStudies: CaseStudy[] = [
@@ -38,7 +38,7 @@ export type CaseStudy = {
       company: "General Learning (YC F24)",
       logo: "",
       industry: "EdTech",
-      title: "Relaunching MathsGenie to 242,000 DAU",
+      title: "Relaunching MathsGenie to 242,000 Students",
       tagline: "Shaping an AI tutor handling 40,000+ daily messages, with a new companion and a shared design system.",
       role: "Design",
       badges: ["EdTech", "AI Platform", "Brand Strategy"],

@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Tonight restaurant operations prototype on a Huawei MatePad Mini</title>
+  <desc id="desc">A slim black tablet displays bookings, walk-ins and table states against a warm coral, cream and green gradient.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E99073"/>
+      <stop offset="0.46" stop-color="#F7DDBF"/>
+      <stop offset="1" stop-color="#BFD5C4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(1470 210) rotate(132) scale(920 730)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7E8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFF7E8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="texture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="18" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer in="mono">
+        <feFuncA type="table" tableValues="0 0.045"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="deviceShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#4B261A" flood-opacity="0.28"/>
+    </filter>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173E2B" flood-opacity="0.1"/>
+    </filter>
+    <clipPath id="screenClip">
+      <rect x="292" y="112" width="1336" height="836" rx="65"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#background)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <rect width="1920" height="1080" filter="url(#texture)" opacity="0.8"/>
+  <circle cx="210" cy="910" r="240" fill="#B9442F" opacity="0.11"/>
+  <circle cx="1730" cy="120" r="180" fill="#31543D" opacity="0.12"/>
+
+  <g filter="url(#deviceShadow)">
+    <rect x="270" y="90" width="1380" height="870" rx="82" fill="#0F1110"/>
+    <rect x="282" y="102" width="1356" height="846" rx="72" fill="#252725"/>
+    <rect x="292" y="112" width="1336" height="836" rx="65" fill="#F6F1E8"/>
+    <circle cx="960" cy="113" r="5" fill="#4B4E4B"/>
+    <circle cx="960" cy="113" r="2" fill="#111412"/>
+    <rect x="1648" y="314" width="5" height="136" rx="2.5" fill="#474A47"/>
+  </g>
+
+  <g clip-path="url(#screenClip)">
+    <rect x="292" y="112" width="1336" height="836" fill="#F6F1E8"/>
+    <rect x="292" y="112" width="1336" height="836" fill="#F0E9DC" opacity="0.35" filter="url(#texture)"/>
+
+    <g font-family="Arial, Helvetica, sans-serif">
+      <text x="366" y="188" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#173E2B">Tonight</text>
+      <text x="526" y="187" font-size="18" font-weight="700" fill="#173E2B">· 新志興</text>
+      <text x="366" y="222" font-size="15" fill="#6D6259">Friday dinner service</text>
+
+      <rect x="1255" y="165" width="114" height="44" rx="22" fill="#E8EEDF"/>
+      <text x="1312" y="192" text-anchor="middle" font-size="14" font-weight="700" fill="#173E2B">繁體中文</text>
+      <rect x="1384" y="165" width="167" height="44" rx="22" fill="#173E2B"/>
+      <text x="1468" y="192" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF9EF">+ Add walk-in</text>
+
+      <line x1="366" y1="250" x2="1551" y2="250" stroke="#D8CEC0"/>
+
+      <text x="366" y="304" font-size="13" font-weight="700" letter-spacing="1.8" fill="#B9442F">ARRIVALS</text>
+      <text x="366" y="344" font-family="Georgia, serif" font-size="27" font-weight="700" fill="#173E2B">Bookings &amp; walk-ins</text>
+
+      <g filter="url(#cardShadow)">
+        <rect x="366" y="374" width="326" height="124" rx="22" fill="#FFF9EF" stroke="#DED4C6"/>
+        <circle cx="406" cy="414" r="17" fill="#F4D6C8"/>
+        <text x="438" y="414" font-size="16" font-weight="700" fill="#173E2B">Chan · 6 guests</text>
+        <text x="438" y="442" font-size="14" fill="#6D6259">18:30 · outdoor preferred</text>
+        <rect x="438" y="458" width="86" height="24" rx="12" fill="#F2E9D8"/>
+        <text x="481" y="475" text-anchor="middle" font-size="11" font-weight="700" fill="#B9442F">DUE SOON</text>
+
+        <rect x="366" y="516" width="326" height="124" rx="22" fill="#FFF9EF" stroke="#DED4C6"/>
+        <circle cx="406" cy="556" r="17" fill="#DFE8D5"/>
+        <text x="438" y="556" font-size="16" font-weight="700" fill="#173E2B">Walk-in 07 · 4 guests</text>
+        <text x="438" y="584" font-size="14" fill="#6D6259">Waiting 18 min · quoted 25</text>
+        <rect x="438" y="600" width="92" height="24" rx="12" fill="#E8EEDF"/>
+        <text x="484" y="617" text-anchor="middle" font-size="11" font-weight="700" fill="#31543D">NEXT FIT</text>
+
+        <rect x="366" y="658" width="326" height="124" rx="22" fill="#FFF9EF" stroke="#DED4C6"/>
+        <circle cx="406" cy="698" r="17" fill="#F4D6C8"/>
+        <text x="438" y="698" font-size="16" font-weight="700" fill="#173E2B">Lee · 8 guests</text>
+        <text x="438" y="726" font-size="14" fill="#6D6259">19:00 · phone booking</text>
+        <rect x="438" y="742" width="77" height="24" rx="12" fill="#F2E9D8"/>
+        <text x="476" y="759" text-anchor="middle" font-size="11" font-weight="700" fill="#B9442F">BOOKED</text>
+      </g>
+
+      <text x="746" y="304" font-size="13" font-weight="700" letter-spacing="1.8" fill="#B9442F">FLOOR</text>
+      <text x="746" y="344" font-family="Georgia, serif" font-size="27" font-weight="700" fill="#173E2B">Nine tables at a glance</text>
+
+      <g filter="url(#cardShadow)">
+        <g transform="translate(746 374)">
+          <rect width="244" height="124" rx="22" fill="#E8EEDF" stroke="#CCD7C4"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">01</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">Seated · 6</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#57705E">42 min</text>
+        </g>
+        <g transform="translate(1008 374)">
+          <rect width="244" height="124" rx="22" fill="#FAE2D2" stroke="#E9C6B5"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">02</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#B9442F">Ordering</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#A45D47">12 min</text>
+        </g>
+        <g transform="translate(1270 374)">
+          <rect width="244" height="124" rx="22" fill="#E8EEDF" stroke="#CCD7C4"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">03</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">In progress</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#57705E">31 min</text>
+        </g>
+        <g transform="translate(746 516)">
+          <rect width="244" height="124" rx="22" fill="#F3EFE6" stroke="#DED4C6"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">04</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">Ready · 4 seats</text>
+          <circle cx="217" cy="29" r="8" fill="#6C8B65"/>
+        </g>
+        <g transform="translate(1008 516)">
+          <rect width="244" height="124" rx="22" fill="#E8EEDF" stroke="#CCD7C4"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">05</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">Seated · 8</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#57705E">58 min</text>
+        </g>
+        <g transform="translate(1270 516)">
+          <rect width="244" height="124" rx="22" fill="#FAE2D2" stroke="#E9C6B5"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">06</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#B9442F">Reserved · 19:00</text>
+        </g>
+        <g transform="translate(746 658)">
+          <rect width="244" height="124" rx="22" fill="#E8EEDF" stroke="#CCD7C4"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">07</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">In progress</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#57705E">25 min</text>
+        </g>
+        <g transform="translate(1008 658)">
+          <rect width="244" height="124" rx="22" fill="#F3EFE6" stroke="#DED4C6"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">08</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#173E2B">Ready · 6 seats</text>
+          <circle cx="217" cy="29" r="8" fill="#6C8B65"/>
+        </g>
+        <g transform="translate(1270 658)">
+          <rect width="244" height="124" rx="22" fill="#FFF9EF" stroke="#DED4C6"/>
+          <text x="22" y="35" font-family="Georgia, serif" font-size="25" fill="#173E2B">09</text>
+          <text x="22" y="87" font-size="17" font-weight="700" fill="#6D6259">Cleaning</text>
+          <text x="222" y="35" text-anchor="end" font-size="12" fill="#8C8278">6 min</text>
+        </g>
+      </g>
+
+      <rect x="746" y="820" width="768" height="70" rx="20" fill="#173E2B"/>
+      <text x="778" y="850" font-size="12" font-weight="700" letter-spacing="1.5" fill="#E99073">NEXT ACTION</text>
+      <text x="778" y="876" font-size="16" font-weight="700" fill="#FFF9EF">Seat walk-in 07 at table 04</text>
+      <text x="1482" y="861" text-anchor="end" font-size="13" fill="#DDE7DA">Best fit · 4 seats</text>
+    </g>
+  </g>
+</svg>

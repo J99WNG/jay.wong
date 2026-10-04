@@ -146,7 +146,15 @@
      patterns own their marker and spacing behaviour. */
   ul:not([class]):not([role='list']),
   ol:not([class]):not([role='list']) {
-    @apply m-0 ps-6;
+    @apply m-0;
+  }
+
+  ul:not([class]):not([role='list']) {
+    @apply ps-6;
+  }
+
+  ol:not([class]):not([role='list']) {
+    @apply ps-9;
   }
 
   ul:not([class]):not([role='list']) > li,
@@ -258,7 +266,7 @@ caption {
 }
 
 .notion-quote {
-  @apply m-0 border-l-3 border-text-tertiary px-4 text-xl tracking-tight text-text-tertiary;
+  @apply my-2 border-l-3 border-text-tertiary px-4 text-xl tracking-tight text-text-tertiary;
 }
 
 .metadata {

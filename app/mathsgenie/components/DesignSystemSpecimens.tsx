@@ -6,8 +6,21 @@ import styles from '../mathsgenie.module.css';
 
 const subjects = ['Full', 'GCSE Maths', 'GCSE Statistics', 'Edexcel IGCSE (Mathematics A)', 'AS Level Maths', 'A Level Maths'];
 const sidebarItems = ['Home', 'My Subjects', 'Ask Genie AI', 'Cheatsheets', 'Exam Builder', 'Study Planner'];
+const qualificationSubjects: Record<string, string[]> = {
+  GCSE: ['Maths', 'English Language', 'Biology', 'Chemistry', 'Physics'],
+  'AS Level': ['Maths', 'Further Maths', 'Biology', 'Chemistry', 'Psychology'],
+  'A Level': ['Maths', 'Further Maths', 'Biology', 'Chemistry', 'Economics'],
+  IGCSE: ['Mathematics A', 'Mathematics B', 'English', 'Biology', 'Chemistry'],
+  KS2: ['Maths', 'English', 'Science', 'SPaG', 'Reasoning'],
+};
 
-export type AlertState = { welcome: boolean; subjects: boolean };
+export type AlertState = {
+  welcome: boolean;
+  subjects: boolean;
+  success: boolean;
+  warning: boolean;
+  negative: boolean;
+};
 
 type DesignSystemSpecimensProps = {
   selectedSubject: string;
@@ -44,6 +57,19 @@ const cardClass = (dark: boolean, active = false) => cn(
 const cardTitleClass = cn(styles.displayType, 'w-full text-xl font-medium leading-tight');
 const paperPillClass = 'inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-2xl border px-3 py-2 text-base font-medium';
 
+function MathsGenieNavLogo({ dark }: { dark: boolean }) {
+  return (
+    <span className="flex shrink-0 items-center gap-2" aria-label="MathsGenie">
+      {/* Crop the mascot from the source SVG; the wordmark stays live so its
+          colour follows the active MathsGenie theme tokens. */}
+      <span className="relative size-7 overflow-hidden" aria-hidden="true">
+        <Image className="absolute inset-y-0 left-0 h-7 w-auto max-w-none" src="/assets/images/mathsgenie/brands/mathsgenie.svg" alt="" width={329} height={60} />
+      </span>
+      <strong className={cn(styles.displayType, 'text-xl font-semibold tracking-normal', dark ? 'text-slate-50' : 'text-slate-950')}>MathsGenie</strong>
+    </span>
+  );
+}
+
 export function DesignSystemSpecimens(props: DesignSystemSpecimensProps) {
   return (
     <>
@@ -61,19 +87,31 @@ export function DesignSystemSpecimens(props: DesignSystemSpecimensProps) {
 function NavigationSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
     <ComponentSpecimen title="Navigation" dark={dark}>
-      <nav className={cn('mx-auto flex w-5xl origin-center scale-50 items-center gap-6 rounded-2xl border px-6 py-4 text-base', dark ? 'border-slate-700 bg-slate-800' : 'border-slate-300 bg-white')} aria-label="Example MathsGenie navigation">
-        <span className={cn('shrink-0 rounded-lg px-2 py-1', dark && 'bg-slate-50')}>
-          <Image className="h-10 w-auto" src="/assets/images/mathsgenie/brands/mathsgenie.svg" alt="MathsGenie" width={329} height={60} />
-        </span>
-        <div className="flex flex-1 items-center gap-3">
-          {['GCSE', 'AS Level', 'A Level', 'IGCSE', 'KS2'].map((item) => (
-            <button type="button" className="flex cursor-pointer items-center gap-1 p-2 whitespace-nowrap" key={item}>{item} <ChevronDown size={16} aria-hidden="true" /></button>
+      <nav className={cn('flex w-full max-w-4xl items-center gap-2 rounded-2xl border px-3 py-3 text-xs', dark ? 'border-slate-700 bg-slate-800' : 'border-slate-300 bg-white')} aria-label="Example MathsGenie navigation">
+        <MathsGenieNavLogo dark={dark} />
+        <div className="flex min-w-0 flex-1 items-center justify-center gap-1">
+          {Object.entries(qualificationSubjects).map(([qualification, menuSubjects]) => (
+            <div className="group/qualification relative" key={qualification}>
+              <button type="button" className="flex cursor-pointer items-center gap-1 p-1 whitespace-nowrap" aria-haspopup="menu">
+                {qualification} <ChevronDown className="transition-transform group-hover/qualification:rotate-180 group-focus-within/qualification:rotate-180" size={12} aria-hidden="true" />
+              </button>
+              <ul className={cn(
+                'invisible absolute top-full left-1/2 z-20 m-0 min-w-40 -translate-x-1/2 list-none rounded-xl border p-1 opacity-0 shadow-lg transition duration-150 group-hover/qualification:visible group-hover/qualification:opacity-100 group-focus-within/qualification:visible group-focus-within/qualification:opacity-100',
+                dark ? 'border-slate-700 bg-slate-800 text-slate-50' : 'border-slate-300 bg-white text-slate-950',
+              )} role="menu" aria-label={`${qualification} subjects`}>
+                {menuSubjects.slice(0, 5).map((subject) => (
+                  <li key={subject} role="none">
+                    <button type="button" className={cn('w-full cursor-pointer rounded-lg px-3 py-1.5 text-left whitespace-nowrap', dark ? 'hover:bg-slate-700 focus:bg-slate-700' : 'hover:bg-slate-100 focus:bg-slate-100')} role="menuitem">{subject}</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
-        <div className="ml-auto flex items-center gap-2">
-          <span className={cn('hidden items-center gap-1 rounded-full px-3 py-2 sm:flex', dark ? 'bg-slate-950 text-slate-400' : 'bg-slate-100 text-slate-500')}><Search aria-hidden="true" size={16} /> Search</span>
-          <button type="button" className={cn('rounded-lg border px-3 py-2 whitespace-nowrap', dark ? 'border-slate-700' : 'border-slate-300')}>Log in</button>
-          <button type="button" className={buttonClass('primary', dark)}>Sign up</button>
+        <div className="ml-auto flex shrink-0 items-center gap-1">
+          <button type="button" aria-label="Search" className={cn('grid size-7 place-items-center rounded-full', dark ? 'bg-slate-950 text-slate-400' : 'bg-slate-100 text-slate-500')}><Search aria-hidden="true" size={14} /></button>
+          <button type="button" className={cn(styles.displayType, 'rounded-lg border px-2 py-2 whitespace-nowrap', dark ? 'border-slate-700' : 'border-slate-300')}>Log in</button>
+          <button type="button" className={cn(styles.displayType, 'rounded-lg border border-slate-950 bg-indigo-400 px-2 py-2 font-medium text-slate-950 hover:bg-indigo-300')}>Sign up</button>
         </div>
       </nav>
     </ComponentSpecimen>
@@ -86,7 +124,7 @@ function SearchSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
 
   return (
     <ComponentSpecimen title="Search inputs" dark={dark}>
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center justify-center gap-4">
         <label className={cn(searchClass, 'w-40')}><Search aria-hidden="true" /><span className="sr-only">Search</span><input className={inputClass} type="search" placeholder="Search" /></label>
         <label className={cn(searchClass, 'w-full max-w-sm p-4')}><Search aria-hidden="true" /><span className="sr-only">What are you studying for?</span><input className={cn(inputClass, 'text-xl sm:text-2xl')} type="search" placeholder="What are you studying for?" /></label>
       </div>
@@ -96,12 +134,12 @@ function SearchSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
 
 function SegmentedControlSpecimen({ selectedSubject, onSelectSubject, dark }: DesignSystemSpecimensProps) {
   return (
-    <ComponentSpecimen title="Segmented control" hint="The complete control is scaled into the workshop frame." dark={dark}>
-      <div className="mx-auto w-5xl origin-center scale-50">
-        <div className={cn('flex w-full items-center gap-1 rounded-2xl p-2', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Qualification filter">
+    <ComponentSpecimen title="Segmented control" hint="The complete qualification control remains in one horizontal row." dark={dark}>
+      <div className="w-full overflow-x-auto">
+        <div className={cn('mx-auto flex w-max items-center gap-1 rounded-2xl p-2', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Qualification filter">
           {subjects.map((subject) => {
             const selected = selectedSubject === subject;
-            return <button key={subject} type="button" className={cn(styles.displayType, 'shrink-0 cursor-pointer rounded-xl px-3 py-2 text-xl', selected ? 'bg-indigo-600 text-white' : dark ? 'text-slate-50 hover:bg-indigo-200 hover:text-indigo-700' : 'text-slate-950 hover:bg-indigo-100 hover:text-indigo-700')} aria-pressed={selected} onClick={() => onSelectSubject(subject)}>{subject}</button>;
+            return <button key={subject} type="button" className={cn(styles.displayType, 'shrink-0 cursor-pointer rounded-xl px-3 py-2 text-base', selected ? 'bg-indigo-600 text-white' : dark ? 'text-slate-50 hover:bg-indigo-200 hover:text-indigo-700' : 'text-slate-950 hover:bg-indigo-100 hover:text-indigo-700')} aria-pressed={selected} onClick={() => onSelectSubject(subject)}>{subject}</button>;
           })}
         </div>
       </div>
@@ -112,7 +150,7 @@ function SegmentedControlSpecimen({ selectedSubject, onSelectSubject, dark }: De
 function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpecimensProps) {
   return (
     <ComponentSpecimen title="Buttons and cards" dark={dark}>
-      <div className="mx-auto w-full origin-center scale-75">
+      <div className="w-full origin-center scale-75">
       <div className="mb-5 flex flex-wrap gap-3">
         {(['primary', 'secondary', 'tertiary'] as const).map((variant) => (
           <button key={variant} type="button" className={buttonClass(variant, dark, held === variant)} aria-pressed={held === variant} onClick={() => onToggleHeld(variant)}>{variant.charAt(0).toUpperCase() + variant.slice(1)}</button>
@@ -157,12 +195,17 @@ function PaperPillsSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) 
 
 function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: DesignSystemSpecimensProps) {
   const dismissClass = 'grid size-7 shrink-0 cursor-pointer place-items-center rounded-full hover:bg-black/10';
+  const alertClass = 'flex min-h-10 items-center justify-between gap-2 border-y px-3 py-1.5 text-center text-sm';
+  const hasAlerts = Object.values(alerts).some(Boolean);
   return (
     <ComponentSpecimen title="Carousel alert" dark={dark}>
-      <div className="mx-auto w-5xl origin-center scale-50">
-      {alerts.welcome || alerts.subjects ? <div className="grid gap-2">
-        {alerts.welcome && <div className="flex min-h-12 items-center justify-between gap-2 border-y border-cyan-800 bg-cyan-300 px-3 py-2 text-center text-sm text-cyan-950" role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss welcome alert" onClick={() => onDismissAlert('welcome')}><X aria-hidden="true" size={16} /></button></div>}
-        {alerts.subjects && <div className="flex min-h-12 items-center justify-between gap-2 border-y border-slate-950 bg-indigo-400 px-3 py-2 text-center text-sm text-slate-950" role="status"><span>We&apos;ve expanded the magic. Explore 100+ subjects tailored for your exact exam board. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss subjects alert" onClick={() => onDismissAlert('subjects')}><X aria-hidden="true" size={16} /></button></div>}
+      <div className="w-full max-w-3xl">
+      {hasAlerts ? <div className="grid gap-1">
+        {alerts.welcome && <div className={cn(alertClass, 'border-cyan-800 bg-cyan-300 text-cyan-950')} role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss information alert" onClick={() => onDismissAlert('welcome')}><X aria-hidden="true" size={16} /></button></div>}
+        {alerts.subjects && <div className={cn(alertClass, 'border-indigo-900 bg-indigo-400 text-slate-950')} role="status"><span>We&apos;ve expanded the magic. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss product alert" onClick={() => onDismissAlert('subjects')}><X aria-hidden="true" size={16} /></button></div>}
+        {alerts.success && <div className={cn(alertClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')} role="status"><span>Your revision plan has been saved.</span><button className={dismissClass} type="button" aria-label="Dismiss success alert" onClick={() => onDismissAlert('success')}><X aria-hidden="true" size={16} /></button></div>}
+        {alerts.warning && <div className={cn(alertClass, 'border-amber-700 bg-amber-100 text-amber-800')} role="status"><span>Your exam date is approaching. Review your plan.</span><button className={dismissClass} type="button" aria-label="Dismiss warning alert" onClick={() => onDismissAlert('warning')}><X aria-hidden="true" size={16} /></button></div>}
+        {alerts.negative && <div className={cn(alertClass, 'border-red-700 bg-red-100 text-red-800')} role="alert"><span>We couldn&apos;t save that change. Try again.</span><button className={dismissClass} type="button" aria-label="Dismiss error alert" onClick={() => onDismissAlert('negative')}><X aria-hidden="true" size={16} /></button></div>}
       </div> : <button type="button" className={buttonClass('secondary', dark)} onClick={onResetAlerts}>Reset alerts</button>}
       </div>
     </ComponentSpecimen>
@@ -172,7 +215,7 @@ function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: 
 function SidebarSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
     <ComponentSpecimen title="Sidebar" dark={dark}>
-      <aside className={cn('mx-auto flex h-96 w-56 origin-center scale-75 flex-col gap-2 rounded-lg p-3', dark ? 'bg-slate-800 text-slate-50' : 'bg-white text-slate-950')} aria-label="Example study navigation">
+      <aside className={cn('flex h-96 w-56 origin-center scale-75 flex-col gap-2 rounded-lg p-3', dark ? 'bg-slate-800 text-slate-50' : 'bg-white text-slate-950')} aria-label="Example study navigation">
         <p className={cn('px-2 pb-1 text-xs uppercase', dark ? 'text-slate-400' : 'text-slate-500')}>Study</p>
         {sidebarItems.map((item, index) => {
           const current = index === 2;

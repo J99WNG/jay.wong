@@ -17,7 +17,7 @@ export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpec
       'relative grid aspect-video w-full min-w-0 place-items-center overflow-hidden rounded-xl border p-6',
       dark ? 'border-slate-700 bg-slate-900' : 'border-slate-200 bg-slate-100',
     )}>
-      <div className="relative z-10 w-full">{children}</div>
+      {children}
     </div>
   );
 
@@ -25,6 +25,7 @@ export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpec
     <MathsGenieGalleryFigure
       alt={`${title} component specimen from the MathsGenie design system`}
       caption={hint ?? `${title} shown as an interactive production-aligned component.`}
+      captionClassName={dark ? 'text-slate-300' : 'text-slate-600'}
       className={cn(
         'overflow-hidden rounded-2xl border',
         dark ? 'border-slate-700 bg-slate-950 text-slate-50' : 'border-slate-200 bg-slate-50 text-slate-950',

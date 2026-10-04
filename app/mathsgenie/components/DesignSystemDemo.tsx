@@ -9,7 +9,13 @@ export function DesignSystemDemo() {
   const [mode, setMode] = useState<'light' | 'dark'>('dark');
   const [selectedSubject, setSelectedSubject] = useState('Full');
   const [held, setHeld] = useState<string | null>(null);
-  const [alerts, setAlerts] = useState<AlertState>({ welcome: true, subjects: true });
+  const [alerts, setAlerts] = useState<AlertState>({
+    welcome: true,
+    subjects: true,
+    success: true,
+    warning: true,
+    negative: true,
+  });
 
   const toggleHeld = (name: string) => {
     setHeld((current) => current === name ? null : name);
@@ -62,7 +68,13 @@ export function DesignSystemDemo() {
         onToggleHeld={toggleHeld}
         alerts={alerts}
         onDismissAlert={dismissAlert}
-        onResetAlerts={() => setAlerts({ welcome: true, subjects: true })}
+        onResetAlerts={() => setAlerts({
+          welcome: true,
+          subjects: true,
+          success: true,
+          warning: true,
+          negative: true,
+        })}
         dark={dark}
       />
     </div>

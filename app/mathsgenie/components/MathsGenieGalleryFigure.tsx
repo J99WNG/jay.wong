@@ -11,6 +11,7 @@ type MathsGenieGalleryFigureProps = {
   children: ReactNode;
   expandedContent?: ReactNode;
   className?: string;
+  captionClassName?: string;
 };
 
 /**
@@ -23,6 +24,7 @@ export function MathsGenieGalleryFigure({
   children,
   expandedContent,
   className,
+  captionClassName,
 }: MathsGenieGalleryFigureProps) {
   const { figureRef, openLightbox } = useLightboxItem({
     kind: 'content',
@@ -43,7 +45,7 @@ export function MathsGenieGalleryFigure({
       >
         <Maximize2 aria-hidden="true" size={18} />
       </button>
-      {caption && <figcaption className="px-4 pb-4">{caption}</figcaption>}
+      {caption && <figcaption className={cn('px-4 pb-4', captionClassName)}>{caption}</figcaption>}
     </figure>
   );
 }

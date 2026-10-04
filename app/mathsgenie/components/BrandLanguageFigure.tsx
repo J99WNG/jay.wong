@@ -38,9 +38,9 @@ function BrandLanguageCanvas() {
       {/* The first two logos share a row and OnePrep takes the next row, keeping
           the product family close to the centre without overlapping. */}
       <div className="relative hidden min-h-96 sm:block">
-        <ul className="absolute inset-x-0 top-20 m-0 flex list-none flex-wrap justify-center gap-x-8 gap-y-12 px-12 py-0" aria-label="General Learning product family" role="list">
+        <ul className="absolute inset-0 m-0 grid list-none grid-cols-2 place-content-center items-center gap-x-8 gap-y-12 px-10 py-0" aria-label="General Learning product family" role="list">
           {brands.map((brand, index) => (
-            <li key={brand.name} className={index === 2 ? 'flex basis-full justify-center' : ''}>
+            <li key={brand.name} className={`flex justify-center ${index === 2 ? 'col-span-2' : ''}`}>
               <Image className={logoClass} src={brand.logo} alt={`${brand.name} logo`} width={brand.width} height={64} />
             </li>
           ))}
