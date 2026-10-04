@@ -83,14 +83,14 @@
 /* Geom is route-local and opt-in. Case-study headings continue to use the
    portfolio typeface because they never receive this class. */
 .displayType {
-  font-family: var(--font-geom), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-geom), var(--font-geist-sans), system-ui, sans-serif;
 }
 
 /* Interactive labels and emphasized component copy share the product face.
    Slight positive tracking keeps Geom clear at control and caption sizes. */
 .systemPanel :is(button, strong),
 .tokenArchitecture :is(button, strong) {
-  font-family: var(--font-geom), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-geom), var(--font-geist-sans), system-ui, sans-serif;
   letter-spacing: .01em;
 }
 

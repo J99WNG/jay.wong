@@ -104,7 +104,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
           </header>
           {layerOrder.map((layer) => (
             <section className="grid gap-3" key={layer} aria-labelledby={`${mode}-${layer}`}>
-              <h3 id={`${mode}-${layer}`} className="font-pixel text-sm uppercase text-text-tertiary">{layer}</h3>
+              <h3 id={`${mode}-${layer}`} className="font-mono text-sm uppercase text-text-tertiary">{layer}</h3>
               <div className={`${styles.expandedStages} grid grid-cols-1 gap-3 md:grid-cols-4`}>
                 {journey.lanes[layer].map((stage, index) => (
                   <article className="relative p-5 md:min-h-48" key={stage.label} data-tone={stage.tone}>

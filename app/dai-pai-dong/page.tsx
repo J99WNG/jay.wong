@@ -37,27 +37,27 @@ export default function Page() {
               <h2>
                 Snapshot
                 <br />
-                <span className="font-normal text-text-tertiary">Old-school dining culture.</span>
+                <span className="section-subtitle">Old-school dining culture.</span>
               </h2>
             </div>
 
             <div className="section-content">
-              <div className="content-block">
-                <p className="small">Problem</p>
+              <div className="content-block content-flow">
+                <p className="meta-label">Problem</p>
                 <p>
                   新志興至尊燒鵝大王 (Supreme Roast Goose King) is a busy Ngau Chi Wan restaurant operating in the dai pai dong tradition with a simple POS, radios and handwritten paper. On peak evenings, one manager had to answer booking calls, search a hand-drawn ledger, judge table availability and handle a crowd of walk-ins at the same time.
                 </p>
               </div>
 
-              <div className="content-block">
-                <p className="small">Intervention</p>
+              <div className="content-block content-flow">
+                <p className="meta-label">Intervention</p>
                 <p>
                   I shaped a phased service transformation: make the restaurant easier to find, create trusted channels for customer communication, then design a lightweight operational layer for bookings, walk-ins and tables without replacing tools the staff already understood.
                 </p>
               </div>
 
               <div className="content-block">
-                <p className="small">Observed digital outcomes · May–September 2026</p>
+                <p className="meta-label">Observed digital outcomes · May–September 2026</p>
                 <MetricGrid columns={3} ariaLabel="Observed Google Business Profile outcomes">
                   <MetricCard value="45,063" label="Business Profile views" />
                   <MetricCard value="19,187" label="Search appearances" />
@@ -69,7 +69,7 @@ export default function Page() {
               </div>
 
               <div className="content-block">
-                <p className="small">Delivery status</p>
+                <p className="meta-label">Delivery status</p>
                 <div className="grid gap-3">
                   <div className={`${styles.statusItem} flex items-start gap-3`} data-status="live">
                     <i aria-hidden="true" />
@@ -88,19 +88,19 @@ export default function Page() {
 
               <div className="grid place-items-start gap-6 grid-cols-1 md:grid-cols-2">
                 <div className="metadata">
-                  <p className="small">Client</p>
+                  <p className="meta-label">Client</p>
                   <p>新志興至尊燒鵝大王<br />Supreme Roast Goose King</p>
                 </div>
                 <div className="metadata">
-                  <p className="small">Role</p>
+                  <p className="meta-label">Role</p>
                   <p>Embedded Service Designer<br />Product Designer</p>
                 </div>
                 <div className="metadata">
-                  <p className="small">Timeline</p>
+                  <p className="meta-label">Timeline</p>
                   <p>2025–2026 · Ongoing</p>
                 </div>
                 <div className="metadata">
-                  <p className="small">Methods</p>
+                  <p className="meta-label">Methods</p>
                   <p>Contextual observation, informal conversations, channel audit, service blueprinting, prototyping and implementation.</p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function Page() {
               <h2>
                 My role
                 <br />
-                <span className="font-normal text-text-tertiary">Designing across the service.</span>
+                <span className="section-subtitle">Designing across the service.</span>
               </h2>
             </div>
 
@@ -125,7 +125,7 @@ export default function Page() {
                 I was not brought in to redesign a screen. I became the bridge between a traditional restaurant operation, its customers and the digital services surrounding it.
               </StreamingText>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>An end-to-end remit</h3>
                 <ul>
                   <li><strong>Service and product design:</strong> mapped demand from search and arrival through table allocation, then designed and built the reservation-management MVP.</li>
@@ -145,7 +145,7 @@ export default function Page() {
               <h2>
                 Business context
                 <br />
-                <span className="font-normal text-text-tertiary">A local service under pressure.</span>
+                <span className="section-subtitle">A local service under pressure.</span>
               </h2>
             </div>
 
@@ -162,7 +162,7 @@ export default function Page() {
                 </p>
               </aside>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>Hospitality competition had changed</h3>
                 <p>
                   Competition included nearby restaurants and the lower prices, polished service and digitised customer journeys available across the border in Shenzhen. High operating costs, cautious spending and outbound dining were all putting pressure on Hong Kong’s F&amp;B sector.
@@ -171,7 +171,7 @@ export default function Page() {
 
               <ContextEvidence items={['receipts']} />
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>A cultural setting in transition</h3>
                 <p>
                   The official count of licensed on-street cooked-food pitches fell from 22 in 2021 to 17 at the end of 2023. Ngau Chi Wan Village is also subject to land resumption and clearance for public-housing development. The project therefore sat inside a wider question: how can a culturally specific, informal service remain visible and viable while its physical neighbourhood changes?
@@ -191,7 +191,7 @@ export default function Page() {
               <h2>
                 Immersive discovery
                 <br />
-                <span className="font-normal text-text-tertiary">Learning from the dinner rush.</span>
+                <span className="section-subtitle">Learning from the dinner rush.</span>
               </h2>
             </div>
 
@@ -225,7 +225,7 @@ export default function Page() {
                 </article>
               </div>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>Public reviews as triangulation, not proof</h3>
                 <p>
                   I grouped repeated observations across publicly indexed customer reviews and retained both praise and criticism. The sample is small, fragmented across platforms and partly historical, so it validates themes but not their prevalence, exact wait times or performance against competitors.
@@ -264,7 +264,7 @@ export default function Page() {
               </div>
 
               <div>
-                <p className="small mb-2">Directional review sources</p>
+                <p className="meta-label mb-2">Directional review sources</p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-text-tertiary">
                   <a href="https://www.google.com/maps/search/%E6%96%B0%E5%BF%97%E8%88%88%E8%87%B3%E5%B0%8A%E7%87%92%E9%B5%9D%E5%A4%A7%E7%8E%8B%2C%2B" target="_blank" rel="noreferrer">Google Maps listing</a>
                   <a href="https://www.tripadvisor.com.tw/Restaurant_Review-g294217-d15075388-Reviews-Xin_Zhixing-Hong_Kong.html" target="_blank" rel="noreferrer">Tripadvisor reviews</a>
@@ -300,7 +300,7 @@ export default function Page() {
               <h2>
                 Service blueprint
                 <br />
-                <span className="font-normal text-text-tertiary">From fragmented signals to one shared view.</span>
+                <span className="section-subtitle">From fragmented signals to one shared view.</span>
               </h2>
             </div>
 
@@ -324,7 +324,7 @@ export default function Page() {
               <h2>
                 Design principles
                 <br />
-                <span className="font-normal text-text-tertiary">Digitise coordination, not character.</span>
+                <span className="section-subtitle">Digitise coordination, not character.</span>
               </h2>
             </div>
 
@@ -368,12 +368,12 @@ export default function Page() {
               <h2>
                 Phased transformation
                 <br />
-                <span className="font-normal text-text-tertiary">Visibility first, operations next.</span>
+                <span className="section-subtitle">Visibility first, operations next.</span>
               </h2>
             </div>
 
             <div className="section-content">
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <p className="eyebrow">Phase 01 · Be found</p>
                 <h3>Turn location into an advantage</h3>
                 <p>
@@ -383,7 +383,7 @@ export default function Page() {
 
               <BusinessProfileResults />
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <p className="eyebrow">Phase 02 · Communicate</p>
                 <h3>Give a traditional business a living public voice</h3>
                 <p>
@@ -392,7 +392,7 @@ export default function Page() {
                 <a href="https://www.facebook.com/profile.php?id=61586171286658" target="_blank" rel="noreferrer">View the restaurant’s Facebook presence</a>
               </div>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <p className="eyebrow">Phase 03 · Coordinate</p>
                 <h3>Design one calm view for the busiest moment</h3>
                 <p>
@@ -421,7 +421,7 @@ export default function Page() {
               <h2>
                 Future state
                 <br />
-                <span className="font-normal text-text-tertiary">A roadmap for adoption.</span>
+                <span className="section-subtitle">A roadmap for adoption.</span>
               </h2>
             </div>
 
@@ -451,7 +451,7 @@ export default function Page() {
               <h2>
                 Measurement plan
                 <br />
-                <span className="font-normal text-text-tertiary">What success must prove.</span>
+                <span className="section-subtitle">What success must prove.</span>
               </h2>
             </div>
 
@@ -479,14 +479,14 @@ export default function Page() {
                 </article>
               </div>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>Evidence limitations</h3>
                 <p>
                   Discovery came from embedded observation and informal conversations; reviews are directional, Google metrics lack a reliable pre-change baseline, and the operational MVP remains untested with sample data. The case study therefore separates observed digital outcomes from future operational hypotheses.
                 </p>
               </div>
 
-              <div className="content-block">
+              <div className="content-block content-flow">
                 <h3>What this changed in my practice</h3>
                 <p>
                   The right transformation was the smallest sequence the restaurant could trust and sustain. Starting with discoverability created visible value without disturbing service. Next time, I would formalise the research trail earlier with consented quotes, timed observations and booking-error baselines.

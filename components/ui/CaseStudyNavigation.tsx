@@ -207,7 +207,7 @@ export default function CaseStudyNavigation() {
                 <div className="flex min-w-0 items-center gap-2">
                   <ProgressIndicator progress={displayedProgress} />
 
-                  <p className="truncate font-pixel text-xs uppercase leading-none tracking-[0.04em] text-text-secondary">
+                  <p className="truncate font-mono text-xs uppercase leading-none tracking-[0.04em] text-text-secondary">
                     On this page
                   </p>
                 </div>

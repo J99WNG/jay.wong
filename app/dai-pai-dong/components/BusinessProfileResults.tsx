@@ -111,7 +111,7 @@ export default function BusinessProfileResults() {
           <p className="eyebrow">Interactive results canvas</p>
           <h3>Google Business Profile · May–September 2026</h3>
         </div>
-        <p className="whitespace-nowrap rounded-full border border-border-muted px-3 py-2 font-pixel text-xs text-text-tertiary">Five complete months</p>
+        <p className="whitespace-nowrap rounded-full border border-border-muted px-3 py-2 font-mono text-xs text-text-tertiary">Five complete months</p>
       </div>
       <div className={`${styles.resultsTabs} my-6 flex gap-1 overflow-x-auto p-1`} role="group" aria-label="Business Profile result views">
         {views.map((view) => (

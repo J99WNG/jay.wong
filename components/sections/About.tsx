@@ -14,7 +14,7 @@ export default function About() {
           <h2>
             About me
             <br />
-            <span className="font-normal text-text-tertiary">
+            <span className="section-subtitle">
               Curious by nature. Practical by design.
             </span>
           </h2>
@@ -42,7 +42,7 @@ export default function About() {
 
             <StrengthsTimeline />
 
-            <div className="content-block">
+            <div className="content-block content-flow">
               <h3>Tech stack</h3>
               <p>A practical mix for designing, aligning, building, and shipping.</p>
 

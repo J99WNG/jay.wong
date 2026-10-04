@@ -6,7 +6,7 @@ This document records the contract between the MathsGenie Figma library and the 
 
 The case-study demo uses Tailwind's standard scales directly. This keeps the implementation legible and avoids a second component API inside the CSS module.
 
-1. **Foundation** — The original MathsGenie OKLCH primary, neutral and status scales remain the source palette. Route-scoped aliases let conventional Tailwind colour utilities consume those values without replacing the brand system. Inter is the body face; the route-local Geom class is reserved for component headings, strong titles and large CTAs at `text-xl` or above.
+1. **Foundation** — The original MathsGenie OKLCH primary, neutral and status scales remain the source palette. Route-scoped aliases let conventional Tailwind colour utilities consume those values without replacing the brand system. Geist Sans is the body face; the route-local Geom class is reserved for component headings, strong titles and large CTAs at `text-xl` or above.
 2. **Scale** — Layout favours spacing steps `2`, `3`, `4`, `5`, `6` and `8`; radius steps `lg`, `xl`, `2xl` and `full`; and Tailwind's named type sizes.
 3. **Component** — buttons, inputs, cards, badges, alerts, segmented controls, navigation and sidebars compose those utilities in JSX.
 4. **Pattern** — components combine into revision cards, next-step prompts, onboarding and reward flows.

@@ -12,7 +12,7 @@ export default function Contact() {
                 <div className="section-heading">
                     <h2>Let&apos;s talk
                     <br />
-                    <span className="font-normal text-text-tertiary">Assam or Ceylon tea. No coffee here.</span>
+                    <span className="section-subtitle">Assam or Ceylon tea. No coffee here.</span>
                     </h2>
                 </div>
 

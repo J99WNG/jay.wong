@@ -26,23 +26,23 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Snapshot
                             <br/>
-                            <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
+                            <span className="section-subtitle">The “too long didn&apos;t read”.</span>
                             </h2>
                         </div>
 
                         <div className="section-content">
-                            <div className="content-block">
-                                <p className="small">Problem</p>
+                            <div className="content-block content-flow">
+                                <p className="meta-label">Problem</p>
                                 <p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client time and into unnecessary admin, costing up to 70% of their day.</p>
                             </div>
                             
-                            <div className="content-block">
-                                <p className="small">Outcome</p>
+                            <div className="content-block content-flow">
+                                <p className="meta-label">Outcome</p>
                                 <p>Designed RM Suite, a conceptual mobile solution bringing everything into a unified, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
                             </div>
 
                             <div className="content-block">
-                                <p className="small">Impact</p>
+                                <p className="meta-label">Impact</p>
 
                                 <MetricGrid columns={1} ariaLabel="Projected productivity impact">
                                     <MetricCard
@@ -56,26 +56,26 @@ export const metadata = createCaseStudyMetadata(project);
                             
                             <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                                 <div className="metadata">
-                                    <p className="small">Company</p>
+                                    <p className="meta-label">Company</p>
 
                                     <p>
                                         <BrandMark src="/assets/logos/creditsuisse-symbol.svg" size='sm' /> Credit Suisse</p>
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Industry</p>
+                                    <p className="meta-label">Industry</p>
 
                                     <p>{project.industry}</p>
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Role</p>
+                                    <p className="meta-label">Role</p>
 
                                     <p>{project.role}</p>
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Year / Timeline</p>
+                                    <p className="meta-label">Year / Timeline</p>
 
                                     <p>{project.year} · 8 months
                                         <br />
@@ -83,13 +83,13 @@ export const metadata = createCaseStudyMetadata(project);
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Scale</p>
+                                    <p className="meta-label">Scale</p>
 
                                     <p>1,140+ Relationship Managers, 36 locations, 25 countries, CHF 645 billion AUM</p>
                                 </div>
 
                                 <div className="metadata">
-                                    <p className="small">Team</p>
+                                    <p className="meta-label">Team</p>
 
                                     <p>5 people (Product Manager/Designer, Lead Developer, Project Analyst, Business Analyst, Research Analyst)</p>
                                 </div>
@@ -109,7 +109,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2 className="section-title">My role
                             <br/>
-                            <span className="font-normal text-text-tertiary">Ownership and strategic focus.</span>
+                            <span className="section-subtitle">Ownership and strategic focus.</span>
                             </h2>
                         </div>
 
@@ -118,7 +118,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 <StreamingText className="lead">I came into this project as Product Manager and Designer. That meant wearing a few different hats across the eight-month engagement.</StreamingText>
                             </div>
                             
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Product vision and design</h3>
 
                                 <p>
@@ -126,7 +126,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className='content-block'>
+                            <div className='content-block content-flow'>
                                 <h3>Project management</h3>
 
                                 <p>
@@ -134,7 +134,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Stakeholder engagement</h3>
 
                                 <p>
@@ -156,7 +156,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Business context
                             <br/>
-                            <span className="font-normal text-text-tertiary">Why it mattered.</span>
+                            <span className="section-subtitle">Why it mattered.</span>
                             </h2>
                         </div>
 
@@ -166,7 +166,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 Credit Suisse's International Wealth Management division managed CHF 645 billion in assets, serving ultra-high-net-worth clients across Europe, the Middle East, Africa, and Latin America. At the centre of that operation sits the <strong>Relationship Manager.</strong>
                             </StreamingText>
                             
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <p>The bank's strategy was built on three priorities:</p>
                                 
                                 <ol>
@@ -187,7 +187,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                                 <blockquote className="notion-quote">
                                     "Relationship managers spend 60 to 70 percent of their time on non-advisory activities."
-                                    <p className="small">McKinsey & Company, 2022</p>
+                                    <p className="meta-label">McKinsey & Company, 2022</p>
                                 </blockquote>
 
                                 <p>Credit Suisse had invested heavily in its wealth management infrastructure. But the tools being used by the people closest to clients hadn't kept pace. There was an internal CRM and a calendar system, but nothing that put the full picture of an RM's day into a single, mobile-first surface. The result was a productivity gap that had a direct impact on the division's ability to meet its own strategic goals.</p>
@@ -207,7 +207,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2 className="section-title">Discovery and research
                             <br/>
-                            <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
+                            <span className="section-subtitle">Uncovering the insights.</span>
                             </h2>
                         </div>
 
@@ -216,7 +216,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 We started with the Credit Suisse briefing document and a structured research checklist covering KYC regulation, private banking compliance in the UK and EU, FinTech trends, and the daily responsibilities of a Relationship Manager. But reading about a role is very different from understanding it.
                             </StreamingText>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Stakeholder insights</h3>
                                 
                                 <p>
@@ -234,7 +234,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </ul>
                             </div>
 
-                            <div className='content-block'>
+                            <div className='content-block content-flow'>
                                 <h3>That second conversation changed our direction significantly.</h3>
 
                                 <p>
@@ -246,7 +246,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
                             
-                            <div className='content-block'>
+                            <div className='content-block content-flow'>
                                 <h3>Invalidating our assumptions</h3>
 
                                 <p>
@@ -274,7 +274,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Ideation technique</h3>
 
                                 <p>
@@ -301,7 +301,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Problem definition
                             <br/>
-                            <span className="font-normal text-text-tertiary">Sharpening the focus.</span>
+                            <span className="section-subtitle">Sharpening the focus.</span>
                             </h2>
                         </div>
 
@@ -318,7 +318,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
                             
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <p>
                                 To structure our response, we ran a PACT Analysis across People, Activities, Context, and Technology. This kept the user at the centre of every decision:
                                 </p>
@@ -357,7 +357,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Goals &amp; KPIs
                             <br/>
-                            <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
+                            <span className="section-subtitle">Defining what we want to solve.</span>
                             </h2>
                         </div>
 
@@ -367,7 +367,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 The brief asked for three things: innovation, efficiency, and minimisation. We translated those into concrete, measurable targets.
                             </StreamingText>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Primary goal</h3>
 
                                 <p>
@@ -375,7 +375,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Secondary goal</h3>
 
                                 <p>
@@ -383,7 +383,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Design goal</h3>
                                 
                                 <p>
@@ -403,7 +403,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>Functional success criteria</h3>
 
                                 <ol>
@@ -438,7 +438,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Ideation
                             <br/>
-                            <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
+                            <span className="section-subtitle">Thinking outside the box.</span>
                             </h2>
                         </div>
 
@@ -449,7 +449,7 @@ export const metadata = createCaseStudyMetadata(project);
                             The concept that guided everything was thinking about an RM's day as a single, continuous experience rather than a series of disconnected tasks. We kept asking the same question: what would it look like if everything an RM needed was in one place, presented in the order they would actually need it?
                             </p>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                     The modular dashboard
                                 </h3>
@@ -465,7 +465,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                     Trending
                                 </h3>
@@ -481,7 +481,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                     Recognition over recall in the Clients panel
                                 </h3>
@@ -509,7 +509,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>The solution
                             <br/>
-                            <span className="font-normal text-text-tertiary">Solving productivity</span>
+                            <span className="section-subtitle">Solving productivity</span>
                             </h2>
                         </div>
 
@@ -519,7 +519,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </StreamingText>
                             
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 2FA Login
                                 </h3>
@@ -535,7 +535,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Dashboard
                                 </h3>
@@ -551,7 +551,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Client List
                                 </h3>
@@ -567,7 +567,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Client Profile
                                 </h3>
@@ -583,7 +583,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Trending
                                 </h3>
@@ -599,7 +599,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Notifications
                                 </h3>
@@ -615,7 +615,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Add tasks, reminders and notes
                                 </h3>
@@ -648,7 +648,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Testing &amp; validation
                             <br/>
-                            <span className="font-normal text-text-tertiary">Shipping the PoC.</span>
+                            <span className="section-subtitle">Shipping the PoC.</span>
                             </h2>
                         </div>
 
@@ -657,7 +657,7 @@ export const metadata = createCaseStudyMetadata(project);
                             Testing happened in two rounds, each tied to a client-facing showcase event, judged by Credit Suisse and accompanied by various other blue-chip companies.
                             </StreamingText>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Showcase 1: High-fidelity prototype review
                                 </h3>
@@ -667,7 +667,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Showcase 2: Agile development and iteration
                                 </h3>
@@ -695,7 +695,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Impact &amp; outcomes
                             <br/>
-                            <span className="font-normal text-text-tertiary">What changed because of this work.</span>
+                            <span className="section-subtitle">What changed because of this work.</span>
                             </h2>
                         </div>
 
@@ -733,12 +733,12 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="section-heading">
                             <h2>Reflection
                             <br/>
-                            <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
+                            <span className="section-subtitle">Learnings and key takeaways.</span>
                             </h2>
                         </div>
 
                         <div className="section-content">
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 The interviews were the most important design tool
                                 </h3>
@@ -748,7 +748,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Front-end and back-end need to run in parallel
                                 </h3>
@@ -758,7 +758,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 Remote team leadership is its own skill
                                 </h3>
@@ -768,7 +768,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <div className="content-block">
+                            <div className="content-block content-flow">
                                 <h3>
                                 A crucial moment in the project
                                 </h3>

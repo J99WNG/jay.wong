@@ -84,11 +84,8 @@
   --color-border-muted: light-dark(var(--color-neutral-500), var(--color-steep-500));
   --color-border-hover: light-dark(var(--color-neutral-900), var(--color-steep-100));
 
-  /* Override the default sans-serif stack with Inter */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-  /* Create a custom utility key for your pixel font */
-  --font-pixel: var(--font-geist-pixel), monospace;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), system-ui, sans-serif;
 }
 
 @utility page-container {
@@ -115,10 +112,9 @@
   body {
     /* Clip sideways overflow while keeping sticky headings tied to the viewport. */
     overflow-x: clip;
-    font-optical-sizing: auto;
     text-rendering: optimizeLegibility; 
 
-    @apply font-sans text-text-secondary/80 subpixel-antialiased tracking-tighter;
+    @apply font-sans font-normal text-text-secondary/80 subpixel-antialiased tracking-normal;
   }
 
   h1, h2, h3, h4 {
@@ -134,35 +130,23 @@
   }
 
   h3 {
-    @apply text-xl;
+    @apply text-2xl leading-8;
   }
 
   h4 {
-    @apply text-lg;
+    @apply text-lg leading-7;
   }
 
   /* Paragraphs */
   p {
-    @apply text-base font-normal leading-7 mbs-0 mbe-0;
-  }
-
-  p.lead {
-    @apply text-text-secondary/90 text-xl font-[450] leading-8 mb-0;
-  }
-
-  p.small {
-    @apply font-pixel text-sm text-text-tertiary tracking-normal uppercase mb-0;
-  }
-
-  .eyebrow {
-    @apply block font-pixel text-sm leading-snug tracking-wide uppercase text-accent-interactive;
+    @apply text-base leading-7 tracking-normal mbs-0 mbe-0;
   }
 
   /* Global defaults for semantic content lists. Component and role=list
      patterns own their marker and spacing behaviour. */
   ul:not([class]):not([role='list']),
   ol:not([class]):not([role='list']) {
-    @apply mb-3 ps-6;
+    @apply m-0 ps-6;
   }
 
   ul:not([class]):not([role='list']) > li,
@@ -189,7 +173,7 @@
   }
 
   ol:not([class]):not([role='list']) > li::marker {
-    @apply font-pixel text-sm tabular-nums;
+    @apply font-mono text-sm tabular-nums;
   }
 
   /* Misc */
@@ -214,17 +198,8 @@
   font-weight: 600;
   }
 
-  .notion-quote {
-    @apply my-3 px-4 text-text-tertiary text-xl tracking-tighter border-l-3 border-text-tertiary;
-  }
-
-  .metadata {
-    @apply flex flex-col gap-1;
-  }
-
   /* Links */
   a {
-    @apply tracking-tight;
     color: var(--color-text-link);
     text-decoration: none;
     position: relative;
@@ -249,7 +224,7 @@ hr {
 }
 
 figure {
-  @apply relative overflow-hidden my-2;
+  @apply relative overflow-hidden m-0;
 }
 
 figure img {
@@ -258,12 +233,37 @@ figure img {
 
 figcaption,
 caption {
-  @apply mt-3 text-text-tertiary text-xs text-left tracking-tight;
+  @apply mt-3 text-text-tertiary text-xs text-left;
 }
 
 }
 
 @layer components {
+
+/* ==================== Typography roles ==================== */
+.lead {
+  @apply mb-0 text-xl leading-8 font-[450] text-text-secondary/90;
+}
+
+.meta-label {
+  @apply mb-0 font-mono text-sm leading-snug tracking-normal uppercase text-text-tertiary;
+}
+
+.eyebrow {
+  @apply block font-mono text-sm leading-snug tracking-wide uppercase text-accent-interactive;
+}
+
+.section-subtitle {
+  @apply text-[0.875em] leading-snug font-normal text-text-tertiary;
+}
+
+.notion-quote {
+  @apply m-0 border-l-3 border-text-tertiary px-4 text-xl tracking-tight text-text-tertiary;
+}
+
+.metadata {
+  @apply flex flex-col gap-1;
+}
 
 /* ==================== Card ==================== */
 .card {
@@ -348,7 +348,7 @@ figure > button:focus-visible {
 }
 
 .custom-table tbody th {
-  @apply w-28 font-pixel text-sm font-normal uppercase text-text-primary;
+  @apply w-28 font-mono text-sm font-normal uppercase text-text-primary;
 }
 
 .custom-table tbody tr {
@@ -370,16 +370,37 @@ figure > button:focus-visible {
 
 /* Primary vertical stack inside a section's content column. */
 .section-content {
-  @apply inline-flex flex-col gap-10 max-w-full;
+  @apply flex min-w-0 max-w-full flex-col gap-10;
 }
 
 /* Related heading, copy, list, or media grouped within section content. */
 .content-block {
-  @apply flex flex-col gap-2;
+  @apply flex min-w-0 flex-col gap-3;
+}
+
+/* Long-form copy keeps a readable measure and a slightly looser rhythm. */
+.content-flow {
+  @apply max-w-[65ch];
+}
+
+.content-flow:not(.content-block) {
+  @apply flex flex-col gap-4;
+}
+
+.content-block > :where(p, ul, ol, blockquote) {
+  @apply max-w-[65ch];
+}
+
+.content-block > :where(p, ul, ol, blockquote) + :where(p, ul, ol, blockquote) {
+  @apply mt-1;
+}
+
+.section-grid {
+  @apply grid items-start gap-8;
 }
 
 .section-heading {
-  @apply static flex flex-col self-start h-max mb-8 md:mb-0;
+  @apply static flex h-max flex-col self-start;
 }
 
 /* ==================== Contact ==================== */
@@ -427,10 +448,7 @@ html:focus-within {
 @media (min-width: 768px) {
 
   .section-grid {
-    display: grid;
     grid-template-columns: 0.3fr 0.7fr;
-    gap: 2rem;
-    align-items: flex-start;
   }
 
   .page-section[data-sticky-heading='true'] .section-grid > .section-heading {

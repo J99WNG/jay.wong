@@ -117,7 +117,7 @@ function TimelineStep({
         }}
         className="flex flex-col gap-3 pb-10 sm:pb-12"
       >
-        <div className="content-block">
+        <div className="content-block content-flow">
           <h4>{item.title}</h4>
           <p>{item.text}</p>
         </div>

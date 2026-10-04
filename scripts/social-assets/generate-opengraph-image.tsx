@@ -64,11 +64,10 @@ async function generateOpenGraphImage() {
   }
   
   async function renderOpenGraphImage() {
-    // next/og needs static font files rather than the variable font used by the
-    // website. Both are still Inter, so the artwork matches the site's typography.
-    const [interRegular, interMedium] = await Promise.all([
-      readFile(path.join(process.cwd(), 'app/fonts/Inter-OG-Regular.ttf')),
-      readFile(path.join(process.cwd(), 'app/fonts/Inter-OG-Medium.ttf')),
+    // next/og uses static font files while the website loads variable WOFF2 files.
+    const [geistRegular, geistMedium] = await Promise.all([
+      readFile(path.join(process.cwd(), 'scripts/social-assets/fonts/Geist-Regular.ttf')),
+      readFile(path.join(process.cwd(), 'scripts/social-assets/fonts/Geist-Medium.ttf')),
     ]);
   
     const response = new ImageResponse(
@@ -80,7 +79,7 @@ async function generateOpenGraphImage() {
             display: 'flex',
             background: colors.background,
             color: colors.textPrimary,
-            fontFamily: 'Inter',
+            fontFamily: 'Geist Sans',
           }}
         >
           <div
@@ -167,14 +166,14 @@ async function generateOpenGraphImage() {
         ...size,
         fonts: [
           {
-            name: 'Inter',
-            data: interRegular,
+            name: 'Geist Sans',
+            data: geistRegular,
             style: 'normal',
             weight: 400,
           },
           {
-            name: 'Inter',
-            data: interMedium,
+            name: 'Geist Sans',
+            data: geistMedium,
             style: 'normal',
             weight: 500,
           },

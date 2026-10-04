@@ -13,7 +13,7 @@ export default function Work() {
                 <div className="section-heading">
                     <h2>Featured work
                     <br />
-                    <span className="font-normal text-text-tertiary">A few problems I've helped solve.</span>
+                    <span className="section-subtitle">A few problems I've helped solve.</span>
                     </h2>
                 </div>
 

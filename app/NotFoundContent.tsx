@@ -27,7 +27,7 @@ export default function NotFoundContent() {
           transition={{ duration: shouldReduceMotion ? 0 : motionDuration.slow, ease: motionEase.standard }}
           className="flex max-w-xl flex-col items-start gap-6"
         >
-          <p className="small">Error 404</p>
+          <p className="meta-label">Error 404</p>
 
           <div className="flex flex-col gap-4">
             <h1 id="not-found-title" className="text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.05]">
@@ -114,7 +114,7 @@ export default function NotFoundContent() {
             }}
           />
 
-          <span className="relative font-pixel text-[clamp(5rem,18vw,9rem)] leading-none tracking-[-0.08em] text-text-primary">
+          <span className="relative font-mono text-[clamp(5rem,18vw,9rem)] leading-none tracking-[-0.08em] text-text-primary">
             404
           </span>
         </motion.div>

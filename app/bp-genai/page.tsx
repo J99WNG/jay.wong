@@ -26,23 +26,23 @@ export default function Page() {
                 <div className="section-heading">
                     <h2>Snapshot
                     <br />
-                    <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
+                    <span className="section-subtitle">The “too long didn&apos;t read”.</span>
                     </h2>
                 </div>
 
                 <div className="section-content">
-                    <div className="content-block">
-                        <p className="small">Problem</p>
+                    <div className="content-block content-flow">
+                        <p className="meta-label">Problem</p>
                         <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels was increasing operational costs and reducing employee productivity.</p>
                     </div>
                     
-                    <div className="content-block">
-                        <p className="small">Outcome</p>
+                    <div className="content-block content-flow">
+                        <p className="meta-label">Outcome</p>
                         <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>
                     </div>
 
                     <div className="content-block">
-                        <p className="small">Impact (6 months post-launch)</p>
+                        <p className="meta-label">Impact (6 months post-launch)</p>
 
                         <MetricGrid columns={2} ariaLabel="Impact six months after launch">
                             <MetricCard value="~1,200" label="Repeat tickets avoided" />
@@ -54,23 +54,23 @@ export default function Page() {
                     
                     <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                         <div className="metadata">
-                            <p className="small">Company</p>
+                            <p className="meta-label">Company</p>
                             <p>
                                 <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm'/> bp plc</p>
                         </div>
 
                         <div className="metadata">
-                            <p className="small">Industry</p>
+                            <p className="meta-label">Industry</p>
                             <p>{project.industry}</p>
                         </div>
 
                         <div className="metadata">
-                            <p className="small">Role</p>
+                            <p className="meta-label">Role</p>
                             <p>{project.role}</p>
                         </div>
 
                         <div className="metadata">
-                            <p className="small">Year / Timeline</p>
+                            <p className="meta-label">Year / Timeline</p>
                             <p>{project.year} · 24 weeks
                                 <br />
                                 (Discovery → MVP)
@@ -78,12 +78,12 @@ export default function Page() {
                         </div>
 
                         <div className="metadata">
-                        <p className="small">Scale</p>
+                        <p className="meta-label">Scale</p>
                         <p>Enterprise platform serving <strong>~87,000 employees</strong> globally.</p>
                         </div>
 
                         <div className="metadata">
-                        <p className="small">Team</p>
+                        <p className="meta-label">Team</p>
                         <ul>
                             <li>1 Product Owner</li>
                             <li>1 Programme Manager</li>
@@ -108,7 +108,7 @@ export default function Page() {
                 <div className="section-heading">
                     <h2 className="section-title">My role
                     <br />
-                    <span className="font-normal text-text-tertiary">Responsibilities and strategic focus.</span>
+                    <span className="section-subtitle">Responsibilities and strategic focus.</span>
                     </h2>
                 </div>
 
@@ -116,7 +116,7 @@ export default function Page() {
 
                     <StreamingText className="lead">As the Lead Product Designer, I was responsible for shaping the end-to-end experience strategy and design execution for the MVP.</StreamingText>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h3>
                         My core responsibilities
                     </h3>
@@ -149,7 +149,7 @@ export default function Page() {
                 <div className="section-heading">
                     <h2>Business context
                     <br />
-                    <span className="font-normal text-text-tertiary">Why it mattered.</span>
+                    <span className="section-subtitle">Why it mattered.</span>
                     </h2>
                 </div>
 
@@ -160,7 +160,7 @@ export default function Page() {
                     <p>Despite a mature ServiceNow platform and extensive knowledge base, employees struggled to find answers independently and defaulted to live support.</p>  
                     </div>
                     
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h3>Key signals</h3>
                     <ul>
                         <li>~30% of service desk tickets were repeatable, low-complexity (known as Priority 3 tickets).</li>
@@ -177,7 +177,7 @@ export default function Page() {
                     </ul>
                     </div>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h3>Strategic backdrop</h3>
                     <p>This initiative sat within a broader “Shift Left” transformation roadmap — moving issue resolution as close to the employee as possible to improve efficiency and reduce reliance on L3 live support.</p>
                     <p>Generative AI was identified as a potential enabler; not to replace human agents, but to improve knowledge discovery, summarisation and confidence in self-serve outcomes.</p>
@@ -199,14 +199,14 @@ export default function Page() {
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
                         <br />
-                        <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
+                        <span className="section-subtitle">Uncovering the insights.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
                         <StreamingText className="lead">To avoid treating AI as a solution in search of a problem, we invested heavily in understanding <strong>why self-serve was failing.</strong></StreamingText>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Quantitative analysis (ServiceNow analytics)</h3>
                             
                             <p>Working with the data team, I reviewed historical ticket and search data:</p>
@@ -229,13 +229,13 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>1-to-1 interviews with SMEs and power users</h3>
 
                             <p>I conducted <strong>16 interviews</strong> across US, Europe and APAC regions with a mix of power users, SMEs and everyday employees.</p>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h4>
                             Key synthesised insights
                             </h4>
@@ -291,7 +291,7 @@ export default function Page() {
                             caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
                         />
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Stakeholder alignment workshop</h3>
 
                             <p>I facilitated a discovery workshop with ITSM leadership and SMEs to:</p>
@@ -333,7 +333,7 @@ export default function Page() {
                 <div className="section-heading">
                     <h2>Problem definition
                     <br />
-                    <span className="font-normal text-text-tertiary">Turning research into a clear design focus.</span>
+                    <span className="section-subtitle">Turning research into a clear design focus.</span>
                     </h2>
                 </div>
 
@@ -344,7 +344,7 @@ export default function Page() {
                     Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
                     </blockquote>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                         <p>This problem had three equally important lenses:</p>
 
                         <ol>
@@ -370,7 +370,7 @@ export default function Page() {
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
                         <br />
-                        <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
+                        <span className="section-subtitle">Defining what we want to solve.</span>
                         </h2>
                     </div>
 
@@ -432,7 +432,7 @@ export default function Page() {
                     <div className="section-heading">
                         <h2>Ideation
                         <br />
-                        <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
+                        <span className="section-subtitle">Thinking outside the box.</span>
                         </h2>
                     </div>
 
@@ -477,7 +477,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Key trade-offs</h3>
 
                             <ul>
@@ -495,7 +495,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>MVP focus areas</h3>
 
                             <ul>
@@ -527,12 +527,12 @@ export default function Page() {
                     <div className="section-heading">
                         <h2>The solution
                         <br />
-                        <span className="font-normal text-text-tertiary">Designing the AI-assisted experience.</span>
+                        <span className="section-subtitle">Designing the AI-assisted experience.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Experience principles
                             </h3>
@@ -558,7 +558,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Information architecture
                             </h3>
@@ -580,7 +580,7 @@ export default function Page() {
                             />                        
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 AI-powered knowledge search
                             </h3>
@@ -610,7 +610,7 @@ export default function Page() {
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Accessibility &amp; inclusion
                             </h3>
@@ -649,7 +649,7 @@ export default function Page() {
                 <div className="section-heading">
                     <h2>Testing &amp; validation
                     <br />
-                    <span className="font-normal text-text-tertiary">Shipping the MVP.</span>
+                    <span className="section-subtitle">Shipping the MVP.</span>
                     </h2>
                 </div>
 
@@ -658,7 +658,7 @@ export default function Page() {
                     We tested a high-fidelity Figma prototype mapped closely to ServiceNow capabilities and using the following methods:
                     </StreamingText>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h3>Usability study</h3>
 
                     <ul>
@@ -672,7 +672,7 @@ export default function Page() {
                     </ul>
                     </div>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h4>Early sentiment (Net Promoter Score)</h4>
 
                     <ul>
@@ -700,7 +700,7 @@ export default function Page() {
                     </blockquote>
                     </div>
 
-                    <div className="content-block">
+                    <div className="content-block content-flow">
                     <h3>Continuous feedback loop</h3>
 
                     <ul>
@@ -720,7 +720,7 @@ export default function Page() {
 
                     <div className="card">
                     <div className="flex flex-1 w-full flex-col justify-center gap-7 px-7 py-8">
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                         <h3>Key learning: AI alone wasn’t enough</h3>
 
                         <p>
@@ -728,7 +728,7 @@ export default function Page() {
                         </p>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                         <h4>Actions taken:</h4>
 
                         <ul>
@@ -746,7 +746,7 @@ export default function Page() {
                         </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                         <h4>Result</h4>
 
                         <ul>  
@@ -778,7 +778,7 @@ export default function Page() {
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
                         <br />
-                        <span className="font-normal text-text-tertiary">What changed because of this work.</span>
+                        <span className="section-subtitle">What changed because of this work.</span>
                         </h2>
                     </div>
 
@@ -836,12 +836,12 @@ export default function Page() {
                     <div className="section-heading">
                         <h2>Reflection
                         <br />
-                        <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
+                        <span className="section-subtitle">Learnings and key takeaways.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>What worked</h3>
 
                             <ul>
@@ -859,7 +859,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>What didn’t</h3>
 
                             <ul>
@@ -874,7 +874,7 @@ export default function Page() {
 
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>What I’d do next</h3>
 
                             <ul>

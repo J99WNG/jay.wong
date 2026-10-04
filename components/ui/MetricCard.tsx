@@ -63,7 +63,7 @@ export function MetricCard({ value, label, note, className }: MetricCardProps) {
         className,
       )}
     >
-      <span className="block break-words font-pixel text-3xl leading-none tracking-tight text-accent-primary tabular-nums">
+      <span className="block break-words font-mono text-3xl leading-none tracking-tight text-accent-primary tabular-nums">
         {value}
       </span>
       <p className="m-0 mt-2 text-base leading-snug text-text-secondary">

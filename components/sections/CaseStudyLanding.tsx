@@ -39,7 +39,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
           <NextProjectCTA />
 
           <div className="flex flex-col gap-2">
-            <span className="font-pixel text-base sm:text-lg uppercase tracking-normal text-text-">
+            <span className="font-mono text-base sm:text-lg uppercase tracking-tight text-text-tertiary">
               {project.year} · {project.company} · {project.industry}
             </span>
 

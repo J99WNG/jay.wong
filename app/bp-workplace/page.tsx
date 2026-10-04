@@ -26,23 +26,23 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Snapshot
                         <br/>
-                        <span className="font-normal text-text-tertiary">The “too long didn&apos;t read”.</span>
+                        <span className="section-subtitle">The “too long didn&apos;t read”.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
-                        <div className="content-block">
-                            <p className="small">Problem</p>
+                        <div className="content-block content-flow">
+                            <p className="meta-label">Problem</p>
                             <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>
                         </div>
                         
-                        <div className="content-block">
-                            <p className="small">Outcome</p>
+                        <div className="content-block content-flow">
+                            <p className="meta-label">Outcome</p>
                             <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow, through consolidating journeys, improving findability and simplifying how employees raise and track workplace requests.</p>
                         </div>
 
-                        <div className="content-block">
-                            <p className="small">Impact</p>
+                        <div className="content-block content-flow">
+                            <p className="meta-label">Impact</p>
 
                             <ul>
                                 <li>Transitioned the workplace experience from Microsoft SharePoint to ServiceNow, consolidating platforms and supporting enterprise cost-optimisation initiatives.</li>
@@ -55,26 +55,26 @@ export const metadata = createCaseStudyMetadata(project);
                         
                         <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
                             <div className="metadata">
-                                <p className="small">Company</p>
+                                <p className="meta-label">Company</p>
 
                                 <p>
                                     <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm' /> bp plc</p>
                             </div>
 
                             <div className="metadata">
-                                <p className="small">Industry</p>
+                                <p className="meta-label">Industry</p>
 
                                 <p>{project.industry}</p>
                             </div>
 
                             <div className="metadata">
-                                <p className="small">Role</p>
+                                <p className="meta-label">Role</p>
 
                                 <p>{project.role}</p>
                             </div>
 
                             <div className="metadata">
-                                <p className="small">Year / Timeline</p>
+                                <p className="meta-label">Year / Timeline</p>
 
                                 <p>{project.year} · 8 months
                                     <br />
@@ -82,13 +82,13 @@ export const metadata = createCaseStudyMetadata(project);
                             </div>
 
                             <div className="metadata">
-                                <p className="small">Scale</p>
+                                <p className="meta-label">Scale</p>
 
                                 <p>Enterprise-level rollout, piloted across Pune, Houston and London.</p>
                             </div>
 
                             <div className="metadata">
-                                <p className="small">Team</p>
+                                <p className="meta-label">Team</p>
 
                                 <ul>
                                     <li>1 Programme Manager</li>
@@ -113,7 +113,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2 className="section-title">My role
                         <br/>
-                        <span className="font-normal text-text-tertiary">Ownership and strategic focus.</span>
+                        <span className="section-subtitle">Ownership and strategic focus.</span>
                         </h2>
                     </div>
 
@@ -155,7 +155,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Business context
                         <br/>
-                        <span className="font-normal text-text-tertiary">Why it mattered.</span>
+                        <span className="section-subtitle">Why it mattered.</span>
                         </h2>
                     </div>
 
@@ -164,7 +164,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <StreamingText className="lead">As part of broader cost-reduction initiatives, bp’s global workplace experience team identified inefficiencies in how employees accessed digital workplace services (such as facility amenities, access and security, transportation and parking, maintenance reports, etc.).</StreamingText>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <p>Over time, workplace processes had evolved organically across regions and even individual office locations. While functional, they lacked consistency, discoverability and clear ownership. This led to:</p>  
 
                             <ul>
@@ -175,7 +175,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <p>The challenge was clear:</p>
 
                             <blockquote className="notion-quote">
@@ -197,7 +197,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2 className="section-title">Discovery and research
                         <br/>
-                        <span className="font-normal text-text-tertiary">Uncovering the insights.</span>
+                        <span className="section-subtitle">Uncovering the insights.</span>
                         </h2>
                     </div>
 
@@ -208,7 +208,7 @@ export const metadata = createCaseStudyMetadata(project);
                             This wasn’t just a UX issue. It was an operating model issue.
                         </blockquote>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Workplace services varied by location, not just region</h3>
                             
                             <p>Desk booking, catering, parking and vendors differed office-by-office, significantly impacting how we approach IA and backend logic.</p>
@@ -221,7 +221,7 @@ export const metadata = createCaseStudyMetadata(project);
 
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Content was deeply fragmented</h3>
                             
                             <p>Information and services lived across SharePoint, Viva Engage, PowerApps and local documents.</p>
@@ -233,7 +233,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Search was not trusted</h3>
                             
                             <p>'Bookmarking' was a common behaviour observed, signalling low confidence in findability.</p>
@@ -245,7 +245,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Culture influenced behaviour</h3>
                             
                             <p>In some office locations, support depended on “who you know” rather than formal processes.</p>
@@ -257,7 +257,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Governance gaps existed</h3>
                             
                             <p>One regional office wasn’t even enrolled in the global workplace portfolio, exposing potential structural misalignment.</p>
@@ -282,7 +282,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Problem definition
                         <br/>
-                        <span className="font-normal text-text-tertiary">Sharpening the focus.</span>
+                        <span className="section-subtitle">Sharpening the focus.</span>
                         </h2>
                     </div>
 
@@ -297,7 +297,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <p>to</p>
 
                             <blockquote className="notion-quote">
-                                <p className="small">How might we</p>
+                                <p className="meta-label">How might we</p>
                                 Reduce friction in accessing workplace support globally, while lowering operational cost?
                             </blockquote>
                         </div>
@@ -354,12 +354,12 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Goals &amp; KPIs
                         <br/>
-                        <span className="font-normal text-text-tertiary">Defining what we want to solve.</span>
+                        <span className="section-subtitle">Defining what we want to solve.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Experience goals</h3>
 
                             <ol>
@@ -369,7 +369,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ol>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Business goals</h3>
 
                             <ol>
@@ -392,14 +392,14 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Ideation
                         <br/>
-                        <span className="font-normal text-text-tertiary">Thinking outside the box.</span>
+                        <span className="section-subtitle">Thinking outside the box.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
                         <StreamingText className="lead">This wasn’t a blue-sky redesign. This problem demanded more than just changing a few colours and links.</StreamingText>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <p>Stakeholders were clear:</p>
 
                             <blockquote className="notion-quote">
@@ -459,13 +459,13 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>The solution
                         <br/>
-                        <span className="font-normal text-text-tertiary">Reimagining the digital workplace.</span>
+                        <span className="section-subtitle">Reimagining the digital workplace.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Action-orientated, focused navigation
                             </h3>
@@ -501,7 +501,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Global framework with regional adaptability
                             </h3>
@@ -524,7 +524,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Platform consolidation
                             </h3>
@@ -558,7 +558,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Testing &amp; validation
                         <br/>
-                        <span className="font-normal text-text-tertiary">Shipping the PoC.</span>
+                        <span className="section-subtitle">Shipping the PoC.</span>
                         </h2>
                     </div>
 
@@ -576,7 +576,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
                         
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>Result</h3>
 
                             <ul>
@@ -612,12 +612,12 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Impact &amp; outcomes
                         <br/>
-                        <span className="font-normal text-text-tertiary">What changed because of this work.</span>
+                        <span className="section-subtitle">What changed because of this work.</span>
                         </h2>
                     </div>
 
                     <div className="section-content">
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Immediate outcomes
                             </h3>
@@ -637,7 +637,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>
                                 Strategic impact
                             </h3>
@@ -678,7 +678,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-heading">
                         <h2>Reflection
                         <br/>
-                        <span className="font-normal text-text-tertiary">Learnings and key takeaways.</span>
+                        <span className="section-subtitle">Learnings and key takeaways.</span>
                         </h2>
                     </div>
 
@@ -735,7 +735,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </div>
                         </div>
 
-                        <div className="content-block">
+                        <div className="content-block content-flow">
                             <h3>What I’d do next</h3>
 
                             <ul>

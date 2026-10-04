@@ -110,7 +110,7 @@ export default function Hero() {
                 /* Match the clock: invisible words reserve one stable slot while
                    animated words roll through an absolutely positioned layer. */
                 <span
-                  className="relative inline-grid h-[1.2em] overflow-hidden leading-[1.2] text-accent-primary font-pixel tracking-tight"
+                  className="relative inline-grid h-[1.2em] overflow-hidden leading-[1.2] text-accent-primary font-mono tracking-tight"
                 >
                   {heroContent.keywords.map((keyword) => (
                     <span

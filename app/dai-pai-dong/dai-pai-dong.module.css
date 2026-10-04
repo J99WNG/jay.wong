@@ -43,7 +43,7 @@
 .receiptsVisual > div > span,
 .receiptsVisual > div > strong,
 .stallVisual span,
-.redevelopmentVisual span { font-family: var(--font-geist-pixel), monospace; }
+.redevelopmentVisual span { font-family: var(--font-geist-mono), system-ui, sans-serif; }
 .receiptsVisual > div > strong { color: var(--color-accent-primary); font-size: 1.5rem; }
 .receiptsVisual > p,
 .stallVisual > p { color: var(--color-text-tertiary); font-size: 0.875rem; }
@@ -67,7 +67,7 @@
 
 .stallVisual strong {
   color: var(--color-accent-primary);
-  font-family: var(--font-geist-pixel), monospace;
+  font-family: var(--font-geist-mono), system-ui, sans-serif;
   font-size: 3rem;
   line-height: 1;
 }
@@ -115,7 +115,7 @@
 .journeyFigureHeader h3 { margin-block: 0.5rem; }
 .journeyFigureHeader > p:last-child { color: var(--color-text-tertiary); font-size: 0.875rem; line-height: 1.5; }
 .journeyPreview { border-block: 1px solid var(--color-border-muted); }
-.journeyPreview span { color: var(--journey-tone); font-family: var(--font-geist-pixel), monospace; font-size: 0.75rem; }
+.journeyPreview span { color: var(--journey-tone); font-family: var(--font-geist-mono), system-ui, sans-serif; font-size: 0.75rem; }
 .journeyPreview strong { font-size: 0.875rem; }
 .journeyPreview svg { position: absolute; top: 50%; right: -0.5rem; width: 0.75rem; color: var(--color-text-tertiary); }
 
@@ -133,7 +133,7 @@
 .expandedStages article[data-tone='pain'] { border-top-color: #d25d51; }
 .expandedStages article[data-tone='opportunity'] { border-top-color: var(--color-accent-primary); }
 .expandedStages article > span,
-.blueprintTakeaway > span { display: block; margin-bottom: 1rem; color: var(--color-text-tertiary); font-family: var(--font-geist-pixel), monospace; font-size: 0.75rem; text-transform: uppercase; }
+.blueprintTakeaway > span { display: block; margin-bottom: 1rem; color: var(--color-text-tertiary); font-family: var(--font-geist-mono), system-ui, sans-serif; font-size: 0.75rem; text-transform: uppercase; }
 .expandedStages article p { margin-top: 0.5rem; color: var(--color-text-tertiary); font-size: 0.875rem; line-height: 1.5; }
 .expandedStages article > svg { position: absolute; z-index: 2; top: 50%; right: -1.125rem; width: 1.5rem; color: var(--color-accent-primary); }
 .blueprintTakeaway { border-left: 3px solid var(--color-accent-primary); background: var(--color-bg-secondary); }
@@ -164,7 +164,7 @@
 .discoveryDonut span { z-index: 1; grid-area: 1 / 1; color: var(--color-text-tertiary); font-size: 0.75rem; text-align: center; }
 .discoveryDonut strong,
 .canvasStat strong,
-.actionBars strong { display: block; color: var(--color-accent-primary); font-family: var(--font-geist-pixel), monospace; font-variant-numeric: tabular-nums; line-height: 1; }
+.actionBars strong { display: block; color: var(--color-accent-primary); font-family: var(--font-geist-mono), system-ui, sans-serif; font-variant-numeric: tabular-nums; line-height: 1; }
 .discoveryDonut strong { margin-bottom: 0.25rem; font-size: 2.25rem; }
 
 .platformLegend { border-bottom: 1px solid var(--color-border-muted); }
@@ -174,16 +174,16 @@
 .platformLegend[data-tone='green'] i { background: #48a572; }
 .platformLegend span { font-size: 0.875rem; }
 .platformLegend small { display: block; margin-top: 0.25rem; color: var(--color-text-tertiary); font-size: 0.75rem; }
-.platformLegend strong { font-family: var(--font-geist-pixel), monospace; }
+.platformLegend strong { font-family: var(--font-geist-mono), system-ui, sans-serif; }
 
 .canvasStat > svg { width: 2rem; height: 2rem; color: var(--color-accent-primary); }
 .canvasStat strong { margin-bottom: 0.25rem; font-size: 3rem; }
 .canvasStat span { color: var(--color-text-tertiary); font-size: 0.75rem; }
 
-.queryList span { color: var(--color-text-tertiary); font-family: var(--font-geist-pixel), monospace; font-size: 0.75rem; }
+.queryList span { color: var(--color-text-tertiary); font-family: var(--font-geist-mono), system-ui, sans-serif; font-size: 0.75rem; }
 .queryList p { min-width: 0; overflow: hidden; font-size: 0.75rem; text-overflow: ellipsis; white-space: nowrap; }
 .queryList i { grid-column: 2; display: block; width: var(--width); height: 0.25rem; border-radius: 999px; background: var(--color-accent-primary); }
-.queryList strong { grid-row: 1; grid-column: 3; font-family: var(--font-geist-pixel), monospace; font-size: 0.75rem; }
+.queryList strong { grid-row: 1; grid-column: 3; font-family: var(--font-geist-mono), system-ui, sans-serif; font-size: 0.75rem; }
 
 .actionBars { border: 1px solid var(--color-border-muted); border-radius: 0.75rem; background: var(--color-bg-secondary); }
 .actionBars article > svg,

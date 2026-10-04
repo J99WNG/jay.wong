@@ -9,19 +9,22 @@ import InitialLoader from '@/components/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import { siteMetadata } from '@/app/data/siteMetadata';
 
-// 1. Initialize Inter (Using a variable font file if available)
-const Inter = localFont({
-  src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
-  variable: "--font-inter", // Exposes the CSS variable
+const geistSans = localFont({
+  src: "./fonts/Geist-Variable.woff2",
+  variable: "--font-geist-sans",
   display: "swap",
+  weight: "100 900",
+  fallback: ["system-ui", "sans-serif"],
+  adjustFontFallback: false,
 });
 
-// 2. Initialize Geist Pixel
-const geistPixel = localFont({
-  src: "./fonts/GeistPixel-Regular-VariableFont_ELSH.ttf",
-  variable: "--font-geist-pixel",
+const geistMono = localFont({
+  src: "./fonts/GeistMono-Variable.woff2",
+  variable: "--font-geist-mono",
   display: "swap",
-  weight: "400",
+  weight: "100 900",
+  fallback: ["system-ui", "sans-serif"],
+  adjustFontFallback: false,
 });
 
 export const viewport: Viewport = {
@@ -93,7 +96,7 @@ export default function RootLayout({ children }:
     
     <html
       lang="en"
-      className={`${Inter.variable} ${geistPixel.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       data-scroll-behavior="smooth"
     >
       <body className="relative">
