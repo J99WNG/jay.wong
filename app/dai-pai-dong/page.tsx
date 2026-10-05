@@ -6,6 +6,7 @@ import { LightboxProvider } from '@/components/ui/LightboxGallery';
 import LightboxImage from '@/components/ui/LightboxImage';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
+import ProjectMetadata from '@/components/ui/ProjectMetadata';
 
 import BusinessProfileResults from './components/BusinessProfileResults';
 import ContextEvidence from './components/ContextEvidence';
@@ -45,7 +46,7 @@ export default function Page() {
               <div className="content-block content-flow">
                 <p className="meta-label">Problem</p>
                 <p>
-                  新志興至尊燒鵝大王 (Supreme Roast Goose King) is a busy Ngau Chi Wan restaurant operating in the dai pai dong tradition with a simple POS, radios and handwritten paper. On peak evenings, one manager had to answer booking calls, search a hand-drawn ledger, judge table availability and handle a crowd of walk-ins at the same time.
+                  新志興至尊燒鵝大王 (Supreme Roast Goose King) is a busy Ngau Chi Wan restaurant operating in the dai pai dong tradition with a simple POS, radios and handwritten paper. On peak evenings, Manager Lam has to answer booking calls, search a hand-drawn ledger, judge table availability and handle a crowd of walk-ins at the same time.
                 </p>
               </div>
 
@@ -86,24 +87,23 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="grid place-items-start gap-6 grid-cols-1 md:grid-cols-2">
-                <div className="metadata">
-                  <p className="meta-label">Client</p>
-                  <p>新志興至尊燒鵝大王<br />Supreme Roast Goose King</p>
-                </div>
-                <div className="metadata">
-                  <p className="meta-label">Role</p>
-                  <p>Embedded Service Designer<br />Product Designer</p>
-                </div>
-                <div className="metadata">
-                  <p className="meta-label">Timeline</p>
-                  <p>2025–2026 · Ongoing</p>
-                </div>
-                <div className="metadata">
-                  <p className="meta-label">Methods</p>
-                  <p>Contextual observation, informal conversations, channel audit, service blueprinting, prototyping and implementation.</p>
-                </div>
-              </div>
+              <ProjectMetadata
+                items={[
+                  {
+                    label: 'Client',
+                    value: <>新志興至尊燒鵝大王<br />Supreme Roast Goose King</>,
+                  },
+                  {
+                    label: 'Role',
+                    value: <>Embedded Service Designer<br />Product Designer</>,
+                  },
+                  { label: 'Timeline', value: '2025–2026 · Ongoing' },
+                  {
+                    label: 'Methods',
+                    value: 'Contextual observation, informal conversations, channel audit, service blueprinting, prototyping and implementation.',
+                  },
+                ]}
+              />
             </div>
           </div>
         </Section>
@@ -203,21 +203,39 @@ export default function Page() {
               <LightboxImage
                 className="m-0"
                 src="/assets/images/dai-pai-dong/dpd-discovery-1.png"
-                alt="Friday dinner service at Supreme Roast Goose King, with the manager in a purple shirt handling a crowd near the reception point."
+                alt="Friday dinner service at Supreme Roast Goose King, with Manager Lam in a purple shirt handling a crowd near the reception point."
                 caption="Friday dinner service. The manager in the purple shirt is handling the crowd while the handwritten ledger sits in the foreground. 新志興訂座記錄 translates as ‘Supreme Roast Goose King reservation record.’"
               />
 
-              <div className="grid gap-4">
-                <article className={styles.insightCard}>
-                  <span className="eyebrow mb-3">01 · Demand converges</span>
-                  <h3>One person becomes the interface</h3>
-                  <p>Calls, reservations, walk-ins and table questions all converge on the manager at the busiest point of service.</p>
-                </article>
-                <article className={styles.insightCard}>
-                  <span className="eyebrow mb-3">02 · Paper is flexible</span>
-                  <h3>The ledger works until demand peaks</h3>
-                  <p>Hand-drawn pages adapt to the night, but provide no shared live view, recovery path or useful operating history.</p>
-                </article>
+              <div className="grid gap-10">
+                <div className="grid gap-4">
+                  <article className={styles.insightCard}>
+                    <span className="eyebrow mb-3">01 · Demand converges</span>
+                    <h3>One person becomes the interface</h3>
+                    <p>Calls, reservations, walk-ins and table questions all converge on the manager at the busiest point of service.</p>
+                  </article>
+                  <LightboxImage
+                    className="m-0"
+                    src="/assets/images/dai-pai-dong/dpd-discovery-3.png"
+                    alt="Handwritten booking notes, walk-in slips and stationery at the restaurant reception point."
+                    caption="Bookings and walk-in notes share the reception surface, leaving the manager to reconcile them during service."
+                  />
+                </div>
+
+                <div className="grid gap-4">
+                  <article className={styles.insightCard}>
+                    <span className="eyebrow mb-3">02 · Paper is flexible</span>
+                    <h3>The ledger works until demand peaks</h3>
+                    <p>Hand-drawn pages adapt to the night, but provide no shared live view, recovery path or useful operating history.</p>
+                  </article>
+                  <LightboxImage
+                    className="m-0"
+                    src="/assets/images/dai-pai-dong/dpd-discovery-2.png"
+                    alt="The restaurant’s handwritten reservation book, with customer details obscured."
+                    caption="The reservation book adapts to each service, but availability has to be interpreted from handwriting and memory."
+                  />
+                </div>
+
                 <article className={styles.insightCard}>
                   <span className="eyebrow mb-3">03 · Access varies</span>
                   <h3>One digital path would exclude people</h3>
@@ -274,20 +292,6 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="grid gap-6">
-                <LightboxImage
-                  className="m-0"
-                  src="/assets/images/dai-pai-dong/dpd-discovery-2.png"
-                  alt="The restaurant’s handwritten reservation book, with customer details obscured."
-                  caption="The reservation book adapts to each service, but availability has to be interpreted from handwriting and memory."
-                />
-                <LightboxImage
-                  className="m-0"
-                  src="/assets/images/dai-pai-dong/dpd-discovery-3.png"
-                  alt="Handwritten booking notes, walk-in slips and stationery at the restaurant reception point."
-                  caption="Bookings and walk-in notes share the reception surface, leaving the manager to reconcile them during service."
-                />
-              </div>
             </div>
           </div>
         </Section>
@@ -436,7 +440,7 @@ export default function Page() {
                 <li><strong>Expand only when dependable:</strong> add WhatsApp acknowledgements and customer queue tickets after staff trust the internal record.</li>
               </ol>
 
-              <blockquote className="notion-quote">
+              <blockquote>
                 Adoption is part of the service design. A faster interface that staff do not trust would simply create a second, unofficial ledger.
               </blockquote>
             </div>
@@ -493,7 +497,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <blockquote className="notion-quote">
+              <blockquote>
                 Preserve the experience people value by changing its invisible machinery carefully.
               </blockquote>
             </div>

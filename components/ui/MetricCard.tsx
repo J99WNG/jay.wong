@@ -52,7 +52,7 @@ export function MetricGrid({
 }
 
 /**
- * A non-interactive outcome card. Values always use the portfolio pixel face;
+ * A non-interactive outcome card. Values always use Geist Mono;
  * labels and optional evidence notes retain the primary reading typeface.
  */
 export function MetricCard({ value, label, note, className }: MetricCardProps) {

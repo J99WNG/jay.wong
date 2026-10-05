@@ -13,7 +13,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
   const renderBentoItem = (src: string, label: string, className: string, priority = false) => {
     // LightboxImage renders a <figure>, which has global block margins. Reset all
     // bento children so mixed image and Rive tiles share the same grid edges.
-    const bentoItemClassName = `${className} m-0 min-h-0`;
+    const bentoItemClassName = `${className} m-0 min-h-0 min-w-0 overflow-hidden rounded-xl`;
 
     if (src.endsWith('.riv')) {
       return (
@@ -26,7 +26,15 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
       );
     }
 
-    return <LightboxImage className={bentoItemClassName} src={src} alt={label} priority={priority} />;
+    return (
+      <LightboxImage
+        className={bentoItemClassName}
+        src={src}
+        alt={label}
+        priority={priority}
+        fillContainer
+      />
+    );
   };
 
   return (
@@ -50,10 +58,10 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             </p>
           </div>
 
-          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid min-h-0 grid-cols-1 items-stretch gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
-            {renderBentoItem(project.bentoImage, `Featured image for ${project.title}`, 'h-full w-full md:row-span-2', true)}
-            {project.bentoImage2 && renderBentoItem(project.bentoImage2, `${project.company} chat animation`, 'h-full w-full')}
-            {project.bentoImage3 && renderBentoItem(project.bentoImage3, `${project.company} carpet animation`, 'h-full w-full')}
+          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid w-full min-h-0 min-w-0 grid-cols-1 items-stretch gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
+            {renderBentoItem(project.bentoImage, `Featured image for ${project.title}`, 'w-full max-md:h-auto md:h-full md:row-span-2', true)}
+            {project.bentoImage2 && renderBentoItem(project.bentoImage2, `${project.company} chat animation`, 'w-full max-md:h-auto md:h-full')}
+            {project.bentoImage3 && renderBentoItem(project.bentoImage3, `${project.company} carpet animation`, 'w-full max-md:h-auto md:h-full')}
           </div>
         </div>
       </Section>

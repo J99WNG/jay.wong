@@ -7,6 +7,7 @@ import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import { BookOpenText, Compass, MapPin, Workflow } from 'lucide-react';
 import StreamingText from '@/components/ui/StreamingText';
+import ProjectMetadata from '@/components/ui/ProjectMetadata';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
@@ -53,51 +54,40 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
                         
-                        <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
-                            <div className="metadata">
-                                <p className="meta-label">Company</p>
-
-                                <p>
-                                    <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm' /> bp plc</p>
-                            </div>
-
-                            <div className="metadata">
-                                <p className="meta-label">Industry</p>
-
-                                <p>{project.industry}</p>
-                            </div>
-
-                            <div className="metadata">
-                                <p className="meta-label">Role</p>
-
-                                <p>{project.role}</p>
-                            </div>
-
-                            <div className="metadata">
-                                <p className="meta-label">Year / Timeline</p>
-
-                                <p>{project.year} · 8 months
-                                    <br />
-                                    (Discovery → Proof of Concept)</p>
-                            </div>
-
-                            <div className="metadata">
-                                <p className="meta-label">Scale</p>
-
-                                <p>Enterprise-level rollout, piloted across Pune, Houston and London.</p>
-                            </div>
-
-                            <div className="metadata">
-                                <p className="meta-label">Team</p>
-
-                                <ul>
-                                    <li>1 Programme Manager</li>
-                                    <li>1 Product Designer (me)</li>
-                                    <li>1 Business Analyst</li>
-                                    <li>≥3 ServiceNow Developers</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <ProjectMetadata
+                            items={[
+                                {
+                                    label: 'Company',
+                                    value: (
+                                        <span className="inline-flex items-center gap-2">
+                                            <BrandMark src="/assets/logos/bp-helios-colour.svg" size="sm" />
+                                            bp plc
+                                        </span>
+                                    ),
+                                },
+                                { label: 'Industry', value: project.industry },
+                                { label: 'Role', value: project.role },
+                                {
+                                    label: 'Year / Timeline',
+                                    value: <>{project.year} · 8 months<br />(Discovery → Proof of Concept)</>,
+                                },
+                                {
+                                    label: 'Scale',
+                                    value: 'Enterprise-level rollout, piloted across Pune, Houston and London.',
+                                },
+                                {
+                                    label: 'Team',
+                                    value: (
+                                        <ul className="m-0 grid list-disc gap-1 ps-6">
+                                            <li>1 Programme Manager</li>
+                                            <li>1 Product Designer (me)</li>
+                                            <li>1 Business Analyst</li>
+                                            <li>≥3 ServiceNow Developers</li>
+                                        </ul>
+                                    ),
+                                },
+                            ]}
+                        />
                     </div>
 
                 </div>
@@ -178,7 +168,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block content-flow">
                             <p>The challenge was clear:</p>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 "Improve the employee experience while reducing operational and licensing overhead — without a full replatform."
                             </blockquote>
                         </div>
@@ -204,7 +194,7 @@ export const metadata = createCaseStudyMetadata(project);
                     <div className="section-content">
                         <StreamingText className="lead">Through workshops, interviews, journey mapping, office observation and platform audits, several patterns emerged.</StreamingText>
 
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             This wasn’t just a UX issue. It was an operating model issue.
                         </blockquote>
 
@@ -290,13 +280,13 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block">
                             <StreamingText className="lead">I reframed the challenge from:</StreamingText>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 “Improve digital workplace services through an employee portal”
                             </blockquote>
 
                             <p>to</p>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 <p className="meta-label">How might we</p>
                                 Reduce friction in accessing workplace support globally, while lowering operational cost?
                             </blockquote>
@@ -305,39 +295,23 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block">
                             <p>Core design problems include:</p>
 
-                            <div className="grid place-items-start justify-start md:place-items-stretch gap-4 grid-cols-1 md:grid-cols-2">
-                                <div className="card">
-                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <Compass aria-hidden="true" size={32} className="text-accent-primary" />
-                        
-                                        <p className="card-text">Navigation mirrored internal teams, not colleague intent.</p>
-                                    </div>
-                                </div>
-
-                                <div className="card">
-                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <BookOpenText aria-hidden="true" size={32} className="text-accent-primary" />
-                        
-                                        <p className="card-text">Knowledge and ticketing journeys were disconnected.</p>
-                                    </div>
-                                </div>
-
-                                <div className="card">
-                                    <div className="flex justify-start w-full gap-2 px-6 py-5">
-                                        <MapPin aria-hidden="true" size={32} className="text-accent-primary" />
-                        
-                                        <p className="card-text">Regional inconsistency created cognitive overload.</p>
-                                    </div>
-                                </div>
-
-                                <div className="card">
-                                    <div className="flex justify-start content-center w-full gap-2 px-6 py-5">
-                                        <Workflow aria-hidden="true" size={32} className="text-accent-primary" />
-                        
-                                        <p className="card-text">Multi-platform governance increased complexity.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 md:grid-cols-2">
+                                {[
+                                    { Icon: Compass, text: 'Navigation mirrored internal teams, not colleague intent.' },
+                                    { Icon: BookOpenText, text: 'Knowledge and ticketing journeys were disconnected.' },
+                                    { Icon: MapPin, text: 'Regional inconsistency created cognitive overload.' },
+                                    { Icon: Workflow, text: 'Multi-platform governance increased complexity.' },
+                                ].map(({ Icon, text }) => (
+                                    <li className="card" key={text}>
+                                        <div className="flex w-full items-start gap-3 px-6 py-5">
+                                            <span className="grid size-8 shrink-0 place-items-center text-accent-primary" aria-hidden="true">
+                                                <Icon size={24} strokeWidth={1.75} />
+                                            </span>
+                                            <p className="card-text">{text}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 
@@ -402,7 +376,7 @@ export const metadata = createCaseStudyMetadata(project);
                         <div className="content-block content-flow">
                             <p>Stakeholders were clear:</p>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 Consolidate onto ServiceNow and reduce licensing overhead.
                             </blockquote>
                         </div>
@@ -490,7 +464,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </li>
                             </ul>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 Pairing this with the <a href="https://lawsofux.com/" target="_blank">laws of UX</a>, we reduced cognitive load and aligned navigation with real-world tasks.
                             </blockquote>
 
@@ -540,7 +514,7 @@ export const metadata = createCaseStudyMetadata(project);
                             />
                         </div>
 
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             The PoC demonstrated how ServiceNow’s out-of-the-box capabilities could be extended — without heavy custom engineering.
                         </blockquote>
                     </div>
@@ -661,7 +635,7 @@ export const metadata = createCaseStudyMetadata(project);
                             </ul>
                         </div>
 
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             The PoC now serves as a reference model for broader ServiceNow transformation efforts.
                         </blockquote>
                     </div>
@@ -683,7 +657,7 @@ export const metadata = createCaseStudyMetadata(project);
                     </div>
 
                     <div className="section-content">
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             This project reinforced that enterprise design is as much about shaping organisational alignment as it is about shaping interfaces.
                         </blockquote>
 

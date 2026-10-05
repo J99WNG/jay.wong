@@ -7,6 +7,7 @@ import { BrandLanguageFigure, SelectedWorkDemos, TokenArchitectureFigure } from 
 import styles from './mathsgenie.module.css';
 import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
 import { mathsGenieDisplay } from './fonts';
+import ProjectMetadata from '@/components/ui/ProjectMetadata';
 
 const project = caseStudies.find((study) => study.slug === 'mathsgenie')!;
 
@@ -71,16 +72,12 @@ export default function Page() {
                 <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
               </div>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div className="metadata">
-                  <p className="meta-label">Platform</p>
-                  <p>MathsGenie · UK EdTech</p>
-                </div>
-                <div className="metadata">
-                  <p className="meta-label">Focus</p>
-                  <p>Product design, AI persona, design systems and motion</p>
-                </div>
-              </div>
+              <ProjectMetadata
+                items={[
+                  { label: 'Platform', value: 'MathsGenie · UK EdTech' },
+                  { label: 'Focus', value: 'Product design, AI persona, design systems and motion' },
+                ]}
+              />
             </div>
           </div>
         </Section>

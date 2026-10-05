@@ -7,6 +7,7 @@ import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
+import ProjectMetadata from '@/components/ui/ProjectMetadata';
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
@@ -54,46 +55,33 @@ export const metadata = createCaseStudyMetadata(project);
                                 <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
                             </div>
                             
-                            <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
-                                <div className="metadata">
-                                    <p className="meta-label">Company</p>
-
-                                    <p>
-                                        <BrandMark src="/assets/logos/creditsuisse-symbol.svg" size='sm' /> Credit Suisse</p>
-                                </div>
-
-                                <div className="metadata">
-                                    <p className="meta-label">Industry</p>
-
-                                    <p>{project.industry}</p>
-                                </div>
-
-                                <div className="metadata">
-                                    <p className="meta-label">Role</p>
-
-                                    <p>{project.role}</p>
-                                </div>
-
-                                <div className="metadata">
-                                    <p className="meta-label">Year / Timeline</p>
-
-                                    <p>{project.year} · 8 months
-                                        <br />
-                                        (Discovery → Proof of Concept)</p>
-                                </div>
-
-                                <div className="metadata">
-                                    <p className="meta-label">Scale</p>
-
-                                    <p>1,140+ Relationship Managers, 36 locations, 25 countries, CHF 645 billion AUM</p>
-                                </div>
-
-                                <div className="metadata">
-                                    <p className="meta-label">Team</p>
-
-                                    <p>5 people (Product Manager/Designer, Lead Developer, Project Analyst, Business Analyst, Research Analyst)</p>
-                                </div>
-                            </div>
+                            <ProjectMetadata
+                                items={[
+                                    {
+                                        label: 'Company',
+                                        value: (
+                                            <span className="inline-flex items-center gap-2">
+                                                <BrandMark src="/assets/logos/creditsuisse-symbol.svg" size="sm" />
+                                                Credit Suisse
+                                            </span>
+                                        ),
+                                    },
+                                    { label: 'Industry', value: project.industry },
+                                    { label: 'Role', value: project.role },
+                                    {
+                                        label: 'Year / Timeline',
+                                        value: <>{project.year} · 8 months<br />(Discovery → Proof of Concept)</>,
+                                    },
+                                    {
+                                        label: 'Scale',
+                                        value: '1,140+ Relationship Managers, 36 locations, 25 countries, CHF 645 billion AUM',
+                                    },
+                                    {
+                                        label: 'Team',
+                                        value: '5 people (Product Manager/Designer, Lead Developer, Project Analyst, Business Analyst, Research Analyst)',
+                                    },
+                                ]}
+                            />
                         </div>
 
                     </div>
@@ -185,7 +173,7 @@ export const metadata = createCaseStudyMetadata(project);
                 
                                 <p>What was actually happening looked quite different. RMs were spending significant parts of their day navigating disconnected systems, chasing KYC documentation, and managing admin that pulled them away from the people they were supposed to be advising.</p>
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                     "Relationship managers spend 60 to 70 percent of their time on non-advisory activities."
                                     <p className="meta-label">McKinsey & Company, 2022</p>
                                 </blockquote>
@@ -309,7 +297,7 @@ export const metadata = createCaseStudyMetadata(project);
                             <div className="content-block">
                                 <StreamingText className="lead">After the interviews and analysis, we could frame the problem much more precisely.</StreamingText>
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                     Relationship Managers at Credit Suisse don't lack information. They have too much of it, spread across too many places, with no intelligent way to surface what matters right now.
                                 </blockquote>
 
@@ -323,7 +311,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 To structure our response, we ran a PACT Analysis across People, Activities, Context, and Technology. This kept the user at the centre of every decision:
                                 </p>
                                 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                     RMs were homogeneous users doing largely the same work, but they operated across different time zones, travelled frequently for client meetings, and needed the app to be reliable in environments where office access wasn't guaranteed.
                                 </blockquote>
 
@@ -631,7 +619,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 />
                             </div>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 The design language across all screens was deliberately minimal. Credit Suisse navy, black, and white. Bold typeface. No decorative elements that didn't earn their space. Every design decision had to answer one question: does this help the RM do their job faster?
                             </blockquote>
                         </div>
@@ -677,7 +665,7 @@ export const metadata = createCaseStudyMetadata(project);
                                 </p>
                             </div>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                             The final product delivered a partially functional front-end covering 5 of the 7 core requirements: biometric login, the modular dashboard with tasks and reminders, the searchable client portfolio, full client profile pages with expandable tabs, and slide-menu navigation throughout. Firebase was partially set up with dummy client and portfolio data converted to JSON format, but full real-time sync wasn't completed within the project window.
                             </blockquote>
                         </div>

@@ -13,6 +13,7 @@ type LightboxImageProps = {
   imageClassName?: string;
 
   priority?: boolean;
+  fillContainer?: boolean;
 };
 
 /** An inline image figure that registers itself with the page lightbox. */
@@ -23,6 +24,7 @@ export default function LightboxImage({
   className,
   imageClassName,
   priority = false,
+  fillContainer = false,
 }: LightboxImageProps) {
   const triggerLabel = alt.trim()
     ? `View full size: ${alt}`
@@ -42,19 +44,20 @@ export default function LightboxImage({
         onClick={openLightbox}
         aria-haspopup="dialog"
         aria-label={triggerLabel}
-        className="
+        className={`
           group  
           relative
           block
-          aspect-video
-          h-full
           w-full
           overflow-hidden
           rounded-xl
           border
           border-border-muted
           cursor-zoom-in
-        "
+          ${fillContainer
+            ? 'aspect-video md:aspect-auto md:h-full'
+            : `aspect-video ${caption ? '' : 'h-full'}`}
+        `}
       >
 
         <Image

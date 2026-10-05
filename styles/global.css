@@ -208,8 +208,8 @@
 
   /* Links */
   a {
+    @apply hover:text-text-link-hover;
     color: var(--color-text-link);
-    text-decoration: none;
     position: relative;
     transition: color var(--motion-duration-fast) var(--motion-ease-standard);
   }
@@ -232,7 +232,7 @@ hr {
 }
 
 figure {
-  @apply relative overflow-hidden m-0;
+  @apply relative overflow-visible m-0;
 }
 
 figure img {
@@ -241,7 +241,7 @@ figure img {
 
 figcaption,
 caption {
-  @apply mt-3 text-text-tertiary text-xs text-left;
+  @apply mt-3 text-left text-sm leading-relaxed text-text-tertiary;
 }
 
 }
@@ -262,15 +262,11 @@ caption {
 }
 
 .section-subtitle {
-  @apply text-[0.875em] leading-snug font-normal text-text-tertiary;
+  @apply leading-snug font-normal text-text-tertiary;
 }
 
-.notion-quote {
+blockquote {
   @apply my-2 border-l-3 border-text-tertiary px-4 text-xl tracking-tight text-text-tertiary;
-}
-
-.metadata {
-  @apply flex flex-col gap-1;
 }
 
 /* ==================== Card ==================== */
@@ -399,7 +395,7 @@ figure > button:focus-visible {
   @apply max-w-[65ch];
 }
 
-.content-block > :where(p, ul, ol, blockquote) + :where(p, ul, ol, blockquote) {
+.content-block > :where(p, ul, ol) + :where(p, ul, ol) {
   @apply mt-1;
 }
 

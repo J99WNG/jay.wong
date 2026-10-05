@@ -7,6 +7,7 @@ import { createCaseStudyMetadata } from '@/app/data/siteMetadata';
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/ui/MetricCard';
+import ProjectMetadata from '@/components/ui/ProjectMetadata';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
@@ -52,46 +53,40 @@ export default function Page() {
                         </MetricGrid>
                     </div>
                     
-                    <div className="grid place-items-start justify-start md:place-items-stretch gap-6 grid-cols-1 md:grid-cols-2">
-                        <div className="metadata">
-                            <p className="meta-label">Company</p>
-                            <p>
-                                <BrandMark src="/assets/logos/bp-helios-colour.svg" size='sm'/> bp plc</p>
-                        </div>
-
-                        <div className="metadata">
-                            <p className="meta-label">Industry</p>
-                            <p>{project.industry}</p>
-                        </div>
-
-                        <div className="metadata">
-                            <p className="meta-label">Role</p>
-                            <p>{project.role}</p>
-                        </div>
-
-                        <div className="metadata">
-                            <p className="meta-label">Year / Timeline</p>
-                            <p>{project.year} · 24 weeks
-                                <br />
-                                (Discovery → MVP)
-                            </p>
-                        </div>
-
-                        <div className="metadata">
-                        <p className="meta-label">Scale</p>
-                        <p>Enterprise platform serving <strong>~87,000 employees</strong> globally.</p>
-                        </div>
-
-                        <div className="metadata">
-                        <p className="meta-label">Team</p>
-                        <ul>
-                            <li>1 Product Owner</li>
-                            <li>1 Programme Manager</li>
-                            <li>2 Product Designers</li>
-                            <li>4 ServiceNow Developers</li>
-                        </ul>
-                        </div>
-                    </div>
+                    <ProjectMetadata
+                        items={[
+                            {
+                                label: 'Company',
+                                value: (
+                                    <span className="inline-flex items-center gap-2">
+                                        <BrandMark src="/assets/logos/bp-helios-colour.svg" size="sm" />
+                                        bp plc
+                                    </span>
+                                ),
+                            },
+                            { label: 'Industry', value: project.industry },
+                            { label: 'Role', value: project.role },
+                            {
+                                label: 'Year / Timeline',
+                                value: <>{project.year} · 24 weeks<br />(Discovery → MVP)</>,
+                            },
+                            {
+                                label: 'Scale',
+                                value: <>Enterprise platform serving <strong>~87,000 employees</strong> globally.</>,
+                            },
+                            {
+                                label: 'Team',
+                                value: (
+                                    <ul className="m-0 grid list-disc gap-1 ps-6">
+                                        <li>1 Product Owner</li>
+                                        <li>1 Programme Manager</li>
+                                        <li>2 Product Designers</li>
+                                        <li>4 ServiceNow Developers</li>
+                                    </ul>
+                                ),
+                            },
+                        ]}
+                    />
                 </div>
             </div>
 
@@ -129,7 +124,7 @@ export default function Page() {
                         <li>Facilitated workshops with ITSM leadership and SMEs to align user needs with business goals.</li>
                     </ul>
 
-                    <blockquote className="notion-quote">
+                    <blockquote>
                         I worked closely with the PO and Programme Manager to ensure design decisions directly supported cost reduction, productivity gains and adoption — not just usability improvements.
                     </blockquote>
                     </div>
@@ -218,7 +213,7 @@ export default function Page() {
                                 <li>Employees often escalated after one failed search attempt.</li>
                             </ul>
 
-                            <blockquote className="notion-quote">
+                            <blockquote>
                                 <strong>Insight:</strong> The issue wasn’t content — it was lack of confidence and clarity.
                             </blockquote>
                                 
@@ -245,7 +240,7 @@ export default function Page() {
                                 <br />
                                 Employees escalated not because answers didn’t exist, but because they didn’t trust search results to be current or relevant.
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                 &quot;AI is easier and quicker than manually searching on [the employee portal]&quot;
                                 </blockquote>
                             </li>
@@ -254,7 +249,7 @@ export default function Page() {
                                 <br />
                                 Dense articles caused cognitive overload and pushed users toward human support.
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                 &quot;[The portal] feels like a jungle.&quot;
                                 </blockquote>
                             </li>
@@ -263,7 +258,7 @@ export default function Page() {
                                 <br />
                                 The current chatbot experience delayed access to help rather than speeding it up.
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                 &quot;I always just keep saying &quot;speak to an agent, speak to an agent&quot; until it lets me speak to an agent.&quot;
                                 </blockquote>
                             </li>
@@ -272,7 +267,7 @@ export default function Page() {
                                 <br />
                                 Once a ticket was raised, users felt disconnected and uninformed about progress.
 
-                                <blockquote className="notion-quote">
+                                <blockquote>
                                 &quot;I just want timely updates, sometimes I resubmit my ticket because of the delay.&quot;
                                 </blockquote>
                             </li>
@@ -340,7 +335,7 @@ export default function Page() {
                 <div className="section-content">
                     <StreamingText className="lead">Bringing together user, agent and business needs, we defined the core problem as:</StreamingText>
 
-                    <blockquote className="notion-quote">
+                    <blockquote>
                     Employees lack a fast, trustworthy way to resolve simple IT issues independently, leading to unnecessary escalation to high-cost live support, reduced productivity and overwhelmed our service desk agents.
                     </blockquote>
 
@@ -695,7 +690,7 @@ export default function Page() {
                         caption="Myself and the other designer spent time synthesising and prioritising our early user insights to present back to our PM and developers."
                     />
 
-                    <blockquote className="notion-quote">
+                    <blockquote>
                         This validated direction while highlighting areas for iteration.
                     </blockquote>
                     </div>
@@ -807,7 +802,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             Based on observed reductions in escalation and average handling time, we estimated a productivity opportunity of ~15–20k employee hours annually.
                         </blockquote>
 
@@ -892,7 +887,7 @@ export default function Page() {
                             </ul>
                         </div>
 
-                        <blockquote className="notion-quote">
+                        <blockquote>
                             This project reinforced my shift from designing interfaces to <strong>designing operational systems</strong> where experience, behaviour and cost are inseparable.
                         </blockquote>
                     </div>
