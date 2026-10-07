@@ -1,9 +1,9 @@
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Collaborations from "@/components/sections/Collaborations";
-import Work from "@/components/sections/Work";
-import Contact from "@/components/sections/Contact";
-import { siteMetadata } from "@/app/data/siteMetadata";
+import Hero from "@/components/home/Hero";
+import About from "@/components/home/About";
+import Collaborations from "@/components/home/Collaborations";
+import Work from "@/components/home/Work";
+import Contact from "@/components/home/Contact";
+import { siteMetadata } from "@/content/siteMetadata";
 
 export default function Home() {
   const profileImageUrl = new URL(

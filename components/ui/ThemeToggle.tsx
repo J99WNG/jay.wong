@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Monitor, Moon, Sun, type LucideIcon } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from './Button';
 
 type Theme = 'system' | 'light' | 'dark';
 

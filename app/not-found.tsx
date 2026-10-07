@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { formatPageTitle, siteMetadata } from '@/app/data/siteMetadata';
+import { formatPageTitle, siteMetadata } from '@/content/siteMetadata';
 import NotFoundContent from '@/app/NotFoundContent';
 
 const title = '404 Page not found';

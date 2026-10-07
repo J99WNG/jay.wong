@@ -5,9 +5,9 @@ import '@/styles/global.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/ui/BackToTop";
-import InitialLoader from '@/components/InitialLoader';
+import InitialLoader from '@/components/layout/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
-import { siteMetadata } from '@/app/data/siteMetadata';
+import { siteMetadata } from '@/content/siteMetadata';
 
 const geistSans = localFont({
   src: "./fonts/Geist-Variable.woff2",

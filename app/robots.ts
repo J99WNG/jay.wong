@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { siteMetadata } from '@/app/data/siteMetadata';
+import { siteMetadata } from '@/content/siteMetadata';
 
 export const dynamic = 'force-static';
 

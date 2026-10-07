@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
-import { caseStudies } from '@/app/data/caseStudies';
-import { siteMetadata } from '@/app/data/siteMetadata';
+import { caseStudies } from '@/content/caseStudies';
+import { siteMetadata } from '@/content/siteMetadata';
 
 export const dynamic = 'force-static';
 

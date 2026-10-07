@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from './Button';
 
 export default function BackToTop() {
   const [showBackToTop, setShowBackToTop] = useState(false);

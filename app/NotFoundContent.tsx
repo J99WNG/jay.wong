@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-import { usePageReady } from '@/components/InitialLoader';
+import { usePageReady } from '@/components/layout/InitialLoader';
 import Button from '@/components/ui/Button';
 import StreamingText from '@/components/ui/StreamingText';
 import { motionDelay, motionDuration, motionEase } from '@/lib/motion';

@@ -7,13 +7,16 @@
   },
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
+    "assets:check": "node scripts/assets/check-assets.mjs",
+    "assets:optimize": "node scripts/assets/optimize-images.mjs",
     "generate:favicons": "node --import tsx scripts/social-assets/generate-favicons.ts",
     "generate:og": "node --import tsx scripts/social-assets/generate-opengraph-image.tsx",
     "generate:social-assets": "npm run generate:favicons && npm run generate:og",
     "prebuild": "npm run generate:social-assets",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "test:smoke": "playwright test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -27,6 +30,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

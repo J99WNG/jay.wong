@@ -1,5 +1,5 @@
 'use client';
-import HKTClock from "../HKTClock";
+import HKTClock from "./HKTClock";
 
  
 
