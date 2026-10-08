@@ -15,7 +15,18 @@ for (const route of routes) {
 
     expect(response?.ok()).toBe(true);
     await expect(page.getByRole('heading', { level: 1, name: route.heading })).toBeVisible();
-    await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeAttached();
+
+    const mainNavigation = page.getByRole('navigation', { name: 'Main navigation' });
+    if ((page.viewportSize()?.width ?? 0) < 640) {
+      const menuButton = page.getByRole('button', { name: 'Open menu' });
+      await expect(menuButton).toBeVisible();
+      await expect(menuButton).toHaveAttribute('aria-controls', 'nav-primary');
+      await menuButton.click();
+      await expect(mainNavigation).toBeVisible();
+    } else {
+      await expect(mainNavigation).toBeVisible();
+    }
+
     await expect(page.getByRole('contentinfo')).toBeAttached();
   });
 }
