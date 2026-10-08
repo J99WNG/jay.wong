@@ -2,7 +2,7 @@
 import Image from "next/image";
 import TextLink from "@/components/ui/TextLink";
 import type { CaseStudy } from "@/content/caseStudies";
-import { ArrowRight, SendHorizontal } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
@@ -36,7 +36,7 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
           {available ? (
             <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
           ) : (
-            <SendHorizontal aria-hidden="true" size={16} className="motion-icon-right" />
+            <Lock aria-hidden="true" size={16} className="motion-icon-right" />
           )}
         </TextLink>
       </div>
