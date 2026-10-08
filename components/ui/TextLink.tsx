@@ -10,6 +10,7 @@ interface TextLinkProps {
 
 export default function TextLink({ href, children, className = '', external }: TextLinkProps) {
   const isExternal = external || href.startsWith('http');
+  const usesNativeProtocol = /^(mailto:|tel:)/.test(href);
   
   // Base classes for the link color and transition
   const linkClasses = `group relative inline-flex items-center w-fit rounded-md text-text-link hover:text-text-link-hover motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] tracking-[-0.04rem] ${className}`;
@@ -23,9 +24,13 @@ export default function TextLink({ href, children, className = '', external }: T
     </>
   );
 
-  if (isExternal) {
+  if (isExternal || usesNativeProtocol) {
     return (
-      <a href={href} className={linkClasses} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={linkClasses}
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {content}
       </a>
     );

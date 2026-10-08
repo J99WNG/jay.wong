@@ -2,10 +2,13 @@
 import Image from "next/image";
 import TextLink from "@/components/ui/TextLink";
 import type { CaseStudy } from "@/content/caseStudies";
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, SendHorizontal } from 'lucide-react';
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
+  const accessRequestSubject = `Access request: ${title}`;
+  const accessRequestBody = `Hi Jay,\n\nI've just come across your portfolio and would love to learn more about the case study “${title}”. Could you please share access with me?\n\nThanks!`;
+  const accessRequestHref = `mailto:hello@jaywong.digital?subject=${encodeURIComponent(accessRequestSubject)}&body=${encodeURIComponent(accessRequestBody)}`;
 
   return (
     <article className="card md:flex-row motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
@@ -25,13 +28,17 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
           ))}
         </div>
 
-        {/* Only show the link if the case study is live */}
-        {available && (
-          <TextLink className="mt-2 cursor-pointer justify-start gap-1" href={`/${slug}`}>
-            View case study
+        <TextLink
+          className="mt-2 cursor-pointer justify-start gap-1"
+          href={available ? `/${slug}` : accessRequestHref}
+        >
+          {available ? 'View case study' : 'Request access'}
+          {available ? (
             <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
-          </TextLink>
-        )}
+          ) : (
+            <SendHorizontal aria-hidden="true" size={16} className="motion-icon-right" />
+          )}
+        </TextLink>
       </div>
 
       {/* Card Image */}
