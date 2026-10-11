@@ -1,13 +1,12 @@
 import { expect, test } from '@playwright/test';
+import { caseStudies } from '../../content/caseStudies';
 
 const routes = [
   { path: '/', heading: /Solving digital complexity through/i },
-  { path: '/bp-genai', heading: 'Shifting IT Support Left at Enterprise Scale' },
-  { path: '/bp-workplace', heading: 'From Fragmented Intranets to a Unified Global Digital Workplace' },
-  { path: '/cs-kyc', heading: 'Reimagining How 1,140 Relationship Managers Start Their Day' },
-  { path: '/dai-pai-dong', heading: 'Bringing Order to Chaos Without Losing the Dai Pai Dong Spirit' },
-  { path: '/mathsgenie', heading: 'Relaunching MathsGenie to 242,000 Students' },
-] as const;
+  ...caseStudies
+    .filter((project) => project.available)
+    .map((project) => ({ path: `/${project.slug}`, heading: project.title })),
+];
 
 for (const route of routes) {
   test(`${route.path} renders its page shell`, async ({ page }) => {
@@ -28,6 +27,18 @@ for (const route of routes) {
     }
 
     await expect(page.getByRole('contentinfo')).toBeAttached();
+  });
+}
+
+for (const project of caseStudies.filter((study) => !study.available)) {
+  test(`/${project.slug} renders the not-found experience`, async ({ page }) => {
+    await page.goto(`/${project.slug}`);
+
+    await expect(page).toHaveTitle(/404 Page not found/i);
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'This page has wandered off.' }),
+    ).toBeVisible();
+    await expect(page.locator('meta[name="robots"][content*="noindex"]').first()).toBeAttached();
   });
 }
 
