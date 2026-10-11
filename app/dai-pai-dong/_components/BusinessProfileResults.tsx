@@ -1,7 +1,13 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { BookOpenText, MapPin, MousePointerClick, Phone, Search } from 'lucide-react';
+import {
+  BookOpenTextIcon,
+  CursorClickIcon,
+  MagnifyingGlassIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from '@phosphor-icons/react';
 
 import styles from '../dai-pai-dong.module.css';
 
@@ -52,7 +58,7 @@ function DiscoveryView() {
 function SearchView() {
   return (
     <div>
-      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><Search aria-hidden="true" /><span><strong>19,187</strong>search appearances</span></div>
+      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><MagnifyingGlassIcon aria-hidden="true" /><span><strong>19,187</strong>search appearances</span></div>
       <div className="grid gap-3">
         {queries.map((query, index) => (
           <div className={`${styles.queryList} grid grid-cols-[auto_1fr_auto] items-center gap-3`} key={query.label}>
@@ -71,24 +77,24 @@ function SearchView() {
 function ActionsView() {
   return (
     <div>
-      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><MousePointerClick aria-hidden="true" /><span><strong>8,675</strong>profile interactions</span></div>
+      <div className={`${styles.canvasStat} mb-6 flex items-center gap-4`}><CursorClickIcon aria-hidden="true" /><span><strong>8,675</strong>profile interactions</span></div>
       <div className="grid gap-4 sm:grid-cols-3">
         <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
-          <MapPin aria-hidden="true" />
+          <MapPinIcon aria-hidden="true" />
           <span>Direction requests</span>
           <strong>4,980</strong>
           <i><b style={{ width: '57.4%' }} /></i>
           <small>57.4% of recorded interactions</small>
         </article>
         <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
-          <Phone aria-hidden="true" />
+          <PhoneIcon aria-hidden="true" />
           <span>Calls</span>
           <strong>2,490</strong>
           <i><b style={{ width: '28.7%' }} /></i>
           <small>28.7% of recorded interactions</small>
         </article>
         <article className={`${styles.actionBars} grid grid-cols-[auto_1fr_auto] items-center gap-2 p-4`}>
-          <BookOpenText aria-hidden="true" />
+          <BookOpenTextIcon aria-hidden="true" />
           <span>Menu-content views</span>
           <strong>1,205</strong>
           <i><b style={{ width: '13.9%' }} /></i>

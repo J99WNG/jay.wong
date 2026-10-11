@@ -4,7 +4,7 @@ import LightboxImage from '@/components/case-study/LightboxImage';
 import { caseStudies } from "@/content/caseStudies";
 import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
 import BrandMark from '@/components/ui/BrandMark';
-import { BookOpenText, Compass, MapPin, Workflow } from 'lucide-react';
+import { BookOpenTextIcon, CompassIcon, MapPinIcon, TreeStructureIcon } from '@phosphor-icons/react/ssr';
 import StreamingText from '@/components/ui/StreamingText';
 import ProjectMetadata from '@/components/case-study/ProjectMetadata';
 
@@ -294,15 +294,15 @@ export default function CaseStudyContent() {
 
                             <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 md:grid-cols-2">
                                 {[
-                                    { Icon: Compass, text: 'Navigation mirrored internal teams, not colleague intent.' },
-                                    { Icon: BookOpenText, text: 'Knowledge and ticketing journeys were disconnected.' },
-                                    { Icon: MapPin, text: 'Regional inconsistency created cognitive overload.' },
-                                    { Icon: Workflow, text: 'Multi-platform governance increased complexity.' },
+                                    { Icon: CompassIcon, text: 'Navigation mirrored internal teams, not colleague intent.' },
+                                    { Icon: BookOpenTextIcon, text: 'Knowledge and ticketing journeys were disconnected.' },
+                                    { Icon: MapPinIcon, text: 'Regional inconsistency created cognitive overload.' },
+                                    { Icon: TreeStructureIcon, text: 'Multi-platform governance increased complexity.' },
                                 ].map(({ Icon, text }) => (
                                     <li className="card" key={text}>
                                         <div className="flex w-full items-start gap-3 px-6 py-5">
                                             <span className="grid size-8 shrink-0 place-items-center text-accent-primary" aria-hidden="true">
-                                                <Icon size={24} strokeWidth={1.75} />
+                                                <Icon size={24} weight="duotone" />
                                             </span>
                                             <p className="card-text">{text}</p>
                                         </div>

@@ -55,7 +55,7 @@ export default function Button(props: ButtonProps) {
     primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary",
     secondary: "text-text-secondary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-transparent",
     tertiary: "text-text-primary hover:text-text-on-accent bg-transparent hover:bg-accent-interactive border border-border-base hover:border-accent-interactive",
-    nav: "text-text-secondary hover:text-text-primary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-border-hover sm:py-1 mx-2 sm:m-0 rounded-2xl sm:rounded-xl text-[1.5rem] sm:text-base sm:shrink-0",
+    nav: "text-(--color-steep-900) hover:text-(--color-steep-700) bg-(--color-neutral-300) hover:bg-(--color-neutral-100) border border-border-base hover:border-border-hover sm:py-1 mx-2 sm:m-0 rounded-2xl sm:rounded-xl text-[1.5rem] sm:text-base sm:shrink-0",
   };
 
   const combinedClasses = cn(

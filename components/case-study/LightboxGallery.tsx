@@ -10,7 +10,7 @@ import {
   type ReactNode,
   type TouchEvent,
 } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { CaretLeftIcon, CaretRightIcon, XIcon } from '@phosphor-icons/react';
 import Button from '@/components/ui/Button';
 
 type LightboxItemBase = {
@@ -345,7 +345,7 @@ function LightboxDialog({
                 aria-label="Previous figure"
                 onClick={onPrev}
               >
-                <ChevronLeft aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
+                <CaretLeftIcon aria-hidden="true" className="shrink-0" size={24} />
               </Button>
             )}
 
@@ -358,7 +358,7 @@ function LightboxDialog({
               aria-label="Close gallery"
               onClick={requestClose}
             >
-              <X aria-hidden="true" className="shrink-0" size={24} />
+              <XIcon aria-hidden="true" className="shrink-0" size={24} />
             </Button>
 
             {total > 1 && (
@@ -370,7 +370,7 @@ function LightboxDialog({
                 aria-label="Next figure"
                 onClick={onNext}
               >
-                <ChevronRight aria-hidden="true" className="shrink-0" size={24} strokeWidth={2.25} />
+                <CaretRightIcon aria-hidden="true" className="shrink-0" size={24} />
               </Button>
             )}
           </div>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { type MouseEvent, useCallback } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon } from '@phosphor-icons/react';
 import { caseStudies } from '@/content/caseStudies';
 
 const HOME_PATH = '/';
@@ -65,7 +65,7 @@ export default function NextProjectCTA() {
           navigateToWork();
         }}
       >
-        <ArrowLeft aria-hidden="true" size={16} className="motion-icon-left" />
+        <ArrowLeftIcon aria-hidden="true" className="motion-icon-left" />
         Back to all
       </Link>
 
@@ -74,7 +74,7 @@ export default function NextProjectCTA() {
         className="inline-flex min-h-11 w-fit items-center justify-start gap-1 rounded-xl px-3 py-2 hover:bg-bg-tertiary hover:text-text-link-hover"
       >
         Next case study
-        <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
+        <ArrowRightIcon aria-hidden="true" className="motion-icon-right" />
       </Link>
     </div>
   );

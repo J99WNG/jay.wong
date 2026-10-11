@@ -2,7 +2,7 @@
 import Image from "next/image";
 import TextLink from "@/components/ui/TextLink";
 import type { CaseStudy } from "@/content/caseStudies";
-import { ArrowRight, Lock } from 'lucide-react';
+import { ArrowRightIcon, LockIcon } from '@phosphor-icons/react/ssr';
 
 export function CaseStudyCard({ project }: { project: CaseStudy }) {
   const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
@@ -34,9 +34,9 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         >
           {available ? 'View case study' : 'Request access'}
           {available ? (
-            <ArrowRight aria-hidden="true" size={16} className="motion-icon-right" />
+            <ArrowRightIcon aria-hidden="true" size={16} className="motion-icon-right" />
           ) : (
-            <Lock aria-hidden="true" size={16} className="motion-icon-right" />
+            <LockIcon aria-hidden="true" size={16} weight="duotone" className="motion-icon-right" />
           )}
         </TextLink>
       </div>

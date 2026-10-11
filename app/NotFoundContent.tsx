@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon } from '@phosphor-icons/react';
 
 import { usePageReady } from '@/components/layout/InitialLoader';
 import Button from '@/components/ui/Button';
@@ -46,7 +46,7 @@ export default function NotFoundContent() {
               href="/"
               variant="primary"
               className="min-h-11"
-              prefixIcon={<ArrowLeft size={16} />}
+              prefixIcon={<ArrowLeftIcon />}
               revealIcon
             >
               Return home
@@ -56,7 +56,7 @@ export default function NotFoundContent() {
               href="/#work"
               variant="tertiary"
               className="min-h-11"
-              suffixIcon={<ArrowRight size={16} />}
+              suffixIcon={<ArrowRightIcon />}
               revealIcon
             >
               View selected work

@@ -84,6 +84,9 @@
   --color-border-muted: light-dark(var(--color-neutral-500), var(--color-steep-500));
   --color-border-hover: light-dark(var(--color-neutral-900), var(--color-steep-100));
 
+  --color-skeleton-base: light-dark(var(--color-neutral-500), var(--color-steep-500));
+  --color-skeleton-highlight: light-dark(var(--color-neutral-100), var(--color-steep-100));
+
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), system-ui, sans-serif;
 }
@@ -106,7 +109,7 @@
   }
 
   html, body {
-    @apply overflow-x-hidden /* Prevent horizontal scroll on the root */ bg-bg-secondary w-full;
+    @apply overflow-x-hidden /* Prevent horizontal scroll on the root */ bg-bg-secondary w-full scrollbar-thumb-(--color-accent-primary);
   }
 
   body {

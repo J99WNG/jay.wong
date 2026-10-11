@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     instantInsights: {
       validationLevel: 'warning',
     },
+    optimizePackageImports: ["@phosphor-icons/react"],
   },
 
   // Optional: If your repo name is NOT 'jaywong.github.io' 

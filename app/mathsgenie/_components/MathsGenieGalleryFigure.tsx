@@ -1,6 +1,6 @@
 'use client';
 
-import { Maximize2 } from 'lucide-react';
+import { ArrowsOutIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
 import { useLightboxItem } from '@/components/case-study/LightboxGallery';
 import { cn } from '@/lib/utils';
@@ -43,7 +43,7 @@ export function MathsGenieGalleryFigure({
         aria-label={`Expand figure: ${alt}`}
         className="absolute top-3 right-3 z-20 grid size-10 cursor-zoom-in place-items-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
       >
-        <Maximize2 aria-hidden="true" size={18} />
+        <ArrowsOutIcon aria-hidden="true" />
       </button>
       {caption && <figcaption className={cn('px-4 pb-4', captionClassName)}>{caption}</figcaption>}
     </figure>

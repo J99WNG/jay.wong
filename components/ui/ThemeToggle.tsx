@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { Monitor, Moon, Sun, type LucideIcon } from 'lucide-react';
+import { DesktopIcon, MoonIcon, SunIcon, type Icon as PhosphorIcon } from '@phosphor-icons/react';
 import Button from './Button';
 
 type Theme = 'system' | 'light' | 'dark';
 
-const themeIcons: Record<Theme, LucideIcon> = {
-  system: Monitor,
-  light: Sun,
-  dark: Moon,
+const themeIcons: Record<Theme, PhosphorIcon> = {
+  system: DesktopIcon,
+  light: SunIcon,
+  dark: MoonIcon,
 };
 
 const subscribeToMount = () => () => {};
@@ -115,7 +115,7 @@ export default function ThemeToggle() {
       aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
       revealLabel={theme}
     >
-      <ThemeIcon aria-hidden="true" size={16} />
+      <ThemeIcon size={16} weight='duotone' aria-hidden="true" />
     </Button>
   );
 }

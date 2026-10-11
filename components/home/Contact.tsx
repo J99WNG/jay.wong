@@ -1,7 +1,7 @@
 import Section from '@/components/layout/Section';
 import CopyEmail from '@/components/ui/CopyEmail';
 import Link from "next/link";
-import { ArrowUpRight, Linkedin, Video } from 'lucide-react';
+import { ArrowUpRightIcon, LinkedinLogoIcon, VideoCameraIcon } from '@phosphor-icons/react/ssr';
 import StreamingText from '@/components/ui/StreamingText';
 
 export default function Contact() {
@@ -36,13 +36,13 @@ export default function Contact() {
                                 rel="noopener noreferrer"
                                 aria-label="Connect with Jay Wong on LinkedIn (opens in a new tab)">
 
-                            <Linkedin aria-hidden="true" size={32} />
+                            <LinkedinLogoIcon aria-hidden="true" size={32} weight="duotone" />
 
                             <span>
                                 Connect with me
                             </span>
 
-                            <ArrowUpRight aria-hidden="true" className="motion-icon-up-right" />
+                            <ArrowUpRightIcon size={24} aria-hidden="true" className="motion-icon-up-right" />
                             </Link>
                         </li>
                         
@@ -54,13 +54,13 @@ export default function Contact() {
                                 rel="noopener noreferrer"
                                 aria-label="Schedule an introductory meeting with Jay Wong on Cal.com (opens in a new tab)">
 
-                            <Video aria-hidden="true" size={32} />
+                            <VideoCameraIcon aria-hidden="true" size={32} weight="duotone" />
 
                             <span>
                                 Schedule a call
                             </span>
 
-                            <ArrowUpRight aria-hidden="true" className="motion-icon-up-right" />
+                            <ArrowUpRightIcon size={24} aria-hidden="true" className="motion-icon-up-right" />
                             </Link>
                         </li>
                     </ul>

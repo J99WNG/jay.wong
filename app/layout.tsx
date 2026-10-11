@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import InitialLoader from '@/components/layout/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import PhosphorIconProvider from '@/components/providers/PhosphorIconProvider';
 import { siteMetadata } from '@/content/siteMetadata';
 
 const geistSans = localFont({
@@ -100,23 +101,25 @@ export default function RootLayout({ children }:
       data-scroll-behavior="smooth"
     >
       <body className="relative">
-        <InitialLoader>
-          <Header /> 
-          
-          {children}
+        <PhosphorIconProvider>
+          <InitialLoader>
+            <Header />
 
-          {/* Global utilities share one position and stack independently of page navigation. */}
-          <div
-            className="fixed right-4 bottom-4 z-(--layer-utility) flex flex-col items-end gap-3"
-            role="group"
-            aria-label="Page utilities"
-          >
-            <BackToTop />
-            <ThemeToggle />
-          </div>
-          
-          <Footer />
-        </InitialLoader>
+            {children}
+
+            {/* Global utilities share one position and stack independently of page navigation. */}
+            <div
+              className="fixed right-4 bottom-4 z-(--layer-utility) flex flex-col items-end gap-3"
+              role="group"
+              aria-label="Page utilities"
+            >
+              <BackToTop />
+              <ThemeToggle />
+            </div>
+
+            <Footer />
+          </InitialLoader>
+        </PhosphorIconProvider>
       </body>
     </html>
   );

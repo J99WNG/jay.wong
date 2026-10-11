@@ -43,6 +43,27 @@
   50% { transform: translateX(-6px); }
 }
 
+@keyframes motion-skeleton-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.skeleton-shimmer::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-skeleton-highlight) 50%,
+    transparent 100%
+  );
+  opacity: 0.55;
+  pointer-events: none;
+  content: '';
+  animation: motion-skeleton-shimmer var(--motion-duration-loop) var(--motion-ease-in-out) infinite;
+}
+
 /* Theme changes fade the new palette over a frozen snapshot of the old one.
  * The temporary class is added only by ThemeToggle, so route transitions keep
  * their browser defaults. Unsupported and reduced-motion browsers skip this. */
@@ -154,6 +175,11 @@ a:focus-visible .motion-icon-up-right {
   [data-stream-word] {
     opacity: 1 !important;
     filter: none !important;
+  }
+
+  .skeleton-shimmer::after {
+    animation: none;
+    opacity: 0;
   }
 }
 

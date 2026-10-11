@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, Copy, Mail } from 'lucide-react';
+import { CheckIcon, CopyIcon, EnvelopeIcon } from '@phosphor-icons/react';
 
 export default function CopyEmail() {
     const email = "hello@jaywong.digital";
@@ -44,7 +44,7 @@ export default function CopyEmail() {
             type="button"
             aria-label={`Copy email address ${email}`}
         >
-            <Mail aria-hidden="true" size={32} />
+            <EnvelopeIcon aria-hidden="true" size={32} weight='duotone' />
 
             {/* Middle Dynamic Text Layout Container */}
             <div className="relative text-left min-h-[1.5rem] flex items-center overflow-hidden">
@@ -68,11 +68,11 @@ export default function CopyEmail() {
 
             {/* Right Action Feedback Icon (Dual Nodes prevent text flicker structural layout shifts) */}
             <span className="relative inline-flex size-6" aria-hidden="true">
-                <Copy aria-hidden="true" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                <CopyIcon size={24} aria-hidden="true" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-0 scale-75 rotate-45' : 'opacity-100 scale-100 rotate-0'
                 }`} />
                 
-                <Check aria-hidden="true" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                <CheckIcon size={24} aria-hidden="true" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
                     isCopied ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-45'
                 }`} />
             </span>

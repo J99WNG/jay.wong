@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Maximize2 } from 'lucide-react';
+import { ArrowsOutIcon } from '@phosphor-icons/react';
 import { useLightboxItem } from '@/components/case-study/LightboxGallery';
 
 type LightboxImageProps = {
@@ -92,7 +92,7 @@ export default function LightboxImage({
             group-hover:opacity-100
           "
         >
-          <Maximize2 aria-hidden="true" size={48} className="text-neutral-100" />
+          <ArrowsOutIcon aria-hidden="true" size={48} className="text-neutral-100" />
         </div>
 
       </button>

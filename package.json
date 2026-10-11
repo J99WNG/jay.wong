@@ -20,10 +20,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@rive-app/react-canvas": "4.33.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
-    "lucide-react": "^0.544.0",
     "next": "^16.4.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

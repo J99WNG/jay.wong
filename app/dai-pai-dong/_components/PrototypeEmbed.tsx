@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ExternalLink, RefreshCw } from 'lucide-react';
+import { ArrowClockwiseIcon, ArrowSquareOutIcon } from '@phosphor-icons/react';
 
 const prototypeUrl = 'https://j99wng.github.io/tonight-dinner-notebook-pages/';
 
@@ -29,7 +29,7 @@ export default function PrototypeEmbed() {
           <span className="text-xs text-text-tertiary">Sample data · not a live booking service</span>
         </div>
         <a className="inline-flex w-fit items-center gap-1 text-sm text-text-link" href={prototypeUrl} target="_blank" rel="noreferrer">
-          Open prototype <ExternalLink aria-hidden="true" size={15} />
+          Open prototype <ArrowSquareOutIcon aria-hidden="true" />
         </a>
       </div>
 
@@ -60,10 +60,10 @@ export default function PrototypeEmbed() {
                       <p className="mt-2 text-sm text-[#6d6259]">Retry here or open the GitHub Pages build in a separate tab.</p>
                       <div className="mt-4 flex gap-4">
                         <button className="inline-flex items-center gap-1 text-sm text-text-link" type="button" onClick={retry}>
-                          <RefreshCw aria-hidden="true" size={15} /> Retry
+                          <ArrowClockwiseIcon aria-hidden="true" /> Retry
                         </button>
                         <a className="inline-flex items-center gap-1 text-sm text-text-link" href={prototypeUrl} target="_blank" rel="noreferrer">
-                          Open prototype <ExternalLink aria-hidden="true" size={15} />
+                          Open prototype <ArrowSquareOutIcon aria-hidden="true" />
                         </a>
                       </div>
                     </>

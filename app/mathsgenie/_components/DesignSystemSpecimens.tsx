@@ -1,5 +1,14 @@
 import Image from 'next/image';
-import { ArrowUp, ChevronDown, FileText, Home, Search, Settings, Sparkles, X } from 'lucide-react';
+import {
+  ArrowUpIcon,
+  CaretDownIcon,
+  FileTextIcon,
+  GearIcon,
+  HouseIcon,
+  MagnifyingGlassIcon,
+  SparkleIcon,
+  XIcon,
+} from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
 import { ComponentSpecimen } from './ComponentSpecimen';
 import styles from '../mathsgenie.module.css';
@@ -93,7 +102,7 @@ function NavigationSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) 
           {Object.entries(qualificationSubjects).map(([qualification, menuSubjects]) => (
             <div className="group/qualification relative" key={qualification}>
               <button type="button" className="flex cursor-pointer items-center gap-1 p-1 whitespace-nowrap" aria-haspopup="menu">
-                {qualification} <ChevronDown className="transition-transform group-hover/qualification:rotate-180 group-focus-within/qualification:rotate-180" size={12} aria-hidden="true" />
+                {qualification} <CaretDownIcon className="transition-transform group-hover/qualification:rotate-180 group-focus-within/qualification:rotate-180" aria-hidden="true" />
               </button>
               <ul className={cn(
                 'invisible absolute top-full left-1/2 z-20 m-0 min-w-40 -translate-x-1/2 list-none rounded-xl border p-1 opacity-0 shadow-lg transition duration-150 group-hover/qualification:visible group-hover/qualification:opacity-100 group-focus-within/qualification:visible group-focus-within/qualification:opacity-100',
@@ -109,7 +118,7 @@ function NavigationSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) 
           ))}
         </div>
         <div className="ml-auto flex shrink-0 items-center gap-1">
-          <button type="button" aria-label="Search" className={cn('grid size-7 place-items-center rounded-full', dark ? 'bg-slate-950 text-slate-400' : 'bg-slate-100 text-slate-500')}><Search aria-hidden="true" size={14} /></button>
+          <button type="button" aria-label="Search" className={cn('grid size-7 place-items-center rounded-full', dark ? 'bg-slate-950 text-slate-400' : 'bg-slate-100 text-slate-500')}><MagnifyingGlassIcon aria-hidden="true" /></button>
           <button type="button" className={cn(styles.displayType, 'rounded-lg border px-2 py-2 whitespace-nowrap', dark ? 'border-slate-700' : 'border-slate-300')}>Log in</button>
           <button type="button" className={cn(styles.displayType, 'rounded-lg border border-slate-950 bg-indigo-400 px-2 py-2 font-medium text-slate-950 hover:bg-indigo-300')}>Sign up</button>
         </div>
@@ -125,8 +134,8 @@ function SearchSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
     <ComponentSpecimen title="Search inputs" dark={dark}>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <label className={cn(searchClass, 'w-40')}><Search aria-hidden="true" /><span className="sr-only">Search</span><input className={inputClass} type="search" placeholder="Search" /></label>
-        <label className={cn(searchClass, 'w-full max-w-sm p-4')}><Search aria-hidden="true" /><span className="sr-only">What are you studying for?</span><input className={cn(inputClass, 'text-xl sm:text-2xl')} type="search" placeholder="What are you studying for?" /></label>
+        <label className={cn(searchClass, 'w-40')}><MagnifyingGlassIcon aria-hidden="true" /><span className="sr-only">Search</span><input className={inputClass} type="search" placeholder="Search" /></label>
+        <label className={cn(searchClass, 'w-full max-w-sm p-4')}><MagnifyingGlassIcon aria-hidden="true" /><span className="sr-only">What are you studying for?</span><input className={cn(inputClass, 'text-xl sm:text-2xl')} type="search" placeholder="What are you studying for?" /></label>
       </div>
     </ComponentSpecimen>
   );
@@ -166,7 +175,7 @@ function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpeci
           <span className={cn('text-sm leading-5', dark ? 'text-slate-300' : 'text-slate-600')}>Revisit a recent lesson and continue your progress.</span><span className={buttonClass('secondary', dark)}>Revisit</span>
         </button>
         <article className={cardClass(dark)}>
-          <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileText aria-hidden="true" size={16} /> Paper 1</span><strong className={cardTitleClass}>Thursday 14 May 2026</strong>
+          <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Paper 1</span><strong className={cardTitleClass}>Thursday 14 May 2026</strong>
           <span className={cn('text-sm', dark ? 'text-slate-300' : 'text-slate-600')}>9:00</span>
           <span className="mt-auto flex w-full items-center gap-3"><span className={cn(buttonClass('secondary', dark), 'flex-1')}>Revise</span><small className={cn('whitespace-nowrap', dark ? 'text-slate-300' : 'text-slate-600')}>11 days left</small></span>
         </article>
@@ -185,9 +194,9 @@ function PaperPillsSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) 
   return (
     <ComponentSpecimen title="Paper pills" dark={dark}>
       <div className="flex flex-wrap gap-3">
-        <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileText aria-hidden="true" size={16} /> Paper 1</span>
-        <span className={cn(paperPillClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')}><FileText aria-hidden="true" size={16} /> Paper 2</span>
-        <span className={cn(paperPillClass, 'border-amber-700 bg-amber-100 text-amber-800')}><FileText aria-hidden="true" size={16} /> Paper 3</span>
+        <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Paper 1</span>
+        <span className={cn(paperPillClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')}><FileTextIcon aria-hidden="true" /> Paper 2</span>
+        <span className={cn(paperPillClass, 'border-amber-700 bg-amber-100 text-amber-800')}><FileTextIcon aria-hidden="true" /> Paper 3</span>
       </div>
     </ComponentSpecimen>
   );
@@ -201,11 +210,11 @@ function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: 
     <ComponentSpecimen title="Carousel alert" dark={dark}>
       <div className="w-full max-w-3xl">
       {hasAlerts ? <div className="grid gap-1">
-        {alerts.welcome && <div className={cn(alertClass, 'border-cyan-800 bg-cyan-300 text-cyan-950')} role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss information alert" onClick={() => onDismissAlert('welcome')}><X aria-hidden="true" size={16} /></button></div>}
-        {alerts.subjects && <div className={cn(alertClass, 'border-indigo-900 bg-indigo-400 text-slate-950')} role="status"><span>We&apos;ve expanded the magic. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss product alert" onClick={() => onDismissAlert('subjects')}><X aria-hidden="true" size={16} /></button></div>}
-        {alerts.success && <div className={cn(alertClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')} role="status"><span>Your revision plan has been saved.</span><button className={dismissClass} type="button" aria-label="Dismiss success alert" onClick={() => onDismissAlert('success')}><X aria-hidden="true" size={16} /></button></div>}
-        {alerts.warning && <div className={cn(alertClass, 'border-amber-700 bg-amber-100 text-amber-800')} role="status"><span>Your exam date is approaching. Review your plan.</span><button className={dismissClass} type="button" aria-label="Dismiss warning alert" onClick={() => onDismissAlert('warning')}><X aria-hidden="true" size={16} /></button></div>}
-        {alerts.negative && <div className={cn(alertClass, 'border-red-700 bg-red-100 text-red-800')} role="alert"><span>We couldn&apos;t save that change. Try again.</span><button className={dismissClass} type="button" aria-label="Dismiss error alert" onClick={() => onDismissAlert('negative')}><X aria-hidden="true" size={16} /></button></div>}
+        {alerts.welcome && <div className={cn(alertClass, 'border-cyan-800 bg-cyan-300 text-cyan-950')} role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss information alert" onClick={() => onDismissAlert('welcome')}><XIcon aria-hidden="true" /></button></div>}
+        {alerts.subjects && <div className={cn(alertClass, 'border-indigo-900 bg-indigo-400 text-slate-950')} role="status"><span>We&apos;ve expanded the magic. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss product alert" onClick={() => onDismissAlert('subjects')}><XIcon aria-hidden="true" /></button></div>}
+        {alerts.success && <div className={cn(alertClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')} role="status"><span>Your revision plan has been saved.</span><button className={dismissClass} type="button" aria-label="Dismiss success alert" onClick={() => onDismissAlert('success')}><XIcon aria-hidden="true" /></button></div>}
+        {alerts.warning && <div className={cn(alertClass, 'border-amber-700 bg-amber-100 text-amber-800')} role="status"><span>Your exam date is approaching. Review your plan.</span><button className={dismissClass} type="button" aria-label="Dismiss warning alert" onClick={() => onDismissAlert('warning')}><XIcon aria-hidden="true" /></button></div>}
+        {alerts.negative && <div className={cn(alertClass, 'border-red-700 bg-red-100 text-red-800')} role="alert"><span>We couldn&apos;t save that change. Try again.</span><button className={dismissClass} type="button" aria-label="Dismiss error alert" onClick={() => onDismissAlert('negative')}><XIcon aria-hidden="true" /></button></div>}
       </div> : <button type="button" className={buttonClass('secondary', dark)} onClick={onResetAlerts}>Reset alerts</button>}
       </div>
     </ComponentSpecimen>
@@ -220,12 +229,12 @@ function SidebarSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
         {sidebarItems.map((item, index) => {
           const current = index === 2;
           return <button type="button" key={item} aria-current={current ? 'page' : undefined} className={cn('flex w-full cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-left text-sm', current ? 'bg-indigo-800 text-white' : dark ? 'text-slate-300 hover:bg-slate-700' : 'text-slate-600 hover:bg-slate-100')}>
-            {current ? <Sparkles aria-hidden="true" size={16} /> : <Home aria-hidden="true" size={16} />}<span>{item}</span>{index > 0 && <small className="ml-auto rounded border border-indigo-500 px-1 py-0.5 text-xs text-indigo-500">{current ? '60% off' : 'New'}</small>}
+            {current ? <SparkleIcon aria-hidden="true" /> : <HouseIcon aria-hidden="true" />}<span>{item}</span>{index > 0 && <small className="ml-auto rounded border border-indigo-500 px-1 py-0.5 text-xs text-indigo-500">{current ? '60% off' : 'New'}</small>}
           </button>;
         })}
         <div className="mt-auto flex flex-col gap-2">
-          <button type="button" className={cn('flex w-full items-center gap-2 rounded-lg px-2 py-2 text-sm', dark ? 'hover:bg-slate-700' : 'hover:bg-slate-100')}><ArrowUp aria-hidden="true" size={16} /> Upgrade <small className="ml-auto rounded border border-indigo-500 px-1 py-0.5 text-xs text-indigo-500">60% off</small></button>
-          <span className="flex items-center gap-2 px-2 py-2 text-xs"><span className={cn('size-6 rounded-full', dark ? 'bg-slate-400' : 'bg-slate-300')} />Firstname Surname<Settings className="ml-auto" aria-hidden="true" size={16} /></span>
+          <button type="button" className={cn('flex w-full items-center gap-2 rounded-lg px-2 py-2 text-sm', dark ? 'hover:bg-slate-700' : 'hover:bg-slate-100')}><ArrowUpIcon aria-hidden="true" /> Upgrade <small className="ml-auto rounded border border-indigo-500 px-1 py-0.5 text-xs text-indigo-500">60% off</small></button>
+          <span className="flex items-center gap-2 px-2 py-2 text-xs"><span className={cn('size-6 rounded-full', dark ? 'bg-slate-400' : 'bg-slate-300')} />Firstname Surname<GearIcon className="ml-auto" aria-hidden="true" /></span>
         </div>
       </aside>
     </ComponentSpecimen>

@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUpIcon } from '@phosphor-icons/react';
 import Button from './Button';
 
 export default function BackToTop() {
@@ -67,7 +67,7 @@ export default function BackToTop() {
       tabIndex={showBackToTop ? undefined : -1}
       onClick={handleBackToTop}
     >
-      <ArrowUp aria-hidden="true" size={16} />
+      <ArrowUpIcon size={16} aria-hidden="true" />
     </Button>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { X } from 'lucide-react';
+import { XIcon } from '@phosphor-icons/react';
 import {
   AnimatePresence,
   motion,
@@ -223,7 +223,7 @@ export default function CaseStudyNavigation() {
                   }}
                   aria-label="Close page sections"
                 >
-                  <X aria-hidden="true" size={16} />
+                  <XIcon aria-hidden="true" />
                 </button>
               </div>
 

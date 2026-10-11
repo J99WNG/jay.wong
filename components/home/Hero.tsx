@@ -14,7 +14,7 @@ import {
   motionStagger,
   tickerTransition,
 } from "@/lib/motion";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDownIcon, ArrowUpRightIcon } from '@phosphor-icons/react';
 import { usePageReady } from '@/components/layout/InitialLoader';
 
 
@@ -159,7 +159,7 @@ export default function Hero() {
               variant="primary"
               href="/#work"
               onClick={scrollToWork}
-              suffixIcon={<ArrowDown size={16} />}
+              suffixIcon={<ArrowDownIcon />}
               revealIcon
             >
               View work
@@ -171,7 +171,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Schedule a call (opens in a new tab)"
-              suffixIcon={<ArrowUpRight size={16} />}
+              suffixIcon={<ArrowUpRightIcon />}
               revealIcon
             >
               Schedule a call

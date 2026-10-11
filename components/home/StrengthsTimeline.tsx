@@ -8,35 +8,41 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { Bot, Ear, UsersRound, Waypoints, type LucideIcon } from 'lucide-react';
+import {
+  EarIcon,
+  RobotIcon,
+  ShareNetworkIcon,
+  UsersThreeIcon,
+  type Icon as PhosphorIcon,
+} from '@phosphor-icons/react';
 
 const strengths = [
   {
-    icon: Ear,
+    icon: EarIcon,
     title: "Listen before solving",
     text: "I pay attention to what people say, what they leave unsaid, and the small frictions that point to the real problem.",
     skills: ["UX research", "Research synthesis", "Usability testing","Web analytics"],
   },
   {
-    icon: Waypoints,
+    icon: ShareNetworkIcon,
     title: "Make sense of the messy middle",
     text: "I connect research, product goals, and technical realities into a direction people can understand and act on.",
     skills: ["Product management","Product strategy", "BPMN", "Information architecture"],
   },
   {
-    icon: UsersRound,
+    icon: UsersThreeIcon,
     title: "Build with people, not around them",
     text: "I work collaboratively with product, engineering, and stakeholders to share thinking early and shaping the answer together.",
     skills: ["Product operations","Design operations","Design systems", "Token architecture","WCAG Accessibility"],
   },
   {
-    icon: Bot,
+    icon: RobotIcon,
     title: "Let the tools do the busywork",
     text: "I use agents and design-to-code workflows to accelerate repetitive work, leaving more room for judgement, craft, and conversations that move products forward.",
     skills: ["MCP Frameworks", "SKILL.md", "Rapid prototyping", "Front-end fluency"],
   },
 ] as const satisfies ReadonlyArray<{
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   title: string;
   text: string;
   skills: readonly string[];

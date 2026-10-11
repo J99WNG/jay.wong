@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { ListIcon, XIcon } from '@phosphor-icons/react';
 import Button from '../ui/Button';
 
 const HOME_PATH = '/';
@@ -156,11 +156,11 @@ export default function Header() {
                         aria-label={isOpen ? 'Close menu' : 'Open menu'}
                         onClick={() => setIsOpen((open) => !open)}
                     >
-                        <Menu
+                        <ListIcon
                             aria-hidden="true"
                             className="absolute rotate-0 scale-100 text-neutral-100 opacity-100 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-180 group-aria-expanded:scale-50 group-aria-expanded:opacity-0 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />
-                        <X
+                        <XIcon
                             aria-hidden="true"
                             className="absolute -rotate-180 scale-50 text-neutral-100 opacity-0 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-0 group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />

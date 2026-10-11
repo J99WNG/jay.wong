@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { Maximize2 } from 'lucide-react';
+import { ArrowsOutIcon } from '@phosphor-icons/react';
 
 import { useLightboxItem } from '@/components/case-study/LightboxGallery';
 
@@ -45,7 +45,7 @@ export default function LightboxContent({
           className={`absolute inset-0 cursor-zoom-in border-0 bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 ${buttonClassName ?? ''}`}
         >
           <span className="absolute right-4 bottom-4 inline-flex items-center gap-2 rounded-full bg-bg-primary/90 px-3 py-2 text-sm text-text-primary shadow-lg backdrop-blur-sm motion-safe:transition-transform motion-safe:group-hover:scale-105">
-            <Maximize2 aria-hidden="true" size={16} /> Expand
+            <ArrowsOutIcon aria-hidden="true" /> Expand
           </span>
         </button>
       </div>

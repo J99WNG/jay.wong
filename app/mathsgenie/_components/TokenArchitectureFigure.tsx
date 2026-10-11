@@ -1,4 +1,4 @@
-import { CheckCircle2, CircleAlert, Info, TriangleAlert } from 'lucide-react';
+import { CheckCircleIcon, InfoIcon, WarningCircleIcon, WarningIcon } from '@phosphor-icons/react/ssr';
 import { Fragment } from 'react';
 import { cn } from '@/lib/utils';
 import styles from '../mathsgenie.module.css';
@@ -22,10 +22,10 @@ const assembledTokens = [
 ] as const;
 
 const feedbackStates = [
-  { name: 'Positive', copy: 'Answer saved', icon: CheckCircle2, className: 'border-emerald-700 bg-emerald-100 text-emerald-800' },
-  { name: 'Information', copy: 'A hint is available', icon: Info, className: 'border-indigo-600 bg-indigo-100 text-indigo-800' },
-  { name: 'Warning', copy: 'Check this step', icon: TriangleAlert, className: 'border-amber-700 bg-amber-100 text-amber-800' },
-  { name: 'Negative', copy: 'Answer needs attention', icon: CircleAlert, className: 'border-red-700 bg-red-100 text-red-800' },
+  { name: 'Positive', copy: 'Answer saved', icon: CheckCircleIcon, className: 'border-emerald-700 bg-emerald-100 text-emerald-800' },
+  { name: 'Information', copy: 'A hint is available', icon: InfoIcon, className: 'border-indigo-600 bg-indigo-100 text-indigo-800' },
+  { name: 'Warning', copy: 'Check this step', icon: WarningIcon, className: 'border-amber-700 bg-amber-100 text-amber-800' },
+  { name: 'Negative', copy: 'Answer needs attention', icon: WarningCircleIcon, className: 'border-red-700 bg-red-100 text-red-800' },
 ] as const;
 
 const buttonBase = 'inline-flex w-full items-center justify-center rounded-xl border border-b-2 px-3 py-3 text-base font-medium leading-none transition duration-200 active:translate-y-px';
@@ -113,7 +113,7 @@ export function TokenArchitectureFigure() {
         <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0" role="list">
           {feedbackStates.map(({ name, copy, icon: StateIcon, className }) => (
             <li key={name} className={cn('flex items-center gap-3 rounded-xl border p-3', className)}>
-              <StateIcon aria-hidden="true" size={18} />
+              <StateIcon aria-hidden="true" size={16} weight="duotone" />
               <span className="flex flex-col text-sm"><strong className="text-base">{name}</strong>{copy}</span>
             </li>
           ))}
