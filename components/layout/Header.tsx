@@ -157,10 +157,12 @@ export default function Header() {
                         onClick={() => setIsOpen((open) => !open)}
                     >
                         <ListIcon
+                            size={24}
                             aria-hidden="true"
                             className="absolute rotate-0 scale-100 text-neutral-100 opacity-100 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-180 group-aria-expanded:scale-50 group-aria-expanded:opacity-0 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />
                         <XIcon
+                            size={24}
                             aria-hidden="true"
                             className="absolute -rotate-180 scale-50 text-neutral-100 opacity-0 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-0 group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:rotate-0 motion-reduce:scale-100"
                         />

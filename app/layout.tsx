@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/ui/BackToTop";
 import InitialLoader from '@/components/layout/InitialLoader';
 import ThemeToggle from '@/components/ui/ThemeToggle';
-import PhosphorIconProvider from '@/components/providers/PhosphorIconProvider';
+import PhosphorIconProvider from '@/components/providers/IconContext.Provider';
 import { siteMetadata } from '@/content/siteMetadata';
 
 const geistSans = localFont({

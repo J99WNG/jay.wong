@@ -67,7 +67,7 @@ export default function BackToTop() {
       tabIndex={showBackToTop ? undefined : -1}
       onClick={handleBackToTop}
     >
-      <ArrowUpIcon size={16} aria-hidden="true" />
+      <ArrowUpIcon aria-hidden="true" />
     </Button>
   );
 }

@@ -44,7 +44,7 @@ export default function CopyEmail() {
             type="button"
             aria-label={`Copy email address ${email}`}
         >
-            <EnvelopeIcon aria-hidden="true" size={32} weight='duotone' />
+            <EnvelopeIcon aria-hidden="true" weight='duotone' size={32} />
 
             {/* Middle Dynamic Text Layout Container */}
             <div className="relative text-left min-h-[1.5rem] flex items-center overflow-hidden">

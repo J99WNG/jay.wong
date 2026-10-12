@@ -79,7 +79,7 @@ export default function NotFoundContent() {
             ease: motionEase.standard,
             delay: shouldReduceMotion ? 0 : motionDelay.short,
           }}
-          className="relative isolate mx-auto flex aspect-square w-full max-w-sm items-center justify-center overflow-hidden rounded-[2rem] border border-border-muted bg-bg-primary shadow-sm"
+          className="relative isolate mx-auto flex aspect-square w-full max-w-sm items-center justify-center overflow-hidden rounded-4xl border border-border-muted bg-bg-primary shadow-sm"
           aria-hidden="true"
         >
           <div className="absolute -bottom-20 -left-12 size-64 rounded-full border-[2rem] border-bg-tertiary" />

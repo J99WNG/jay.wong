@@ -115,7 +115,7 @@ export default function ThemeToggle() {
       aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
       revealLabel={theme}
     >
-      <ThemeIcon size={16} weight='duotone' aria-hidden="true" />
+      <ThemeIcon aria-hidden="true" weight='duotone' />
     </Button>
   );
 }

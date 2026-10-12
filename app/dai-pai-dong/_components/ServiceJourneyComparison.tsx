@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from '@phosphor-icons/react/ssr';
 
 import LightboxContent from '@/components/case-study/LightboxContent';
+import { iconDefaults } from '@/lib/iconography';
 import styles from '../dai-pai-dong.module.css';
 
 type JourneyMode = 'current' | 'future';
@@ -111,7 +112,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
                     <span>{String(index + 1).padStart(2, '0')}</span>
                     <h3>{stage.label}</h3>
                     <p>{stage.detail}</p>
-                    {index < journey.lanes[layer].length - 1 && <ArrowRightIcon aria-hidden="true" size={16} weight="duotone" />}
+                    {index < journey.lanes[layer].length - 1 && <ArrowRightIcon {...iconDefaults} aria-hidden="true" />}
                   </article>
                 ))}
               </div>
@@ -135,7 +136,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
             <div className="relative grid min-w-0 gap-2 px-2 first:pl-0" key={stage}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <strong>{stage}</strong>
-              {index < journey.preview.length - 1 && <ArrowRightIcon aria-hidden="true" size={16} weight="duotone" />}
+              {index < journey.preview.length - 1 && <ArrowRightIcon {...iconDefaults} aria-hidden="true" />}
             </div>
           ))}
         </div>

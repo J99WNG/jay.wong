@@ -82,7 +82,9 @@ export default function CaseStudyNavigation() {
 
   useEffect(() => {
     // Build the navigation from each case-study section's primary heading.
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('article > section[id]'))
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(
+      'article > section[id]:not([data-case-study-navigation="exclude"])',
+    ))
       .filter((section) => section.id !== 'landing');
     const navigationItems = sections.flatMap((section) => {
       const heading = section.querySelector<HTMLHeadingElement>('.section-heading h2');
@@ -187,8 +189,8 @@ export default function CaseStudyNavigation() {
       <motion.div
         layout
         className={clsx(
-          'border border-border-base bg-bg-secondary/80 shadow-lg backdrop-blur-md',
-          open ? 'w-60 max-w-[calc(100vw-8rem)] rounded-3xl p-3' : 'w-auto rounded-2xl p-1',
+          'rounded-2xl border border-border-base bg-bg-secondary/80 shadow-lg backdrop-blur-md',
+          open ? 'w-60 max-w-[calc(100vw-8rem)] p-2' : 'w-auto p-1',
         )}
         transition={reduceMotion ? { duration: 0 } : TRAY_SPRING}
       >
@@ -203,7 +205,7 @@ export default function CaseStudyNavigation() {
               transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
             >
               {/* Tray header and close control. */}
-              <div className="flex min-h-10 items-center justify-between gap-3">
+              <div className="flex min-h-8 items-center justify-between gap-3">
                 <div className="flex min-w-0 items-center gap-2">
                   <ProgressIndicator progress={displayedProgress} />
 
@@ -216,7 +218,7 @@ export default function CaseStudyNavigation() {
                 <button
                   ref={closeButtonRef}
                   type="button"
-                  className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-full text-text-secondary motion-safe:transition-[color,background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary hover:text-text-primary active:scale-95 focus-visible:bg-bg-tertiary"
+                  className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-full text-text-secondary motion-safe:transition-[color,background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] hover:bg-bg-tertiary hover:text-text-primary active:scale-95 focus-visible:bg-bg-tertiary"
                   onClick={() => {
                     restoreTriggerFocus.current = true;
                     setOpen(false);
@@ -245,7 +247,7 @@ export default function CaseStudyNavigation() {
                     {/* List item */}
                     <a
                       className={clsx(
-                        'flex min-h-10 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] focus-visible:outline-offset-[-3px]',
+                        'flex min-h-10 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] focus-visible:outline-offset-[-3px]',
                         activeId === item.id
                           ? 'font-medium text-accent-interactive'
                           : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',

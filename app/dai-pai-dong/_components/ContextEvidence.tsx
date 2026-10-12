@@ -1,6 +1,7 @@
 import { ArrowUpRightIcon } from '@phosphor-icons/react/ssr';
 
 import LightboxContent from '@/components/case-study/LightboxContent';
+import { iconDefaults } from '@/lib/iconography';
 import styles from '../dai-pai-dong.module.css';
 
 type EvidenceItem = {
@@ -97,11 +98,11 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
     <div className={styles.sourceNote}>
       <p>Figures are transcribed from the published source and redrawn for readability; this is not a screenshot of the original document.</p>
       <a className="mr-4 mb-1 inline-flex items-center gap-1" href={item.sourceUrl} target="_blank" rel="noreferrer">
-        {item.sourceTitle} <ArrowUpRightIcon size={16} weight="duotone" aria-hidden="true" />
+        {item.sourceTitle} <ArrowUpRightIcon {...iconDefaults} aria-hidden="true" />
       </a>
       {item.visual === 'receipts' && (
         <a className="mr-4 mb-1 inline-flex items-center gap-1" href="https://www.censtatd.gov.hk/en/scode540.html" target="_blank" rel="noreferrer">
-          Census and Statistics Department · Q2 2026 restaurant receipts <ArrowUpRightIcon size={16} weight="duotone" aria-hidden="true" />
+          Census and Statistics Department · Q2 2026 restaurant receipts <ArrowUpRightIcon {...iconDefaults} aria-hidden="true" />
         </a>
       )}
     </div>

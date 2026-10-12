@@ -46,22 +46,22 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
         <div className="flex flex-col gap-8">
           <NextProjectCTA />
 
-          <div className="flex flex-col gap-2">
-            <span className="font-mono text-base sm:text-lg uppercase tracking-tight text-text-tertiary">
+          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid w-full min-h-0 min-w-0 grid-cols-1 items-stretch gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
+            {renderBentoItem(project.bentoImage, project.bentoAlt, 'w-full max-md:h-auto md:h-full md:row-span-2', true)}
+            {project.bentoImage2 && renderBentoItem(project.bentoImage2, project.bentoAlt2, 'w-full max-md:h-auto md:h-full')}
+            {project.bentoImage3 && renderBentoItem(project.bentoImage3, project.bentoAlt3, 'w-full max-md:h-auto md:h-full')}
+          </div>
+
+          <div className="mx-auto flex max-w-[65ch] flex-col gap-2">
+            <span className="text-center font-mono text-base sm:text-lg uppercase tracking-tight text-text-tertiary">
               {project.year} · {project.company} · {project.industry}
             </span>
 
-            <h1>{project.title}</h1>
+            <h1 className="text-center">{project.title}</h1>
 
-            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tight">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] text-center leading-8 md:leading-9 tracking-tight">
               {project.tagline}
             </p>
-          </div>
-
-          <div className={project.bentoImage2 || project.bentoImage3 ? 'grid w-full min-h-0 min-w-0 grid-cols-1 items-stretch gap-6 md:h-[400px] md:grid-cols-[1.5fr_1fr] md:grid-rows-2' : 'w-full'}>
-            {renderBentoItem(project.bentoImage, `Featured image for ${project.title}`, 'w-full max-md:h-auto md:h-full md:row-span-2', true)}
-            {project.bentoImage2 && renderBentoItem(project.bentoImage2, `${project.company} chat animation`, 'w-full max-md:h-auto md:h-full')}
-            {project.bentoImage3 && renderBentoItem(project.bentoImage3, `${project.company} carpet animation`, 'w-full max-md:h-auto md:h-full')}
           </div>
         </div>
       </Section>

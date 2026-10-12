@@ -22,12 +22,9 @@ The development server listens on all local interfaces. Set `ALLOWED_DEV_ORIGINS
 npm run lint
 npm run typecheck
 npm run build
-npm run test:smoke
 ```
 
 The static production export is written to `out/`. Generated output, dependency folders, local environment files, and editor files are excluded from version control.
-
-`test:smoke` serves the completed static export and runs Playwright in desktop Chromium, Firefox, WebKit, and a Mobile Safari viewport. It checks every public route, the shared page shell, persisted theme selection, and the case-study lightbox. Run `npm run build` first when testing locally. In CI, a smoke-test failure in any browser blocks the GitHub Pages deployment and uploads a seven-day Playwright report for diagnosis.
 
 Static assets can be maintained with:
 
@@ -49,6 +46,5 @@ The check enforces lowercase file extensions, rejects OS metadata, and keeps ind
 - `public/assets/case-studies/` contains project-specific media; `brands/`, `profile/`, `about/`, `runtime/`, and `tools/` contain shared assets by role.
 - `styles/global.css` is the active design-token source; `styles/motion.css` contains shared motion tokens.
 - `docs/` contains shared iconography guidance, case-study handoff notes, and archived explorations. Files under `docs/archive/` are not production sources.
-- `tests/e2e/` contains deployment-blocking browser smoke tests.
 
-Pushes to `main` run asset checks, linting, type checking, a production build, and browser smoke tests before the GitHub Pages deployment in `.github/workflows/deploy.yml`.
+Pushes to `main` run asset checks, linting, type checking, and a production build before the GitHub Pages deployment in `.github/workflows/deploy.yml`.

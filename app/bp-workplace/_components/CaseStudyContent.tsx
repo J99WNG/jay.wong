@@ -6,7 +6,8 @@ import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
 import BrandMark from '@/components/ui/BrandMark';
 import { BookOpenTextIcon, CompassIcon, MapPinIcon, TreeStructureIcon } from '@phosphor-icons/react/ssr';
 import StreamingText from '@/components/ui/StreamingText';
-import ProjectMetadata from '@/components/case-study/ProjectMetadata';
+import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
+import { iconDefaults } from '@/lib/iconography';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
 
@@ -18,41 +19,18 @@ export default function CaseStudyContent() {
         <article>
             <CaseStudyLanding project={project} />
 
-            <Section id="Snapshot">
-                <div className="section-grid">
-
-                    <div className="section-heading">
-                        <h2>Snapshot
-                        <br/>
-                        <span className="section-subtitle">The “too long didn&apos;t read”.</span>
-                        </h2>
-                    </div>
-
-                    <div className="section-content">
-                        <div className="content-block content-flow">
-                            <p className="meta-label">Problem</p>
-                            <p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>
-                        </div>
-                        
-                        <div className="content-block content-flow">
-                            <p className="meta-label">Outcome</p>
-                            <p>Designed and delivered a unified, outcome-led workplace experience within ServiceNow, through consolidating journeys, improving findability and simplifying how employees raise and track workplace requests.</p>
-                        </div>
-
-                        <div className="content-block content-flow">
-                            <p className="meta-label">Impact</p>
-
+            <CaseStudySnapshot
+                problem={<p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>}
+                intervention={<p>Designed a unified, outcome-led digital workplace in ServiceNow, consolidating 15+ service journeys and simplifying how employees find, raise and track workplace requests.</p>}
+                impactType="Measured impact"
+                impact={
                             <ul>
-                                <li>Transitioned the workplace experience from Microsoft SharePoint to ServiceNow, consolidating platforms and supporting enterprise cost-optimisation initiatives.</li>
-                                <li>Defined a scalable, global information architecture (IA) covering 15+ workplace and third-party services.</li>
-                                <li>Shipped to three pilot locations (Pune, Houston, London) with phased global rollout approval.</li>
                                 <li>+30% improvement in task success rate (usability testing).</li>
                                 <li>+80% improvement in perceived findability.</li>
                             </ul>
-                        </div>
-                        
-                        <ProjectMetadata
-                            items={[
+                }
+                deliveryStatus={<p>Proof of concept completed. Pune, Houston and London were approved as pilot sites for a phased global rollout; the pilot rollout had not yet begun.</p>}
+                metadata={[
                                 {
                                     label: 'Company',
                                     value: (
@@ -65,12 +43,12 @@ export default function CaseStudyContent() {
                                 { label: 'Industry', value: project.industry },
                                 { label: 'Role', value: project.role },
                                 {
-                                    label: 'Year / Timeline',
+                                    label: 'Timeline',
                                     value: <>{project.year} · 8 months<br />(Discovery → Proof of Concept)</>,
                                 },
                                 {
                                     label: 'Scale',
-                                    value: 'Enterprise-level rollout, piloted across Pune, Houston and London.',
+                                    value: 'Global model designed for 50+ offices, with approved pilot sites in Pune, Houston and London.',
                                 },
                                 {
                                     label: 'Team',
@@ -83,12 +61,8 @@ export default function CaseStudyContent() {
                                         </ul>
                                     ),
                                 },
-                            ]}
-                        />
-                    </div>
-
-                </div>
-            </Section>
+                ]}
+            />
 
             <div className="page-container">
                 <hr className="divider" />
@@ -202,7 +176,7 @@ export default function CaseStudyContent() {
                                 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-discovery-1.png"
-                                alt=""
+                                alt="Digital ecosystem map showing workplace services split across visitor and access tools, catering platforms, communication channels and transport providers."
                                 caption="One location was operating workplace services through more than 8 different touchpoints, scattered across SharePoint pages. This was a repeating theme."
                             />
 
@@ -215,7 +189,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-discovery-2.png"
-                                alt=""
+                                alt="Current-state map of workplace content and service journeys scattered across SharePoint pages, external tools and regional touchpoints."
                                 caption="My audit mapping of our Houston location revealed various systems and platforms in use across different service categories. This fragmentation was consistent across London and Pune, underscoring the need for consolidation and a unified approach."
                             />
                         </div>
@@ -227,7 +201,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-discovery-3.png"
-                                alt=""
+                                alt="Five-stage Pune catering journey: search the global intranet, navigate regional pages, follow an informal redirect, then bookmark the third-party service for future use."
                                 caption="Users bypassed the system via bookmarks, reducing visibility and governance. This was a critical insight that informed our focus on improving navigation and information architecture."
                             />
                         </div>
@@ -239,7 +213,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-discovery-4.png"
-                                alt=""
+                                alt="Research synthesis showing location-specific workplace practices, including reliance on informal contacts, email, Viva Engage and local SharePoint pages."
                                 caption="Interviews in the Trinidad and Pune locations revealed a strong reliance on informal networks for accessing workplace services. Employees often bypassed official channels, preferring to ask colleagues directly for support. This highlighted the need for a more intuitive and trustworthy digital experience to encourage adoption of formal processes."
                             />
                         </div>
@@ -251,7 +225,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-discovery-5.png"
-                                alt=""
+                                alt="Building-issue journey crossing four owners and systems: find the intranet, locate a maintenance form, submit through a contractor and track progress with a vendor."
                                 caption="A single workplace request often crossed multiple platforms and teams, making governance unclear, fragmenting the UX and increased operational overhead."
                             />
                         </div>
@@ -302,7 +276,7 @@ export default function CaseStudyContent() {
                                     <li className="card" key={text}>
                                         <div className="flex w-full items-start gap-3 px-6 py-5">
                                             <span className="grid size-8 shrink-0 place-items-center text-accent-primary" aria-hidden="true">
-                                                <Icon size={24} weight="duotone" />
+                                                <Icon {...iconDefaults} size={24} />
                                             </span>
                                             <p className="card-text">{text}</p>
                                         </div>
@@ -395,25 +369,25 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-ideation-1.png"
-                                alt=""
+                                alt="Decision matrix translating five research insights into design principles, experience strategies and ServiceNow implementation choices."
                                 caption="To ensure design decisions remained grounded in research, I mapped key insights to experience principles and implementation approaches within the ServiceNow platform."
                             />
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-ideation-2.png"
-                                alt=""
+                                alt="Global workplace service blueprint linking region, city and office data to a location-aware landing page, service widgets, workflows and connected content."
                                 caption="A systems-level blueprint mapping the workplace landing experience to the underlying ServiceNow workflows, SharePoint content and external service providers. The architecture allows services, announcements and workplace contacts to dynamically adapt based on employee's home or selected location."
                             />
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-ideation-3.png"
-                                alt=""
+                                alt="Side-by-side comparison of the initial sparse workplace homepage and the final location-aware design with announcements, contacts and task-based service cards."
                                 caption="UX/UI artefacts went through extensive validation with stakeholders and developers to balance experience ambitions with platform capabilities. This included detailed wireframes, click-through prototypes and design system components aligned to ServiceNow's out-of-the-box (OOTB) performance."
                             />
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-ideation-4.png"
-                                alt=""
+                                alt="Future-state onboarding flow showing how workplace managers, product operations and a business analyst add a new location and its services to ServiceNow."
                                 caption="Aside from the end-user experience, I defined the onboarding process for workplace locations to enable their services within our ServiceNow model. This work helped establish a scalable foundation for rolling out the workplace experience across 50+ global office locations."
                             />
                         </div>
@@ -467,7 +441,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-solution-1.png"
-                                alt=""
+                                alt="Modular workplace interface combining task-based service cards, location selection, local contacts, quick links and a regional Viva Engage feed."
                                 caption="I prioritised the constraints of ServiceNow’s out-of-the-box (OOTB) components to ensure a scalable, maintainable solution. I adapted these patterns to bp's design system to deliver a familiar and recognisable digital experience."
                             />
                         </div>
@@ -490,7 +464,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-solution-2.png"
-                                alt=""
+                                alt="Three-tier ServiceNow adoption model: Workplace Core for gradual transition, Workplace Plus for consolidation, and Workplace Hub for digitally mature or new locations."
                                 caption="I proposed a three-tier model to balance global standardisation with regional readiness. Rather than enforcing a single solution, the framework enabled phased adoption aligned to each location’s digital maturity and governance structure."
                             />
                         </div>
@@ -506,7 +480,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-workplace/ow-solution-3.png"
-                                alt=""
+                                alt="Before-and-after comparison replacing a long SharePoint location page with searchable, filterable office cards in the unified workplace experience."
                                 caption="Crucial touchpoints like the workplace directory were decluttered and became more integral as part of the ServiceNow global workplace experience."
                             />
                         </div>
@@ -599,7 +573,7 @@ export default function CaseStudyContent() {
                                 </li>
 
                                 <li>
-                                    Pilot launch across three major global offices.
+                                    Pune, Houston and London approved as pilot sites.
                                 </li>
 
                                 <li>

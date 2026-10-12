@@ -6,7 +6,7 @@ import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
-import ProjectMetadata from '@/components/case-study/ProjectMetadata';
+import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
 
 const project = caseStudies.find((s) => s.slug === "cs-kyc")!;
 
@@ -18,42 +18,24 @@ export default function CaseStudyContent() {
             <article>
                 <CaseStudyLanding project={project} />
 
-                <Section id="Snapshot">
-                    <div className="section-grid">
-
-                        <div className="section-heading">
-                            <h2>Snapshot
-                            <br/>
-                            <span className="section-subtitle">The “too long didn&apos;t read”.</span>
-                            </h2>
-                        </div>
-
-                        <div className="section-content">
-                            <div className="content-block content-flow">
-                                <p className="meta-label">Problem</p>
-                                <p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data, and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client time and into unnecessary admin, costing up to 70% of their day.</p>
-                            </div>
-                            
-                            <div className="content-block content-flow">
-                                <p className="meta-label">Outcome</p>
-                                <p>Designed RM Suite, a conceptual mobile solution bringing everything into a unified, secured interface – covering tasks, reminders, client profiles, live market data, and portfolio access.</p>
-                            </div>
-
-                            <div className="content-block">
-                                <p className="meta-label">Impact</p>
-
+                <CaseStudySnapshot
+                    problem={<p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client-facing time and into unnecessary admin, costing up to 70% of their day.</p>}
+                    intervention={<p>Designed RM Suite, a conceptual mobile solution bringing tasks, reminders, client profiles, live market data and portfolio access into one secure interface.</p>}
+                    impactType="Projected impact"
+                    impact={
+                        <>
                                 <MetricGrid columns={1} ariaLabel="Projected productivity impact">
                                     <MetricCard
-                                        value="~136,800 hrs"
-                                        label="Recovered annually by reducing context-switching and admin time."
+                                        value="Up to 136,800 hrs"
+                                        label="Projected annual productivity opportunity, based on saving 30 minutes per RM across 240 working days."
                                     />
                                 </MetricGrid>
 
-                                <p>Top 3 finalist out of 10 competing teams at a bi-annual Employer Showcase. Prototype validated directly by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager.</p>
-                            </div>
-                            
-                            <ProjectMetadata
-                                items={[
+                                <p>Upper-bound calculation: 1,140 RMs × 30 minutes × 240 working days.</p>
+                        </>
+                    }
+                    deliveryStatus={<p>Proof-of-concept prototype completed, placing in the top three of 10 teams and validated by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager. The projected productivity opportunity was not measured in production.</p>}
+                    metadata={[
                                     {
                                         label: 'Company',
                                         value: (
@@ -66,7 +48,7 @@ export default function CaseStudyContent() {
                                     { label: 'Industry', value: project.industry },
                                     { label: 'Role', value: project.role },
                                     {
-                                        label: 'Year / Timeline',
+                                        label: 'Timeline',
                                         value: <>{project.year} · 8 months<br />(Discovery → Proof of Concept)</>,
                                     },
                                     {
@@ -77,12 +59,8 @@ export default function CaseStudyContent() {
                                         label: 'Team',
                                         value: '5 people (Product Manager/Designer, Lead Developer, Project Analyst, Business Analyst, Research Analyst)',
                                     },
-                                ]}
-                            />
-                        </div>
-
-                    </div>
-                </Section>
+                    ]}
+                />
 
                 <div className="page-container">
                     <hr className="divider" />
@@ -254,7 +232,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-discovery-1.png"
-                                    alt=""
+                                    alt="Assumptions table showing stakeholder research invalidated KYC-first, client-facing and calendar concepts, while confirming the need for one Relationship Manager dashboard."
                                     caption="Those course corrections, documented in our Project Initiation Document assumptions table, were some of the most valuable outputs of the discovery phase."
                                 />
                             </div>
@@ -268,7 +246,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-discovery-2.png"
-                                    alt=""
+                                    alt="Four Ketso workshop boards using labelled branches and leaves to organise objectives, strategies, database ideas and front-end concepts."
                                     caption="Our team discussed various topics to better discover an RM's needs and how we approach the problems outlined in the briefing document."
                                 />
                             </div>
@@ -318,13 +296,13 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-problem-1.png"
-                                    alt=""
+                                    alt="MoSCoW table prioritising functional requirements: task management, KYC dashboard, client information and client portfolio were retained; calendar and messaging were removed."
                                     caption="Five functional requirements were refined and taken forward into our design and development iterations."
                                 />
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-problem-2.png"
-                                    alt=""
+                                    alt="MoSCoW table prioritising secure biometric login and live dashboard data, with time-zone, email automation and market insights as lower-priority requirements."
                                     caption="With our non-functional requirements, we had two that fell into 'Could' priority. These were features we would have included if we had more time, but they weren't essential to the core user experience we wanted to deliver in the project window."
                                 />
                             </div>
@@ -377,13 +355,13 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-goals-1.png"
-                                    alt=""
+                                    alt="RM Suite design-system foundations covering colour tokens, Px Grotesk typography, a four-column grid, icon sizes and core input, button and badge components."
                                     caption="I started with the foundations, establishing the 'TLC' through studying Credit Suisse's existing digital products and channels – Typography, Layout and Colour."
                                 />
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-goals-2.png"
-                                    alt=""
+                                    alt="Expanded RM Suite component library showing navigation, headings, client cards, alerts, activity timelines, contacts, portfolio charts, status badges and market news."
                                     caption="A more comprehensive design system emerged as we iterated on the prototype, with a focus on modularity and reusability to speed up our agile cycles and maintain visual consistency across the solution."
                                 />
                             </div>
@@ -445,7 +423,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-ideation-1.png"
-                                    alt=""
+                                    alt="Early mobile dashboard concept combining today’s tasks, reminders and recently viewed clients on one screen."
                                     caption="First design iteration of the dashboard. Low fidelty ideation was omitted."
                                 />
                             </div>
@@ -461,7 +439,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-ideation-2.png"
-                                    alt=""
+                                    alt="Early Trending concept combining financial news and live regional market movements to reduce switching between tools."
                                     caption="An aggregration of real-time market data and financial news so that an RM would not need to switch between different sources."
                                 />
                             </div>
@@ -477,7 +455,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-ideation-3.png"
-                                    alt=""
+                                    alt="Early client directory using photos, flags, occupations and regions to support recognition rather than recall."
                                     caption="A much more powerful contacts book, in which data is fed into it through Credit Suisse's existing CRM systems and workflow."
                                 />
                             </div>
@@ -515,7 +493,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-1.png"
-                                    alt=""
+                                    alt="RM Suite mobile login using two-factor authentication before access to client information."
                                     caption="A straightforward login screen to welcome RMs into the app, no messing about."
                                 />
                             </div>
@@ -531,7 +509,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-2.png"
-                                    alt=""
+                                    alt="Final RM Suite dashboard consolidating activity updates, reminders and recent clients into one mobile view."
                                     caption="The homepage of an RM's working day. Instead of navigating through five different systems, this gave them everything they need to start their day in one, unified interface."
                                 />
                             </div>
@@ -547,7 +525,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-3.png"
-                                    alt=""
+                                    alt="Client list and profile screens showing relationship status, assets under management, contact actions and recent activity."
                                     caption="We iterated the clients list to be more informative at a glance."
                                 />
                             </div>
@@ -563,7 +541,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-4.png"
-                                    alt=""
+                                    alt="Client profile concept with contact actions, relationship team, portfolio tabs and a timeline of client activity."
                                     caption="Client profiles allows RMs to make quick reviews whilst on the go. Assistant RMs could prepare briefing notes for RMs ahead of meetings."
                                 />
                             </div>
@@ -579,7 +557,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-5.png"
-                                    alt=""
+                                    alt="Trending screen combining financial news, market indices and client watchlist positions in one mobile view."
                                     caption="Trending became more actionable and deliberate in our final iteration, with clear indicators of what was moving in the markets and how it related to an RM's clients."
                                 />
                             </div>
@@ -595,7 +573,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-6.png"
-                                    alt=""
+                                    alt="Notification centre surfacing margin calls, market alerts, compliance deadlines and updates from an assistant Relationship Manager."
                                     caption="Our RM was highlighting the need to surface reminders more effectively. The notifications system was our response to that, ensuring critical deadlines and tasks were front and centre, not buried in various systems."
                                 />
                             </div>
@@ -611,7 +589,7 @@ export default function CaseStudyContent() {
 
                                 <LightboxImage
                                     src="/assets/case-studies/cs-kyc/cs-solution-7.png"
-                                    alt=""
+                                    alt="Add flow for recording a task, reminder or note and linking it to the relevant client."
                                     caption="The 'Add' flow was designed to be as streamlined as possible so that RMs can take action in the moment, without needing to switch to a different system or open a laptop. Whether it's creating a new task, setting a reminder, or jotting down meeting notes, the process is the same: efficient, intuitive, and all within the same interface."
                                 />
                             </div>

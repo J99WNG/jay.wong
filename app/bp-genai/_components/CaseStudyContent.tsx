@@ -6,7 +6,7 @@ import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
 import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
-import ProjectMetadata from '@/components/case-study/ProjectMetadata';
+import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
 
 const project = caseStudies.find((s) => s.slug === "bp-genai")!;
 
@@ -18,40 +18,21 @@ export default function CaseStudyContent() {
         <article>
             <CaseStudyLanding project={project} />
 
-            <Section id="snapshot">
-            <div className="section-grid">
-
-                <div className="section-heading">
-                    <h2>Snapshot
-                    <br />
-                    <span className="section-subtitle">The “too long didn&apos;t read”.</span>
-                    </h2>
-                </div>
-
-                <div className="section-content">
-                    <div className="content-block content-flow">
-                        <p className="meta-label">Problem</p>
-                        <p>High volumes of repeat, low-complexity IT tickets driven by poor knowledge findability and low trust in self-serve channels was increasing operational costs and reducing employee productivity.</p>
-                    </div>
-                    
-                    <div className="content-block content-flow">
-                        <p className="meta-label">Outcome</p>
-                        <p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>
-                    </div>
-
-                    <div className="content-block">
-                        <p className="meta-label">Impact (6 months post-launch)</p>
-
+            <CaseStudySnapshot
+                problem={<p>High volumes of repeat, low-complexity IT tickets, driven by poor knowledge findability and low trust in self-serve channels, were increasing operational costs and reducing employee productivity.</p>}
+                intervention={<p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>}
+                impactType="Measured impact"
+                impactContext="Six months post-launch"
+                impact={
                         <MetricGrid columns={2} ariaLabel="Impact six months after launch">
                             <MetricCard value="~1,200" label="Repeat tickets avoided" />
                             <MetricCard value="+21%" label="Self-serve success rate" />
                             <MetricCard value="3.6 → 4.2" label="Improved CSAT score" />
                             <MetricCard value="−18%" label="Reduced resolution time" />
                         </MetricGrid>
-                    </div>
-                    
-                    <ProjectMetadata
-                        items={[
+                }
+                deliveryStatus={<p>MVP launched in May 2025. The impact shown reflects the first six months after launch.</p>}
+                metadata={[
                             {
                                 label: 'Company',
                                 value: (
@@ -64,7 +45,7 @@ export default function CaseStudyContent() {
                             { label: 'Industry', value: project.industry },
                             { label: 'Role', value: project.role },
                             {
-                                label: 'Year / Timeline',
+                                label: 'Timeline',
                                 value: <>{project.year} · 24 weeks<br />(Discovery → MVP)</>,
                             },
                             {
@@ -82,12 +63,8 @@ export default function CaseStudyContent() {
                                     </ul>
                                 ),
                             },
-                        ]}
-                    />
-                </div>
-            </div>
-
-            </Section>
+                ]}
+            />
 
             <div className="page-container">
                 <hr className="divider" />
@@ -216,7 +193,7 @@ export default function CaseStudyContent() {
                                 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-discovery-quant.png"
-                                alt=""
+                                alt="Bar chart showing software and apps as the largest general-enquiry category from January to June 2024; around one-third of service desk queries were how-to questions."
                                 caption="Employees submitting general enquiry requests were searching for answers that exist in knowledge base articles."
                             />
                         </div>
@@ -273,13 +250,13 @@ export default function CaseStudyContent() {
                     
                         <LightboxImage
                             src="/assets/case-studies/bp-genai/bp-discovery-persona-map.png"
-                            alt=""
+                            alt="Four-quadrant IT support persona map showing 63% of interviewees in the low-confidence Trier profile: willing to self-serve but often needing personal help."
                             caption=""
                         />
 
                         <LightboxImage
                             src="/assets/case-studies/bp-genai/bp-discovery-persona.png"
-                            alt=""
+                            alt="Trier persona profile: employees try self-service first but become frustrated by verification steps and difficult escalation; 80% read knowledge articles before contacting support."
                             caption="We categorised our interviewees based on our ITSM persona map –– 63% of session participants were understood to be a 'Trier' user."
                         />
 
@@ -306,7 +283,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-workshop.png"
-                                alt=""
+                                alt="Shift Left workshop board connecting five research findings with existing initiatives, provocations and stakeholder ideas for improving IT support."
                                 caption="Our virtual whiteboard across two workshop sessions provided perspectives and ideas."
                             />
                         </div>
@@ -372,7 +349,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-shift-left-diagram.png"
-                                alt=""
+                                alt="Shift Left model moving issue resolution from costly face-to-face support through virtual support towards self-service, where interaction costs and employee time are lower."
                                 caption="Exact figures regarding per interaction has been simplified for NDA purposes."
                             />
                         </div>
@@ -458,13 +435,13 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-ideation-1.png"
-                                alt=""
+                                alt="Reference collage of familiar AI search interfaces used to compare prompts, suggested queries, navigation and response patterns."
                                 caption="With considerations to Jakob's Law, we took inspiration from mature solutions on the public domain."
                             />
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-ideation-2.png"
-                                alt=""
+                                alt="Progression from annotated wireframes to a ServiceNow topic page with sidebar navigation, an AI summary, relevant articles and request forms."
                                 caption="I explored various UX patterns with our team using a mixture of low-fidelty to mid-fidelty wireframes."
                             />
                         </div>
@@ -545,7 +522,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-solution-1.png"
-                                alt=""
+                                alt="Annotated AI answer design showing concise task steps, a link to the source article, feedback controls and clear routes back to human support."
                                 caption=""
                             />
                         </div>
@@ -567,7 +544,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-user-flow.png"
-                                alt=""
+                                alt="User flow for AI-answer feedback: submit a query, add context if needed, receive an answer, rate it good or bad, and optionally explain a poor result."
                                 caption="I built out user flow diagrams to break down product features so our triad squad are aligned. This is an example of how a user submits LLM response feedback."
                             />                        
                         </div>
@@ -597,7 +574,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-solution-2.png"
-                                alt=""
+                                alt="Desktop AI support interface shown in light and dark themes, with conversation history, a sourced answer and a persistent search field."
                                 caption=""
                             />
                         </div>
@@ -623,7 +600,7 @@ export default function CaseStudyContent() {
 
                             <LightboxImage
                                 src="/assets/case-studies/bp-genai/bp-solution-3.png"
-                                alt=""
+                                alt="Accessibility annotations on the AI support interface highlighting colour contrast, readable line length, labelled controls and keyboard focus states."
                                 caption=""
                             />
                         </div>
@@ -683,7 +660,7 @@ export default function CaseStudyContent() {
 
                     <LightboxImage
                         src="/assets/case-studies/bp-genai/bp-testing-1.png"
-                        alt=""
+                                alt="Affinity map grouping usability findings into experience, security, question flow, navigation, content sharing, search relevance, language and phone-support themes."
                         caption="Myself and the other designer spent time synthesising and prioritising our early user insights to present back to our PM and developers."
                     />
 
@@ -805,14 +782,14 @@ export default function CaseStudyContent() {
 
                         <LightboxImage
                             src="/assets/case-studies/bp-genai/bp-impact-1.png"
-                            alt=""
+                                alt="Monthly service-desk interactions in 2025 fell from 6,900 at the May launch to 5,295 in December, with a temporary July spike during the CrowdStrike incident."
                             caption=""
                         />
 
                         <LightboxImage
                             src="/assets/case-studies/bp-genai/bp-impact-2.png"
-                            alt=""
-                            caption="The proportion of Priority 3 (low-complex) tickets dropped by ~24% relative to the total volume starting in May 2024 (MVP launch), effectively shifting left the workload or deflecting simple queries through our GenAI solution amongst other initiatives."
+                                alt="Monthly service-desk requests by complexity in 2025, showing low-priority requests declining from 1,848 at the May launch to 1,418 in December, excluding the July incident spike."
+                            caption="The proportion of Priority 3 (low-complexity) tickets dropped by approximately 24% relative to total volume after the May 2025 MVP launch, shifting work left by deflecting simpler queries through the GenAI solution and related initiatives."
                         />
                     </div>
                 </div>
@@ -860,7 +837,7 @@ export default function CaseStudyContent() {
                             </li>
 
                             <li>
-                                Complex, contextual queries still require refinement. GIGO.
+                                Complex, contextual queries still exposed the “garbage in, garbage out” (GIGO) principle: answer quality depended on the underlying knowledge content.
                             </li>
                             </ul>
 

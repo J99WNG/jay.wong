@@ -135,7 +135,7 @@ function SearchSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
     <ComponentSpecimen title="Search inputs" dark={dark}>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <label className={cn(searchClass, 'w-40')}><MagnifyingGlassIcon aria-hidden="true" /><span className="sr-only">Search</span><input className={inputClass} type="search" placeholder="Search" /></label>
-        <label className={cn(searchClass, 'w-full max-w-sm p-4')}><MagnifyingGlassIcon aria-hidden="true" /><span className="sr-only">What are you studying for?</span><input className={cn(inputClass, 'text-xl sm:text-2xl')} type="search" placeholder="What are you studying for?" /></label>
+        <label className={cn(searchClass, 'w-full max-w-sm p-4')}><MagnifyingGlassIcon size={20} aria-hidden="true" /><span className="sr-only">What are you studying for?</span><input className={cn(inputClass, 'text-xl sm:text-2xl')} type="search" placeholder="What are you studying for?" /></label>
       </div>
     </ComponentSpecimen>
   );

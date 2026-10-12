@@ -77,7 +77,7 @@ const Section = ({
         page-section relative isolate w-full mx-auto py-25
         print:min-h-0 print:overflow-visible
         ${isLanding
-          ? 'min-h-screen overflow-hidden content-center bg-bg-secondary md:pt-[calc(var(--header-height)+6rem)] md:pb-32'
+          ? 'min-h-screen overflow-hidden content-center bg-bg-secondary md:pt-[calc(var(--header-height)+2.25rem)] md:pb-25'
           : 'min-h-fit overflow-visible bg-bg-primary'}
         ${className}
       `}

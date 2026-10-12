@@ -6,7 +6,7 @@ import { BrandLanguageFigure, SelectedWorkDemos, TokenArchitectureFigure } from 
 import styles from '../mathsgenie.module.css';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
 import { mathsGenieDisplay } from '../fonts';
-import ProjectMetadata from '@/components/case-study/ProjectMetadata';
+import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
 
 const project = caseStudies.find((study) => study.slug === 'mathsgenie')!;
 
@@ -16,18 +16,9 @@ export default function CaseStudyContent() {
       <LightboxProvider>
         <CaseStudyLanding project={project} />
 
-        <Section id="snapshot">
-          <div className="section-grid">
-            <div className="section-heading">
-              <h2>
-                Snapshot<br />
-                <span className="section-subtitle">The “too long didn&apos;t read”.</span>
-              </h2>
-            </div>
-
-            <div className="section-content">
-              <div className="content-block content-flow">
-                <p className="meta-label">Problem</p>
+        <CaseStudySnapshot
+          problem={
+            <>
                 <p>MathsGenie was a newly acquired, content-only exam preparation platform used by around 300,000 students across the UK. The business wanted to align it with its other learning platforms through:</p>
                 <ul>
                   <li>AI tutoring.</li>
@@ -36,48 +27,48 @@ export default function CaseStudyContent() {
                   <li>A freemium model.</li>
                 </ul>
                 <p>In a seed-stage company searching for product–market fit, speed and commercial alignment led the brief, sometimes at the expense of customer needs. The working principle was 80/20: focus effort on the changes that could solve the most immediate problems.</p>
-              </div>
-
-              <div className="content-block content-flow">
-                <p className="meta-label">Outcome</p>
+            </>
+          }
+          intervention={
+            <>
                 <p>I led the relaunch from a static content product into an AI-layered, gamified learning experience. My focus was giving the AI tutor a distinct persona, supported by reusable interface and motion components that engineering could carry into the product.</p>
-              </div>
-
-              <div className="content-block content-flow">
-                <p className="meta-label">My contribution · Persona creation</p>
-                <p>I defined the tutor&apos;s visual identity, voice and interaction personality, shaping how the Genie appeared, spoke and responded. Working closely with engineering on conversational UI patterns, I carried that persona into the tutoring experience as it scaled to more than 40,000 messages a day.</p>
-              </div>
-
-              <div className="content-block content-flow">
-                <p className="meta-label">My contribution · Systems and motion</p>
                 <ul>
-                  <li>Unified the design systems of three subsidiary platforms into a single Figma source of truth.</li>
-                  <li>Aligned components and Tailwind tokens across three engineering teams while preserving market-specific needs.</li>
-                  <li>Built reusable Rive state machine components for onboarding and rewards.</li>
-                  <li>Gave engineers a single reference for motion states, reducing design-to-engineering handoff friction.</li>
+                  <li>
+                    <span className="font-medium text-text-primary">AI tutor persona.</span>{' '}
+                    I defined the tutor&apos;s visual identity, voice and interaction personality, shaping how the Genie appeared, spoke and responded. Working closely with engineering on conversational UI patterns, I carried that persona into the tutoring experience as it scaled to more than 40,000 messages a day.
+                  </li>
+                  <li>
+                    <span className="font-medium text-text-primary">Systems and motion.</span>
+                    <ul>
+                      <li>Unified the design systems of three subsidiary platforms into a single Figma source of truth.</li>
+                      <li>Aligned components and Tailwind tokens across three engineering teams while preserving market-specific needs.</li>
+                      <li>Built reusable Rive state machine components for onboarding and rewards.</li>
+                      <li>Gave engineers a single reference for motion states, reducing design-to-engineering handoff friction.</li>
+                    </ul>
+                  </li>
                 </ul>
-              </div>
-
-              <div className="content-block">
-                <p className="meta-label">Impact</p>
-
-                <MetricGrid columns={2} ariaLabel="MathsGenie relaunch impact">
+            </>
+          }
+          impactType="Measured impact"
+          impact={
+            <>
+                <MetricGrid columns={3} ariaLabel="MathsGenie relaunch impact">
                   <MetricCard value="242,000" label="Peak daily active users within two weeks of the relaunch." />
                   <MetricCard value="40,000+" label="Daily messages handled by the AI tutoring feature." />
+                  <MetricCard value="−30" label="NPS during exam season, revealing the cost of introducing too much change at once." />
                 </MetricGrid>
-
-                <p>NPS reached −30 during exam season, revealing the cost of introducing too much change at once.</p>
-              </div>
-
-              <ProjectMetadata
-                items={[
-                  { label: 'Platform', value: 'MathsGenie · UK EdTech' },
-                  { label: 'Focus', value: 'Product design, AI persona, design systems and motion' },
-                ]}
-              />
-            </div>
-          </div>
-        </Section>
+            </>
+          }
+          deliveryStatus={<p>Live. MathsGenie relaunched in 2026, with shared system patterns supporting the wider three-product family.</p>}
+          metadata={[
+            { label: 'Company', value: project.company },
+            { label: 'Industry', value: project.industry },
+            { label: 'Role', value: project.role },
+            { label: 'Timeline', value: '2026 · Relaunch' },
+            { label: 'Scale', value: '242,000 peak daily users, 40,000+ daily tutor messages and a shared system across three products.' },
+            { label: 'Team', value: 'Product and brand designer collaborating across three engineering teams.' },
+          ]}
+        />
 
         <div className="page-container"><hr className="divider" /></div>
 

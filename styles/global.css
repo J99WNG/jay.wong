@@ -398,7 +398,7 @@ figure > button:focus-visible {
   @apply max-w-[65ch];
 }
 
-.content-block > :where(p, ul, ol) + :where(p, ul, ol) {
+.content-block > :where( ul, ol) + :where(ul, ol) {
   @apply mt-1;
 }
 

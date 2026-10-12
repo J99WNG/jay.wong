@@ -5,7 +5,7 @@ import { LightboxProvider } from '@/components/case-study/LightboxGallery';
 import LightboxImage from '@/components/case-study/LightboxImage';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
-import ProjectMetadata from '@/components/case-study/ProjectMetadata';
+import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
 
 import BusinessProfileResults from './BusinessProfileResults';
 import ContextEvidence from './ContextEvidence';
@@ -29,33 +29,21 @@ export default function CaseStudyContent() {
       <article>
         <CaseStudyLanding project={project} />
 
-        <Section id="snapshot">
-          <div className="section-grid">
-            <div className="section-heading">
-              <h2>
-                Snapshot
-                <br />
-                <span className="section-subtitle">Old-school dining culture.</span>
-              </h2>
-            </div>
-
-            <div className="section-content">
-              <div className="content-block content-flow">
-                <p className="meta-label">Problem</p>
+        <CaseStudySnapshot
+          subtitle="Old-school dining culture."
+          problem={
                 <p>
                   新志興至尊燒鵝大王 (Supreme Roast Goose King) is a busy Ngau Chi Wan restaurant operating in the dai pai dong tradition with a simple POS, radios and handwritten paper. On peak evenings, Manager Lam has to answer booking calls, search a hand-drawn ledger, judge table availability and handle a crowd of walk-ins at the same time.
                 </p>
-              </div>
-
-              <div className="content-block content-flow">
-                <p className="meta-label">Intervention</p>
+          }
+          intervention={
                 <p>
                   I shaped a phased service transformation: make the restaurant easier to find, create trusted channels for customer communication, then design a lightweight operational layer for bookings, walk-ins and tables without replacing tools the staff already understood.
                 </p>
-              </div>
-
-              <div className="content-block">
-                <p className="meta-label">Observed digital outcomes · May–September 2026</p>
+          }
+          impactType="Measured impact"
+          impactContext="May–September 2026"
+          impact={
                 <MetricGrid columns={3} ariaLabel="Observed Google Business Profile outcomes">
                   <MetricCard value="45,063" label="Business Profile views" />
                   <MetricCard value="19,187" label="Search appearances" />
@@ -64,10 +52,8 @@ export default function CaseStudyContent() {
                   <MetricCard value="28.7%" label="Calls from Google" />
                   <MetricCard value="13.9%" label="Menu-content views" />
                 </MetricGrid>
-              </div>
-
-              <div className="content-block">
-                <p className="meta-label">Delivery status</p>
+          }
+          deliveryStatus={
                 <div className="grid gap-3">
                   <div className={`${styles.statusItem} flex items-start gap-3`} data-status="live">
                     <i aria-hidden="true" />
@@ -82,28 +68,28 @@ export default function CaseStudyContent() {
                     <div><strong>Roadmap</strong><p>Staff validation, WhatsApp integration, customer tickets and operational measurement.</p></div>
                   </div>
                 </div>
-              </div>
-
-              <ProjectMetadata
-                items={[
+          }
+          metadata={[
                   {
-                    label: 'Client',
+                    label: 'Company',
                     value: <>新志興至尊燒鵝大王<br />Supreme Roast Goose King</>,
                   },
+                  { label: 'Industry', value: project.industry },
                   {
                     label: 'Role',
                     value: <>Embedded Service Designer<br />Product Designer</>,
                   },
                   { label: 'Timeline', value: '2025–2026 · Ongoing' },
                   {
-                    label: 'Methods',
-                    value: 'Contextual observation, informal conversations, channel audit, service blueprinting, prototyping and implementation.',
+                    label: 'Scale',
+                    value: 'One high-volume Ngau Chi Wan restaurant spanning digital discovery, arrival and dinner service.',
                   },
-                ]}
-              />
-            </div>
-          </div>
-        </Section>
+                  {
+                    label: 'Team',
+                    value: '1 embedded designer (me), working with the restaurant manager and frontline staff.',
+                  },
+          ]}
+        />
 
         <Divider />
 

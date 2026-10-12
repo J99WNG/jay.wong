@@ -3,17 +3,23 @@ import Image from "next/image";
 import TextLink from "@/components/ui/TextLink";
 import type { CaseStudy } from "@/content/caseStudies";
 import { ArrowRightIcon, LockIcon } from '@phosphor-icons/react/ssr';
+import { iconDefaults } from '@/lib/iconography';
 
-export function CaseStudyCard({ project }: { project: CaseStudy }) {
-  const { slug, year, company, industry, title, tagline, badges, bentoImage, available } = project;
+type CaseStudyCardProps = {
+  project: CaseStudy;
+  layout?: 'responsive' | 'stacked';
+};
+
+export function CaseStudyCard({ project, layout = 'responsive' }: CaseStudyCardProps) {
+  const { slug, year, company, industry, title, tagline, badges, bentoImage, bentoAlt, available } = project;
   const accessRequestSubject = `Access request: ${title}`;
   const accessRequestBody = `Hi Jay,\n\nI've just come across your portfolio and would love to learn more about the case study “${title}”. Could you please share access with me?\n\nThanks!`;
   const accessRequestHref = `mailto:hello@jaywong.digital?subject=${encodeURIComponent(accessRequestSubject)}&body=${encodeURIComponent(accessRequestBody)}`;
 
   return (
-    <article className="card md:flex-row motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]">
+    <article className={`card h-full ${layout === 'responsive' ? 'md:flex-row' : ''} motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]`}>
       {/* Card Content */}
-      <div className="flex md:w-1/2 flex-col gap-2 p-6">
+      <div className={`flex flex-col gap-2 p-6 ${layout === 'responsive' ? 'md:w-1/2' : 'w-full'}`}>
         <p className="meta-label">
           {year} · {company} · {industry}
         </p>
@@ -34,18 +40,18 @@ export function CaseStudyCard({ project }: { project: CaseStudy }) {
         >
           {available ? 'View case study' : 'Request access'}
           {available ? (
-            <ArrowRightIcon aria-hidden="true" size={16} className="motion-icon-right" />
+            <ArrowRightIcon {...iconDefaults} aria-hidden="true" className="motion-icon-right" />
           ) : (
-            <LockIcon aria-hidden="true" size={16} weight="duotone" className="motion-icon-right" />
+            <LockIcon {...iconDefaults} aria-hidden="true" className="motion-icon-right" />
           )}
         </TextLink>
       </div>
 
       {/* Card Image */}
-      <div className="relative flex md:w-1/2 w-full aspect-video md:min-h-auto">
+      <div className={`relative flex w-full aspect-video ${layout === 'responsive' ? 'md:w-1/2 md:min-h-auto' : ''}`}>
         <Image 
           className="block w-full h-full object-cover"
-          src={bentoImage} alt={title} fill />
+          src={bentoImage} alt={bentoAlt} fill />
       </div>
     </article>
   );

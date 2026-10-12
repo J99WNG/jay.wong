@@ -52,7 +52,7 @@ export default function Button(props: ButtonProps) {
 
   // 2. Your Variants
   const variants = {
-    primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary",
+    primary: "text-text-inverse hover:text-text-inverse bg-inverse-secondary hover:bg-inverse-tertiary border border-(--color-steep-300) hover:border-(--color-steep-100)",
     secondary: "text-text-secondary bg-bg-secondary hover:bg-bg-primary border border-border-base hover:border-transparent",
     tertiary: "text-text-primary hover:text-text-on-accent bg-transparent hover:bg-accent-interactive border border-border-base hover:border-accent-interactive",
     nav: "text-(--color-steep-900) hover:text-(--color-steep-700) bg-(--color-neutral-300) hover:bg-(--color-neutral-100) border border-border-base hover:border-border-hover sm:py-1 mx-2 sm:m-0 rounded-2xl sm:rounded-xl text-[1.5rem] sm:text-base sm:shrink-0",

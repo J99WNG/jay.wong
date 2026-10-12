@@ -1,7 +1,9 @@
+'use client';
+
 import Section from '@/components/layout/Section';
 import CopyEmail from '@/components/ui/CopyEmail';
 import Link from "next/link";
-import { ArrowUpRightIcon, LinkedinLogoIcon, VideoCameraIcon } from '@phosphor-icons/react/ssr';
+import { ArrowUpRightIcon, LinkedinLogoIcon, VideoCameraIcon } from '@phosphor-icons/react';
 import StreamingText from '@/components/ui/StreamingText';
 
 export default function Contact() {

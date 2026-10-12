@@ -1,6 +1,7 @@
 import { CheckCircleIcon, InfoIcon, WarningCircleIcon, WarningIcon } from '@phosphor-icons/react/ssr';
 import { Fragment } from 'react';
 import { cn } from '@/lib/utils';
+import { iconDefaults } from '@/lib/iconography';
 import styles from '../mathsgenie.module.css';
 
 const primitiveTokens = [
@@ -99,11 +100,11 @@ export function TokenArchitectureFigure() {
         <section aria-labelledby="border-states-title">
           <h4 className="mb-3 text-base text-slate-50" id="border-states-title">Border states</h4>
           <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2" role="list">
-            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-slate-700 bg-slate-800 text-xs text-slate-300">Rest</li>
-            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-slate-500 bg-slate-800 text-xs text-slate-300">Hover</li>
-            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-indigo-400 bg-slate-800 text-xs text-slate-300 ring-2 ring-indigo-400/25">Focus</li>
-            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-red-700 bg-slate-800 text-xs text-slate-300">Invalid</li>
-            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-800 text-xs text-slate-300 opacity-50">Disabled</li>
+            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-slate-700 bg-slate-800 text-sm text-slate-300">Rest</li>
+            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-slate-500 bg-slate-800 text-sm text-slate-300">Hover</li>
+            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-indigo-400 bg-slate-800 text-sm text-slate-300 ring-2 ring-indigo-400/25">Focus</li>
+            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-red-700 bg-slate-800 text-sm text-slate-300">Invalid</li>
+            <li className="grid min-h-14 place-items-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-800 text-sm text-slate-300 opacity-50">Disabled</li>
           </ul>
         </section>
       </div>
@@ -113,7 +114,7 @@ export function TokenArchitectureFigure() {
         <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0" role="list">
           {feedbackStates.map(({ name, copy, icon: StateIcon, className }) => (
             <li key={name} className={cn('flex items-center gap-3 rounded-xl border p-3', className)}>
-              <StateIcon aria-hidden="true" size={16} weight="duotone" />
+              <StateIcon {...iconDefaults} aria-hidden="true" size={24} />
               <span className="flex flex-col text-sm"><strong className="text-base">{name}</strong>{copy}</span>
             </li>
           ))}

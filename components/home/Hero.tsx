@@ -195,7 +195,7 @@ export default function Hero() {
           }}
           className="flex-1 flex justify-center w-full h-full"
         >
-          <div className="relative isolate origin-center aspect-square min-h-[256px] md:scale-150">
+          <div className="relative isolate origin-center aspect-square min-h-64 md:scale-150">
             {/* Mount the continuously animated canvas only when the loader is gone. */}
             {isPageReady && (
               <FluidOrb
