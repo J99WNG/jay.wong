@@ -52,14 +52,14 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             {project.bentoImage3 && renderBentoItem(project.bentoImage3, project.bentoAlt3, 'w-full max-md:h-auto md:h-full')}
           </div>
 
-          <div className="mx-auto flex max-w-[65ch] flex-col gap-2">
-            <span className="text-center font-mono text-base sm:text-lg uppercase tracking-tight text-text-tertiary">
+          <div className="flex w-full max-w-[65ch] flex-col gap-2 text-left sm:mx-auto sm:text-center">
+            <span className="font-mono text-base uppercase tracking-tight text-text-tertiary sm:text-lg">
               {project.year} · {project.company} · {project.industry}
             </span>
 
-            <h1 className="text-center">{project.title}</h1>
+            <h1>{project.title}</h1>
 
-            <p className="text-[clamp(1.25rem,2vw,1.5rem)] text-center leading-8 md:leading-9 tracking-tight">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tight md:leading-9">
               {project.tagline}
             </p>
           </div>

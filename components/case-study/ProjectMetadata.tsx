@@ -18,7 +18,7 @@ type ProjectMetadataProps = {
  */
 export default function ProjectMetadata({ items, className }: ProjectMetadataProps) {
   return (
-    <dl className={cn('grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2', className)}>
+    <dl className={cn('project-metadata grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2', className)}>
       {items.map(({ label, value }) => (
         <div key={label} className="content-block">
           <dt className="meta-label">{label}</dt>

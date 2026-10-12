@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Alignment, Fit, Layout, RuntimeLoader, useRive } from '@rive-app/react-canvas';
 
-RuntimeLoader.setWasmUrl('/assets/runtime/rive-2.41.1.wasm');
+RuntimeLoader.setWasmUrl('/assets/runtime/rive-2.44.0.wasm');
 RuntimeLoader.setWasmFallbackUrl(null);
 
 type RivePlayerProps = {
@@ -62,7 +62,6 @@ export default function RivePlayer({ src, label, className = '', compact = false
     return () => {
       observer.disconnect();
       document.removeEventListener('visibilitychange', onVisibilityChange);
-      rive.pause();
     };
   }, [rive, reducedMotion]);
 

@@ -59,7 +59,7 @@ export function MetricCard({ value, label, note, className }: MetricCardProps) {
   return (
     <li
       className={cn(
-        'flex h-full min-w-0 flex-col justify-center rounded-2xl',
+        'flex h-full min-w-0 flex-col justify-start rounded-2xl',
         className,
       )}
     >

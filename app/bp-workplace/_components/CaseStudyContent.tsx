@@ -7,6 +7,7 @@ import BrandMark from '@/components/ui/BrandMark';
 import { BookOpenTextIcon, CompassIcon, MapPinIcon, TreeStructureIcon } from '@phosphor-icons/react/ssr';
 import StreamingText from '@/components/ui/StreamingText';
 import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
+import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
 import { iconDefaults } from '@/lib/iconography';
 
 const project = caseStudies.find((s) => s.slug === "bp-workplace")!;
@@ -24,10 +25,10 @@ export default function CaseStudyContent() {
                 intervention={<p>Designed a unified, outcome-led digital workplace in ServiceNow, consolidating 15+ service journeys and simplifying how employees find, raise and track workplace requests.</p>}
                 impactType="Measured impact"
                 impact={
-                            <ul>
-                                <li>+30% improvement in task success rate (usability testing).</li>
-                                <li>+80% improvement in perceived findability.</li>
-                            </ul>
+                    <MetricGrid columns={2} ariaLabel="Workplace usability impact">
+                        <MetricCard value="+30%" label="Task success rate in usability testing" />
+                        <MetricCard value="+80%" label="Perceived findability" />
+                    </MetricGrid>
                 }
                 deliveryStatus={<p>Proof of concept completed. Pune, Houston and London were approved as pilot sites for a phased global rollout; the pilot rollout had not yet begun.</p>}
                 metadata={[

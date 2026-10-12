@@ -187,6 +187,13 @@
     @apply font-mono text-sm tabular-nums;
   }
 
+  /* Metadata lists use utility classes for layout, so they sit outside the
+     unclassed semantic-list defaults above. Keep their markers on-brand. */
+  .project-metadata ul > li::marker,
+  .project-metadata ol > li::marker {
+    @apply text-accent-primary;
+  }
+
   /* Misc */
   code {
     @apply rounded-md border border-border-muted bg-bg-tertiary px-1.5 py-0.5 font-mono text-[0.875em] font-medium leading-normal text-text-primary;

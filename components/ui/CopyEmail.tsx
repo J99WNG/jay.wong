@@ -47,7 +47,7 @@ export default function CopyEmail() {
             <EnvelopeIcon aria-hidden="true" weight='duotone' size={32} />
 
             {/* Middle Dynamic Text Layout Container */}
-            <div className="relative text-left min-h-[1.5rem] flex items-center overflow-hidden">
+            <div className="relative text-left min-h-6 flex items-center overflow-hidden">
                 <span 
                     className={`motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] transform select-all motion-reduce:translate-y-0 ${
                         isCopied ? 'opacity-0 -translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'

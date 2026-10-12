@@ -26,7 +26,7 @@ export default function CaseStudyContent() {
                 impact={
                         <MetricGrid columns={2} ariaLabel="Impact six months after launch">
                             <MetricCard value="~1,200" label="Repeat tickets avoided" />
-                            <MetricCard value="+21%" label="Self-serve success rate" />
+                            <MetricCard value="42% → 63%" label="Self-service resolution" />
                             <MetricCard value="3.6 → 4.2" label="Improved CSAT score" />
                             <MetricCard value="−18%" label="Reduced resolution time" />
                         </MetricGrid>
