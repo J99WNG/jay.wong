@@ -93,13 +93,13 @@ function TimelineStep({
           style={{ scale: reduceMotion ? 1 : iconScale }}
           className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-3xl bg-bg-tertiary text-text-tertiary sm:size-16"
         >
-          <StrengthIcon aria-hidden="true" size={32} />
+          <StrengthIcon aria-hidden="true" size={32} weight="duotone" />
 
           <motion.span
             style={{ opacity: reduceMotion ? 1 : activeOpacity }}
             className="absolute inset-0 flex items-center justify-center rounded-3xl bg-accent-interactive text-text-on-accent"
           >
-            <StrengthIcon aria-hidden="true" size={32} />
+            <StrengthIcon aria-hidden="true" size={32} weight="duotone" />
           </motion.span>
         </motion.span>
 
