@@ -282,7 +282,8 @@ blockquote {
 /* ==================== Card ==================== */
 .card {
     @apply flex flex-col-reverse overflow-hidden w-full justify-center bg-bg-secondary rounded-2xl
-    border border-transparent hover:border-border-hover hover:shadow-lg active:border-border-hover active:shadow-lg focus-within:border-border-hover focus-within:shadow-lg;
+    border border-transparent hover:border-border-hover hover:shadow-lg active:border-border-hover active:shadow-lg focus-within:border-border-hover focus-within:shadow-lg
+    data-[touch-active=true]:border-border-hover data-[touch-active=true]:shadow-lg;
 
     transition: border-color var(--motion-duration-standard) var(--motion-ease-standard),
                 box-shadow var(--motion-duration-standard) var(--motion-ease-standard),
@@ -291,14 +292,16 @@ blockquote {
 
 :root.dark .card:hover,
 :root.dark .card:active,
-:root.dark .card:focus-within {
+:root.dark .card:focus-within,
+:root.dark .card[data-touch-active='true'] {
   box-shadow: none;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) .card:hover,
   :root:not(.light) .card:active,
-  :root:not(.light) .card:focus-within {
+  :root:not(.light) .card:focus-within,
+  :root:not(.light) .card[data-touch-active='true'] {
     box-shadow: none;
   }
 }
@@ -325,6 +328,7 @@ figure > button:focus-visible {
   border-radius: 0.75rem;
 
   /* Typography */
+  /* @apply font-sm uppercase tracking-wide leading-0 ; */
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
