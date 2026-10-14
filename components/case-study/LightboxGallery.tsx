@@ -252,7 +252,7 @@ function LightboxDialog({
       }}
     >
       <div
-        className="page-container grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]"
+        className="page-container grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden pb-[max(1rem,env(safe-area-inset-bottom))]"
         onClick={(event) => event.stopPropagation()}
       >
         <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -260,7 +260,14 @@ function LightboxDialog({
           {current.alt ? `: ${current.alt}` : ''}
         </p>
 
-        <figure className="m-0 grid min-h-0 grid-rows-[minmax(0,1fr)_auto] items-center gap-4 overflow-hidden">
+        <figure
+          data-lightbox-content={current.kind === 'content' ? '' : undefined}
+          className={`m-0 min-h-0 items-center gap-4 pt-[max(1rem,env(safe-area-inset-top))] ${
+            current.kind === 'image'
+              ? 'flex h-auto flex-col justify-center overflow-hidden'
+              : 'grid grid-rows-[minmax(0,1fr)_auto] overflow-auto'
+          }`}
+        >
           {current.kind === 'image' ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
@@ -269,27 +276,22 @@ function LightboxDialog({
               alt={current.alt}
               loading="eager"
               onLoad={() => setLoadedSrc(current.src)}
-              className={`block h-auto max-h-full w-auto max-w-full place-self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+              className={`block h-auto max-h-full min-h-0 w-auto max-w-full self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
                 loadedSrc === current.src
                   ? ''
                   : 'motion-safe:opacity-0 motion-safe:blur-xs motion-safe:scale-[0.99]'
               }`}
             />
-          ) : (
-            // This neutral wrapper is intentionally a div: the supplied live
-            // content owns its headings, sections, SVGs, media, and landmarks.
-            <div
-              data-lightbox-content
-              className="h-full w-full overflow-auto rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8"
-            >
-              {current.content}
-            </div>
-          )}
+          ) : current.content}
 
           {current.caption && (
             <figcaption
               id={captionId}
-              className="m-0 max-h-[25dvh] w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-sm text-neutral-100"
+              className={`m-0 w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-sm text-neutral-100 ${
+                current.kind === 'image'
+                  ? 'self-center'
+                  : ''
+              }`}
             >
               {current.caption}
             </figcaption>

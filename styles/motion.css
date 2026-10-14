@@ -115,6 +115,23 @@ html.theme-transition::view-transition-new(root) {
   transform: translateY(0);
 }
 
+/* Icon swaps use a short ease-out crossfade. The slight blur blends the two
+ * glyphs at the midpoint without adding animation state in each component. */
+.motion-icon-swap {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity 150ms var(--motion-ease-standard),
+    filter 150ms var(--motion-ease-standard),
+    rotate 150ms var(--motion-ease-standard),
+    scale 150ms var(--motion-ease-standard);
+}
+
+.motion-icon-swap[data-visible='false'] {
+  opacity: 0;
+  filter: blur(2px);
+}
+
 @media (min-width: 640px) {
   .mobile-nav-tray {
     visibility: visible;

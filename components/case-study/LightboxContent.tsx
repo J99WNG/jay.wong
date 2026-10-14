@@ -33,7 +33,7 @@ export default function LightboxContent({
 
   return (
     <figure ref={figureRef} className={className}>
-      <div className="group relative">
+      <div className="group relative h-full">
         {children}
         {/* Keep preview children non-interactive: this overlay is the single
             operable trigger. Interactive controls belong in expandedContent. */}

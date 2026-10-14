@@ -115,7 +115,7 @@ function EvidenceCard({ item }: { item: EvidenceItem }) {
       alt={`${item.title}. ${item.summary}`}
       caption={`${item.eyebrow}: ${item.summary}`}
       expandedContent={
-        <div className="grid gap-6">
+        <div className="grid gap-6 rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8">
           <div>
             <p className="eyebrow">{item.eyebrow} · Source evidence</p>
             <h2 className="mt-2">{item.title}</h2>

@@ -11,10 +11,11 @@ type ComponentSpecimenProps = {
 };
 
 export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpecimenProps) {
-  const stage = () => (
+  const stage = (fill = false) => (
     <div className={cn(
       styles.specimenStage,
-      'relative grid aspect-video w-full min-w-0 place-items-center overflow-hidden rounded-xl border p-6',
+      'relative grid w-full min-w-0 place-items-center overflow-hidden rounded-xl border p-6',
+      fill ? 'h-full min-h-0' : 'aspect-video',
       dark ? 'border-slate-700 bg-slate-900' : 'border-slate-200 bg-slate-100',
     )}>
       {children}
@@ -27,13 +28,13 @@ export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpec
       caption={hint ?? `${title} shown as an interactive production-aligned component.`}
       captionClassName={dark ? 'text-slate-300' : 'text-slate-600'}
       className={cn(
-        'overflow-hidden rounded-2xl border',
+        'border',
         dark ? 'border-slate-700 bg-slate-950 text-slate-50' : 'border-slate-200 bg-slate-50 text-slate-950',
       )}
       expandedContent={(
         <section className={cn(
           styles.systemPanel,
-          'grid min-h-full gap-5 rounded-2xl p-5 font-sans',
+          'grid aspect-video w-full max-w-5xl grid-rows-[auto_minmax(0,1fr)] justify-self-center gap-5 overflow-auto rounded-xl p-5 font-sans',
           dark ? 'bg-slate-950 text-slate-50' : 'bg-slate-50 text-slate-950',
         )} data-theme={dark ? 'dark' : 'light'} aria-label={`${title} expanded component specimen`}>
           <header>
@@ -41,7 +42,7 @@ export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpec
             <h2 className={cn(styles.displayType, styles.specimenHeading, 'mt-2 text-2xl font-semibold')}>{title}</h2>
             {hint && <p className={cn('mt-2 text-sm', dark ? 'text-slate-400' : 'text-slate-500')}>{hint}</p>}
           </header>
-          {stage()}
+          {stage(true)}
         </section>
       )}
     >

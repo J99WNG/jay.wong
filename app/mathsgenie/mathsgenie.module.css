@@ -119,13 +119,24 @@
   );
 }
 
+/* Keep dense product specimens legible within the fixed video frame on small
+   screens without adding per-specimen breakpoints or layout wrappers. */
+@media (max-width: 639px) {
+  .specimenStage > * {
+    transform: scale(.85);
+    transform-origin: center;
+  }
+}
+
 .systemPanel[data-theme='light'] {
   --mg-border-workshop-pattern: color-mix(in srgb, var(--mg-primary-700) 18%, transparent);
   --mg-heading-text: var(--mg-neutral-900);
 }
 
-/* Route-owned inline code treatment. */
-.mathsGenieRoute code {
+/* Product code styling belongs to specimen modules. Narrative case-study copy
+   continues to use the portfolio's global inline-code treatment. */
+.systemPanel code,
+.tokenArchitecture code {
   padding: .16em .42em;
   border: 1px solid var(--mg-code-border);
   border-radius: .4em;

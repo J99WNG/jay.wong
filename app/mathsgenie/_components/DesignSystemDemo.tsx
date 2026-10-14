@@ -41,7 +41,7 @@ export function DesignSystemDemo() {
           <p className="text-xs font-semibold tracking-wider text-indigo-500 uppercase">MathsGenie library</p>
           <p className={cn('mt-1 text-sm', dark ? 'text-slate-300' : 'text-slate-600')}>Reusable foundations for navigation, discovery, revision and feedback.</p>
         </div>
-        <div className={cn('flex gap-1 rounded-xl p-1', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Component preview theme">
+        <div className={cn('flex flex-row w-fit gap-1 rounded-xl p-1', dark ? 'bg-slate-800' : 'bg-slate-200')} role="group" aria-label="Component preview theme">
           {(['light', 'dark'] as const).map((theme) => (
             <button
               key={theme}

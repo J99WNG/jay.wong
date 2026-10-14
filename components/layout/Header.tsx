@@ -149,7 +149,7 @@ export default function Header() {
                     {/* Mobile control morphs between the menu and close icons. */}
                     <button
                         ref={menuToggleRef}
-                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 sm:hidden"
+                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 motion-safe:transition-[scale] motion-safe:duration-150 motion-safe:ease-[var(--motion-ease-standard)] motion-safe:active:scale-[0.97] sm:hidden"
                         type="button"
                         aria-expanded={isOpen}
                         aria-controls="nav-primary"
@@ -159,12 +159,14 @@ export default function Header() {
                         <ListIcon
                             size={24}
                             aria-hidden="true"
-                            className="absolute rotate-0 scale-100 text-neutral-100 opacity-100 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-180 group-aria-expanded:scale-50 group-aria-expanded:opacity-0 motion-reduce:rotate-0 motion-reduce:scale-100"
+                            data-visible={!isOpen}
+                            className={`motion-icon-swap absolute text-neutral-100 motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-180 scale-75' : 'rotate-0 scale-100'}`}
                         />
                         <XIcon
                             size={24}
                             aria-hidden="true"
-                            className="absolute -rotate-180 scale-50 text-neutral-100 opacity-0 motion-safe:[transition:rotate_var(--motion-duration-standard)_var(--motion-ease-spring),scale_var(--motion-duration-standard)_var(--motion-ease-spring),opacity_var(--motion-duration-fast)_var(--motion-ease-spring),color_var(--motion-duration-fast)_var(--motion-ease-spring)] group-aria-expanded:rotate-0 group-aria-expanded:scale-100 group-aria-expanded:opacity-100 motion-reduce:rotate-0 motion-reduce:scale-100"
+                            data-visible={isOpen}
+                            className={`motion-icon-swap absolute text-neutral-100 motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-0 scale-100' : '-rotate-180 scale-75'}`}
                         />
                     </button>
 

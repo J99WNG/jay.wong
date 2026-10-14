@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Section from '@/components/layout/Section';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -70,8 +70,10 @@ const companyLogos: CompanyLogo[] = [
 
 export default function Collaborations() {
 
+  const logoGridRef = useRef<HTMLUListElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeCompanyId, setActiveCompanyId] = useState<string | null>(null);
+  const [activeLogoId, setActiveLogoId] = useState<string | null>(null);
 
   const activeCompany = companyLogos.find(({ id }) => id === activeCompanyId);
 
@@ -101,6 +103,27 @@ export default function Collaborations() {
     positionTooltip(event.clientX, event.clientY);
   };
 
+  // Unlike :active, this touch state survives pointer-up until the next tap elsewhere.
+  useEffect(() => {
+    const clearActiveLogoOutsideGridCard = (event: PointerEvent) => {
+      if (event.pointerType === 'mouse') return;
+
+      const targetCard = event.target instanceof Element
+        ? event.target.closest('[data-logo-card]')
+        : null;
+
+      if (!targetCard || !logoGridRef.current?.contains(targetCard)) {
+        setActiveLogoId(null);
+        if (logoGridRef.current?.contains(document.activeElement)) {
+          (document.activeElement as HTMLElement).blur();
+        }
+      }
+    };
+
+    document.addEventListener('pointerdown', clearActiveLogoOutsideGridCard);
+    return () => document.removeEventListener('pointerdown', clearActiveLogoOutsideGridCard);
+  }, []);
+
   return (
     <Section id="collaborations">
       <div className="section-grid">
@@ -117,18 +140,23 @@ export default function Collaborations() {
               </StreamingText>
 
               <div className="logo-grid">
-                <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">
+                <ul ref={logoGridRef} className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0">
                   {companyLogos.map((company) => {
+                    const isTouchActive = activeLogoId === company.id;
                     const CardContent = (
                       <div className="relative group flex h-32 w-full items-center justify-center p-6">
                         {/* Logo Asset Wrapper */}
-                        <div className="relative h-16 w-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:group-hover:scale-105 motion-safe:group-active:scale-105 motion-safe:group-focus-within:scale-105">
+                        <div
+                          data-touch-active={isTouchActive || undefined}
+                          className="relative h-16 w-full motion-safe:transition-transform motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:group-hover:scale-105 motion-safe:group-active:scale-105 motion-safe:group-focus-within:scale-105 motion-safe:data-[touch-active=true]:scale-105"
+                        >
                           <Image
                             src={company.src}
                             alt={company.name}
                             fill
                             sizes="(max-width: 768px) 50vw, 33vw"
-                            className="object-contain grayscale opacity-80 motion-safe:transition-[filter,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus-within:filter-none group-focus-within:opacity-100"
+                            data-touch-active={isTouchActive || undefined}
+                            className="object-contain grayscale opacity-80 motion-safe:transition-[filter,opacity] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] group-hover:filter-none group-hover:opacity-100 group-active:filter-none group-active:opacity-100 group-focus-within:filter-none group-focus-within:opacity-100 data-[touch-active=true]:filter-none data-[touch-active=true]:opacity-100"
                           />
                         </div>
 
@@ -138,7 +166,12 @@ export default function Collaborations() {
                     return (
                       <li
                         key={company.id}
+                        data-logo-card
+                        data-touch-active={isTouchActive || undefined}
                         className="group relative card motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-standard)] pb-0"
+                        onPointerDown={(event) => {
+                          if (event.pointerType !== 'mouse') setActiveLogoId(company.id);
+                        }}
                         onPointerEnter={(event) => {
                           if (!company.roleDescription) return;
                           setActiveCompanyId(company.id);

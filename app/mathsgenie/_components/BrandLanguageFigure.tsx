@@ -20,7 +20,7 @@ const pillClass = 'rounded-full border border-slate-300 bg-white px-4 py-2 text-
 
 function BrandLanguageCanvas() {
   return (
-    <div className="overflow-hidden rounded-2xl bg-slate-100 font-sans">
+    <div className="mx-auto aspect-video w-full max-w-5xl overflow-auto rounded-xl bg-slate-100 font-sans">
       {/* Mobile uses normal flow so the labels and logos cannot collide. */}
       <div className="grid gap-6 p-6 sm:hidden">
         <ul className="m-0 grid list-none gap-5 p-0" aria-label="General Learning product family" role="list">
@@ -37,7 +37,7 @@ function BrandLanguageCanvas() {
 
       {/* The first two logos share a row and OnePrep takes the next row, keeping
           the product family close to the centre without overlapping. */}
-      <div className="relative hidden min-h-96 sm:block">
+      <div className="relative hidden h-full sm:block">
         <ul className="absolute inset-0 m-0 grid list-none grid-cols-2 place-content-center items-center gap-6 px-10 py-0" aria-label="General Learning product family" role="list">
           {brands.map((brand, index) => (
             <li key={brand.name} className={`flex justify-center ${index === 2 ? 'col-span-2' : ''}`}>
@@ -60,8 +60,8 @@ export function BrandLanguageFigure() {
     <MathsGenieGalleryFigure
       alt={alt}
       caption="Three General Learning platforms connected by character-led, geometric, playful and habit-forming design principles."
-      className="my-2 overflow-hidden rounded-2xl border border-border-muted"
-      expandedContent={<div className="grid min-h-full place-items-center"><div className="w-full max-w-5xl"><BrandLanguageCanvas /></div></div>}
+      className="my-2 border border-border-muted"
+      expandedContent={<BrandLanguageCanvas />}
     >
       <BrandLanguageCanvas />
     </MathsGenieGalleryFigure>

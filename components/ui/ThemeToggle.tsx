@@ -105,17 +105,29 @@ export default function ThemeToggle() {
 
   const nextTheme: Theme =
     theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
-  const ThemeIcon = themeIcons[theme];
 
   return (
     <Button
       variant="secondary"
-      className="min-h-11 min-w-11 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md"
+      className="min-h-11 min-w-11 px-3 py-2 rounded-full text-xs capitalize bg-bg-secondary hover:bg-bg-tertiary text-text-primary hover:border-border-hover shadow-md motion-safe:active:scale-[0.97]"
       onClick={cycleTheme}
       aria-label={`Theme: ${theme}. Switch to ${nextTheme} theme`}
       revealLabel={theme}
     >
-      <ThemeIcon aria-hidden="true" weight='duotone' />
+      <span className="relative inline-flex size-4 shrink-0" aria-hidden="true">
+        {(Object.entries(themeIcons) as [Theme, PhosphorIcon][]).map(([iconTheme, ThemeIcon]) => {
+          const isVisible = iconTheme === theme;
+
+          return (
+            <ThemeIcon
+              key={iconTheme}
+              data-visible={isVisible}
+              weight="duotone"
+              className={`motion-icon-swap absolute inset-0 motion-reduce:scale-100 ${isVisible ? 'scale-100' : 'scale-75'}`}
+            />
+          );
+        })}
+      </span>
     </Button>
   );
 }

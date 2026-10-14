@@ -40,7 +40,7 @@ export default function CopyEmail() {
         <>
         <button 
             onClick={handleCopy}
-            className="contact-item flex items-center gap-3 text-text-link hover:text-text-link-hover motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)]"
+            className="contact-item flex items-center gap-3 text-text-link hover:text-text-link-hover motion-safe:transition-[color,scale] motion-safe:duration-150 motion-safe:ease-[var(--motion-ease-standard)] motion-safe:active:scale-[0.97]"
             type="button"
             aria-label={`Copy email address ${email}`}
         >
@@ -68,12 +68,12 @@ export default function CopyEmail() {
 
             {/* Right Action Feedback Icon (Dual Nodes prevent text flicker structural layout shifts) */}
             <span className="relative inline-flex size-6" aria-hidden="true">
-                <CopyIcon size={24} aria-hidden="true" className={`absolute motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
-                    isCopied ? 'opacity-0 scale-75 rotate-45' : 'opacity-100 scale-100 rotate-0'
+                <CopyIcon size={24} aria-hidden="true" data-visible={!isCopied} className={`motion-icon-swap absolute motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                    isCopied ? 'scale-75 rotate-45' : 'scale-100 rotate-0'
                 }`} />
                 
-                <CheckIcon size={24} aria-hidden="true" className={`absolute text-status-success motion-safe:transition-[opacity,translate,rotate,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] transform motion-reduce:rotate-0 motion-reduce:scale-100 ${
-                    isCopied ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-45'
+                <CheckIcon size={24} aria-hidden="true" data-visible={isCopied} className={`motion-icon-swap absolute text-status-success motion-reduce:rotate-0 motion-reduce:scale-100 ${
+                    isCopied ? 'scale-100 rotate-0' : 'scale-75 -rotate-45'
                 }`} />
             </span>
         </button>

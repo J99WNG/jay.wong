@@ -34,7 +34,7 @@ export function MathsGenieGalleryFigure({
   });
 
   return (
-    <figure ref={figureRef} className={cn('group relative m-0', className)}>
+    <figure ref={figureRef} className={cn('group relative m-0 overflow-hidden rounded-xl', className)}>
       {children}
       <button
         type="button"

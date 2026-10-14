@@ -11,6 +11,7 @@ type RivePlayerProps = {
   label: string;
   className?: string;
   compact?: boolean;
+  aspectRatio?: 'video';
 };
 
 const reducedMotionQuery = '(prefers-reduced-motion: reduce)';
@@ -22,7 +23,13 @@ const subscribeToReducedMotion = (onChange: () => void) => {
 const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
 const getServerReducedMotion = () => false;
 
-export default function RivePlayer({ src, label, className = '', compact = false }: RivePlayerProps) {
+export default function RivePlayer({
+  src,
+  label,
+  className = '',
+  compact = false,
+  aspectRatio,
+}: RivePlayerProps) {
   const host = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
   const reducedMotion = useSyncExternalStore(
@@ -68,23 +75,21 @@ export default function RivePlayer({ src, label, className = '', compact = false
   return (
     <div
       ref={host}
-      className={`relative w-full overflow-hidden rounded-xl bg-[var(--mg-rive-surface-bg)] ${compact ? 'h-full min-h-[180px]' : ''} ${className}`}
+      className={`relative w-full overflow-hidden rounded-xl bg-[var(--mg-rive-surface-bg)] p-6 ${
+        aspectRatio === 'video'
+          ? 'aspect-video'
+          : compact ? 'h-full min-h-[180px]' : 'h-[300px]'
+      } ${className}`}
+      role="img"
+      aria-label={label}
     >
-      <div
-        className={`w-full p-6 ${compact ? 'h-full min-h-[180px]' : 'h-[300px]'}`}
-        role="img"
-        aria-label={label}
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-lg">
-          {failed ? (
-            <p className="grid h-full place-items-center text-center text-[var(--mg-rive-content)]">
-              This animation couldn&apos;t load.
-            </p>
-          ) : (
-            <RiveComponent className="h-full w-full" aria-hidden="true" />
-          )}
-        </div>
-      </div>
+      {failed ? (
+        <p className="grid h-full place-items-center text-center text-[var(--mg-rive-content)]">
+          This animation couldn&apos;t load.
+        </p>
+      ) : (
+        <RiveComponent className="h-full w-full" aria-hidden="true" />
+      )}
     </div>
   );
 }

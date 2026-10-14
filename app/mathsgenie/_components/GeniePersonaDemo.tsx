@@ -26,16 +26,14 @@ export function GeniePersonaDemo() {
   const persona = personas[selected];
 
   const canvas = (
-    <div className="flex aspect-video w-full flex-col gap-4 bg-bg-secondary p-4">
-      <div className="min-h-0 flex-1">
-        <RivePlayer
-          key={persona.file}
-          compact
-          className="h-full min-h-0 rounded-xl border-0"
-          src={`/assets/case-studies/mathsgenie/rive/${persona.file}.riv`}
-          label={`Genie ${persona.name.toLowerCase()} animation`}
-        />
-      </div>
+    <div className="mx-auto flex aspect-video w-full max-w-5xl flex-col gap-4 overflow-hidden rounded-xl bg-slate-100 p-4 text-slate-950">
+      <RivePlayer
+        key={persona.file}
+        compact
+        className="min-h-0 flex-1 rounded-xl border-0"
+        src={`/assets/case-studies/mathsgenie/rive/${persona.file}.riv`}
+        label={`Genie ${persona.name.toLowerCase()} animation`}
+      />
       <div className="flex shrink-0 flex-wrap justify-center gap-2" role="group" aria-label="Choose a Genie animation">
         {personas.map((item, index) => (
           <Button
@@ -43,7 +41,7 @@ export function GeniePersonaDemo() {
             type="button"
             variant="secondary"
             aria-pressed={selected === index}
-            className={selected === index ? 'ring-2 ring-current ring-inset' : undefined}
+            className={`border-slate-300 bg-white text-slate-950 hover:bg-slate-200 ${selected === index ? 'ring-2 ring-indigo-500 ring-inset' : ''}`}
             onClick={() => setSelected(index)}
           >
             {item.name}
@@ -57,8 +55,8 @@ export function GeniePersonaDemo() {
     <MathsGenieGalleryFigure
       alt={`Genie ${persona.name.toLowerCase()} animation and persona selector`}
       caption={persona.description}
-      className="mt-4 overflow-hidden rounded-2xl border border-border-muted bg-bg-secondary font-sans"
-      expandedContent={<div className="mx-auto grid min-h-full w-full max-w-5xl place-items-center">{canvas}</div>}
+      className="mt-4 border border-slate-300 bg-slate-100 font-sans"
+      expandedContent={canvas}
     >
       {canvas}
     </MathsGenieGalleryFigure>

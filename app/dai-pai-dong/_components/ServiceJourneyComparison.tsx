@@ -97,7 +97,7 @@ function JourneyFigure({ mode }: { mode: JourneyMode }) {
       alt={`${journey.eyebrow}: ${journey.title}`}
       caption={journey.takeaway}
       expandedContent={
-        <div className="grid gap-8">
+        <div className="grid gap-8 rounded-xl bg-bg-primary p-4 text-text-primary shadow-2xl sm:p-8">
           <header>
             <p className="eyebrow">{journey.eyebrow} · Service blueprint</p>
             <h2 className="mt-2">{journey.title}</h2>
