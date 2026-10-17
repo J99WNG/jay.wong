@@ -219,7 +219,7 @@ export default function Collaborations() {
           role="tooltip"
           id={`tooltip-${activeCompany.id}`}
           style={{ left: mousePos.x, top: mousePos.y }}
-          className="pointer-events-none fixed z-[10000] w-64 rounded-xl bg-bg-tertiary p-2 text-center shadow-xl ring-1 ring-white/10"
+          className="pointer-events-none fixed z-[10000] w-64 rounded-2xl bg-bg-tertiary p-4 text-left shadow-xl ring-1 ring-white/10"
         >
           <span className="mb-0.5 block font-semibold text-text-primary tracking-tight">{activeCompany.name}</span>
           <p className="text-xs leading-relaxed">{activeCompany.roleDescription}</p>

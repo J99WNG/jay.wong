@@ -34,11 +34,11 @@ export default function CaseStudyContent() {
                 <p>I led the relaunch from a static content product into an AI-layered, gamified learning experience. My focus was giving the AI tutor a distinct persona, supported by reusable interface and motion components that engineering could carry into the product.</p>
                 <ul>
                   <li>
-                    <span className="font-medium text-text-primary">AI tutor persona.</span>{' '}
+                    <span className="font-medium text-text-primary">AI tutor persona;</span>{' '}
                     I defined the tutor&apos;s visual identity, voice and interaction personality, shaping how the Genie appeared, spoke and responded. Working closely with engineering on conversational UI patterns, I carried that persona into the tutoring experience as it scaled to more than 40,000 messages a day.
                   </li>
                   <li>
-                    <span className="font-medium text-text-primary">Systems and motion.</span>
+                    <span className="font-medium text-text-primary">Systems and motion;</span>
                     <ul>
                       <li>Unified the design systems of three subsidiary platforms into a single Figma source of truth.</li>
                       <li>Aligned components and Tailwind tokens across three engineering teams while preserving market-specific needs.</li>

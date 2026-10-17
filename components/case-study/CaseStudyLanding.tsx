@@ -11,6 +11,8 @@ type CaseStudyLandingProps = {
 };
 
 export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
+  const { badges } = project;
+
   const hasRiveBento = [project.bentoImage2, project.bentoImage3]
     .some((src) => src?.endsWith('.riv'));
 
@@ -65,7 +67,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             {project.bentoImage3 && renderBentoItem(project.bentoImage3, project.bentoAlt3, project.bentoImage3.endsWith('.riv') ? 'w-full' : 'w-full max-md:h-auto md:h-full')}
           </div>
 
-          <div className="flex w-full max-w-[65ch] flex-col gap-2 text-left sm:mx-auto sm:text-center">
+          <div className="mx-auto flex w-full max-w-[65ch] flex-col items-center gap-2 text-center">
             <span className="font-mono text-base uppercase tracking-tight text-text-tertiary sm:text-lg">
               {project.year} · {project.company} · {project.industry}
             </span>
@@ -75,6 +77,12 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             <p className="text-[clamp(1.25rem,2vw,1.5rem)] leading-8 tracking-tight md:leading-9">
               {project.tagline}
             </p>
+
+            <div className="inline-flex w-fit gap-x-2 gap-y-3 mt-2 flex-wrap">
+              {badges.map((badge) => (
+                <p key={badge} className="badge">{badge}</p>
+              ))}
+            </div>
           </div>
         </div>
       </Section>

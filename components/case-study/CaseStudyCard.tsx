@@ -46,7 +46,7 @@ export function CaseStudyCard({ project, layout = 'responsive' }: CaseStudyCardP
       className={`card h-full ${layout === 'responsive' ? 'md:flex-row' : ''} motion-safe:focus-within:scale-104 motion-safe:hover:scale-104 motion-safe:active:scale-104 motion-safe:data-[touch-active=true]:scale-104 motion-safe:transition-[scale,border-color,box-shadow] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)]`}
     >
       {/* Card Content */}
-      <div className={`flex flex-col gap-2 p-6 ${layout === 'responsive' ? 'md:w-1/2' : 'w-full'}`}>
+      <div className={`flex flex-1 flex-col gap-2 p-6 ${layout === 'responsive' ? 'md:w-1/2' : 'w-full'}`}>
         <p className="meta-label">
           {year} · {company} · {industry}
         </p>
@@ -62,7 +62,7 @@ export function CaseStudyCard({ project, layout = 'responsive' }: CaseStudyCardP
         </div>
 
         <TextLink
-          className="mt-2 cursor-pointer justify-start gap-1"
+          className="mt-auto pt-3 cursor-pointer justify-start gap-1"
           href={available ? `/${slug}` : accessRequestHref}
         >
           {available ? 'View case study' : 'Request access'}

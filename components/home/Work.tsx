@@ -26,11 +26,16 @@ export default function Work() {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center gap-8 mt-10">
-                {caseStudies.map((project) => (
-                    <CaseStudyCard key={project.slug} project={project} />
+            <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2" aria-label="Featured case studies">
+                {caseStudies.map((project, index) => (
+                    <li key={project.slug} className={`flex min-w-0 ${index === 0 ? 'md:col-span-2' : ''}`}>
+                        <CaseStudyCard
+                            project={project}
+                            layout={index === 0 ? 'responsive' : 'stacked'}
+                        />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </Section>
     )
 };
