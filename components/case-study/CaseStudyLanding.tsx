@@ -67,7 +67,7 @@ export function CaseStudyLanding({ project }: CaseStudyLandingProps) {
             {project.bentoImage3 && renderBentoItem(project.bentoImage3, project.bentoAlt3, project.bentoImage3.endsWith('.riv') ? 'w-full' : 'w-full max-md:h-auto md:h-full')}
           </div>
 
-          <div className="mx-auto flex w-full max-w-[65ch] flex-col items-center gap-2 text-center">
+          <div className="mx-auto flex w-full max-w-[65ch] flex-col gap-2 items-start sm:items-center text-left sm:text-center">
             <span className="font-mono text-base uppercase tracking-tight text-text-tertiary sm:text-lg">
               {project.year} · {project.company} · {project.industry}
             </span>

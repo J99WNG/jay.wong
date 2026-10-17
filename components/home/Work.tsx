@@ -26,7 +26,10 @@ export default function Work() {
                 </div>
             </div>
 
-            <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2" aria-label="Featured case studies">
+            <ul
+                className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 [&>li>article>div]:transition-[filter] [&>li>article>div]:duration-[var(--motion-duration-standard)] [&>li>article>div]:ease-[var(--motion-ease-in-out)] [&:has(>li>article:is(:hover,:focus-within,[data-touch-active='true']))>li>article:not(:is(:hover,:focus-within,[data-touch-active='true']))>div]:grayscale"
+                aria-label="Featured case studies"
+            >
                 {caseStudies.map((project, index) => (
                     <li key={project.slug} className={`flex min-w-0 ${index === 0 ? 'md:col-span-2' : ''}`}>
                         <CaseStudyCard
