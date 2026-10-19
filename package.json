@@ -12,7 +12,7 @@
     "generate:favicons": "node --import tsx scripts/social-assets/generate-favicons.ts",
     "generate:og": "node --import tsx scripts/social-assets/generate-opengraph-image.tsx",
     "generate:social-assets": "npm run generate:favicons && npm run generate:og",
-    "prebuild": "npm run generate:social-assets",
+    "prebuild": "npm run generate:social-assets && npm run assets:check",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",

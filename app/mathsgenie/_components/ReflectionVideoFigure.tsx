@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { MathsGenieGalleryFigure } from './MathsGenieGalleryFigure';
 
-const videoSrc = '/assets/case-studies/mathsgenie/mathsgenie-reflection-2.mov';
+const videoSrc = '/assets/case-studies/mathsgenie/mathsgenie-reflection-2.mp4';
 const posterSrc = '/assets/case-studies/mathsgenie/mathsgenie-reflection-2-poster-landing.png';
 
 function ReflectionVideo({ expanded = false }: { expanded?: boolean }) {
@@ -21,9 +21,24 @@ function ReflectionVideo({ expanded = false }: { expanded?: boolean }) {
       return;
     }
 
-    void video.play().catch(() => {
-      // The landing frame remains visible if autoplay is unavailable.
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        void video.play().catch(() => {
+          // The poster remains visible if autoplay is unavailable.
+        });
+      } else {
+        video.pause();
+      }
+    }, {
+      rootMargin: '200px 0px',
     });
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+      video.pause();
+    };
   }, [shouldReduceMotion]);
 
   return (
@@ -31,20 +46,14 @@ function ReflectionVideo({ expanded = false }: { expanded?: boolean }) {
       <video
         ref={videoRef}
         className="block h-auto max-h-full w-full rounded-xl object-contain"
-        src={videoSrc}
-        autoPlay={shouldReduceMotion !== true}
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster={posterSrc}
         aria-label="The relaunched MathsGenie learning experience"
-        onCanPlay={(event) => {
-          if (shouldReduceMotion !== true) {
-            void event.currentTarget.play().catch(() => undefined);
-          }
-        }}
       >
+        <source src={videoSrc} type="video/mp4" />
         Your browser does not support embedded video.
       </video>
     </div>
