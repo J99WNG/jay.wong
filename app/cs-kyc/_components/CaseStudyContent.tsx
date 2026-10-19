@@ -3,7 +3,6 @@ import { LightboxProvider } from '@/components/case-study/LightboxGallery';
 import LightboxImage from '@/components/case-study/LightboxImage';
 import { caseStudies } from "@/content/caseStudies";
 import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
-import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
 import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
@@ -19,6 +18,7 @@ export default function CaseStudyContent() {
                 <CaseStudyLanding project={project} />
 
                 <CaseStudySnapshot
+                    project={project}
                     problem={<p>Relationship Managers (RM) at Credit Suisse had no single platform to manage client tasks, KYC deadlines, portfolio data and market intelligence. Everything lived across disconnected systems, pulling RMs away from valuable client-facing time and into unnecessary admin, costing up to 70% of their day.</p>}
                     intervention={<p>Designed RM Suite, a conceptual mobile solution bringing tasks, reminders, client profiles, live market data and portfolio access into one secure interface.</p>}
                     impactType="Projected impact"
@@ -36,15 +36,6 @@ export default function CaseStudyContent() {
                     }
                     deliveryStatus={<p>Proof-of-concept prototype completed, placing in the top three of 10 teams and validated by the Regional IT Head of Wealth Management Technology and a serving Relationship Manager. The projected productivity opportunity was not measured in production.</p>}
                     metadata={[
-                                    {
-                                        label: 'Company',
-                                        value: (
-                                            <span className="inline-flex items-center gap-2">
-                                                <BrandMark src="/assets/brands/creditsuisse-symbol.svg" size="sm" />
-                                                Credit Suisse
-                                            </span>
-                                        ),
-                                    },
                                     { label: 'Industry', value: project.industry },
                                     { label: 'Role', value: project.role },
                                     {

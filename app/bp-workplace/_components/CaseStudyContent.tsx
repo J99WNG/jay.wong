@@ -3,7 +3,6 @@ import { LightboxProvider } from '@/components/case-study/LightboxGallery';
 import LightboxImage from '@/components/case-study/LightboxImage';
 import { caseStudies } from "@/content/caseStudies";
 import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
-import BrandMark from '@/components/ui/BrandMark';
 import { BookOpenTextIcon, CompassIcon, MapPinIcon, TreeStructureIcon } from '@phosphor-icons/react/ssr';
 import StreamingText from '@/components/ui/StreamingText';
 import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
@@ -21,6 +20,7 @@ export default function CaseStudyContent() {
             <CaseStudyLanding project={project} />
 
             <CaseStudySnapshot
+                project={project}
                 problem={<p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>}
                 intervention={<p>Designed a unified, outcome-led digital workplace in ServiceNow to consolidate 15+ service journeys and replace Microsoft SharePoint touchpoints – simplifying licensing, reducing cloud storage costs and making workplace requests easier to find, raise and track.</p>}
                 impactType="Measured impact"
@@ -32,15 +32,6 @@ export default function CaseStudyContent() {
                 }
                 deliveryStatus={<p>Proof of concept completed. Pune, Houston and London were approved as pilot sites for a phased global rollout; the pilot rollout had not yet begun.</p>}
                 metadata={[
-                                {
-                                    label: 'Company',
-                                    value: (
-                                        <span className="inline-flex items-center gap-2">
-                                            <BrandMark src="/assets/brands/bp-helios-colour.svg" size="sm" />
-                                            bp plc
-                                        </span>
-                                    ),
-                                },
                                 { label: 'Industry', value: project.industry },
                                 { label: 'Role', value: project.role },
                                 {

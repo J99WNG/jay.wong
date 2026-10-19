@@ -30,6 +30,7 @@ export default function CaseStudyContent() {
         <CaseStudyLanding project={project} />
 
         <CaseStudySnapshot
+          project={project}
           subtitle="Old-school dining culture."
           problem={
                 <p>
@@ -70,10 +71,6 @@ export default function CaseStudyContent() {
                 </div>
           }
           metadata={[
-                  {
-                    label: 'Company',
-                    value: <>新志興至尊燒鵝大王<br />Supreme Roast Goose King</>,
-                  },
                   { label: 'Industry', value: project.industry },
                   {
                     label: 'Role',

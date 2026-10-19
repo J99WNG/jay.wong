@@ -42,7 +42,7 @@ export type CaseStudy = {
       slug: "mathsgenie",
       year: "2026",
       company: "General Learning (YC F24)",
-      logo: "",
+      logo: "/assets/brands/generallearning.png",
       industry: "EdTech",
       title: "Relaunching MathsGenie for 242,000 Daily Users",
       tagline: "Gave a 40,000-message-a-day AI tutor a personality and built a shared design system across three products.",

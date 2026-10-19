@@ -3,7 +3,6 @@ import { LightboxProvider } from '@/components/case-study/LightboxGallery';
 import LightboxImage from '@/components/case-study/LightboxImage';
 import { caseStudies } from "@/content/caseStudies";
 import { CaseStudyLanding } from "@/components/case-study/CaseStudyLanding";
-import BrandMark from '@/components/ui/BrandMark';
 import StreamingText from '@/components/ui/StreamingText';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
 import CaseStudySnapshot from '@/components/case-study/CaseStudySnapshot';
@@ -19,6 +18,7 @@ export default function CaseStudyContent() {
             <CaseStudyLanding project={project} />
 
             <CaseStudySnapshot
+                project={project}
                 problem={<p>High volumes of repeat, low-complexity IT tickets, driven by poor knowledge findability and low trust in self-serve channels, were increasing operational costs and reducing employee productivity.</p>}
                 intervention={<p>An AI-assisted self-serve experience that improved knowledge discovery, reduced ticket volume and shifted demand away from high-cost live support.</p>}
                 impactType="Measured impact"
@@ -33,15 +33,6 @@ export default function CaseStudyContent() {
                 }
                 deliveryStatus={<p>MVP launched in May 2025. The impact shown reflects the first six months after launch.</p>}
                 metadata={[
-                            {
-                                label: 'Company',
-                                value: (
-                                    <span className="inline-flex items-center gap-2">
-                                        <BrandMark src="/assets/brands/bp-helios-colour.svg" size="sm" />
-                                        bp plc
-                                    </span>
-                                ),
-                            },
                             { label: 'Industry', value: project.industry },
                             { label: 'Role', value: project.role },
                             {

@@ -18,6 +18,7 @@ export default function CaseStudyContent() {
         <CaseStudyLanding project={project} />
 
         <CaseStudySnapshot
+          project={project}
           problem={
             <>
                 <p>MathsGenie was a newly acquired, content-only exam preparation platform used by around 300,000 students across the UK. The business wanted to align it with its other learning platforms through:</p>
@@ -62,7 +63,6 @@ export default function CaseStudyContent() {
           }
           deliveryStatus={<p>Live. MathsGenie relaunched in 2026, with shared system patterns supporting the wider three-product family.</p>}
           metadata={[
-            { label: 'Company', value: project.company },
             { label: 'Industry', value: project.industry },
             { label: 'Role', value: project.role },
             { label: 'Timeline', value: '2026 · Relaunch' },

@@ -27,7 +27,7 @@ export default function BrandMark({
 
   return (
     <span
-      className={`inline-flex ${sizeClassName} shrink-0 items-center justify-center rounded-lg bg-bg-secondary p-1 align-middle${className ? ` ${className}` : ''}`}
+      className={`inline-flex ${sizeClassName} shrink-0 items-center justify-center rounded-md bg-bg-tertiary p-1 align-middle${className ? ` ${className}` : ''}`}
     >
       <Image
         src={src}

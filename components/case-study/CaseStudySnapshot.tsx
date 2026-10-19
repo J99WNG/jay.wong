@@ -2,10 +2,13 @@ import type { ReactNode } from 'react';
 
 import Section from '@/components/layout/Section';
 import ProjectMetadata, { type ProjectMetadataItem } from '@/components/case-study/ProjectMetadata';
+import BrandMark from '@/components/ui/BrandMark';
+import type { CaseStudy } from '@/content/caseStudies';
 
 type ImpactType = 'Measured impact' | 'Projected impact';
 
 type CaseStudySnapshotProps = {
+  project: Pick<CaseStudy, 'company' | 'logo'>;
   subtitle?: string;
   problem: ReactNode;
   intervention: ReactNode;
@@ -17,6 +20,7 @@ type CaseStudySnapshotProps = {
 };
 
 export default function CaseStudySnapshot({
+  project,
   subtitle = 'The “too long didn’t read”.',
   problem,
   intervention,
@@ -60,7 +64,20 @@ export default function CaseStudySnapshot({
             {deliveryStatus}
           </div>
 
-          <ProjectMetadata items={metadata} />
+          <ProjectMetadata
+            items={[
+              {
+                label: 'Company',
+                value: project.logo ? (
+                  <span className="inline-flex items-center gap-2">
+                    <BrandMark src={project.logo} size="sm" />
+                    {project.company}
+                  </span>
+                ) : project.company,
+              },
+              ...metadata,
+            ]}
+          />
         </div>
       </div>
     </Section>
