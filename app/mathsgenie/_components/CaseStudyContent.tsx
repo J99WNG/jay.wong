@@ -159,7 +159,7 @@ export default function CaseStudyContent() {
               <LightboxImage
                 src="/assets/case-studies/mathsgenie/mathsgenie-reflection-1.png"
                 alt="The original MathsGenie revision website before the relaunch"
-                caption="The original MathsGenie experience."
+                caption="The original MathsGenie experience prior to General Learning's acquisition."
                 imageClassName="object-contain"
               />
 

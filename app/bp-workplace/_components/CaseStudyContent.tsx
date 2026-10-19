@@ -22,7 +22,7 @@ export default function CaseStudyContent() {
 
             <CaseStudySnapshot
                 problem={<p>bp&apos;s workplace services were fragmented across SharePoint sites, regional portals and third-party tools. Colleagues struggled to find the right support, leading to inconsistent global experiences, misrouted tickets and unnecessary operational overhead.</p>}
-                intervention={<p>Designed a unified, outcome-led digital workplace in ServiceNow, consolidating 15+ service journeys and simplifying how employees find, raise and track workplace requests.</p>}
+                intervention={<p>Designed a unified, outcome-led digital workplace in ServiceNow to consolidate 15+ service journeys and replace Microsoft SharePoint touchpoints – simplifying licensing, reducing cloud storage costs and making workplace requests easier to find, raise and track.</p>}
                 impactType="Measured impact"
                 impact={
                     <MetricGrid columns={2} ariaLabel="Workplace usability impact">

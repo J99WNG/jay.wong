@@ -51,7 +51,7 @@ function ReflectionVideo({ expanded = false }: { expanded?: boolean }) {
         playsInline
         preload="metadata"
         poster={posterSrc}
-        aria-label="The relaunched MathsGenie learning experience"
+        aria-label="The relaunched MathsGenie learning experience (June 2026)"
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support embedded video.
@@ -63,8 +63,8 @@ function ReflectionVideo({ expanded = false }: { expanded?: boolean }) {
 export function ReflectionVideoFigure() {
   return (
     <MathsGenieGalleryFigure
-      alt="The relaunched MathsGenie learning experience"
-      caption="The relaunched MathsGenie experience."
+      alt="The relaunched MathsGenie learning experience (June 2026)"
+      caption="The relaunched MathsGenie learning experience (June 2026)"
       className="my-2"
       frameClassName="bg-bg-secondary"
       expandedContent={<ReflectionVideo expanded />}
