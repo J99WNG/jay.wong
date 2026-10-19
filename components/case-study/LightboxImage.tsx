@@ -53,6 +53,7 @@ export default function LightboxImage({
           rounded-xl
           border
           border-border-muted
+          bg-bg-secondary
           cursor-zoom-in
           ${fillContainer
             ? 'aspect-video md:aspect-auto md:h-full'

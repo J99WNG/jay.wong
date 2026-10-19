@@ -276,7 +276,7 @@ function LightboxDialog({
               alt={current.alt}
               loading="eager"
               onLoad={() => setLoadedSrc(current.src)}
-              className={`block h-auto max-h-full min-h-0 w-auto max-w-full self-center rounded-lg object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
+              className={`block h-auto max-h-full min-h-0 w-auto max-w-full self-center rounded-lg bg-bg-secondary object-contain opacity-100 blur-none scale-100 md:rounded-xl motion-safe:transition-[opacity,filter,scale] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-in-out)] ${
                 loadedSrc === current.src
                   ? ''
                   : 'motion-safe:opacity-0 motion-safe:blur-xs motion-safe:scale-[0.99]'

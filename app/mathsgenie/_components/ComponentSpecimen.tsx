@@ -26,8 +26,7 @@ export function ComponentSpecimen({ title, hint, children, dark }: ComponentSpec
     <MathsGenieGalleryFigure
       alt={`${title} component specimen from the MathsGenie design system`}
       caption={hint ?? `${title} shown as an interactive production-aligned component.`}
-      captionClassName={dark ? 'text-slate-300' : 'text-slate-600'}
-      className={cn(
+      frameClassName={cn(
         'border',
         dark ? 'border-slate-700 bg-slate-950 text-slate-50' : 'border-slate-200 bg-slate-50 text-slate-950',
       )}

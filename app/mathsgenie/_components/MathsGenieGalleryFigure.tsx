@@ -11,6 +11,7 @@ type MathsGenieGalleryFigureProps = {
   children: ReactNode;
   expandedContent?: ReactNode;
   className?: string;
+  frameClassName?: string;
   captionClassName?: string;
 };
 
@@ -24,6 +25,7 @@ export function MathsGenieGalleryFigure({
   children,
   expandedContent,
   className,
+  frameClassName,
   captionClassName,
 }: MathsGenieGalleryFigureProps) {
   const { figureRef, openLightbox } = useLightboxItem({
@@ -34,18 +36,24 @@ export function MathsGenieGalleryFigure({
   });
 
   return (
-    <figure ref={figureRef} className={cn('group relative m-0 overflow-hidden rounded-xl', className)}>
-      {children}
-      <button
-        type="button"
-        onClick={openLightbox}
-        aria-haspopup="dialog"
-        aria-label={`Expand figure: ${alt}`}
-        className="absolute top-3 right-3 z-20 grid size-10 cursor-zoom-in place-items-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-      >
-        <ArrowsOutIcon aria-hidden="true" />
-      </button>
-      {caption && <figcaption className={cn('px-4 pb-4', captionClassName)}>{caption}</figcaption>}
+    <figure ref={figureRef} className={cn('m-0 w-full min-w-0', className)}>
+      <div className={cn('relative w-full min-w-0 overflow-hidden rounded-xl', frameClassName)}>
+        {children}
+        <button
+          type="button"
+          onClick={openLightbox}
+          aria-haspopup="dialog"
+          aria-label={`Expand figure: ${alt}`}
+          className="absolute top-3 right-3 z-20 grid size-10 cursor-zoom-in place-items-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+        >
+          <ArrowsOutIcon aria-hidden="true" />
+        </button>
+      </div>
+      {caption && (
+        <figcaption>
+          {caption}
+        </figcaption>
+      )}
     </figure>
   );
 }

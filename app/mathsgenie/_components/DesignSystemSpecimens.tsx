@@ -64,7 +64,7 @@ const cardClass = (dark: boolean, active = false) => cn(
 );
 
 const cardTitleClass = cn(styles.displayType, 'w-full text-xl font-medium leading-tight');
-const paperPillClass = 'inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-2xl border px-3 py-2 text-base font-medium';
+const examPillClass = 'inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-2xl border px-3 py-2 text-base font-medium';
 
 function MathsGenieNavLogo({ dark }: { dark: boolean }) {
   return (
@@ -86,7 +86,7 @@ export function DesignSystemSpecimens(props: DesignSystemSpecimensProps) {
       <SearchSpecimen dark={props.dark} />
       <SegmentedControlSpecimen {...props} />
       <ButtonsAndCardsSpecimen {...props} />
-      <PaperPillsSpecimen dark={props.dark} />
+      <ExamPillsSpecimen dark={props.dark} />
       <CarouselAlertSpecimen {...props} />
       <SidebarSpecimen dark={props.dark} />
     </>
@@ -175,7 +175,7 @@ function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpeci
           <span className={cn('text-sm leading-5', dark ? 'text-slate-300' : 'text-slate-600')}>Revisit a recent lesson and continue your progress.</span><span className={buttonClass('secondary', dark)}>Revisit</span>
         </button>
         <article className={cardClass(dark)}>
-          <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Paper 1</span><strong className={cardTitleClass}>Thursday 14 May 2026</strong>
+          <span className={cn(examPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Exam 1</span><strong className={cardTitleClass}>Thursday 14 May 2026</strong>
           <span className={cn('text-sm', dark ? 'text-slate-300' : 'text-slate-600')}>9:00</span>
           <span className="mt-auto flex w-full items-center gap-3"><span className={cn(buttonClass('secondary', dark), 'flex-1')}>Revise</span><small className={cn('whitespace-nowrap', dark ? 'text-slate-300' : 'text-slate-600')}>11 days left</small></span>
         </article>
@@ -190,13 +190,13 @@ function ButtonsAndCardsSpecimen({ held, onToggleHeld, dark }: DesignSystemSpeci
   );
 }
 
-function PaperPillsSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
+function ExamPillsSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) {
   return (
-    <ComponentSpecimen title="Paper pills" dark={dark}>
+    <ComponentSpecimen title="Exam pills" dark={dark}>
       <div className="flex flex-wrap gap-3">
-        <span className={cn(paperPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Paper 1</span>
-        <span className={cn(paperPillClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')}><FileTextIcon aria-hidden="true" /> Paper 2</span>
-        <span className={cn(paperPillClass, 'border-amber-700 bg-amber-100 text-amber-800')}><FileTextIcon aria-hidden="true" /> Paper 3</span>
+        <span className={cn(examPillClass, 'border-indigo-700 bg-indigo-200 text-indigo-900')}><FileTextIcon aria-hidden="true" /> Exam 1</span>
+        <span className={cn(examPillClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')}><FileTextIcon aria-hidden="true" /> Exam 2</span>
+        <span className={cn(examPillClass, 'border-amber-700 bg-amber-100 text-amber-800')}><FileTextIcon aria-hidden="true" /> Exam 3</span>
       </div>
     </ComponentSpecimen>
   );
@@ -204,12 +204,12 @@ function PaperPillsSpecimen({ dark }: Pick<DesignSystemSpecimensProps, 'dark'>) 
 
 function CarouselAlertSpecimen({ alerts, onDismissAlert, onResetAlerts, dark }: DesignSystemSpecimensProps) {
   const dismissClass = 'grid size-7 shrink-0 cursor-pointer place-items-center rounded-full hover:bg-black/10';
-  const alertClass = 'flex min-h-10 items-center justify-between gap-2 border-y px-3 py-1.5 text-center text-sm';
+  const alertClass = 'flex min-h-10 items-center justify-between rounded-md gap-2 border-y px-3 py-1.5 text-center text-sm';
   const hasAlerts = Object.values(alerts).some(Boolean);
   return (
     <ComponentSpecimen title="Carousel alert" dark={dark}>
       <div className="w-full max-w-3xl">
-      {hasAlerts ? <div className="grid gap-1">
+      {hasAlerts ? <div className="grid gap-2">
         {alerts.welcome && <div className={cn(alertClass, 'border-cyan-800 bg-cyan-300 text-cyan-950')} role="status"><span>Welcome to the new MathsGenie! <u>Tell us what you think</u></span><button className={dismissClass} type="button" aria-label="Dismiss information alert" onClick={() => onDismissAlert('welcome')}><XIcon aria-hidden="true" /></button></div>}
         {alerts.subjects && <div className={cn(alertClass, 'border-indigo-900 bg-indigo-400 text-slate-950')} role="status"><span>We&apos;ve expanded the magic. <u>Find my subject</u></span><button className={dismissClass} type="button" aria-label="Dismiss product alert" onClick={() => onDismissAlert('subjects')}><XIcon aria-hidden="true" /></button></div>}
         {alerts.success && <div className={cn(alertClass, 'border-emerald-700 bg-emerald-100 text-emerald-800')} role="status"><span>Your revision plan has been saved.</span><button className={dismissClass} type="button" aria-label="Dismiss success alert" onClick={() => onDismissAlert('success')}><XIcon aria-hidden="true" /></button></div>}

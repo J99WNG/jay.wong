@@ -1,8 +1,9 @@
 import Section from '@/components/layout/Section';
 import { LightboxProvider } from '@/components/case-study/LightboxGallery';
+import LightboxImage from '@/components/case-study/LightboxImage';
 import { CaseStudyLanding } from '@/components/case-study/CaseStudyLanding';
 import { caseStudies } from '@/content/caseStudies';
-import { BrandLanguageFigure, SelectedWorkDemos, TokenArchitectureFigure } from '.';
+import { BrandLanguageFigure, ReflectionVideoFigure, SelectedWorkDemos, TokenArchitectureFigure } from '.';
 import styles from '../mathsgenie.module.css';
 import { MetricCard, MetricGrid } from '@/components/case-study/MetricCard';
 import { mathsGenieDisplay } from '../fonts';
@@ -155,6 +156,13 @@ export default function CaseStudyContent() {
               <h2>Reflection<br /><span className="section-subtitle">Too much change, too soon.</span></h2>
             </div>
             <div className="section-content">
+              <LightboxImage
+                src="/assets/case-studies/mathsgenie/mathsgenie-reflection-1.png"
+                alt="The original MathsGenie revision website before the relaunch"
+                caption="The original MathsGenie experience."
+                imageClassName="object-contain"
+              />
+
               <div className="content-block content-flow">
                 <h3>We got the pace and timing wrong</h3>
                 <p>We pushed too many changes at once during a critical exam season. Students went from a familiar, content-heavy revision site to:</p>
@@ -167,6 +175,9 @@ export default function CaseStudyContent() {
                 <p>We changed both how students studied and how they accessed the resources they relied on.</p>
                 <p>NPS reached −30. The usage figures showed the platform&apos;s reach, but the feedback exposed how disruptive the relaunch had been for students at a moment when continuity mattered.</p>
               </div>
+
+              <ReflectionVideoFigure />
+
               <div className="content-block content-flow">
                 <h3>What I would do differently</h3>
                 <p>As a product designer, I should have done more to manage expectations and influence the founders&apos; decisions with user feedback and research. I would bring evidence of students&apos; needs into scope and timing discussions earlier, making the trade-offs between commercial ambition and disruption explicit.</p>

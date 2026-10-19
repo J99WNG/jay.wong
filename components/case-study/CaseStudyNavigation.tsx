@@ -267,7 +267,7 @@ export default function CaseStudyNavigation() {
               ref={triggerRef}
               key="trigger"
               type="button"
-              className="flex h-fit max-w-full cursor-pointer items-center gap-2 rounded-xl py-1 pr-2 pl-1 text-left text-text-primary motion-safe:transition-[background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-bg-tertiary active:scale-[0.97] focus-visible:bg-bg-tertiary"
+              className="flex h-fit max-w-full cursor-pointer items-center gap-2 rounded-xl py-1 pr-2 pl-1 text-left text-text-primary motion-safe:transition-[background-color,scale] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] hover:bg-bg-tertiary active:scale-[0.97] focus-visible:bg-bg-tertiary"
               onClick={() => setOpen(true)}
               aria-expanded="false"
               aria-controls="case-study-sections"

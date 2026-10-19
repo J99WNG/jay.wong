@@ -55,7 +55,8 @@ export function GeniePersonaDemo() {
     <MathsGenieGalleryFigure
       alt={`Genie ${persona.name.toLowerCase()} animation and persona selector`}
       caption={persona.description}
-      className="mt-4 border border-slate-300 bg-slate-100 font-sans"
+      className="mt-4 font-sans"
+      frameClassName="border border-slate-300 bg-slate-100"
       expandedContent={canvas}
     >
       {canvas}

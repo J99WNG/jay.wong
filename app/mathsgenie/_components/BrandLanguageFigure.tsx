@@ -60,7 +60,8 @@ export function BrandLanguageFigure() {
     <MathsGenieGalleryFigure
       alt={alt}
       caption="Three General Learning platforms connected by character-led, geometric, playful and habit-forming design principles."
-      className="my-2 border border-border-muted"
+      className="my-2"
+      frameClassName="border border-border-muted"
       expandedContent={<BrandLanguageCanvas />}
     >
       <BrandLanguageCanvas />
