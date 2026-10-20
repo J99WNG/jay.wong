@@ -110,7 +110,7 @@ export default function Hero() {
                 /* Match the clock: invisible words reserve one stable slot while
                    animated words roll through an absolutely positioned layer. */
                 <span
-                  className="relative inline-grid h-[1.2em] overflow-hidden leading-[1.2] text-accent-primary font-mono tracking-tight"
+                  className="relative inline-grid h-[1.2em] overflow-hidden leading-[1.2] text-accent font-mono tracking-tight"
                 >
                   {heroContent.keywords.map((keyword) => (
                     <span
@@ -145,7 +145,7 @@ export default function Hero() {
               keeping multiline rhythm proportional without a custom clamp. */}
           <StreamingText
             startWhen={isPageReady}
-            className="m-0 inline-block text-lg text-text-tertiary/90 tracking-tight md:text-xl md:leading-8"
+            className="m-0 inline-block text-lg text-text-tertiary tracking-tight md:text-xl md:leading-8"
           >
             {heroContent.tagline}
           </StreamingText>

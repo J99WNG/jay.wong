@@ -232,7 +232,7 @@ export default function Collaborations() {
 
           <div className="section-content">
               <StreamingText className="lead">
-                I&apos;ve worked in teams fulfilling roles in product design, business analysis, strategy and systems architecture, turning complex problems into practical outcomes. That spans AI-assisted support for 87,000+ bp employees, global workplace services across 50+ locations, and an AI study companion supporting a learning platform with 242,000 daily users.
+                I&apos;ve worked in teams fulfilling responsibilities across product design, business analysis, strategy and systems architecture, turning complex problems into practical outcomes. That spans AI-assisted support for 87,000+ bp employees, global workplace services across 50+ locations, and an AI study companion supporting a learning platform with 242,000 daily users.
               </StreamingText>
 
               <div className="logo-grid">
@@ -384,7 +384,7 @@ export default function Collaborations() {
                     ease: motionEase.standard,
                   },
                 }}
-                className="relative overflow-hidden rounded-xl border border-border-hover bg-bg-tertiary"
+                className="relative overflow-hidden rounded-xl border border-border-base bg-bg-tertiary"
               >
                 <motion.div
                   initial={{

@@ -127,7 +127,7 @@ function compile(gl: WebGLRenderingContext, type: number, src: string) {
 
 const FluidOrb = ({
   size = 215,
-  color = 'var(--color-accent-primary)',
+  color = 'var(--color-accent)',
   backgroundColor = 'var(--color-bg-tertiary)',
   className,
   style,

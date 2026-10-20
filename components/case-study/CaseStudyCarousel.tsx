@@ -208,7 +208,7 @@ export default function CaseStudyCarousel({ projects }: CaseStudyCarouselProps) 
               >
                 {isActive && (
                   <span
-                    className="absolute inset-0 origin-left rounded-full bg-accent-interactive"
+                    className="absolute inset-0 origin-left rounded-full bg-accent"
                     style={{ transform: `scaleX(${progress})` }}
                   />
                 )}

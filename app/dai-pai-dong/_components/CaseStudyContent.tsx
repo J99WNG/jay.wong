@@ -254,7 +254,7 @@ export default function CaseStudyContent() {
                 </article>
               </div>
 
-              <div className="border-l-2 border-accent-primary pl-5">
+              <div className="border-l-2 border-accent pl-5">
                 <span className="eyebrow mb-3 block">Synthesis</span>
                 <p className="lead">
                   Reviewers value the restaurant’s character. The opportunity is to make that same experience easier to access and more consistent.

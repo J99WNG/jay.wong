@@ -24,12 +24,12 @@ const profile = {
 // theme primitives at generation time instead, keeping this PNG aligned whenever
 // a designer tweaks the OKLCH system in global.css.
 const colorTokenNames = {
-  background: '--color-neutral-100',
-  surface: '--color-neutral-300',
-  textPrimary: '--color-steep-900',
-  textSecondary: '--color-steep-300',
-  textTertiary: '--color-steep-100',
-  accent: '--color-orange-500',
+  background: '--color-porcelain-100', // #F9F8F8
+  surface: '--color-porcelain-300', // #F0EEEC
+  textPrimary: '--color-steep-900', // #0A0908
+  textSecondary: '--color-steep-300', // #423F3C
+  textTertiary: '--color-steep-100', // #64615E
+  accent: '--color-pekoe-700', // #924E35
 } as const;
 
 async function generateOpenGraphImage() {

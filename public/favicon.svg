@@ -1,4 +1,5 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="favicon-title">
+    <!-- Artwork tokens: Porcelain 100 #f9f8f8; Steep 900 #0a0908. -->
     <!-- Browsers do not expose link icons in the accessibility tree. The title
          still gives the SVG a useful name if it is opened or embedded directly. -->
     <title id="favicon-title">Jay Wong monogram</title>
@@ -9,7 +10,7 @@
            standards-based signal available inside an external SVG favicon. */
         @media (prefers-color-scheme: light) {
           .background { fill: #f9f8f8; }
-          .monogram { fill: #0c0b0a; }
+          .monogram { fill: #0a0908; }
         }
       </style>
       <clipPath id="favicon-frame">
@@ -22,7 +23,7 @@
     <g clip-path="url(#favicon-frame)">
       <!-- Explicit fills keep raster generators and legacy SVG viewers aligned.
            The adaptive SVG's media query overrides these dark-theme defaults. -->
-      <rect class="background" width="512" height="512" rx="72" fill="#0c0b0a" />
+      <rect class="background" width="512" height="512" rx="72" fill="#0a0908" />
       <g class="monogram" clip-path="url(#monogram-frame)" fill="#f9f8f8">
         <path d="M180.369 328H156.83L213.629 206.183C219.929 192.636 233.511 184 248.447 184H271.986L215.153 305.817C208.854 319.364 195.272 328 180.369 328Z" />
         <path d="M252.342 328H228.803L285.636 206.183C291.936 192.636 305.517 184 320.454 184H343.993L287.16 305.817C280.86 319.364 267.279 328 252.342 328Z" />

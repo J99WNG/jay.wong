@@ -119,10 +119,10 @@ export default function Clock() {
 
     return (
         <div className="inline-flex items-center gap-2 bg-bg-tertiary rounded-full px-3 py-0.5">
-            {/* Presence indicator: a static green core with a pulsing outer ring. */}
+            {/* Presence indicator: Matcha 500 #679F69 core with a Matcha 100 #B6D9B6 ring. */}
             <span className="relative flex size-2" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-green-100)] motion-safe:animate-ping" />
-                <span className="relative inline-flex size-2 rounded-full bg-[var(--color-green-500)]" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-matcha-100)] motion-safe:animate-ping" />
+                <span className="relative inline-flex size-2 rounded-full bg-[var(--color-matcha-500)]" />
             </span>
 
             <span className="m-0 inline-flex items-center gap-2 font-mono text-sm uppercase leading-none tracking-wide text-text-secondary">

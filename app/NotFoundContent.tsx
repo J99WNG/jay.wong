@@ -97,13 +97,13 @@ export default function NotFoundContent() {
               repeat: Infinity,
             }}
           >
-            <span className="h-16 w-4 rounded-full bg-accent-primary" />
-            <span className="h-16 w-4 rounded-full bg-accent-primary/70" />
-            <span className="h-16 w-4 rounded-full bg-accent-primary/40" />
+            <span className="h-16 w-4 rounded-full bg-accent" />
+            <span className="h-16 w-4 rounded-full bg-accent/70" />
+            <span className="h-16 w-4 rounded-full bg-accent/40" />
           </motion.div>
 
           <motion.div
-            className="absolute bottom-8 left-8 size-10 rounded-full bg-accent-primary"
+            className="absolute bottom-8 left-8 size-10 rounded-full bg-accent"
             animate={isPageReady && !shouldReduceMotion
               ? { x: [0, 8, 0], y: [0, -6, 0] }
               : { x: 0, y: 0 }}

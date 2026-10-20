@@ -11,8 +11,8 @@ const publicDirectory = path.join(projectRoot, 'public');
 // The favicon palette follows these two existing design tokens. Tweak their
 // OKLCH values in global.css, then run `npm run generate:favicons` (or build).
 // Every SVG, PNG and ICO below is regenerated from the same colors and geometry.
-const lightToken = '--color-neutral-100';
-const darkToken = '--color-steep-900';
+const lightToken = '--color-porcelain-100'; // #F9F8F8
+const darkToken = '--color-steep-900'; // #0A0908
 // This single value controls both the visible tile and its clipping boundary.
 const faviconRadius = 72;
 
@@ -41,6 +41,7 @@ async function generateFavicons() {
       : '';
   
     return `<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="favicon-title">
+    <!-- Artwork tokens: Porcelain 100 ${lightColor}; Steep 900 ${darkColor}. -->
     <!-- Browsers do not expose link icons in the accessibility tree. The title
          still gives the SVG a useful name if it is opened or embedded directly. -->
     <title id="favicon-title">Jay Wong monogram</title>

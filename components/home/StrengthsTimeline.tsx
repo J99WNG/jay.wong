@@ -97,7 +97,7 @@ function TimelineStep({
 
           <motion.span
             style={{ opacity: reduceMotion ? 1 : activeOpacity }}
-            className="absolute inset-0 flex items-center justify-center rounded-3xl bg-accent-interactive text-text-on-accent"
+            className="absolute inset-0 flex items-center justify-center rounded-3xl bg-accent text-text-on-accent"
           >
             <StrengthIcon aria-hidden="true" size={32} weight="duotone" />
           </motion.span>
@@ -111,7 +111,7 @@ function TimelineStep({
           >
             <motion.span
               style={{ scaleY: reduceMotion ? 1 : lineProgress }}
-              className="absolute inset-0 origin-top bg-accent-interactive"
+              className="absolute inset-0 origin-top bg-accent"
             />
           </span>
         )}

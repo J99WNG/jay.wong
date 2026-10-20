@@ -24,7 +24,7 @@ export default function PrototypeEmbed() {
     <div className="overflow-hidden rounded-2xl border border-border-base bg-bg-secondary shadow-xl">
       <div className="flex flex-col justify-between gap-3 border-b border-border-muted p-4 sm:flex-row sm:items-center">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="size-2 rounded-full bg-accent-primary" aria-hidden="true" />
+          <span className="size-2 rounded-full bg-accent" aria-hidden="true" />
           <strong>Interactive prototype</strong>
           <span className="text-xs text-text-tertiary">Sample data · not a live booking service</span>
         </div>
@@ -34,7 +34,7 @@ export default function PrototypeEmbed() {
       </div>
 
       <div
-        className="overflow-x-auto overscroll-x-contain bg-[radial-gradient(circle_at_top_left,color-mix(in_srgb,var(--color-accent-primary)_32%,transparent),transparent_42%),linear-gradient(135deg,#f4cda3_0%,#f9eadb_48%,#d9e8d9_100%)]"
+        className="overflow-x-auto overscroll-x-contain bg-[radial-gradient(circle_at_top_left,color-mix(in_srgb,var(--color-accent)_32%,transparent),transparent_42%),linear-gradient(135deg,#f4cda3_0%,#f9eadb_48%,#d9e8d9_100%)]"
         role="region"
         aria-label="Horizontally scrollable Huawei MatePad Mini prototype"
         tabIndex={0}

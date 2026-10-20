@@ -9,7 +9,8 @@ import Button from '../ui/Button';
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
 
-const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-neutral-100 motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-neutral-100/10 hover:text-neutral-500 focus-visible:bg-neutral-100/10 focus-visible:text-neutral-500 active:bg-neutral-100/15 active:text-neutral-500 motion-safe:active:scale-[0.98]';
+// Direct primitives: Porcelain 100 #F9F8F8, 500 #E3DDD7, 700 #BEB6AE.
+const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-(--color-porcelain-100) motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-(--color-porcelain-100)/10 hover:text-(--color-porcelain-500) focus-visible:bg-(--color-porcelain-100)/10 focus-visible:text-(--color-porcelain-500) active:bg-(--color-porcelain-100)/15 active:text-(--color-porcelain-500) motion-safe:active:scale-[0.98]';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -121,7 +122,7 @@ export default function Header() {
     return (
         <header className="fixed top-0 left-0 isolate z-(--layer-header) h-auto w-full pointer-events-none">
             <div className="page-container relative z-10">
-                {/* Primary nav surface: full-width at the top, then compact after scrolling. */}
+                    {/* Primary nav surface uses Steep 700 #151412, becoming translucent after scrolling. */}
                 <div ref={navSurfaceRef} id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl px-4 py-2.5 pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] sm:flex sm:h-16 sm:justify-between ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
                     {/* Brand mark doubles as a shortcut back to the top of the homepage. */}
                     <Link
@@ -135,7 +136,7 @@ export default function Header() {
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
-                            className="block h-8 w-auto fill-neutral-100 motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] group-hover:fill-neutral-700 group-focus-visible:fill-neutral-700 group-active:fill-neutral-700"
+                            className="block h-8 w-auto fill-(--color-porcelain-100) motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] group-hover:fill-(--color-porcelain-700) group-focus-visible:fill-(--color-porcelain-700) group-active:fill-(--color-porcelain-700)"
                         >
                             <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z" />
@@ -160,13 +161,13 @@ export default function Header() {
                             size={24}
                             aria-hidden="true"
                             data-visible={!isOpen}
-                            className={`motion-icon-swap absolute text-neutral-100 motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-180 scale-75' : 'rotate-0 scale-100'}`}
+                            className={`motion-icon-swap absolute text-(--color-porcelain-100) motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-180 scale-75' : 'rotate-0 scale-100'}`}
                         />
                         <XIcon
                             size={24}
                             aria-hidden="true"
                             data-visible={isOpen}
-                            className={`motion-icon-swap absolute text-neutral-100 motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-0 scale-100' : '-rotate-180 scale-75'}`}
+                            className={`motion-icon-swap absolute text-(--color-porcelain-100) motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-0 scale-100' : '-rotate-180 scale-75'}`}
                         />
                     </button>
 
@@ -181,7 +182,7 @@ export default function Header() {
                             {/* The content fades and de-focuses while the tray changes height;
                                 both directions use the same standard motion timing. */}
                             <div className="mobile-nav-content flex flex-col sm:gap-2 gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
-                                <ul className="flex list-none flex-col items-center justify-center gap-3 p-0 text-2xl font-light text-neutral-100 sm:mx-auto sm:my-0 sm:flex-row sm:text-base">
+                                <ul className="flex list-none flex-col items-center justify-center gap-3 p-0 text-2xl font-light text-(--color-porcelain-100) sm:mx-auto sm:my-0 sm:flex-row sm:text-base">
                                     <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
                                     <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>

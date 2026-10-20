@@ -52,7 +52,7 @@ function ProgressIndicator({ progress }: { progress: MotionValue<number> }) {
           pathLength="4"
           strokeLinecap="round"
           strokeWidth="3"
-          className="stroke-accent-interactive"
+          className="stroke-accent"
           style={{ pathLength: progress }}
         />
       </svg>
@@ -249,7 +249,7 @@ export default function CaseStudyNavigation() {
                       className={clsx(
                         'flex min-h-10 w-full items-center rounded-2xl px-3 py-2.5 text-sm leading-tight motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] focus-visible:outline-offset-[-3px]',
                         activeId === item.id
-                          ? 'font-medium text-accent-interactive'
+                          ? 'font-medium text-accent'
                           : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary focus-visible:bg-bg-tertiary focus-visible:text-text-primary',
                       )}
                       href={`#${item.id}`}

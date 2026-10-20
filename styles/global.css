@@ -15,32 +15,42 @@
 
   --header-height: 4rem; /* Match your header CSS height */
 
-  /* --- PRIMITIVE TOKENS --- */
-  --color-neutral-100: oklch(0.98 0.001 64); /* #F9F8F8 */
-  --color-neutral-300: oklch(0.96 0.004 64); /* #F4F1EF */
-  --color-neutral-500: oklch(0.92 0.010 64); /* #e9e3de */
-  --color-neutral-700: oklch(0.88 0.016 64); /* #dfd5cd */
-  --color-neutral-900: oklch(0.84 0.020 64); /* #D4C8BD */
+  /* --- PRIMITIVE TOKENS: PORCELAIN / LIGHT NEUTRALS --- */
+  /* Surface steps occupy 100–500; 700–900 support dark-theme text hierarchy. */
+  --color-porcelain-100: oklch(0.98 0.001 64); /* #F9F8F8 */
+  --color-porcelain-300: oklch(0.95 0.004 64); /* #F0EEEC */
+  --color-porcelain-500: oklch(0.90 0.010 64); /* #E3DDD7 */
+  --color-porcelain-700: oklch(0.78 0.014 64); /* #BEB6AE */
+  --color-porcelain-900: oklch(0.62 0.012 64); /* #8B857F */
 
-  --color-steep-100: oklch(0.33 0.008 56); /* #393431 */
-  --color-steep-300: oklch(0.27 0.007 56); /* #292623 */
-  --color-steep-500: oklch(0.22 0.005 56); /* #1C1A18 */
-  --color-steep-700: oklch(0.17 0.004 56); /* #110F0E */
-  --color-steep-900: oklch(0.15 0.003 56); /* #0C0B0A */
+  /* --- PRIMITIVE TOKENS: STEEP / DARK NEUTRALS --- */
+  /* A restrained warm hue keeps the scale neutral without feeling blue or brown. */
+  --color-steep-100: oklch(0.495 0.006 75); /* #64615E */
+  --color-steep-300: oklch(0.37 0.006 75); /* #423F3C */
+  --color-steep-500: oklch(0.24 0.005 75); /* #211F1D */
+  --color-steep-700: oklch(0.19 0.004 75); /* #151412 */
+  --color-steep-900: oklch(0.14 0.003 75); /* #0A0908 */
 
-  --color-green-100: oklch(0.85 0.06 130);
-  --color-green-500: oklch(0.65 0.10 140);
-  --color-green-900: oklch(0.45 0.05 150);
+  /* --- PRIMITIVE TOKENS: MATCHA / SUCCESS --- */
+  --color-matcha-100: oklch(0.85 0.060 145); /* #B6D9B6 */
+  --color-matcha-300: oklch(0.75 0.080 145); /* #8EBC8F */
+  --color-matcha-500: oklch(0.65 0.100 145); /* #679F69 */
+  --color-matcha-700: oklch(0.55 0.075 145); /* #557D56 */
+  --color-matcha-900: oklch(0.45 0.050 145); /* #445D44 */
 
-  --color-blue-100: oklch(0.665 0.082 270);
-  --color-blue-300: oklch(0.565 0.111 270);
-  --color-blue-500: oklch(0.465 0.139 270); /* #3f50a6 */
-  --color-blue-700: oklch(0.365 0.109 270);
-  --color-blue-900: oklch(0.265 0.079 270);
+  /* --- PRIMITIVE TOKENS: EARL GREY / LINKS AND FOCUS --- */
+  --color-earl-grey-100: oklch(0.665 0.082 270); /* #8092C7 */
+  --color-earl-grey-300: oklch(0.565 0.111 270); /* #5D71B7 */
+  --color-earl-grey-500: oklch(0.465 0.139 270); /* #3C51A6 */
+  --color-earl-grey-700: oklch(0.365 0.109 270); /* #293877 */
+  --color-earl-grey-900: oklch(0.265 0.079 270); /* #17214B */
 
-  --color-orange-300: oklch(0.7 0.133 40);
-  --color-orange-500: oklch(0.6 0.119 40);
-  --color-orange-700: oklch(0.5 0.099 40);
+  /* --- PRIMITIVE TOKENS: PEKOE / BRAND ACCENT --- */
+  --color-pekoe-100: oklch(0.80 0.080 40); /* #EBAD97 */
+  --color-pekoe-300: oklch(0.70 0.133 40); /* #E37F5C */
+  --color-pekoe-500: oklch(0.60 0.119 40); /* #BB6547 */
+  --color-pekoe-700: oklch(0.50 0.099 40); /* #924E35 */
+  --color-pekoe-900: oklch(0.40 0.075 40); /* #693827 */
 }
 
 /* Explicit class overrides for manual theme toggling */
@@ -53,39 +63,45 @@
 }
 
 @theme inline {
-  /* --- LAYOUT TOKENS --- */
+  /* --- LAYOUT --- */
   --container-page: 61.25rem;
 
-  /* --- SEMANTIC COLOR TOKENS --- */
-  /* Direct mapping from primitive tokens removes the middleman layer */
-  --color-bg-primary: light-dark(var(--color-neutral-100), var(--color-steep-900));
-  --color-bg-secondary: light-dark(var(--color-neutral-300), var(--color-steep-700));
-  --color-bg-tertiary: light-dark(var(--color-neutral-500), var(--color-steep-500));
+  /* --- SEMANTIC COLOURS: SURFACES --- */
+  /* Ordered from the page canvas to increasingly distinct nested surfaces. */
+  --color-bg-primary: light-dark(var(--color-porcelain-100), var(--color-steep-900)); /* #F9F8F8 / #0A0908 */
+  --color-bg-secondary: light-dark(var(--color-porcelain-300), var(--color-steep-700)); /* #F0EEEC / #151412 */
+  --color-bg-tertiary: light-dark(var(--color-porcelain-500), var(--color-steep-500)); /* #E3DDD7 / #211F1D */
 
-  --color-text-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
-  --color-text-secondary: light-dark(var(--color-steep-300), var(--color-neutral-300));
-  --color-text-tertiary: light-dark(var(--color-steep-100), var(--color-neutral-900));
+  /* --- SEMANTIC COLOURS: TEXT --- */
+  /* Opaque roles retain the same primary > secondary > tertiary hierarchy. */
+  --color-text-primary: light-dark(var(--color-steep-900), var(--color-porcelain-100)); /* #0A0908 / #F9F8F8 */
+  --color-text-secondary: light-dark(var(--color-steep-300), var(--color-porcelain-700)); /* #423F3C / #BEB6AE */
+  --color-text-tertiary: light-dark(var(--color-steep-100), var(--color-porcelain-900)); /* #64615E / #8B857F */
+  --color-text-link: light-dark(var(--color-earl-grey-500), var(--color-earl-grey-100)); /* #3C51A6 / #8092C7 */
+  --color-text-link-hover: light-dark(var(--color-earl-grey-700), var(--color-porcelain-100)); /* #293877 / #F9F8F8 */
+  --color-text-inverse: light-dark(var(--color-porcelain-100), var(--color-steep-900)); /* #F9F8F8 / #0A0908 */
+  --color-text-on-accent: light-dark(var(--color-porcelain-100), var(--color-steep-900)); /* #F9F8F8 / #0A0908 */
 
-  --color-text-link: light-dark(var(--color-blue-500), var(--color-blue-300));
-  --color-text-link-hover: light-dark(var(--color-blue-700), var(--color-blue-100));
-  --color-text-inverse: light-dark(var(--color-neutral-300), var(--color-steep-900));
-  --color-text-on-accent: light-dark(var(--color-neutral-100), var(--color-steep-900));
-  --color-status-success: light-dark(var(--color-green-900), var(--color-green-100));
-  --color-focus-ring: light-dark(var(--color-blue-500), var(--color-blue-100));
+  /* --- SEMANTIC COLOURS: BRAND AND STATUS --- */
+  /* One contrast-safe accent replaces the ambiguous primary/interactive split. */
+  --color-accent: light-dark(var(--color-pekoe-700), var(--color-pekoe-300)); /* #924E35 / #E37F5C */
+  --color-status-success: light-dark(var(--color-matcha-900), var(--color-matcha-500)); /* #445D44 / #679F69 */
 
-  --color-inverse-primary: light-dark(var(--color-steep-900), var(--color-neutral-100));
-  --color-inverse-secondary: light-dark(var(--color-steep-700), var(--color-neutral-300));
-  --color-inverse-tertiary: light-dark(var(--color-steep-500), var(--color-neutral-500));
+  /* --- SEMANTIC COLOURS: INVERSE SURFACES --- */
+  --color-inverse-primary: light-dark(var(--color-steep-900), var(--color-porcelain-100)); /* #0A0908 / #F9F8F8 */
+  --color-inverse-secondary: light-dark(var(--color-steep-700), var(--color-porcelain-300));
+  --color-inverse-tertiary: light-dark(var(--color-steep-500), var(--color-porcelain-500)); /* #211F1D / #E3DDD7 */
 
-  --color-accent-primary: light-dark(var(--color-orange-500), var(--color-orange-300));
-  --color-accent-interactive: light-dark(var(--color-orange-700), var(--color-orange-300));
+  /* --- SEMANTIC COLOURS: BORDERS AND FOCUS --- */
+  /* Muted/base are decorative; hover and focus meet 3:1 on their page surfaces. */
+  --color-border-muted: light-dark(var(--color-porcelain-500), var(--color-steep-500)); /* #E3DDD7 / #211F1D */
+  --color-border-base: light-dark(var(--color-porcelain-700), var(--color-steep-300)); /* #BEB6AE / #423F3C */
+  --color-border-hover: light-dark(var(--color-porcelain-900), var(--color-steep-100)); /* #8B857F / #64615E */
+  --color-focus-ring: light-dark(var(--color-earl-grey-500), var(--color-earl-grey-100)); /* #3C51A6 / #8092C7 */
 
-  --color-border-base: light-dark(var(--color-neutral-700), var(--color-steep-300));
-  --color-border-muted: light-dark(var(--color-neutral-500), var(--color-steep-500));
-  --color-border-hover: light-dark(var(--color-neutral-900), var(--color-steep-100));
-
-  --color-skeleton-base: light-dark(var(--color-neutral-500), var(--color-steep-500));
-  --color-skeleton-highlight: light-dark(var(--color-neutral-100), var(--color-steep-100));
+  /* --- SEMANTIC COLOURS: LOADING --- */
+  --color-skeleton-base: light-dark(var(--color-porcelain-500), var(--color-steep-500)); /* #E3DDD7 / #211F1D */
+  --color-skeleton-highlight: light-dark(var(--color-porcelain-100), var(--color-steep-100)); /* #F9F8F8 / #64615E */
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), system-ui, sans-serif;
@@ -101,7 +117,7 @@
 @layer base {
   /* ==================== Foundations ==================== */
   ::selection {
-    @apply bg-accent-interactive text-text-on-accent;
+    @apply bg-accent text-text-on-accent;
   }
 
   @view-transition {
@@ -109,7 +125,7 @@
   }
 
   html, body {
-    @apply overflow-x-hidden /* Prevent horizontal scroll on the root */ bg-bg-secondary w-full scrollbar-thumb-(--color-accent-primary);
+    @apply overflow-x-hidden /* Prevent horizontal scroll on the root */ bg-bg-secondary w-full scrollbar-thumb-(--color-accent);
   }
 
   body {
@@ -117,7 +133,7 @@
     overflow-x: clip;
     text-rendering: optimizeLegibility; 
 
-    @apply font-sans font-normal text-text-secondary/80 subpixel-antialiased tracking-normal;
+    @apply font-sans font-normal text-text-secondary subpixel-antialiased tracking-normal;
   }
 
   h1, h2, h3, h4 {
@@ -172,7 +188,7 @@
 
   ul:not([class]):not([role='list']) > li::marker,
   ol:not([class]):not([role='list']) > li::marker {
-    @apply text-accent-primary;
+    @apply text-accent;
   }
 
   ul:not([class]):not([role='list']) {
@@ -191,7 +207,7 @@
      unclassed semantic-list defaults above. Keep their markers on-brand. */
   .project-metadata ul > li::marker,
   .project-metadata ol > li::marker {
-    @apply text-accent-primary;
+    @apply text-accent;
   }
 
   /* Misc */
@@ -260,7 +276,7 @@ caption {
 
 /* ==================== Typography roles ==================== */
 .lead {
-  @apply mb-0 text-xl leading-8 font-[450] text-text-secondary/90;
+  @apply mb-0 text-xl leading-8 font-[450] text-text-secondary;
 }
 
 .meta-label {
@@ -268,7 +284,7 @@ caption {
 }
 
 .eyebrow {
-  @apply block font-mono text-sm leading-snug tracking-wide uppercase text-accent-interactive;
+  @apply block font-mono text-sm leading-snug tracking-wide uppercase text-accent;
 }
 
 .section-subtitle {
@@ -344,8 +360,8 @@ figure > button:focus-visible {
 }
 
 .badge:hover {
-  color: var(--color-accent-interactive);
-  border-color: var(--color-accent-interactive);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
   cursor: default;
 }
 
