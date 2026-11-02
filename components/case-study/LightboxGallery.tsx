@@ -287,7 +287,7 @@ function LightboxDialog({
           {current.caption && (
             <figcaption
               id={captionId}
-              className={`m-0 w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-sm text-neutral-100 ${
+              className={`m-0 w-full max-w-[65ch] justify-self-center overflow-y-auto text-center text-sm text-(--color-porcelain-100) ${
                 current.kind === 'image'
                   ? 'self-center'
                   : ''
@@ -301,7 +301,7 @@ function LightboxDialog({
         <div className="flex w-full shrink-0 flex-col items-center gap-3">
           {total > 1 && (
             <>
-              <p className="text-neutral-500 text-sm font-mono font-medium" aria-hidden="true">
+              <p className="text-(--color-porcelain-500) text-sm font-mono font-medium" aria-hidden="true">
                 {activeIndex + 1} / {total}
               </p>
 

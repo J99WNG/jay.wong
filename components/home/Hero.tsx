@@ -145,7 +145,7 @@ export default function Hero() {
               keeping multiline rhythm proportional without a custom clamp. */}
           <StreamingText
             startWhen={isPageReady}
-            className="m-0 inline-block text-lg text-text-tertiary tracking-tight md:text-xl md:leading-8"
+            className="m-0 inline-block text-lg text-text-secondary tracking-tight md:text-xl md:leading-8"
           >
             {heroContent.tagline}
           </StreamingText>

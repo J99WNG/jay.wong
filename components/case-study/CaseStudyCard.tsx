@@ -118,7 +118,7 @@ export function CaseStudyCard({ project, layout = 'responsive' }: CaseStudyCardP
             className="mt-auto pt-3 cursor-pointer justify-start gap-1"
             href={available ? `/${slug}` : accessRequestHref}
           >
-            {available ? 'View case study' : 'Request access'}
+            {available ? 'Read case study' : 'Request access'}
             {available ? (
               <ArrowRightIcon {...iconDefaults} aria-hidden="true" className="motion-icon-right" />
             ) : (

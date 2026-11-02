@@ -298,8 +298,8 @@ blockquote {
 /* ==================== Card ==================== */
 .card {
     @apply flex flex-col-reverse overflow-hidden w-full justify-center bg-bg-secondary rounded-2xl
-    border border-transparent hover:border-border-hover hover:shadow-lg active:border-border-hover active:shadow-lg focus-within:border-border-hover focus-within:shadow-lg
-    data-[touch-active=true]:border-border-hover data-[touch-active=true]:shadow-lg;
+    hover:shadow-lg active:shadow-lg focus-within:shadow-lg data-[touch-active=true]:shadow-lg
+    border border-transparent hover:border-border-muted active:border-border-muted focus-within:border-border-muted data-[touch-active=true]:border-border-muted;
 
     transition: border-color var(--motion-duration-standard) var(--motion-ease-standard),
                 box-shadow var(--motion-duration-standard) var(--motion-ease-standard),

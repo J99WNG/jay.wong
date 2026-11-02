@@ -10,7 +10,7 @@ const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
 
 // Direct primitives: Porcelain 100 #F9F8F8, 500 #E3DDD7, 700 #BEB6AE.
-const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-(--color-porcelain-100) motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-spring)] hover:bg-(--color-porcelain-100)/10 hover:text-(--color-porcelain-500) focus-visible:bg-(--color-porcelain-100)/10 focus-visible:text-(--color-porcelain-500) active:bg-(--color-porcelain-100)/15 active:text-(--color-porcelain-500) motion-safe:active:scale-[0.98]';
+const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-(--color-porcelain-100) motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] hover:bg-(--color-steep-300) hover:text-(--color-porcelain-500) focus-visible:bg-(--color-steep-300) focus-visible:text-(--color-porcelain-500) active:bg-(--color-steep-300) active:text-(--color-porcelain-300) motion-safe:active:scale-[0.98]';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
