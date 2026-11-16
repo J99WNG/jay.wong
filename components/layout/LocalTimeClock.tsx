@@ -4,10 +4,11 @@ import { memo, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { tickerMask, tickerTransition } from '@/lib/motion';
 
-const TIME_ZONE = 'Asia/Hong_Kong';
+const TIME_ZONE = 'Asia/Dubai';
+const UTC_OFFSET = '+04:00';
 const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-type HongKongTime = {
+type DubaiTime = {
     digits: string;
     dayPeriod: string;
 };
@@ -25,7 +26,7 @@ const formatter = new Intl.DateTimeFormat('en-US', {
     hour12: true,
 });
 
-function getHongKongTime(): HongKongTime {
+function getDubaiTime(): DubaiTime {
     // Keeping the time pieces separate gives the UI a predictable HH:MM:SS shape,
     // instead of depending on punctuation or spacing chosen by the browser.
     const parts = Object.fromEntries(
@@ -87,8 +88,8 @@ function DayPeriod({ value }: { value: string }) {
     );
 }
 
-export default function Clock() {
-    const [time, setTime] = useState<HongKongTime | null>(null);
+export default function LocalTimeClock() {
+    const [time, setTime] = useState<DubaiTime | null>(null);
     // Visitors who prefer reduced motion still see the correct time, without rolling.
     const reduceMotion = useReducedMotion() ?? false;
 
@@ -97,7 +98,7 @@ export default function Clock() {
             timeout: null,
             interval: null,
         };
-        const update = () => setTime(getHongKongTime());
+        const update = () => setTime(getDubaiTime());
         update();
 
         // Align updates with the wall-clock second so the roll stays punctual.
@@ -113,7 +114,7 @@ export default function Clock() {
     }, []);
 
     // The placeholder has the exact same structure as the live time, preventing
-    // a layout jump while the client gets its first Hong Kong timestamp.
+    // a layout jump while the client gets its first Dubai timestamp.
     const display = time ?? { digits: '00:00:00', dayPeriod: 'AM' };
     const readableTime = `${display.digits} ${display.dayPeriod}`;
 
@@ -126,11 +127,11 @@ export default function Clock() {
             </span>
 
             <span className="m-0 inline-flex items-center gap-2 font-mono text-sm uppercase leading-none tracking-wide text-text-secondary">
-                Hong Kong
+                Dubai, UAE
                 <time
                     id="clock-time"
-                    dateTime={time ? `${display.digits}${display.dayPeriod}` : undefined}
-                    aria-label={`${readableTime} Hong Kong time`}
+                    dateTime={time ? `${display.digits}${UTC_OFFSET}` : undefined}
+                    aria-label={`${readableTime} Dubai time`}
                     className="inline-flex min-w-max items-center tabular-nums"
                 >
                     {/* The animated treatment is decorative. The <time> label above

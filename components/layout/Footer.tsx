@@ -1,5 +1,5 @@
 'use client';
-import HKTClock from "./HKTClock";
+import LocalTimeClock from "./LocalTimeClock";
 
  
 
@@ -18,7 +18,7 @@ export default function Footer() {
                         © {currentYear} Jay Wong. Built by me + a bit of ai.
                     </p>
 
-                    <HKTClock />
+                    <LocalTimeClock />
                 </div>
             </div>
             
