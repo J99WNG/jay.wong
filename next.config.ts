@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: false,
   experimental: {
+    agentUpgrade: 'security',
     instantInsights: {
       validationLevel: 'warning',
     },
