@@ -15,6 +15,10 @@
   --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
   --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --motion-blur-base: 2px;
+  --motion-blur-standard: 4px;
+  --motion-blur-strong: 8px;
 }
 
 /* Shared entrances and directional icon cues. */
@@ -94,7 +98,7 @@ html.theme-transition::view-transition-new(root) {
 
 .mobile-nav-content {
   opacity: 0;
-  filter: blur(6px);
+  filter: blur(var(--motion-blur-strong));
   transform: translateY(-0.5rem);
   transition:
     opacity var(--motion-duration-standard) var(--motion-ease-in-out),
@@ -129,7 +133,7 @@ html.theme-transition::view-transition-new(root) {
 
 .motion-icon-swap[data-visible='false'] {
   opacity: 0;
-  filter: blur(2px);
+  filter: blur(var(--motion-blur-base));
 }
 
 @media (min-width: 640px) {

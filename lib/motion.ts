@@ -18,10 +18,18 @@ export const motionEase = {
   inOut: [0.65, 0, 0.35, 1],
 } as const;
 
+/* Blur is part of the motion amplitude, not the static backdrop treatment. */
+export const motionBlur = {
+  none: 'blur(0px)',
+  base: 'blur(2px)',
+  standard: 'blur(4px)',
+  strong: 'blur(8px)',
+} as const;
+
 export const motionStagger = {
-  characters: 0.02,
-  words: 0.025,
-  items: 0.15,
+  characters: 0.03,
+  words: 0.05,
+  items: 0.25,
 } as const;
 
 /* Shared rolling-slot motion used by the clock and rotating hero keyword. */

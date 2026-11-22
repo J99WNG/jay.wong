@@ -11,6 +11,7 @@ import {
   useSpring,
   type MotionValue,
 } from 'framer-motion';
+import { motionBlur } from '@/lib/motion';
 
 type NavigationItem = {
   id: string;
@@ -199,9 +200,9 @@ export default function CaseStudyNavigation() {
             <motion.div
               key="tray"
               id="case-study-sections"
-              initial={reduceMotion ? false : { opacity: 0, filter: 'blur(3px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(3px)' }}
+              initial={reduceMotion ? false : { opacity: 0, filter: motionBlur.standard }}
+              animate={{ opacity: 1, filter: motionBlur.none }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: motionBlur.standard }}
               transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
             >
               {/* Tray header and close control. */}
@@ -235,8 +236,8 @@ export default function CaseStudyNavigation() {
                   <motion.li
                     className="p-0"
                     key={item.id}
-                    initial={reduceMotion ? false : { opacity: 0, x: 8, filter: 'blur(2px)' }}
-                    animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                    initial={reduceMotion ? false : { opacity: 0, x: 8, filter: motionBlur.base }}
+                    animate={{ opacity: 1, x: 0, filter: motionBlur.none }}
                     transition={
                       reduceMotion
                         ? { duration: 0 }
@@ -272,9 +273,9 @@ export default function CaseStudyNavigation() {
               aria-expanded="false"
               aria-controls="case-study-sections"
               aria-label={`Open page sections. Current section: ${activeLabel}`}
-              initial={reduceMotion ? false : { opacity: 0, filter: 'blur(3px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(3px)' }}
+              initial={reduceMotion ? false : { opacity: 0, filter: motionBlur.standard }}
+              animate={{ opacity: 1, filter: motionBlur.none }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: motionBlur.standard }}
               transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
             >
               <ProgressIndicator progress={displayedProgress} />
@@ -282,9 +283,9 @@ export default function CaseStudyNavigation() {
                 <motion.span
                   key={activeId ?? 'sections'}
                   className="max-w-fit truncate whitespace-nowrap text-sm font-medium leading-none"
-                  initial={reduceMotion ? false : { opacity: 0, filter: 'blur(2px)' }}
-                  animate={{ opacity: 1, filter: 'blur(0px)' }}
-                  exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(2px)' }}
+                  initial={reduceMotion ? false : { opacity: 0, filter: motionBlur.base }}
+                  animate={{ opacity: 1, filter: motionBlur.none }}
+                  exit={reduceMotion ? { opacity: 0 } : { opacity: 0, filter: motionBlur.base }}
                   transition={reduceMotion ? { duration: 0 } : LAYER_TRANSITION}
                 >
                   {activeLabel}

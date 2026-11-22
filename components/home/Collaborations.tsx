@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import StreamingText from '@/components/ui/StreamingText';
 import { caseStudies } from '@/content/caseStudies';
-import { motionDelay, motionDuration, motionEase } from '@/lib/motion';
+import { motionBlur, motionDelay, motionDuration, motionEase } from '@/lib/motion';
 
 interface StandaloneCompany {
   id: string;
@@ -392,12 +392,12 @@ export default function Collaborations() {
                     x: shouldReduceMotion
                       ? 0
                       : tooltipPosition.origin.endsWith('left') ? -24 : 24,
-                    filter: shouldReduceMotion ? 'blur(0px)' : 'blur(4px)',
+                    filter: shouldReduceMotion ? motionBlur.none : motionBlur.standard,
                   }}
                   animate={{
                     opacity: 1,
                     x: 0,
-                    filter: 'blur(0px)',
+                    filter: motionBlur.none,
                     transition: {
                       delay: shouldReduceMotion ? 0 : motionDelay.short,
                       duration: shouldReduceMotion ? 0 : motionDuration.fast,
@@ -409,7 +409,7 @@ export default function Collaborations() {
                     x: shouldReduceMotion
                       ? 0
                       : tooltipPosition.origin.endsWith('left') ? -24 : 24,
-                    filter: shouldReduceMotion ? 'blur(0px)' : 'blur(4px)',
+                    filter: shouldReduceMotion ? motionBlur.none : motionBlur.standard,
                     transition: {
                       duration: shouldReduceMotion ? 0 : motionDuration.fast,
                       ease: motionEase.standard,

@@ -94,7 +94,7 @@ const Section = ({
         motion-safe:duration-[var(--motion-duration-slow)]
         motion-safe:ease-[var(--motion-ease-in-out)]
         print:opacity-100 print:blur-none print:transition-none
-        ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-sm'}
+        ${isVisible ? '' : 'motion-safe:opacity-0 motion-safe:blur-[var(--motion-blur-strong)]'}
       `}>
         {children}
       </div>
