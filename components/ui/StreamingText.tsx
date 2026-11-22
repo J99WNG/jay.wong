@@ -10,20 +10,26 @@ import {
   type ReactNode,
 } from 'react';
 import { motion, useInView, useReducedMotion, type Variants } from 'framer-motion';
-import { motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/motion';
+import { motionBlur, motionDelay, motionDuration, motionEase, motionStagger } from '@/lib/motion';
 
 type StreamingTextProps = ComponentPropsWithoutRef<'p'> & {
   children: ReactNode;
   startWhen?: boolean;
+  /** Keep the component semantic when the streamed copy is a page heading. */
+  as?: 'p' | 'h1';
+  /** Give screen readers one natural phrase when the visual content is animated. */
+  accessibleText?: ReactNode;
+  /** Offset the first streamed word so nearby content can reveal in sequence. */
+  startDelay?: number;
 };
 
 const wordVariants: Variants = {
-  hidden: { opacity: 0, filter: 'blur(1px)' },
-  visible: (index: number) => ({
+  hidden: { opacity: 0, filter: motionBlur.base },
+  visible: ({ index, startDelay }: { index: number; startDelay: number }) => ({
     opacity: 1,
-    filter: 'blur(0px)',
+    filter: motionBlur.none,
     transition: {
-      delay: motionDelay.short + index * motionStagger.words,
+      delay: startDelay + motionDelay.short + index * motionStagger.words,
       duration: motionDuration.standard,
       ease: motionEase.standard,
     },
@@ -37,6 +43,7 @@ function renderStreamingNode(
   nextWord: { current: number },
   isVisible: boolean,
   shouldReduceMotion: boolean,
+  startDelay: number,
 ): ReactNode {
   if (typeof node === 'string' || typeof node === 'number') {
     return String(node).split(/(\s+)/).map((part) => {
@@ -48,7 +55,7 @@ function renderStreamingNode(
           key={`stream-word-${index}`}
           data-stream-word
           className="inline-block"
-          custom={index}
+          custom={{ index, startDelay }}
           variants={wordVariants}
           initial={shouldReduceMotion ? false : 'hidden'}
           animate={isVisible ? 'visible' : 'hidden'}
@@ -62,14 +69,27 @@ function renderStreamingNode(
   if (!isValidElement(node)) return node;
 
   // Recurse through inline markup so emphasis and links keep their styling.
-  const element = node as ReactElement<{ children?: ReactNode }>;
+  const element = node as ReactElement<{
+    children?: ReactNode;
+    'data-stream-static'?: string;
+  }>;
+
+  // Leave interactive or independently animated content intact while the
+  // surrounding sentence streams. This is used by the hero keyword ticker.
+  if (element.props['data-stream-static'] !== undefined) return element;
   if (element.props.children === undefined) return element;
 
   return cloneElement(
     element,
     undefined,
     Children.map(element.props.children, (child) =>
-      renderStreamingNode(child, nextWord, isVisible, shouldReduceMotion),
+      renderStreamingNode(
+        child,
+        nextWord,
+        isVisible,
+        shouldReduceMotion,
+        startDelay,
+      ),
     ),
   );
 }
@@ -78,27 +98,43 @@ export default function StreamingText({
   children,
   className,
   startWhen = true,
-  ...paragraphProps
+  as = 'p',
+  accessibleText,
+  startDelay = 0,
+  ...textProps
 }: StreamingTextProps) {
-  const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const textRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion() ?? false;
-  const isInView = useInView(paragraphRef, { once: true, amount: 0.35 });
+  const isInView = useInView(textRef, { once: true, amount: 0.35 });
 
   // Optional gating lets above-the-fold copy wait for a loader or route transition
   // while every existing in-view usage keeps its original behaviour by default.
   const isVisible = shouldReduceMotion || (startWhen && isInView);
   const nextWord = { current: 0 };
+  const TextElement = as;
 
   return (
-    <p ref={paragraphRef} className={className} {...paragraphProps}>
-      {/* Assistive technology receives one natural paragraph, not 30 fragments. */}
-      <span className="sr-only">{children}</span>
+    <TextElement
+      ref={(node) => {
+        textRef.current = node;
+      }}
+      className={className}
+      {...textProps}
+    >
+      {/* Assistive technology receives one natural phrase, not many animated words. */}
+      <span className="sr-only">{accessibleText ?? children}</span>
 
       <span aria-hidden="true">
         {Children.map(children, (child) =>
-          renderStreamingNode(child, nextWord, isVisible, shouldReduceMotion),
+          renderStreamingNode(
+            child,
+            nextWord,
+            isVisible,
+            shouldReduceMotion,
+            startDelay,
+          ),
         )}
       </span>
-    </p>
+    </TextElement>
   );
 }
