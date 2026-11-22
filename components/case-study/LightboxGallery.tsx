@@ -154,6 +154,7 @@ function LightboxDialog({
   const captionId = useId();
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const preloadedImages = useRef(new Map<string, HTMLImageElement>());
   const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
 
   const requestClose = useCallback(() => {
@@ -183,6 +184,27 @@ function LightboxDialog({
       document.documentElement.style.overflow = previousRootOverflow;
     };
   }, []);
+
+  useEffect(() => {
+    const nearbyIndexes = [
+      activeIndex,
+      (activeIndex - 1 + total) % total,
+      (activeIndex + 1) % total,
+    ];
+
+    for (const index of nearbyIndexes) {
+      const item = items[index];
+      if (item?.kind !== 'image' || preloadedImages.current.has(item.src)) {
+        continue;
+      }
+
+      const image = new window.Image();
+      image.decoding = 'async';
+      image.src = item.src;
+      preloadedImages.current.set(item.src, image);
+      void image.decode().catch(() => undefined);
+    }
+  }, [activeIndex, items, total]);
 
   const handleTouchStart = (event: TouchEvent<HTMLDialogElement>) => {
     // Live content may implement its own horizontal gestures; only image
