@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { ArrowsOutIcon } from '@phosphor-icons/react';
 import { useLightboxItem } from '@/components/case-study/LightboxGallery';
+import ContentOverlayCTA from '@/components/ui/ContentOverlayCTA';
 
 type LightboxImageProps = {
   src: string;
@@ -77,24 +78,7 @@ export default function LightboxImage({
           `}
         />
 
-        <div aria-hidden="true" 
-          className="
-            absolute
-            inset-0
-            flex
-            items-center
-            justify-center
-            bg-black/20
-            backdrop-blur-xs
-            opacity-0
-            motion-safe:transition-opacity
-            motion-safe:duration-[var(--motion-duration-standard)]
-            motion-safe:ease-[var(--motion-ease-standard)]
-            group-hover:opacity-100
-          "
-        >
-          <ArrowsOutIcon aria-hidden="true" size={48} className="text-neutral-100" />
-        </div>
+        <ContentOverlayCTA><ArrowsOutIcon /></ContentOverlayCTA>
 
       </button>
 

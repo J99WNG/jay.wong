@@ -3,6 +3,7 @@
 import { ArrowsOutIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
 import { useLightboxItem } from '@/components/case-study/LightboxGallery';
+import ContentOverlayCTA from '@/components/ui/ContentOverlayCTA';
 import { cn } from '@/lib/utils';
 
 type MathsGenieGalleryFigureProps = {
@@ -44,13 +45,13 @@ export function MathsGenieGalleryFigure({
           onClick={openLightbox}
           aria-haspopup="dialog"
           aria-label={`Expand figure: ${alt}`}
-          className="absolute top-3 right-3 z-20 grid size-10 cursor-zoom-in place-items-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+          className="group absolute right-3 bottom-3 z-20 size-10 cursor-zoom-in border-0 bg-transparent p-0"
         >
-          <ArrowsOutIcon aria-hidden="true" />
+          <ContentOverlayCTA className="inset-0"><ArrowsOutIcon /></ContentOverlayCTA>
         </button>
       </div>
       {caption && (
-        <figcaption>
+        <figcaption className={captionClassName}>
           {caption}
         </figcaption>
       )}

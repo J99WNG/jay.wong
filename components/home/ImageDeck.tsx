@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
+import { ArrowClockwiseIcon, PlayIcon } from "@phosphor-icons/react";
+import ContentOverlayCTA from "@/components/ui/ContentOverlayCTA";
 
 const cardBase =
   "group/card absolute aspect-[4/3] w-[72%] origin-center cursor-pointer touch-manipulation overflow-hidden rounded-xl border border-border-muted bg-bg-secondary p-0 shadow-xl motion-safe:transition-[rotate,scale,box-shadow,border-color] motion-safe:duration-[var(--motion-duration-slow)] motion-safe:ease-[var(--motion-ease-spring)] motion-safe:will-change-[rotate,scale] hover:z-30 motion-safe:hover:rotate-0 motion-safe:hover:scale-[1.04] hover:border-border-hover hover:shadow-2xl focus-visible:z-30 motion-safe:focus-visible:rotate-0 motion-safe:focus-visible:scale-[1.04] focus-visible:border-border-hover data-[active=true]:z-30 motion-safe:data-[active=true]:rotate-0 motion-safe:data-[active=true]:scale-[1.04] data-[active=true]:border-border-hover data-[active=true]:shadow-2xl sm:w-[56%] md:w-[48%]";
@@ -116,7 +118,7 @@ export default function ImageDeck() {
             void playWorkshopVideo(videoStatus === "error");
           }
         }}
-        className={`${cardBase} left-[14%] top-1 z-20 rotate-[2.5deg] sm:left-[22%] md:left-[26%]`}
+        className={`${cardBase} group left-[14%] top-1 z-20 rotate-[2.5deg] sm:left-[22%] md:left-[26%]`}
       >
         <video
           ref={videoRef}
@@ -147,14 +149,9 @@ export default function ImageDeck() {
         />
 
         {videoStatus !== "playing" && (
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute right-3 bottom-3 z-10 flex size-9 items-center justify-center rounded-full bg-bg-primary/90 text-text-primary shadow-md backdrop-blur-sm"
-          >
-            <span className="material-symbols-rounded" translate="no">
-              {videoStatus === "error" ? "refresh" : "play_arrow"}
-            </span>
-          </span>
+          <ContentOverlayCTA>
+            {videoStatus === "error" ? <ArrowClockwiseIcon /> : <PlayIcon />}
+          </ContentOverlayCTA>
         )}
       </button>
 
