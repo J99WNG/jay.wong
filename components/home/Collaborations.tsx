@@ -239,7 +239,7 @@ export default function Collaborations() {
                 <ul
                   ref={logoGridRef}
                   role="list"
-                  className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 list-none ps-0"
+                  className="mx-auto grid max-w-5xl grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 list-none ps-0"
                 >
                   {collaborations.map((company) => {
                     const isTouchActive = activeLogoId === company.id;
