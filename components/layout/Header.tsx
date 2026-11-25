@@ -9,8 +9,7 @@ import Button from '../ui/Button';
 const HOME_PATH = '/';
 type ScrollTarget = 'top' | 'about' | 'collaborations' | 'work' | 'contact';
 
-// Direct primitives: Porcelain 100 #F9F8F8, 500 #E3DDD7, 700 #BEB6AE.
-const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-(--color-porcelain-100) motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] hover:bg-(--color-steep-300) hover:text-(--color-porcelain-500) focus-visible:bg-(--color-steep-300) focus-visible:text-(--color-porcelain-500) active:bg-(--color-steep-300) active:text-(--color-porcelain-300) motion-safe:active:scale-[0.98]';
+const NAV_LINK_STYLES = 'inline-flex h-auto w-full items-center rounded-xl px-3 py-2 text-inherit motion-safe:transition-[color,background-color,transform] motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] motion-safe:active:scale-[0.98]';
 const scrollBehavior = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -22,6 +21,13 @@ export default function Header() {
     const pendingTarget = useRef<ScrollTarget | null>(null);
     const menuToggleRef = useRef<HTMLButtonElement>(null);
     const navSurfaceRef = useRef<HTMLDivElement>(null);
+    const hasSurface = scrolled || isOpen;
+    const navHoverColorStyles = hasSurface
+        ? 'hover:text-(--color-porcelain-500) focus-visible:text-(--color-porcelain-500) active:text-(--color-porcelain-500)'
+        : 'hover:text-text-secondary focus-visible:text-text-secondary active:text-text-secondary';
+    const navLinkSurfaceStyles = hasSurface
+        ? 'hover:bg-(--color-steep-300) focus-visible:bg-(--color-steep-300) active:bg-(--color-steep-300)'
+        : 'hover:bg-bg-secondary focus-visible:bg-bg-secondary active:bg-bg-tertiary';
 
     const scrollToTarget = useCallback((target: ScrollTarget) => {
         if (target === 'top') {
@@ -120,15 +126,15 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 isolate z-(--layer-header) h-auto w-full pointer-events-none">
+        <header className="fixed top-0 left-0 isolate z-(--layer-header) h-auto w-full pointer-events-none sm:bg-linear-to-b sm:from-bg-primary sm:via-bg-primary/70 sm:to-transparent">
             <div className="page-container relative z-10">
-                    {/* Primary nav surface uses Steep 700 #151412, becoming translucent after scrolling. */}
-                <div ref={navSurfaceRef} id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl px-4 py-2.5 pointer-events-auto backdrop-blur-md motion-safe:transition-[max-width,background-color] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] sm:flex sm:h-16 sm:justify-between ${scrolled ? 'max-w-xl bg-(--color-steep-700)/80' : 'max-w-full bg-(--color-steep-700)'}`}>
+                {/* Scrolling or opening the mobile menu invokes the compact navigation surface. */}
+                <div ref={navSurfaceRef} id="wrapper" className={`relative my-4 mx-auto grid min-h-16 grid-cols-[1fr_auto] items-center rounded-3xl py-2.5 pointer-events-auto motion-safe:transition-[max-width,background-color,color,padding,backdrop-filter] motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] sm:flex sm:h-16 sm:justify-between ${hasSurface ? 'max-w-xl bg-(--color-steep-700)/80 px-4 text-(--color-porcelain-100) backdrop-blur-md' : 'max-w-full bg-transparent px-0 text-text-primary backdrop-blur-none'}`}>
                     {/* Brand mark doubles as a shortcut back to the top of the homepage. */}
                     <Link
                         href={HOME_PATH}
                         id="nav-brand"
-                        className="flex items-center basis-auto flex-none rounded-lg group"
+                        className={`flex items-center basis-auto flex-none rounded-lg text-inherit motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-fast)] motion-safe:ease-[var(--motion-ease-standard)] ${navHoverColorStyles}`}
                         aria-label="Back to the top of the homepage"
                         onClick={(event) => handleTargetClick(event, 'top')}
                     >
@@ -136,7 +142,7 @@ export default function Header() {
                             viewBox="0 0 945 426"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
-                            className="block h-8 w-auto fill-(--color-porcelain-100) motion-safe:transition-colors motion-safe:duration-[var(--motion-duration-standard)] motion-safe:ease-[var(--motion-ease-spring)] group-hover:fill-(--color-porcelain-700) group-focus-visible:fill-(--color-porcelain-700) group-active:fill-(--color-porcelain-700)"
+                            className="block h-8 w-auto fill-current"
                         >
                             <g>
                                 <path d="M249.1 425.2H179.6L347.3 65.5C365.9 25.5 406 0 450.1 0H519.6L351.8 359.7C333.2 399.7 293.1 425.2 249.1 425.2Z" />
@@ -150,7 +156,7 @@ export default function Header() {
                     {/* Mobile control morphs between the menu and close icons. */}
                     <button
                         ref={menuToggleRef}
-                        className="group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 motion-safe:transition-[scale] motion-safe:duration-150 motion-safe:ease-[var(--motion-ease-standard)] motion-safe:active:scale-[0.97] sm:hidden"
+                        className={`group relative z-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border-0 bg-transparent p-0 text-inherit motion-safe:transition-[color,scale] motion-safe:duration-150 motion-safe:ease-[var(--motion-ease-standard)] motion-safe:active:scale-[0.97] sm:hidden ${navHoverColorStyles}`}
                         type="button"
                         aria-expanded={isOpen}
                         aria-controls="nav-primary"
@@ -161,13 +167,13 @@ export default function Header() {
                             size={24}
                             aria-hidden="true"
                             data-visible={!isOpen}
-                            className={`motion-icon-swap absolute text-(--color-porcelain-100) motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-180 scale-75' : 'rotate-0 scale-100'}`}
+                            className={`motion-icon-swap absolute text-inherit motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-180 scale-75' : 'rotate-0 scale-100'}`}
                         />
                         <XIcon
                             size={24}
                             aria-hidden="true"
                             data-visible={isOpen}
-                            className={`motion-icon-swap absolute text-(--color-porcelain-100) motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-0 scale-100' : '-rotate-180 scale-75'}`}
+                            className={`motion-icon-swap absolute text-inherit motion-reduce:rotate-0 motion-reduce:scale-100 ${isOpen ? 'rotate-0 scale-100' : '-rotate-180 scale-75'}`}
                         />
                     </button>
 
@@ -181,11 +187,11 @@ export default function Header() {
                         <div className="min-h-0 overflow-hidden sm:contents">
                             {/* The content fades and de-focuses while the tray changes height;
                                 both directions use the same standard motion timing. */}
-                            <div className="mobile-nav-content flex flex-col sm:gap-2 gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
-                                <ul className="flex list-none flex-col items-center justify-center gap-3 p-0 text-2xl font-light text-(--color-porcelain-100) sm:mx-auto sm:my-0 sm:flex-row sm:text-base">
-                                    <li><Link className={NAV_LINK_STYLES} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
-                                    <li><Link className={NAV_LINK_STYLES} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
-                                    <li><Link className={NAV_LINK_STYLES} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
+                            <div className="mobile-nav-content flex flex-col sm:gap-0 gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
+                                <ul className="flex list-none flex-col items-center justify-center gap-3 p-0 text-2xl font-light sm:mx-auto sm:gap-1 sm:my-0 sm:flex-row sm:text-base">
+                                    <li><Link className={`${NAV_LINK_STYLES} ${navHoverColorStyles} ${navLinkSurfaceStyles}`} href="/#work" onClick={(event) => handleTargetClick(event, 'work')}>Work</Link></li>
+                                    <li><Link className={`${NAV_LINK_STYLES} ${navHoverColorStyles} ${navLinkSurfaceStyles}`} href="/#about" onClick={(event) => handleTargetClick(event, 'about')}>About</Link></li>
+                                    <li><Link className={`${NAV_LINK_STYLES} ${navHoverColorStyles} ${navLinkSurfaceStyles}`} href="/#collaborations" onClick={(event) => handleTargetClick(event, 'collaborations')}>Collaborations</Link></li>
                                 </ul>
 
                                 <Button
