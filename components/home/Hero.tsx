@@ -115,12 +115,14 @@ export default function Hero() {
                   data-stream-static=""
                   initial={{
                     opacity: shouldReduceMotion ? 1 : 0,
+                    scale: shouldReduceMotion ? 1 : 0.96,
                     filter: shouldReduceMotion ? motionBlur.none : motionBlur.base,
                   }}
                   animate={isPageReady
-                    ? { opacity: 1, filter: motionBlur.none }
+                    ? { opacity: 1, scale: 1, filter: motionBlur.none }
                     : {
                         opacity: shouldReduceMotion ? 1 : 0,
+                        scale: shouldReduceMotion ? 1 : 0.96,
                         filter: shouldReduceMotion ? motionBlur.none : motionBlur.base,
                       }}
                   transition={{
@@ -141,11 +143,23 @@ export default function Hero() {
                   ))}
 
                   <AnimatePresence initial={false}>
+                    {/* Each incoming keyword sharpens and settles into place;
+                        the outgoing word stays crisp so overlapping frames remain legible. */}
                     <motion.span
                       key={keywordIndex}
                       className="absolute inset-0 flex items-center justify-center whitespace-nowrap md:justify-start"
-                      initial={{ y: '100%', opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
+                      initial={{
+                        y: '100%',
+                        opacity: 0,
+                        scale: 0.96,
+                        filter: motionBlur.base,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        filter: motionBlur.none,
+                      }}
                       exit={{ y: '-100%', opacity: 0 }}
                       transition={tickerTransition}
                     >
