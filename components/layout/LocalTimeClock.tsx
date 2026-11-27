@@ -120,9 +120,9 @@ export default function LocalTimeClock() {
 
     return (
         <div className="inline-flex items-center gap-2 bg-bg-tertiary rounded-full px-3 py-0.5">
-            {/* Presence indicator: Matcha 500 #679F69 core with a Matcha 100 #B6D9B6 ring. */}
+            {/* Presence indicator: Matcha 500 #679F69 core with a higher-contrast Matcha 300 #8EBC8F ring. */}
             <span className="relative flex size-2" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-matcha-100)] motion-safe:animate-ping" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-matcha-300)] motion-safe:animate-ping" />
                 <span className="relative inline-flex size-2 rounded-full bg-[var(--color-matcha-500)]" />
             </span>
 
